@@ -4,8 +4,8 @@
  * Main function for testing purposes.
  */
 
-import { Instance } from "./roblox_model";
-import { RobloxModelDOM } from "./roblox_model_parser";
+import { Instance } from "./lib/roblox_types";
+import { RobloxModelDOM } from "./lib/roblox_model_parser";
 import fs from "fs";
 
 function depthFirstPrint(instance: Instance, level: number)
@@ -15,7 +15,11 @@ function depthFirstPrint(instance: Instance, level: number)
     {
         s += "   ";
     }
-    s += `└──${instance.toString()}\n`;
+    if (level > 0)
+    {
+        s += "└──";
+    }
+    s += `${instance.toString()}\n`;
     for (const child of instance.children)
     {
         s += depthFirstPrint(child, level + 1);
@@ -26,7 +30,9 @@ function depthFirstPrint(instance: Instance, level: number)
 async function main()
 {
     //const assetId = 5258147910; // Map making starter kit
-    const assetId = 4249137687; // Arcane
+    //const assetId = 4249137687; // Arcane
+    const assetId = 5227232138; // Numismatic
+    //const assetId = 14530379695; // random model with UI (UDim/UDim2) elements
     const dom = await RobloxModelDOM.fromAssetId(assetId);
     if (!dom)
     {

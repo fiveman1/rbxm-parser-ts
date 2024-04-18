@@ -7,8 +7,20 @@
 import axios from "axios";
 import lz4 from "lz4";
 import fzstd from "fzstd";
-import { RobloxModelByteBuffer, ChunkType, DataType } from "./util";
-import { Instance, RobloxModel } from "./roblox_model";
+import { RobloxModelByteBuffer } from "./util";
+import { RobloxModel } from "./roblox_model";
+import { DataType, RobloxValue, Instance, UDim, UDim2 } from "./roblox_types";
+
+// https://dom.rojo.space/binary#chunks
+enum ChunkType
+{
+    META = "META",
+    SSTR = "SSTR",
+    INST = "INST",
+    PROP = "PROP",
+    PRNT = "PRNT",
+    END = "END\0"
+}
 
 type RobloxClass = 
 {
@@ -39,6 +51,12 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
         super(data);
         // Define the methods used to parse the data types in PROP chunks
         this.dataTypeParsers.set(DataType.String, this.readStringProp);
+        this.dataTypeParsers.set(DataType.Bool, this.readBoolProp);
+        this.dataTypeParsers.set(DataType.Int32, this.readInt32Prop);
+        this.dataTypeParsers.set(DataType.Float32, this.readFloat32Prop);
+        this.dataTypeParsers.set(DataType.Float64, this.readFloat64Prop);
+        this.dataTypeParsers.set(DataType.UDim, this.readUDimProp);
+        this.dataTypeParsers.set(DataType.UDim2, this.readUDim2Prop);
         this.dataTypeParsers.set(DataType.Referent, this.readReferentProp);
     }
 
@@ -291,7 +309,7 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
         return classInfo.instances[index];
     }
 
-    protected setPropValue(propName: string, value: any, classInfo: RobloxClass, index: number)
+    protected setPropValue(propName: string, value: RobloxValue, classInfo: RobloxClass, index: number)
     {
         const instance = classInfo.instances[index];
         instance.setProp(propName, value);
@@ -303,7 +321,69 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
         {
             const value = bytes.getNextString();
             if (!value) continue;
-            this.setPropValue(propName, value, classInfo, i);
+            this.setPropValue(propName, { type: DataType.String, value: value }, classInfo, i);
+        }
+    }
+
+    protected readBoolProp(bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number)
+    {
+        for (let i = 0; i < numInstances; ++i)
+        {
+            const value = bytes.getNextBool();
+            this.setPropValue(propName, { type: DataType.Bool, value: value }, classInfo, i);
+        }
+    }
+
+    protected readInt32Prop(bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number)
+    {
+        const ints = bytes.getInt32Array(numInstances);
+        for (let i = 0; i < numInstances; ++i)
+        {
+            this.setPropValue(propName, { type: DataType.Int32, value: ints[i] }, classInfo, i);
+        }
+    }
+
+    protected readFloat32Prop(bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number)
+    {
+        const floats = bytes.getFloat32Array(numInstances);
+        for (let i = 0; i < numInstances; ++i)
+        {
+            this.setPropValue(propName, { type: DataType.Float32, value: floats[i] }, classInfo, i);
+        }
+    }
+
+    protected readFloat64Prop(bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number)
+    {
+        const floats = bytes.getFloat64Array(numInstances);
+        for (let i = 0; i < numInstances; ++i)
+        {
+            this.setPropValue(propName, { type: DataType.Float64, value: floats[i] }, classInfo, i);
+        }
+    }
+
+    protected readUDimProp(bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number)
+    {
+        const scales = bytes.getFloat32Array(numInstances);
+        const offsets = bytes.getInt32Array(numInstances);
+
+        for (let i = 0; i < numInstances; ++i)
+        {
+            this.setPropValue(propName, { type: DataType.UDim, value: new UDim(scales[i], offsets[i]) }, classInfo, i);
+        }
+    }
+
+    protected readUDim2Prop(bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number)
+    {
+        const scalesX = bytes.getFloat32Array(numInstances);
+        const scalesY = bytes.getFloat32Array(numInstances);
+        const offsetsX = bytes.getInt32Array(numInstances);
+        const offsetsY = bytes.getInt32Array(numInstances);
+
+        for (let i = 0; i < numInstances; ++i)
+        {
+            const x = new UDim(scalesX[i], offsetsX[i]);
+            const y = new UDim(scalesY[i], offsetsY[i]);
+            this.setPropValue(propName, { type: DataType.UDim2, value: new UDim2(x, y) }, classInfo, i);
         }
     }
 
@@ -316,7 +396,7 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
             if (referent === -1) continue;
             const instance = this.getInstanceFromReferent(referent);
             if (!instance) continue;
-            this.setPropValue(propName, instance, classInfo, i);
+            this.setPropValue(propName, { type: DataType.Referent, value: instance }, classInfo, i);
         }
     }
 
