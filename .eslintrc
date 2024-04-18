@@ -10,6 +10,7 @@
       "plugin:@typescript-eslint/recommended"
     ],
     "rules": {
-      "semi": "error"
+      "semi": "error",
+      "@typescript-eslint/no-explicit-any": "warn"
     }
   }
