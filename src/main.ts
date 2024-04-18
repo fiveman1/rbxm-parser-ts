@@ -30,8 +30,8 @@ function depthFirstPrint(instance: Instance, level: number)
 async function main()
 {
     //const assetId = 5258147910; // Map making starter kit
-    //const assetId = 4249137687; // Arcane
-    const assetId = 5227232138; // Numismatic
+    const assetId = 4249137687; // Arcane
+    //const assetId = 5227232138; // Numismatic
     //const assetId = 14530379695; // random model with UI (UDim/UDim2) elements
     const dom = await RobloxModelDOM.fromAssetId(assetId);
     if (!dom)

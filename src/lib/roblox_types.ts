@@ -131,6 +131,10 @@ export class Instance
             {
                 valueStr = formatNum(value.value);
             }
+            else if (typeof value.value === "string")
+            {
+                valueStr = `"${value.value}"`;
+            }
             else
             {
                 valueStr = value.value.toString();
