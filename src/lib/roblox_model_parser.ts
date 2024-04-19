@@ -46,6 +46,10 @@ export class RobloxModelDOMReader extends RobloxModelReader
     protected referentIdToClassId: Map<number, number> = new Map<number, number>();
     protected idToRotation: Map<number, Vector3> = new Map<number, Vector3>();
 
+    /**
+     * Creteas a RobloxModelDOMReader
+     * @param data the bytes of the .rbxm
+     */
     public constructor(data: Uint8Array)
     {
         super(data);

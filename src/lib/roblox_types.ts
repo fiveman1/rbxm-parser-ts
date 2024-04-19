@@ -165,9 +165,6 @@ export class Instance
 {
     protected readonly _className: string;
     protected readonly _isService: boolean;
-    /**
-     * A unique ID that refers to this instance.
-     */
     protected readonly _props: Map<string, RobloxValue> = new Map<string, RobloxValue>();
     protected _parent?: Instance;
     protected readonly _children: Set<Instance> = new Set<Instance>();
@@ -213,16 +210,25 @@ export class Instance
         this._props.set(propName, value);
     }
 
+    /**
+     * The class name.
+     */
     public get className(): string
     {
         return this._className;
     }
 
+    /**
+     * Whether or not this is a service.
+     */
     public get isService(): boolean
     {
         return this._isService;
     }
 
+    /**
+     * The name of this instance.
+     */
     public get name(): string
     {
         return this.getProp("Name")?.value as string ?? "";
@@ -233,6 +239,9 @@ export class Instance
         this.setProp("Name", {type: DataType.String, value: newName});
     }
 
+    /**
+     * The parent of this instance. This is undefined if the parent is the root of the model.
+     */
     public get parent(): Instance | undefined
     {
         return this._parent;
@@ -251,16 +260,29 @@ export class Instance
         this._parent = newParent;
     }
 
+    /**
+     * The children of this instance. This is a readonly array; you cannot change children directly.
+     * You must change the parent value of child instances if you want to move them.
+     */
     public get children(): readonly Instance[]
     {
         return Array.from(this._children.values());
     }
 
+    /**
+     * @param className the class name
+     * @returns whether or not this is an instance of the given class name.
+     */
     public isA(className: string)
     {
         return this._className === className;
     }
 
+    /**
+     * Finds the first child that satisfies the given predicate.
+     * @param predicate this will keep searching until the predicate returns true
+     * @returns the first child that met the predicate, or undefined if none were found.
+     */
     public findFirstChild(predicate: (child: Instance) => boolean)
     {
         for (const child of this._children)
@@ -270,6 +292,11 @@ export class Instance
         return undefined;
     }
 
+    /**
+     * Finds the first descendant that satisfies the given predicate. Performs a depth-first search.
+     * @param predicate this will keep searching until the predicate returns true
+     * @returns the first descendant that met the predicate, or undefined if none were found.
+     */
     public findFirstDescendant(predicate: (child: Instance) => boolean): Instance | undefined
     {
         for (const child of this._children)
@@ -281,6 +308,11 @@ export class Instance
         return undefined;
     }
 
+    /**
+     * Gathers a list of children that satisfy the given predicate.
+     * @param predicate this will include the child if the predicate returns true
+     * @returns the list of children that met the predicate. This will have a length of 0 if none were found.
+     */
     public findChildren(predicate: (child: Instance) => boolean)
     {
         const children = [];
@@ -291,6 +323,10 @@ export class Instance
         return children;
     }
 
+    /**
+     * A title string that represents this instance for debugging purposes.
+     * @returns "{name} (class:{className})"
+     */
     public getTitleString()
     {
         return `${this.name} (class:${this._className})`;
@@ -446,14 +482,19 @@ export class Color3 {
         this.b = b;
     }
 
-    public static floatToChar(float: number)
+    /**
+     * Converts a float RGB to its uint8 representation.
+     * @param float a float between 0 to 1
+     * @returns the uint8 form
+     */
+    public static floatToUint8(float: number)
     {
         return Math.round(float * 255);
     }
 
     public toString()
     {
-        return `Color3(r: ${Color3.floatToChar(this.r)}, g: ${Color3.floatToChar(this.g)}, b: ${Color3.floatToChar(this.b)})`;
+        return `Color3(r: ${Color3.floatToUint8(this.r)}, g: ${Color3.floatToUint8(this.g)}, b: ${Color3.floatToUint8(this.b)})`;
     }
 }
 
@@ -513,20 +554,25 @@ export class Vector3 {
         this.z = z;
     }
 
-    // See FromNormalId https://github.com/MaximumADHD/Roblox-File-Format/blob/main/DataTypes/Vector3.cs
+    /**
+     * Creates a Vector3 from a given Normal direction.
+     * @param normalId the normal direction
+     * @returns the Vector3 with a magnitude of 1 that faces in the normal direction
+     */
     public static fromNormalId(normalId: NormalId)
     {
+        // See FromNormalId https://github.com/MaximumADHD/Roblox-File-Format/blob/main/DataTypes/Vector3.cs
         const coords = [0, 0, 0];
         coords[normalId % 3] = (normalId > 2 ? -1 : 1);
 
         return new Vector3(coords[0], coords[1], coords[2]);
     }
 
-    public toString()
-    {
-        return `Vector3(x: ${formatNum(this.x)}, y: ${formatNum(this.y)}, z: ${formatNum(this.z)})`;
-    }
-
+    /**
+     * Calculates the cross product of 2 Vector3's.
+     * @param other the other Vector3
+     * @returns the resultant cross product
+     */
     public cross(other: Vector3)
     {
         const crossX = this.y * other.z - other.y * this.z;
@@ -534,6 +580,11 @@ export class Vector3 {
         const crossZ = this.x * other.y - other.x * this.y;
 
         return new Vector3(crossX, crossY, crossZ);
+    }
+
+    public toString()
+    {
+        return `Vector3(x: ${formatNum(this.x)}, y: ${formatNum(this.y)}, z: ${formatNum(this.z)})`;
     }
 }
 
