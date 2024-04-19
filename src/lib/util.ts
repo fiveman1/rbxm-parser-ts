@@ -137,7 +137,7 @@ export class RobloxModelByteBuffer
     public getNextFloat32()
     {
         const bytes = this.getNextBytesReversed(4);
-        return Buffer.from(bytes).readFloatLE(0);
+        return Buffer.from(bytes).readFloatBE(0);
     }
 
     public getNextFloat64()
@@ -204,7 +204,7 @@ export class RobloxModelByteBuffer
         return rotatedBytes;
     }
 
-    public getFloat32Array(length: number)
+    public getInterleavedFloat32Array(length: number)
     {
         const interleavedBytes = this.getNextBytesAsArray(length * 4);
         
@@ -212,7 +212,7 @@ export class RobloxModelByteBuffer
         return RobloxModelByteBuffer.convertInterleaved(interleavedBytes, length, RobloxModelByteBuffer.bytesToRobloxFloat32);
     }
 
-    public getInt32Array(length: number)
+    public getInterleavedInt32Array(length: number)
     {
         const interleavedBytes = this.getNextBytesAsArray(length * 4);
         
@@ -221,6 +221,24 @@ export class RobloxModelByteBuffer
         
         // Have to untransform the ints
         return bytes.map(RobloxModelByteBuffer.untransformInt32);
+    }
+
+    public getInterleavedUint32Array(length: number)
+    {
+        const interleavedBytes = this.getNextBytesAsArray(length * 4);
+
+        // Convert interleaved bytes to Uint32 array
+        return RobloxModelByteBuffer.convertInterleaved(interleavedBytes, length, (bytes) => Buffer.from(bytes).readUint32BE(0));
+    }
+
+    public getFloat32Array(length: number)
+    {
+        const bytes = new Array<number>(length);
+        for (let i = 0; i < length; ++i)
+        {
+            bytes[i] = this.getNextFloat32();
+        }
+        return bytes;
     }
 
     public getFloat64Array(length: number)
@@ -235,7 +253,7 @@ export class RobloxModelByteBuffer
 
     public getReferentArray(length: number)
     {
-        const referents = this.getInt32Array(length);
+        const referents = this.getInterleavedInt32Array(length);
         
         // Referent values are "accumulated"
         for (let i = 1; i < length; ++i)

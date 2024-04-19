@@ -30,13 +30,18 @@ function depthFirstPrint(instance: Instance, level: number)
 async function main()
 {
     //const assetId = 5258147910; // Map making starter kit
-    const assetId = 4249137687; // Arcane
+    //const assetId = 4249137687; // Arcane
     //const assetId = 5227232138; // Numismatic
-    //const assetId = 14530379695; // random model with UI (UDim/UDim2) elements
+    const assetId = 17195837905; // my test model
+    const name = assetId;
     const dom = await RobloxModelDOM.fromAssetId(assetId);
+
+    //const name = "terrain";
+    //const dom = RobloxModelDOM.fromBuffer(fs.readFileSync("input_files/terrain.rbxm"));
+
     if (!dom)
     {
-        console.log(`Invalid model ID (${assetId})`);
+        console.log(`Invalid model`);
         return;
     }
 
@@ -48,7 +53,7 @@ async function main()
     }
     
     const str = depthFirstPrint(model.root, 0);
-    fs.writeFileSync(`output_files/${assetId}.txt`, str);
+    fs.writeFileSync(`output_files/${name}.txt`, str);
 }
 
 main();
