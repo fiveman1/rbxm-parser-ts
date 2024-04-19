@@ -600,6 +600,6 @@ export class CFrame {
 
     public toString()
     {
-        return `CFrame(position: ${this.position}, orientation: [${this.orientation.map((val) => formatNum(val)).join(", ")}])`;
+        return `CFrame(position: ${this.position}, orientation: [${this.orientation.map(formatNum).join(", ")}])`;
     }
 }

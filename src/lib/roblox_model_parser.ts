@@ -111,17 +111,17 @@ export class RobloxModelDOMReader extends RobloxModelReader
             return false;
         }
 
-        const magicBytes = this.getNextBytesAsString(RobloxModelDOMReader.MAGIC_HEADER.length);
+        const magicBytes = this.getBytesAsString(RobloxModelDOMReader.MAGIC_HEADER.length);
         if (magicBytes !== RobloxModelDOMReader.MAGIC_HEADER)
         {
             return false;
         }
 
-        this.model.version = this.getNextUint16();
-        this.model.numClasses = this.getNextInt32();
-        this.model.numInstances = this.getNextInt32();
+        this.model.version = this.getUint16();
+        this.model.numClasses = this.getInt32();
+        this.model.numInstances = this.getInt32();
 
-        this.skipNextBytes(8); // 8 reserved bytes
+        this.skipBytes(8); // 8 reserved bytes
 
         return true;
     }
@@ -137,10 +137,10 @@ export class RobloxModelDOMReader extends RobloxModelReader
 
     protected readChunkHeader()
     {
-        const chunkType = this.getNextBytesAsString(4) as ChunkType;
-        const compressedLength = this.getNextUint32();
-        const uncompressedLength = this.getNextUint32();
-        this.skipNextBytes(4); // 4 reserved bytes
+        const chunkType = this.getBytesAsString(4) as ChunkType;
+        const compressedLength = this.getUint32();
+        const uncompressedLength = this.getUint32();
+        this.skipBytes(4); // 4 reserved bytes
         
         return {chunkType, compressedLength, uncompressedLength};
     }
@@ -174,7 +174,7 @@ export class RobloxModelDOMReader extends RobloxModelReader
         if (compressedLength !== 0)
         {
             // Load compressed bytes
-            const compressedBytes = this.getNextBytesAsArray(compressedLength);
+            const compressedBytes = this.getByteArray(compressedLength);
 
             if (compressedBytes[0] === 0x28 &&
                 compressedBytes[1] === 0xb5 &&
@@ -197,7 +197,7 @@ export class RobloxModelDOMReader extends RobloxModelReader
         else
         {
             // Uncompressed so load bytes directly
-            byteArray = this.getNextBytesAsArray(uncompressedLength);
+            byteArray = this.getByteArray(uncompressedLength);
         }
 
         return new RobloxModelReader(byteArray);
@@ -205,11 +205,11 @@ export class RobloxModelDOMReader extends RobloxModelReader
 
     protected readInstChunk(bytes: RobloxModelReader)
     {
-        const classId = bytes.getNextUint32();
-        const className = bytes.getNextString();
-        const isService = bytes.getNextBool();
+        const classId = bytes.getUint32();
+        const className = bytes.getString();
+        const isService = bytes.getBool();
 
-        const numInstances = bytes.getNextUint32();
+        const numInstances = bytes.getUint32();
         const referents = bytes.getReferentArray(numInstances);
         const referentIdToIndex = new Map<number, number>();
         const instances = new Array<Instance>(numInstances);
@@ -230,9 +230,9 @@ export class RobloxModelDOMReader extends RobloxModelReader
 
     protected readPropChunk(bytes: RobloxModelReader)
     {
-        const classId = bytes.getNextUint32();
-        const propName = bytes.getNextString();
-        const dataType = bytes.getNextUint8() as DataType;
+        const classId = bytes.getUint32();
+        const propName = bytes.getString();
+        const dataType = bytes.getUint8() as DataType;
 
         const classInfo = this.classIdToInfo.get(classId);
         if (!classInfo) return;
@@ -278,7 +278,7 @@ export class RobloxModelDOMReader extends RobloxModelReader
     {
         for (let i = 0; i < numInstances; ++i)
         {
-            const str = bytes.getNextString();
+            const str = bytes.getString();
             if (!str) continue;
             this.setPropValue(propName, { type: DataType.String, value: str }, classInfo, i);
         }
@@ -288,7 +288,7 @@ export class RobloxModelDOMReader extends RobloxModelReader
     {
         for (let i = 0; i < numInstances; ++i)
         {
-            const bool = bytes.getNextBool();
+            const bool = bytes.getBool();
             this.setPropValue(propName, { type: DataType.Bool, value: bool }, classInfo, i);
         }
     }
@@ -351,8 +351,8 @@ export class RobloxModelDOMReader extends RobloxModelReader
 
     protected readRayProp(bytes: RobloxModelReader, propName: string, classInfo: RobloxClass, numInstances: number)
     {
-        const origin = new Vector3(bytes.getNextFloat32(), bytes.getNextFloat32(), bytes.getNextFloat32());
-        const direction = new Vector3(bytes.getNextFloat32(), bytes.getNextFloat32(), bytes.getNextFloat32());
+        const origin = new Vector3(bytes.getFloat32(), bytes.getFloat32(), bytes.getFloat32());
+        const direction = new Vector3(bytes.getFloat32(), bytes.getFloat32(), bytes.getFloat32());
 
         for (let i = 0; i < numInstances; ++i)
         {
@@ -366,7 +366,7 @@ export class RobloxModelDOMReader extends RobloxModelReader
         for (let i = 0; i < numInstances; ++i)
         {
             const faces = new Array<Face>();
-            const facesBytes = bytes.getNextUint8();
+            const facesBytes = bytes.getUint8();
             for (const face of RobloxModelDOMReader.FacesList)
             {
                 if ((facesBytes & face) > 0)
@@ -384,7 +384,7 @@ export class RobloxModelDOMReader extends RobloxModelReader
         for (let i = 0; i < numInstances; ++i)
         {
             const axes = new Array<Axis>();
-            const axesBytes = bytes.getNextUint8();
+            const axesBytes = bytes.getUint8();
             for (const axis of RobloxModelDOMReader.AxisList)
             {
                 if ((axesBytes & axis) > 0)
@@ -446,7 +446,7 @@ export class RobloxModelDOMReader extends RobloxModelReader
         const orientations: number[][] = [];
         for (let i = 0; i < numInstances; ++i)
         {
-            const orientId = bytes.getNextUint8();
+            const orientId = bytes.getUint8();
             if (orientId > 0)
             {
                 // Stolen from https://github.com/MaximumADHD/Roblox-File-Format/blob/main/DataTypes/CFrame FromOrientId
@@ -503,9 +503,9 @@ export class RobloxModelDOMReader extends RobloxModelReader
 
     protected readColor3uint8Prop(bytes: RobloxModelReader, propName: string, classInfo: RobloxClass, numInstances: number)
     {
-        const rVals = bytes.getNextBytesAsArray(numInstances);
-        const gVals = bytes.getNextBytesAsArray(numInstances);
-        const bVals = bytes.getNextBytesAsArray(numInstances);
+        const rVals = bytes.getByteArray(numInstances);
+        const gVals = bytes.getByteArray(numInstances);
+        const bVals = bytes.getByteArray(numInstances);
 
         for (let i = 0; i < numInstances; ++i)
         {
@@ -515,9 +515,9 @@ export class RobloxModelDOMReader extends RobloxModelReader
 
     protected readPrntChunk(bytes: RobloxModelReader)
     {
-        bytes.getNextUint8(); // Version
+        bytes.getUint8(); // Version
 
-        const numInstances = bytes.getNextInt32();
+        const numInstances = bytes.getInt32();
         const children = bytes.getReferentArray(numInstances);
         const parents = bytes.getReferentArray(numInstances);
 
