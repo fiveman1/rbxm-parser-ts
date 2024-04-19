@@ -1,13 +1,12 @@
 /**
  * @author https://github.com/fiveman1
  * @file roblox_model_parser.ts
- * Contains the core classes for loading and parsing a .rbxm file.
+ * Contains the core classes for parsing a .rbxm file.
  */
 
-import axios from "axios";
 import lz4 from "lz4";
 import fzstd from "fzstd";
-import { RobloxModelByteBuffer } from "./util";
+import { RobloxModelReader } from "./util";
 import { RobloxModel } from "./roblox_model";
 import { DataType, RobloxValue, Instance, UDim, UDim2, Vector3, Ray, Faces, Face, Axes, Axis, Color3, Vector2, CFrame, Color3uint8 } from "./roblox_types";
 
@@ -30,16 +29,16 @@ type RobloxClass =
     referentIdToIndex: Map<number, number>
 }
 
-type DataTypeParser = (this: RobloxModelDOM, bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number) => void;
+type DataTypeParser = (this: RobloxModelDOMReader, bytes: RobloxModelReader, propName: string, classInfo: RobloxClass, numInstances: number) => void;
 
 // Helpful resources I used:
 // https://dom.rojo.space/binary - Documentation for .rbxm format
 // https://github.com/MaximumADHD/Roblox-File-Format - C# .rbxm parser
 
 /**
- * This class can load a .rbxm then parse() it to create a RobloxModel.
+ * This class can load a .rbxm then read() it to create a RobloxModel.
  */
-export class RobloxModelDOM extends RobloxModelByteBuffer
+export class RobloxModelDOMReader extends RobloxModelReader
 {
     protected model: RobloxModel | null = null;
     protected classIdToInfo: Map<number, RobloxClass> = new Map<number, RobloxClass>();
@@ -47,55 +46,10 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
     protected referentIdToClassId: Map<number, number> = new Map<number, number>();
     protected idToRotation: Map<number, Vector3> = new Map<number, Vector3>();
 
-    protected constructor(data: Uint8Array)
+    public constructor(data: Uint8Array)
     {
         super(data);
         this.initializeDataTypeParsers();
-    }
-
-    /**
-     * Create a RobloxModelDOM from an asset ID. The uses the Roblox AssetDelivery web API
-     * to download the model using the given ID. If the provided asset ID is not a model,
-     * this will return null. This may throw an error if there are problems accessing the API endpoint.
-     * @param assetId the ID of the model
-     * @returns a Roblox model DOM object or null if the asset ID is not a valid model.
-     */
-    public static async fromAssetId(assetId: number)
-    {
-        const res = await axios.get("https://assetdelivery.roblox.com/v2/asset/", {
-            params: {id: assetId},
-            validateStatus: (status) => status === 404 || (status >= 200 && status < 300)
-        });
-    
-        if (res.status === 404)
-        {
-            return null;
-        }
-    
-        const data = res.data;
-        // https://create.roblox.com/docs/reference/engine/enums/AssetType
-        if (data.assetTypeId !== 10) // Model = 10
-        {
-            return null;
-        }
-    
-        const location = data.locations[0].location;
-        const modelDomRes = await axios.get(location, {responseEncoding: "binary"});
-        // https://stackoverflow.com/questions/62839519/how-convert-a-string-to-type-uint8array-in-nodejs
-        const domData = Uint8Array.from(Array.from(modelDomRes.data).map(letter => (letter as string).charCodeAt(0)));
-        return new RobloxModelDOM(domData);
-    }
-
-    /**
-     * Create a RobloxModelDOM from a buffer or file. You could use fs.readFile
-     * to load a .rbxm file then pass the result to this function to load it.
-     * @param buffer a data buffer
-     * @returns a Roblox model DOM object
-     */
-    public static fromBuffer(buffer: Buffer)
-    {
-        const data = Uint8Array.from(buffer);
-        return new RobloxModelDOM(data);
     }
 
     /**
@@ -103,7 +57,7 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
      * If the DOM is not valid, this will return null.
      * @returns a Roblox model or null if the DOM is invalid.
      */
-    public parse()
+    public read()
     {
         // Clear out any existing values
         this.idx = 0;
@@ -122,27 +76,26 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
             chunkType = this.readChunk();
         } while (chunkType !== ChunkType.END);
 
-        const rootModel = this.findRootModel();
-        if (!rootModel) return null;
-
-        this.model.root = rootModel;
+        this.findRoots();
+        if (this.model.roots.length === 0) return null;
         
         return this.model;
     }
 
-    protected findRootModel()
+    protected findRoots()
     {
+        if (!this.model) return;
+
         for (const classInfo of this.classIdToInfo.values())
         {
             for (const instance of classInfo.instances)
             {
                 if (!instance.parent)
                 {
-                    return instance;
+                    this.model.roots.push(instance);
                 }
             }
         }
-        return null;
     }
     
     protected static readonly MAGIC_HEADER = "<roblox!\x89\xff\x0d\x0a\x1a\x0a";
@@ -154,8 +107,8 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
             return false;
         }
 
-        const magicBytes = this.getNextBytesAsString(RobloxModelDOM.MAGIC_HEADER.length);
-        if (magicBytes !== RobloxModelDOM.MAGIC_HEADER)
+        const magicBytes = this.getNextBytesAsString(RobloxModelDOMReader.MAGIC_HEADER.length);
+        if (magicBytes !== RobloxModelDOMReader.MAGIC_HEADER)
         {
             return false;
         }
@@ -243,10 +196,10 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
             byteArray = this.getNextBytesAsArray(uncompressedLength);
         }
 
-        return new RobloxModelByteBuffer(byteArray);
+        return new RobloxModelReader(byteArray);
     }
 
-    protected readInstChunk(bytes: RobloxModelByteBuffer)
+    protected readInstChunk(bytes: RobloxModelReader)
     {
         const classId = bytes.getNextUint32();
         const className = bytes.getNextString();
@@ -255,26 +208,23 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
         const numInstances = bytes.getNextUint32();
         const referents = bytes.getReferentArray(numInstances);
         const referentIdToIndex = new Map<number, number>();
+        const instances = new Array<Instance>(numInstances);
+
         referents.forEach((referent, index) => {
             referentIdToIndex.set(referent, index);
             this.referentIdToClassId.set(referent, classId);
+            instances[index] = new Instance(className, isService);
         });
 
-        const instances = new Array<Instance>(numInstances);
-        for (let i = 0; i < numInstances; ++i)
-        {
-            instances[i] = new Instance(className);
-        }
-
         this.classIdToInfo.set(classId, {
-            name: className, 
-            isService: isService, 
-            instances: instances, 
+            name: className,
+            isService: isService,
+            instances: instances,
             referentIdToIndex: referentIdToIndex
         });
     }
 
-    protected readPropChunk(bytes: RobloxModelByteBuffer)
+    protected readPropChunk(bytes: RobloxModelReader)
     {
         const classId = bytes.getNextUint32();
         const propName = bytes.getNextString();
@@ -320,7 +270,7 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
         instance.setProp(propName, value);
     }
 
-    protected readStringProp(bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number)
+    protected readStringProp(bytes: RobloxModelReader, propName: string, classInfo: RobloxClass, numInstances: number)
     {
         for (let i = 0; i < numInstances; ++i)
         {
@@ -330,7 +280,7 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
         }
     }
 
-    protected readBoolProp(bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number)
+    protected readBoolProp(bytes: RobloxModelReader, propName: string, classInfo: RobloxClass, numInstances: number)
     {
         for (let i = 0; i < numInstances; ++i)
         {
@@ -339,7 +289,7 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
         }
     }
 
-    protected readInt32Prop(bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number)
+    protected readInt32Prop(bytes: RobloxModelReader, propName: string, classInfo: RobloxClass, numInstances: number)
     {
         const ints = bytes.getInterleavedInt32Array(numInstances);
 
@@ -349,7 +299,7 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
         }
     }
 
-    protected readFloat32Prop(bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number)
+    protected readFloat32Prop(bytes: RobloxModelReader, propName: string, classInfo: RobloxClass, numInstances: number)
     {
         const floats = bytes.getInterleavedFloat32Array(numInstances);
 
@@ -359,7 +309,7 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
         }
     }
 
-    protected readFloat64Prop(bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number)
+    protected readFloat64Prop(bytes: RobloxModelReader, propName: string, classInfo: RobloxClass, numInstances: number)
     {
         const floats = bytes.getFloat64Array(numInstances);
 
@@ -369,7 +319,7 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
         }
     }
 
-    protected readUDimProp(bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number)
+    protected readUDimProp(bytes: RobloxModelReader, propName: string, classInfo: RobloxClass, numInstances: number)
     {
         const scales = bytes.getInterleavedFloat32Array(numInstances);
         const offsets = bytes.getInterleavedInt32Array(numInstances);
@@ -380,7 +330,7 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
         }
     }
 
-    protected readUDim2Prop(bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number)
+    protected readUDim2Prop(bytes: RobloxModelReader, propName: string, classInfo: RobloxClass, numInstances: number)
     {
         const scalesX = bytes.getInterleavedFloat32Array(numInstances);
         const scalesY = bytes.getInterleavedFloat32Array(numInstances);
@@ -395,7 +345,7 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
         }
     }
 
-    protected readRayProp(bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number)
+    protected readRayProp(bytes: RobloxModelReader, propName: string, classInfo: RobloxClass, numInstances: number)
     {
         const origin = new Vector3(bytes.getNextFloat32(), bytes.getNextFloat32(), bytes.getNextFloat32());
         const direction = new Vector3(bytes.getNextFloat32(), bytes.getNextFloat32(), bytes.getNextFloat32());
@@ -407,13 +357,13 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
     }
 
     protected static readonly FacesList = [Face.Front, Face.Bottom, Face.Left, Face.Back, Face.Top, Face.Right];
-    protected readFacesProp(bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number)
+    protected readFacesProp(bytes: RobloxModelReader, propName: string, classInfo: RobloxClass, numInstances: number)
     {
         for (let i = 0; i < numInstances; ++i)
         {
             const faces = new Array<Face>();
             const facesBytes = bytes.getNextUint8();
-            for (const face of RobloxModelDOM.FacesList)
+            for (const face of RobloxModelDOMReader.FacesList)
             {
                 if ((facesBytes & face) > 0)
                 {
@@ -425,13 +375,13 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
     }
 
     protected static readonly AxisList = [Axis.X, Axis.Y, Axis.Z];
-    protected readAxesProp(bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number)
+    protected readAxesProp(bytes: RobloxModelReader, propName: string, classInfo: RobloxClass, numInstances: number)
     {
         for (let i = 0; i < numInstances; ++i)
         {
             const axes = new Array<Axis>();
             const axesBytes = bytes.getNextUint8();
-            for (const axis of RobloxModelDOM.AxisList)
+            for (const axis of RobloxModelDOMReader.AxisList)
             {
                 if ((axesBytes & axis) > 0)
                 {
@@ -442,7 +392,7 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
         }
     }
 
-    protected readBrickColorProp(bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number)
+    protected readBrickColorProp(bytes: RobloxModelReader, propName: string, classInfo: RobloxClass, numInstances: number)
     {
         const brickColors = bytes.getInterleavedUint32Array(numInstances);
 
@@ -452,7 +402,7 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
         }
     }
 
-    protected readColor3Prop(bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number)
+    protected readColor3Prop(bytes: RobloxModelReader, propName: string, classInfo: RobloxClass, numInstances: number)
     {
         const rVals = bytes.getInterleavedFloat32Array(numInstances);
         const gVals = bytes.getInterleavedFloat32Array(numInstances);
@@ -464,7 +414,7 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
         }
     }
 
-    protected readVector2Prop(bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number)
+    protected readVector2Prop(bytes: RobloxModelReader, propName: string, classInfo: RobloxClass, numInstances: number)
     {
         const xVals = bytes.getInterleavedFloat32Array(numInstances);
         const yVals = bytes.getInterleavedFloat32Array(numInstances);
@@ -475,7 +425,7 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
         }
     }
 
-    protected readVector3Prop(bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number)
+    protected readVector3Prop(bytes: RobloxModelReader, propName: string, classInfo: RobloxClass, numInstances: number)
     {
         const xVals = bytes.getInterleavedFloat32Array(numInstances);
         const yVals = bytes.getInterleavedFloat32Array(numInstances);
@@ -487,7 +437,7 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
         }
     }
 
-    protected readCFrameProp(bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number)
+    protected readCFrameProp(bytes: RobloxModelReader, propName: string, classInfo: RobloxClass, numInstances: number)
     {
         const orientations: number[][] = [];
         for (let i = 0; i < numInstances; ++i)
@@ -523,7 +473,7 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
         }
     }
 
-    protected readEnumProp(bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number)
+    protected readEnumProp(bytes: RobloxModelReader, propName: string, classInfo: RobloxClass, numInstances: number)
     {
         const enumValues = bytes.getInterleavedUint32Array(numInstances);
 
@@ -533,7 +483,7 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
         }
     }
 
-    protected readReferentProp(bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number)
+    protected readReferentProp(bytes: RobloxModelReader, propName: string, classInfo: RobloxClass, numInstances: number)
     {
         const referents = bytes.getReferentArray(numInstances);
 
@@ -547,7 +497,7 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
         }
     }
 
-    protected readColor3uint8Prop(bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number)
+    protected readColor3uint8Prop(bytes: RobloxModelReader, propName: string, classInfo: RobloxClass, numInstances: number)
     {
         const rVals = bytes.getNextBytesAsArray(numInstances);
         const gVals = bytes.getNextBytesAsArray(numInstances);
@@ -559,7 +509,7 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
         }
     }
 
-    protected readPrntChunk(bytes: RobloxModelByteBuffer)
+    protected readPrntChunk(bytes: RobloxModelReader)
     {
         bytes.getNextUint8(); // Version
 
@@ -579,7 +529,6 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
             if (!child || !parent) continue;
 
             child.parent = parent;
-            parent.children.push(child);
         }
     }
 

@@ -1,9 +1,14 @@
 /**
  * @author https://github.com/fiveman1
  * @file util.ts
- * Contains some utility classes/enums.
+ * Contains some utility classes and functions.
  */
 
+/**
+ * Converts a byte array to an array of hexadecimal strings
+ * @param bytes byte array
+ * @returns hex string array
+ */
 export function bytesToHex(bytes: Uint8Array)
 {
     const hex = new Array<string>();
@@ -14,16 +19,21 @@ export function bytesToHex(bytes: Uint8Array)
     return hex;
 }
 
+/**
+ * Formats a number as a string
+ * @param num a number
+ * @returns a string respresentation of the number
+ */
 export function formatNum(num: number)
 {
     // Some silly formatting tricks since JS numbers are not very accurate...
     return Number(num.toPrecision(6)).toString();
 }
 
-export class RobloxModelByteBuffer
+export class RobloxModelReader
 {
-    public data: Uint8Array;
-    public idx: number = 0;
+    protected readonly data: Uint8Array;
+    protected idx: number = 0;
 
     constructor(data: Uint8Array)
     {
@@ -93,7 +103,7 @@ export class RobloxModelByteBuffer
         // Standard format: seeeeeee emmmmmmm mmmmmmmm mmmmmmmm
         // Roblox format:   eeeeeeee mmmmmmmm mmmmmmmm mmmmmmms
         // We will swap the sign bit by interpreting the data as bits and swapping the sign bit from the back to the front.
-        const robloxBitArray = RobloxModelByteBuffer.bytesToBitArray(bytes);
+        const robloxBitArray = RobloxModelReader.bytesToBitArray(bytes);
         const standardBitArray = new Uint8Array(32);
         for (let i = 0; i < 31; ++i)
         {
@@ -131,7 +141,7 @@ export class RobloxModelByteBuffer
     public getNextInt32()
     {
         const bytes = this.getNextBytesReversed(4);
-        return RobloxModelByteBuffer.bytesToInt32(bytes);
+        return RobloxModelReader.bytesToInt32(bytes);
     }
 
     public getNextFloat32()
@@ -209,7 +219,7 @@ export class RobloxModelByteBuffer
         const interleavedBytes = this.getNextBytesAsArray(length * 4);
         
         // Convert interleaved bytes to Float32 array
-        return RobloxModelByteBuffer.convertInterleaved(interleavedBytes, length, RobloxModelByteBuffer.bytesToRobloxFloat32);
+        return RobloxModelReader.convertInterleaved(interleavedBytes, length, RobloxModelReader.bytesToRobloxFloat32);
     }
 
     public getInterleavedInt32Array(length: number)
@@ -217,10 +227,10 @@ export class RobloxModelByteBuffer
         const interleavedBytes = this.getNextBytesAsArray(length * 4);
         
         // Convert interleaved bytes to Int32 array
-        const bytes = RobloxModelByteBuffer.convertInterleaved(interleavedBytes, length, RobloxModelByteBuffer.bytesToInt32);
+        const bytes = RobloxModelReader.convertInterleaved(interleavedBytes, length, RobloxModelReader.bytesToInt32);
         
         // Have to untransform the ints
-        return bytes.map(RobloxModelByteBuffer.untransformInt32);
+        return bytes.map(RobloxModelReader.untransformInt32);
     }
 
     public getInterleavedUint32Array(length: number)
@@ -228,7 +238,7 @@ export class RobloxModelByteBuffer
         const interleavedBytes = this.getNextBytesAsArray(length * 4);
 
         // Convert interleaved bytes to Uint32 array
-        return RobloxModelByteBuffer.convertInterleaved(interleavedBytes, length, (bytes) => Buffer.from(bytes).readUint32BE(0));
+        return RobloxModelReader.convertInterleaved(interleavedBytes, length, (bytes) => Buffer.from(bytes).readUint32BE(0));
     }
 
     public getFloat32Array(length: number)

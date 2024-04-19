@@ -4,9 +4,9 @@
  * Main function for testing purposes.
  */
 
-import { Instance } from "./lib/roblox_types";
-import { RobloxModelDOM } from "./lib/roblox_model_parser";
 import fs from "fs";
+import { DataType, Instance, Vector3 } from "./lib/roblox_types";
+import { RobloxModel } from "./lib/roblox_model";
 
 function depthFirstPrint(instance: Instance, level: number)
 {
@@ -29,30 +29,47 @@ function depthFirstPrint(instance: Instance, level: number)
 
 async function main()
 {
-    //const assetId = 5258147910; // Map making starter kit
-    //const assetId = 4249137687; // Arcane
-    //const assetId = 5227232138; // Numismatic
-    const assetId = 17195837905; // my test model
-    const name = assetId;
-    const dom = await RobloxModelDOM.fromAssetId(assetId);
-
     //const name = "terrain";
-    //const dom = RobloxModelDOM.fromBuffer(fs.readFileSync("input_files/terrain.rbxm"));
+    //const model = RobloxModel.fromBuffer(fs.readFileSync("input_files/terrain.rbxm"));
 
-    if (!dom)
-    {
-        console.log(`Invalid model`);
-        return;
-    }
+    //const assetId = 5258147910; // Map making starter kit
+    //const assetId = 5227232138; // Numismatic
+    //const assetId = 17195837905; // my test model
 
-    const model = dom.parse();
-    if (!model || !model.root)
+    const assetId = 4249137687; // Arcane
+    const model = await RobloxModel.fromAssetId(assetId);
+
+    if (!model)
     {
         console.log("Invalid model");
         return;
     }
+
+    const root = model.roots[0];
+    const firstPart = root.findFirstChild((child) => child.isA("Part"));
+    if (firstPart)
+    {
+        const sizeProp = firstPart.getProp("size");
+        if (sizeProp?.type === DataType.Vector3)
+        {
+            const size = sizeProp.value;
+            console.log(`First part's size: ${size}`);
+            const newSize = new Vector3(size.x + 1, size.y + 1, size.z + 1);
+            firstPart.setProp("size", { type: DataType.Vector3, value: newSize });
+            console.log(`First part's new size: ${firstPart.getProp("size")?.value}`);
+        }
+    }
+
+    const mapStringValues = root.findChildren((child) => child.isA("StringValue") && (child.name === "DisplayName" || child.name === "Creator"));
+    console.log("\n" + mapStringValues.join("\n"));
     
-    const str = depthFirstPrint(model.root, 0);
+    let str = "";
+    for (const root of model.roots)
+    {
+        str += depthFirstPrint(root, 0);
+    }
+
+    const name = assetId;
     fs.writeFileSync(`output_files/${name}.txt`, str);
 }
 

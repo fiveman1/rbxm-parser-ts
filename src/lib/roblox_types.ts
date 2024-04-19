@@ -157,40 +157,149 @@ export type RobloxValue =
     | RobloxColor3uint8
 ;
 
+/**
+ * Represents a single Roblox Instance.
+ * @example const part = new Instance("Part");
+ */
 export class Instance
 {
-    public className: string;
-    public props: Map<string, RobloxValue> = new Map<string, RobloxValue>();
-    public name: string = "";
-    public parent?: Instance;
-    public children: Array<Instance> = new Array<Instance>();
+    protected readonly _className: string;
+    protected readonly _isService: boolean;
+    /**
+     * A unique ID that refers to this instance.
+     */
+    protected readonly _props: Map<string, RobloxValue> = new Map<string, RobloxValue>();
+    protected _parent?: Instance;
+    protected readonly _children: Set<Instance> = new Set<Instance>();
 
-    public constructor(className: string)
+    /**
+     * Creates a new Instance.
+     * @param className the class name of this instance
+     * @param isService whether or not this is a service, false by default
+     */
+    public constructor(className: string, isService: boolean = false)
     {
-        this.className = className;
+        this._className = className;
+        this._isService = isService;
+        
     }
 
+    /**
+     * Gets a property value.
+     * @param propName the name of the property
+     * @returns The RobloxValue value of the property, or undefined. Use "type" for type safety.
+     * @example
+     * const sizeProp = part.getProp("size");
+     * if (sizeProp?.type === DataType.Vector3)
+     * {
+     *     const size = sizeProp.value;
+     *     ...
+     * }
+     */
+    public getProp(propName: string)
+    {
+        return this._props.get(propName);
+    }
+
+    /**
+     * Sets a property value.
+     * @param propName the name of the property
+     * @param value The RobloxValue to set.
+     * @example
+     * part.setProp("size", { type: DataType.Vector3, value: new Vector3(2, 3, 4) });
+     */
     public setProp(propName: string, value: RobloxValue)
     {
-        if (propName === "Name" && value.type === DataType.String)
+        this._props.set(propName, value);
+    }
+
+    public get className(): string
+    {
+        return this._className;
+    }
+
+    public get isService(): boolean
+    {
+        return this._isService;
+    }
+
+    public get name(): string
+    {
+        return this.getProp("Name")?.value as string ?? "";
+    }
+
+    public set name(newName: string)
+    {
+        this.setProp("Name", {type: DataType.String, value: newName});
+    }
+
+    public get parent(): Instance | undefined
+    {
+        return this._parent;
+    }
+
+    public set parent(newParent: Instance | undefined)
+    {
+        if (this._parent)
         {
-            this.name = value.value;
+            this._parent._children.delete(this);
         }
-        else
+        if (newParent)
         {
-            this.props.set(propName, value);
+            newParent._children.add(this);
         }
+        this._parent = newParent;
+    }
+
+    public get children(): readonly Instance[]
+    {
+        return Array.from(this._children.values());
+    }
+
+    public isA(className: string)
+    {
+        return this._className === className;
+    }
+
+    public findFirstChild(predicate: (child: Instance) => boolean)
+    {
+        for (const child of this._children)
+        {
+            if (predicate(child)) return child;
+        }
+        return undefined;
+    }
+
+    public findFirstDescendant(predicate: (child: Instance) => boolean): Instance | undefined
+    {
+        for (const child of this._children)
+        {
+            if (predicate(child)) return child;
+            const childResult = child.findFirstDescendant(predicate);
+            if (childResult) return childResult;
+        }
+        return undefined;
+    }
+
+    public findChildren(predicate: (child: Instance) => boolean)
+    {
+        const children = [];
+        for (const child of this._children)
+        {
+            if (predicate(child)) children.push(child);
+        }
+        return children;
     }
 
     public getTitleString()
     {
-        return `${this.name} (class:${this.className})`;
+        return `${this.name} (class:${this._className})`;
     }
 
     public toString()
     {
         const propStrings: string[] = [];
-        this.props.forEach((value, key) => {
+        this._props.forEach((value, key) => {
             let valueStr: string;
             if (typeof value.value === "number")
             {
