@@ -131,6 +131,11 @@ type RobloxReferent = {
     value: Instance
 }
 
+type RobloxColor3uint8 = {
+    type: DataType.Color3uint8,
+    value: Color3uint8
+}
+
 export type RobloxValue = 
     | RobloxString
     | RobloxBool
@@ -149,6 +154,7 @@ export type RobloxValue =
     | RobloxCFrame
     | RobloxEnum
     | RobloxReferent
+    | RobloxColor3uint8
 ;
 
 export class Instance
@@ -339,6 +345,24 @@ export class Color3 {
     public toString()
     {
         return `Color3(r: ${Color3.floatToChar(this.r)}, g: ${Color3.floatToChar(this.g)}, b: ${Color3.floatToChar(this.b)})`;
+    }
+}
+
+export class Color3uint8 {
+    public r: number;
+    public g: number;
+    public b: number;
+
+    public constructor(r: number, g: number, b: number)
+    {
+        this.r = r;
+        this.g = g;
+        this.b = b;
+    }
+
+    public toString()
+    {
+        return `Color3(r: ${this.r}, g: ${this.g}, b: ${this.b})`;
     }
 }
 

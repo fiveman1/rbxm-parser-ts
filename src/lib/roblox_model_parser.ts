@@ -9,7 +9,7 @@ import lz4 from "lz4";
 import fzstd from "fzstd";
 import { RobloxModelByteBuffer } from "./util";
 import { RobloxModel } from "./roblox_model";
-import { DataType, RobloxValue, Instance, UDim, UDim2, Vector3, Ray, Faces, Face, Axes, Axis, Color3, Vector2, CFrame } from "./roblox_types";
+import { DataType, RobloxValue, Instance, UDim, UDim2, Vector3, Ray, Faces, Face, Axes, Axis, Color3, Vector2, CFrame, Color3uint8 } from "./roblox_types";
 
 // https://dom.rojo.space/binary#chunks
 enum ChunkType
@@ -326,6 +326,7 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
         this.dataTypeParsers.set(DataType.CFrame, this.readCFrameProp);
         this.dataTypeParsers.set(DataType.Enum, this.readEnumProp);
         this.dataTypeParsers.set(DataType.Referent, this.readReferentProp);
+        this.dataTypeParsers.set(DataType.Color3uint8, this.readColor3uint8Prop);
     }
 
     protected setPropValue(propName: string, value: RobloxValue, classInfo: RobloxClass, index: number)
@@ -558,6 +559,18 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
             const instance = this.getInstanceFromReferent(referent);
             if (!instance) continue;
             this.setPropValue(propName, { type: DataType.Referent, value: instance }, classInfo, i);
+        }
+    }
+
+    protected readColor3uint8Prop(bytes: RobloxModelByteBuffer, propName: string, classInfo: RobloxClass, numInstances: number)
+    {
+        const rVals = bytes.getNextBytesAsArray(numInstances);
+        const gVals = bytes.getNextBytesAsArray(numInstances);
+        const bVals = bytes.getNextBytesAsArray(numInstances);
+
+        for (let i = 0; i < numInstances; ++i)
+        {
+            this.setPropValue(propName, { type: DataType.Color3uint8, value: new Color3uint8(rVals[i], gVals[i], bVals[i]) }, classInfo, i);
         }
     }
 
