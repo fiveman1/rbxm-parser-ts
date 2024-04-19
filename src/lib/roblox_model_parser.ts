@@ -279,10 +279,6 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
         const classId = bytes.getNextUint32();
         const propName = bytes.getNextString();
         const dataType = bytes.getNextUint8() as DataType;
-        if (dataType === DataType.Vector3int16)
-        {
-            console.log("WOW!!");
-        }
 
         const classInfo = this.classIdToInfo.get(classId);
         if (!classInfo) return;
@@ -293,17 +289,6 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
             // A little bit of JS magic to actually call this instance method
             parser.apply(this, [bytes, propName, classInfo, classInfo.instances.length]);
         }
-    }
-
-    protected getInstanceFromReferent(referent: number)
-    {
-        const classId = this.referentIdToClassId.get(referent);
-        if (classId === undefined) return null;
-        const classInfo = this.classIdToInfo.get(classId);
-        if (!classInfo) return null;
-        const index = classInfo.referentIdToIndex.get(referent);
-        if (index === undefined) return null;
-        return classInfo.instances[index];
     }
 
     protected initializeDataTypeParsers()
@@ -596,5 +581,16 @@ export class RobloxModelDOM extends RobloxModelByteBuffer
             child.parent = parent;
             parent.children.push(child);
         }
+    }
+
+    protected getInstanceFromReferent(referent: number)
+    {
+        const classId = this.referentIdToClassId.get(referent);
+        if (classId === undefined) return null;
+        const classInfo = this.classIdToInfo.get(classId);
+        if (!classInfo) return null;
+        const index = classInfo.referentIdToIndex.get(referent);
+        if (index === undefined) return null;
+        return classInfo.instances[index];
     }
 }
