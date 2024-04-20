@@ -5,8 +5,8 @@
  */
 
 import axios from "axios";
-import { Instance } from "./roblox_types";
-import { RobloxModelDOMReader } from "./roblox_model_parser";
+import { Instance, SharedString } from "./roblox_types";
+import { RobloxModelDOMReader } from "./roblox_model_reader";
 
 export class RobloxModel
 {
@@ -14,11 +14,8 @@ export class RobloxModel
     public version: number = 0;
     public numClasses: number = 0;
     public numInstances: number = 0;
-
-    public constructor()
-    {
-        
-    }
+    public metadata: Map<string, string> = new Map<string, string>();
+    public sharedStrings: SharedString[] = [];
 
     /**
      * Create a RobloxModel from an asset ID. The uses the Roblox AssetDelivery web API
@@ -51,7 +48,7 @@ export class RobloxModel
         const modelDomRes = await axios.get(location, {responseEncoding: "binary"});
         // https://stackoverflow.com/questions/62839519/how-convert-a-string-to-type-uint8array-in-nodejs
         const domData = Uint8Array.from(Array.from(modelDomRes.data).map(letter => (letter as string).charCodeAt(0)));
-        return new RobloxModelDOMReader(domData).read();
+        return new RobloxModelDOMReader().read(domData);
     }
 
     /**
@@ -64,6 +61,6 @@ export class RobloxModel
     public static fromBuffer(buffer: Buffer)
     {
         const data = Uint8Array.from(buffer);
-        return new RobloxModelDOMReader(data).read();
+        return new RobloxModelDOMReader().read(data);
     }
 }

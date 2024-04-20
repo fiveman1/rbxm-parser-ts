@@ -136,6 +136,26 @@ type RobloxColor3uint8 = {
     value: Color3uint8
 }
 
+type RobloxNumberSequence = {
+    type: DataType.NumberSequence,
+    value: NumberSequence
+}
+
+type RobloxColorSequence = {
+    type: DataType.ColorSequence,
+    value: ColorSequence
+}
+
+type RobloxNumberRange = {
+    type: DataType.NumberRange,
+    value: NumberRange
+}
+
+type RobloxSharedString = {
+    type: DataType.SharedString,
+    value: SharedStringValue
+}
+
 export type RobloxValue = 
     | RobloxString
     | RobloxBool
@@ -155,7 +175,16 @@ export type RobloxValue =
     | RobloxEnum
     | RobloxReferent
     | RobloxColor3uint8
+    | RobloxNumberSequence
+    | RobloxColorSequence
+    | RobloxNumberRange
+    | RobloxSharedString
 ;
+
+export type SharedString = {
+    hash: string,
+    sharedString: string
+}
 
 /**
  * Represents a single Roblox Instance.
@@ -208,6 +237,16 @@ export class Instance
     public setProp(propName: string, value: RobloxValue)
     {
         this._props.set(propName, value);
+    }
+
+    /**
+     * Deletes a property value. This is like resetting the property to its default.
+     * @param propName the name of the property
+     * @returns true if the property existed, false otherwise
+     */
+    public deleteProp(propName: string)
+    {
+        return this._props.delete(propName);
     }
 
     /**
@@ -362,7 +401,8 @@ export class Instance
     }
 }
 
-export class UDim {
+export class UDim 
+{
     public scale: number;
     public offset: number;
 
@@ -378,7 +418,8 @@ export class UDim {
     }
 }
 
-export class UDim2 {
+export class UDim2 
+{
     public x: UDim;
     public y: UDim;
 
@@ -394,7 +435,8 @@ export class UDim2 {
     }
 }
 
-export class Ray {
+export class Ray 
+{
     public origin: Vector3;
     public direction: Vector3;
 
@@ -410,7 +452,8 @@ export class Ray {
     }
 }
 
-export enum Face {
+export enum Face 
+{
     Front = 0b000001,
     Bottom = 0b000010,
     Left = 0b000100,
@@ -419,7 +462,8 @@ export enum Face {
     Right = 0b100000
 }
 
-export class Faces {
+export class Faces 
+{
     public faces: Array<Face>;
 
     public constructor(faces: Array<Face>)
@@ -440,13 +484,15 @@ export class Faces {
     }
 }
 
-export enum Axis {
+export enum Axis 
+{
     X = 0b001,
     Y = 0b010,
     Z = 0b100
 }
 
-export class Axes {
+export class Axes 
+{
     public axes: Array<Axis>;
 
     public constructor(axes: Array<Axis>)
@@ -470,7 +516,8 @@ export class Axes {
 /**
  * This treats the RGB values as floats between 0 to 1. See Color3uint8 for the 0-255 version.
  */
-export class Color3 {
+export class Color3 
+{
     public r: number;
     public g: number;
     public b: number;
@@ -498,7 +545,8 @@ export class Color3 {
     }
 }
 
-export class Color3uint8 {
+export class Color3uint8 
+{
     public r: number;
     public g: number;
     public b: number;
@@ -516,7 +564,8 @@ export class Color3uint8 {
     }
 }
 
-export class Vector2 {
+export class Vector2 
+{
     public x: number;
     public y: number;
 
@@ -542,7 +591,8 @@ export enum NormalId
     Front
 }
 
-export class Vector3 {
+export class Vector3 
+{
     public x: number;
     public y: number;
     public z: number;
@@ -588,7 +638,8 @@ export class Vector3 {
     }
 }
 
-export class CFrame {
+export class CFrame 
+{
     public position: Vector3;
     public orientation: Array<number>;
 
@@ -601,5 +652,103 @@ export class CFrame {
     public toString()
     {
         return `CFrame(position: ${this.position}, orientation: [${this.orientation.map(formatNum).join(", ")}])`;
+    }
+}
+
+export class NumberSequence 
+{
+    public keypoints: NumberSequenceKeypoint[];
+
+    public constructor(keypoints: NumberSequenceKeypoint[])
+    {
+        this.keypoints = keypoints;
+    }
+
+    public toString()
+    {
+        return `NumberSequence(keypoints: ${this.keypoints.join(", ")})`;
+    }
+}
+
+export class NumberSequenceKeypoint 
+{
+    public time: number;
+    public value: number;
+    public envelope: number;
+
+    public constructor(time: number, value: number, envelope: number)
+    {
+        this.time = time;
+        this.value = value;
+        this.envelope = envelope;
+    }
+
+    public toString()
+    {
+        return `NumberSequenceKeypoint(time: ${formatNum(this.time)}, value: ${formatNum(this.value)}, envelope: ${formatNum(this.envelope)})`;
+    }
+}
+
+export class ColorSequence 
+{
+    public keypoints: ColorSequenceKeypoint[];
+
+    public constructor(keypoints: ColorSequenceKeypoint[])
+    {
+        this.keypoints = keypoints;
+    }
+
+    public toString()
+    {
+        return `ColorSequence(keypoints: ${this.keypoints.join(", ")})`;
+    }
+}
+
+export class ColorSequenceKeypoint 
+{
+    public time: number;
+    public color: Color3;
+
+    public constructor(time: number, color: Color3)
+    {
+        this.time = time;
+        this.color = color;
+    }
+
+    public toString()
+    {
+        return `ColorSequenceKeypoint(time: ${formatNum(this.time)}, color: ${this.color})`;
+    }
+}
+
+export class NumberRange 
+{
+    public min: number;
+    public max: number;
+
+    public constructor(min: number, max: number)
+    {
+        this.min = min;
+        this.max = max;
+    }
+
+    public toString()
+    {
+        return `NumberRange(min: ${formatNum(this.min)}, max: ${formatNum(this.max)})`;
+    }
+}
+
+export class SharedStringValue 
+{
+    public index: number;
+
+    public constructor(index: number)
+    {
+        this.index = index;
+    }
+
+    public toString()
+    {
+        return `SharedString(index: ${this.index})`;
     }
 }
