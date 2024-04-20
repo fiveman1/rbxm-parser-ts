@@ -5,10 +5,10 @@
  */
 
 import fs from "fs";
-import { DataType, Instance, Vector3 } from "./lib/roblox_types";
+import { DataType, CoreInstance, Vector3 } from "./lib/roblox_types";
 import { RobloxModel } from "./lib/roblox_model";
 
-function depthFirstPrint(instance: Instance, level: number)
+function depthFirstPrint(instance: CoreInstance, level: number)
 {
     let s = "";
     for (let i = 0; i < level - 1; ++i)
@@ -34,9 +34,9 @@ async function main()
 
     //const assetId = 5258147910; // Map making starter kit
     //const assetId = 5227232138; // Numismatic
-    //const assetId = 17195837905; // my test model
+    const assetId = 17195837905; // my test model
 
-    const assetId = 4249137687; // Arcane
+    //const assetId = 4249137687; // Arcane
     const model = await RobloxModel.fromAssetId(assetId);
 
     if (!model)
