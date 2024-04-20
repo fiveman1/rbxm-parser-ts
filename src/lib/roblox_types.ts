@@ -41,7 +41,7 @@ export enum DataType
     Int64 = 0x1b,
     SharedString = 0x1c,
     Bytecode = 0x1d,
-    OptionalCoordinateFrame = 0x1e,
+    OptionalCFrame = 0x1e,
     UniqueId = 0x1f,
     Font = 0x20
 }
@@ -128,7 +128,7 @@ type RobloxEnum = {
 
 type RobloxReferent = {
     type: DataType.Referent,
-    value: Instance
+    value: CoreInstance
 }
 
 type RobloxColor3uint8 = {
@@ -149,6 +149,16 @@ type RobloxColorSequence = {
 type RobloxNumberRange = {
     type: DataType.NumberRange,
     value: NumberRange
+}
+
+type RobloxRect = {
+    type: DataType.Rect,
+    value: Rect
+}
+
+type RobloxPhysicalProperties = {
+    type: DataType.PhysicalProperties,
+    value: PhysicalProperties
 }
 
 type RobloxSharedString = {
@@ -178,6 +188,8 @@ export type RobloxValue =
     | RobloxNumberSequence
     | RobloxColorSequence
     | RobloxNumberRange
+    | RobloxRect
+    | RobloxPhysicalProperties
     | RobloxSharedString
 ;
 
@@ -190,13 +202,13 @@ export type SharedString = {
  * Represents a single Roblox Instance.
  * @example const part = new Instance("Part");
  */
-export class Instance
+export class CoreInstance
 {
     protected readonly _className: string;
     protected readonly _isService: boolean;
     protected readonly _props: Map<string, RobloxValue> = new Map<string, RobloxValue>();
-    protected _parent?: Instance;
-    protected readonly _children: Set<Instance> = new Set<Instance>();
+    protected _parent?: CoreInstance;
+    protected readonly _children: Set<CoreInstance> = new Set<CoreInstance>();
 
     /**
      * Creates a new Instance.
@@ -281,12 +293,12 @@ export class Instance
     /**
      * The parent of this instance. This is undefined if the parent is the root of the model.
      */
-    public get parent(): Instance | undefined
+    public get parent(): CoreInstance | undefined
     {
         return this._parent;
     }
 
-    public set parent(newParent: Instance | undefined)
+    public set parent(newParent: CoreInstance | undefined)
     {
         if (this._parent)
         {
@@ -303,7 +315,7 @@ export class Instance
      * The children of this instance. This is a readonly array; you cannot change children directly.
      * You must change the parent value of child instances if you want to move them.
      */
-    public get children(): readonly Instance[]
+    public get children(): readonly CoreInstance[]
     {
         return Array.from(this._children.values());
     }
@@ -322,7 +334,7 @@ export class Instance
      * @param predicate this will keep searching until the predicate returns true
      * @returns the first child that met the predicate, or undefined if none were found.
      */
-    public findFirstChild(predicate: (child: Instance) => boolean)
+    public findFirstChild(predicate: (child: CoreInstance) => boolean)
     {
         for (const child of this._children)
         {
@@ -336,7 +348,7 @@ export class Instance
      * @param predicate this will keep searching until the predicate returns true
      * @returns the first descendant that met the predicate, or undefined if none were found.
      */
-    public findFirstDescendant(predicate: (child: Instance) => boolean): Instance | undefined
+    public findFirstDescendant(predicate: (child: CoreInstance) => boolean): CoreInstance | undefined
     {
         for (const child of this._children)
         {
@@ -352,7 +364,7 @@ export class Instance
      * @param predicate this will include the child if the predicate returns true
      * @returns the list of children that met the predicate. This will have a length of 0 if none were found.
      */
-    public findChildren(predicate: (child: Instance) => boolean)
+    public findChildren(predicate: (child: CoreInstance) => boolean)
     {
         const children = [];
         for (const child of this._children)
@@ -735,6 +747,46 @@ export class NumberRange
     public toString()
     {
         return `NumberRange(min: ${formatNum(this.min)}, max: ${formatNum(this.max)})`;
+    }
+}
+
+export class Rect
+{
+    public min: Vector2;
+    public max: Vector2;
+
+    public constructor(min: Vector2, max: Vector2)
+    {
+        this.min = min;
+        this.max = max;
+    }
+
+    public toString()
+    {
+        return `Rect(min: ${this.min}, max: ${this.max})`;
+    }
+}
+
+export class PhysicalProperties
+{
+    public density: number;
+    public friction: number;
+    public elasticity: number;
+    public frictionWeight: number;
+    public elasticityWeight: number;
+
+    public constructor(density: number, friction: number, elasticity: number, frictionWeight: number, elasticityWeight: number)
+    {
+        this.density = density;
+        this.friction = friction;
+        this.elasticity = elasticity;
+        this.frictionWeight = frictionWeight;
+        this.elasticityWeight = elasticityWeight;
+    }
+
+    public toString()
+    {
+        return `PhysicalProperties(density: ${formatNum(this.density)}, friction: ${formatNum(this.friction)}, elasticity: ${formatNum(this.elasticity)}, frictionWeight: ${formatNum(this.frictionWeight)}, elasticityWeight: ${formatNum(this.elasticityWeight)})`;
     }
 }
 

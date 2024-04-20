@@ -5,12 +5,16 @@
  */
 
 import axios from "axios";
-import { Instance, SharedString } from "./roblox_types";
+import { CoreInstance, SharedString } from "./roblox_types";
 import { RobloxModelDOMReader } from "./roblox_model_reader";
+
+// Helpful resources I used:
+// https://dom.rojo.space/binary - Documentation for .rbxm format
+// https://github.com/MaximumADHD/Roblox-File-Format - C# .rbxm parser
 
 export class RobloxModel
 {
-    public roots: Instance[] = [];
+    public roots: CoreInstance[] = [];
     public version: number = 0;
     public numClasses: number = 0;
     public numInstances: number = 0;

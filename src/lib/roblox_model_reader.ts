@@ -7,12 +7,8 @@
 import lz4 from "lz4";
 import fzstd from "fzstd";
 import { RobloxModel } from "./roblox_model";
-import { DataType, RobloxValue, Instance } from "./roblox_types";
+import { DataType, RobloxValue, CoreInstance } from "./roblox_types";
 import { ChunkType, RobloxModelDOM } from "./roblox_model_dom";
-
-// Helpful resources I used:
-// https://dom.rojo.space/binary - Documentation for .rbxm format
-// https://github.com/MaximumADHD/Roblox-File-Format - C# .rbxm parser
 
 /**
  * This class can read .rbxm bytes to create a RobloxModel.
@@ -205,12 +201,12 @@ export class RobloxModelDOMReader extends RobloxModelDOM
         const numInstances = bytes.getUint32();
         const referents = bytes.getReferentArray(numInstances);
         const referentIdToIndex = new Map<number, number>();
-        const instances = new Array<Instance>(numInstances);
+        const instances = new Array<CoreInstance>();
 
         referents.forEach((referent, index) => {
             referentIdToIndex.set(referent, index);
             this.referentIdToClassId.set(referent, classId);
-            instances[index] = new Instance(className, isService);
+            instances.push(new CoreInstance(className, isService));
         });
 
         this.classIdToInfo.set(classId, {

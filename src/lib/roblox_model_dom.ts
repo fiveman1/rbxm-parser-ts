@@ -1,12 +1,14 @@
 /**
  * @author https://github.com/fiveman1
  * @file roblox_model_dom.ts
- * Contains the core classes for manipulating .rbxm file.
+ * Contains the core classes for manipulating .rbxm files.
  */
 
 import { RobloxModel } from "./roblox_model";
-import { DataType, RobloxValue, Instance, UDim, UDim2, Vector3, Ray, Faces, Face, Axes, Axis, Color3, Vector2, CFrame, 
-    Color3uint8, SharedStringValue, NumberSequenceKeypoint, NumberSequence, ColorSequence, ColorSequenceKeypoint, NumberRange } from "./roblox_types";
+import { DataType, RobloxValue, CoreInstance, UDim, UDim2, Vector3, Ray, Faces, Face, Axes, Axis, Color3, Vector2, CFrame, 
+    Color3uint8, SharedStringValue, NumberSequenceKeypoint, NumberSequence, ColorSequence, ColorSequenceKeypoint, NumberRange, 
+    Rect,
+    PhysicalProperties} from "./roblox_types";
 import { RobloxModelByteReader } from "./roblox_model_reader";
 
 // https://dom.rojo.space/binary#chunks
@@ -23,10 +25,13 @@ export enum ChunkType
 export type RobloxClass = {
     name: string
     isService: boolean
-    instances: Array<Instance>
+    instances: Array<CoreInstance>
     referentIdToIndex: Map<number, number>
 }
 
+/**
+ * This contains the core functionality for parsing a .rbxm.
+ */
 export abstract class RobloxModelDOM 
 {
     protected model: RobloxModel = new RobloxModel();
@@ -57,6 +62,8 @@ export abstract class RobloxModelDOM
         this.dataTypeParsers.set(DataType.Color3uint8, new Color3uint8Parser(this));
         this.dataTypeParsers.set(DataType.NumberSequence, new NumberSequenceParser(this));
         this.dataTypeParsers.set(DataType.ColorSequence, new ColorSequenceParser(this));
+        this.dataTypeParsers.set(DataType.Rect, new RectParser(this));
+        this.dataTypeParsers.set(DataType.PhysicalProperties, new PhysicalPropertiesParser(this));
         this.dataTypeParsers.set(DataType.SharedString, new SharedStringParser(this));
     }
 
@@ -65,9 +72,12 @@ export abstract class RobloxModelDOM
      * @param referent the referent ID
      * @returns the instance, or null if this is the empty referent
      */
-    public abstract getInstanceFromReferent(referent: number): Instance | null;
+    public abstract getInstanceFromReferent(referent: number): CoreInstance | null;
 }
 
+/**
+ * This class is used to parse data from a PROP chunk.
+ */
 export abstract class DataTypeParser 
 {
     protected dom: RobloxModelDOM;
@@ -77,13 +87,18 @@ export abstract class DataTypeParser
         this.dom = dom;
     }
 
+    /**
+     * Using the provided bytes, this will read and parse them into RobloxValue objects.
+     * @param bytes the uncompressed bytes from the data section of a PROP chunk
+     * @param numInstances the number of instances to read
+     * @param outValues the output array of RobloxValue's, this should be provided as an empty array
+     */
     public abstract read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>): void
     // there will be a write method eventually...
 }
 
 export class StringParser extends DataTypeParser 
 {
-
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         for (let i = 0; i < numInstances; ++i)
@@ -96,7 +111,6 @@ export class StringParser extends DataTypeParser
 
 export class BoolParser extends DataTypeParser 
 {
-
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         for (let i = 0; i < numInstances; ++i)
@@ -109,7 +123,6 @@ export class BoolParser extends DataTypeParser
 
 export class Int32Parser extends DataTypeParser 
 {
-
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const ints = bytes.getInterleavedInt32Array(numInstances);
@@ -123,7 +136,6 @@ export class Int32Parser extends DataTypeParser
 
 export class Float32Parser extends DataTypeParser 
 {
-
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const floats = bytes.getInterleavedFloat32Array(numInstances);
@@ -137,7 +149,6 @@ export class Float32Parser extends DataTypeParser
 
 export class Float64Parser extends DataTypeParser 
 {
-
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const floats = bytes.getFloat64Array(numInstances);
@@ -151,7 +162,6 @@ export class Float64Parser extends DataTypeParser
 
 export class UDimParser extends DataTypeParser 
 {
-
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const scales = bytes.getInterleavedFloat32Array(numInstances);
@@ -166,7 +176,6 @@ export class UDimParser extends DataTypeParser
 
 export class UDim2Parser extends DataTypeParser 
 {
-
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const scalesX = bytes.getInterleavedFloat32Array(numInstances);
@@ -185,7 +194,6 @@ export class UDim2Parser extends DataTypeParser
 
 export class RayParser extends DataTypeParser 
 {
-
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const origin = new Vector3(bytes.getFloat32(), bytes.getFloat32(), bytes.getFloat32());
@@ -200,15 +208,14 @@ export class RayParser extends DataTypeParser
 
 export class FacesParser extends DataTypeParser 
 {
-
-    protected static readonly FacesList = [Face.Front, Face.Bottom, Face.Left, Face.Back, Face.Top, Face.Right];
+    protected readonly FacesList = [Face.Front, Face.Bottom, Face.Left, Face.Back, Face.Top, Face.Right];
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         for (let i = 0; i < numInstances; ++i)
         {
             const faces = new Array<Face>();
             const facesBytes = bytes.getUint8();
-            for (const face of FacesParser.FacesList)
+            for (const face of this.FacesList)
             {
                 if ((facesBytes & face) > 0)
                 {
@@ -222,15 +229,14 @@ export class FacesParser extends DataTypeParser
 
 export class AxesParser extends DataTypeParser 
 {
-
-    protected static readonly AxisList = [Axis.X, Axis.Y, Axis.Z];
+    protected readonly AxisList = [Axis.X, Axis.Y, Axis.Z];
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         for (let i = 0; i < numInstances; ++i)
         {
             const axes = new Array<Axis>();
             const axesBytes = bytes.getUint8();
-            for (const axis of AxesParser.AxisList)
+            for (const axis of this.AxisList)
             {
                 if ((axesBytes & axis) > 0)
                 {
@@ -244,7 +250,6 @@ export class AxesParser extends DataTypeParser
 
 export class BrickColorParser extends DataTypeParser 
 {
-
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const brickColors = bytes.getInterleavedUint32Array(numInstances);
@@ -258,7 +263,6 @@ export class BrickColorParser extends DataTypeParser
 
 export class Color3Parser extends DataTypeParser 
 {
-
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const rVals = bytes.getInterleavedFloat32Array(numInstances);
@@ -274,7 +278,6 @@ export class Color3Parser extends DataTypeParser
 
 export class Vector2Parser extends DataTypeParser 
 {
-
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const xVals = bytes.getInterleavedFloat32Array(numInstances);
@@ -289,7 +292,6 @@ export class Vector2Parser extends DataTypeParser
 
 export class Vector3Parser extends DataTypeParser 
 {
-
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const xVals = bytes.getInterleavedFloat32Array(numInstances);
@@ -305,7 +307,6 @@ export class Vector3Parser extends DataTypeParser
 
 export class CFrameParser extends DataTypeParser 
 {
-
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const orientations: number[][] = [];
@@ -345,7 +346,6 @@ export class CFrameParser extends DataTypeParser
 
 export class EnumParser extends DataTypeParser 
 {
-
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const enumValues = bytes.getInterleavedUint32Array(numInstances);
@@ -359,7 +359,6 @@ export class EnumParser extends DataTypeParser
 
 export class ReferentParser extends DataTypeParser 
 {
-
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const referents = bytes.getReferentArray(numInstances);
@@ -375,7 +374,6 @@ export class ReferentParser extends DataTypeParser
 
 export class Color3uint8Parser extends DataTypeParser 
 {
-
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const rVals = bytes.getByteArray(numInstances);
@@ -391,7 +389,6 @@ export class Color3uint8Parser extends DataTypeParser
 
 export class NumberSequenceParser extends DataTypeParser 
 {
-
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         for (let i = 0; i < numInstances; ++i)
@@ -413,7 +410,6 @@ export class NumberSequenceParser extends DataTypeParser
 
 export class ColorSequenceParser extends DataTypeParser 
 {
-
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         for (let i = 0; i < numInstances; ++i)
@@ -437,7 +433,6 @@ export class ColorSequenceParser extends DataTypeParser
 
 export class NumberRangeParser extends DataTypeParser 
 {
-
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         for (let i = 0; i < numInstances; ++i)
@@ -450,9 +445,49 @@ export class NumberRangeParser extends DataTypeParser
     }
 }
 
+export class RectParser extends DataTypeParser 
+{
+    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    {
+        const minXs = bytes.getInterleavedFloat32Array(numInstances);
+        const minYs = bytes.getInterleavedFloat32Array(numInstances);
+        const maxXs = bytes.getInterleavedFloat32Array(numInstances);
+        const maxYs = bytes.getInterleavedFloat32Array(numInstances);
+
+        for (let i = 0; i < numInstances; ++i)
+        {
+            const min = new Vector2(minXs[i], minYs[i]);
+            const max = new Vector2(maxXs[i], maxYs[i]);
+            outValues.push({ type: DataType.Rect, value: new Rect(min, max) });
+        }
+    }
+}
+
+export class PhysicalPropertiesParser extends DataTypeParser 
+{
+    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    {
+        for (let i = 0; i < numInstances; ++i)
+        {
+            if (!bytes.getBool())
+            {
+                outValues.push(undefined);
+                continue;
+            }
+
+            const density = bytes.getFloat32();
+            const friction = bytes.getFloat32();
+            const elasticity = bytes.getFloat32();
+            const frictionWeight = bytes.getFloat32();
+            const elasticityWeight = bytes.getFloat32();
+            
+            outValues.push({ type: DataType.PhysicalProperties, value: new PhysicalProperties(density, friction, elasticity, frictionWeight, elasticityWeight) });
+        }
+    }
+}
+
 export class SharedStringParser extends DataTypeParser 
 {
-
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const indices = bytes.getInterleavedUint32Array(numInstances);
