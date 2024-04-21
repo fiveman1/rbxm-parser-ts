@@ -1035,11 +1035,7 @@ function getEnumMap() {
 export type EnumFactory = (value: number) => EnumItem | undefined;
 
 export class EnumMap {
-    protected readonly _map: Map<string, EnumFactory>;
-    protected constructor(map: Map<string, EnumFactory>) {this._map = map;}
-    public static getEnumMap() {
-        return new EnumMap(getEnumMap());
-    }
+    protected readonly _map: Map<string, EnumFactory> = getEnumMap();
     public getFactory(className: string, propName: string): EnumFactory | undefined {
         return this._map.get(`${className},${propName}`);
     }

@@ -16,7 +16,7 @@ import { ChunkType, DataParserExtraInfo, RobloxModelDOM } from "./roblox_model_d
 export class RobloxModelDOMReader extends RobloxModelDOM
 {
     protected data: RobloxModelByteReader = new RobloxModelByteReader();
-    protected enumMap: EnumMap = EnumMap.getEnumMap();
+    protected enumMap: EnumMap = new EnumMap();
 
     /**
      * This will parse the DOM and create a RobloxModel object.

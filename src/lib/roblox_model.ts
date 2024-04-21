@@ -12,6 +12,10 @@ import { RobloxModelDOMReader } from "./roblox_model_reader";
 // https://dom.rojo.space/binary - Documentation for .rbxm format
 // https://github.com/MaximumADHD/Roblox-File-Format - C# .rbxm parser
 
+/**
+ * Represents a Roblox model/place file. Contains all the data necessary for
+ * saving/loading to a file.
+ */
 export class RobloxModel
 {
     public roots: CoreInstance[] = [];
