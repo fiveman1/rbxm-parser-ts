@@ -7,8 +7,8 @@
 import lz4 from "lz4";
 import fzstd from "fzstd";
 import { RobloxModel } from "./roblox_model";
-import { DataType, RobloxValue, CoreInstance } from "./roblox_types";
-import { ChunkType, RobloxModelDOM } from "./roblox_model_dom";
+import { DataType, RobloxValue, CoreInstance, EnumMap } from "./roblox_types";
+import { ChunkType, DataParserExtraInfo, RobloxModelDOM } from "./roblox_model_dom";
 
 /**
  * This class can read .rbxm bytes to create a RobloxModel.
@@ -16,6 +16,7 @@ import { ChunkType, RobloxModelDOM } from "./roblox_model_dom";
 export class RobloxModelDOMReader extends RobloxModelDOM
 {
     protected data: RobloxModelByteReader = new RobloxModelByteReader();
+    protected enumMap: EnumMap = EnumMap.getEnumMap();
 
     /**
      * This will parse the DOM and create a RobloxModel object.
@@ -231,10 +232,19 @@ export class RobloxModelDOMReader extends RobloxModelDOM
         
         const numInstances = classInfo.instances.length;
         const values: Array<RobloxValue | undefined> = [];
-        parser.read(bytes, numInstances, values);
+        let extraInfo: DataParserExtraInfo | undefined;
+        if (dataType === DataType.Enum)
+        {
+            extraInfo = { enumFactory: this.enumMap.getFactory(classInfo.name, propName) };
+        }
+        else if (dataType === DataType.Referent)
+        {
+            extraInfo = { getInstanceFromReferent: this.getInstanceFromReferent.bind(this) };
+        }
+        parser.read(bytes, numInstances, values, extraInfo);
 
         values.forEach((value, index) => {
-            if (value)
+            if (value !== undefined)
             {
                 const instance = classInfo.instances[index];
                 instance.setProp(propName, value);
@@ -324,6 +334,10 @@ export class RobloxModelByteReader {
         return (int32 >> 1) ^ -(int32 & 1);
     }
 
+    public static untransformInt64(int64: bigint) {
+        return (int64 >> BigInt(1)) ^ -(int64 & BigInt(1));
+    }
+
     public static bytesToBitArray(bytes: Uint8Array) {
         const output = new Uint8Array(bytes.length * 8);
 
@@ -382,6 +396,11 @@ export class RobloxModelByteReader {
         return RobloxModelByteReader.bytesToInt32(bytes);
     }
 
+    public getInt64() {
+        const bytes = this.getBytesReversed(8);
+        return Buffer.from(bytes).readBigInt64BE(0);
+    }
+
     public getFloat32() {
         const bytes = this.getBytesReversed(4);
         return Buffer.from(bytes).readFloatBE(0);
@@ -424,9 +443,9 @@ export class RobloxModelByteReader {
         return this.getUint8() !== 0;
     }
 
-    public static convertInterleaved(bytes: Uint8Array, length: number, converter: (bytes: Uint8Array) => number) {
+    public static convertInterleaved<T>(bytes: Uint8Array, length: number, converter: (bytes: Uint8Array) => T) {
         const byteSize = bytes.length / length;
-        const rotatedBytes = new Array<number>(length);
+        const rotatedBytes = new Array<T>(length);
 
         // Byte interleaving, imagine the bytes as a matrix that has been transposed. We will rotate it back.
         for (let i = 0; i < length; ++i) {
@@ -462,6 +481,16 @@ export class RobloxModelByteReader {
 
         // Convert interleaved bytes to Uint32 array
         return RobloxModelByteReader.convertInterleaved(interleavedBytes, length, (bytes) => Buffer.from(bytes).readUint32BE(0));
+    }
+
+    public getInterleavedInt64Array(length: number) {
+        const interleavedBytes = this.getByteArray(length * 8);
+
+        // Convert interleaved bytes to Uint32 array
+        const bytes = RobloxModelByteReader.convertInterleaved(interleavedBytes, length, (bytes) => Buffer.from(bytes).readBigInt64BE(0));
+
+        // Have to untransform the ints
+        return bytes.map(RobloxModelByteReader.untransformInt64);
     }
 
     public getFloat32Array(length: number) {

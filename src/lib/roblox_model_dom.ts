@@ -7,8 +7,7 @@
 import { RobloxModel } from "./roblox_model";
 import { DataType, RobloxValue, CoreInstance, UDim, UDim2, Vector3, Ray, Faces, Face, Axes, Axis, Color3, Vector2, CFrame, 
     Color3uint8, SharedStringValue, NumberSequenceKeypoint, NumberSequence, ColorSequence, ColorSequenceKeypoint, NumberRange, 
-    Rect,
-    PhysicalProperties} from "./roblox_types";
+    Rect, PhysicalProperties, EnumItem, EnumFactory, NormalId, UniqueId, Font} from "./roblox_types";
 import { RobloxModelByteReader } from "./roblox_model_reader";
 
 // https://dom.rojo.space/binary#chunks
@@ -42,37 +41,46 @@ export abstract class RobloxModelDOM
     public constructor()
     {
         // Define the methods used to parse the data types in PROP chunks
-        this.dataTypeParsers.set(DataType.String, new StringParser(this));
-        this.dataTypeParsers.set(DataType.Bool, new BoolParser(this));
-        this.dataTypeParsers.set(DataType.Int32, new Int32Parser(this));
-        this.dataTypeParsers.set(DataType.Float32, new Float32Parser(this));
-        this.dataTypeParsers.set(DataType.Float64, new Float64Parser(this));
-        this.dataTypeParsers.set(DataType.UDim, new UDimParser(this));
-        this.dataTypeParsers.set(DataType.UDim2, new UDim2Parser(this));
-        this.dataTypeParsers.set(DataType.Ray, new RayParser(this));
-        this.dataTypeParsers.set(DataType.Faces, new FacesParser(this));
-        this.dataTypeParsers.set(DataType.Axes, new AxesParser(this));
-        this.dataTypeParsers.set(DataType.BrickColor, new BrickColorParser(this));
-        this.dataTypeParsers.set(DataType.Color3, new Color3Parser(this));
-        this.dataTypeParsers.set(DataType.Vector2, new Vector2Parser(this));
-        this.dataTypeParsers.set(DataType.Vector3, new Vector3Parser(this));
-        this.dataTypeParsers.set(DataType.CFrame, new CFrameParser(this));
-        this.dataTypeParsers.set(DataType.Enum, new EnumParser(this));
-        this.dataTypeParsers.set(DataType.Referent, new ReferentParser(this));
-        this.dataTypeParsers.set(DataType.Color3uint8, new Color3uint8Parser(this));
-        this.dataTypeParsers.set(DataType.NumberSequence, new NumberSequenceParser(this));
-        this.dataTypeParsers.set(DataType.ColorSequence, new ColorSequenceParser(this));
-        this.dataTypeParsers.set(DataType.Rect, new RectParser(this));
-        this.dataTypeParsers.set(DataType.PhysicalProperties, new PhysicalPropertiesParser(this));
-        this.dataTypeParsers.set(DataType.SharedString, new SharedStringParser(this));
+        this.dataTypeParsers.set(DataType.String, new StringParser());
+        this.dataTypeParsers.set(DataType.Bool, new BoolParser());
+        this.dataTypeParsers.set(DataType.Int32, new Int32Parser());
+        this.dataTypeParsers.set(DataType.Float32, new Float32Parser());
+        this.dataTypeParsers.set(DataType.Float64, new Float64Parser());
+        this.dataTypeParsers.set(DataType.UDim, new UDimParser());
+        this.dataTypeParsers.set(DataType.UDim2, new UDim2Parser());
+        this.dataTypeParsers.set(DataType.Ray, new RayParser());
+        this.dataTypeParsers.set(DataType.Faces, new FacesParser());
+        this.dataTypeParsers.set(DataType.Axes, new AxesParser());
+        this.dataTypeParsers.set(DataType.BrickColor, new BrickColorParser());
+        this.dataTypeParsers.set(DataType.Color3, new Color3Parser());
+        this.dataTypeParsers.set(DataType.Vector2, new Vector2Parser());
+        this.dataTypeParsers.set(DataType.Vector3, new Vector3Parser());
+        this.dataTypeParsers.set(DataType.CFrame, new CFrameParser());
+        this.dataTypeParsers.set(DataType.Enum, new EnumParser());
+        this.dataTypeParsers.set(DataType.Referent, new ReferentParser());
+        this.dataTypeParsers.set(DataType.Color3uint8, new Color3uint8Parser());
+        this.dataTypeParsers.set(DataType.NumberSequence, new NumberSequenceParser());
+        this.dataTypeParsers.set(DataType.ColorSequence, new ColorSequenceParser());
+        this.dataTypeParsers.set(DataType.Rect, new RectParser());
+        this.dataTypeParsers.set(DataType.PhysicalProperties, new PhysicalPropertiesParser());
+        this.dataTypeParsers.set(DataType.Int64, new Int64Parser());
+        this.dataTypeParsers.set(DataType.SharedString, new SharedStringParser());
+        this.dataTypeParsers.set(DataType.Bytecode, new BytecodeParser());
+        this.dataTypeParsers.set(DataType.UniqueId, new UniqueIdParser());
+        this.dataTypeParsers.set(DataType.Font, new FontParser());
     }
+}
 
+type InstanceFromReferent = (referent: number) => CoreInstance | null;
+
+export type DataParserExtraInfo = {
+    enumFactory?: EnumFactory;
     /**
      * This only works in read mode. Gets an Instance given a referent ID.
      * @param referent the referent ID
      * @returns the instance, or null if this is the empty referent
      */
-    public abstract getInstanceFromReferent(referent: number): CoreInstance | null;
+    getInstanceFromReferent?: InstanceFromReferent;
 }
 
 /**
@@ -80,20 +88,13 @@ export abstract class RobloxModelDOM
  */
 export abstract class DataTypeParser 
 {
-    protected dom: RobloxModelDOM;
-
-    public constructor(dom: RobloxModelDOM)
-    {
-        this.dom = dom;
-    }
-
     /**
      * Using the provided bytes, this will read and parse them into RobloxValue objects.
      * @param bytes the uncompressed bytes from the data section of a PROP chunk
      * @param numInstances the number of instances to read
      * @param outValues the output array of RobloxValue's, this should be provided as an empty array
      */
-    public abstract read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>): void
+    public abstract read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>, extraInfo?: DataParserExtraInfo): void
     // there will be a write method eventually...
 }
 
@@ -316,8 +317,8 @@ export class CFrameParser extends DataTypeParser
             if (orientId > 0)
             {
                 // Stolen from https://github.com/MaximumADHD/Roblox-File-Format/blob/main/DataTypes/CFrame FromOrientId
-                const r0 = Vector3.fromNormalId(orientId / 6);
-                const r1 = Vector3.fromNormalId(orientId % 6);
+                const r0 = Vector3.fromNormalId(NormalId.fromValue(Math.floor(orientId / 6))!);
+                const r1 = Vector3.fromNormalId(NormalId.fromValue(orientId % 6)!);
                 const r2 = r0.cross(r1);
                 orientations.push([
                     r0.x, r0.y, r0.z,
@@ -346,27 +347,40 @@ export class CFrameParser extends DataTypeParser
 
 export class EnumParser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>, extraInfo?: DataParserExtraInfo)
     {
         const enumValues = bytes.getInterleavedUint32Array(numInstances);
+        const enumFactory = extraInfo?.enumFactory;
 
         for (let i = 0; i < numInstances; ++i)
         {
-            outValues.push({ type: DataType.Enum, value: enumValues[i] });
+            
+            outValues.push({ type: DataType.Enum, value: this.createEnumValue(enumValues[i], enumFactory) });
         }
+    }
+
+    protected createEnumValue(value: number, enumFactory?: EnumFactory)
+    {
+        if (enumFactory)
+        {
+            const enumValue = enumFactory(value);
+            return enumValue ?? EnumItem.makeUnknownEnum(value);
+        }
+        return EnumItem.makeUnknownEnum(value);
     }
 }
 
 export class ReferentParser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>, extraInfo?: DataParserExtraInfo)
     {
         const referents = bytes.getReferentArray(numInstances);
+        const getInstance = extraInfo?.getInstanceFromReferent;
 
         for (let i = 0; i < numInstances; ++i)
         {
             const referent = referents[i]; 
-            const instance = this.dom.getInstanceFromReferent(referent);
+            const instance = getInstance ? getInstance(referent) : null;
             outValues.push(instance ? { type: DataType.Referent, value: instance } : undefined);
         }
     }
@@ -486,6 +500,18 @@ export class PhysicalPropertiesParser extends DataTypeParser
     }
 }
 
+export class Int64Parser extends DataTypeParser 
+{
+    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    {
+        const int64s = bytes.getInterleavedInt64Array(numInstances);
+        for (let i = 0; i < numInstances; ++i)
+        {
+            outValues.push({ type: DataType.Int64, value: int64s[i] });
+        }
+    }
+}
+
 export class SharedStringParser extends DataTypeParser 
 {
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
@@ -495,6 +521,54 @@ export class SharedStringParser extends DataTypeParser
         for (let i = 0; i < numInstances; ++i)
         {
             outValues.push({ type: DataType.SharedString, value: new SharedStringValue(indices[i]) });
+        }
+    }
+}
+
+export class BytecodeParser extends DataTypeParser 
+{
+    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    {
+        for (let i = 0; i < numInstances; ++i)
+        {
+            const byteCode = bytes.getString();
+            outValues.push(byteCode ? { type: DataType.Bytecode, value: byteCode } : undefined);
+        }
+    }
+}
+
+export class UniqueIdParser extends DataTypeParser 
+{
+    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    {
+        const interleavedBytes = bytes.getByteArray(numInstances * 16);
+
+        const uniqueIds = RobloxModelByteReader.convertInterleaved(interleavedBytes, numInstances, (bytes) => {
+            const reader = new RobloxModelByteReader(bytes.reverse());
+            const random = RobloxModelByteReader.untransformInt64(reader.getInt64());
+            const time = reader.getUint32();
+            const index = reader.getUint32();
+            return new UniqueId(index, time, random);
+        });
+
+        for (let i = 0; i < numInstances; ++i)
+        {
+            outValues.push({ type: DataType.UniqueId, value: uniqueIds[i] });
+        }
+    }
+}
+
+export class FontParser extends DataTypeParser 
+{
+    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    {
+        for (let i = 0; i < numInstances; ++i)
+        {
+            const family = bytes.getString();
+            const weight = bytes.getUint16();
+            const style = bytes.getUint8();
+            const cachedFaceId = bytes.getString();
+            outValues.push({ type: DataType.Font, value: new Font(family, weight, style, cachedFaceId) });
         }
     }
 }

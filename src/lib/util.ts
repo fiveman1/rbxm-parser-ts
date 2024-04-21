@@ -29,3 +29,18 @@ export function formatNum(num: number)
     // Some silly formatting tricks since JS numbers are not very accurate...
     return Number(num.toPrecision(6)).toString();
 }
+
+/**
+ * Creates a narrow copy of an array.
+ * @param arr array
+ * @returns a narrow copy of the array
+ */
+export function narrowCopyArray<T>(arr: T[])
+{
+    const copyArr = [];
+    for (const val of arr)
+    {
+        copyArr.push(val);
+    }
+    return copyArr;
+}

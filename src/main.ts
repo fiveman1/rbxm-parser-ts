@@ -29,12 +29,13 @@ function depthFirstPrint(instance: CoreInstance, level: number)
 
 async function main()
 {
-    //const name = "terrain";
-    //const model = RobloxModel.fromBuffer(fs.readFileSync("input_files/terrain.rbxm"));
+    //const name = "test";
+    //const model = RobloxModel.fromBuffer(fs.readFileSync(`input_files/${name}.rbxm`));
+    //const model = RobloxModel.fromBuffer(fs.readFileSync(`input_files/${name}.rbxl`));
 
     //const assetId = 5258147910; // Map making starter kit
-    //const assetId = 5227232138; // Numismatic
-    const assetId = 17195837905; // my test model
+    const assetId = 5227232138; // Numismatic
+    //const assetId = 17195837905; // my test model
 
     //const assetId = 4249137687; // Arcane
     const model = await RobloxModel.fromAssetId(assetId);
@@ -46,7 +47,7 @@ async function main()
     }
 
     const root = model.roots[0];
-    const firstPart = root.findFirstChild((child) => child.isA("Part"));
+    const firstPart = root.findFirstDescendant((child) => child.isA("Part"));
     if (firstPart)
     {
         const sizeProp = firstPart.getProp("size");
@@ -54,6 +55,8 @@ async function main()
         {
             const size = sizeProp.value;
             console.log(`First part's size: ${size}`);
+            size.x = 33333;
+            console.log(`First part's size: ${firstPart.getProp("size")?.value}`);
             const newSize = new Vector3(size.x + 1, size.y + 1, size.z + 1);
             firstPart.setProp("size", { type: DataType.Vector3, value: newSize });
             console.log(`First part's new size: ${firstPart.getProp("size")?.value}`);
