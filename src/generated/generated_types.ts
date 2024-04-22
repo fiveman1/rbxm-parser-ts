@@ -2,13 +2,13 @@
 * @author https://github.com/fiveman1
 * @file generated_types.ts
 * Contains generated types for Roblox classes and enums.
-* Generated on 4/22/2024, 1:42:39 PM
+* Generated on 4/22/2024, 2:36:32 PM
 */
 
 import { DataType, Instance, EnumItem } from "../lib/roblox_types";
 
 export class AccessoryDescription extends Instance {
-    protected constructor(className?: string) {super(className ?? "AccessoryDescription"); this.addClassName("AccessoryDescription");}
+    protected constructor() {super(); this.addClassName("AccessoryDescription");}
     public static new() {return new AccessoryDescription();}
     public get AccessoryType() {return this.GetProp("AccessoryType", DataType.Enum) as AccessoryType | undefined;}
     public set AccessoryType(value) {this.SetProp("AccessoryType", DataType.Enum, value);}
@@ -25,51 +25,51 @@ export class AccessoryDescription extends Instance {
 }
 
 export class AccountService extends Instance {
-    protected constructor(className?: string) {super(className ?? "AccountService", true); this.addClassName("AccountService");}
+    protected constructor() {super(true); this.addClassName("AccountService");}
     public static new() {return new AccountService();}
 }
 
 export class Accoutrement extends Instance {
-    protected constructor(className?: string) {super(className ?? "Accoutrement"); this.addClassName("Accoutrement");}
+    protected constructor() {super(); this.addClassName("Accoutrement");}
     public static new() {return new Accoutrement();}
     public get AttachmentPoint() {return this.GetProp("AttachmentPoint", DataType.CFrame);}
     public set AttachmentPoint(value) {this.SetProp("AttachmentPoint", DataType.CFrame, value);}
 }
 
 export class Accessory extends Accoutrement {
-    protected constructor(className?: string) {super(className ?? "Accessory"); this.addClassName("Accessory");}
+    protected constructor() {super(); this.addClassName("Accessory");}
     public static new() {return new Accessory();}
     public get AccessoryType() {return this.GetProp("AccessoryType", DataType.Enum) as AccessoryType | undefined;}
     public set AccessoryType(value) {this.SetProp("AccessoryType", DataType.Enum, value);}
 }
 
 export class Hat extends Accoutrement {
-    protected constructor(className?: string) {super(className ?? "Hat"); this.addClassName("Hat");}
+    protected constructor() {super(); this.addClassName("Hat");}
     public static new() {return new Hat();}
 }
 
 export class ActivityHistoryService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ActivityHistoryService", true); this.addClassName("ActivityHistoryService");}
+    protected constructor() {super(true); this.addClassName("ActivityHistoryService");}
     public static new() {return new ActivityHistoryService();}
 }
 
 export class AdPortal extends Instance {
-    protected constructor(className?: string) {super(className ?? "AdPortal"); this.addClassName("AdPortal");}
+    protected constructor() {super(); this.addClassName("AdPortal");}
     public static new() {return new AdPortal();}
 }
 
 export class AdService extends Instance {
-    protected constructor(className?: string) {super(className ?? "AdService", true); this.addClassName("AdService");}
+    protected constructor() {super(true); this.addClassName("AdService");}
     public static new() {return new AdService();}
 }
 
 export class AdvancedDragger extends Instance {
-    protected constructor(className?: string) {super(className ?? "AdvancedDragger"); this.addClassName("AdvancedDragger");}
+    protected constructor() {super(); this.addClassName("AdvancedDragger");}
     public static new() {return new AdvancedDragger();}
 }
 
 export class AnalyticsService extends Instance {
-    protected constructor(className?: string) {super(className ?? "AnalyticsService", true); this.addClassName("AnalyticsService");}
+    protected constructor() {super(true); this.addClassName("AnalyticsService");}
     public static new() {return new AnalyticsService();}
     /**@deprecated Deprecated by Roblox*/
     public get ApiKey() {return this.GetProp("ApiKey", DataType.String);}
@@ -78,14 +78,14 @@ export class AnalyticsService extends Instance {
 }
 
 export class Animation extends Instance {
-    protected constructor(className?: string) {super(className ?? "Animation"); this.addClassName("Animation");}
+    protected constructor() {super(); this.addClassName("Animation");}
     public static new() {return new Animation();}
     public get AnimationId() {return this.GetProp("AnimationId", DataType.String);}
     public set AnimationId(value) {this.SetProp("AnimationId", DataType.String, value);}
 }
 
 export abstract class AnimationClip extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("AnimationClip");}
+    protected constructor() {super(); this.addClassName("AnimationClip");}
     public get GuidBinaryString() {return this.GetProp("GuidBinaryString", DataType.String);}
     public set GuidBinaryString(value) {this.SetProp("GuidBinaryString", DataType.String, value);}
     public get Loop() {return this.GetProp("Loop", DataType.Bool);}
@@ -95,39 +95,39 @@ export abstract class AnimationClip extends Instance {
 }
 
 export class CurveAnimation extends AnimationClip {
-    protected constructor(className?: string) {super(className ?? "CurveAnimation"); this.addClassName("CurveAnimation");}
+    protected constructor() {super(); this.addClassName("CurveAnimation");}
     public static new() {return new CurveAnimation();}
 }
 
 export class KeyframeSequence extends AnimationClip {
-    protected constructor(className?: string) {super(className ?? "KeyframeSequence"); this.addClassName("KeyframeSequence");}
+    protected constructor() {super(); this.addClassName("KeyframeSequence");}
     public static new() {return new KeyframeSequence();}
     public get AuthoredHipHeight() {return this.GetProp("AuthoredHipHeight", DataType.Float32);}
     public set AuthoredHipHeight(value) {this.SetProp("AuthoredHipHeight", DataType.Float32, value);}
 }
 
 export class AnimationClipProvider extends Instance {
-    protected constructor(className?: string) {super(className ?? "AnimationClipProvider", true); this.addClassName("AnimationClipProvider");}
+    protected constructor() {super(true); this.addClassName("AnimationClipProvider");}
     public static new() {return new AnimationClipProvider();}
 }
 
 export class AnimationController extends Instance {
-    protected constructor(className?: string) {super(className ?? "AnimationController"); this.addClassName("AnimationController");}
+    protected constructor() {super(); this.addClassName("AnimationController");}
     public static new() {return new AnimationController();}
 }
 
 export class AnimationFromVideoCreatorService extends Instance {
-    protected constructor(className?: string) {super(className ?? "AnimationFromVideoCreatorService", true); this.addClassName("AnimationFromVideoCreatorService");}
+    protected constructor() {super(true); this.addClassName("AnimationFromVideoCreatorService");}
     public static new() {return new AnimationFromVideoCreatorService();}
 }
 
 export class AnimationFromVideoCreatorStudioService extends Instance {
-    protected constructor(className?: string) {super(className ?? "AnimationFromVideoCreatorStudioService", true); this.addClassName("AnimationFromVideoCreatorStudioService");}
+    protected constructor() {super(true); this.addClassName("AnimationFromVideoCreatorStudioService");}
     public static new() {return new AnimationFromVideoCreatorStudioService();}
 }
 
 export class AnimationRigData extends Instance {
-    protected constructor(className?: string) {super(className ?? "AnimationRigData"); this.addClassName("AnimationRigData");}
+    protected constructor() {super(); this.addClassName("AnimationRigData");}
     public static new() {return new AnimationRigData();}
     public get ArticulatedJoint() {return this.GetProp("articulatedJoint", DataType.String);}
     public set ArticulatedJoint(value) {this.SetProp("articulatedJoint", DataType.String, value);}
@@ -154,24 +154,24 @@ export class AnimationRigData extends Instance {
 }
 
 export class Animator extends Instance {
-    protected constructor(className?: string) {super(className ?? "Animator"); this.addClassName("Animator");}
+    protected constructor() {super(); this.addClassName("Animator");}
     public static new() {return new Animator();}
     public get PreferLodEnabled() {return this.GetProp("PreferLodEnabled", DataType.Bool);}
     public set PreferLodEnabled(value) {this.SetProp("PreferLodEnabled", DataType.Bool, value);}
 }
 
 export class AppUpdateService extends Instance {
-    protected constructor(className?: string) {super(className ?? "AppUpdateService", true); this.addClassName("AppUpdateService");}
+    protected constructor() {super(true); this.addClassName("AppUpdateService");}
     public static new() {return new AppUpdateService();}
 }
 
 export class AssetCounterService extends Instance {
-    protected constructor(className?: string) {super(className ?? "AssetCounterService", true); this.addClassName("AssetCounterService");}
+    protected constructor() {super(true); this.addClassName("AssetCounterService");}
     public static new() {return new AssetCounterService();}
 }
 
 export class AssetDeliveryProxy extends Instance {
-    protected constructor(className?: string) {super(className ?? "AssetDeliveryProxy", true); this.addClassName("AssetDeliveryProxy");}
+    protected constructor() {super(true); this.addClassName("AssetDeliveryProxy");}
     public static new() {return new AssetDeliveryProxy();}
     public get Interface() {return this.GetProp("Interface", DataType.String);}
     public set Interface(value) {this.SetProp("Interface", DataType.String, value);}
@@ -182,22 +182,22 @@ export class AssetDeliveryProxy extends Instance {
 }
 
 export class AssetImportService extends Instance {
-    protected constructor(className?: string) {super(className ?? "AssetImportService", true); this.addClassName("AssetImportService");}
+    protected constructor() {super(true); this.addClassName("AssetImportService");}
     public static new() {return new AssetImportService();}
 }
 
 export class AssetManagerService extends Instance {
-    protected constructor(className?: string) {super(className ?? "AssetManagerService", true); this.addClassName("AssetManagerService");}
+    protected constructor() {super(true); this.addClassName("AssetManagerService");}
     public static new() {return new AssetManagerService();}
 }
 
 export class AssetService extends Instance {
-    protected constructor(className?: string) {super(className ?? "AssetService", true); this.addClassName("AssetService");}
+    protected constructor() {super(true); this.addClassName("AssetService");}
     public static new() {return new AssetService();}
 }
 
 export class Atmosphere extends Instance {
-    protected constructor(className?: string) {super(className ?? "Atmosphere"); this.addClassName("Atmosphere");}
+    protected constructor() {super(); this.addClassName("Atmosphere");}
     public static new() {return new Atmosphere();}
     public get Color() {return this.GetProp("Color", DataType.Color3);}
     public set Color(value) {this.SetProp("Color", DataType.Color3, value);}
@@ -214,7 +214,7 @@ export class Atmosphere extends Instance {
 }
 
 export class Attachment extends Instance {
-    protected constructor(className?: string) {super(className ?? "Attachment"); this.addClassName("Attachment");}
+    protected constructor() {super(); this.addClassName("Attachment");}
     public static new() {return new Attachment();}
     public get CFrame() {return this.GetProp("CFrame", DataType.CFrame);}
     public set CFrame(value) {this.SetProp("CFrame", DataType.CFrame, value);}
@@ -223,17 +223,17 @@ export class Attachment extends Instance {
 }
 
 export class Bone extends Attachment {
-    protected constructor(className?: string) {super(className ?? "Bone"); this.addClassName("Bone");}
+    protected constructor() {super(); this.addClassName("Bone");}
     public static new() {return new Bone();}
 }
 
 export class AudioAnalyzer extends Instance {
-    protected constructor(className?: string) {super(className ?? "AudioAnalyzer"); this.addClassName("AudioAnalyzer");}
+    protected constructor() {super(); this.addClassName("AudioAnalyzer");}
     public static new() {return new AudioAnalyzer();}
 }
 
 export class AudioChorus extends Instance {
-    protected constructor(className?: string) {super(className ?? "AudioChorus"); this.addClassName("AudioChorus");}
+    protected constructor() {super(); this.addClassName("AudioChorus");}
     public static new() {return new AudioChorus();}
     public get Depth() {return this.GetProp("Depth", DataType.Float32);}
     public set Depth(value) {this.SetProp("Depth", DataType.Float32, value);}
@@ -244,7 +244,7 @@ export class AudioChorus extends Instance {
 }
 
 export class AudioCompressor extends Instance {
-    protected constructor(className?: string) {super(className ?? "AudioCompressor"); this.addClassName("AudioCompressor");}
+    protected constructor() {super(); this.addClassName("AudioCompressor");}
     public static new() {return new AudioCompressor();}
     public get Attack() {return this.GetProp("Attack", DataType.Float32);}
     public set Attack(value) {this.SetProp("Attack", DataType.Float32, value);}
@@ -259,7 +259,7 @@ export class AudioCompressor extends Instance {
 }
 
 export class AudioDeviceInput extends Instance {
-    protected constructor(className?: string) {super(className ?? "AudioDeviceInput"); this.addClassName("AudioDeviceInput");}
+    protected constructor() {super(); this.addClassName("AudioDeviceInput");}
     public static new() {return new AudioDeviceInput();}
     public get AccessType() {return this.GetProp("AccessType", DataType.Enum) as AccessModifierType | undefined;}
     public set AccessType(value) {this.SetProp("AccessType", DataType.Enum, value);}
@@ -272,21 +272,21 @@ export class AudioDeviceInput extends Instance {
 }
 
 export class AudioDeviceOutput extends Instance {
-    protected constructor(className?: string) {super(className ?? "AudioDeviceOutput"); this.addClassName("AudioDeviceOutput");}
+    protected constructor() {super(); this.addClassName("AudioDeviceOutput");}
     public static new() {return new AudioDeviceOutput();}
     public get Player() {return this.GetProp("Player", DataType.Referent) as Player | undefined;}
     public set Player(value) {this.SetProp("Player", DataType.Referent, value);}
 }
 
 export class AudioDistortion extends Instance {
-    protected constructor(className?: string) {super(className ?? "AudioDistortion"); this.addClassName("AudioDistortion");}
+    protected constructor() {super(); this.addClassName("AudioDistortion");}
     public static new() {return new AudioDistortion();}
     public get Level() {return this.GetProp("Level", DataType.Float32);}
     public set Level(value) {this.SetProp("Level", DataType.Float32, value);}
 }
 
 export class AudioEcho extends Instance {
-    protected constructor(className?: string) {super(className ?? "AudioEcho"); this.addClassName("AudioEcho");}
+    protected constructor() {super(); this.addClassName("AudioEcho");}
     public static new() {return new AudioEcho();}
     public get DelayTime() {return this.GetProp("DelayTime", DataType.Float32);}
     public set DelayTime(value) {this.SetProp("DelayTime", DataType.Float32, value);}
@@ -299,7 +299,7 @@ export class AudioEcho extends Instance {
 }
 
 export class AudioEmitter extends Instance {
-    protected constructor(className?: string) {super(className ?? "AudioEmitter"); this.addClassName("AudioEmitter");}
+    protected constructor() {super(); this.addClassName("AudioEmitter");}
     public static new() {return new AudioEmitter();}
     public get AudioInteractionGroup() {return this.GetProp("AudioInteractionGroup", DataType.String);}
     public set AudioInteractionGroup(value) {this.SetProp("AudioInteractionGroup", DataType.String, value);}
@@ -308,7 +308,7 @@ export class AudioEmitter extends Instance {
 }
 
 export class AudioEqualizer extends Instance {
-    protected constructor(className?: string) {super(className ?? "AudioEqualizer"); this.addClassName("AudioEqualizer");}
+    protected constructor() {super(); this.addClassName("AudioEqualizer");}
     public static new() {return new AudioEqualizer();}
     public get HighGain() {return this.GetProp("HighGain", DataType.Float32);}
     public set HighGain(value) {this.SetProp("HighGain", DataType.Float32, value);}
@@ -321,14 +321,14 @@ export class AudioEqualizer extends Instance {
 }
 
 export class AudioFader extends Instance {
-    protected constructor(className?: string) {super(className ?? "AudioFader"); this.addClassName("AudioFader");}
+    protected constructor() {super(); this.addClassName("AudioFader");}
     public static new() {return new AudioFader();}
     public get Volume() {return this.GetProp("Volume", DataType.Float32);}
     public set Volume(value) {this.SetProp("Volume", DataType.Float32, value);}
 }
 
 export class AudioFlanger extends Instance {
-    protected constructor(className?: string) {super(className ?? "AudioFlanger"); this.addClassName("AudioFlanger");}
+    protected constructor() {super(); this.addClassName("AudioFlanger");}
     public static new() {return new AudioFlanger();}
     public get Depth() {return this.GetProp("Depth", DataType.Float32);}
     public set Depth(value) {this.SetProp("Depth", DataType.Float32, value);}
@@ -339,21 +339,21 @@ export class AudioFlanger extends Instance {
 }
 
 export class AudioListener extends Instance {
-    protected constructor(className?: string) {super(className ?? "AudioListener"); this.addClassName("AudioListener");}
+    protected constructor() {super(); this.addClassName("AudioListener");}
     public static new() {return new AudioListener();}
     public get AudioInteractionGroup() {return this.GetProp("AudioInteractionGroup", DataType.String);}
     public set AudioInteractionGroup(value) {this.SetProp("AudioInteractionGroup", DataType.String, value);}
 }
 
 export class AudioPitchShifter extends Instance {
-    protected constructor(className?: string) {super(className ?? "AudioPitchShifter"); this.addClassName("AudioPitchShifter");}
+    protected constructor() {super(); this.addClassName("AudioPitchShifter");}
     public static new() {return new AudioPitchShifter();}
     public get Pitch() {return this.GetProp("Pitch", DataType.Float32);}
     public set Pitch(value) {this.SetProp("Pitch", DataType.Float32, value);}
 }
 
 export class AudioPlayer extends Instance {
-    protected constructor(className?: string) {super(className ?? "AudioPlayer"); this.addClassName("AudioPlayer");}
+    protected constructor() {super(); this.addClassName("AudioPlayer");}
     public static new() {return new AudioPlayer();}
     public get AssetId() {return this.GetProp("AssetId", DataType.String);}
     public set AssetId(value) {this.SetProp("AssetId", DataType.String, value);}
@@ -372,7 +372,7 @@ export class AudioPlayer extends Instance {
 }
 
 export class AudioReverb extends Instance {
-    protected constructor(className?: string) {super(className ?? "AudioReverb"); this.addClassName("AudioReverb");}
+    protected constructor() {super(); this.addClassName("AudioReverb");}
     public static new() {return new AudioReverb();}
     public get DecayRatio() {return this.GetProp("DecayRatio", DataType.Float32);}
     public set DecayRatio(value) {this.SetProp("DecayRatio", DataType.Float32, value);}
@@ -401,7 +401,7 @@ export class AudioReverb extends Instance {
 }
 
 export class AudioSearchParams extends Instance {
-    protected constructor(className?: string) {super(className ?? "AudioSearchParams"); this.addClassName("AudioSearchParams");}
+    protected constructor() {super(); this.addClassName("AudioSearchParams");}
     public static new() {return new AudioSearchParams();}
     public get Album() {return this.GetProp("Album", DataType.String);}
     public set Album(value) {this.SetProp("Album", DataType.String, value);}
@@ -426,22 +426,22 @@ export class AudioSearchParams extends Instance {
 }
 
 export class AvatarChatService extends Instance {
-    protected constructor(className?: string) {super(className ?? "AvatarChatService", true); this.addClassName("AvatarChatService");}
+    protected constructor() {super(true); this.addClassName("AvatarChatService");}
     public static new() {return new AvatarChatService();}
 }
 
 export class AvatarCreationService extends Instance {
-    protected constructor(className?: string) {super(className ?? "AvatarCreationService", true); this.addClassName("AvatarCreationService");}
+    protected constructor() {super(true); this.addClassName("AvatarCreationService");}
     public static new() {return new AvatarCreationService();}
 }
 
 export class AvatarEditorService extends Instance {
-    protected constructor(className?: string) {super(className ?? "AvatarEditorService", true); this.addClassName("AvatarEditorService");}
+    protected constructor() {super(true); this.addClassName("AvatarEditorService");}
     public static new() {return new AvatarEditorService();}
 }
 
 export abstract class AvatarGenerationJob extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("AvatarGenerationJob");}
+    protected constructor() {super(); this.addClassName("AvatarGenerationJob");}
     public get Error() {return this.GetProp("Error", DataType.Enum) as AvatarGenerationError | undefined;}
     public set Error(value) {this.SetProp("Error", DataType.Enum, value);}
     public get ErrorMessage() {return this.GetProp("ErrorMessage", DataType.String);}
@@ -453,22 +453,22 @@ export abstract class AvatarGenerationJob extends Instance {
 }
 
 export class AvatarImportService extends Instance {
-    protected constructor(className?: string) {super(className ?? "AvatarImportService", true); this.addClassName("AvatarImportService");}
+    protected constructor() {super(true); this.addClassName("AvatarImportService");}
     public static new() {return new AvatarImportService();}
 }
 
 export class Backpack extends Instance {
-    protected constructor(className?: string) {super(className ?? "Backpack"); this.addClassName("Backpack");}
+    protected constructor() {super(); this.addClassName("Backpack");}
     public static new() {return new Backpack();}
 }
 
 export class BadgeService extends Instance {
-    protected constructor(className?: string) {super(className ?? "BadgeService", true); this.addClassName("BadgeService");}
+    protected constructor() {super(true); this.addClassName("BadgeService");}
     public static new() {return new BadgeService();}
 }
 
 export abstract class BaseImportData extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("BaseImportData");}
+    protected constructor() {super(); this.addClassName("BaseImportData");}
     public get ImportName() {return this.GetProp("ImportName", DataType.String);}
     public set ImportName(value) {this.SetProp("ImportName", DataType.String, value);}
     public get ShouldImport() {return this.GetProp("ShouldImport", DataType.Bool);}
@@ -476,18 +476,18 @@ export abstract class BaseImportData extends Instance {
 }
 
 export abstract class BasePlayerGui extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("BasePlayerGui");}
+    protected constructor() {super(); this.addClassName("BasePlayerGui");}
 }
 
 export class CoreGui extends BasePlayerGui {
-    protected constructor(className?: string) {super(className ?? "CoreGui"); this.addClassName("CoreGui");}
+    protected constructor() {super(); this.addClassName("CoreGui");}
     public static new() {return new CoreGui();}
     public get SelectionImageObject() {return this.GetProp("SelectionImageObject", DataType.Referent) as GuiObject | undefined;}
     public set SelectionImageObject(value) {this.SetProp("SelectionImageObject", DataType.Referent, value);}
 }
 
 export class StarterGui extends BasePlayerGui {
-    protected constructor(className?: string) {super(className ?? "StarterGui"); this.addClassName("StarterGui");}
+    protected constructor() {super(); this.addClassName("StarterGui");}
     public static new() {return new StarterGui();}
     /**@deprecated Deprecated by Roblox*/
     public get ResetPlayerGuiOnSpawn() {return this.GetProp("ResetPlayerGuiOnSpawn", DataType.Bool);}
@@ -504,21 +504,21 @@ export class StarterGui extends BasePlayerGui {
 }
 
 export abstract class BaseRemoteEvent extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("BaseRemoteEvent");}
+    protected constructor() {super(); this.addClassName("BaseRemoteEvent");}
 }
 
 export class RemoteEvent extends BaseRemoteEvent {
-    protected constructor(className?: string) {super(className ?? "RemoteEvent"); this.addClassName("RemoteEvent");}
+    protected constructor() {super(); this.addClassName("RemoteEvent");}
     public static new() {return new RemoteEvent();}
 }
 
 export class UnreliableRemoteEvent extends BaseRemoteEvent {
-    protected constructor(className?: string) {super(className ?? "UnreliableRemoteEvent"); this.addClassName("UnreliableRemoteEvent");}
+    protected constructor() {super(); this.addClassName("UnreliableRemoteEvent");}
     public static new() {return new UnreliableRemoteEvent();}
 }
 
 export abstract class BaseWrap extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("BaseWrap");}
+    protected constructor() {super(); this.addClassName("BaseWrap");}
     public get CageMeshId() {return this.GetProp("CageMeshId", DataType.String);}
     public set CageMeshId(value) {this.SetProp("CageMeshId", DataType.String, value);}
     public get CageOrigin() {return this.GetProp("CageOrigin", DataType.CFrame);}
@@ -536,7 +536,7 @@ export abstract class BaseWrap extends Instance {
 }
 
 export class WrapLayer extends BaseWrap {
-    protected constructor(className?: string) {super(className ?? "WrapLayer"); this.addClassName("WrapLayer");}
+    protected constructor() {super(); this.addClassName("WrapLayer");}
     public static new() {return new WrapLayer();}
     public get AutoSkin() {return this.GetProp("AutoSkin", DataType.Enum) as WrapLayerAutoSkin | undefined;}
     public set AutoSkin(value) {this.SetProp("AutoSkin", DataType.Enum, value);}
@@ -559,14 +559,14 @@ export class WrapLayer extends BaseWrap {
 }
 
 export class WrapTarget extends BaseWrap {
-    protected constructor(className?: string) {super(className ?? "WrapTarget"); this.addClassName("WrapTarget");}
+    protected constructor() {super(); this.addClassName("WrapTarget");}
     public static new() {return new WrapTarget();}
     public get Stiffness() {return this.GetProp("Stiffness", DataType.Float32);}
     public set Stiffness(value) {this.SetProp("Stiffness", DataType.Float32, value);}
 }
 
 export class Beam extends Instance {
-    protected constructor(className?: string) {super(className ?? "Beam"); this.addClassName("Beam");}
+    protected constructor() {super(); this.addClassName("Beam");}
     public static new() {return new Beam();}
     public get Attachment0() {return this.GetProp("Attachment0", DataType.Referent) as Attachment | undefined;}
     public set Attachment0(value) {this.SetProp("Attachment0", DataType.Referent, value);}
@@ -609,21 +609,21 @@ export class Beam extends Instance {
 }
 
 export class BindableEvent extends Instance {
-    protected constructor(className?: string) {super(className ?? "BindableEvent"); this.addClassName("BindableEvent");}
+    protected constructor() {super(); this.addClassName("BindableEvent");}
     public static new() {return new BindableEvent();}
 }
 
 export class BindableFunction extends Instance {
-    protected constructor(className?: string) {super(className ?? "BindableFunction"); this.addClassName("BindableFunction");}
+    protected constructor() {super(); this.addClassName("BindableFunction");}
     public static new() {return new BindableFunction();}
 }
 
 export abstract class BodyMover extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("BodyMover");}
+    protected constructor() {super(); this.addClassName("BodyMover");}
 }
 
 export class BodyAngularVelocity extends BodyMover {
-    protected constructor(className?: string) {super(className ?? "BodyAngularVelocity"); this.addClassName("BodyAngularVelocity");}
+    protected constructor() {super(); this.addClassName("BodyAngularVelocity");}
     public static new() {return new BodyAngularVelocity();}
     public get AngularVelocity() {return this.GetProp("AngularVelocity", DataType.Vector3);}
     public set AngularVelocity(value) {this.SetProp("AngularVelocity", DataType.Vector3, value);}
@@ -642,7 +642,7 @@ export class BodyAngularVelocity extends BodyMover {
 }
 
 export class BodyForce extends BodyMover {
-    protected constructor(className?: string) {super(className ?? "BodyForce"); this.addClassName("BodyForce");}
+    protected constructor() {super(); this.addClassName("BodyForce");}
     public static new() {return new BodyForce();}
     public get Force() {return this.GetProp("Force", DataType.Vector3);}
     public set Force(value) {this.SetProp("Force", DataType.Vector3, value);}
@@ -653,7 +653,7 @@ export class BodyForce extends BodyMover {
 }
 
 export class BodyGyro extends BodyMover {
-    protected constructor(className?: string) {super(className ?? "BodyGyro"); this.addClassName("BodyGyro");}
+    protected constructor() {super(); this.addClassName("BodyGyro");}
     public static new() {return new BodyGyro();}
     public get CFrame() {return this.GetProp("CFrame", DataType.CFrame);}
     public set CFrame(value) {this.SetProp("CFrame", DataType.CFrame, value);}
@@ -674,7 +674,7 @@ export class BodyGyro extends BodyMover {
 }
 
 export class BodyPosition extends BodyMover {
-    protected constructor(className?: string) {super(className ?? "BodyPosition"); this.addClassName("BodyPosition");}
+    protected constructor() {super(); this.addClassName("BodyPosition");}
     public static new() {return new BodyPosition();}
     public get D() {return this.GetProp("D", DataType.Float32);}
     public set D(value) {this.SetProp("D", DataType.Float32, value);}
@@ -695,7 +695,7 @@ export class BodyPosition extends BodyMover {
 }
 
 export class BodyThrust extends BodyMover {
-    protected constructor(className?: string) {super(className ?? "BodyThrust"); this.addClassName("BodyThrust");}
+    protected constructor() {super(); this.addClassName("BodyThrust");}
     public static new() {return new BodyThrust();}
     public get Force() {return this.GetProp("Force", DataType.Vector3);}
     public set Force(value) {this.SetProp("Force", DataType.Vector3, value);}
@@ -712,7 +712,7 @@ export class BodyThrust extends BodyMover {
 }
 
 export class BodyVelocity extends BodyMover {
-    protected constructor(className?: string) {super(className ?? "BodyVelocity"); this.addClassName("BodyVelocity");}
+    protected constructor() {super(); this.addClassName("BodyVelocity");}
     public static new() {return new BodyVelocity();}
     public get MaxForce() {return this.GetProp("MaxForce", DataType.Vector3);}
     public set MaxForce(value) {this.SetProp("MaxForce", DataType.Vector3, value);}
@@ -731,7 +731,7 @@ export class BodyVelocity extends BodyMover {
 }
 
 export class RocketPropulsion extends BodyMover {
-    protected constructor(className?: string) {super(className ?? "RocketPropulsion"); this.addClassName("RocketPropulsion");}
+    protected constructor() {super(); this.addClassName("RocketPropulsion");}
     public static new() {return new RocketPropulsion();}
     public get CartoonFactor() {return this.GetProp("CartoonFactor", DataType.Float32);}
     public set CartoonFactor(value) {this.SetProp("CartoonFactor", DataType.Float32, value);}
@@ -758,7 +758,7 @@ export class RocketPropulsion extends BodyMover {
 }
 
 export class BodyPartDescription extends Instance {
-    protected constructor(className?: string) {super(className ?? "BodyPartDescription"); this.addClassName("BodyPartDescription");}
+    protected constructor() {super(); this.addClassName("BodyPartDescription");}
     public static new() {return new BodyPartDescription();}
     public get AssetId() {return this.GetProp("AssetId", DataType.Int64);}
     public set AssetId(value) {this.SetProp("AssetId", DataType.Int64, value);}
@@ -771,51 +771,51 @@ export class BodyPartDescription extends Instance {
 }
 
 export class Breakpoint extends Instance {
-    protected constructor(className?: string) {super(className ?? "Breakpoint"); this.addClassName("Breakpoint");}
+    protected constructor() {super(); this.addClassName("Breakpoint");}
     public static new() {return new Breakpoint();}
 }
 
 export class BrowserService extends Instance {
-    protected constructor(className?: string) {super(className ?? "BrowserService", true); this.addClassName("BrowserService");}
+    protected constructor() {super(true); this.addClassName("BrowserService");}
     public static new() {return new BrowserService();}
 }
 
 export class BubbleChatMessageProperties extends Instance {
-    protected constructor(className?: string) {super(className ?? "BubbleChatMessageProperties"); this.addClassName("BubbleChatMessageProperties");}
+    protected constructor() {super(); this.addClassName("BubbleChatMessageProperties");}
     public static new() {return new BubbleChatMessageProperties();}
 }
 
 export class BulkImportService extends Instance {
-    protected constructor(className?: string) {super(className ?? "BulkImportService", true); this.addClassName("BulkImportService");}
+    protected constructor() {super(true); this.addClassName("BulkImportService");}
     public static new() {return new BulkImportService();}
 }
 
 export abstract class CacheableContentProvider extends Instance {
-    protected constructor(className: string) {super(className, true); this.addClassName("CacheableContentProvider");}
+    protected constructor() {super(true); this.addClassName("CacheableContentProvider");}
 }
 
 export class HSRDataContentProvider extends CacheableContentProvider {
-    protected constructor(className?: string) {super(className ?? "HSRDataContentProvider"); this.addClassName("HSRDataContentProvider");}
+    protected constructor() {super(); this.addClassName("HSRDataContentProvider");}
     public static new() {return new HSRDataContentProvider();}
 }
 
 export class MeshContentProvider extends CacheableContentProvider {
-    protected constructor(className?: string) {super(className ?? "MeshContentProvider"); this.addClassName("MeshContentProvider");}
+    protected constructor() {super(); this.addClassName("MeshContentProvider");}
     public static new() {return new MeshContentProvider();}
 }
 
 export class SolidModelContentProvider extends CacheableContentProvider {
-    protected constructor(className?: string) {super(className ?? "SolidModelContentProvider"); this.addClassName("SolidModelContentProvider");}
+    protected constructor() {super(); this.addClassName("SolidModelContentProvider");}
     public static new() {return new SolidModelContentProvider();}
 }
 
 export class CalloutService extends Instance {
-    protected constructor(className?: string) {super(className ?? "CalloutService", true); this.addClassName("CalloutService");}
+    protected constructor() {super(true); this.addClassName("CalloutService");}
     public static new() {return new CalloutService();}
 }
 
 export class Camera extends Instance {
-    protected constructor(className?: string) {super(className ?? "Camera"); this.addClassName("Camera");}
+    protected constructor() {super(); this.addClassName("Camera");}
     public static new() {return new Camera();}
     public get CFrame() {return this.GetProp("CFrame", DataType.CFrame);}
     public set CFrame(value) {this.SetProp("CFrame", DataType.CFrame, value);}
@@ -846,21 +846,21 @@ export class Camera extends Instance {
 }
 
 export class CaptureService extends Instance {
-    protected constructor(className?: string) {super(className ?? "CaptureService", true); this.addClassName("CaptureService");}
+    protected constructor() {super(true); this.addClassName("CaptureService");}
     public static new() {return new CaptureService();}
 }
 
 export class ChangeHistoryService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ChangeHistoryService", true); this.addClassName("ChangeHistoryService");}
+    protected constructor() {super(true); this.addClassName("ChangeHistoryService");}
     public static new() {return new ChangeHistoryService();}
 }
 
 export abstract class CharacterAppearance extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("CharacterAppearance");}
+    protected constructor() {super(); this.addClassName("CharacterAppearance");}
 }
 
 export class BodyColors extends CharacterAppearance {
-    protected constructor(className?: string) {super(className ?? "BodyColors"); this.addClassName("BodyColors");}
+    protected constructor() {super(); this.addClassName("BodyColors");}
     public static new() {return new BodyColors();}
     public get HeadColor3() {return this.GetProp("HeadColor3", DataType.Color3);}
     public set HeadColor3(value) {this.SetProp("HeadColor3", DataType.Color3, value);}
@@ -877,7 +877,7 @@ export class BodyColors extends CharacterAppearance {
 }
 
 export class CharacterMesh extends CharacterAppearance {
-    protected constructor(className?: string) {super(className ?? "CharacterMesh"); this.addClassName("CharacterMesh");}
+    protected constructor() {super(); this.addClassName("CharacterMesh");}
     public static new() {return new CharacterMesh();}
     public get BaseTextureId() {return this.GetProp("BaseTextureId", DataType.Int64);}
     public set BaseTextureId(value) {this.SetProp("BaseTextureId", DataType.Int64, value);}
@@ -890,27 +890,27 @@ export class CharacterMesh extends CharacterAppearance {
 }
 
 export abstract class Clothing extends CharacterAppearance {
-    protected constructor(className: string) {super(className); this.addClassName("Clothing");}
+    protected constructor() {super(); this.addClassName("Clothing");}
     public get Color3() {return this.GetProp("Color3", DataType.Color3);}
     public set Color3(value) {this.SetProp("Color3", DataType.Color3, value);}
 }
 
 export class Pants extends Clothing {
-    protected constructor(className?: string) {super(className ?? "Pants"); this.addClassName("Pants");}
+    protected constructor() {super(); this.addClassName("Pants");}
     public static new() {return new Pants();}
     public get PantsTemplate() {return this.GetProp("PantsTemplate", DataType.String);}
     public set PantsTemplate(value) {this.SetProp("PantsTemplate", DataType.String, value);}
 }
 
 export class Shirt extends Clothing {
-    protected constructor(className?: string) {super(className ?? "Shirt"); this.addClassName("Shirt");}
+    protected constructor() {super(); this.addClassName("Shirt");}
     public static new() {return new Shirt();}
     public get ShirtTemplate() {return this.GetProp("ShirtTemplate", DataType.String);}
     public set ShirtTemplate(value) {this.SetProp("ShirtTemplate", DataType.String, value);}
 }
 
 export class ShirtGraphic extends CharacterAppearance {
-    protected constructor(className?: string) {super(className ?? "ShirtGraphic"); this.addClassName("ShirtGraphic");}
+    protected constructor() {super(); this.addClassName("ShirtGraphic");}
     public static new() {return new ShirtGraphic();}
     public get Color3() {return this.GetProp("Color3", DataType.Color3);}
     public set Color3(value) {this.SetProp("Color3", DataType.Color3, value);}
@@ -919,14 +919,14 @@ export class ShirtGraphic extends CharacterAppearance {
 }
 
 export class Skin extends CharacterAppearance {
-    protected constructor(className?: string) {super(className ?? "Skin"); this.addClassName("Skin");}
+    protected constructor() {super(); this.addClassName("Skin");}
     public static new() {return new Skin();}
     public get SkinColor() {return this.GetProp("SkinColor", DataType.BrickColor);}
     public set SkinColor(value) {this.SetProp("SkinColor", DataType.BrickColor, value);}
 }
 
 export class Chat extends Instance {
-    protected constructor(className?: string) {super(className ?? "Chat", true); this.addClassName("Chat");}
+    protected constructor() {super(true); this.addClassName("Chat");}
     public static new() {return new Chat();}
     public get BubbleChatEnabled() {return this.GetProp("BubbleChatEnabled", DataType.Bool);}
     public set BubbleChatEnabled(value) {this.SetProp("BubbleChatEnabled", DataType.Bool, value);}
@@ -935,12 +935,12 @@ export class Chat extends Instance {
 }
 
 export class ChatbotUIService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ChatbotUIService", true); this.addClassName("ChatbotUIService");}
+    protected constructor() {super(true); this.addClassName("ChatbotUIService");}
     public static new() {return new ChatbotUIService();}
 }
 
 export class ClickDetector extends Instance {
-    protected constructor(className?: string) {super(className ?? "ClickDetector"); this.addClassName("ClickDetector");}
+    protected constructor() {super(); this.addClassName("ClickDetector");}
     public static new() {return new ClickDetector();}
     public get CursorIcon() {return this.GetProp("CursorIcon", DataType.String);}
     public set CursorIcon(value) {this.SetProp("CursorIcon", DataType.String, value);}
@@ -949,7 +949,7 @@ export class ClickDetector extends Instance {
 }
 
 export class DragDetector extends ClickDetector {
-    protected constructor(className?: string) {super(className ?? "DragDetector"); this.addClassName("DragDetector");}
+    protected constructor() {super(); this.addClassName("DragDetector");}
     public static new() {return new DragDetector();}
     public get ActivatedCursorIcon() {return this.GetProp("ActivatedCursorIcon", DataType.String);}
     public set ActivatedCursorIcon(value) {this.SetProp("ActivatedCursorIcon", DataType.String, value);}
@@ -998,7 +998,7 @@ export class DragDetector extends ClickDetector {
 }
 
 export class Clouds extends Instance {
-    protected constructor(className?: string) {super(className ?? "Clouds"); this.addClassName("Clouds");}
+    protected constructor() {super(); this.addClassName("Clouds");}
     public static new() {return new Clouds();}
     public get Color() {return this.GetProp("Color", DataType.Color3);}
     public set Color(value) {this.SetProp("Color", DataType.Color3, value);}
@@ -1011,47 +1011,47 @@ export class Clouds extends Instance {
 }
 
 export class ClusterPacketCache extends Instance {
-    protected constructor(className?: string) {super(className ?? "ClusterPacketCache", true); this.addClassName("ClusterPacketCache");}
+    protected constructor() {super(true); this.addClassName("ClusterPacketCache");}
     public static new() {return new ClusterPacketCache();}
 }
 
 export class CollaboratorsService extends Instance {
-    protected constructor(className?: string) {super(className ?? "CollaboratorsService", true); this.addClassName("CollaboratorsService");}
+    protected constructor() {super(true); this.addClassName("CollaboratorsService");}
     public static new() {return new CollaboratorsService();}
 }
 
 export class CollectionService extends Instance {
-    protected constructor(className?: string) {super(className ?? "CollectionService", true); this.addClassName("CollectionService");}
+    protected constructor() {super(true); this.addClassName("CollectionService");}
     public static new() {return new CollectionService();}
 }
 
 export class CommandService extends Instance {
-    protected constructor(className?: string) {super(className ?? "CommandService", true); this.addClassName("CommandService");}
+    protected constructor() {super(true); this.addClassName("CommandService");}
     public static new() {return new CommandService();}
 }
 
 export class CommerceService extends Instance {
-    protected constructor(className?: string) {super(className ?? "CommerceService", true); this.addClassName("CommerceService");}
+    protected constructor() {super(true); this.addClassName("CommerceService");}
     public static new() {return new CommerceService();}
 }
 
 export class Configuration extends Instance {
-    protected constructor(className?: string) {super(className ?? "Configuration"); this.addClassName("Configuration");}
+    protected constructor() {super(); this.addClassName("Configuration");}
     public static new() {return new Configuration();}
 }
 
 export class ConfigureServerService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ConfigureServerService", true); this.addClassName("ConfigureServerService");}
+    protected constructor() {super(true); this.addClassName("ConfigureServerService");}
     public static new() {return new ConfigureServerService();}
 }
 
 export class ConnectivityService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ConnectivityService", true); this.addClassName("ConnectivityService");}
+    protected constructor() {super(true); this.addClassName("ConnectivityService");}
     public static new() {return new ConnectivityService();}
 }
 
 export abstract class Constraint extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("Constraint");}
+    protected constructor() {super(); this.addClassName("Constraint");}
     public get Attachment0() {return this.GetProp("Attachment0", DataType.Referent) as Attachment | undefined;}
     public set Attachment0(value) {this.SetProp("Attachment0", DataType.Referent, value);}
     public get Attachment1() {return this.GetProp("Attachment1", DataType.Referent) as Attachment | undefined;}
@@ -1065,7 +1065,7 @@ export abstract class Constraint extends Instance {
 }
 
 export class AlignOrientation extends Constraint {
-    protected constructor(className?: string) {super(className ?? "AlignOrientation"); this.addClassName("AlignOrientation");}
+    protected constructor() {super(); this.addClassName("AlignOrientation");}
     public static new() {return new AlignOrientation();}
     public get AlignType() {return this.GetProp("AlignType", DataType.Enum) as AlignType | undefined;}
     public set AlignType(value) {this.SetProp("AlignType", DataType.Enum, value);}
@@ -1088,7 +1088,7 @@ export class AlignOrientation extends Constraint {
 }
 
 export class AlignPosition extends Constraint {
-    protected constructor(className?: string) {super(className ?? "AlignPosition"); this.addClassName("AlignPosition");}
+    protected constructor() {super(); this.addClassName("AlignPosition");}
     public static new() {return new AlignPosition();}
     public get ApplyAtCenterOfMass() {return this.GetProp("ApplyAtCenterOfMass", DataType.Bool);}
     public set ApplyAtCenterOfMass(value) {this.SetProp("ApplyAtCenterOfMass", DataType.Bool, value);}
@@ -1115,7 +1115,7 @@ export class AlignPosition extends Constraint {
 }
 
 export class AngularVelocity extends Constraint {
-    protected constructor(className?: string) {super(className ?? "AngularVelocity"); this.addClassName("AngularVelocity");}
+    protected constructor() {super(); this.addClassName("AngularVelocity");}
     public static new() {return new AngularVelocity();}
     public get AngularVelocity() {return this.GetProp("AngularVelocity", DataType.Vector3);}
     public set AngularVelocity(value) {this.SetProp("AngularVelocity", DataType.Vector3, value);}
@@ -1128,7 +1128,7 @@ export class AngularVelocity extends Constraint {
 }
 
 export class AnimationConstraint extends Constraint {
-    protected constructor(className?: string) {super(className ?? "AnimationConstraint"); this.addClassName("AnimationConstraint");}
+    protected constructor() {super(); this.addClassName("AnimationConstraint");}
     public static new() {return new AnimationConstraint();}
     public get IsKinematic() {return this.GetProp("IsKinematic", DataType.Bool);}
     public set IsKinematic(value) {this.SetProp("IsKinematic", DataType.Bool, value);}
@@ -1141,7 +1141,7 @@ export class AnimationConstraint extends Constraint {
 }
 
 export class BallSocketConstraint extends Constraint {
-    protected constructor(className?: string) {super(className ?? "BallSocketConstraint"); this.addClassName("BallSocketConstraint");}
+    protected constructor() {super(); this.addClassName("BallSocketConstraint");}
     public static new() {return new BallSocketConstraint();}
     public get LimitsEnabled() {return this.GetProp("LimitsEnabled", DataType.Bool);}
     public set LimitsEnabled(value) {this.SetProp("LimitsEnabled", DataType.Bool, value);}
@@ -1162,7 +1162,7 @@ export class BallSocketConstraint extends Constraint {
 }
 
 export class HingeConstraint extends Constraint {
-    protected constructor(className?: string) {super(className ?? "HingeConstraint"); this.addClassName("HingeConstraint");}
+    protected constructor() {super(); this.addClassName("HingeConstraint");}
     public static new() {return new HingeConstraint();}
     public get ActuatorType() {return this.GetProp("ActuatorType", DataType.Enum) as ActuatorType | undefined;}
     public set ActuatorType(value) {this.SetProp("ActuatorType", DataType.Enum, value);}
@@ -1197,7 +1197,7 @@ export class HingeConstraint extends Constraint {
 }
 
 export class LineForce extends Constraint {
-    protected constructor(className?: string) {super(className ?? "LineForce"); this.addClassName("LineForce");}
+    protected constructor() {super(); this.addClassName("LineForce");}
     public static new() {return new LineForce();}
     public get ApplyAtCenterOfMass() {return this.GetProp("ApplyAtCenterOfMass", DataType.Bool);}
     public set ApplyAtCenterOfMass(value) {this.SetProp("ApplyAtCenterOfMass", DataType.Bool, value);}
@@ -1212,7 +1212,7 @@ export class LineForce extends Constraint {
 }
 
 export class LinearVelocity extends Constraint {
-    protected constructor(className?: string) {super(className ?? "LinearVelocity"); this.addClassName("LinearVelocity");}
+    protected constructor() {super(); this.addClassName("LinearVelocity");}
     public static new() {return new LinearVelocity();}
     public get ForceLimitMode() {return this.GetProp("ForceLimitMode", DataType.Enum) as ForceLimitMode | undefined;}
     public set ForceLimitMode(value) {this.SetProp("ForceLimitMode", DataType.Enum, value);}
@@ -1243,22 +1243,22 @@ export class LinearVelocity extends Constraint {
 }
 
 export class PlaneConstraint extends Constraint {
-    protected constructor(className?: string) {super(className ?? "PlaneConstraint"); this.addClassName("PlaneConstraint");}
+    protected constructor() {super(); this.addClassName("PlaneConstraint");}
     public static new() {return new PlaneConstraint();}
 }
 
 export class Plane extends PlaneConstraint {
-    protected constructor(className?: string) {super(className ?? "Plane"); this.addClassName("Plane");}
+    protected constructor() {super(); this.addClassName("Plane");}
     public static new() {return new Plane();}
 }
 
 export class RigidConstraint extends Constraint {
-    protected constructor(className?: string) {super(className ?? "RigidConstraint"); this.addClassName("RigidConstraint");}
+    protected constructor() {super(); this.addClassName("RigidConstraint");}
     public static new() {return new RigidConstraint();}
 }
 
 export class RodConstraint extends Constraint {
-    protected constructor(className?: string) {super(className ?? "RodConstraint"); this.addClassName("RodConstraint");}
+    protected constructor() {super(); this.addClassName("RodConstraint");}
     public static new() {return new RodConstraint();}
     public get Length() {return this.GetProp("Length", DataType.Float32);}
     public set Length(value) {this.SetProp("Length", DataType.Float32, value);}
@@ -1273,7 +1273,7 @@ export class RodConstraint extends Constraint {
 }
 
 export class RopeConstraint extends Constraint {
-    protected constructor(className?: string) {super(className ?? "RopeConstraint"); this.addClassName("RopeConstraint");}
+    protected constructor() {super(); this.addClassName("RopeConstraint");}
     public static new() {return new RopeConstraint();}
     public get Length() {return this.GetProp("Length", DataType.Float32);}
     public set Length(value) {this.SetProp("Length", DataType.Float32, value);}
@@ -1294,7 +1294,7 @@ export class RopeConstraint extends Constraint {
 }
 
 export abstract class SlidingBallConstraint extends Constraint {
-    protected constructor(className: string) {super(className); this.addClassName("SlidingBallConstraint");}
+    protected constructor() {super(); this.addClassName("SlidingBallConstraint");}
     public get ActuatorType() {return this.GetProp("ActuatorType", DataType.Enum) as ActuatorType | undefined;}
     public set ActuatorType(value) {this.SetProp("ActuatorType", DataType.Enum, value);}
     public get LimitsEnabled() {return this.GetProp("LimitsEnabled", DataType.Bool);}
@@ -1328,7 +1328,7 @@ export abstract class SlidingBallConstraint extends Constraint {
 }
 
 export class CylindricalConstraint extends SlidingBallConstraint {
-    protected constructor(className?: string) {super(className ?? "CylindricalConstraint"); this.addClassName("CylindricalConstraint");}
+    protected constructor() {super(); this.addClassName("CylindricalConstraint");}
     public static new() {return new CylindricalConstraint();}
     public get AngularActuatorType() {return this.GetProp("AngularActuatorType", DataType.Enum) as ActuatorType | undefined;}
     public set AngularActuatorType(value) {this.SetProp("AngularActuatorType", DataType.Enum, value);}
@@ -1365,12 +1365,12 @@ export class CylindricalConstraint extends SlidingBallConstraint {
 }
 
 export class PrismaticConstraint extends SlidingBallConstraint {
-    protected constructor(className?: string) {super(className ?? "PrismaticConstraint"); this.addClassName("PrismaticConstraint");}
+    protected constructor() {super(); this.addClassName("PrismaticConstraint");}
     public static new() {return new PrismaticConstraint();}
 }
 
 export class SpringConstraint extends Constraint {
-    protected constructor(className?: string) {super(className ?? "SpringConstraint"); this.addClassName("SpringConstraint");}
+    protected constructor() {super(); this.addClassName("SpringConstraint");}
     public static new() {return new SpringConstraint();}
     public get Coils() {return this.GetProp("Coils", DataType.Float32);}
     public set Coils(value) {this.SetProp("Coils", DataType.Float32, value);}
@@ -1395,7 +1395,7 @@ export class SpringConstraint extends Constraint {
 }
 
 export class Torque extends Constraint {
-    protected constructor(className?: string) {super(className ?? "Torque"); this.addClassName("Torque");}
+    protected constructor() {super(); this.addClassName("Torque");}
     public static new() {return new Torque();}
     public get RelativeTo() {return this.GetProp("RelativeTo", DataType.Enum) as ActuatorRelativeTo | undefined;}
     public set RelativeTo(value) {this.SetProp("RelativeTo", DataType.Enum, value);}
@@ -1404,7 +1404,7 @@ export class Torque extends Constraint {
 }
 
 export class TorsionSpringConstraint extends Constraint {
-    protected constructor(className?: string) {super(className ?? "TorsionSpringConstraint"); this.addClassName("TorsionSpringConstraint");}
+    protected constructor() {super(); this.addClassName("TorsionSpringConstraint");}
     public static new() {return new TorsionSpringConstraint();}
     public get Coils() {return this.GetProp("Coils", DataType.Float32);}
     public set Coils(value) {this.SetProp("Coils", DataType.Float32, value);}
@@ -1429,7 +1429,7 @@ export class TorsionSpringConstraint extends Constraint {
 }
 
 export class UniversalConstraint extends Constraint {
-    protected constructor(className?: string) {super(className ?? "UniversalConstraint"); this.addClassName("UniversalConstraint");}
+    protected constructor() {super(); this.addClassName("UniversalConstraint");}
     public static new() {return new UniversalConstraint();}
     public get LimitsEnabled() {return this.GetProp("LimitsEnabled", DataType.Bool);}
     public set LimitsEnabled(value) {this.SetProp("LimitsEnabled", DataType.Bool, value);}
@@ -1442,7 +1442,7 @@ export class UniversalConstraint extends Constraint {
 }
 
 export class VectorForce extends Constraint {
-    protected constructor(className?: string) {super(className ?? "VectorForce"); this.addClassName("VectorForce");}
+    protected constructor() {super(); this.addClassName("VectorForce");}
     public static new() {return new VectorForce();}
     public get ApplyAtCenterOfMass() {return this.GetProp("ApplyAtCenterOfMass", DataType.Bool);}
     public set ApplyAtCenterOfMass(value) {this.SetProp("ApplyAtCenterOfMass", DataType.Bool, value);}
@@ -1453,36 +1453,36 @@ export class VectorForce extends Constraint {
 }
 
 export class ContentProvider extends Instance {
-    protected constructor(className?: string) {super(className ?? "ContentProvider", true); this.addClassName("ContentProvider");}
+    protected constructor() {super(true); this.addClassName("ContentProvider");}
     public static new() {return new ContentProvider();}
 }
 
 export class ContextActionService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ContextActionService", true); this.addClassName("ContextActionService");}
+    protected constructor() {super(true); this.addClassName("ContextActionService");}
     public static new() {return new ContextActionService();}
 }
 
 export abstract class Controller extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("Controller");}
+    protected constructor() {super(); this.addClassName("Controller");}
 }
 
 export class HumanoidController extends Controller {
-    protected constructor(className?: string) {super(className ?? "HumanoidController"); this.addClassName("HumanoidController");}
+    protected constructor() {super(); this.addClassName("HumanoidController");}
     public static new() {return new HumanoidController();}
 }
 
 export class SkateboardController extends Controller {
-    protected constructor(className?: string) {super(className ?? "SkateboardController"); this.addClassName("SkateboardController");}
+    protected constructor() {super(); this.addClassName("SkateboardController");}
     public static new() {return new SkateboardController();}
 }
 
 export class VehicleController extends Controller {
-    protected constructor(className?: string) {super(className ?? "VehicleController"); this.addClassName("VehicleController");}
+    protected constructor() {super(); this.addClassName("VehicleController");}
     public static new() {return new VehicleController();}
 }
 
 export abstract class ControllerBase extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("ControllerBase");}
+    protected constructor() {super(); this.addClassName("ControllerBase");}
     public get BalanceRigidityEnabled() {return this.GetProp("BalanceRigidityEnabled", DataType.Bool);}
     public set BalanceRigidityEnabled(value) {this.SetProp("BalanceRigidityEnabled", DataType.Bool, value);}
     public get MoveSpeedFactor() {return this.GetProp("MoveSpeedFactor", DataType.Float32);}
@@ -1490,7 +1490,7 @@ export abstract class ControllerBase extends Instance {
 }
 
 export class AirController extends ControllerBase {
-    protected constructor(className?: string) {super(className ?? "AirController"); this.addClassName("AirController");}
+    protected constructor() {super(); this.addClassName("AirController");}
     public static new() {return new AirController();}
     public get BalanceMaxTorque() {return this.GetProp("BalanceMaxTorque", DataType.Float32);}
     public set BalanceMaxTorque(value) {this.SetProp("BalanceMaxTorque", DataType.Float32, value);}
@@ -1509,7 +1509,7 @@ export class AirController extends ControllerBase {
 }
 
 export class ClimbController extends ControllerBase {
-    protected constructor(className?: string) {super(className ?? "ClimbController"); this.addClassName("ClimbController");}
+    protected constructor() {super(); this.addClassName("ClimbController");}
     public static new() {return new ClimbController();}
     public get AccelerationTime() {return this.GetProp("AccelerationTime", DataType.Float32);}
     public set AccelerationTime(value) {this.SetProp("AccelerationTime", DataType.Float32, value);}
@@ -1522,7 +1522,7 @@ export class ClimbController extends ControllerBase {
 }
 
 export class GroundController extends ControllerBase {
-    protected constructor(className?: string) {super(className ?? "GroundController"); this.addClassName("GroundController");}
+    protected constructor() {super(); this.addClassName("GroundController");}
     public static new() {return new GroundController();}
     public get AccelerationLean() {return this.GetProp("AccelerationLean", DataType.Float32);}
     public set AccelerationLean(value) {this.SetProp("AccelerationLean", DataType.Float32, value);}
@@ -1549,7 +1549,7 @@ export class GroundController extends ControllerBase {
 }
 
 export class SwimController extends ControllerBase {
-    protected constructor(className?: string) {super(className ?? "SwimController"); this.addClassName("SwimController");}
+    protected constructor() {super(); this.addClassName("SwimController");}
     public static new() {return new SwimController();}
     public get AccelerationTime() {return this.GetProp("AccelerationTime", DataType.Float32);}
     public set AccelerationTime(value) {this.SetProp("AccelerationTime", DataType.Float32, value);}
@@ -1564,7 +1564,7 @@ export class SwimController extends ControllerBase {
 }
 
 export class ControllerManager extends Instance {
-    protected constructor(className?: string) {super(className ?? "ControllerManager"); this.addClassName("ControllerManager");}
+    protected constructor() {super(); this.addClassName("ControllerManager");}
     public static new() {return new ControllerManager();}
     public get ActiveController() {return this.GetProp("ActiveController", DataType.Referent) as ControllerBase | undefined;}
     public set ActiveController(value) {this.SetProp("ActiveController", DataType.Referent, value);}
@@ -1587,61 +1587,61 @@ export class ControllerManager extends Instance {
 }
 
 export class ControllerService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ControllerService", true); this.addClassName("ControllerService");}
+    protected constructor() {super(true); this.addClassName("ControllerService");}
     public static new() {return new ControllerService();}
 }
 
 export class ConversationalAIAcceptanceService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ConversationalAIAcceptanceService", true); this.addClassName("ConversationalAIAcceptanceService");}
+    protected constructor() {super(true); this.addClassName("ConversationalAIAcceptanceService");}
     public static new() {return new ConversationalAIAcceptanceService();}
 }
 
 export class CookiesService extends Instance {
-    protected constructor(className?: string) {super(className ?? "CookiesService", true); this.addClassName("CookiesService");}
+    protected constructor() {super(true); this.addClassName("CookiesService");}
     public static new() {return new CookiesService();}
 }
 
 export class CorePackages extends Instance {
-    protected constructor(className?: string) {super(className ?? "CorePackages", true); this.addClassName("CorePackages");}
+    protected constructor() {super(true); this.addClassName("CorePackages");}
     public static new() {return new CorePackages();}
 }
 
 export class CoreScriptDebuggingManagerHelper extends Instance {
-    protected constructor(className?: string) {super(className ?? "CoreScriptDebuggingManagerHelper", true); this.addClassName("CoreScriptDebuggingManagerHelper");}
+    protected constructor() {super(true); this.addClassName("CoreScriptDebuggingManagerHelper");}
     public static new() {return new CoreScriptDebuggingManagerHelper();}
 }
 
 export class CoreScriptSyncService extends Instance {
-    protected constructor(className?: string) {super(className ?? "CoreScriptSyncService", true); this.addClassName("CoreScriptSyncService");}
+    protected constructor() {super(true); this.addClassName("CoreScriptSyncService");}
     public static new() {return new CoreScriptSyncService();}
 }
 
 export class CreationDBService extends Instance {
-    protected constructor(className?: string) {super(className ?? "CreationDBService", true); this.addClassName("CreationDBService");}
+    protected constructor() {super(true); this.addClassName("CreationDBService");}
     public static new() {return new CreationDBService();}
 }
 
 export class CrossDMScriptChangeListener extends Instance {
-    protected constructor(className?: string) {super(className ?? "CrossDMScriptChangeListener", true); this.addClassName("CrossDMScriptChangeListener");}
+    protected constructor() {super(true); this.addClassName("CrossDMScriptChangeListener");}
     public static new() {return new CrossDMScriptChangeListener();}
 }
 
 export class CustomEvent extends Instance {
-    protected constructor(className?: string) {super(className ?? "CustomEvent"); this.addClassName("CustomEvent");}
+    protected constructor() {super(); this.addClassName("CustomEvent");}
     public static new() {return new CustomEvent();}
     public get PersistedCurrentValue() {return this.GetProp("PersistedCurrentValue", DataType.Float32);}
     public set PersistedCurrentValue(value) {this.SetProp("PersistedCurrentValue", DataType.Float32, value);}
 }
 
 export class CustomEventReceiver extends Instance {
-    protected constructor(className?: string) {super(className ?? "CustomEventReceiver"); this.addClassName("CustomEventReceiver");}
+    protected constructor() {super(); this.addClassName("CustomEventReceiver");}
     public static new() {return new CustomEventReceiver();}
     public get Source() {return this.GetProp("Source", DataType.Referent) as Instance | undefined;}
     public set Source(value) {this.SetProp("Source", DataType.Referent, value);}
 }
 
 export abstract class DataModelMesh extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("DataModelMesh");}
+    protected constructor() {super(); this.addClassName("DataModelMesh");}
     public get Offset() {return this.GetProp("Offset", DataType.Vector3);}
     public set Offset(value) {this.SetProp("Offset", DataType.Vector3, value);}
     public get Scale() {return this.GetProp("Scale", DataType.Vector3);}
@@ -1651,7 +1651,7 @@ export abstract class DataModelMesh extends Instance {
 }
 
 export abstract class BevelMesh extends DataModelMesh {
-    protected constructor(className: string) {super(className); this.addClassName("BevelMesh");}
+    protected constructor() {super(); this.addClassName("BevelMesh");}
     public get Bevel() {return this.GetProp("Bevel", DataType.Float32);}
     public set Bevel(value) {this.SetProp("Bevel", DataType.Float32, value);}
     public get BevelRoundness() {return this.GetProp("Bevel Roundness", DataType.Float32);}
@@ -1661,29 +1661,29 @@ export abstract class BevelMesh extends DataModelMesh {
 }
 
 export class BlockMesh extends BevelMesh {
-    protected constructor(className?: string) {super(className ?? "BlockMesh"); this.addClassName("BlockMesh");}
+    protected constructor() {super(); this.addClassName("BlockMesh");}
     public static new() {return new BlockMesh();}
 }
 
 export class CylinderMesh extends BevelMesh {
-    protected constructor(className?: string) {super(className ?? "CylinderMesh"); this.addClassName("CylinderMesh");}
+    protected constructor() {super(); this.addClassName("CylinderMesh");}
     public static new() {return new CylinderMesh();}
 }
 
 export class EditableMesh extends DataModelMesh {
-    protected constructor(className?: string) {super(className ?? "EditableMesh"); this.addClassName("EditableMesh");}
+    protected constructor() {super(); this.addClassName("EditableMesh");}
     public static new() {return new EditableMesh();}
 }
 
 export class RobloxEditableMesh extends EditableMesh {
-    protected constructor(className?: string) {super(className ?? "RobloxEditableMesh"); this.addClassName("RobloxEditableMesh");}
+    protected constructor() {super(); this.addClassName("RobloxEditableMesh");}
     public static new() {return new RobloxEditableMesh();}
     public get MeshDataSerialize() {return this.GetProp("MeshDataSerialize", DataType.String);}
     public set MeshDataSerialize(value) {this.SetProp("MeshDataSerialize", DataType.String, value);}
 }
 
 export class FileMesh extends DataModelMesh {
-    protected constructor(className?: string) {super(className ?? "FileMesh"); this.addClassName("FileMesh");}
+    protected constructor() {super(); this.addClassName("FileMesh");}
     public static new() {return new FileMesh();}
     public get MeshId() {return this.GetProp("MeshId", DataType.String);}
     public set MeshId(value) {this.SetProp("MeshId", DataType.String, value);}
@@ -1692,38 +1692,38 @@ export class FileMesh extends DataModelMesh {
 }
 
 export class SpecialMesh extends FileMesh {
-    protected constructor(className?: string) {super(className ?? "SpecialMesh"); this.addClassName("SpecialMesh");}
+    protected constructor() {super(); this.addClassName("SpecialMesh");}
     public static new() {return new SpecialMesh();}
     public get MeshType() {return this.GetProp("MeshType", DataType.Enum) as MeshType | undefined;}
     public set MeshType(value) {this.SetProp("MeshType", DataType.Enum, value);}
 }
 
 export class DataModelPatchService extends Instance {
-    protected constructor(className?: string) {super(className ?? "DataModelPatchService", true); this.addClassName("DataModelPatchService");}
+    protected constructor() {super(true); this.addClassName("DataModelPatchService");}
     public static new() {return new DataModelPatchService();}
 }
 
 export class DataStoreGetOptions extends Instance {
-    protected constructor(className?: string) {super(className ?? "DataStoreGetOptions"); this.addClassName("DataStoreGetOptions");}
+    protected constructor() {super(); this.addClassName("DataStoreGetOptions");}
     public static new() {return new DataStoreGetOptions();}
     public get UseCache() {return this.GetProp("UseCache", DataType.Bool);}
     public set UseCache(value) {this.SetProp("UseCache", DataType.Bool, value);}
 }
 
 export class DataStoreIncrementOptions extends Instance {
-    protected constructor(className?: string) {super(className ?? "DataStoreIncrementOptions"); this.addClassName("DataStoreIncrementOptions");}
+    protected constructor() {super(); this.addClassName("DataStoreIncrementOptions");}
     public static new() {return new DataStoreIncrementOptions();}
 }
 
 export class DataStoreOptions extends Instance {
-    protected constructor(className?: string) {super(className ?? "DataStoreOptions"); this.addClassName("DataStoreOptions");}
+    protected constructor() {super(); this.addClassName("DataStoreOptions");}
     public static new() {return new DataStoreOptions();}
     public get AllScopes() {return this.GetProp("AllScopes", DataType.Bool);}
     public set AllScopes(value) {this.SetProp("AllScopes", DataType.Bool, value);}
 }
 
 export class DataStoreService extends Instance {
-    protected constructor(className?: string) {super(className ?? "DataStoreService", true); this.addClassName("DataStoreService");}
+    protected constructor() {super(true); this.addClassName("DataStoreService");}
     public static new() {return new DataStoreService();}
     public get AutomaticRetry() {return this.GetProp("AutomaticRetry", DataType.Bool);}
     public set AutomaticRetry(value) {this.SetProp("AutomaticRetry", DataType.Bool, value);}
@@ -1734,12 +1734,12 @@ export class DataStoreService extends Instance {
 }
 
 export class DataStoreSetOptions extends Instance {
-    protected constructor(className?: string) {super(className ?? "DataStoreSetOptions"); this.addClassName("DataStoreSetOptions");}
+    protected constructor() {super(); this.addClassName("DataStoreSetOptions");}
     public static new() {return new DataStoreSetOptions();}
 }
 
 export class Debris extends Instance {
-    protected constructor(className?: string) {super(className ?? "Debris", true); this.addClassName("Debris");}
+    protected constructor() {super(true); this.addClassName("Debris");}
     public static new() {return new Debris();}
     /**@deprecated Deprecated by Roblox*/
     public get MaxItems() {return this.GetProp("MaxItems", DataType.Int32);}
@@ -1748,45 +1748,45 @@ export class Debris extends Instance {
 }
 
 export class DebuggablePluginWatcher extends Instance {
-    protected constructor(className?: string) {super(className ?? "DebuggablePluginWatcher", true); this.addClassName("DebuggablePluginWatcher");}
+    protected constructor() {super(true); this.addClassName("DebuggablePluginWatcher");}
     public static new() {return new DebuggablePluginWatcher();}
 }
 
 export abstract class DebuggerConnection extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("DebuggerConnection");}
+    protected constructor() {super(); this.addClassName("DebuggerConnection");}
 }
 
 export class DebuggerConnectionManager extends Instance {
-    protected constructor(className?: string) {super(className ?? "DebuggerConnectionManager", true); this.addClassName("DebuggerConnectionManager");}
+    protected constructor() {super(true); this.addClassName("DebuggerConnectionManager");}
     public static new() {return new DebuggerConnectionManager();}
     public get Timeout() {return this.GetProp("Timeout", DataType.Float64);}
     public set Timeout(value) {this.SetProp("Timeout", DataType.Float64, value);}
 }
 
 export class DebuggerManager extends Instance {
-    protected constructor(className?: string) {super(className ?? "DebuggerManager", true); this.addClassName("DebuggerManager");}
+    protected constructor() {super(true); this.addClassName("DebuggerManager");}
     public static new() {return new DebuggerManager();}
 }
 
 export class DebuggerUIService extends Instance {
-    protected constructor(className?: string) {super(className ?? "DebuggerUIService", true); this.addClassName("DebuggerUIService");}
+    protected constructor() {super(true); this.addClassName("DebuggerUIService");}
     public static new() {return new DebuggerUIService();}
 }
 
 export class DebuggerWatch extends Instance {
-    protected constructor(className?: string) {super(className ?? "DebuggerWatch"); this.addClassName("DebuggerWatch");}
+    protected constructor() {super(); this.addClassName("DebuggerWatch");}
     public static new() {return new DebuggerWatch();}
     public get Expression() {return this.GetProp("Expression", DataType.String);}
     public set Expression(value) {this.SetProp("Expression", DataType.String, value);}
 }
 
 export class DeviceIdService extends Instance {
-    protected constructor(className?: string) {super(className ?? "DeviceIdService", true); this.addClassName("DeviceIdService");}
+    protected constructor() {super(true); this.addClassName("DeviceIdService");}
     public static new() {return new DeviceIdService();}
 }
 
 export class Dialog extends Instance {
-    protected constructor(className?: string) {super(className ?? "Dialog"); this.addClassName("Dialog");}
+    protected constructor() {super(); this.addClassName("Dialog");}
     public static new() {return new Dialog();}
     public get BehaviorType() {return this.GetProp("BehaviorType", DataType.Enum) as DialogBehaviorType | undefined;}
     public set BehaviorType(value) {this.SetProp("BehaviorType", DataType.Enum, value);}
@@ -1809,7 +1809,7 @@ export class Dialog extends Instance {
 }
 
 export class DialogChoice extends Instance {
-    protected constructor(className?: string) {super(className ?? "DialogChoice"); this.addClassName("DialogChoice");}
+    protected constructor() {super(); this.addClassName("DialogChoice");}
     public static new() {return new DialogChoice();}
     public get GoodbyeChoiceActive() {return this.GetProp("GoodbyeChoiceActive", DataType.Bool);}
     public set GoodbyeChoiceActive(value) {this.SetProp("GoodbyeChoiceActive", DataType.Bool, value);}
@@ -1822,63 +1822,63 @@ export class DialogChoice extends Instance {
 }
 
 export class DraftsService extends Instance {
-    protected constructor(className?: string) {super(className ?? "DraftsService", true); this.addClassName("DraftsService");}
+    protected constructor() {super(true); this.addClassName("DraftsService");}
     public static new() {return new DraftsService();}
 }
 
 export class Dragger extends Instance {
-    protected constructor(className?: string) {super(className ?? "Dragger"); this.addClassName("Dragger");}
+    protected constructor() {super(); this.addClassName("Dragger");}
     public static new() {return new Dragger();}
 }
 
 export class DraggerService extends Instance {
-    protected constructor(className?: string) {super(className ?? "DraggerService", true); this.addClassName("DraggerService");}
+    protected constructor() {super(true); this.addClassName("DraggerService");}
     public static new() {return new DraggerService();}
 }
 
 export class EditableImage extends Instance {
-    protected constructor(className?: string) {super(className ?? "EditableImage"); this.addClassName("EditableImage");}
+    protected constructor() {super(); this.addClassName("EditableImage");}
     public static new() {return new EditableImage();}
     public get Size() {return this.GetProp("Size", DataType.Vector2);}
     public set Size(value) {this.SetProp("Size", DataType.Vector2, value);}
 }
 
 export class RobloxEditableImage extends EditableImage {
-    protected constructor(className?: string) {super(className ?? "RobloxEditableImage"); this.addClassName("RobloxEditableImage");}
+    protected constructor() {super(); this.addClassName("RobloxEditableImage");}
     public static new() {return new RobloxEditableImage();}
     public get ImageDataSerialize() {return this.GetProp("ImageDataSerialize", DataType.String);}
     public set ImageDataSerialize(value) {this.SetProp("ImageDataSerialize", DataType.String, value);}
 }
 
 export class EngineAPICloudProcessingService extends Instance {
-    protected constructor(className?: string) {super(className ?? "EngineAPICloudProcessingService", true); this.addClassName("EngineAPICloudProcessingService");}
+    protected constructor() {super(true); this.addClassName("EngineAPICloudProcessingService");}
     public static new() {return new EngineAPICloudProcessingService();}
 }
 
 export class EulerRotationCurve extends Instance {
-    protected constructor(className?: string) {super(className ?? "EulerRotationCurve"); this.addClassName("EulerRotationCurve");}
+    protected constructor() {super(); this.addClassName("EulerRotationCurve");}
     public static new() {return new EulerRotationCurve();}
     public get RotationOrder() {return this.GetProp("RotationOrder", DataType.Enum) as RotationOrder | undefined;}
     public set RotationOrder(value) {this.SetProp("RotationOrder", DataType.Enum, value);}
 }
 
 export class EventIngestService extends Instance {
-    protected constructor(className?: string) {super(className ?? "EventIngestService", true); this.addClassName("EventIngestService");}
+    protected constructor() {super(true); this.addClassName("EventIngestService");}
     public static new() {return new EventIngestService();}
 }
 
 export class ExampleService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ExampleService", true); this.addClassName("ExampleService");}
+    protected constructor() {super(true); this.addClassName("ExampleService");}
     public static new() {return new ExampleService();}
 }
 
 export class ExperienceAuthService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ExperienceAuthService", true); this.addClassName("ExperienceAuthService");}
+    protected constructor() {super(true); this.addClassName("ExperienceAuthService");}
     public static new() {return new ExperienceAuthService();}
 }
 
 export class ExperienceInviteOptions extends Instance {
-    protected constructor(className?: string) {super(className ?? "ExperienceInviteOptions"); this.addClassName("ExperienceInviteOptions");}
+    protected constructor() {super(); this.addClassName("ExperienceInviteOptions");}
     public static new() {return new ExperienceInviteOptions();}
     public get InviteMessageId() {return this.GetProp("InviteMessageId", DataType.String);}
     public set InviteMessageId(value) {this.SetProp("InviteMessageId", DataType.String, value);}
@@ -1891,22 +1891,22 @@ export class ExperienceInviteOptions extends Instance {
 }
 
 export class ExperienceNotificationService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ExperienceNotificationService", true); this.addClassName("ExperienceNotificationService");}
+    protected constructor() {super(true); this.addClassName("ExperienceNotificationService");}
     public static new() {return new ExperienceNotificationService();}
 }
 
 export class ExperienceService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ExperienceService", true); this.addClassName("ExperienceService");}
+    protected constructor() {super(true); this.addClassName("ExperienceService");}
     public static new() {return new ExperienceService();}
 }
 
 export class ExperienceStateCaptureService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ExperienceStateCaptureService", true); this.addClassName("ExperienceStateCaptureService");}
+    protected constructor() {super(true); this.addClassName("ExperienceStateCaptureService");}
     public static new() {return new ExperienceStateCaptureService();}
 }
 
 export class Explosion extends Instance {
-    protected constructor(className?: string) {super(className ?? "Explosion"); this.addClassName("Explosion");}
+    protected constructor() {super(); this.addClassName("Explosion");}
     public static new() {return new Explosion();}
     public get BlastPressure() {return this.GetProp("BlastPressure", DataType.Float32);}
     public set BlastPressure(value) {this.SetProp("BlastPressure", DataType.Float32, value);}
@@ -1925,23 +1925,23 @@ export class Explosion extends Instance {
 }
 
 export class FaceAnimatorService extends Instance {
-    protected constructor(className?: string) {super(className ?? "FaceAnimatorService", true); this.addClassName("FaceAnimatorService");}
+    protected constructor() {super(true); this.addClassName("FaceAnimatorService");}
     public static new() {return new FaceAnimatorService();}
 }
 
 export class FaceControls extends Instance {
-    protected constructor(className?: string) {super(className ?? "FaceControls"); this.addClassName("FaceControls");}
+    protected constructor() {super(); this.addClassName("FaceControls");}
     public static new() {return new FaceControls();}
 }
 
 export abstract class FaceInstance extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("FaceInstance");}
+    protected constructor() {super(); this.addClassName("FaceInstance");}
     public get Face() {return this.GetProp("Face", DataType.Enum) as NormalId | undefined;}
     public set Face(value) {this.SetProp("Face", DataType.Enum, value);}
 }
 
 export class Decal extends FaceInstance {
-    protected constructor(className?: string) {super(className ?? "Decal"); this.addClassName("Decal");}
+    protected constructor() {super(); this.addClassName("Decal");}
     public static new() {return new Decal();}
     public get Color3() {return this.GetProp("Color3", DataType.Color3);}
     public set Color3(value) {this.SetProp("Color3", DataType.Color3, value);}
@@ -1962,7 +1962,7 @@ export class Decal extends FaceInstance {
 }
 
 export class Texture extends Decal {
-    protected constructor(className?: string) {super(className ?? "Texture"); this.addClassName("Texture");}
+    protected constructor() {super(); this.addClassName("Texture");}
     public static new() {return new Texture();}
     public get OffsetStudsU() {return this.GetProp("OffsetStudsU", DataType.Float32);}
     public set OffsetStudsU(value) {this.SetProp("OffsetStudsU", DataType.Float32, value);}
@@ -1975,19 +1975,19 @@ export class Texture extends Decal {
 }
 
 export class FacialAnimationRecordingService extends Instance {
-    protected constructor(className?: string) {super(className ?? "FacialAnimationRecordingService", true); this.addClassName("FacialAnimationRecordingService");}
+    protected constructor() {super(true); this.addClassName("FacialAnimationRecordingService");}
     public static new() {return new FacialAnimationRecordingService();}
 }
 
 export class FacialAnimationStreamingServiceV2 extends Instance {
-    protected constructor(className?: string) {super(className ?? "FacialAnimationStreamingServiceV2", true); this.addClassName("FacialAnimationStreamingServiceV2");}
+    protected constructor() {super(true); this.addClassName("FacialAnimationStreamingServiceV2");}
     public static new() {return new FacialAnimationStreamingServiceV2();}
     public get ServiceState() {return this.GetProp("ServiceState", DataType.Int32);}
     public set ServiceState(value) {this.SetProp("ServiceState", DataType.Int32, value);}
 }
 
 export abstract class Feature extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("Feature");}
+    protected constructor() {super(); this.addClassName("Feature");}
     public get FaceId() {return this.GetProp("FaceId", DataType.Enum) as NormalId | undefined;}
     public set FaceId(value) {this.SetProp("FaceId", DataType.Enum, value);}
     public get InOut() {return this.GetProp("InOut", DataType.Enum) as InOut | undefined;}
@@ -1999,17 +1999,17 @@ export abstract class Feature extends Instance {
 }
 
 export class Hole extends Feature {
-    protected constructor(className?: string) {super(className ?? "Hole"); this.addClassName("Hole");}
+    protected constructor() {super(); this.addClassName("Hole");}
     public static new() {return new Hole();}
 }
 
 export class MotorFeature extends Feature {
-    protected constructor(className?: string) {super(className ?? "MotorFeature"); this.addClassName("MotorFeature");}
+    protected constructor() {super(); this.addClassName("MotorFeature");}
     public static new() {return new MotorFeature();}
 }
 
 export class Fire extends Instance {
-    protected constructor(className?: string) {super(className ?? "Fire"); this.addClassName("Fire");}
+    protected constructor() {super(); this.addClassName("Fire");}
     public static new() {return new Fire();}
     public get Color() {return this.GetProp("Color", DataType.Color3);}
     public set Color(value) {this.SetProp("Color", DataType.Color3, value);}
@@ -2030,51 +2030,51 @@ export class Fire extends Instance {
 }
 
 export class FlagStandService extends Instance {
-    protected constructor(className?: string) {super(className ?? "FlagStandService", true); this.addClassName("FlagStandService");}
+    protected constructor() {super(true); this.addClassName("FlagStandService");}
     public static new() {return new FlagStandService();}
 }
 
 export class FloatCurve extends Instance {
-    protected constructor(className?: string) {super(className ?? "FloatCurve"); this.addClassName("FloatCurve");}
+    protected constructor() {super(); this.addClassName("FloatCurve");}
     public static new() {return new FloatCurve();}
     public get ValuesAndTimes() {return this.GetProp("ValuesAndTimes", DataType.String);}
     public set ValuesAndTimes(value) {this.SetProp("ValuesAndTimes", DataType.String, value);}
 }
 
 export class FlyweightService extends Instance {
-    protected constructor(className?: string) {super(className ?? "FlyweightService", true); this.addClassName("FlyweightService");}
+    protected constructor() {super(true); this.addClassName("FlyweightService");}
     public static new() {return new FlyweightService();}
 }
 
 export class CSGDictionaryService extends FlyweightService {
-    protected constructor(className?: string) {super(className ?? "CSGDictionaryService"); this.addClassName("CSGDictionaryService");}
+    protected constructor() {super(); this.addClassName("CSGDictionaryService");}
     public static new() {return new CSGDictionaryService();}
 }
 
 export class NonReplicatedCSGDictionaryService extends FlyweightService {
-    protected constructor(className?: string) {super(className ?? "NonReplicatedCSGDictionaryService"); this.addClassName("NonReplicatedCSGDictionaryService");}
+    protected constructor() {super(); this.addClassName("NonReplicatedCSGDictionaryService");}
     public static new() {return new NonReplicatedCSGDictionaryService();}
 }
 
 export class Folder extends Instance {
-    protected constructor(className?: string) {super(className ?? "Folder"); this.addClassName("Folder");}
+    protected constructor() {super(); this.addClassName("Folder");}
     public static new() {return new Folder();}
 }
 
 export class ForceField extends Instance {
-    protected constructor(className?: string) {super(className ?? "ForceField"); this.addClassName("ForceField");}
+    protected constructor() {super(); this.addClassName("ForceField");}
     public static new() {return new ForceField();}
     public get Visible() {return this.GetProp("Visible", DataType.Bool);}
     public set Visible(value) {this.SetProp("Visible", DataType.Bool, value);}
 }
 
 export class FriendService extends Instance {
-    protected constructor(className?: string) {super(className ?? "FriendService", true); this.addClassName("FriendService");}
+    protected constructor() {super(true); this.addClassName("FriendService");}
     public static new() {return new FriendService();}
 }
 
 export class FunctionalTest extends Instance {
-    protected constructor(className?: string) {super(className ?? "FunctionalTest"); this.addClassName("FunctionalTest");}
+    protected constructor() {super(); this.addClassName("FunctionalTest");}
     public static new() {return new FunctionalTest();}
     public get Description() {return this.GetProp("Description", DataType.String);}
     public set Description(value) {this.SetProp("Description", DataType.String, value);}
@@ -2083,29 +2083,29 @@ export class FunctionalTest extends Instance {
 }
 
 export class GamePassService extends Instance {
-    protected constructor(className?: string) {super(className ?? "GamePassService", true); this.addClassName("GamePassService");}
+    protected constructor() {super(true); this.addClassName("GamePassService");}
     public static new() {return new GamePassService();}
 }
 
 export class GamepadService extends Instance {
-    protected constructor(className?: string) {super(className ?? "GamepadService", true); this.addClassName("GamepadService");}
+    protected constructor() {super(true); this.addClassName("GamepadService");}
     public static new() {return new GamepadService();}
     public get GamepadCursorEnabled() {return this.GetProp("GamepadCursorEnabled", DataType.Bool);}
     public set GamepadCursorEnabled(value) {this.SetProp("GamepadCursorEnabled", DataType.Bool, value);}
 }
 
 export class Geometry extends Instance {
-    protected constructor(className?: string) {super(className ?? "Geometry", true); this.addClassName("Geometry");}
+    protected constructor() {super(true); this.addClassName("Geometry");}
     public static new() {return new Geometry();}
 }
 
 export class GeometryService extends Instance {
-    protected constructor(className?: string) {super(className ?? "GeometryService", true); this.addClassName("GeometryService");}
+    protected constructor() {super(true); this.addClassName("GeometryService");}
     public static new() {return new GeometryService();}
 }
 
 export class GetTextBoundsParams extends Instance {
-    protected constructor(className?: string) {super(className ?? "GetTextBoundsParams"); this.addClassName("GetTextBoundsParams");}
+    protected constructor() {super(); this.addClassName("GetTextBoundsParams");}
     public static new() {return new GetTextBoundsParams();}
     public get Font() {return this.GetProp("Font", DataType.Font);}
     public set Font(value) {this.SetProp("Font", DataType.Font, value);}
@@ -2118,27 +2118,27 @@ export class GetTextBoundsParams extends Instance {
 }
 
 export abstract class GlobalDataStore extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("GlobalDataStore");}
+    protected constructor() {super(); this.addClassName("GlobalDataStore");}
 }
 
 export class GoogleAnalyticsConfiguration extends Instance {
-    protected constructor(className?: string) {super(className ?? "GoogleAnalyticsConfiguration", true); this.addClassName("GoogleAnalyticsConfiguration");}
+    protected constructor() {super(true); this.addClassName("GoogleAnalyticsConfiguration");}
     public static new() {return new GoogleAnalyticsConfiguration();}
     public get GaID() {return this.GetProp("gaID", DataType.String);}
     public set GaID(value) {this.SetProp("gaID", DataType.String, value);}
 }
 
 export class GroupService extends Instance {
-    protected constructor(className?: string) {super(className ?? "GroupService", true); this.addClassName("GroupService");}
+    protected constructor() {super(true); this.addClassName("GroupService");}
     public static new() {return new GroupService();}
 }
 
 export abstract class GuiBase extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("GuiBase");}
+    protected constructor() {super(); this.addClassName("GuiBase");}
 }
 
 export abstract class GuiBase2d extends GuiBase {
-    protected constructor(className: string) {super(className); this.addClassName("GuiBase2d");}
+    protected constructor() {super(); this.addClassName("GuiBase2d");}
     public get AutoLocalize() {return this.GetProp("AutoLocalize", DataType.Bool);}
     public set AutoLocalize(value) {this.SetProp("AutoLocalize", DataType.Bool, value);}
     /**@deprecated Deprecated by Roblox*/
@@ -2160,7 +2160,7 @@ export abstract class GuiBase2d extends GuiBase {
 }
 
 export abstract class GuiObject extends GuiBase2d {
-    protected constructor(className: string) {super(className); this.addClassName("GuiObject");}
+    protected constructor() {super(); this.addClassName("GuiObject");}
     public get Active() {return this.GetProp("Active", DataType.Bool);}
     public set Active(value) {this.SetProp("Active", DataType.Bool, value);}
     public get AnchorPoint() {return this.GetProp("AnchorPoint", DataType.Vector2);}
@@ -2224,7 +2224,7 @@ export abstract class GuiObject extends GuiBase2d {
 }
 
 export class CanvasGroup extends GuiObject {
-    protected constructor(className?: string) {super(className ?? "CanvasGroup"); this.addClassName("CanvasGroup");}
+    protected constructor() {super(); this.addClassName("CanvasGroup");}
     public static new() {return new CanvasGroup();}
     public get GroupColor3() {return this.GetProp("GroupColor3", DataType.Color3);}
     public set GroupColor3(value) {this.SetProp("GroupColor3", DataType.Color3, value);}
@@ -2233,14 +2233,14 @@ export class CanvasGroup extends GuiObject {
 }
 
 export class Frame extends GuiObject {
-    protected constructor(className?: string) {super(className ?? "Frame"); this.addClassName("Frame");}
+    protected constructor() {super(); this.addClassName("Frame");}
     public static new() {return new Frame();}
     public get Style() {return this.GetProp("Style", DataType.Enum) as FrameStyle | undefined;}
     public set Style(value) {this.SetProp("Style", DataType.Enum, value);}
 }
 
 export abstract class GuiButton extends GuiObject {
-    protected constructor(className: string) {super(className); this.addClassName("GuiButton");}
+    protected constructor() {super(); this.addClassName("GuiButton");}
     public get AutoButtonColor() {return this.GetProp("AutoButtonColor", DataType.Bool);}
     public set AutoButtonColor(value) {this.SetProp("AutoButtonColor", DataType.Bool, value);}
     public get Modal() {return this.GetProp("Modal", DataType.Bool);}
@@ -2252,7 +2252,7 @@ export abstract class GuiButton extends GuiObject {
 }
 
 export class ImageButton extends GuiButton {
-    protected constructor(className?: string) {super(className ?? "ImageButton"); this.addClassName("ImageButton");}
+    protected constructor() {super(); this.addClassName("ImageButton");}
     public static new() {return new ImageButton();}
     public get HoverImage() {return this.GetProp("HoverImage", DataType.String);}
     public set HoverImage(value) {this.SetProp("HoverImage", DataType.String, value);}
@@ -2281,7 +2281,7 @@ export class ImageButton extends GuiButton {
 }
 
 export class TextButton extends GuiButton {
-    protected constructor(className?: string) {super(className ?? "TextButton"); this.addClassName("TextButton");}
+    protected constructor() {super(); this.addClassName("TextButton");}
     public static new() {return new TextButton();}
     public get FontFace() {return this.GetProp("FontFace", DataType.Font);}
     public set FontFace(value) {this.SetProp("FontFace", DataType.Font, value);}
@@ -2334,11 +2334,11 @@ export class TextButton extends GuiButton {
 }
 
 export abstract class GuiLabel extends GuiObject {
-    protected constructor(className: string) {super(className); this.addClassName("GuiLabel");}
+    protected constructor() {super(); this.addClassName("GuiLabel");}
 }
 
 export class ImageLabel extends GuiLabel {
-    protected constructor(className?: string) {super(className ?? "ImageLabel"); this.addClassName("ImageLabel");}
+    protected constructor() {super(); this.addClassName("ImageLabel");}
     public static new() {return new ImageLabel();}
     public get Image() {return this.GetProp("Image", DataType.String);}
     public set Image(value) {this.SetProp("Image", DataType.String, value);}
@@ -2363,7 +2363,7 @@ export class ImageLabel extends GuiLabel {
 }
 
 export class TextLabel extends GuiLabel {
-    protected constructor(className?: string) {super(className ?? "TextLabel"); this.addClassName("TextLabel");}
+    protected constructor() {super(); this.addClassName("TextLabel");}
     public static new() {return new TextLabel();}
     public get FontFace() {return this.GetProp("FontFace", DataType.Font);}
     public set FontFace(value) {this.SetProp("FontFace", DataType.Font, value);}
@@ -2416,7 +2416,7 @@ export class TextLabel extends GuiLabel {
 }
 
 export class ScrollingFrame extends GuiObject {
-    protected constructor(className?: string) {super(className ?? "ScrollingFrame"); this.addClassName("ScrollingFrame");}
+    protected constructor() {super(); this.addClassName("ScrollingFrame");}
     public static new() {return new ScrollingFrame();}
     public get AutomaticCanvasSize() {return this.GetProp("AutomaticCanvasSize", DataType.Enum) as AutomaticSize | undefined;}
     public set AutomaticCanvasSize(value) {this.SetProp("AutomaticCanvasSize", DataType.Enum, value);}
@@ -2451,7 +2451,7 @@ export class ScrollingFrame extends GuiObject {
 }
 
 export class TextBox extends GuiObject {
-    protected constructor(className?: string) {super(className ?? "TextBox"); this.addClassName("TextBox");}
+    protected constructor() {super(); this.addClassName("TextBox");}
     public static new() {return new TextBox();}
     public get ClearTextOnFocus() {return this.GetProp("ClearTextOnFocus", DataType.Bool);}
     public set ClearTextOnFocus(value) {this.SetProp("ClearTextOnFocus", DataType.Bool, value);}
@@ -2516,7 +2516,7 @@ export class TextBox extends GuiObject {
 }
 
 export class VideoFrame extends GuiObject {
-    protected constructor(className?: string) {super(className ?? "VideoFrame"); this.addClassName("VideoFrame");}
+    protected constructor() {super(); this.addClassName("VideoFrame");}
     public static new() {return new VideoFrame();}
     public get Looped() {return this.GetProp("Looped", DataType.Bool);}
     public set Looped(value) {this.SetProp("Looped", DataType.Bool, value);}
@@ -2531,7 +2531,7 @@ export class VideoFrame extends GuiObject {
 }
 
 export class ViewportFrame extends GuiObject {
-    protected constructor(className?: string) {super(className ?? "ViewportFrame"); this.addClassName("ViewportFrame");}
+    protected constructor() {super(); this.addClassName("ViewportFrame");}
     public static new() {return new ViewportFrame();}
     public get Ambient() {return this.GetProp("Ambient", DataType.Color3);}
     public set Ambient(value) {this.SetProp("Ambient", DataType.Color3, value);}
@@ -2550,7 +2550,7 @@ export class ViewportFrame extends GuiObject {
 }
 
 export abstract class LayerCollector extends GuiBase2d {
-    protected constructor(className: string) {super(className); this.addClassName("LayerCollector");}
+    protected constructor() {super(); this.addClassName("LayerCollector");}
     public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
     public get ResetOnSpawn() {return this.GetProp("ResetOnSpawn", DataType.Bool);}
@@ -2560,7 +2560,7 @@ export abstract class LayerCollector extends GuiBase2d {
 }
 
 export class BillboardGui extends LayerCollector {
-    protected constructor(className?: string) {super(className ?? "BillboardGui"); this.addClassName("BillboardGui");}
+    protected constructor() {super(); this.addClassName("BillboardGui");}
     public static new() {return new BillboardGui();}
     public get Active() {return this.GetProp("Active", DataType.Bool);}
     public set Active(value) {this.SetProp("Active", DataType.Bool, value);}
@@ -2599,13 +2599,13 @@ export class BillboardGui extends LayerCollector {
 }
 
 export abstract class PluginGui extends LayerCollector {
-    protected constructor(className: string) {super(className); this.addClassName("PluginGui");}
+    protected constructor() {super(); this.addClassName("PluginGui");}
     public get Title() {return this.GetProp("Title", DataType.String);}
     public set Title(value) {this.SetProp("Title", DataType.String, value);}
 }
 
 export class ScreenGui extends LayerCollector {
-    protected constructor(className?: string) {super(className ?? "ScreenGui"); this.addClassName("ScreenGui");}
+    protected constructor() {super(); this.addClassName("ScreenGui");}
     public static new() {return new ScreenGui();}
     public get ClipToDeviceSafeArea() {return this.GetProp("ClipToDeviceSafeArea", DataType.Bool);}
     public set ClipToDeviceSafeArea(value) {this.SetProp("ClipToDeviceSafeArea", DataType.Bool, value);}
@@ -2618,12 +2618,12 @@ export class ScreenGui extends LayerCollector {
 }
 
 export class GuiMain extends ScreenGui {
-    protected constructor(className?: string) {super(className ?? "GuiMain"); this.addClassName("GuiMain");}
+    protected constructor() {super(); this.addClassName("GuiMain");}
     public static new() {return new GuiMain();}
 }
 
 export abstract class SurfaceGuiBase extends LayerCollector {
-    protected constructor(className: string) {super(className); this.addClassName("SurfaceGuiBase");}
+    protected constructor() {super(); this.addClassName("SurfaceGuiBase");}
     public get Active() {return this.GetProp("Active", DataType.Bool);}
     public set Active(value) {this.SetProp("Active", DataType.Bool, value);}
     public get Adornee() {return this.GetProp("Adornee", DataType.Referent) as Instance | undefined;}
@@ -2633,7 +2633,7 @@ export abstract class SurfaceGuiBase extends LayerCollector {
 }
 
 export class AdGui extends SurfaceGuiBase {
-    protected constructor(className?: string) {super(className ?? "AdGui"); this.addClassName("AdGui");}
+    protected constructor() {super(); this.addClassName("AdGui");}
     public static new() {return new AdGui();}
     public get AdShape() {return this.GetProp("AdShape", DataType.Enum) as AdShape | undefined;}
     public set AdShape(value) {this.SetProp("AdShape", DataType.Enum, value);}
@@ -2644,7 +2644,7 @@ export class AdGui extends SurfaceGuiBase {
 }
 
 export class SurfaceGui extends SurfaceGuiBase {
-    protected constructor(className?: string) {super(className ?? "SurfaceGui"); this.addClassName("SurfaceGui");}
+    protected constructor() {super(); this.addClassName("SurfaceGui");}
     public static new() {return new SurfaceGui();}
     public get AlwaysOnTop() {return this.GetProp("AlwaysOnTop", DataType.Bool);}
     public set AlwaysOnTop(value) {this.SetProp("AlwaysOnTop", DataType.Bool, value);}
@@ -2669,7 +2669,7 @@ export class SurfaceGui extends SurfaceGuiBase {
 }
 
 export abstract class GuiBase3d extends GuiBase {
-    protected constructor(className: string) {super(className); this.addClassName("GuiBase3d");}
+    protected constructor() {super(); this.addClassName("GuiBase3d");}
     /**@deprecated Deprecated by Roblox*/
     public get Color() {return this.GetProp("Color", DataType.BrickColor);}
     /**@deprecated Deprecated by Roblox*/
@@ -2683,7 +2683,7 @@ export abstract class GuiBase3d extends GuiBase {
 }
 
 export class FloorWire extends GuiBase3d {
-    protected constructor(className?: string) {super(className ?? "FloorWire"); this.addClassName("FloorWire");}
+    protected constructor() {super(); this.addClassName("FloorWire");}
     public static new() {return new FloorWire();}
     public get CycleOffset() {return this.GetProp("CycleOffset", DataType.Float32);}
     public set CycleOffset(value) {this.SetProp("CycleOffset", DataType.Float32, value);}
@@ -2704,13 +2704,13 @@ export class FloorWire extends GuiBase3d {
 }
 
 export abstract class InstanceAdornment extends GuiBase3d {
-    protected constructor(className: string) {super(className); this.addClassName("InstanceAdornment");}
+    protected constructor() {super(); this.addClassName("InstanceAdornment");}
     public get Adornee() {return this.GetProp("Adornee", DataType.Referent) as Instance | undefined;}
     public set Adornee(value) {this.SetProp("Adornee", DataType.Referent, value);}
 }
 
 export class SelectionBox extends InstanceAdornment {
-    protected constructor(className?: string) {super(className ?? "SelectionBox"); this.addClassName("SelectionBox");}
+    protected constructor() {super(); this.addClassName("SelectionBox");}
     public static new() {return new SelectionBox();}
     public get LineThickness() {return this.GetProp("LineThickness", DataType.Float32);}
     public set LineThickness(value) {this.SetProp("LineThickness", DataType.Float32, value);}
@@ -2727,13 +2727,13 @@ export class SelectionBox extends InstanceAdornment {
 }
 
 export abstract class PVAdornment extends GuiBase3d {
-    protected constructor(className: string) {super(className); this.addClassName("PVAdornment");}
+    protected constructor() {super(); this.addClassName("PVAdornment");}
     public get Adornee() {return this.GetProp("Adornee", DataType.Referent) as PVInstance | undefined;}
     public set Adornee(value) {this.SetProp("Adornee", DataType.Referent, value);}
 }
 
 export abstract class HandleAdornment extends PVAdornment {
-    protected constructor(className: string) {super(className); this.addClassName("HandleAdornment");}
+    protected constructor() {super(); this.addClassName("HandleAdornment");}
     public get AdornCullingMode() {return this.GetProp("AdornCullingMode", DataType.Enum) as AdornCullingMode | undefined;}
     public set AdornCullingMode(value) {this.SetProp("AdornCullingMode", DataType.Enum, value);}
     public get AlwaysOnTop() {return this.GetProp("AlwaysOnTop", DataType.Bool);}
@@ -2747,14 +2747,14 @@ export abstract class HandleAdornment extends PVAdornment {
 }
 
 export class BoxHandleAdornment extends HandleAdornment {
-    protected constructor(className?: string) {super(className ?? "BoxHandleAdornment"); this.addClassName("BoxHandleAdornment");}
+    protected constructor() {super(); this.addClassName("BoxHandleAdornment");}
     public static new() {return new BoxHandleAdornment();}
     public get Size() {return this.GetProp("Size", DataType.Vector3);}
     public set Size(value) {this.SetProp("Size", DataType.Vector3, value);}
 }
 
 export class ConeHandleAdornment extends HandleAdornment {
-    protected constructor(className?: string) {super(className ?? "ConeHandleAdornment"); this.addClassName("ConeHandleAdornment");}
+    protected constructor() {super(); this.addClassName("ConeHandleAdornment");}
     public static new() {return new ConeHandleAdornment();}
     public get Height() {return this.GetProp("Height", DataType.Float32);}
     public set Height(value) {this.SetProp("Height", DataType.Float32, value);}
@@ -2763,7 +2763,7 @@ export class ConeHandleAdornment extends HandleAdornment {
 }
 
 export class CylinderHandleAdornment extends HandleAdornment {
-    protected constructor(className?: string) {super(className ?? "CylinderHandleAdornment"); this.addClassName("CylinderHandleAdornment");}
+    protected constructor() {super(); this.addClassName("CylinderHandleAdornment");}
     public static new() {return new CylinderHandleAdornment();}
     public get Angle() {return this.GetProp("Angle", DataType.Float32);}
     public set Angle(value) {this.SetProp("Angle", DataType.Float32, value);}
@@ -2776,7 +2776,7 @@ export class CylinderHandleAdornment extends HandleAdornment {
 }
 
 export class ImageHandleAdornment extends HandleAdornment {
-    protected constructor(className?: string) {super(className ?? "ImageHandleAdornment"); this.addClassName("ImageHandleAdornment");}
+    protected constructor() {super(); this.addClassName("ImageHandleAdornment");}
     public static new() {return new ImageHandleAdornment();}
     public get Image() {return this.GetProp("Image", DataType.String);}
     public set Image(value) {this.SetProp("Image", DataType.String, value);}
@@ -2785,7 +2785,7 @@ export class ImageHandleAdornment extends HandleAdornment {
 }
 
 export class LineHandleAdornment extends HandleAdornment {
-    protected constructor(className?: string) {super(className ?? "LineHandleAdornment"); this.addClassName("LineHandleAdornment");}
+    protected constructor() {super(); this.addClassName("LineHandleAdornment");}
     public static new() {return new LineHandleAdornment();}
     public get Length() {return this.GetProp("Length", DataType.Float32);}
     public set Length(value) {this.SetProp("Length", DataType.Float32, value);}
@@ -2794,26 +2794,26 @@ export class LineHandleAdornment extends HandleAdornment {
 }
 
 export class SphereHandleAdornment extends HandleAdornment {
-    protected constructor(className?: string) {super(className ?? "SphereHandleAdornment"); this.addClassName("SphereHandleAdornment");}
+    protected constructor() {super(); this.addClassName("SphereHandleAdornment");}
     public static new() {return new SphereHandleAdornment();}
     public get Radius() {return this.GetProp("Radius", DataType.Float32);}
     public set Radius(value) {this.SetProp("Radius", DataType.Float32, value);}
 }
 
 export class WireframeHandleAdornment extends HandleAdornment {
-    protected constructor(className?: string) {super(className ?? "WireframeHandleAdornment"); this.addClassName("WireframeHandleAdornment");}
+    protected constructor() {super(); this.addClassName("WireframeHandleAdornment");}
     public static new() {return new WireframeHandleAdornment();}
     public get Scale() {return this.GetProp("Scale", DataType.Vector3);}
     public set Scale(value) {this.SetProp("Scale", DataType.Vector3, value);}
 }
 
 export class ParabolaAdornment extends PVAdornment {
-    protected constructor(className?: string) {super(className ?? "ParabolaAdornment"); this.addClassName("ParabolaAdornment");}
+    protected constructor() {super(); this.addClassName("ParabolaAdornment");}
     public static new() {return new ParabolaAdornment();}
 }
 
 export class SelectionSphere extends PVAdornment {
-    protected constructor(className?: string) {super(className ?? "SelectionSphere"); this.addClassName("SelectionSphere");}
+    protected constructor() {super(); this.addClassName("SelectionSphere");}
     public static new() {return new SelectionSphere();}
     /**@deprecated Deprecated by Roblox*/
     public get SurfaceColor() {return this.GetProp("SurfaceColor", DataType.BrickColor);}
@@ -2826,24 +2826,24 @@ export class SelectionSphere extends PVAdornment {
 }
 
 export abstract class PartAdornment extends GuiBase3d {
-    protected constructor(className: string) {super(className); this.addClassName("PartAdornment");}
+    protected constructor() {super(); this.addClassName("PartAdornment");}
     public get Adornee() {return this.GetProp("Adornee", DataType.Referent) as BasePart | undefined;}
     public set Adornee(value) {this.SetProp("Adornee", DataType.Referent, value);}
 }
 
 export abstract class HandlesBase extends PartAdornment {
-    protected constructor(className: string) {super(className); this.addClassName("HandlesBase");}
+    protected constructor() {super(); this.addClassName("HandlesBase");}
 }
 
 export class ArcHandles extends HandlesBase {
-    protected constructor(className?: string) {super(className ?? "ArcHandles"); this.addClassName("ArcHandles");}
+    protected constructor() {super(); this.addClassName("ArcHandles");}
     public static new() {return new ArcHandles();}
     public get Axes() {return this.GetProp("Axes", DataType.Axes);}
     public set Axes(value) {this.SetProp("Axes", DataType.Axes, value);}
 }
 
 export class Handles extends HandlesBase {
-    protected constructor(className?: string) {super(className ?? "Handles"); this.addClassName("Handles");}
+    protected constructor() {super(); this.addClassName("Handles");}
     public static new() {return new Handles();}
     public get Faces() {return this.GetProp("Faces", DataType.Faces);}
     public set Faces(value) {this.SetProp("Faces", DataType.Faces, value);}
@@ -2852,34 +2852,34 @@ export class Handles extends HandlesBase {
 }
 
 export class SurfaceSelection extends PartAdornment {
-    protected constructor(className?: string) {super(className ?? "SurfaceSelection"); this.addClassName("SurfaceSelection");}
+    protected constructor() {super(); this.addClassName("SurfaceSelection");}
     public static new() {return new SurfaceSelection();}
     public get TargetSurface() {return this.GetProp("TargetSurface", DataType.Enum) as NormalId | undefined;}
     public set TargetSurface(value) {this.SetProp("TargetSurface", DataType.Enum, value);}
 }
 
 export abstract class SelectionLasso extends GuiBase3d {
-    protected constructor(className: string) {super(className); this.addClassName("SelectionLasso");}
+    protected constructor() {super(); this.addClassName("SelectionLasso");}
     public get Humanoid() {return this.GetProp("Humanoid", DataType.Referent) as Humanoid | undefined;}
     public set Humanoid(value) {this.SetProp("Humanoid", DataType.Referent, value);}
 }
 
 export class SelectionPartLasso extends SelectionLasso {
-    protected constructor(className?: string) {super(className ?? "SelectionPartLasso"); this.addClassName("SelectionPartLasso");}
+    protected constructor() {super(); this.addClassName("SelectionPartLasso");}
     public static new() {return new SelectionPartLasso();}
     public get Part() {return this.GetProp("Part", DataType.Referent) as BasePart | undefined;}
     public set Part(value) {this.SetProp("Part", DataType.Referent, value);}
 }
 
 export class SelectionPointLasso extends SelectionLasso {
-    protected constructor(className?: string) {super(className ?? "SelectionPointLasso"); this.addClassName("SelectionPointLasso");}
+    protected constructor() {super(); this.addClassName("SelectionPointLasso");}
     public static new() {return new SelectionPointLasso();}
     public get Point() {return this.GetProp("Point", DataType.Vector3);}
     public set Point(value) {this.SetProp("Point", DataType.Vector3, value);}
 }
 
 export class Path2D extends GuiBase {
-    protected constructor(className?: string) {super(className ?? "Path2D"); this.addClassName("Path2D");}
+    protected constructor() {super(); this.addClassName("Path2D");}
     public static new() {return new Path2D();}
     public get Color3() {return this.GetProp("Color3", DataType.Color3);}
     public set Color3(value) {this.SetProp("Color3", DataType.Color3, value);}
@@ -2896,7 +2896,7 @@ export class Path2D extends GuiBase {
 }
 
 export class GuiService extends Instance {
-    protected constructor(className?: string) {super(className ?? "GuiService", true); this.addClassName("GuiService");}
+    protected constructor() {super(true); this.addClassName("GuiService");}
     public static new() {return new GuiService();}
     public get AutoSelectGuiEnabled() {return this.GetProp("AutoSelectGuiEnabled", DataType.Bool);}
     public set AutoSelectGuiEnabled(value) {this.SetProp("AutoSelectGuiEnabled", DataType.Bool, value);}
@@ -2907,22 +2907,22 @@ export class GuiService extends Instance {
 }
 
 export class GuidRegistryService extends Instance {
-    protected constructor(className?: string) {super(className ?? "GuidRegistryService", true); this.addClassName("GuidRegistryService");}
+    protected constructor() {super(true); this.addClassName("GuidRegistryService");}
     public static new() {return new GuidRegistryService();}
 }
 
 export class HapticService extends Instance {
-    protected constructor(className?: string) {super(className ?? "HapticService", true); this.addClassName("HapticService");}
+    protected constructor() {super(true); this.addClassName("HapticService");}
     public static new() {return new HapticService();}
 }
 
 export class HeightmapImporterService extends Instance {
-    protected constructor(className?: string) {super(className ?? "HeightmapImporterService", true); this.addClassName("HeightmapImporterService");}
+    protected constructor() {super(true); this.addClassName("HeightmapImporterService");}
     public static new() {return new HeightmapImporterService();}
 }
 
 export class HiddenSurfaceRemovalAsset extends Instance {
-    protected constructor(className?: string) {super(className ?? "HiddenSurfaceRemovalAsset"); this.addClassName("HiddenSurfaceRemovalAsset");}
+    protected constructor() {super(); this.addClassName("HiddenSurfaceRemovalAsset");}
     public static new() {return new HiddenSurfaceRemovalAsset();}
     public get HSRData() {return this.GetProp("HSRData", DataType.String);}
     public set HSRData(value) {this.SetProp("HSRData", DataType.String, value);}
@@ -2931,7 +2931,7 @@ export class HiddenSurfaceRemovalAsset extends Instance {
 }
 
 export class Highlight extends Instance {
-    protected constructor(className?: string) {super(className ?? "Highlight"); this.addClassName("Highlight");}
+    protected constructor() {super(); this.addClassName("Highlight");}
     public static new() {return new Highlight();}
     public get Adornee() {return this.GetProp("Adornee", DataType.Referent) as Instance | undefined;}
     public set Adornee(value) {this.SetProp("Adornee", DataType.Referent, value);}
@@ -2950,24 +2950,24 @@ export class Highlight extends Instance {
 }
 
 export class Hopper extends Instance {
-    protected constructor(className?: string) {super(className ?? "Hopper", true); this.addClassName("Hopper");}
+    protected constructor() {super(true); this.addClassName("Hopper");}
     public static new() {return new Hopper();}
 }
 
 export class HttpRbxApiService extends Instance {
-    protected constructor(className?: string) {super(className ?? "HttpRbxApiService", true); this.addClassName("HttpRbxApiService");}
+    protected constructor() {super(true); this.addClassName("HttpRbxApiService");}
     public static new() {return new HttpRbxApiService();}
 }
 
 export class HttpService extends Instance {
-    protected constructor(className?: string) {super(className ?? "HttpService", true); this.addClassName("HttpService");}
+    protected constructor() {super(true); this.addClassName("HttpService");}
     public static new() {return new HttpService();}
     public get HttpEnabled() {return this.GetProp("HttpEnabled", DataType.Bool);}
     public set HttpEnabled(value) {this.SetProp("HttpEnabled", DataType.Bool, value);}
 }
 
 export class Humanoid extends Instance {
-    protected constructor(className?: string) {super(className ?? "Humanoid"); this.addClassName("Humanoid");}
+    protected constructor() {super(); this.addClassName("Humanoid");}
     public static new() {return new Humanoid();}
     public get AutoJumpEnabled() {return this.GetProp("AutoJumpEnabled", DataType.Bool);}
     public set AutoJumpEnabled(value) {this.SetProp("AutoJumpEnabled", DataType.Bool, value);}
@@ -3038,7 +3038,7 @@ export class Humanoid extends Instance {
 }
 
 export class HumanoidDescription extends Instance {
-    protected constructor(className?: string) {super(className ?? "HumanoidDescription"); this.addClassName("HumanoidDescription");}
+    protected constructor() {super(); this.addClassName("HumanoidDescription");}
     public static new() {return new HumanoidDescription();}
     public get AccessoryBlob() {return this.GetProp("AccessoryBlob", DataType.String);}
     public set AccessoryBlob(value) {this.SetProp("AccessoryBlob", DataType.String, value);}
@@ -3127,7 +3127,7 @@ export class HumanoidDescription extends Instance {
 }
 
 export class IKControl extends Instance {
-    protected constructor(className?: string) {super(className ?? "IKControl"); this.addClassName("IKControl");}
+    protected constructor() {super(); this.addClassName("IKControl");}
     public static new() {return new IKControl();}
     public get ChainRoot() {return this.GetProp("ChainRoot", DataType.Referent) as Instance | undefined;}
     public set ChainRoot(value) {this.SetProp("ChainRoot", DataType.Referent, value);}
@@ -3154,21 +3154,21 @@ export class IKControl extends Instance {
 }
 
 export abstract class ILegacyStudioBridge extends Instance {
-    protected constructor(className: string) {super(className, true); this.addClassName("ILegacyStudioBridge");}
+    protected constructor() {super(true); this.addClassName("ILegacyStudioBridge");}
 }
 
 export class LegacyStudioBridge extends ILegacyStudioBridge {
-    protected constructor(className?: string) {super(className ?? "LegacyStudioBridge"); this.addClassName("LegacyStudioBridge");}
+    protected constructor() {super(); this.addClassName("LegacyStudioBridge");}
     public static new() {return new LegacyStudioBridge();}
 }
 
 export class IXPService extends Instance {
-    protected constructor(className?: string) {super(className ?? "IXPService", true); this.addClassName("IXPService");}
+    protected constructor() {super(true); this.addClassName("IXPService");}
     public static new() {return new IXPService();}
 }
 
 export class IncrementalPatchBuilder extends Instance {
-    protected constructor(className?: string) {super(className ?? "IncrementalPatchBuilder", true); this.addClassName("IncrementalPatchBuilder");}
+    protected constructor() {super(true); this.addClassName("IncrementalPatchBuilder");}
     public static new() {return new IncrementalPatchBuilder();}
     public get AddPathsToBundle() {return this.GetProp("AddPathsToBundle", DataType.Bool);}
     public set AddPathsToBundle(value) {this.SetProp("AddPathsToBundle", DataType.Bool, value);}
@@ -3183,7 +3183,7 @@ export class IncrementalPatchBuilder extends Instance {
 }
 
 export class InsertService extends Instance {
-    protected constructor(className?: string) {super(className ?? "InsertService", true); this.addClassName("InsertService");}
+    protected constructor() {super(true); this.addClassName("InsertService");}
     public static new() {return new InsertService();}
     public get AllowClientInsertModels() {return this.GetProp("AllowClientInsertModels", DataType.Bool);}
     public set AllowClientInsertModels(value) {this.SetProp("AllowClientInsertModels", DataType.Bool, value);}
@@ -3194,7 +3194,7 @@ export class InsertService extends Instance {
 }
 
 export class InternalSyncItem extends Instance {
-    protected constructor(className?: string) {super(className ?? "InternalSyncItem"); this.addClassName("InternalSyncItem");}
+    protected constructor() {super(); this.addClassName("InternalSyncItem");}
     public static new() {return new InternalSyncItem();}
     public get AutoSync() {return this.GetProp("AutoSync", DataType.Bool);}
     public set AutoSync(value) {this.SetProp("AutoSync", DataType.Bool, value);}
@@ -3205,12 +3205,12 @@ export class InternalSyncItem extends Instance {
 }
 
 export class InternalSyncService extends Instance {
-    protected constructor(className?: string) {super(className ?? "InternalSyncService", true); this.addClassName("InternalSyncService");}
+    protected constructor() {super(true); this.addClassName("InternalSyncService");}
     public static new() {return new InternalSyncService();}
 }
 
 export abstract class JointInstance extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("JointInstance");}
+    protected constructor() {super(); this.addClassName("JointInstance");}
     public get C0() {return this.GetProp("C0", DataType.CFrame);}
     public set C0(value) {this.SetProp("C0", DataType.CFrame, value);}
     public get C1() {return this.GetProp("C1", DataType.CFrame);}
@@ -3224,23 +3224,23 @@ export abstract class JointInstance extends Instance {
 }
 
 export abstract class DynamicRotate extends JointInstance {
-    protected constructor(className: string) {super(className); this.addClassName("DynamicRotate");}
+    protected constructor() {super(); this.addClassName("DynamicRotate");}
     public get BaseAngle() {return this.GetProp("BaseAngle", DataType.Float32);}
     public set BaseAngle(value) {this.SetProp("BaseAngle", DataType.Float32, value);}
 }
 
 export class RotateP extends DynamicRotate {
-    protected constructor(className?: string) {super(className ?? "RotateP"); this.addClassName("RotateP");}
+    protected constructor() {super(); this.addClassName("RotateP");}
     public static new() {return new RotateP();}
 }
 
 export class RotateV extends DynamicRotate {
-    protected constructor(className?: string) {super(className ?? "RotateV"); this.addClassName("RotateV");}
+    protected constructor() {super(); this.addClassName("RotateV");}
     public static new() {return new RotateV();}
 }
 
 export class Glue extends JointInstance {
-    protected constructor(className?: string) {super(className ?? "Glue"); this.addClassName("Glue");}
+    protected constructor() {super(); this.addClassName("Glue");}
     public static new() {return new Glue();}
     public get F0() {return this.GetProp("F0", DataType.Vector3);}
     public set F0(value) {this.SetProp("F0", DataType.Vector3, value);}
@@ -3253,21 +3253,21 @@ export class Glue extends JointInstance {
 }
 
 export abstract class ManualSurfaceJointInstance extends JointInstance {
-    protected constructor(className: string) {super(className); this.addClassName("ManualSurfaceJointInstance");}
+    protected constructor() {super(); this.addClassName("ManualSurfaceJointInstance");}
 }
 
 export class ManualGlue extends ManualSurfaceJointInstance {
-    protected constructor(className?: string) {super(className ?? "ManualGlue"); this.addClassName("ManualGlue");}
+    protected constructor() {super(); this.addClassName("ManualGlue");}
     public static new() {return new ManualGlue();}
 }
 
 export class ManualWeld extends ManualSurfaceJointInstance {
-    protected constructor(className?: string) {super(className ?? "ManualWeld"); this.addClassName("ManualWeld");}
+    protected constructor() {super(); this.addClassName("ManualWeld");}
     public static new() {return new ManualWeld();}
 }
 
 export class Motor extends JointInstance {
-    protected constructor(className?: string) {super(className ?? "Motor"); this.addClassName("Motor");}
+    protected constructor() {super(); this.addClassName("Motor");}
     public static new() {return new Motor();}
     public get DesiredAngle() {return this.GetProp("DesiredAngle", DataType.Float32);}
     public set DesiredAngle(value) {this.SetProp("DesiredAngle", DataType.Float32, value);}
@@ -3276,22 +3276,22 @@ export class Motor extends JointInstance {
 }
 
 export class Motor6D extends Motor {
-    protected constructor(className?: string) {super(className ?? "Motor6D"); this.addClassName("Motor6D");}
+    protected constructor() {super(); this.addClassName("Motor6D");}
     public static new() {return new Motor6D();}
 }
 
 export class Rotate extends JointInstance {
-    protected constructor(className?: string) {super(className ?? "Rotate"); this.addClassName("Rotate");}
+    protected constructor() {super(); this.addClassName("Rotate");}
     public static new() {return new Rotate();}
 }
 
 export class Snap extends JointInstance {
-    protected constructor(className?: string) {super(className ?? "Snap"); this.addClassName("Snap");}
+    protected constructor() {super(); this.addClassName("Snap");}
     public static new() {return new Snap();}
 }
 
 export class VelocityMotor extends JointInstance {
-    protected constructor(className?: string) {super(className ?? "VelocityMotor"); this.addClassName("VelocityMotor");}
+    protected constructor() {super(); this.addClassName("VelocityMotor");}
     public static new() {return new VelocityMotor();}
     public get CurrentAngle() {return this.GetProp("CurrentAngle", DataType.Float32);}
     public set CurrentAngle(value) {this.SetProp("CurrentAngle", DataType.Float32, value);}
@@ -3304,51 +3304,51 @@ export class VelocityMotor extends JointInstance {
 }
 
 export class Weld extends JointInstance {
-    protected constructor(className?: string) {super(className ?? "Weld"); this.addClassName("Weld");}
+    protected constructor() {super(); this.addClassName("Weld");}
     public static new() {return new Weld();}
 }
 
 export class JointsService extends Instance {
-    protected constructor(className?: string) {super(className ?? "JointsService", true); this.addClassName("JointsService");}
+    protected constructor() {super(true); this.addClassName("JointsService");}
     public static new() {return new JointsService();}
 }
 
 export class KeyboardService extends Instance {
-    protected constructor(className?: string) {super(className ?? "KeyboardService", true); this.addClassName("KeyboardService");}
+    protected constructor() {super(true); this.addClassName("KeyboardService");}
     public static new() {return new KeyboardService();}
 }
 
 export class Keyframe extends Instance {
-    protected constructor(className?: string) {super(className ?? "Keyframe"); this.addClassName("Keyframe");}
+    protected constructor() {super(); this.addClassName("Keyframe");}
     public static new() {return new Keyframe();}
     public get Time() {return this.GetProp("Time", DataType.Float32);}
     public set Time(value) {this.SetProp("Time", DataType.Float32, value);}
 }
 
 export class KeyframeMarker extends Instance {
-    protected constructor(className?: string) {super(className ?? "KeyframeMarker"); this.addClassName("KeyframeMarker");}
+    protected constructor() {super(); this.addClassName("KeyframeMarker");}
     public static new() {return new KeyframeMarker();}
     public get Value() {return this.GetProp("Value", DataType.String);}
     public set Value(value) {this.SetProp("Value", DataType.String, value);}
 }
 
 export class KeyframeSequenceProvider extends Instance {
-    protected constructor(className?: string) {super(className ?? "KeyframeSequenceProvider", true); this.addClassName("KeyframeSequenceProvider");}
+    protected constructor() {super(true); this.addClassName("KeyframeSequenceProvider");}
     public static new() {return new KeyframeSequenceProvider();}
 }
 
 export class LSPFileSyncService extends Instance {
-    protected constructor(className?: string) {super(className ?? "LSPFileSyncService", true); this.addClassName("LSPFileSyncService");}
+    protected constructor() {super(true); this.addClassName("LSPFileSyncService");}
     public static new() {return new LSPFileSyncService();}
 }
 
 export class LanguageService extends Instance {
-    protected constructor(className?: string) {super(className ?? "LanguageService", true); this.addClassName("LanguageService");}
+    protected constructor() {super(true); this.addClassName("LanguageService");}
     public static new() {return new LanguageService();}
 }
 
 export abstract class Light extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("Light");}
+    protected constructor() {super(); this.addClassName("Light");}
     public get Brightness() {return this.GetProp("Brightness", DataType.Float32);}
     public set Brightness(value) {this.SetProp("Brightness", DataType.Float32, value);}
     public get Color() {return this.GetProp("Color", DataType.Color3);}
@@ -3360,14 +3360,14 @@ export abstract class Light extends Instance {
 }
 
 export class PointLight extends Light {
-    protected constructor(className?: string) {super(className ?? "PointLight"); this.addClassName("PointLight");}
+    protected constructor() {super(); this.addClassName("PointLight");}
     public static new() {return new PointLight();}
     public get Range() {return this.GetProp("Range", DataType.Float32);}
     public set Range(value) {this.SetProp("Range", DataType.Float32, value);}
 }
 
 export class SpotLight extends Light {
-    protected constructor(className?: string) {super(className ?? "SpotLight"); this.addClassName("SpotLight");}
+    protected constructor() {super(); this.addClassName("SpotLight");}
     public static new() {return new SpotLight();}
     public get Angle() {return this.GetProp("Angle", DataType.Float32);}
     public set Angle(value) {this.SetProp("Angle", DataType.Float32, value);}
@@ -3378,7 +3378,7 @@ export class SpotLight extends Light {
 }
 
 export class SurfaceLight extends Light {
-    protected constructor(className?: string) {super(className ?? "SurfaceLight"); this.addClassName("SurfaceLight");}
+    protected constructor() {super(); this.addClassName("SurfaceLight");}
     public static new() {return new SurfaceLight();}
     public get Angle() {return this.GetProp("Angle", DataType.Float32);}
     public set Angle(value) {this.SetProp("Angle", DataType.Float32, value);}
@@ -3389,7 +3389,7 @@ export class SurfaceLight extends Light {
 }
 
 export class Lighting extends Instance {
-    protected constructor(className?: string) {super(className ?? "Lighting", true); this.addClassName("Lighting");}
+    protected constructor() {super(true); this.addClassName("Lighting");}
     public static new() {return new Lighting();}
     public get Ambient() {return this.GetProp("Ambient", DataType.Color3);}
     public set Ambient(value) {this.SetProp("Ambient", DataType.Color3, value);}
@@ -3434,31 +3434,31 @@ export class Lighting extends Instance {
 }
 
 export class LiveScriptingService extends Instance {
-    protected constructor(className?: string) {super(className ?? "LiveScriptingService", true); this.addClassName("LiveScriptingService");}
+    protected constructor() {super(true); this.addClassName("LiveScriptingService");}
     public static new() {return new LiveScriptingService();}
 }
 
 export abstract class LocalStorageService extends Instance {
-    protected constructor(className: string) {super(className, true); this.addClassName("LocalStorageService");}
+    protected constructor() {super(true); this.addClassName("LocalStorageService");}
 }
 
 export class AppStorageService extends LocalStorageService {
-    protected constructor(className?: string) {super(className ?? "AppStorageService"); this.addClassName("AppStorageService");}
+    protected constructor() {super(); this.addClassName("AppStorageService");}
     public static new() {return new AppStorageService();}
 }
 
 export class UserStorageService extends LocalStorageService {
-    protected constructor(className?: string) {super(className ?? "UserStorageService"); this.addClassName("UserStorageService");}
+    protected constructor() {super(); this.addClassName("UserStorageService");}
     public static new() {return new UserStorageService();}
 }
 
 export class LocalizationService extends Instance {
-    protected constructor(className?: string) {super(className ?? "LocalizationService", true); this.addClassName("LocalizationService");}
+    protected constructor() {super(true); this.addClassName("LocalizationService");}
     public static new() {return new LocalizationService();}
 }
 
 export class LocalizationTable extends Instance {
-    protected constructor(className?: string) {super(className ?? "LocalizationTable"); this.addClassName("LocalizationTable");}
+    protected constructor() {super(); this.addClassName("LocalizationTable");}
     public static new() {return new LocalizationTable();}
     public get Contents() {return this.GetProp("Contents", DataType.String);}
     public set Contents(value) {this.SetProp("Contents", DataType.String, value);}
@@ -3471,33 +3471,33 @@ export class LocalizationTable extends Instance {
 }
 
 export class LodDataService extends Instance {
-    protected constructor(className?: string) {super(className ?? "LodDataService", true); this.addClassName("LodDataService");}
+    protected constructor() {super(true); this.addClassName("LodDataService");}
     public static new() {return new LodDataService();}
 }
 
 export class LogReporterService extends Instance {
-    protected constructor(className?: string) {super(className ?? "LogReporterService", true); this.addClassName("LogReporterService");}
+    protected constructor() {super(true); this.addClassName("LogReporterService");}
     public static new() {return new LogReporterService();}
 }
 
 export class LogService extends Instance {
-    protected constructor(className?: string) {super(className ?? "LogService", true); this.addClassName("LogService");}
+    protected constructor() {super(true); this.addClassName("LogService");}
     public static new() {return new LogService();}
 }
 
 export class LoginService extends Instance {
-    protected constructor(className?: string) {super(className ?? "LoginService", true); this.addClassName("LoginService");}
+    protected constructor() {super(true); this.addClassName("LoginService");}
     public static new() {return new LoginService();}
 }
 
 export abstract class LuaSourceContainer extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("LuaSourceContainer");}
+    protected constructor() {super(); this.addClassName("LuaSourceContainer");}
     public get ScriptGuid() {return this.GetProp("ScriptGuid", DataType.String);}
     public set ScriptGuid(value) {this.SetProp("ScriptGuid", DataType.String, value);}
 }
 
 export abstract class BaseScript extends LuaSourceContainer {
-    protected constructor(className: string) {super(className); this.addClassName("BaseScript");}
+    protected constructor() {super(); this.addClassName("BaseScript");}
     public get Disabled() {return this.GetProp("Disabled", DataType.Bool);}
     public set Disabled(value) {this.SetProp("Disabled", DataType.Bool, value);}
     /**@deprecated Deprecated by Roblox*/
@@ -3509,19 +3509,19 @@ export abstract class BaseScript extends LuaSourceContainer {
 }
 
 export class Script extends BaseScript {
-    protected constructor(className?: string) {super(className ?? "Script"); this.addClassName("Script");}
+    protected constructor() {super(); this.addClassName("Script");}
     public static new() {return new Script();}
     public get Source() {return this.GetProp("Source", DataType.String);}
     public set Source(value) {this.SetProp("Source", DataType.String, value);}
 }
 
 export class LocalScript extends Script {
-    protected constructor(className?: string) {super(className ?? "LocalScript"); this.addClassName("LocalScript");}
+    protected constructor() {super(); this.addClassName("LocalScript");}
     public static new() {return new LocalScript();}
 }
 
 export class ModuleScript extends LuaSourceContainer {
-    protected constructor(className?: string) {super(className ?? "ModuleScript"); this.addClassName("ModuleScript");}
+    protected constructor() {super(); this.addClassName("ModuleScript");}
     public static new() {return new ModuleScript();}
     /**@deprecated Deprecated by Roblox*/
     public get LinkedSource() {return this.GetProp("LinkedSource", DataType.String);}
@@ -3532,34 +3532,34 @@ export class ModuleScript extends LuaSourceContainer {
 }
 
 export class LuaWebService extends Instance {
-    protected constructor(className?: string) {super(className ?? "LuaWebService", true); this.addClassName("LuaWebService");}
+    protected constructor() {super(true); this.addClassName("LuaWebService");}
     public static new() {return new LuaWebService();}
 }
 
 export class LuauScriptAnalyzerService extends Instance {
-    protected constructor(className?: string) {super(className ?? "LuauScriptAnalyzerService", true); this.addClassName("LuauScriptAnalyzerService");}
+    protected constructor() {super(true); this.addClassName("LuauScriptAnalyzerService");}
     public static new() {return new LuauScriptAnalyzerService();}
 }
 
 export class MarkerCurve extends Instance {
-    protected constructor(className?: string) {super(className ?? "MarkerCurve"); this.addClassName("MarkerCurve");}
+    protected constructor() {super(); this.addClassName("MarkerCurve");}
     public static new() {return new MarkerCurve();}
     public get ValuesAndTimes() {return this.GetProp("ValuesAndTimes", DataType.String);}
     public set ValuesAndTimes(value) {this.SetProp("ValuesAndTimes", DataType.String, value);}
 }
 
 export class MarketplaceService extends Instance {
-    protected constructor(className?: string) {super(className ?? "MarketplaceService", true); this.addClassName("MarketplaceService");}
+    protected constructor() {super(true); this.addClassName("MarketplaceService");}
     public static new() {return new MarketplaceService();}
 }
 
 export class MaterialGenerationService extends Instance {
-    protected constructor(className?: string) {super(className ?? "MaterialGenerationService", true); this.addClassName("MaterialGenerationService");}
+    protected constructor() {super(true); this.addClassName("MaterialGenerationService");}
     public static new() {return new MaterialGenerationService();}
 }
 
 export class MaterialService extends Instance {
-    protected constructor(className?: string) {super(className ?? "MaterialService", true); this.addClassName("MaterialService");}
+    protected constructor() {super(true); this.addClassName("MaterialService");}
     public static new() {return new MaterialService();}
     public get AsphaltName() {return this.GetProp("AsphaltName", DataType.String);}
     public set AsphaltName(value) {this.SetProp("AsphaltName", DataType.String, value);}
@@ -3646,7 +3646,7 @@ export class MaterialService extends Instance {
 }
 
 export class MaterialVariant extends Instance {
-    protected constructor(className?: string) {super(className ?? "MaterialVariant"); this.addClassName("MaterialVariant");}
+    protected constructor() {super(); this.addClassName("MaterialVariant");}
     public static new() {return new MaterialVariant();}
     public get BaseMaterial() {return this.GetProp("BaseMaterial", DataType.Enum) as Material | undefined;}
     public set BaseMaterial(value) {this.SetProp("BaseMaterial", DataType.Enum, value);}
@@ -3669,44 +3669,44 @@ export class MaterialVariant extends Instance {
 }
 
 export class MemStorageService extends Instance {
-    protected constructor(className?: string) {super(className ?? "MemStorageService", true); this.addClassName("MemStorageService");}
+    protected constructor() {super(true); this.addClassName("MemStorageService");}
     public static new() {return new MemStorageService();}
 }
 
 export class MemoryStoreService extends Instance {
-    protected constructor(className?: string) {super(className ?? "MemoryStoreService", true); this.addClassName("MemoryStoreService");}
+    protected constructor() {super(true); this.addClassName("MemoryStoreService");}
     public static new() {return new MemoryStoreService();}
 }
 
 export class Message extends Instance {
-    protected constructor(className?: string) {super(className ?? "Message"); this.addClassName("Message");}
+    protected constructor() {super(); this.addClassName("Message");}
     public static new() {return new Message();}
     public get Text() {return this.GetProp("Text", DataType.String);}
     public set Text(value) {this.SetProp("Text", DataType.String, value);}
 }
 
 export class Hint extends Message {
-    protected constructor(className?: string) {super(className ?? "Hint"); this.addClassName("Hint");}
+    protected constructor() {super(); this.addClassName("Hint");}
     public static new() {return new Hint();}
 }
 
 export class MessageBusService extends Instance {
-    protected constructor(className?: string) {super(className ?? "MessageBusService", true); this.addClassName("MessageBusService");}
+    protected constructor() {super(true); this.addClassName("MessageBusService");}
     public static new() {return new MessageBusService();}
 }
 
 export class MessagingService extends Instance {
-    protected constructor(className?: string) {super(className ?? "MessagingService", true); this.addClassName("MessagingService");}
+    protected constructor() {super(true); this.addClassName("MessagingService");}
     public static new() {return new MessagingService();}
 }
 
 export class MetaBreakpointManager extends Instance {
-    protected constructor(className?: string) {super(className ?? "MetaBreakpointManager", true); this.addClassName("MetaBreakpointManager");}
+    protected constructor() {super(true); this.addClassName("MetaBreakpointManager");}
     public static new() {return new MetaBreakpointManager();}
 }
 
 export abstract class Mouse extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("Mouse");}
+    protected constructor() {super(); this.addClassName("Mouse");}
     public get Icon() {return this.GetProp("Icon", DataType.String);}
     public set Icon(value) {this.SetProp("Icon", DataType.String, value);}
     public get TargetFilter() {return this.GetProp("TargetFilter", DataType.Referent) as Instance | undefined;}
@@ -3714,30 +3714,30 @@ export abstract class Mouse extends Instance {
 }
 
 export class MouseService extends Instance {
-    protected constructor(className?: string) {super(className ?? "MouseService", true); this.addClassName("MouseService");}
+    protected constructor() {super(true); this.addClassName("MouseService");}
     public static new() {return new MouseService();}
 }
 
 export abstract class NetworkPeer extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("NetworkPeer");}
+    protected constructor() {super(); this.addClassName("NetworkPeer");}
 }
 
 export class NetworkClient extends NetworkPeer {
-    protected constructor(className?: string) {super(className ?? "NetworkClient"); this.addClassName("NetworkClient");}
+    protected constructor() {super(); this.addClassName("NetworkClient");}
     public static new() {return new NetworkClient();}
 }
 
 export class NetworkServer extends NetworkPeer {
-    protected constructor(className?: string) {super(className ?? "NetworkServer"); this.addClassName("NetworkServer");}
+    protected constructor() {super(); this.addClassName("NetworkServer");}
     public static new() {return new NetworkServer();}
 }
 
 export abstract class NetworkReplicator extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("NetworkReplicator");}
+    protected constructor() {super(); this.addClassName("NetworkReplicator");}
 }
 
 export class NetworkSettings extends Instance {
-    protected constructor(className?: string) {super(className ?? "NetworkSettings", true); this.addClassName("NetworkSettings");}
+    protected constructor() {super(true); this.addClassName("NetworkSettings");}
     public static new() {return new NetworkSettings();}
     public get HttpProxyEnabled() {return this.GetProp("HttpProxyEnabled", DataType.Bool);}
     public set HttpProxyEnabled(value) {this.SetProp("HttpProxyEnabled", DataType.Bool, value);}
@@ -3760,7 +3760,7 @@ export class NetworkSettings extends Instance {
 }
 
 export class NoCollisionConstraint extends Instance {
-    protected constructor(className?: string) {super(className ?? "NoCollisionConstraint"); this.addClassName("NoCollisionConstraint");}
+    protected constructor() {super(); this.addClassName("NoCollisionConstraint");}
     public static new() {return new NoCollisionConstraint();}
     public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
@@ -3771,7 +3771,7 @@ export class NoCollisionConstraint extends Instance {
 }
 
 export class Noise extends Instance {
-    protected constructor(className?: string) {super(className ?? "Noise"); this.addClassName("Noise");}
+    protected constructor() {super(); this.addClassName("Noise");}
     public static new() {return new Noise();}
     public get NoiseType() {return this.GetProp("NoiseType", DataType.Enum) as NoiseType | undefined;}
     public set NoiseType(value) {this.SetProp("NoiseType", DataType.Enum, value);}
@@ -3780,31 +3780,31 @@ export class Noise extends Instance {
 }
 
 export class NotificationService extends Instance {
-    protected constructor(className?: string) {super(className ?? "NotificationService", true); this.addClassName("NotificationService");}
+    protected constructor() {super(true); this.addClassName("NotificationService");}
     public static new() {return new NotificationService();}
 }
 
 export class OmniRecommendationsService extends Instance {
-    protected constructor(className?: string) {super(className ?? "OmniRecommendationsService", true); this.addClassName("OmniRecommendationsService");}
+    protected constructor() {super(true); this.addClassName("OmniRecommendationsService");}
     public static new() {return new OmniRecommendationsService();}
 }
 
 export class OpenCloudService extends Instance {
-    protected constructor(className?: string) {super(className ?? "OpenCloudService", true); this.addClassName("OpenCloudService");}
+    protected constructor() {super(true); this.addClassName("OpenCloudService");}
     public static new() {return new OpenCloudService();}
 }
 
 export class OperationGraph extends Instance {
-    protected constructor(className?: string) {super(className ?? "OperationGraph"); this.addClassName("OperationGraph");}
+    protected constructor() {super(); this.addClassName("OperationGraph");}
     public static new() {return new OperationGraph();}
 }
 
 export abstract class PVInstance extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("PVInstance");}
+    protected constructor() {super(); this.addClassName("PVInstance");}
 }
 
 export abstract class BasePart extends PVInstance {
-    protected constructor(className: string) {super(className); this.addClassName("BasePart");}
+    protected constructor() {super(); this.addClassName("BasePart");}
     public get Anchored() {return this.GetProp("Anchored", DataType.Bool);}
     public set Anchored(value) {this.SetProp("Anchored", DataType.Bool, value);}
     /**@deprecated Deprecated by Roblox*/
@@ -3954,12 +3954,12 @@ export abstract class BasePart extends PVInstance {
 }
 
 export class CornerWedgePart extends BasePart {
-    protected constructor(className?: string) {super(className ?? "CornerWedgePart"); this.addClassName("CornerWedgePart");}
+    protected constructor() {super(); this.addClassName("CornerWedgePart");}
     public static new() {return new CornerWedgePart();}
 }
 
 export abstract class FormFactorPart extends BasePart {
-    protected constructor(className: string) {super(className); this.addClassName("FormFactorPart");}
+    protected constructor() {super(); this.addClassName("FormFactorPart");}
     /**@deprecated Deprecated by Roblox*/
     public get FormFactor() {return this.GetProp("FormFactor", DataType.Enum) as FormFactor | undefined;}
     /**@deprecated Deprecated by Roblox*/
@@ -3973,28 +3973,28 @@ export abstract class FormFactorPart extends BasePart {
 }
 
 export class Part extends FormFactorPart {
-    protected constructor(className?: string) {super(className ?? "Part"); this.addClassName("Part");}
+    protected constructor() {super(); this.addClassName("Part");}
     public static new() {return new Part();}
     public get Shape() {return this.GetProp("shape", DataType.Enum) as PartType | undefined;}
     public set Shape(value) {this.SetProp("shape", DataType.Enum, value);}
 }
 
 export class FlagStand extends Part {
-    protected constructor(className?: string) {super(className ?? "FlagStand"); this.addClassName("FlagStand");}
+    protected constructor() {super(); this.addClassName("FlagStand");}
     public static new() {return new FlagStand();}
     public get TeamColor() {return this.GetProp("TeamColor", DataType.BrickColor);}
     public set TeamColor(value) {this.SetProp("TeamColor", DataType.BrickColor, value);}
 }
 
 export class Seat extends Part {
-    protected constructor(className?: string) {super(className ?? "Seat"); this.addClassName("Seat");}
+    protected constructor() {super(); this.addClassName("Seat");}
     public static new() {return new Seat();}
     public get Disabled() {return this.GetProp("Disabled", DataType.Bool);}
     public set Disabled(value) {this.SetProp("Disabled", DataType.Bool, value);}
 }
 
 export class SkateboardPlatform extends Part {
-    protected constructor(className?: string) {super(className ?? "SkateboardPlatform"); this.addClassName("SkateboardPlatform");}
+    protected constructor() {super(); this.addClassName("SkateboardPlatform");}
     public static new() {return new SkateboardPlatform();}
     public get Steer() {return this.GetProp("Steer", DataType.Int32);}
     public set Steer(value) {this.SetProp("Steer", DataType.Int32, value);}
@@ -4005,7 +4005,7 @@ export class SkateboardPlatform extends Part {
 }
 
 export class SpawnLocation extends Part {
-    protected constructor(className?: string) {super(className ?? "SpawnLocation"); this.addClassName("SpawnLocation");}
+    protected constructor() {super(); this.addClassName("SpawnLocation");}
     public static new() {return new SpawnLocation();}
     public get AllowTeamChangeOnTouch() {return this.GetProp("AllowTeamChangeOnTouch", DataType.Bool);}
     public set AllowTeamChangeOnTouch(value) {this.SetProp("AllowTeamChangeOnTouch", DataType.Bool, value);}
@@ -4020,12 +4020,12 @@ export class SpawnLocation extends Part {
 }
 
 export class WedgePart extends FormFactorPart {
-    protected constructor(className?: string) {super(className ?? "WedgePart"); this.addClassName("WedgePart");}
+    protected constructor() {super(); this.addClassName("WedgePart");}
     public static new() {return new WedgePart();}
 }
 
 export class Terrain extends BasePart {
-    protected constructor(className?: string) {super(className ?? "Terrain"); this.addClassName("Terrain");}
+    protected constructor() {super(); this.addClassName("Terrain");}
     public static new() {return new Terrain();}
     public get AcquisitionMethod() {return this.GetProp("AcquisitionMethod", DataType.Enum) as TerrainAcquisitionMethod | undefined;}
     public set AcquisitionMethod(value) {this.SetProp("AcquisitionMethod", DataType.Enum, value);}
@@ -4056,7 +4056,7 @@ export class Terrain extends BasePart {
 }
 
 export abstract class TriangleMeshPart extends BasePart {
-    protected constructor(className: string) {super(className); this.addClassName("TriangleMeshPart");}
+    protected constructor() {super(); this.addClassName("TriangleMeshPart");}
     public get AeroMeshData() {return this.GetProp("AeroMeshData", DataType.SharedString);}
     public set AeroMeshData(value) {this.SetProp("AeroMeshData", DataType.SharedString, value);}
     public get FluidFidelityInternal() {return this.GetProp("FluidFidelityInternal", DataType.Enum) as FluidFidelity | undefined;}
@@ -4066,7 +4066,7 @@ export abstract class TriangleMeshPart extends BasePart {
 }
 
 export class MeshPart extends TriangleMeshPart {
-    protected constructor(className?: string) {super(className ?? "MeshPart"); this.addClassName("MeshPart");}
+    protected constructor() {super(); this.addClassName("MeshPart");}
     public static new() {return new MeshPart();}
     public get DoubleSided() {return this.GetProp("DoubleSided", DataType.Bool);}
     public set DoubleSided(value) {this.SetProp("DoubleSided", DataType.Bool, value);}
@@ -4095,7 +4095,7 @@ export class MeshPart extends TriangleMeshPart {
 }
 
 export class PartOperation extends TriangleMeshPart {
-    protected constructor(className?: string) {super(className ?? "PartOperation"); this.addClassName("PartOperation");}
+    protected constructor() {super(); this.addClassName("PartOperation");}
     public static new() {return new PartOperation();}
     public get AssetId() {return this.GetProp("AssetId", DataType.String);}
     public set AssetId(value) {this.SetProp("AssetId", DataType.String, value);}
@@ -4122,29 +4122,29 @@ export class PartOperation extends TriangleMeshPart {
 }
 
 export class IntersectOperation extends PartOperation {
-    protected constructor(className?: string) {super(className ?? "IntersectOperation"); this.addClassName("IntersectOperation");}
+    protected constructor() {super(); this.addClassName("IntersectOperation");}
     public static new() {return new IntersectOperation();}
 }
 
 export class NegateOperation extends PartOperation {
-    protected constructor(className?: string) {super(className ?? "NegateOperation"); this.addClassName("NegateOperation");}
+    protected constructor() {super(); this.addClassName("NegateOperation");}
     public static new() {return new NegateOperation();}
 }
 
 export class UnionOperation extends PartOperation {
-    protected constructor(className?: string) {super(className ?? "UnionOperation"); this.addClassName("UnionOperation");}
+    protected constructor() {super(); this.addClassName("UnionOperation");}
     public static new() {return new UnionOperation();}
 }
 
 export class TrussPart extends BasePart {
-    protected constructor(className?: string) {super(className ?? "TrussPart"); this.addClassName("TrussPart");}
+    protected constructor() {super(); this.addClassName("TrussPart");}
     public static new() {return new TrussPart();}
     public get Style() {return this.GetProp("style", DataType.Enum) as Style | undefined;}
     public set Style(value) {this.SetProp("style", DataType.Enum, value);}
 }
 
 export class VehicleSeat extends BasePart {
-    protected constructor(className?: string) {super(className ?? "VehicleSeat"); this.addClassName("VehicleSeat");}
+    protected constructor() {super(); this.addClassName("VehicleSeat");}
     public static new() {return new VehicleSeat();}
     public get Disabled() {return this.GetProp("Disabled", DataType.Bool);}
     public set Disabled(value) {this.SetProp("Disabled", DataType.Bool, value);}
@@ -4167,7 +4167,7 @@ export class VehicleSeat extends BasePart {
 }
 
 export class Model extends PVInstance {
-    protected constructor(className?: string) {super(className ?? "Model"); this.addClassName("Model");}
+    protected constructor() {super(); this.addClassName("Model");}
     public static new() {return new Model();}
     public get LevelOfDetail() {return this.GetProp("LevelOfDetail", DataType.Enum) as ModelLevelOfDetail | undefined;}
     public set LevelOfDetail(value) {this.SetProp("LevelOfDetail", DataType.Enum, value);}
@@ -4190,18 +4190,18 @@ export class Model extends PVInstance {
 }
 
 export class Actor extends Model {
-    protected constructor(className?: string) {super(className ?? "Actor"); this.addClassName("Actor");}
+    protected constructor() {super(); this.addClassName("Actor");}
     public static new() {return new Actor();}
 }
 
 export abstract class BackpackItem extends Model {
-    protected constructor(className: string) {super(className); this.addClassName("BackpackItem");}
+    protected constructor() {super(); this.addClassName("BackpackItem");}
     public get TextureId() {return this.GetProp("TextureId", DataType.String);}
     public set TextureId(value) {this.SetProp("TextureId", DataType.String, value);}
 }
 
 export class HopperBin extends BackpackItem {
-    protected constructor(className?: string) {super(className ?? "HopperBin"); this.addClassName("HopperBin");}
+    protected constructor() {super(); this.addClassName("HopperBin");}
     public static new() {return new HopperBin();}
     public get Active() {return this.GetProp("Active", DataType.Bool);}
     public set Active(value) {this.SetProp("Active", DataType.Bool, value);}
@@ -4210,7 +4210,7 @@ export class HopperBin extends BackpackItem {
 }
 
 export class Tool extends BackpackItem {
-    protected constructor(className?: string) {super(className ?? "Tool"); this.addClassName("Tool");}
+    protected constructor() {super(); this.addClassName("Tool");}
     public static new() {return new Tool();}
     public get CanBeDropped() {return this.GetProp("CanBeDropped", DataType.Bool);}
     public set CanBeDropped(value) {this.SetProp("CanBeDropped", DataType.Bool, value);}
@@ -4227,18 +4227,18 @@ export class Tool extends BackpackItem {
 }
 
 export class Flag extends Tool {
-    protected constructor(className?: string) {super(className ?? "Flag"); this.addClassName("Flag");}
+    protected constructor() {super(); this.addClassName("Flag");}
     public static new() {return new Flag();}
     public get TeamColor() {return this.GetProp("TeamColor", DataType.BrickColor);}
     public set TeamColor(value) {this.SetProp("TeamColor", DataType.BrickColor, value);}
 }
 
 export abstract class WorldRoot extends Model {
-    protected constructor(className: string) {super(className); this.addClassName("WorldRoot");}
+    protected constructor() {super(); this.addClassName("WorldRoot");}
 }
 
 export class Workspace extends WorldRoot {
-    protected constructor(className?: string) {super(className ?? "Workspace"); this.addClassName("Workspace");}
+    protected constructor() {super(); this.addClassName("Workspace");}
     public static new() {return new Workspace();}
     public get AirDensity() {return this.GetProp("AirDensity", DataType.Float32);}
     public set AirDensity(value) {this.SetProp("AirDensity", DataType.Float32, value);}
@@ -4307,30 +4307,30 @@ export class Workspace extends WorldRoot {
 }
 
 export class WorldModel extends WorldRoot {
-    protected constructor(className?: string) {super(className ?? "WorldModel"); this.addClassName("WorldModel");}
+    protected constructor() {super(); this.addClassName("WorldModel");}
     public static new() {return new WorldModel();}
 }
 
 export class PackageService extends Instance {
-    protected constructor(className?: string) {super(className ?? "PackageService", true); this.addClassName("PackageService");}
+    protected constructor() {super(true); this.addClassName("PackageService");}
     public static new() {return new PackageService();}
 }
 
 export class PackageUIService extends Instance {
-    protected constructor(className?: string) {super(className ?? "PackageUIService", true); this.addClassName("PackageUIService");}
+    protected constructor() {super(true); this.addClassName("PackageUIService");}
     public static new() {return new PackageUIService();}
 }
 
 export abstract class Pages extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("Pages");}
+    protected constructor() {super(); this.addClassName("Pages");}
 }
 
 export abstract class InventoryPages extends Pages {
-    protected constructor(className: string) {super(className); this.addClassName("InventoryPages");}
+    protected constructor() {super(); this.addClassName("InventoryPages");}
 }
 
 export class PartOperationAsset extends Instance {
-    protected constructor(className?: string) {super(className ?? "PartOperationAsset"); this.addClassName("PartOperationAsset");}
+    protected constructor() {super(); this.addClassName("PartOperationAsset");}
     public static new() {return new PartOperationAsset();}
     public get ChildData() {return this.GetProp("ChildData", DataType.String);}
     public set ChildData(value) {this.SetProp("ChildData", DataType.String, value);}
@@ -4339,7 +4339,7 @@ export class PartOperationAsset extends Instance {
 }
 
 export class ParticleEmitter extends Instance {
-    protected constructor(className?: string) {super(className ?? "ParticleEmitter"); this.addClassName("ParticleEmitter");}
+    protected constructor() {super(); this.addClassName("ParticleEmitter");}
     public static new() {return new ParticleEmitter();}
     public get Acceleration() {return this.GetProp("Acceleration", DataType.Vector3);}
     public set Acceleration(value) {this.SetProp("Acceleration", DataType.Vector3, value);}
@@ -4414,12 +4414,12 @@ export class ParticleEmitter extends Instance {
 }
 
 export class PatchBundlerFileWatch extends Instance {
-    protected constructor(className?: string) {super(className ?? "PatchBundlerFileWatch", true); this.addClassName("PatchBundlerFileWatch");}
+    protected constructor() {super(true); this.addClassName("PatchBundlerFileWatch");}
     public static new() {return new PatchBundlerFileWatch();}
 }
 
 export class PathfindingLink extends Instance {
-    protected constructor(className?: string) {super(className ?? "PathfindingLink"); this.addClassName("PathfindingLink");}
+    protected constructor() {super(); this.addClassName("PathfindingLink");}
     public static new() {return new PathfindingLink();}
     public get Attachment0() {return this.GetProp("Attachment0", DataType.Referent) as Attachment | undefined;}
     public set Attachment0(value) {this.SetProp("Attachment0", DataType.Referent, value);}
@@ -4432,7 +4432,7 @@ export class PathfindingLink extends Instance {
 }
 
 export class PathfindingModifier extends Instance {
-    protected constructor(className?: string) {super(className ?? "PathfindingModifier"); this.addClassName("PathfindingModifier");}
+    protected constructor() {super(); this.addClassName("PathfindingModifier");}
     public static new() {return new PathfindingModifier();}
     public get Label() {return this.GetProp("Label", DataType.String);}
     public set Label(value) {this.SetProp("Label", DataType.String, value);}
@@ -4441,7 +4441,7 @@ export class PathfindingModifier extends Instance {
 }
 
 export class PathfindingService extends Instance {
-    protected constructor(className?: string) {super(className ?? "PathfindingService", true); this.addClassName("PathfindingService");}
+    protected constructor() {super(true); this.addClassName("PathfindingService");}
     public static new() {return new PathfindingService();}
     /**@deprecated Deprecated by Roblox*/
     public get EmptyCutoff() {return this.GetProp("EmptyCutoff", DataType.Float32);}
@@ -4450,41 +4450,41 @@ export class PathfindingService extends Instance {
 }
 
 export abstract class PausedState extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("PausedState");}
+    protected constructor() {super(); this.addClassName("PausedState");}
 }
 
 export class PermissionsService extends Instance {
-    protected constructor(className?: string) {super(className ?? "PermissionsService", true); this.addClassName("PermissionsService");}
+    protected constructor() {super(true); this.addClassName("PermissionsService");}
     public static new() {return new PermissionsService();}
 }
 
 export class PhysicsService extends Instance {
-    protected constructor(className?: string) {super(className ?? "PhysicsService", true); this.addClassName("PhysicsService");}
+    protected constructor() {super(true); this.addClassName("PhysicsService");}
     public static new() {return new PhysicsService();}
 }
 
 export class PlaceStatsService extends Instance {
-    protected constructor(className?: string) {super(className ?? "PlaceStatsService", true); this.addClassName("PlaceStatsService");}
+    protected constructor() {super(true); this.addClassName("PlaceStatsService");}
     public static new() {return new PlaceStatsService();}
 }
 
 export class PlacesService extends Instance {
-    protected constructor(className?: string) {super(className ?? "PlacesService", true); this.addClassName("PlacesService");}
+    protected constructor() {super(true); this.addClassName("PlacesService");}
     public static new() {return new PlacesService();}
 }
 
 export class PlatformCloudStorageService extends Instance {
-    protected constructor(className?: string) {super(className ?? "PlatformCloudStorageService", true); this.addClassName("PlatformCloudStorageService");}
+    protected constructor() {super(true); this.addClassName("PlatformCloudStorageService");}
     public static new() {return new PlatformCloudStorageService();}
 }
 
 export class PlatformFriendsService extends Instance {
-    protected constructor(className?: string) {super(className ?? "PlatformFriendsService", true); this.addClassName("PlatformFriendsService");}
+    protected constructor() {super(true); this.addClassName("PlatformFriendsService");}
     public static new() {return new PlatformFriendsService();}
 }
 
 export class Player extends Instance {
-    protected constructor(className?: string) {super(className ?? "Player"); this.addClassName("Player");}
+    protected constructor() {super(); this.addClassName("Player");}
     public static new() {return new Player();}
     public get AutoJumpEnabled() {return this.GetProp("AutoJumpEnabled", DataType.Bool);}
     public set AutoJumpEnabled(value) {this.SetProp("AutoJumpEnabled", DataType.Bool, value);}
@@ -4537,7 +4537,7 @@ export class Player extends Instance {
 }
 
 export class PlayerEmulatorService extends Instance {
-    protected constructor(className?: string) {super(className ?? "PlayerEmulatorService", true); this.addClassName("PlayerEmulatorService");}
+    protected constructor() {super(true); this.addClassName("PlayerEmulatorService");}
     public static new() {return new PlayerEmulatorService();}
     public get CustomPoliciesEnabled() {return this.GetProp("CustomPoliciesEnabled", DataType.Bool);}
     public set CustomPoliciesEnabled(value) {this.SetProp("CustomPoliciesEnabled", DataType.Bool, value);}
@@ -4554,12 +4554,12 @@ export class PlayerEmulatorService extends Instance {
 }
 
 export class PlayerViewService extends Instance {
-    protected constructor(className?: string) {super(className ?? "PlayerViewService", true); this.addClassName("PlayerViewService");}
+    protected constructor() {super(true); this.addClassName("PlayerViewService");}
     public static new() {return new PlayerViewService();}
 }
 
 export class Players extends Instance {
-    protected constructor(className?: string) {super(className ?? "Players", true); this.addClassName("Players");}
+    protected constructor() {super(true); this.addClassName("Players");}
     public static new() {return new Players();}
     public get CharacterAutoLoads() {return this.GetProp("CharacterAutoLoads", DataType.Bool);}
     public set CharacterAutoLoads(value) {this.SetProp("CharacterAutoLoads", DataType.Bool, value);}
@@ -4574,44 +4574,44 @@ export class Players extends Instance {
 }
 
 export class PluginAction extends Instance {
-    protected constructor(className?: string) {super(className ?? "PluginAction"); this.addClassName("PluginAction");}
+    protected constructor() {super(); this.addClassName("PluginAction");}
     public static new() {return new PluginAction();}
 }
 
 export class PluginCapabilities extends Instance {
-    protected constructor(className?: string) {super(className ?? "PluginCapabilities"); this.addClassName("PluginCapabilities");}
+    protected constructor() {super(); this.addClassName("PluginCapabilities");}
     public static new() {return new PluginCapabilities();}
     public get Manifest() {return this.GetProp("Manifest", DataType.String);}
     public set Manifest(value) {this.SetProp("Manifest", DataType.String, value);}
 }
 
 export class PluginDebugService extends Instance {
-    protected constructor(className?: string) {super(className ?? "PluginDebugService", true); this.addClassName("PluginDebugService");}
+    protected constructor() {super(true); this.addClassName("PluginDebugService");}
     public static new() {return new PluginDebugService();}
 }
 
 export class PluginGuiService extends Instance {
-    protected constructor(className?: string) {super(className ?? "PluginGuiService", true); this.addClassName("PluginGuiService");}
+    protected constructor() {super(true); this.addClassName("PluginGuiService");}
     public static new() {return new PluginGuiService();}
 }
 
 export class PluginManagementService extends Instance {
-    protected constructor(className?: string) {super(className ?? "PluginManagementService", true); this.addClassName("PluginManagementService");}
+    protected constructor() {super(true); this.addClassName("PluginManagementService");}
     public static new() {return new PluginManagementService();}
 }
 
 export class PluginPolicyService extends Instance {
-    protected constructor(className?: string) {super(className ?? "PluginPolicyService", true); this.addClassName("PluginPolicyService");}
+    protected constructor() {super(true); this.addClassName("PluginPolicyService");}
     public static new() {return new PluginPolicyService();}
 }
 
 export class PointsService extends Instance {
-    protected constructor(className?: string) {super(className ?? "PointsService", true); this.addClassName("PointsService");}
+    protected constructor() {super(true); this.addClassName("PointsService");}
     public static new() {return new PointsService();}
 }
 
 export class PolicyService extends Instance {
-    protected constructor(className?: string) {super(className ?? "PolicyService", true); this.addClassName("PolicyService");}
+    protected constructor() {super(true); this.addClassName("PolicyService");}
     public static new() {return new PolicyService();}
     public get IsLuobuServer() {return this.GetProp("IsLuobuServer", DataType.Enum) as TriStateBoolean | undefined;}
     public set IsLuobuServer(value) {this.SetProp("IsLuobuServer", DataType.Enum, value);}
@@ -4620,7 +4620,7 @@ export class PolicyService extends Instance {
 }
 
 export abstract class PoseBase extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("PoseBase");}
+    protected constructor() {super(); this.addClassName("PoseBase");}
     public get EasingDirection() {return this.GetProp("EasingDirection", DataType.Enum) as PoseEasingDirection | undefined;}
     public set EasingDirection(value) {this.SetProp("EasingDirection", DataType.Enum, value);}
     public get EasingStyle() {return this.GetProp("EasingStyle", DataType.Enum) as PoseEasingStyle | undefined;}
@@ -4630,14 +4630,14 @@ export abstract class PoseBase extends Instance {
 }
 
 export class NumberPose extends PoseBase {
-    protected constructor(className?: string) {super(className ?? "NumberPose"); this.addClassName("NumberPose");}
+    protected constructor() {super(); this.addClassName("NumberPose");}
     public static new() {return new NumberPose();}
     public get Value() {return this.GetProp("Value", DataType.Float64);}
     public set Value(value) {this.SetProp("Value", DataType.Float64, value);}
 }
 
 export class Pose extends PoseBase {
-    protected constructor(className?: string) {super(className ?? "Pose"); this.addClassName("Pose");}
+    protected constructor() {super(); this.addClassName("Pose");}
     public static new() {return new Pose();}
     public get CFrame() {return this.GetProp("CFrame", DataType.CFrame);}
     public set CFrame(value) {this.SetProp("CFrame", DataType.CFrame, value);}
@@ -4648,13 +4648,13 @@ export class Pose extends PoseBase {
 }
 
 export abstract class PostEffect extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("PostEffect");}
+    protected constructor() {super(); this.addClassName("PostEffect");}
     public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
 }
 
 export class BloomEffect extends PostEffect {
-    protected constructor(className?: string) {super(className ?? "BloomEffect"); this.addClassName("BloomEffect");}
+    protected constructor() {super(); this.addClassName("BloomEffect");}
     public static new() {return new BloomEffect();}
     public get Intensity() {return this.GetProp("Intensity", DataType.Float32);}
     public set Intensity(value) {this.SetProp("Intensity", DataType.Float32, value);}
@@ -4665,14 +4665,14 @@ export class BloomEffect extends PostEffect {
 }
 
 export class BlurEffect extends PostEffect {
-    protected constructor(className?: string) {super(className ?? "BlurEffect"); this.addClassName("BlurEffect");}
+    protected constructor() {super(); this.addClassName("BlurEffect");}
     public static new() {return new BlurEffect();}
     public get Size() {return this.GetProp("Size", DataType.Float32);}
     public set Size(value) {this.SetProp("Size", DataType.Float32, value);}
 }
 
 export class ColorCorrectionEffect extends PostEffect {
-    protected constructor(className?: string) {super(className ?? "ColorCorrectionEffect"); this.addClassName("ColorCorrectionEffect");}
+    protected constructor() {super(); this.addClassName("ColorCorrectionEffect");}
     public static new() {return new ColorCorrectionEffect();}
     public get Brightness() {return this.GetProp("Brightness", DataType.Float32);}
     public set Brightness(value) {this.SetProp("Brightness", DataType.Float32, value);}
@@ -4685,7 +4685,7 @@ export class ColorCorrectionEffect extends PostEffect {
 }
 
 export class DepthOfFieldEffect extends PostEffect {
-    protected constructor(className?: string) {super(className ?? "DepthOfFieldEffect"); this.addClassName("DepthOfFieldEffect");}
+    protected constructor() {super(); this.addClassName("DepthOfFieldEffect");}
     public static new() {return new DepthOfFieldEffect();}
     public get FarIntensity() {return this.GetProp("FarIntensity", DataType.Float32);}
     public set FarIntensity(value) {this.SetProp("FarIntensity", DataType.Float32, value);}
@@ -4698,7 +4698,7 @@ export class DepthOfFieldEffect extends PostEffect {
 }
 
 export class SunRaysEffect extends PostEffect {
-    protected constructor(className?: string) {super(className ?? "SunRaysEffect"); this.addClassName("SunRaysEffect");}
+    protected constructor() {super(); this.addClassName("SunRaysEffect");}
     public static new() {return new SunRaysEffect();}
     public get Intensity() {return this.GetProp("Intensity", DataType.Float32);}
     public set Intensity(value) {this.SetProp("Intensity", DataType.Float32, value);}
@@ -4707,17 +4707,17 @@ export class SunRaysEffect extends PostEffect {
 }
 
 export class ProcessInstancePhysicsService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ProcessInstancePhysicsService", true); this.addClassName("ProcessInstancePhysicsService");}
+    protected constructor() {super(true); this.addClassName("ProcessInstancePhysicsService");}
     public static new() {return new ProcessInstancePhysicsService();}
 }
 
 export class ProjectFolderService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ProjectFolderService", true); this.addClassName("ProjectFolderService");}
+    protected constructor() {super(true); this.addClassName("ProjectFolderService");}
     public static new() {return new ProjectFolderService();}
 }
 
 export class ProximityPrompt extends Instance {
-    protected constructor(className?: string) {super(className ?? "ProximityPrompt"); this.addClassName("ProximityPrompt");}
+    protected constructor() {super(); this.addClassName("ProximityPrompt");}
     public static new() {return new ProximityPrompt();}
     public get ActionText() {return this.GetProp("ActionText", DataType.String);}
     public set ActionText(value) {this.SetProp("ActionText", DataType.String, value);}
@@ -4750,7 +4750,7 @@ export class ProximityPrompt extends Instance {
 }
 
 export class ProximityPromptService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ProximityPromptService", true); this.addClassName("ProximityPromptService");}
+    protected constructor() {super(true); this.addClassName("ProximityPromptService");}
     public static new() {return new ProximityPromptService();}
     public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
@@ -4759,47 +4759,47 @@ export class ProximityPromptService extends Instance {
 }
 
 export class PublishService extends Instance {
-    protected constructor(className?: string) {super(className ?? "PublishService", true); this.addClassName("PublishService");}
+    protected constructor() {super(true); this.addClassName("PublishService");}
     public static new() {return new PublishService();}
 }
 
 export class RbxAnalyticsService extends Instance {
-    protected constructor(className?: string) {super(className ?? "RbxAnalyticsService", true); this.addClassName("RbxAnalyticsService");}
+    protected constructor() {super(true); this.addClassName("RbxAnalyticsService");}
     public static new() {return new RbxAnalyticsService();}
 }
 
 export class ReflectionMetadata extends Instance {
-    protected constructor(className?: string) {super(className ?? "ReflectionMetadata"); this.addClassName("ReflectionMetadata");}
+    protected constructor() {super(); this.addClassName("ReflectionMetadata");}
     public static new() {return new ReflectionMetadata();}
 }
 
 export class ReflectionMetadataCallbacks extends Instance {
-    protected constructor(className?: string) {super(className ?? "ReflectionMetadataCallbacks"); this.addClassName("ReflectionMetadataCallbacks");}
+    protected constructor() {super(); this.addClassName("ReflectionMetadataCallbacks");}
     public static new() {return new ReflectionMetadataCallbacks();}
 }
 
 export class ReflectionMetadataClasses extends Instance {
-    protected constructor(className?: string) {super(className ?? "ReflectionMetadataClasses"); this.addClassName("ReflectionMetadataClasses");}
+    protected constructor() {super(); this.addClassName("ReflectionMetadataClasses");}
     public static new() {return new ReflectionMetadataClasses();}
 }
 
 export class ReflectionMetadataEnums extends Instance {
-    protected constructor(className?: string) {super(className ?? "ReflectionMetadataEnums"); this.addClassName("ReflectionMetadataEnums");}
+    protected constructor() {super(); this.addClassName("ReflectionMetadataEnums");}
     public static new() {return new ReflectionMetadataEnums();}
 }
 
 export class ReflectionMetadataEvents extends Instance {
-    protected constructor(className?: string) {super(className ?? "ReflectionMetadataEvents"); this.addClassName("ReflectionMetadataEvents");}
+    protected constructor() {super(); this.addClassName("ReflectionMetadataEvents");}
     public static new() {return new ReflectionMetadataEvents();}
 }
 
 export class ReflectionMetadataFunctions extends Instance {
-    protected constructor(className?: string) {super(className ?? "ReflectionMetadataFunctions"); this.addClassName("ReflectionMetadataFunctions");}
+    protected constructor() {super(); this.addClassName("ReflectionMetadataFunctions");}
     public static new() {return new ReflectionMetadataFunctions();}
 }
 
 export abstract class ReflectionMetadataItem extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("ReflectionMetadataItem");}
+    protected constructor() {super(); this.addClassName("ReflectionMetadataItem");}
     public get Browsable() {return this.GetProp("Browsable", DataType.Bool);}
     public set Browsable(value) {this.SetProp("Browsable", DataType.Bool, value);}
     public get ClassCategory() {return this.GetProp("ClassCategory", DataType.String);}
@@ -4835,7 +4835,7 @@ export abstract class ReflectionMetadataItem extends Instance {
 }
 
 export class ReflectionMetadataClass extends ReflectionMetadataItem {
-    protected constructor(className?: string) {super(className ?? "ReflectionMetadataClass"); this.addClassName("ReflectionMetadataClass");}
+    protected constructor() {super(); this.addClassName("ReflectionMetadataClass");}
     public static new() {return new ReflectionMetadataClass();}
     public get ExplorerImageIndex() {return this.GetProp("ExplorerImageIndex", DataType.Int32);}
     public set ExplorerImageIndex(value) {this.SetProp("ExplorerImageIndex", DataType.Int32, value);}
@@ -4850,52 +4850,52 @@ export class ReflectionMetadataClass extends ReflectionMetadataItem {
 }
 
 export class ReflectionMetadataEnum extends ReflectionMetadataItem {
-    protected constructor(className?: string) {super(className ?? "ReflectionMetadataEnum"); this.addClassName("ReflectionMetadataEnum");}
+    protected constructor() {super(); this.addClassName("ReflectionMetadataEnum");}
     public static new() {return new ReflectionMetadataEnum();}
 }
 
 export class ReflectionMetadataEnumItem extends ReflectionMetadataItem {
-    protected constructor(className?: string) {super(className ?? "ReflectionMetadataEnumItem"); this.addClassName("ReflectionMetadataEnumItem");}
+    protected constructor() {super(); this.addClassName("ReflectionMetadataEnumItem");}
     public static new() {return new ReflectionMetadataEnumItem();}
 }
 
 export class ReflectionMetadataMember extends ReflectionMetadataItem {
-    protected constructor(className?: string) {super(className ?? "ReflectionMetadataMember"); this.addClassName("ReflectionMetadataMember");}
+    protected constructor() {super(); this.addClassName("ReflectionMetadataMember");}
     public static new() {return new ReflectionMetadataMember();}
 }
 
 export class ReflectionMetadataProperties extends Instance {
-    protected constructor(className?: string) {super(className ?? "ReflectionMetadataProperties"); this.addClassName("ReflectionMetadataProperties");}
+    protected constructor() {super(); this.addClassName("ReflectionMetadataProperties");}
     public static new() {return new ReflectionMetadataProperties();}
 }
 
 export class ReflectionMetadataYieldFunctions extends Instance {
-    protected constructor(className?: string) {super(className ?? "ReflectionMetadataYieldFunctions"); this.addClassName("ReflectionMetadataYieldFunctions");}
+    protected constructor() {super(); this.addClassName("ReflectionMetadataYieldFunctions");}
     public static new() {return new ReflectionMetadataYieldFunctions();}
 }
 
 export class ReflectionService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ReflectionService", true); this.addClassName("ReflectionService");}
+    protected constructor() {super(true); this.addClassName("ReflectionService");}
     public static new() {return new ReflectionService();}
 }
 
 export class RemoteCursorService extends Instance {
-    protected constructor(className?: string) {super(className ?? "RemoteCursorService", true); this.addClassName("RemoteCursorService");}
+    protected constructor() {super(true); this.addClassName("RemoteCursorService");}
     public static new() {return new RemoteCursorService();}
 }
 
 export class RemoteDebuggerServer extends Instance {
-    protected constructor(className?: string) {super(className ?? "RemoteDebuggerServer", true); this.addClassName("RemoteDebuggerServer");}
+    protected constructor() {super(true); this.addClassName("RemoteDebuggerServer");}
     public static new() {return new RemoteDebuggerServer();}
 }
 
 export class RemoteFunction extends Instance {
-    protected constructor(className?: string) {super(className ?? "RemoteFunction"); this.addClassName("RemoteFunction");}
+    protected constructor() {super(); this.addClassName("RemoteFunction");}
     public static new() {return new RemoteFunction();}
 }
 
 export class RenderSettings extends Instance {
-    protected constructor(className?: string) {super(className ?? "RenderSettings", true); this.addClassName("RenderSettings");}
+    protected constructor() {super(true); this.addClassName("RenderSettings");}
     public static new() {return new RenderSettings();}
     public get AutoFRMLevel() {return this.GetProp("AutoFRMLevel", DataType.Int32);}
     public set AutoFRMLevel(value) {this.SetProp("AutoFRMLevel", DataType.Int32, value);}
@@ -4928,7 +4928,7 @@ export class RenderSettings extends Instance {
 }
 
 export class RenderingTest extends Instance {
-    protected constructor(className?: string) {super(className ?? "RenderingTest"); this.addClassName("RenderingTest");}
+    protected constructor() {super(); this.addClassName("RenderingTest");}
     public static new() {return new RenderingTest();}
     public get CFrame() {return this.GetProp("CFrame", DataType.CFrame);}
     public set CFrame(value) {this.SetProp("CFrame", DataType.CFrame, value);}
@@ -4959,136 +4959,136 @@ export class RenderingTest extends Instance {
 }
 
 export class ReplicatedFirst extends Instance {
-    protected constructor(className?: string) {super(className ?? "ReplicatedFirst", true); this.addClassName("ReplicatedFirst");}
+    protected constructor() {super(true); this.addClassName("ReplicatedFirst");}
     public static new() {return new ReplicatedFirst();}
 }
 
 export class ReplicatedStorage extends Instance {
-    protected constructor(className?: string) {super(className ?? "ReplicatedStorage", true); this.addClassName("ReplicatedStorage");}
+    protected constructor() {super(true); this.addClassName("ReplicatedStorage");}
     public static new() {return new ReplicatedStorage();}
 }
 
 export class RibbonNotificationService extends Instance {
-    protected constructor(className?: string) {super(className ?? "RibbonNotificationService", true); this.addClassName("RibbonNotificationService");}
+    protected constructor() {super(true); this.addClassName("RibbonNotificationService");}
     public static new() {return new RibbonNotificationService();}
 }
 
 export class RobloxPluginGuiService extends Instance {
-    protected constructor(className?: string) {super(className ?? "RobloxPluginGuiService", true); this.addClassName("RobloxPluginGuiService");}
+    protected constructor() {super(true); this.addClassName("RobloxPluginGuiService");}
     public static new() {return new RobloxPluginGuiService();}
 }
 
 export class RobloxReplicatedStorage extends Instance {
-    protected constructor(className?: string) {super(className ?? "RobloxReplicatedStorage", true); this.addClassName("RobloxReplicatedStorage");}
+    protected constructor() {super(true); this.addClassName("RobloxReplicatedStorage");}
     public static new() {return new RobloxReplicatedStorage();}
 }
 
 export class RobloxServerStorage extends Instance {
-    protected constructor(className?: string) {super(className ?? "RobloxServerStorage", true); this.addClassName("RobloxServerStorage");}
+    protected constructor() {super(true); this.addClassName("RobloxServerStorage");}
     public static new() {return new RobloxServerStorage();}
 }
 
 export class RomarkService extends Instance {
-    protected constructor(className?: string) {super(className ?? "RomarkService", true); this.addClassName("RomarkService");}
+    protected constructor() {super(true); this.addClassName("RomarkService");}
     public static new() {return new RomarkService();}
 }
 
 export class RotationCurve extends Instance {
-    protected constructor(className?: string) {super(className ?? "RotationCurve"); this.addClassName("RotationCurve");}
+    protected constructor() {super(); this.addClassName("RotationCurve");}
     public static new() {return new RotationCurve();}
     public get ValuesAndTimes() {return this.GetProp("ValuesAndTimes", DataType.String);}
     public set ValuesAndTimes(value) {this.SetProp("ValuesAndTimes", DataType.String, value);}
 }
 
 export class RtMessagingService extends Instance {
-    protected constructor(className?: string) {super(className ?? "RtMessagingService", true); this.addClassName("RtMessagingService");}
+    protected constructor() {super(true); this.addClassName("RtMessagingService");}
     public static new() {return new RtMessagingService();}
 }
 
 export class RunService extends Instance {
-    protected constructor(className?: string) {super(className ?? "RunService", true); this.addClassName("RunService");}
+    protected constructor() {super(true); this.addClassName("RunService");}
     public static new() {return new RunService();}
 }
 
 export class RuntimeScriptService extends Instance {
-    protected constructor(className?: string) {super(className ?? "RuntimeScriptService", true); this.addClassName("RuntimeScriptService");}
+    protected constructor() {super(true); this.addClassName("RuntimeScriptService");}
     public static new() {return new RuntimeScriptService();}
 }
 
 export class SafetyService extends Instance {
-    protected constructor(className?: string) {super(className ?? "SafetyService", true); this.addClassName("SafetyService");}
+    protected constructor() {super(true); this.addClassName("SafetyService");}
     public static new() {return new SafetyService();}
     public get IsCaptureModeForReport() {return this.GetProp("IsCaptureModeForReport", DataType.Bool);}
     public set IsCaptureModeForReport(value) {this.SetProp("IsCaptureModeForReport", DataType.Bool, value);}
 }
 
 export abstract class ScriptBuilder extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("ScriptBuilder");}
+    protected constructor() {super(); this.addClassName("ScriptBuilder");}
 }
 
 export class ScriptChangeService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ScriptChangeService", true); this.addClassName("ScriptChangeService");}
+    protected constructor() {super(true); this.addClassName("ScriptChangeService");}
     public static new() {return new ScriptChangeService();}
 }
 
 export class ScriptCloneWatcher extends Instance {
-    protected constructor(className?: string) {super(className ?? "ScriptCloneWatcher", true); this.addClassName("ScriptCloneWatcher");}
+    protected constructor() {super(true); this.addClassName("ScriptCloneWatcher");}
     public static new() {return new ScriptCloneWatcher();}
 }
 
 export class ScriptCloneWatcherHelper extends Instance {
-    protected constructor(className?: string) {super(className ?? "ScriptCloneWatcherHelper", true); this.addClassName("ScriptCloneWatcherHelper");}
+    protected constructor() {super(true); this.addClassName("ScriptCloneWatcherHelper");}
     public static new() {return new ScriptCloneWatcherHelper();}
 }
 
 export class ScriptCommitService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ScriptCommitService", true); this.addClassName("ScriptCommitService");}
+    protected constructor() {super(true); this.addClassName("ScriptCommitService");}
     public static new() {return new ScriptCommitService();}
 }
 
 export class ScriptContext extends Instance {
-    protected constructor(className?: string) {super(className ?? "ScriptContext", true); this.addClassName("ScriptContext");}
+    protected constructor() {super(true); this.addClassName("ScriptContext");}
     public static new() {return new ScriptContext();}
 }
 
 export class ScriptEditorService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ScriptEditorService", true); this.addClassName("ScriptEditorService");}
+    protected constructor() {super(true); this.addClassName("ScriptEditorService");}
     public static new() {return new ScriptEditorService();}
 }
 
 export class ScriptProfilerService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ScriptProfilerService", true); this.addClassName("ScriptProfilerService");}
+    protected constructor() {super(true); this.addClassName("ScriptProfilerService");}
     public static new() {return new ScriptProfilerService();}
 }
 
 export class ScriptRegistrationService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ScriptRegistrationService", true); this.addClassName("ScriptRegistrationService");}
+    protected constructor() {super(true); this.addClassName("ScriptRegistrationService");}
     public static new() {return new ScriptRegistrationService();}
 }
 
 export class ScriptService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ScriptService", true); this.addClassName("ScriptService");}
+    protected constructor() {super(true); this.addClassName("ScriptService");}
     public static new() {return new ScriptService();}
 }
 
 export class Selection extends Instance {
-    protected constructor(className?: string) {super(className ?? "Selection", true); this.addClassName("Selection");}
+    protected constructor() {super(true); this.addClassName("Selection");}
     public static new() {return new Selection();}
 }
 
 export class SelectionHighlightManager extends Instance {
-    protected constructor(className?: string) {super(className ?? "SelectionHighlightManager", true); this.addClassName("SelectionHighlightManager");}
+    protected constructor() {super(true); this.addClassName("SelectionHighlightManager");}
     public static new() {return new SelectionHighlightManager();}
 }
 
 export abstract class SensorBase extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("SensorBase");}
+    protected constructor() {super(); this.addClassName("SensorBase");}
     public get UpdateType() {return this.GetProp("UpdateType", DataType.Enum) as SensorUpdateType | undefined;}
     public set UpdateType(value) {this.SetProp("UpdateType", DataType.Enum, value);}
 }
 
 export class BuoyancySensor extends SensorBase {
-    protected constructor(className?: string) {super(className ?? "BuoyancySensor"); this.addClassName("BuoyancySensor");}
+    protected constructor() {super(); this.addClassName("BuoyancySensor");}
     public static new() {return new BuoyancySensor();}
     public get FullySubmerged() {return this.GetProp("FullySubmerged", DataType.Bool);}
     public set FullySubmerged(value) {this.SetProp("FullySubmerged", DataType.Bool, value);}
@@ -5097,11 +5097,11 @@ export class BuoyancySensor extends SensorBase {
 }
 
 export abstract class ControllerSensor extends SensorBase {
-    protected constructor(className: string) {super(className); this.addClassName("ControllerSensor");}
+    protected constructor() {super(); this.addClassName("ControllerSensor");}
 }
 
 export class ControllerPartSensor extends ControllerSensor {
-    protected constructor(className?: string) {super(className ?? "ControllerPartSensor"); this.addClassName("ControllerPartSensor");}
+    protected constructor() {super(); this.addClassName("ControllerPartSensor");}
     public static new() {return new ControllerPartSensor();}
     public get HitFrame() {return this.GetProp("HitFrame", DataType.CFrame);}
     public set HitFrame(value) {this.SetProp("HitFrame", DataType.CFrame, value);}
@@ -5116,27 +5116,27 @@ export class ControllerPartSensor extends ControllerSensor {
 }
 
 export class ServerScriptService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ServerScriptService", true); this.addClassName("ServerScriptService");}
+    protected constructor() {super(true); this.addClassName("ServerScriptService");}
     public static new() {return new ServerScriptService();}
     public get LoadStringEnabled() {return this.GetProp("LoadStringEnabled", DataType.Bool);}
     public set LoadStringEnabled(value) {this.SetProp("LoadStringEnabled", DataType.Bool, value);}
 }
 
 export class ServerStorage extends Instance {
-    protected constructor(className?: string) {super(className ?? "ServerStorage", true); this.addClassName("ServerStorage");}
+    protected constructor() {super(true); this.addClassName("ServerStorage");}
     public static new() {return new ServerStorage();}
 }
 
 export abstract class ServiceProvider extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("ServiceProvider");}
+    protected constructor() {super(); this.addClassName("ServiceProvider");}
 }
 
 export abstract class GenericSettings extends ServiceProvider {
-    protected constructor(className: string) {super(className); this.addClassName("GenericSettings");}
+    protected constructor() {super(); this.addClassName("GenericSettings");}
 }
 
 export class ServiceVisibilityService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ServiceVisibilityService", true); this.addClassName("ServiceVisibilityService");}
+    protected constructor() {super(true); this.addClassName("ServiceVisibilityService");}
     public static new() {return new ServiceVisibilityService();}
     public get HiddenServices() {return this.GetProp("HiddenServices", DataType.String);}
     public set HiddenServices(value) {this.SetProp("HiddenServices", DataType.String, value);}
@@ -5145,22 +5145,22 @@ export class ServiceVisibilityService extends Instance {
 }
 
 export class SessionService extends Instance {
-    protected constructor(className?: string) {super(className ?? "SessionService", true); this.addClassName("SessionService");}
+    protected constructor() {super(true); this.addClassName("SessionService");}
     public static new() {return new SessionService();}
 }
 
 export class SharedTableRegistry extends Instance {
-    protected constructor(className?: string) {super(className ?? "SharedTableRegistry", true); this.addClassName("SharedTableRegistry");}
+    protected constructor() {super(true); this.addClassName("SharedTableRegistry");}
     public static new() {return new SharedTableRegistry();}
 }
 
 export class ShorelineUpgraderService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ShorelineUpgraderService", true); this.addClassName("ShorelineUpgraderService");}
+    protected constructor() {super(true); this.addClassName("ShorelineUpgraderService");}
     public static new() {return new ShorelineUpgraderService();}
 }
 
 export class Sky extends Instance {
-    protected constructor(className?: string) {super(className ?? "Sky"); this.addClassName("Sky");}
+    protected constructor() {super(); this.addClassName("Sky");}
     public static new() {return new Sky();}
     public get CelestialBodiesShown() {return this.GetProp("CelestialBodiesShown", DataType.Bool);}
     public set CelestialBodiesShown(value) {this.SetProp("CelestialBodiesShown", DataType.Bool, value);}
@@ -5189,7 +5189,7 @@ export class Sky extends Instance {
 }
 
 export class Smoke extends Instance {
-    protected constructor(className?: string) {super(className ?? "Smoke"); this.addClassName("Smoke");}
+    protected constructor() {super(); this.addClassName("Smoke");}
     public static new() {return new Smoke();}
     public get Color() {return this.GetProp("Color", DataType.Color3);}
     public set Color(value) {this.SetProp("Color", DataType.Color3, value);}
@@ -5206,22 +5206,22 @@ export class Smoke extends Instance {
 }
 
 export class SmoothVoxelsUpgraderService extends Instance {
-    protected constructor(className?: string) {super(className ?? "SmoothVoxelsUpgraderService", true); this.addClassName("SmoothVoxelsUpgraderService");}
+    protected constructor() {super(true); this.addClassName("SmoothVoxelsUpgraderService");}
     public static new() {return new SmoothVoxelsUpgraderService();}
 }
 
 export class SnippetService extends Instance {
-    protected constructor(className?: string) {super(className ?? "SnippetService", true); this.addClassName("SnippetService");}
+    protected constructor() {super(true); this.addClassName("SnippetService");}
     public static new() {return new SnippetService();}
 }
 
 export class SocialService extends Instance {
-    protected constructor(className?: string) {super(className ?? "SocialService", true); this.addClassName("SocialService");}
+    protected constructor() {super(true); this.addClassName("SocialService");}
     public static new() {return new SocialService();}
 }
 
 export class Sound extends Instance {
-    protected constructor(className?: string) {super(className ?? "Sound"); this.addClassName("Sound");}
+    protected constructor() {super(); this.addClassName("Sound");}
     public static new() {return new Sound();}
     /**@deprecated Deprecated by Roblox*/
     public get EmitterSize() {return this.GetProp("EmitterSize", DataType.Float32);}
@@ -5270,7 +5270,7 @@ export class Sound extends Instance {
 }
 
 export abstract class SoundEffect extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("SoundEffect");}
+    protected constructor() {super(); this.addClassName("SoundEffect");}
     public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
     public get Priority() {return this.GetProp("Priority", DataType.Int32);}
@@ -5278,7 +5278,7 @@ export abstract class SoundEffect extends Instance {
 }
 
 export class ChorusSoundEffect extends SoundEffect {
-    protected constructor(className?: string) {super(className ?? "ChorusSoundEffect"); this.addClassName("ChorusSoundEffect");}
+    protected constructor() {super(); this.addClassName("ChorusSoundEffect");}
     public static new() {return new ChorusSoundEffect();}
     public get Depth() {return this.GetProp("Depth", DataType.Float32);}
     public set Depth(value) {this.SetProp("Depth", DataType.Float32, value);}
@@ -5289,7 +5289,7 @@ export class ChorusSoundEffect extends SoundEffect {
 }
 
 export class CompressorSoundEffect extends SoundEffect {
-    protected constructor(className?: string) {super(className ?? "CompressorSoundEffect"); this.addClassName("CompressorSoundEffect");}
+    protected constructor() {super(); this.addClassName("CompressorSoundEffect");}
     public static new() {return new CompressorSoundEffect();}
     public get Attack() {return this.GetProp("Attack", DataType.Float32);}
     public set Attack(value) {this.SetProp("Attack", DataType.Float32, value);}
@@ -5306,18 +5306,18 @@ export class CompressorSoundEffect extends SoundEffect {
 }
 
 export abstract class CustomSoundEffect extends SoundEffect {
-    protected constructor(className: string) {super(className); this.addClassName("CustomSoundEffect");}
+    protected constructor() {super(); this.addClassName("CustomSoundEffect");}
 }
 
 export class DistortionSoundEffect extends SoundEffect {
-    protected constructor(className?: string) {super(className ?? "DistortionSoundEffect"); this.addClassName("DistortionSoundEffect");}
+    protected constructor() {super(); this.addClassName("DistortionSoundEffect");}
     public static new() {return new DistortionSoundEffect();}
     public get Level() {return this.GetProp("Level", DataType.Float32);}
     public set Level(value) {this.SetProp("Level", DataType.Float32, value);}
 }
 
 export class EchoSoundEffect extends SoundEffect {
-    protected constructor(className?: string) {super(className ?? "EchoSoundEffect"); this.addClassName("EchoSoundEffect");}
+    protected constructor() {super(); this.addClassName("EchoSoundEffect");}
     public static new() {return new EchoSoundEffect();}
     public get Delay() {return this.GetProp("Delay", DataType.Float32);}
     public set Delay(value) {this.SetProp("Delay", DataType.Float32, value);}
@@ -5330,7 +5330,7 @@ export class EchoSoundEffect extends SoundEffect {
 }
 
 export class EqualizerSoundEffect extends SoundEffect {
-    protected constructor(className?: string) {super(className ?? "EqualizerSoundEffect"); this.addClassName("EqualizerSoundEffect");}
+    protected constructor() {super(); this.addClassName("EqualizerSoundEffect");}
     public static new() {return new EqualizerSoundEffect();}
     public get HighGain() {return this.GetProp("HighGain", DataType.Float32);}
     public set HighGain(value) {this.SetProp("HighGain", DataType.Float32, value);}
@@ -5341,7 +5341,7 @@ export class EqualizerSoundEffect extends SoundEffect {
 }
 
 export class FlangeSoundEffect extends SoundEffect {
-    protected constructor(className?: string) {super(className ?? "FlangeSoundEffect"); this.addClassName("FlangeSoundEffect");}
+    protected constructor() {super(); this.addClassName("FlangeSoundEffect");}
     public static new() {return new FlangeSoundEffect();}
     public get Depth() {return this.GetProp("Depth", DataType.Float32);}
     public set Depth(value) {this.SetProp("Depth", DataType.Float32, value);}
@@ -5352,14 +5352,14 @@ export class FlangeSoundEffect extends SoundEffect {
 }
 
 export class PitchShiftSoundEffect extends SoundEffect {
-    protected constructor(className?: string) {super(className ?? "PitchShiftSoundEffect"); this.addClassName("PitchShiftSoundEffect");}
+    protected constructor() {super(); this.addClassName("PitchShiftSoundEffect");}
     public static new() {return new PitchShiftSoundEffect();}
     public get Octave() {return this.GetProp("Octave", DataType.Float32);}
     public set Octave(value) {this.SetProp("Octave", DataType.Float32, value);}
 }
 
 export class ReverbSoundEffect extends SoundEffect {
-    protected constructor(className?: string) {super(className ?? "ReverbSoundEffect"); this.addClassName("ReverbSoundEffect");}
+    protected constructor() {super(); this.addClassName("ReverbSoundEffect");}
     public static new() {return new ReverbSoundEffect();}
     public get DecayTime() {return this.GetProp("DecayTime", DataType.Float32);}
     public set DecayTime(value) {this.SetProp("DecayTime", DataType.Float32, value);}
@@ -5374,7 +5374,7 @@ export class ReverbSoundEffect extends SoundEffect {
 }
 
 export class TremoloSoundEffect extends SoundEffect {
-    protected constructor(className?: string) {super(className ?? "TremoloSoundEffect"); this.addClassName("TremoloSoundEffect");}
+    protected constructor() {super(); this.addClassName("TremoloSoundEffect");}
     public static new() {return new TremoloSoundEffect();}
     public get Depth() {return this.GetProp("Depth", DataType.Float32);}
     public set Depth(value) {this.SetProp("Depth", DataType.Float32, value);}
@@ -5385,14 +5385,14 @@ export class TremoloSoundEffect extends SoundEffect {
 }
 
 export class SoundGroup extends Instance {
-    protected constructor(className?: string) {super(className ?? "SoundGroup"); this.addClassName("SoundGroup");}
+    protected constructor() {super(); this.addClassName("SoundGroup");}
     public static new() {return new SoundGroup();}
     public get Volume() {return this.GetProp("Volume", DataType.Float32);}
     public set Volume(value) {this.SetProp("Volume", DataType.Float32, value);}
 }
 
 export class SoundService extends Instance {
-    protected constructor(className?: string) {super(className ?? "SoundService", true); this.addClassName("SoundService");}
+    protected constructor() {super(true); this.addClassName("SoundService");}
     public static new() {return new SoundService();}
     public get AmbientReverb() {return this.GetProp("AmbientReverb", DataType.Enum) as ReverbType | undefined;}
     public set AmbientReverb(value) {this.SetProp("AmbientReverb", DataType.Enum, value);}
@@ -5409,7 +5409,7 @@ export class SoundService extends Instance {
 }
 
 export class Sparkles extends Instance {
-    protected constructor(className?: string) {super(className ?? "Sparkles"); this.addClassName("Sparkles");}
+    protected constructor() {super(); this.addClassName("Sparkles");}
     public static new() {return new Sparkles();}
     public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
@@ -5420,27 +5420,27 @@ export class Sparkles extends Instance {
 }
 
 export class SpawnerService extends Instance {
-    protected constructor(className?: string) {super(className ?? "SpawnerService", true); this.addClassName("SpawnerService");}
+    protected constructor() {super(true); this.addClassName("SpawnerService");}
     public static new() {return new SpawnerService();}
 }
 
 export class StandalonePluginScripts extends Instance {
-    protected constructor(className?: string) {super(className ?? "StandalonePluginScripts"); this.addClassName("StandalonePluginScripts");}
+    protected constructor() {super(); this.addClassName("StandalonePluginScripts");}
     public static new() {return new StandalonePluginScripts();}
 }
 
 export class StarterGear extends Instance {
-    protected constructor(className?: string) {super(className ?? "StarterGear"); this.addClassName("StarterGear");}
+    protected constructor() {super(); this.addClassName("StarterGear");}
     public static new() {return new StarterGear();}
 }
 
 export class StarterPack extends Instance {
-    protected constructor(className?: string) {super(className ?? "StarterPack", true); this.addClassName("StarterPack");}
+    protected constructor() {super(true); this.addClassName("StarterPack");}
     public static new() {return new StarterPack();}
 }
 
 export class StarterPlayer extends Instance {
-    protected constructor(className?: string) {super(className ?? "StarterPlayer", true); this.addClassName("StarterPlayer");}
+    protected constructor() {super(true); this.addClassName("StarterPlayer");}
     public static new() {return new StarterPlayer();}
     public get AllowCustomAnimations() {return this.GetProp("AllowCustomAnimations", DataType.Bool);}
     public set AllowCustomAnimations(value) {this.SetProp("AllowCustomAnimations", DataType.Bool, value);}
@@ -5527,46 +5527,46 @@ export class StarterPlayer extends Instance {
 }
 
 export class StarterPlayerScripts extends Instance {
-    protected constructor(className?: string) {super(className ?? "StarterPlayerScripts"); this.addClassName("StarterPlayerScripts");}
+    protected constructor() {super(); this.addClassName("StarterPlayerScripts");}
     public static new() {return new StarterPlayerScripts();}
 }
 
 export class StarterCharacterScripts extends StarterPlayerScripts {
-    protected constructor(className?: string) {super(className ?? "StarterCharacterScripts"); this.addClassName("StarterCharacterScripts");}
+    protected constructor() {super(); this.addClassName("StarterCharacterScripts");}
     public static new() {return new StarterCharacterScripts();}
 }
 
 export class StartupMessageService extends Instance {
-    protected constructor(className?: string) {super(className ?? "StartupMessageService", true); this.addClassName("StartupMessageService");}
+    protected constructor() {super(true); this.addClassName("StartupMessageService");}
     public static new() {return new StartupMessageService();}
 }
 
 export class Stats extends Instance {
-    protected constructor(className?: string) {super(className ?? "Stats", true); this.addClassName("Stats");}
+    protected constructor() {super(true); this.addClassName("Stats");}
     public static new() {return new Stats();}
 }
 
 export abstract class StatsItem extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("StatsItem");}
+    protected constructor() {super(); this.addClassName("StatsItem");}
 }
 
 export class StopWatchReporter extends Instance {
-    protected constructor(className?: string) {super(className ?? "StopWatchReporter", true); this.addClassName("StopWatchReporter");}
+    protected constructor() {super(true); this.addClassName("StopWatchReporter");}
     public static new() {return new StopWatchReporter();}
 }
 
 export class StreamingService extends Instance {
-    protected constructor(className?: string) {super(className ?? "StreamingService", true); this.addClassName("StreamingService");}
+    protected constructor() {super(true); this.addClassName("StreamingService");}
     public static new() {return new StreamingService();}
 }
 
 export class StudioAssetService extends Instance {
-    protected constructor(className?: string) {super(className ?? "StudioAssetService", true); this.addClassName("StudioAssetService");}
+    protected constructor() {super(true); this.addClassName("StudioAssetService");}
     public static new() {return new StudioAssetService();}
 }
 
 export class StudioAttachment extends Instance {
-    protected constructor(className?: string) {super(className ?? "StudioAttachment"); this.addClassName("StudioAttachment");}
+    protected constructor() {super(); this.addClassName("StudioAttachment");}
     public static new() {return new StudioAttachment();}
     public get AutoHideParent() {return this.GetProp("AutoHideParent", DataType.Bool);}
     public set AutoHideParent(value) {this.SetProp("AutoHideParent", DataType.Bool, value);}
@@ -5581,59 +5581,59 @@ export class StudioAttachment extends Instance {
 }
 
 export class StudioCallout extends Instance {
-    protected constructor(className?: string) {super(className ?? "StudioCallout"); this.addClassName("StudioCallout");}
+    protected constructor() {super(); this.addClassName("StudioCallout");}
     public static new() {return new StudioCallout();}
 }
 
 export class StudioData extends Instance {
-    protected constructor(className?: string) {super(className ?? "StudioData", true); this.addClassName("StudioData");}
+    protected constructor() {super(true); this.addClassName("StudioData");}
     public static new() {return new StudioData();}
     public get EnableScriptCollabByDefaultOnLoad() {return this.GetProp("EnableScriptCollabByDefaultOnLoad", DataType.Bool);}
     public set EnableScriptCollabByDefaultOnLoad(value) {this.SetProp("EnableScriptCollabByDefaultOnLoad", DataType.Bool, value);}
 }
 
 export class StudioDeviceEmulatorService extends Instance {
-    protected constructor(className?: string) {super(className ?? "StudioDeviceEmulatorService", true); this.addClassName("StudioDeviceEmulatorService");}
+    protected constructor() {super(true); this.addClassName("StudioDeviceEmulatorService");}
     public static new() {return new StudioDeviceEmulatorService();}
 }
 
 export abstract class StudioObjectBase extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("StudioObjectBase");}
+    protected constructor() {super(); this.addClassName("StudioObjectBase");}
 }
 
 export class StudioPublishService extends Instance {
-    protected constructor(className?: string) {super(className ?? "StudioPublishService", true); this.addClassName("StudioPublishService");}
+    protected constructor() {super(true); this.addClassName("StudioPublishService");}
     public static new() {return new StudioPublishService();}
     public get PublishLocked() {return this.GetProp("PublishLocked", DataType.Bool);}
     public set PublishLocked(value) {this.SetProp("PublishLocked", DataType.Bool, value);}
 }
 
 export class StudioScriptDebugEventListener extends Instance {
-    protected constructor(className?: string) {super(className ?? "StudioScriptDebugEventListener", true); this.addClassName("StudioScriptDebugEventListener");}
+    protected constructor() {super(true); this.addClassName("StudioScriptDebugEventListener");}
     public static new() {return new StudioScriptDebugEventListener();}
 }
 
 export class StudioSdkService extends Instance {
-    protected constructor(className?: string) {super(className ?? "StudioSdkService", true); this.addClassName("StudioSdkService");}
+    protected constructor() {super(true); this.addClassName("StudioSdkService");}
     public static new() {return new StudioSdkService();}
 }
 
 export class StudioService extends Instance {
-    protected constructor(className?: string) {super(className ?? "StudioService", true); this.addClassName("StudioService");}
+    protected constructor() {super(true); this.addClassName("StudioService");}
     public static new() {return new StudioService();}
 }
 
 export class StudioWidgetsService extends Instance {
-    protected constructor(className?: string) {super(className ?? "StudioWidgetsService", true); this.addClassName("StudioWidgetsService");}
+    protected constructor() {super(true); this.addClassName("StudioWidgetsService");}
     public static new() {return new StudioWidgetsService();}
 }
 
 export abstract class StyleBase extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("StyleBase");}
+    protected constructor() {super(); this.addClassName("StyleBase");}
 }
 
 export class StyleRule extends StyleBase {
-    protected constructor(className?: string) {super(className ?? "StyleRule"); this.addClassName("StyleRule");}
+    protected constructor() {super(); this.addClassName("StyleRule");}
     public static new() {return new StyleRule();}
     public get Index() {return this.GetProp("Index", DataType.Int32);}
     public set Index(value) {this.SetProp("Index", DataType.Int32, value);}
@@ -5644,12 +5644,12 @@ export class StyleRule extends StyleBase {
 }
 
 export class StyleSheet extends StyleBase {
-    protected constructor(className?: string) {super(className ?? "StyleSheet"); this.addClassName("StyleSheet");}
+    protected constructor() {super(); this.addClassName("StyleSheet");}
     public static new() {return new StyleSheet();}
 }
 
 export class StyleDerive extends Instance {
-    protected constructor(className?: string) {super(className ?? "StyleDerive"); this.addClassName("StyleDerive");}
+    protected constructor() {super(); this.addClassName("StyleDerive");}
     public static new() {return new StyleDerive();}
     public get Index() {return this.GetProp("Index", DataType.Int32);}
     public set Index(value) {this.SetProp("Index", DataType.Int32, value);}
@@ -5658,19 +5658,19 @@ export class StyleDerive extends Instance {
 }
 
 export class StyleLink extends Instance {
-    protected constructor(className?: string) {super(className ?? "StyleLink"); this.addClassName("StyleLink");}
+    protected constructor() {super(); this.addClassName("StyleLink");}
     public static new() {return new StyleLink();}
     public get StyleSheet() {return this.GetProp("StyleSheet", DataType.Referent) as StyleSheet | undefined;}
     public set StyleSheet(value) {this.SetProp("StyleSheet", DataType.Referent, value);}
 }
 
 export class StylingService extends Instance {
-    protected constructor(className?: string) {super(className ?? "StylingService", true); this.addClassName("StylingService");}
+    protected constructor() {super(true); this.addClassName("StylingService");}
     public static new() {return new StylingService();}
 }
 
 export class SurfaceAppearance extends Instance {
-    protected constructor(className?: string) {super(className ?? "SurfaceAppearance"); this.addClassName("SurfaceAppearance");}
+    protected constructor() {super(); this.addClassName("SurfaceAppearance");}
     public static new() {return new SurfaceAppearance();}
     public get AlphaMode() {return this.GetProp("AlphaMode", DataType.Enum) as AlphaMode | undefined;}
     public set AlphaMode(value) {this.SetProp("AlphaMode", DataType.Enum, value);}
@@ -5687,14 +5687,14 @@ export class SurfaceAppearance extends Instance {
 }
 
 export class TaskScheduler extends Instance {
-    protected constructor(className?: string) {super(className ?? "TaskScheduler", true); this.addClassName("TaskScheduler");}
+    protected constructor() {super(true); this.addClassName("TaskScheduler");}
     public static new() {return new TaskScheduler();}
     public get ThreadPoolConfig() {return this.GetProp("ThreadPoolConfig", DataType.Enum) as ThreadPoolConfig | undefined;}
     public set ThreadPoolConfig(value) {this.SetProp("ThreadPoolConfig", DataType.Enum, value);}
 }
 
 export class Team extends Instance {
-    protected constructor(className?: string) {super(className ?? "Team"); this.addClassName("Team");}
+    protected constructor() {super(); this.addClassName("Team");}
     public static new() {return new Team();}
     public get AutoAssignable() {return this.GetProp("AutoAssignable", DataType.Bool);}
     public set AutoAssignable(value) {this.SetProp("AutoAssignable", DataType.Bool, value);}
@@ -5711,27 +5711,27 @@ export class Team extends Instance {
 }
 
 export class TeamCreateData extends Instance {
-    protected constructor(className?: string) {super(className ?? "TeamCreateData", true); this.addClassName("TeamCreateData");}
+    protected constructor() {super(true); this.addClassName("TeamCreateData");}
     public static new() {return new TeamCreateData();}
 }
 
 export class TeamCreatePublishService extends Instance {
-    protected constructor(className?: string) {super(className ?? "TeamCreatePublishService", true); this.addClassName("TeamCreatePublishService");}
+    protected constructor() {super(true); this.addClassName("TeamCreatePublishService");}
     public static new() {return new TeamCreatePublishService();}
 }
 
 export class TeamCreateService extends Instance {
-    protected constructor(className?: string) {super(className ?? "TeamCreateService", true); this.addClassName("TeamCreateService");}
+    protected constructor() {super(true); this.addClassName("TeamCreateService");}
     public static new() {return new TeamCreateService();}
 }
 
 export class Teams extends Instance {
-    protected constructor(className?: string) {super(className ?? "Teams", true); this.addClassName("Teams");}
+    protected constructor() {super(true); this.addClassName("Teams");}
     public static new() {return new Teams();}
 }
 
 export class TeleportOptions extends Instance {
-    protected constructor(className?: string) {super(className ?? "TeleportOptions"); this.addClassName("TeleportOptions");}
+    protected constructor() {super(); this.addClassName("TeleportOptions");}
     public static new() {return new TeleportOptions();}
     public get ReservedServerAccessCode() {return this.GetProp("ReservedServerAccessCode", DataType.String);}
     public set ReservedServerAccessCode(value) {this.SetProp("ReservedServerAccessCode", DataType.String, value);}
@@ -5742,7 +5742,7 @@ export class TeleportOptions extends Instance {
 }
 
 export class TeleportService extends Instance {
-    protected constructor(className?: string) {super(className ?? "TeleportService", true); this.addClassName("TeleportService");}
+    protected constructor() {super(true); this.addClassName("TeleportService");}
     public static new() {return new TeleportService();}
     /**@deprecated Deprecated by Roblox*/
     public get CustomizedTeleportUI() {return this.GetProp("CustomizedTeleportUI", DataType.Bool);}
@@ -5751,17 +5751,17 @@ export class TeleportService extends Instance {
 }
 
 export class TemporaryCageMeshProvider extends Instance {
-    protected constructor(className?: string) {super(className ?? "TemporaryCageMeshProvider", true); this.addClassName("TemporaryCageMeshProvider");}
+    protected constructor() {super(true); this.addClassName("TemporaryCageMeshProvider");}
     public static new() {return new TemporaryCageMeshProvider();}
 }
 
 export class TemporaryScriptService extends Instance {
-    protected constructor(className?: string) {super(className ?? "TemporaryScriptService", true); this.addClassName("TemporaryScriptService");}
+    protected constructor() {super(true); this.addClassName("TemporaryScriptService");}
     public static new() {return new TemporaryScriptService();}
 }
 
 export class TerrainDetail extends Instance {
-    protected constructor(className?: string) {super(className ?? "TerrainDetail"); this.addClassName("TerrainDetail");}
+    protected constructor() {super(); this.addClassName("TerrainDetail");}
     public static new() {return new TerrainDetail();}
     public get ColorMap() {return this.GetProp("ColorMap", DataType.String);}
     public set ColorMap(value) {this.SetProp("ColorMap", DataType.String, value);}
@@ -5782,14 +5782,14 @@ export class TerrainDetail extends Instance {
 }
 
 export class TerrainRegion extends Instance {
-    protected constructor(className?: string) {super(className ?? "TerrainRegion"); this.addClassName("TerrainRegion");}
+    protected constructor() {super(); this.addClassName("TerrainRegion");}
     public static new() {return new TerrainRegion();}
     public get SmoothGrid() {return this.GetProp("SmoothGrid", DataType.String);}
     public set SmoothGrid(value) {this.SetProp("SmoothGrid", DataType.String, value);}
 }
 
 export class TestService extends Instance {
-    protected constructor(className?: string) {super(className ?? "TestService", true); this.addClassName("TestService");}
+    protected constructor() {super(true); this.addClassName("TestService");}
     public static new() {return new TestService();}
     public get AutoRuns() {return this.GetProp("AutoRuns", DataType.Bool);}
     public set AutoRuns(value) {this.SetProp("AutoRuns", DataType.Bool, value);}
@@ -5808,17 +5808,17 @@ export class TestService extends Instance {
 }
 
 export class TextBoxService extends Instance {
-    protected constructor(className?: string) {super(className ?? "TextBoxService", true); this.addClassName("TextBoxService");}
+    protected constructor() {super(true); this.addClassName("TextBoxService");}
     public static new() {return new TextBoxService();}
 }
 
 export class TextChannel extends Instance {
-    protected constructor(className?: string) {super(className ?? "TextChannel"); this.addClassName("TextChannel");}
+    protected constructor() {super(); this.addClassName("TextChannel");}
     public static new() {return new TextChannel();}
 }
 
 export class TextChatCommand extends Instance {
-    protected constructor(className?: string) {super(className ?? "TextChatCommand"); this.addClassName("TextChatCommand");}
+    protected constructor() {super(); this.addClassName("TextChatCommand");}
     public static new() {return new TextChatCommand();}
     public get AutocompleteVisible() {return this.GetProp("AutocompleteVisible", DataType.Bool);}
     public set AutocompleteVisible(value) {this.SetProp("AutocompleteVisible", DataType.Bool, value);}
@@ -5831,11 +5831,11 @@ export class TextChatCommand extends Instance {
 }
 
 export abstract class TextChatConfigurations extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("TextChatConfigurations");}
+    protected constructor() {super(); this.addClassName("TextChatConfigurations");}
 }
 
 export class BubbleChatConfiguration extends TextChatConfigurations {
-    protected constructor(className?: string) {super(className ?? "BubbleChatConfiguration"); this.addClassName("BubbleChatConfiguration");}
+    protected constructor() {super(); this.addClassName("BubbleChatConfiguration");}
     public static new() {return new BubbleChatConfiguration();}
     public get AdorneeName() {return this.GetProp("AdorneeName", DataType.String);}
     public set AdorneeName(value) {this.SetProp("AdorneeName", DataType.String, value);}
@@ -5872,7 +5872,7 @@ export class BubbleChatConfiguration extends TextChatConfigurations {
 }
 
 export class ChatInputBarConfiguration extends TextChatConfigurations {
-    protected constructor(className?: string) {super(className ?? "ChatInputBarConfiguration"); this.addClassName("ChatInputBarConfiguration");}
+    protected constructor() {super(); this.addClassName("ChatInputBarConfiguration");}
     public static new() {return new ChatInputBarConfiguration();}
     public get AutocompleteEnabled() {return this.GetProp("AutocompleteEnabled", DataType.Bool);}
     public set AutocompleteEnabled(value) {this.SetProp("AutocompleteEnabled", DataType.Bool, value);}
@@ -5901,7 +5901,7 @@ export class ChatInputBarConfiguration extends TextChatConfigurations {
 }
 
 export class ChatWindowConfiguration extends TextChatConfigurations {
-    protected constructor(className?: string) {super(className ?? "ChatWindowConfiguration"); this.addClassName("ChatWindowConfiguration");}
+    protected constructor() {super(); this.addClassName("ChatWindowConfiguration");}
     public static new() {return new ChatWindowConfiguration();}
     public get BackgroundColor3() {return this.GetProp("BackgroundColor3", DataType.Color3);}
     public set BackgroundColor3(value) {this.SetProp("BackgroundColor3", DataType.Color3, value);}
@@ -5930,12 +5930,12 @@ export class ChatWindowConfiguration extends TextChatConfigurations {
 }
 
 export class TextChatMessageProperties extends Instance {
-    protected constructor(className?: string) {super(className ?? "TextChatMessageProperties"); this.addClassName("TextChatMessageProperties");}
+    protected constructor() {super(); this.addClassName("TextChatMessageProperties");}
     public static new() {return new TextChatMessageProperties();}
 }
 
 export class TextChatService extends Instance {
-    protected constructor(className?: string) {super(className ?? "TextChatService", true); this.addClassName("TextChatService");}
+    protected constructor() {super(true); this.addClassName("TextChatService");}
     public static new() {return new TextChatService();}
     public get ChatTranslationFTUXShown() {return this.GetProp("ChatTranslationFTUXShown", DataType.Bool);}
     public set ChatTranslationFTUXShown(value) {this.SetProp("ChatTranslationFTUXShown", DataType.Bool, value);}
@@ -5950,47 +5950,47 @@ export class TextChatService extends Instance {
 }
 
 export class TextService extends Instance {
-    protected constructor(className?: string) {super(className ?? "TextService", true); this.addClassName("TextService");}
+    protected constructor() {super(true); this.addClassName("TextService");}
     public static new() {return new TextService();}
 }
 
 export class TextureGenerationService extends Instance {
-    protected constructor(className?: string) {super(className ?? "TextureGenerationService", true); this.addClassName("TextureGenerationService");}
+    protected constructor() {super(true); this.addClassName("TextureGenerationService");}
     public static new() {return new TextureGenerationService();}
 }
 
 export class ThirdPartyUserService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ThirdPartyUserService", true); this.addClassName("ThirdPartyUserService");}
+    protected constructor() {super(true); this.addClassName("ThirdPartyUserService");}
     public static new() {return new ThirdPartyUserService();}
 }
 
 export class TimerService extends Instance {
-    protected constructor(className?: string) {super(className ?? "TimerService", true); this.addClassName("TimerService");}
+    protected constructor() {super(true); this.addClassName("TimerService");}
     public static new() {return new TimerService();}
 }
 
 export class ToastNotificationService extends Instance {
-    protected constructor(className?: string) {super(className ?? "ToastNotificationService", true); this.addClassName("ToastNotificationService");}
+    protected constructor() {super(true); this.addClassName("ToastNotificationService");}
     public static new() {return new ToastNotificationService();}
 }
 
 export class TouchInputService extends Instance {
-    protected constructor(className?: string) {super(className ?? "TouchInputService", true); this.addClassName("TouchInputService");}
+    protected constructor() {super(true); this.addClassName("TouchInputService");}
     public static new() {return new TouchInputService();}
 }
 
 export class TracerService extends Instance {
-    protected constructor(className?: string) {super(className ?? "TracerService", true); this.addClassName("TracerService");}
+    protected constructor() {super(true); this.addClassName("TracerService");}
     public static new() {return new TracerService();}
 }
 
 export class TrackerStreamAnimation extends Instance {
-    protected constructor(className?: string) {super(className ?? "TrackerStreamAnimation"); this.addClassName("TrackerStreamAnimation");}
+    protected constructor() {super(); this.addClassName("TrackerStreamAnimation");}
     public static new() {return new TrackerStreamAnimation();}
 }
 
 export class Trail extends Instance {
-    protected constructor(className?: string) {super(className ?? "Trail"); this.addClassName("Trail");}
+    protected constructor() {super(); this.addClassName("Trail");}
     public static new() {return new Trail();}
     public get Attachment0() {return this.GetProp("Attachment0", DataType.Referent) as Attachment | undefined;}
     public set Attachment0(value) {this.SetProp("Attachment0", DataType.Referent, value);}
@@ -6027,48 +6027,48 @@ export class Trail extends Instance {
 }
 
 export class TutorialService extends Instance {
-    protected constructor(className?: string) {super(className ?? "TutorialService", true); this.addClassName("TutorialService");}
+    protected constructor() {super(true); this.addClassName("TutorialService");}
     public static new() {return new TutorialService();}
 }
 
 export abstract class TweenBase extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("TweenBase");}
+    protected constructor() {super(); this.addClassName("TweenBase");}
 }
 
 export class Tween extends TweenBase {
-    protected constructor(className?: string) {super(className ?? "Tween"); this.addClassName("Tween");}
+    protected constructor() {super(); this.addClassName("Tween");}
     public static new() {return new Tween();}
 }
 
 export class TweenService extends Instance {
-    protected constructor(className?: string) {super(className ?? "TweenService", true); this.addClassName("TweenService");}
+    protected constructor() {super(true); this.addClassName("TweenService");}
     public static new() {return new TweenService();}
 }
 
 export class UGCAvatarService extends Instance {
-    protected constructor(className?: string) {super(className ?? "UGCAvatarService", true); this.addClassName("UGCAvatarService");}
+    protected constructor() {super(true); this.addClassName("UGCAvatarService");}
     public static new() {return new UGCAvatarService();}
 }
 
 export class UGCValidationService extends Instance {
-    protected constructor(className?: string) {super(className ?? "UGCValidationService", true); this.addClassName("UGCValidationService");}
+    protected constructor() {super(true); this.addClassName("UGCValidationService");}
     public static new() {return new UGCValidationService();}
 }
 
 export abstract class UIBase extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("UIBase");}
+    protected constructor() {super(); this.addClassName("UIBase");}
 }
 
 export abstract class UIComponent extends UIBase {
-    protected constructor(className: string) {super(className); this.addClassName("UIComponent");}
+    protected constructor() {super(); this.addClassName("UIComponent");}
 }
 
 export abstract class UIConstraint extends UIComponent {
-    protected constructor(className: string) {super(className); this.addClassName("UIConstraint");}
+    protected constructor() {super(); this.addClassName("UIConstraint");}
 }
 
 export class UIAspectRatioConstraint extends UIConstraint {
-    protected constructor(className?: string) {super(className ?? "UIAspectRatioConstraint"); this.addClassName("UIAspectRatioConstraint");}
+    protected constructor() {super(); this.addClassName("UIAspectRatioConstraint");}
     public static new() {return new UIAspectRatioConstraint();}
     public get AspectRatio() {return this.GetProp("AspectRatio", DataType.Float32);}
     public set AspectRatio(value) {this.SetProp("AspectRatio", DataType.Float32, value);}
@@ -6079,7 +6079,7 @@ export class UIAspectRatioConstraint extends UIConstraint {
 }
 
 export class UISizeConstraint extends UIConstraint {
-    protected constructor(className?: string) {super(className ?? "UISizeConstraint"); this.addClassName("UISizeConstraint");}
+    protected constructor() {super(); this.addClassName("UISizeConstraint");}
     public static new() {return new UISizeConstraint();}
     public get MaxSize() {return this.GetProp("MaxSize", DataType.Vector2);}
     public set MaxSize(value) {this.SetProp("MaxSize", DataType.Vector2, value);}
@@ -6088,7 +6088,7 @@ export class UISizeConstraint extends UIConstraint {
 }
 
 export class UITextSizeConstraint extends UIConstraint {
-    protected constructor(className?: string) {super(className ?? "UITextSizeConstraint"); this.addClassName("UITextSizeConstraint");}
+    protected constructor() {super(); this.addClassName("UITextSizeConstraint");}
     public static new() {return new UITextSizeConstraint();}
     public get MaxTextSize() {return this.GetProp("MaxTextSize", DataType.Int32);}
     public set MaxTextSize(value) {this.SetProp("MaxTextSize", DataType.Int32, value);}
@@ -6097,14 +6097,14 @@ export class UITextSizeConstraint extends UIConstraint {
 }
 
 export class UICorner extends UIComponent {
-    protected constructor(className?: string) {super(className ?? "UICorner"); this.addClassName("UICorner");}
+    protected constructor() {super(); this.addClassName("UICorner");}
     public static new() {return new UICorner();}
     public get CornerRadius() {return this.GetProp("CornerRadius", DataType.UDim);}
     public set CornerRadius(value) {this.SetProp("CornerRadius", DataType.UDim, value);}
 }
 
 export class UIFlexItem extends UIComponent {
-    protected constructor(className?: string) {super(className ?? "UIFlexItem"); this.addClassName("UIFlexItem");}
+    protected constructor() {super(); this.addClassName("UIFlexItem");}
     public static new() {return new UIFlexItem();}
     public get FlexMode() {return this.GetProp("FlexMode", DataType.Enum) as UIFlexMode | undefined;}
     public set FlexMode(value) {this.SetProp("FlexMode", DataType.Enum, value);}
@@ -6117,7 +6117,7 @@ export class UIFlexItem extends UIComponent {
 }
 
 export class UIGradient extends UIComponent {
-    protected constructor(className?: string) {super(className ?? "UIGradient"); this.addClassName("UIGradient");}
+    protected constructor() {super(); this.addClassName("UIGradient");}
     public static new() {return new UIGradient();}
     public get Color() {return this.GetProp("Color", DataType.ColorSequence);}
     public set Color(value) {this.SetProp("Color", DataType.ColorSequence, value);}
@@ -6132,11 +6132,11 @@ export class UIGradient extends UIComponent {
 }
 
 export abstract class UILayout extends UIComponent {
-    protected constructor(className: string) {super(className); this.addClassName("UILayout");}
+    protected constructor() {super(); this.addClassName("UILayout");}
 }
 
 export abstract class UIGridStyleLayout extends UILayout {
-    protected constructor(className: string) {super(className); this.addClassName("UIGridStyleLayout");}
+    protected constructor() {super(); this.addClassName("UIGridStyleLayout");}
     public get FillDirection() {return this.GetProp("FillDirection", DataType.Enum) as FillDirection | undefined;}
     public set FillDirection(value) {this.SetProp("FillDirection", DataType.Enum, value);}
     public get HorizontalAlignment() {return this.GetProp("HorizontalAlignment", DataType.Enum) as HorizontalAlignment | undefined;}
@@ -6148,7 +6148,7 @@ export abstract class UIGridStyleLayout extends UILayout {
 }
 
 export class UIGridLayout extends UIGridStyleLayout {
-    protected constructor(className?: string) {super(className ?? "UIGridLayout"); this.addClassName("UIGridLayout");}
+    protected constructor() {super(); this.addClassName("UIGridLayout");}
     public static new() {return new UIGridLayout();}
     public get CellPadding() {return this.GetProp("CellPadding", DataType.UDim2);}
     public set CellPadding(value) {this.SetProp("CellPadding", DataType.UDim2, value);}
@@ -6161,7 +6161,7 @@ export class UIGridLayout extends UIGridStyleLayout {
 }
 
 export class UIListLayout extends UIGridStyleLayout {
-    protected constructor(className?: string) {super(className ?? "UIListLayout"); this.addClassName("UIListLayout");}
+    protected constructor() {super(); this.addClassName("UIListLayout");}
     public static new() {return new UIListLayout();}
     public get HorizontalFlex() {return this.GetProp("HorizontalFlex", DataType.Enum) as UIFlexAlignment | undefined;}
     public set HorizontalFlex(value) {this.SetProp("HorizontalFlex", DataType.Enum, value);}
@@ -6176,7 +6176,7 @@ export class UIListLayout extends UIGridStyleLayout {
 }
 
 export class UIPageLayout extends UIGridStyleLayout {
-    protected constructor(className?: string) {super(className ?? "UIPageLayout"); this.addClassName("UIPageLayout");}
+    protected constructor() {super(); this.addClassName("UIPageLayout");}
     public static new() {return new UIPageLayout();}
     public get Animated() {return this.GetProp("Animated", DataType.Bool);}
     public set Animated(value) {this.SetProp("Animated", DataType.Bool, value);}
@@ -6199,7 +6199,7 @@ export class UIPageLayout extends UIGridStyleLayout {
 }
 
 export class UITableLayout extends UIGridStyleLayout {
-    protected constructor(className?: string) {super(className ?? "UITableLayout"); this.addClassName("UITableLayout");}
+    protected constructor() {super(); this.addClassName("UITableLayout");}
     public static new() {return new UITableLayout();}
     public get FillEmptySpaceColumns() {return this.GetProp("FillEmptySpaceColumns", DataType.Bool);}
     public set FillEmptySpaceColumns(value) {this.SetProp("FillEmptySpaceColumns", DataType.Bool, value);}
@@ -6212,7 +6212,7 @@ export class UITableLayout extends UIGridStyleLayout {
 }
 
 export class UIPadding extends UIComponent {
-    protected constructor(className?: string) {super(className ?? "UIPadding"); this.addClassName("UIPadding");}
+    protected constructor() {super(); this.addClassName("UIPadding");}
     public static new() {return new UIPadding();}
     public get PaddingBottom() {return this.GetProp("PaddingBottom", DataType.UDim);}
     public set PaddingBottom(value) {this.SetProp("PaddingBottom", DataType.UDim, value);}
@@ -6225,14 +6225,14 @@ export class UIPadding extends UIComponent {
 }
 
 export class UIScale extends UIComponent {
-    protected constructor(className?: string) {super(className ?? "UIScale"); this.addClassName("UIScale");}
+    protected constructor() {super(); this.addClassName("UIScale");}
     public static new() {return new UIScale();}
     public get Scale() {return this.GetProp("Scale", DataType.Float32);}
     public set Scale(value) {this.SetProp("Scale", DataType.Float32, value);}
 }
 
 export class UIStroke extends UIComponent {
-    protected constructor(className?: string) {super(className ?? "UIStroke"); this.addClassName("UIStroke");}
+    protected constructor() {super(); this.addClassName("UIStroke");}
     public static new() {return new UIStroke();}
     public get ApplyStrokeMode() {return this.GetProp("ApplyStrokeMode", DataType.Enum) as ApplyStrokeMode | undefined;}
     public set ApplyStrokeMode(value) {this.SetProp("ApplyStrokeMode", DataType.Enum, value);}
@@ -6249,14 +6249,14 @@ export class UIStroke extends UIComponent {
 }
 
 export class UnvalidatedAssetService extends Instance {
-    protected constructor(className?: string) {super(className ?? "UnvalidatedAssetService", true); this.addClassName("UnvalidatedAssetService");}
+    protected constructor() {super(true); this.addClassName("UnvalidatedAssetService");}
     public static new() {return new UnvalidatedAssetService();}
     public get CachedData() {return this.GetProp("CachedData", DataType.String);}
     public set CachedData(value) {this.SetProp("CachedData", DataType.String, value);}
 }
 
 export class UserInputService extends Instance {
-    protected constructor(className?: string) {super(className ?? "UserInputService", true); this.addClassName("UserInputService");}
+    protected constructor() {super(true); this.addClassName("UserInputService");}
     public static new() {return new UserInputService();}
     public get LegacyInputEventsEnabled() {return this.GetProp("LegacyInputEventsEnabled", DataType.Bool);}
     public set LegacyInputEventsEnabled(value) {this.SetProp("LegacyInputEventsEnabled", DataType.Bool, value);}
@@ -6269,12 +6269,12 @@ export class UserInputService extends Instance {
 }
 
 export class UserService extends Instance {
-    protected constructor(className?: string) {super(className ?? "UserService", true); this.addClassName("UserService");}
+    protected constructor() {super(true); this.addClassName("UserService");}
     public static new() {return new UserService();}
 }
 
 export class VRService extends Instance {
-    protected constructor(className?: string) {super(className ?? "VRService", true); this.addClassName("VRService");}
+    protected constructor() {super(true); this.addClassName("VRService");}
     public static new() {return new VRService();}
     public get AutomaticScaling() {return this.GetProp("AutomaticScaling", DataType.Enum) as VRScaling | undefined;}
     public set AutomaticScaling(value) {this.SetProp("AutomaticScaling", DataType.Enum, value);}
@@ -6285,51 +6285,51 @@ export class VRService extends Instance {
 }
 
 export class VRStatusService extends Instance {
-    protected constructor(className?: string) {super(className ?? "VRStatusService", true); this.addClassName("VRStatusService");}
+    protected constructor() {super(true); this.addClassName("VRStatusService");}
     public static new() {return new VRStatusService();}
 }
 
 export abstract class ValueBase extends Instance {
-    protected constructor(className: string) {super(className); this.addClassName("ValueBase");}
+    protected constructor() {super(); this.addClassName("ValueBase");}
 }
 
 export class BinaryStringValue extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "BinaryStringValue"); this.addClassName("BinaryStringValue");}
+    protected constructor() {super(); this.addClassName("BinaryStringValue");}
     public static new() {return new BinaryStringValue();}
     public get Value() {return this.GetProp("Value", DataType.String);}
     public set Value(value) {this.SetProp("Value", DataType.String, value);}
 }
 
 export class BoolValue extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "BoolValue"); this.addClassName("BoolValue");}
+    protected constructor() {super(); this.addClassName("BoolValue");}
     public static new() {return new BoolValue();}
     public get Value() {return this.GetProp("Value", DataType.Bool);}
     public set Value(value) {this.SetProp("Value", DataType.Bool, value);}
 }
 
 export class BrickColorValue extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "BrickColorValue"); this.addClassName("BrickColorValue");}
+    protected constructor() {super(); this.addClassName("BrickColorValue");}
     public static new() {return new BrickColorValue();}
     public get Value() {return this.GetProp("Value", DataType.BrickColor);}
     public set Value(value) {this.SetProp("Value", DataType.BrickColor, value);}
 }
 
 export class CFrameValue extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "CFrameValue"); this.addClassName("CFrameValue");}
+    protected constructor() {super(); this.addClassName("CFrameValue");}
     public static new() {return new CFrameValue();}
     public get Value() {return this.GetProp("Value", DataType.CFrame);}
     public set Value(value) {this.SetProp("Value", DataType.CFrame, value);}
 }
 
 export class Color3Value extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "Color3Value"); this.addClassName("Color3Value");}
+    protected constructor() {super(); this.addClassName("Color3Value");}
     public static new() {return new Color3Value();}
     public get Value() {return this.GetProp("Value", DataType.Color3);}
     public set Value(value) {this.SetProp("Value", DataType.Color3, value);}
 }
 
 export class DoubleConstrainedValue extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "DoubleConstrainedValue"); this.addClassName("DoubleConstrainedValue");}
+    protected constructor() {super(); this.addClassName("DoubleConstrainedValue");}
     public static new() {return new DoubleConstrainedValue();}
     public get MaxValue() {return this.GetProp("MaxValue", DataType.Float64);}
     public set MaxValue(value) {this.SetProp("MaxValue", DataType.Float64, value);}
@@ -6340,7 +6340,7 @@ export class DoubleConstrainedValue extends ValueBase {
 }
 
 export class IntConstrainedValue extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "IntConstrainedValue"); this.addClassName("IntConstrainedValue");}
+    protected constructor() {super(); this.addClassName("IntConstrainedValue");}
     public static new() {return new IntConstrainedValue();}
     public get MaxValue() {return this.GetProp("MaxValue", DataType.Int64);}
     public set MaxValue(value) {this.SetProp("MaxValue", DataType.Int64, value);}
@@ -6351,64 +6351,64 @@ export class IntConstrainedValue extends ValueBase {
 }
 
 export class IntValue extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "IntValue"); this.addClassName("IntValue");}
+    protected constructor() {super(); this.addClassName("IntValue");}
     public static new() {return new IntValue();}
     public get Value() {return this.GetProp("Value", DataType.Int64);}
     public set Value(value) {this.SetProp("Value", DataType.Int64, value);}
 }
 
 export class NumberValue extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "NumberValue"); this.addClassName("NumberValue");}
+    protected constructor() {super(); this.addClassName("NumberValue");}
     public static new() {return new NumberValue();}
     public get Value() {return this.GetProp("Value", DataType.Float64);}
     public set Value(value) {this.SetProp("Value", DataType.Float64, value);}
 }
 
 export class ObjectValue extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "ObjectValue"); this.addClassName("ObjectValue");}
+    protected constructor() {super(); this.addClassName("ObjectValue");}
     public static new() {return new ObjectValue();}
     public get Value() {return this.GetProp("Value", DataType.Referent) as Instance | undefined;}
     public set Value(value) {this.SetProp("Value", DataType.Referent, value);}
 }
 
 export class RayValue extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "RayValue"); this.addClassName("RayValue");}
+    protected constructor() {super(); this.addClassName("RayValue");}
     public static new() {return new RayValue();}
     public get Value() {return this.GetProp("Value", DataType.Ray);}
     public set Value(value) {this.SetProp("Value", DataType.Ray, value);}
 }
 
 export class StringValue extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "StringValue"); this.addClassName("StringValue");}
+    protected constructor() {super(); this.addClassName("StringValue");}
     public static new() {return new StringValue();}
     public get Value() {return this.GetProp("Value", DataType.String);}
     public set Value(value) {this.SetProp("Value", DataType.String, value);}
 }
 
 export class Vector3Value extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "Vector3Value"); this.addClassName("Vector3Value");}
+    protected constructor() {super(); this.addClassName("Vector3Value");}
     public static new() {return new Vector3Value();}
     public get Value() {return this.GetProp("Value", DataType.Vector3);}
     public set Value(value) {this.SetProp("Value", DataType.Vector3, value);}
 }
 
 export class Vector3Curve extends Instance {
-    protected constructor(className?: string) {super(className ?? "Vector3Curve"); this.addClassName("Vector3Curve");}
+    protected constructor() {super(); this.addClassName("Vector3Curve");}
     public static new() {return new Vector3Curve();}
 }
 
 export class VersionControlService extends Instance {
-    protected constructor(className?: string) {super(className ?? "VersionControlService", true); this.addClassName("VersionControlService");}
+    protected constructor() {super(true); this.addClassName("VersionControlService");}
     public static new() {return new VersionControlService();}
 }
 
 export class VideoCaptureService extends Instance {
-    protected constructor(className?: string) {super(className ?? "VideoCaptureService", true); this.addClassName("VideoCaptureService");}
+    protected constructor() {super(true); this.addClassName("VideoCaptureService");}
     public static new() {return new VideoCaptureService();}
 }
 
 export class VideoDeviceInput extends Instance {
-    protected constructor(className?: string) {super(className ?? "VideoDeviceInput"); this.addClassName("VideoDeviceInput");}
+    protected constructor() {super(); this.addClassName("VideoDeviceInput");}
     public static new() {return new VideoDeviceInput();}
     public get Active() {return this.GetProp("Active", DataType.Bool);}
     public set Active(value) {this.SetProp("Active", DataType.Bool, value);}
@@ -6419,32 +6419,32 @@ export class VideoDeviceInput extends Instance {
 }
 
 export class VideoService extends Instance {
-    protected constructor(className?: string) {super(className ?? "VideoService", true); this.addClassName("VideoService");}
+    protected constructor() {super(true); this.addClassName("VideoService");}
     public static new() {return new VideoService();}
 }
 
 export class VirtualInputManager extends Instance {
-    protected constructor(className?: string) {super(className ?? "VirtualInputManager", true); this.addClassName("VirtualInputManager");}
+    protected constructor() {super(true); this.addClassName("VirtualInputManager");}
     public static new() {return new VirtualInputManager();}
 }
 
 export class VirtualUser extends Instance {
-    protected constructor(className?: string) {super(className ?? "VirtualUser", true); this.addClassName("VirtualUser");}
+    protected constructor() {super(true); this.addClassName("VirtualUser");}
     public static new() {return new VirtualUser();}
 }
 
 export class VisibilityCheckDispatcher extends Instance {
-    protected constructor(className?: string) {super(className ?? "VisibilityCheckDispatcher", true); this.addClassName("VisibilityCheckDispatcher");}
+    protected constructor() {super(true); this.addClassName("VisibilityCheckDispatcher");}
     public static new() {return new VisibilityCheckDispatcher();}
 }
 
 export class Visit extends Instance {
-    protected constructor(className?: string) {super(className ?? "Visit", true); this.addClassName("Visit");}
+    protected constructor() {super(true); this.addClassName("Visit");}
     public static new() {return new Visit();}
 }
 
 export class VisualizationMode extends Instance {
-    protected constructor(className?: string) {super(className ?? "VisualizationMode"); this.addClassName("VisualizationMode");}
+    protected constructor() {super(); this.addClassName("VisualizationMode");}
     public static new() {return new VisualizationMode();}
     public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
@@ -6453,7 +6453,7 @@ export class VisualizationMode extends Instance {
 }
 
 export class VisualizationModeCategory extends Instance {
-    protected constructor(className?: string) {super(className ?? "VisualizationModeCategory"); this.addClassName("VisualizationModeCategory");}
+    protected constructor() {super(); this.addClassName("VisualizationModeCategory");}
     public static new() {return new VisualizationModeCategory();}
     public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
@@ -6462,17 +6462,17 @@ export class VisualizationModeCategory extends Instance {
 }
 
 export class VisualizationModeService extends Instance {
-    protected constructor(className?: string) {super(className ?? "VisualizationModeService", true); this.addClassName("VisualizationModeService");}
+    protected constructor() {super(true); this.addClassName("VisualizationModeService");}
     public static new() {return new VisualizationModeService();}
 }
 
 export class VoiceChatInternal extends Instance {
-    protected constructor(className?: string) {super(className ?? "VoiceChatInternal", true); this.addClassName("VoiceChatInternal");}
+    protected constructor() {super(true); this.addClassName("VoiceChatInternal");}
     public static new() {return new VoiceChatInternal();}
 }
 
 export class VoiceChatService extends Instance {
-    protected constructor(className?: string) {super(className ?? "VoiceChatService", true); this.addClassName("VoiceChatService");}
+    protected constructor() {super(true); this.addClassName("VoiceChatService");}
     public static new() {return new VoiceChatService();}
     public get EnableDefaultVoice() {return this.GetProp("EnableDefaultVoice", DataType.Bool);}
     public set EnableDefaultVoice(value) {this.SetProp("EnableDefaultVoice", DataType.Bool, value);}
@@ -6481,7 +6481,7 @@ export class VoiceChatService extends Instance {
 }
 
 export class WeldConstraint extends Instance {
-    protected constructor(className?: string) {super(className ?? "WeldConstraint"); this.addClassName("WeldConstraint");}
+    protected constructor() {super(); this.addClassName("WeldConstraint");}
     public static new() {return new WeldConstraint();}
     public get CFrame0() {return this.GetProp("CFrame0", DataType.CFrame);}
     public set CFrame0(value) {this.SetProp("CFrame0", DataType.CFrame, value);}
@@ -6494,7 +6494,7 @@ export class WeldConstraint extends Instance {
 }
 
 export class Wire extends Instance {
-    protected constructor(className?: string) {super(className ?? "Wire"); this.addClassName("Wire");}
+    protected constructor() {super(); this.addClassName("Wire");}
     public static new() {return new Wire();}
     public get SourceInstance() {return this.GetProp("SourceInstance", DataType.Referent) as Instance | undefined;}
     public set SourceInstance(value) {this.SetProp("SourceInstance", DataType.Referent, value);}

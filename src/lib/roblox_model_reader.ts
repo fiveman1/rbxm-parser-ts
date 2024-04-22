@@ -210,7 +210,7 @@ export class RobloxModelDOMReader extends RobloxModelDOM
         referents.forEach((referent, index) => {
             referentIdToIndex.set(referent, index);
             this.referentIdToClassId.set(referent, classId);
-            instances.push(classFactory ? classFactory() : new Instance(className, isService));
+            instances.push(classFactory ? classFactory() : new Instance(isService, className));
         });
 
         this.classIdToInfo.set(classId, {

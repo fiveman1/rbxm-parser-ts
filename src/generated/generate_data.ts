@@ -197,18 +197,6 @@ import { DataType, Instance, EnumItem } from "../lib/roblox_types";
         );
     }
 
-    protected writeOneEnum(info: EnumInfo)
-    {
-        this.stream.write(`\nexport class ${info.Name} extends EnumItem {\n`);
-        for (const item of info.Items)
-        {
-            this.stream.write(`    public static readonly ${item.Name} = new ${info.Name}("${item.Name}", ${item.Value});\n`);
-        }
-        this.stream.write(`    public static get items() {return [${info.Items.map((item) => info.Name + "." + item.Name).join(", ")}];}\n`);
-        this.stream.write(`    public static fromValue(value: number) {return ${info.Name}.items.find((item) => item._value === value);}\n`);
-        this.stream.write("}\n");
-    }
-
     protected filterClass(info: ClassInfo)
     {
         // Instance and Studio are special and we will not generate them
@@ -240,7 +228,7 @@ import { DataType, Instance, EnumItem } from "../lib/roblox_types";
         const isAbstract = tags.NotCreatable && info.Inherited && !this.singletons.has(info.Name);
 
         this.stream.write(`\nexport ${isAbstract ? "abstract " : ""}class ${info.Name} extends ${info.Superclass} {\n`);
-        this.stream.write(`    protected constructor(className${isAbstract ? "" : "?"}: string) {super(${isAbstract ? "className" : `className ?? "${info.Name}"`}${isService && info.Superclass === "Instance" ? ", true" : ""}); this.addClassName("${info.Name}");}\n`);
+        this.stream.write(`    protected constructor() {super(${isService && info.Superclass === "Instance" ? "true" : ""}); this.addClassName("${info.Name}");}\n`);
         if (!isAbstract) this.stream.write(`    public static new() {return new ${info.Name}();}\n`);
         return !isAbstract;
     }
@@ -414,6 +402,18 @@ function getClassMap() {
     protected endClassMap()
     {
         this.stream.write("    return map;\n");
+        this.stream.write("}\n");
+    }
+
+    protected writeOneEnum(info: EnumInfo)
+    {
+        this.stream.write(`\nexport class ${info.Name} extends EnumItem {\n`);
+        for (const item of info.Items)
+        {
+            this.stream.write(`    public static readonly ${item.Name} = new ${info.Name}("${item.Name}", ${item.Value});\n`);
+        }
+        this.stream.write(`    public static get items() {return [${info.Items.map((item) => info.Name + "." + item.Name).join(", ")}];}\n`);
+        this.stream.write(`    public static fromValue(value: number) {return ${info.Name}.items.find((item) => item._value === value);}\n`);
         this.stream.write("}\n");
     }
 

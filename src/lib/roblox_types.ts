@@ -270,8 +270,7 @@ export type SharedString = {
  */
 export class Instance
 {
-    protected readonly _className: string;
-    protected readonly _classNameSet: Set<string> = new Set<string>();
+    protected readonly _classNameList: string[] = [];
     protected readonly _isService: boolean;
     protected readonly _props: Map<string, RobloxValue> = new Map<string, RobloxValue>();
     protected _parent?: Instance;
@@ -279,19 +278,21 @@ export class Instance
 
     /**
      * Creates a new Instance.
-     * @param className the class name of this instance
      * @param isService whether or not this is a service, false by default
      */
-    public constructor(className: string, isService: boolean = false)
+    public constructor(isService: boolean = false, className?: string)
     {
-        this._className = className;
         this.addClassName("Instance");
+        if (className) 
+        {
+            this.addClassName(className);
+        }
         this._isService = isService;
     }
 
     protected addClassName(className: string)
     {
-        this._classNameSet.add(className);
+        this._classNameList.push(className);
     }
 
     /**
@@ -356,12 +357,12 @@ export class Instance
      */
     public get ClassName(): string
     {
-        return this._className;
+        return this._classNameList[this._classNameList.length - 1];
     }
 
     public get ClassNameList(): readonly string[]
     {
-        return Array.from(this._classNameSet.values());
+        return this._classNameList;
     }
 
     /**
@@ -421,7 +422,7 @@ export class Instance
      */
     public IsA(className: string)
     {
-        return this._classNameSet.has(className);
+        return this._classNameList.includes(className);
     }
 
     /**
@@ -495,7 +496,7 @@ export class Instance
      */
     public GetTitleString()
     {
-        return `${this.Name} (class:${this._className})`;
+        return `${this.Name} (class:${this.ClassName})`;
     }
 
     public toString()
