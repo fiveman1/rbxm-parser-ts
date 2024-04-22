@@ -438,9 +438,9 @@ export class Instance
         return undefined;
     }
 
-    public FindFirstChildOfClass<T extends keyof NameToClass>(className: T, predicate?: (child: Instance) => boolean): NameToClass[T] | undefined
+    public FindFirstChildOfClass<T extends keyof NameToClass>(className: T, predicate?: (child: NameToClass[T]) => boolean): NameToClass[T] | undefined
     {
-        return this.FindFirstChild((child) => child.IsA(className) && (!predicate || predicate(child))) as NameToClass[T];
+        return this.FindFirstChild((child) => child.IsA(className) && (!predicate || predicate(child as NameToClass[T]))) as NameToClass[T];
     }
 
     /**
@@ -459,9 +459,9 @@ export class Instance
         return undefined;
     }
 
-    public FindFirstDescendantOfClass<T extends keyof NameToClass>(className: T, predicate?: (child: Instance) => boolean): NameToClass[T] | undefined
+    public FindFirstDescendantOfClass<T extends keyof NameToClass>(className: T, predicate?: (child: NameToClass[T]) => boolean): NameToClass[T] | undefined
     {
-        return this.FindFirstDescendant((child) => child.IsA(className) && (!predicate || predicate(child))) as NameToClass[T];
+        return this.FindFirstDescendant((child) => child.IsA(className) && (!predicate || predicate(child as NameToClass[T]))) as NameToClass[T];
     }
 
     /**
