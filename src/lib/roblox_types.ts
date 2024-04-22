@@ -479,12 +479,12 @@ export class Instance
         return children;
     }
 
-    public FindChildrenOfClass<T extends keyof NameToClass>(className: T, predicate?: (child: Instance) => boolean): NameToClass[T][]
+    public FindChildrenOfClass<T extends keyof NameToClass>(className: T, predicate?: (child: NameToClass[T]) => boolean): NameToClass[T][]
     {
         const children = [];
         for (const child of this._children)
         {
-            if (child.IsA(className) && (!predicate || predicate(child))) children.push(child);
+            if (child.IsA(className) && (!predicate || predicate(child as NameToClass[T]))) children.push(child);
         }
         return children as NameToClass[T][];
     }
