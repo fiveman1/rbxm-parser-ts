@@ -82,6 +82,10 @@ async function main()
     }
 
     const name = assetId;
+    if (!fs.existsSync("output_files"))
+    {
+        fs.mkdirSync("output_files");
+    }
     fs.writeFileSync(`output_files/${name}.txt`, str);
 }
 
