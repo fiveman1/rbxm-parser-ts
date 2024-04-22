@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .ts",
-    "build": "npx ts-node ./src/main.ts"
+    "build": "npx ts-node ./src/main.ts",
+    "generate": "npx ts-node ./src/generated/generate_data.ts"
   },
   "keywords": [],
   "author": "",

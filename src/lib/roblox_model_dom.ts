@@ -5,9 +5,9 @@
  */
 
 import { RobloxModel } from "./roblox_model";
-import { DataType, RobloxValue, CoreInstance, UDim, UDim2, Vector3, Ray, Faces, Face, Axes, Axis, Color3, Vector2, CFrame, 
+import { DataType, RobloxValue, CoreInstance, UDim, UDim2, Vector3, Ray, Faces, RBXMFace, Axes, RBXMAxis, Color3, Vector2, CFrame, 
     Color3uint8, SharedStringValue, NumberSequenceKeypoint, NumberSequence, ColorSequence, ColorSequenceKeypoint, NumberRange, 
-    Rect, PhysicalProperties, EnumItem, EnumFactory, NormalId, UniqueId, Font} from "./roblox_types";
+    Rect, PhysicalProperties, EnumItem, EnumFactory, NormalId, UniqueId, RBXMFont} from "./roblox_types";
 import { RobloxModelByteReader } from "./roblox_model_reader";
 
 // https://dom.rojo.space/binary#chunks
@@ -34,7 +34,7 @@ export type RobloxClass = {
 export abstract class RobloxModelDOM 
 {
     protected model: RobloxModel = new RobloxModel();
-    protected dataTypeParsers: Map<DataType, DataTypeParser> = new Map<DataType, DataTypeParser>;
+    protected dataTypeParsers: Map<DataType, DataTypeParser> = new Map<DataType, DataTypeParser>();
     protected classIdToInfo: Map<number, RobloxClass> = new Map<number, RobloxClass>();
     protected referentIdToClassId: Map<number, number> = new Map<number, number>();
 
@@ -209,12 +209,12 @@ export class RayParser extends DataTypeParser
 
 export class FacesParser extends DataTypeParser 
 {
-    protected readonly FacesList = [Face.Front, Face.Bottom, Face.Left, Face.Back, Face.Top, Face.Right];
+    protected readonly FacesList = [RBXMFace.Front, RBXMFace.Bottom, RBXMFace.Left, RBXMFace.Back, RBXMFace.Top, RBXMFace.Right];
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         for (let i = 0; i < numInstances; ++i)
         {
-            const faces = new Array<Face>();
+            const faces = new Array<RBXMFace>();
             const facesBytes = bytes.getUint8();
             for (const face of this.FacesList)
             {
@@ -230,12 +230,12 @@ export class FacesParser extends DataTypeParser
 
 export class AxesParser extends DataTypeParser 
 {
-    protected readonly AxisList = [Axis.X, Axis.Y, Axis.Z];
+    protected readonly AxisList = [RBXMAxis.X, RBXMAxis.Y, RBXMAxis.Z];
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         for (let i = 0; i < numInstances; ++i)
         {
-            const axes = new Array<Axis>();
+            const axes = new Array<RBXMAxis>();
             const axesBytes = bytes.getUint8();
             for (const axis of this.AxisList)
             {
@@ -354,7 +354,6 @@ export class EnumParser extends DataTypeParser
 
         for (let i = 0; i < numInstances; ++i)
         {
-            
             outValues.push({ type: DataType.Enum, value: this.createEnumValue(enumValues[i], enumFactory) });
         }
     }
@@ -568,7 +567,7 @@ export class FontParser extends DataTypeParser
             const weight = bytes.getUint16();
             const style = bytes.getUint8();
             const cachedFaceId = bytes.getString();
-            outValues.push({ type: DataType.Font, value: new Font(family, weight, style, cachedFaceId) });
+            outValues.push({ type: DataType.Font, value: new RBXMFont(family, weight, style, cachedFaceId) });
         }
     }
 }

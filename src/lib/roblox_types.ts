@@ -31,7 +31,10 @@ export enum DataType
      * This is the only mention I could find of it being used:
      * https://create.roblox.com/docs/reference/engine/classes/Terrain#PasteRegion
      */
-    Vector3int16 = 0x14, 
+    //Vector3int16 = 0x14, 
+    /**
+     * 
+     */
     NumberSequence = 0x15,
     ColorSequence = 0x16,
     NumberRange = 0x17,
@@ -47,143 +50,148 @@ export enum DataType
 }
 
 type RobloxString = {
-    type: DataType.String,
+    type: DataType.String
     value: string
 }
 
 type RobloxBool = {
-    type: DataType.Bool,
+    type: DataType.Bool
     value: boolean
 }
 
 type RobloxInt32 = {
-    type: DataType.Int32,
+    type: DataType.Int32
     value: number
 }
 
 type RobloxFloat32 = {
-    type: DataType.Float32,
+    type: DataType.Float32
     value: number
 }
 
 type RobloxFloat64 = {
-    type: DataType.Float64,
+    type: DataType.Float64
     value: number
 }
 
 type RobloxUDim = {
-    type: DataType.UDim,
+    type: DataType.UDim
     value: UDim
 }
 
 type RobloxUDim2 = {
-    type: DataType.UDim2,
+    type: DataType.UDim2
     value: UDim2
 }
 
 type RobloxRay = {
-    type: DataType.Ray,
+    type: DataType.Ray
     value: Ray
 }
 
 type RobloxFaces = {
-    type: DataType.Faces,
+    type: DataType.Faces
     value: Faces
 }
 
 type RobloxAxes = {
-    type: DataType.Axes,
+    type: DataType.Axes
     value: Axes
 }
 
 type RobloxBrickColor = {
-    type: DataType.BrickColor,
+    type: DataType.BrickColor
     value: number
 }
 
 type RobloxColor3 = {
-    type: DataType.Color3,
+    type: DataType.Color3
     value: Color3
 }
 
 type RobloxVector2 = {
-    type: DataType.Vector2,
+    type: DataType.Vector2
     value: Vector2
 }
 
 type RobloxVector3 = {
-    type: DataType.Vector3,
+    type: DataType.Vector3
     value: Vector3
 }
 
 type RobloxCFrame = {
-    type: DataType.CFrame,
+    type: DataType.CFrame
     value: CFrame
 }
 
 type RobloxEnum = {
-    type: DataType.Enum,
+    type: DataType.Enum
     value: EnumItem
 }
 
 type RobloxReferent = {
-    type: DataType.Referent,
+    type: DataType.Referent
     value: CoreInstance
 }
 
 type RobloxColor3uint8 = {
-    type: DataType.Color3uint8,
+    type: DataType.Color3uint8
     value: Color3uint8
 }
 
 type RobloxNumberSequence = {
-    type: DataType.NumberSequence,
+    type: DataType.NumberSequence
     value: NumberSequence
 }
 
 type RobloxColorSequence = {
-    type: DataType.ColorSequence,
+    type: DataType.ColorSequence
     value: ColorSequence
 }
 
 type RobloxNumberRange = {
-    type: DataType.NumberRange,
+    type: DataType.NumberRange
     value: NumberRange
 }
 
 type RobloxRect = {
-    type: DataType.Rect,
+    type: DataType.Rect
     value: Rect
 }
 
 type RobloxPhysicalProperties = {
-    type: DataType.PhysicalProperties,
+    type: DataType.PhysicalProperties
     value: PhysicalProperties
 }
 
 type RobloxInt64 = {
-    type: DataType.Int64,
+    type: DataType.Int64
     value: bigint
 }
 
 type RobloxSharedString = {
-    type: DataType.SharedString,
+    type: DataType.SharedString
     value: SharedStringValue
 }
 
 type RobloxBytecode = {
-    type: DataType.Bytecode,
+    type: DataType.Bytecode
     value: string
 }
 
+type RobloxOptionalCFrame = {
+    type: DataType.OptionalCFrame
+    value: OptionalCFrame
+}
+
 type RobloxUniqueId = {
-    type: DataType.UniqueId,
+    type: DataType.UniqueId
     value: UniqueId
 }
 
 type RobloxFont = {
-    type: DataType.Font,
-    value: Font
+    type: DataType.Font
+    value: RBXMFont
 }
 
 export type RobloxValue = 
@@ -213,9 +221,42 @@ export type RobloxValue =
     | RobloxInt64
     | RobloxSharedString
     | RobloxBytecode
+    | RobloxOptionalCFrame
     | RobloxUniqueId
     | RobloxFont
 ;
+
+type PropKeyType = {
+    [DataType.String]: string
+    [DataType.Bool]: boolean
+    [DataType.Int32]: number
+    [DataType.Float32]: number
+    [DataType.Float64]: number
+    [DataType.UDim]: UDim
+    [DataType.UDim2]: UDim2
+    [DataType.Ray]: Ray
+    [DataType.Faces]: Faces
+    [DataType.Axes]: Axes
+    [DataType.BrickColor]: number
+    [DataType.Color3]: Color3
+    [DataType.Vector2]: Vector2
+    [DataType.Vector3]: Vector3
+    [DataType.CFrame]: CFrame
+    [DataType.Enum]: EnumItem
+    [DataType.Referent]: CoreInstance
+    [DataType.Color3uint8]: Color3uint8
+    [DataType.NumberSequence]: NumberSequence
+    [DataType.ColorSequence]: ColorSequence
+    [DataType.NumberRange]: NumberRange
+    [DataType.Rect]: Rect
+    [DataType.PhysicalProperties]: PhysicalProperties
+    [DataType.Int64]: bigint
+    [DataType.SharedString]: SharedStringValue
+    [DataType.Bytecode]: string
+    [DataType.OptionalCFrame]: OptionalCFrame
+    [DataType.UniqueId]: UniqueId
+    [DataType.Font]: RBXMFont
+}
 
 export type SharedString = {
     hash: string,
@@ -243,32 +284,24 @@ export class CoreInstance
     {
         this._className = className;
         this._isService = isService;
-        
     }
 
     /**
      * Gets a property value. This is a copy of the value.
      * @param propName the name of the property
-     * @returns The RobloxValue value of the property, or undefined. Use "type" for type safety.
+     * @param type the DataType of the property
+     * @returns The value of the property, or undefined.
      * @example
-     * const sizeProp = part.getProp("size");
-     * if (sizeProp?.type === DataType.Vector3)
-     * {
-     *     const size = sizeProp.value;
-     *     ...
-     * }
+     * const size: Vector3 | undefined = part.getProp("size", DataType.Vector3);
      */
-    public getProp(propName: string): RobloxValue | undefined
+    public getProp<T extends DataType>(propName: string, type: T): PropKeyType[T] | undefined
     {
-        const rbxValue = this._props.get(propName);
-        if (!rbxValue)
+        const prop = this._props.get(propName);
+        if (prop?.type === type)
         {
-            return undefined;
+            return CoreInstance.copyValue(prop) as PropKeyType[T];
         }
-
-        const valueCopy = CoreInstance.copyValue(rbxValue);
-        // Okay, this whole "type as number" is cheating, but TypeScript just needs to trust me on this one...
-        return {type: rbxValue.type as number, value: valueCopy};
+        return undefined;
     }
 
     protected static copyValue(rbxValue: RobloxValue)
@@ -294,23 +327,20 @@ export class CoreInstance
     /**
      * Sets a property value.
      * @param propName the name of the property
-     * @param value The RobloxValue to set.
+     * @param type: the DataType of the property
+     * @param value The RobloxValue to set, or undefined to reset the property to its default value.
      * @example
-     * part.setProp("size", { type: DataType.Vector3, value: new Vector3(2, 3, 4) });
+     * part.setProp("size", DataType.Vector3, new Vector3(2, 3, 4));
      */
-    public setProp(propName: string, value: RobloxValue)
+    public setProp<T extends DataType>(propName: string, type: T, value: PropKeyType[T] | undefined)
     {
-        this._props.set(propName, value);
-    }
-
-    /**
-     * Deletes a property value. This is like resetting the property to its default.
-     * @param propName the name of the property
-     * @returns true if the property existed, false otherwise
-     */
-    public deleteProp(propName: string)
-    {
-        return this._props.delete(propName);
+        if (value === undefined)
+        {
+            this._props.delete(propName);
+            return;
+        }
+        const valueCopy = CoreInstance.copyValue({ type: type, value: value } as RobloxValue) as PropKeyType[T];
+        this._props.set(propName, { type: type, value: valueCopy } as RobloxValue);
     }
 
     /**
@@ -334,12 +364,12 @@ export class CoreInstance
      */
     public get name(): string
     {
-        return this.getProp("Name")?.value as string ?? "";
+        return this.getProp("Name", DataType.String) ?? "";
     }
 
     public set name(newName: string)
     {
-        this.setProp("Name", {type: DataType.String, value: newName});
+        this.setProp("Name", DataType.String, newName);
     }
 
     /**
@@ -395,6 +425,11 @@ export class CoreInstance
         return undefined;
     }
 
+    public findFirstChildOfClass<T extends ClassNames>(className: T): NameToClass[T] | undefined
+    {
+        return this.findFirstChild((child) => child.isA(className)) as NameToClass[T];
+    }
+
     /**
      * Finds the first descendant that satisfies the given predicate. Performs a depth-first search.
      * @param predicate this will keep searching until the predicate returns true
@@ -409,6 +444,11 @@ export class CoreInstance
             if (childResult) return childResult;
         }
         return undefined;
+    }
+
+    public findFirstDescendantOfClass<T extends ClassNames>(className: T): NameToClass[T] | undefined
+    {
+        return this.findFirstDescendant((child) => child.isA(className)) as NameToClass[T];
     }
 
     /**
@@ -458,12 +498,12 @@ export class CoreInstance
     }
 }
 
-interface ICopyable<T>
+interface ICopyable
 {
-    copy(): T;
+    copy(): this;
 }
 
-function deepCopyArray<T>(arr: ICopyable<T>[])
+function deepCopyArray<T extends ICopyable>(arr: T[])
 {
     const copyArr = [];
     for (const val of arr)
@@ -473,7 +513,7 @@ function deepCopyArray<T>(arr: ICopyable<T>[])
     return copyArr;
 }
 
-export class UDim implements ICopyable<UDim>
+export class UDim implements ICopyable
 {
     public scale: number;
     public offset: number;
@@ -489,13 +529,13 @@ export class UDim implements ICopyable<UDim>
         return `UDim(scale: ${formatNum(this.scale)}, offset: ${formatNum(this.offset)})`;
     }
 
-    public copy() 
+    public copy()
     {
-        return new UDim(this.scale, this.offset);
+        return new UDim(this.scale, this.offset) as this;
     }
 }
 
-export class UDim2 implements ICopyable<UDim2>
+export class UDim2 implements ICopyable
 {
     public x: UDim;
     public y: UDim;
@@ -513,11 +553,11 @@ export class UDim2 implements ICopyable<UDim2>
 
     public copy() 
     {
-        return new UDim2(this.x.copy(), this.y.copy());
+        return new UDim2(this.x.copy(), this.y.copy()) as this;
     }
 }
 
-export class Ray implements ICopyable<Ray>
+export class Ray implements ICopyable
 {
     public origin: Vector3;
     public direction: Vector3;
@@ -535,11 +575,11 @@ export class Ray implements ICopyable<Ray>
 
     public copy() 
     {
-        return new Ray(this.origin, this.direction);
+        return new Ray(this.origin, this.direction) as this;
     }
 }
 
-export enum Face 
+export enum RBXMFace 
 {
     Front = 0b000001,
     Bottom = 0b000010,
@@ -549,11 +589,11 @@ export enum Face
     Right = 0b100000
 }
 
-export class Faces implements ICopyable<Faces>
+export class Faces implements ICopyable
 {
-    public faces: Array<Face>;
+    public faces: Array<RBXMFace>;
 
-    public constructor(faces: Array<Face>)
+    public constructor(faces: Array<RBXMFace>)
     {
         this.faces = faces;
     }
@@ -566,28 +606,28 @@ export class Faces implements ICopyable<Faces>
         }
         else
         {
-            return `Faces(${this.faces.map((face) => Face[face]).join(", ")})`;
+            return `Faces(${this.faces.map((face) => RBXMFace[face]).join(", ")})`;
         }
     }
 
     public copy() 
     {
-        return new Faces(narrowCopyArray(this.faces));
+        return new Faces(narrowCopyArray(this.faces)) as this;
     }
 }
 
-export enum Axis 
+export enum RBXMAxis 
 {
     X = 0b001,
     Y = 0b010,
     Z = 0b100
 }
 
-export class Axes implements ICopyable<Axes>
+export class Axes implements ICopyable
 {
-    public axes: Array<Axis>;
+    public axes: Array<RBXMAxis>;
 
-    public constructor(axes: Array<Axis>)
+    public constructor(axes: Array<RBXMAxis>)
     {
         this.axes = axes;
     }
@@ -600,20 +640,20 @@ export class Axes implements ICopyable<Axes>
         }
         else
         {
-            return `Axes(${this.axes.map((axis) => Axis[axis]).join(", ")})`;
+            return `Axes(${this.axes.map((axis) => RBXMAxis[axis]).join(", ")})`;
         }
     }
 
     public copy() 
     {
-        return new Axes(narrowCopyArray(this.axes));
+        return new Axes(narrowCopyArray(this.axes)) as this;
     }
 }
 
 /**
  * This treats the RGB values as floats between 0 to 1. See Color3uint8 for the 0-255 version.
  */
-export class Color3 implements ICopyable<Color3>
+export class Color3 implements ICopyable
 {
     public r: number;
     public g: number;
@@ -643,11 +683,11 @@ export class Color3 implements ICopyable<Color3>
 
     public copy()
     {
-        return new Color3(this.r, this.g, this.b);
+        return new Color3(this.r, this.g, this.b) as this;
     }
 }
 
-export class Color3uint8 implements ICopyable<Color3uint8>
+export class Color3uint8 implements ICopyable
 {
     public r: number;
     public g: number;
@@ -667,11 +707,11 @@ export class Color3uint8 implements ICopyable<Color3uint8>
 
     public copy()
     {
-        return new Color3uint8(this.r, this.g, this.b);
+        return new Color3uint8(this.r, this.g, this.b) as this;
     }
 }
 
-export class Vector2 implements ICopyable<Vector2>
+export class Vector2 implements ICopyable
 {
     public x: number;
     public y: number;
@@ -689,11 +729,11 @@ export class Vector2 implements ICopyable<Vector2>
 
     public copy()
     {
-        return new Vector2(this.x, this.y);
+        return new Vector2(this.x, this.y) as this;
     }
 }
 
-export class Vector3 implements ICopyable<Vector3>
+export class Vector3 implements ICopyable
 {
     public x: number;
     public y: number;
@@ -741,11 +781,11 @@ export class Vector3 implements ICopyable<Vector3>
 
     public copy()
     {
-        return new Vector3(this.x, this.y, this.z);
+        return new Vector3(this.x, this.y, this.z) as this;
     }
 }
 
-export class CFrame implements ICopyable<CFrame>
+export class CFrame implements ICopyable
 {
     public position: Vector3;
     public orientation: Array<number>;
@@ -763,11 +803,11 @@ export class CFrame implements ICopyable<CFrame>
 
     public copy()
     {
-        return new CFrame(this.position.copy(), narrowCopyArray(this.orientation));
+        return new CFrame(this.position.copy(), narrowCopyArray(this.orientation)) as this;
     }
 }
 
-export class NumberSequence implements ICopyable<NumberSequence>
+export class NumberSequence implements ICopyable
 {
     public keypoints: NumberSequenceKeypoint[];
 
@@ -783,11 +823,11 @@ export class NumberSequence implements ICopyable<NumberSequence>
 
     public copy()
     {
-        return new NumberSequence(deepCopyArray(this.keypoints));
+        return new NumberSequence(deepCopyArray(this.keypoints)) as this;
     }
 }
 
-export class NumberSequenceKeypoint implements ICopyable<NumberSequenceKeypoint>
+export class NumberSequenceKeypoint implements ICopyable
 {
     public time: number;
     public value: number;
@@ -807,11 +847,11 @@ export class NumberSequenceKeypoint implements ICopyable<NumberSequenceKeypoint>
 
     public copy()
     {
-        return new NumberSequenceKeypoint(this.time, this.value, this.envelope);
+        return new NumberSequenceKeypoint(this.time, this.value, this.envelope) as this;
     }
 }
 
-export class ColorSequence implements ICopyable<ColorSequence>
+export class ColorSequence implements ICopyable
 {
     public keypoints: ColorSequenceKeypoint[];
 
@@ -827,11 +867,11 @@ export class ColorSequence implements ICopyable<ColorSequence>
 
     public copy()
     {
-        return new ColorSequence(deepCopyArray(this.keypoints));
+        return new ColorSequence(deepCopyArray(this.keypoints)) as this;
     }
 }
 
-export class ColorSequenceKeypoint implements ICopyable<ColorSequenceKeypoint>
+export class ColorSequenceKeypoint implements ICopyable
 {
     public time: number;
     public color: Color3;
@@ -849,11 +889,11 @@ export class ColorSequenceKeypoint implements ICopyable<ColorSequenceKeypoint>
 
     public copy()
     {
-        return new ColorSequenceKeypoint(this.time, this.color.copy());
+        return new ColorSequenceKeypoint(this.time, this.color.copy()) as this;
     }
 }
 
-export class NumberRange implements ICopyable<NumberRange>
+export class NumberRange implements ICopyable
 {
     public min: number;
     public max: number;
@@ -871,11 +911,11 @@ export class NumberRange implements ICopyable<NumberRange>
 
     public copy()
     {
-        return new NumberRange(this.min, this.max);
+        return new NumberRange(this.min, this.max) as this;
     }
 }
 
-export class Rect implements ICopyable<Rect>
+export class Rect implements ICopyable
 {
     public min: Vector2;
     public max: Vector2;
@@ -893,11 +933,11 @@ export class Rect implements ICopyable<Rect>
 
     public copy()
     {
-        return new Rect(this.min.copy(), this.max.copy());
+        return new Rect(this.min.copy(), this.max.copy()) as this;
     }
 }
 
-export class PhysicalProperties implements ICopyable<PhysicalProperties>
+export class PhysicalProperties implements ICopyable
 {
     public density: number;
     public friction: number;
@@ -921,11 +961,11 @@ export class PhysicalProperties implements ICopyable<PhysicalProperties>
 
     public copy()
     {
-        return new PhysicalProperties(this.density, this.friction, this.elasticity, this.frictionWeight, this.elasticityWeight);
+        return new PhysicalProperties(this.density, this.friction, this.elasticity, this.frictionWeight, this.elasticityWeight) as this;
     }
 }
 
-export class SharedStringValue implements ICopyable<SharedStringValue>
+export class SharedStringValue implements ICopyable
 {
     public index: number;
 
@@ -941,11 +981,11 @@ export class SharedStringValue implements ICopyable<SharedStringValue>
 
     public copy()
     {
-        return new SharedStringValue(this.index);
+        return new SharedStringValue(this.index) as this;
     }
 }
 
-export class UniqueId implements ICopyable<UniqueId>
+export class UniqueId implements ICopyable
 {
     public index: number;
     public time: number;
@@ -966,11 +1006,11 @@ export class UniqueId implements ICopyable<UniqueId>
 
     public copy()
     {
-        return new UniqueId(this.index, this.time, this.random);
+        return new UniqueId(this.index, this.time, this.random) as this;
     }
 }
 
-export class Font implements ICopyable<Font>
+export class RBXMFont implements ICopyable
 {
     public family: string;
     public weight: number;
@@ -992,7 +1032,16 @@ export class Font implements ICopyable<Font>
 
     public copy()
     {
-        return new Font(this.family, this.weight, this.style, this.cachedFaceId);
+        return new RBXMFont(this.family, this.weight, this.style, this.cachedFaceId) as this;
+    }
+}
+
+export class OptionalCFrame implements ICopyable
+{
+
+    public copy()
+    {
+        return new OptionalCFrame() as this;
     }
 }
 
@@ -1025,18 +1074,57 @@ export class NormalId extends EnumItem {
     public static fromValue(value: number) { return NormalId.items.find((item) => item._value === value); }
 }
 
+export type EnumFactory = (value: number) => EnumItem | undefined;
+
 function getEnumMap() {
-    const map = new Map<string, (value: number) => EnumItem | undefined>();
+    const map = new Map<string, EnumFactory>();
     map.set("AudioDeviceInput,AccessType", AccessModifierType.fromValue);
     map.set("Texture,Face", NormalId.fromValue);
     return map;
 }
 
-export type EnumFactory = (value: number) => EnumItem | undefined;
-
 export class EnumMap {
     protected readonly _map: Map<string, EnumFactory> = getEnumMap();
     public getFactory(className: string, propName: string): EnumFactory | undefined {
         return this._map.get(`${className},${propName}`);
+    }
+}
+
+export class Instance extends CoreInstance {
+    protected constructor(className?: string) {super(className ?? "Instance");}
+    public static new() {return new Instance();}
+}
+
+export class Part extends Instance {
+    protected constructor(className?: string) {super(className ?? "Part");}
+    public static new() {return new Part();}
+    public get mEnum() {return this.getProp("mEnum", DataType.Enum) as NormalId | undefined;}
+    public get canCollide() {return this.getProp("CanCollide", DataType.Bool);}
+    public set canCollide(value) {this.setProp("CanCollide", DataType.Bool, value);}
+}
+
+type ClassNames =
+    | "Instance"
+    | "Part"
+;
+
+type NameToClass = {
+    ["Instance"]: CoreInstance
+    ["Part"]: Part
+};
+
+type ClassFactory = () => CoreInstance;
+
+function getClassMap() {
+    const map = new Map<string, ClassFactory>();
+    map.set("Instance", Instance.new);
+    map.set("Part", Part.new);
+    return map;
+}
+
+export class ClassMap {
+    protected readonly _map: Map<string, ClassFactory> = getClassMap();
+    public getFactory(className: string): ClassFactory | undefined {
+        return this._map.get(className);
     }
 }

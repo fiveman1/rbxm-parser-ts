@@ -5,7 +5,7 @@
  */
 
 import fs from "fs";
-import { DataType, CoreInstance, Vector3 } from "./lib/roblox_types";
+import { DataType, CoreInstance } from "./lib/roblox_types";
 import { RobloxModel } from "./lib/roblox_model";
 
 function depthFirstPrint(instance: CoreInstance, level: number)
@@ -34,8 +34,8 @@ async function main()
     //const model = RobloxModel.fromBuffer(fs.readFileSync(`input_files/${name}.rbxl`));
 
     //const assetId = 5258147910; // Map making starter kit
-    const assetId = 5227232138; // Numismatic
-    //const assetId = 17195837905; // my test model
+    //const assetId = 5227232138; // Numismatic
+    const assetId = 17195837905; // my test model
 
     //const assetId = 4249137687; // Arcane
     const model = await RobloxModel.fromAssetId(assetId);
@@ -47,20 +47,24 @@ async function main()
     }
 
     const root = model.roots[0];
-    const firstPart = root.findFirstDescendant((child) => child.isA("Part"));
+    const firstPart = root.findFirstDescendantOfClass("Part");
     if (firstPart)
     {
-        const sizeProp = firstPart.getProp("size");
-        if (sizeProp?.type === DataType.Vector3)
+        const size = firstPart.getProp("size", DataType.Vector3);
+        if (size)
         {
-            const size = sizeProp.value;
             console.log(`First part's size: ${size}`);
             size.x = 33333;
-            console.log(`First part's size: ${firstPart.getProp("size")?.value}`);
-            const newSize = new Vector3(size.x + 1, size.y + 1, size.z + 1);
-            firstPart.setProp("size", { type: DataType.Vector3, value: newSize });
-            console.log(`First part's new size: ${firstPart.getProp("size")?.value}`);
+            console.log(`First part's size: ${firstPart.getProp("size", DataType.Vector3)}`);
+            size.y += 2;
+            size.z *= 0.3;
+            firstPart.setProp("size", DataType.Vector3, size);
+            console.log(`First part's new size: ${firstPart.getProp("size", DataType.Vector3)}`);
         }
+
+        console.log(`First part can collide: ${firstPart.canCollide}`);
+        firstPart.canCollide = false;
+        console.log(`First part can collide: ${firstPart.canCollide}`);
     }
 
     const mapStringValues = root.findChildren((child) => child.isA("StringValue") && (child.name === "DisplayName" || child.name === "Creator"));

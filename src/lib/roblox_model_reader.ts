@@ -7,7 +7,7 @@
 import lz4 from "lz4";
 import fzstd from "fzstd";
 import { RobloxModel } from "./roblox_model";
-import { DataType, RobloxValue, CoreInstance, EnumMap } from "./roblox_types";
+import { DataType, RobloxValue, CoreInstance, EnumMap, ClassMap } from "./roblox_types";
 import { ChunkType, DataParserExtraInfo, RobloxModelDOM } from "./roblox_model_dom";
 
 /**
@@ -17,6 +17,7 @@ export class RobloxModelDOMReader extends RobloxModelDOM
 {
     protected data: RobloxModelByteReader = new RobloxModelByteReader();
     protected enumMap: EnumMap = new EnumMap();
+    protected classMap: ClassMap = new ClassMap();
 
     /**
      * This will parse the DOM and create a RobloxModel object.
@@ -203,11 +204,12 @@ export class RobloxModelDOMReader extends RobloxModelDOM
         const referents = bytes.getReferentArray(numInstances);
         const referentIdToIndex = new Map<number, number>();
         const instances = new Array<CoreInstance>();
+        const classFactory = this.classMap.getFactory(className);
 
         referents.forEach((referent, index) => {
             referentIdToIndex.set(referent, index);
             this.referentIdToClassId.set(referent, classId);
-            instances.push(new CoreInstance(className, isService));
+            instances.push(classFactory ? classFactory() : new CoreInstance(className, isService));
         });
 
         this.classIdToInfo.set(classId, {
@@ -231,7 +233,7 @@ export class RobloxModelDOMReader extends RobloxModelDOM
         if (!classInfo) return;
         
         const numInstances = classInfo.instances.length;
-        const values: Array<RobloxValue | undefined> = [];
+        const values: (RobloxValue | undefined)[] = [];
         let extraInfo: DataParserExtraInfo | undefined;
         if (dataType === DataType.Enum)
         {
@@ -243,11 +245,11 @@ export class RobloxModelDOMReader extends RobloxModelDOM
         }
         parser.read(bytes, numInstances, values, extraInfo);
 
-        values.forEach((value, index) => {
+        values.forEach((value: RobloxValue | undefined, index) => {
             if (value !== undefined)
             {
                 const instance = classInfo.instances[index];
-                instance.setProp(propName, value);
+                instance.setProp(propName, value.type, value.value);
             }
         });
     }
