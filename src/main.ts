@@ -5,10 +5,11 @@
  */
 
 import fs from "fs";
-import { DataType, CoreInstance } from "./lib/roblox_types";
+import { Instance } from "./lib/roblox_types";
 import { RobloxModel } from "./lib/roblox_model";
+import { Material } from "./generated/generated_types";
 
-function depthFirstPrint(instance: CoreInstance, level: number)
+function depthFirstPrint(instance: Instance, level: number)
 {
     let s = "";
     for (let i = 0; i < level - 1; ++i)
@@ -20,7 +21,7 @@ function depthFirstPrint(instance: CoreInstance, level: number)
         s += "└──";
     }
     s += `${instance.toString()}\n`;
-    for (const child of instance.children)
+    for (const child of instance.Children)
     {
         s += depthFirstPrint(child, level + 1);
     }
@@ -35,9 +36,9 @@ async function main()
 
     //const assetId = 5258147910; // Map making starter kit
     //const assetId = 5227232138; // Numismatic
-    const assetId = 17195837905; // my test model
+    //const assetId = 17195837905; // my test model
 
-    //const assetId = 4249137687; // Arcane
+    const assetId = 4249137687; // Arcane
     const model = await RobloxModel.fromAssetId(assetId);
 
     if (!model)
@@ -47,27 +48,31 @@ async function main()
     }
 
     const root = model.roots[0];
-    const firstPart = root.findFirstDescendantOfClass("Part");
+    const firstPart = root.FindFirstDescendantOfClass("Part");
     if (firstPart)
     {
-        const size = firstPart.getProp("size", DataType.Vector3);
+        const size = firstPart.Size;
         if (size)
         {
             console.log(`First part's size: ${size}`);
             size.x = 33333;
-            console.log(`First part's size: ${firstPart.getProp("size", DataType.Vector3)}`);
             size.y += 2;
             size.z *= 0.3;
-            firstPart.setProp("size", DataType.Vector3, size);
-            console.log(`First part's new size: ${firstPart.getProp("size", DataType.Vector3)}`);
+            console.log(`First part's size (should not change yet): ${firstPart.Size}`);
+            firstPart.Size = size;
+            console.log(`First part's new size: ${firstPart.Size}`);
         }
 
-        console.log(`First part can collide: ${firstPart.canCollide}`);
-        firstPart.canCollide = false;
-        console.log(`First part can collide: ${firstPart.canCollide}`);
+        console.log(`First part can collide: ${firstPart.CanCollide}`);
+        firstPart.CanCollide = !firstPart.CanCollide;
+        console.log(`First part can collide: ${firstPart.CanCollide}`);
+
+        console.log(`First part material: ${firstPart.Material}`);
+        firstPart.Material = Material.Brick;
+        console.log(`First part material: ${firstPart.Material}`);
     }
 
-    const mapStringValues = root.findChildren((child) => child.isA("StringValue") && (child.name === "DisplayName" || child.name === "Creator"));
+    const mapStringValues = root.FindChildrenOfClass("StringValue", (child) => child.Name === "DisplayName" || child.Name === "Creator");
     console.log("\n" + mapStringValues.join("\n"));
     
     let str = "";

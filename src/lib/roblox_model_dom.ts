@@ -5,10 +5,11 @@
  */
 
 import { RobloxModel } from "./roblox_model";
-import { DataType, RobloxValue, CoreInstance, UDim, UDim2, Vector3, Ray, Faces, RBXMFace, Axes, RBXMAxis, Color3, Vector2, CFrame, 
+import { DataType, RobloxValue, Instance, UDim, UDim2, Vector3, Ray, Faces, RBXMFace, Axes, RBXMAxis, Color3, Vector2, CFrame, 
     Color3uint8, SharedStringValue, NumberSequenceKeypoint, NumberSequence, ColorSequence, ColorSequenceKeypoint, NumberRange, 
-    Rect, PhysicalProperties, EnumItem, EnumFactory, NormalId, UniqueId, RBXMFont} from "./roblox_types";
+    Rect, PhysicalProperties, EnumItem, UniqueId, RBXMFont} from "./roblox_types";
 import { RobloxModelByteReader } from "./roblox_model_reader";
+import { EnumFactory, NormalId } from "../generated/generated_types";
 
 // https://dom.rojo.space/binary#chunks
 export enum ChunkType
@@ -24,7 +25,7 @@ export enum ChunkType
 export type RobloxClass = {
     name: string
     isService: boolean
-    instances: Array<CoreInstance>
+    instances: Array<Instance>
     referentIdToIndex: Map<number, number>
 }
 
@@ -71,7 +72,7 @@ export abstract class RobloxModelDOM
     }
 }
 
-type InstanceFromReferent = (referent: number) => CoreInstance | null;
+type InstanceFromReferent = (referent: number) => Instance | null;
 
 export type DataParserExtraInfo = {
     enumFactory?: EnumFactory;

@@ -5,7 +5,7 @@
  */
 
 import axios from "axios";
-import { CoreInstance, SharedString } from "./roblox_types";
+import { Instance, SharedString } from "./roblox_types";
 import { RobloxModelDOMReader } from "./roblox_model_reader";
 
 // Helpful resources I used:
@@ -18,7 +18,7 @@ import { RobloxModelDOMReader } from "./roblox_model_reader";
  */
 export class RobloxModel
 {
-    public roots: CoreInstance[] = [];
+    public roots: Instance[] = [];
     public version: number = 0;
     public numClasses: number = 0;
     public numInstances: number = 0;
@@ -56,7 +56,11 @@ export class RobloxModel
         const modelDomRes = await axios.get(location, {responseEncoding: "binary"});
         // https://stackoverflow.com/questions/62839519/how-convert-a-string-to-type-uint8array-in-nodejs
         const domData = Uint8Array.from(Array.from(modelDomRes.data).map(letter => (letter as string).charCodeAt(0)));
-        return new RobloxModelDOMReader().read(domData);
+        const start = Date.now();
+        const model = new RobloxModelDOMReader().read(domData);
+        const end = Date.now();
+        console.log(`Time spent reading model: ${(end - start) / 1000}`);
+        return model;
     }
 
     /**

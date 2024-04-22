@@ -7,8 +7,9 @@
 import lz4 from "lz4";
 import fzstd from "fzstd";
 import { RobloxModel } from "./roblox_model";
-import { DataType, RobloxValue, CoreInstance, EnumMap, ClassMap } from "./roblox_types";
+import { DataType, RobloxValue, Instance } from "./roblox_types";
 import { ChunkType, DataParserExtraInfo, RobloxModelDOM } from "./roblox_model_dom";
+import { ClassMap, EnumMap } from "../generated/generated_types";
 
 /**
  * This class can read .rbxm bytes to create a RobloxModel.
@@ -56,7 +57,7 @@ export class RobloxModelDOMReader extends RobloxModelDOM
         {
             for (const instance of classInfo.instances)
             {
-                if (!instance.parent)
+                if (!instance.Parent)
                 {
                     this.model.roots.push(instance);
                 }
@@ -203,13 +204,13 @@ export class RobloxModelDOMReader extends RobloxModelDOM
         const numInstances = bytes.getUint32();
         const referents = bytes.getReferentArray(numInstances);
         const referentIdToIndex = new Map<number, number>();
-        const instances = new Array<CoreInstance>();
+        const instances = new Array<Instance>();
         const classFactory = this.classMap.getFactory(className);
 
         referents.forEach((referent, index) => {
             referentIdToIndex.set(referent, index);
             this.referentIdToClassId.set(referent, classId);
-            instances.push(classFactory ? classFactory() : new CoreInstance(className, isService));
+            instances.push(classFactory ? classFactory() : new Instance(className, isService));
         });
 
         this.classIdToInfo.set(classId, {
@@ -237,7 +238,7 @@ export class RobloxModelDOMReader extends RobloxModelDOM
         let extraInfo: DataParserExtraInfo | undefined;
         if (dataType === DataType.Enum)
         {
-            extraInfo = { enumFactory: this.enumMap.getFactory(classInfo.name, propName) };
+            extraInfo = { enumFactory: this.getEnumFactory(classInfo.name, propName) };
         }
         else if (dataType === DataType.Referent)
         {
@@ -249,9 +250,27 @@ export class RobloxModelDOMReader extends RobloxModelDOM
             if (value !== undefined)
             {
                 const instance = classInfo.instances[index];
-                instance.setProp(propName, value.type, value.value);
+                instance.SetProp(propName, value.type, value.value);
             }
         });
+    }
+
+    protected getEnumFactory(className: string, propName: string)
+    {
+        const classFactory = this.classMap.getFactory(className);
+        if (classFactory)
+        {
+            const fakeInstance = classFactory();
+            for (const inheritedClassName of fakeInstance.ClassNameList)
+            {
+                const enumFactory = this.enumMap.getFactory(inheritedClassName, propName);
+                if (enumFactory)
+                {
+                    return enumFactory;
+                }
+            }
+        }
+        return undefined;
     }
 
     protected readPrntChunk(bytes: RobloxModelByteReader)
@@ -273,7 +292,7 @@ export class RobloxModelDOMReader extends RobloxModelDOM
             const parent = this.getInstanceFromReferent(parentRef);
             if (!child || !parent) continue;
 
-            child.parent = parent;
+            child.Parent = parent;
         }
     }
 

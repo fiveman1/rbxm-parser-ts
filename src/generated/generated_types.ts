@@ -1,6299 +1,7688 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-// Generated on 4/22/2024, 12:42:41 AM
+/**
+* @author https://github.com/fiveman1
+* @file generated_types.ts
+* Contains generated types for Roblox classes and enums.
+* Generated on 4/22/2024, 1:42:39 PM
+*/
 
-import { DataType, CoreInstance, EnumItem} from "../lib/roblox_types";
+import { DataType, Instance, EnumItem } from "../lib/roblox_types";
 
-export class AccessoryDescription extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AccessoryDescription");}
+export class AccessoryDescription extends Instance {
+    protected constructor(className?: string) {super(className ?? "AccessoryDescription"); this.addClassName("AccessoryDescription");}
     public static new() {return new AccessoryDescription();}
-    public get accessoryType() {return this.getProp("AccessoryType", DataType.Enum) as AccessoryType | undefined;}
-    public set accessoryType(value) {this.setProp("AccessoryType", DataType.Enum, value);}
-    public get assetId() {return this.getProp("AssetId", DataType.Int64);}
-    public set assetId(value) {this.setProp("AssetId", DataType.Int64, value);}
-    public get instance() {return this.getProp("Instance", DataType.Referent) as CoreInstance | undefined;}
-    public set instance(value) {this.setProp("Instance", DataType.Referent, value);}
-    public get isLayered() {return this.getProp("IsLayered", DataType.Bool);}
-    public set isLayered(value) {this.setProp("IsLayered", DataType.Bool, value);}
-    public get order() {return this.getProp("Order", DataType.Int32);}
-    public set order(value) {this.setProp("Order", DataType.Int32, value);}
-    public get puffiness() {return this.getProp("Puffiness", DataType.Float32);}
-    public set puffiness(value) {this.setProp("Puffiness", DataType.Float32, value);}
+    public get AccessoryType() {return this.GetProp("AccessoryType", DataType.Enum) as AccessoryType | undefined;}
+    public set AccessoryType(value) {this.SetProp("AccessoryType", DataType.Enum, value);}
+    public get AssetId() {return this.GetProp("AssetId", DataType.Int64);}
+    public set AssetId(value) {this.SetProp("AssetId", DataType.Int64, value);}
+    public get Instance() {return this.GetProp("Instance", DataType.Referent) as Instance | undefined;}
+    public set Instance(value) {this.SetProp("Instance", DataType.Referent, value);}
+    public get IsLayered() {return this.GetProp("IsLayered", DataType.Bool);}
+    public set IsLayered(value) {this.SetProp("IsLayered", DataType.Bool, value);}
+    public get Order() {return this.GetProp("Order", DataType.Int32);}
+    public set Order(value) {this.SetProp("Order", DataType.Int32, value);}
+    public get Puffiness() {return this.GetProp("Puffiness", DataType.Float32);}
+    public set Puffiness(value) {this.SetProp("Puffiness", DataType.Float32, value);}
 }
 
-export class AccountService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AccountService", true);}
+export class AccountService extends Instance {
+    protected constructor(className?: string) {super(className ?? "AccountService", true); this.addClassName("AccountService");}
     public static new() {return new AccountService();}
 }
 
-export class Accoutrement extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Accoutrement");}
+export class Accoutrement extends Instance {
+    protected constructor(className?: string) {super(className ?? "Accoutrement"); this.addClassName("Accoutrement");}
     public static new() {return new Accoutrement();}
-    public get attachmentPoint() {return this.getProp("AttachmentPoint", DataType.CFrame);}
-    public set attachmentPoint(value) {this.setProp("AttachmentPoint", DataType.CFrame, value);}
+    public get AttachmentPoint() {return this.GetProp("AttachmentPoint", DataType.CFrame);}
+    public set AttachmentPoint(value) {this.SetProp("AttachmentPoint", DataType.CFrame, value);}
 }
 
 export class Accessory extends Accoutrement {
-    protected constructor(className?: string) {super(className ?? "Accessory");}
+    protected constructor(className?: string) {super(className ?? "Accessory"); this.addClassName("Accessory");}
     public static new() {return new Accessory();}
-    public get accessoryType() {return this.getProp("AccessoryType", DataType.Enum) as AccessoryType | undefined;}
-    public set accessoryType(value) {this.setProp("AccessoryType", DataType.Enum, value);}
+    public get AccessoryType() {return this.GetProp("AccessoryType", DataType.Enum) as AccessoryType | undefined;}
+    public set AccessoryType(value) {this.SetProp("AccessoryType", DataType.Enum, value);}
 }
 
 export class Hat extends Accoutrement {
-    protected constructor(className?: string) {super(className ?? "Hat");}
+    protected constructor(className?: string) {super(className ?? "Hat"); this.addClassName("Hat");}
     public static new() {return new Hat();}
 }
 
-export class ActivityHistoryService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ActivityHistoryService", true);}
+export class ActivityHistoryService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ActivityHistoryService", true); this.addClassName("ActivityHistoryService");}
     public static new() {return new ActivityHistoryService();}
 }
 
-export class AdPortal extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AdPortal");}
+export class AdPortal extends Instance {
+    protected constructor(className?: string) {super(className ?? "AdPortal"); this.addClassName("AdPortal");}
     public static new() {return new AdPortal();}
 }
 
-export class AdService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AdService", true);}
+export class AdService extends Instance {
+    protected constructor(className?: string) {super(className ?? "AdService", true); this.addClassName("AdService");}
     public static new() {return new AdService();}
 }
 
-export class AdvancedDragger extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AdvancedDragger");}
+export class AdvancedDragger extends Instance {
+    protected constructor(className?: string) {super(className ?? "AdvancedDragger"); this.addClassName("AdvancedDragger");}
     public static new() {return new AdvancedDragger();}
 }
 
-export class AnalyticsService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AnalyticsService", true);}
+export class AnalyticsService extends Instance {
+    protected constructor(className?: string) {super(className ?? "AnalyticsService", true); this.addClassName("AnalyticsService");}
     public static new() {return new AnalyticsService();}
-    public get apiKey() {return this.getProp("ApiKey", DataType.String);}
-    public set apiKey(value) {this.setProp("ApiKey", DataType.String, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get ApiKey() {return this.GetProp("ApiKey", DataType.String);}
+    /**@deprecated Deprecated by Roblox*/
+    public set ApiKey(value) {this.SetProp("ApiKey", DataType.String, value);}
 }
 
-export class Animation extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Animation");}
+export class Animation extends Instance {
+    protected constructor(className?: string) {super(className ?? "Animation"); this.addClassName("Animation");}
     public static new() {return new Animation();}
-    public get animationId() {return this.getProp("AnimationId", DataType.String);}
-    public set animationId(value) {this.setProp("AnimationId", DataType.String, value);}
+    public get AnimationId() {return this.GetProp("AnimationId", DataType.String);}
+    public set AnimationId(value) {this.SetProp("AnimationId", DataType.String, value);}
 }
 
-export abstract class AnimationClip extends CoreInstance {
-    protected constructor(className: string) {super(className);}
-    public get guidBinaryString() {return this.getProp("GuidBinaryString", DataType.String);}
-    public set guidBinaryString(value) {this.setProp("GuidBinaryString", DataType.String, value);}
-    public get loop() {return this.getProp("Loop", DataType.Bool);}
-    public set loop(value) {this.setProp("Loop", DataType.Bool, value);}
-    public get priority() {return this.getProp("Priority", DataType.Enum) as AnimationPriority | undefined;}
-    public set priority(value) {this.setProp("Priority", DataType.Enum, value);}
+export abstract class AnimationClip extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("AnimationClip");}
+    public get GuidBinaryString() {return this.GetProp("GuidBinaryString", DataType.String);}
+    public set GuidBinaryString(value) {this.SetProp("GuidBinaryString", DataType.String, value);}
+    public get Loop() {return this.GetProp("Loop", DataType.Bool);}
+    public set Loop(value) {this.SetProp("Loop", DataType.Bool, value);}
+    public get Priority() {return this.GetProp("Priority", DataType.Enum) as AnimationPriority | undefined;}
+    public set Priority(value) {this.SetProp("Priority", DataType.Enum, value);}
 }
 
 export class CurveAnimation extends AnimationClip {
-    protected constructor(className?: string) {super(className ?? "CurveAnimation");}
+    protected constructor(className?: string) {super(className ?? "CurveAnimation"); this.addClassName("CurveAnimation");}
     public static new() {return new CurveAnimation();}
 }
 
 export class KeyframeSequence extends AnimationClip {
-    protected constructor(className?: string) {super(className ?? "KeyframeSequence");}
+    protected constructor(className?: string) {super(className ?? "KeyframeSequence"); this.addClassName("KeyframeSequence");}
     public static new() {return new KeyframeSequence();}
-    public get authoredHipHeight() {return this.getProp("AuthoredHipHeight", DataType.Float32);}
-    public set authoredHipHeight(value) {this.setProp("AuthoredHipHeight", DataType.Float32, value);}
+    public get AuthoredHipHeight() {return this.GetProp("AuthoredHipHeight", DataType.Float32);}
+    public set AuthoredHipHeight(value) {this.SetProp("AuthoredHipHeight", DataType.Float32, value);}
 }
 
-export class AnimationClipProvider extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AnimationClipProvider", true);}
+export class AnimationClipProvider extends Instance {
+    protected constructor(className?: string) {super(className ?? "AnimationClipProvider", true); this.addClassName("AnimationClipProvider");}
     public static new() {return new AnimationClipProvider();}
 }
 
-export class AnimationController extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AnimationController");}
+export class AnimationController extends Instance {
+    protected constructor(className?: string) {super(className ?? "AnimationController"); this.addClassName("AnimationController");}
     public static new() {return new AnimationController();}
 }
 
-export class AnimationFromVideoCreatorService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AnimationFromVideoCreatorService", true);}
+export class AnimationFromVideoCreatorService extends Instance {
+    protected constructor(className?: string) {super(className ?? "AnimationFromVideoCreatorService", true); this.addClassName("AnimationFromVideoCreatorService");}
     public static new() {return new AnimationFromVideoCreatorService();}
 }
 
-export class AnimationFromVideoCreatorStudioService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AnimationFromVideoCreatorStudioService", true);}
+export class AnimationFromVideoCreatorStudioService extends Instance {
+    protected constructor(className?: string) {super(className ?? "AnimationFromVideoCreatorStudioService", true); this.addClassName("AnimationFromVideoCreatorStudioService");}
     public static new() {return new AnimationFromVideoCreatorStudioService();}
 }
 
-export class AnimationRigData extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AnimationRigData");}
+export class AnimationRigData extends Instance {
+    protected constructor(className?: string) {super(className ?? "AnimationRigData"); this.addClassName("AnimationRigData");}
     public static new() {return new AnimationRigData();}
-    public get articulatedJoint() {return this.getProp("articulatedJoint", DataType.String);}
-    public set articulatedJoint(value) {this.setProp("articulatedJoint", DataType.String, value);}
-    public get endEffectorRotationConstraint() {return this.getProp("endEffectorRotationConstraint", DataType.String);}
-    public set endEffectorRotationConstraint(value) {this.setProp("endEffectorRotationConstraint", DataType.String, value);}
-    public get endEffectorTranslationConstraint() {return this.getProp("endEffectorTranslationConstraint", DataType.String);}
-    public set endEffectorTranslationConstraint(value) {this.setProp("endEffectorTranslationConstraint", DataType.String, value);}
-    public get endEffectorWeight() {return this.getProp("endEffectorWeight", DataType.String);}
-    public set endEffectorWeight(value) {this.setProp("endEffectorWeight", DataType.String, value);}
-    public get facsControl() {return this.getProp("facsControl", DataType.String);}
-    public set facsControl(value) {this.setProp("facsControl", DataType.String, value);}
-    public get label() {return this.getProp("label", DataType.String);}
-    public set label(value) {this.setProp("label", DataType.String, value);}
-    public get postTransform() {return this.getProp("postTransform", DataType.String);}
-    public set postTransform(value) {this.setProp("postTransform", DataType.String, value);}
-    public get preTransform() {return this.getProp("preTransform", DataType.String);}
-    public set preTransform(value) {this.setProp("preTransform", DataType.String, value);}
-    public get rootMotion() {return this.getProp("rootMotion", DataType.String);}
-    public set rootMotion(value) {this.setProp("rootMotion", DataType.String, value);}
-    public get transform() {return this.getProp("transform", DataType.String);}
-    public set transform(value) {this.setProp("transform", DataType.String, value);}
-    public get weight() {return this.getProp("weight", DataType.String);}
-    public set weight(value) {this.setProp("weight", DataType.String, value);}
+    public get ArticulatedJoint() {return this.GetProp("articulatedJoint", DataType.String);}
+    public set ArticulatedJoint(value) {this.SetProp("articulatedJoint", DataType.String, value);}
+    public get EndEffectorRotationConstraint() {return this.GetProp("endEffectorRotationConstraint", DataType.String);}
+    public set EndEffectorRotationConstraint(value) {this.SetProp("endEffectorRotationConstraint", DataType.String, value);}
+    public get EndEffectorTranslationConstraint() {return this.GetProp("endEffectorTranslationConstraint", DataType.String);}
+    public set EndEffectorTranslationConstraint(value) {this.SetProp("endEffectorTranslationConstraint", DataType.String, value);}
+    public get EndEffectorWeight() {return this.GetProp("endEffectorWeight", DataType.String);}
+    public set EndEffectorWeight(value) {this.SetProp("endEffectorWeight", DataType.String, value);}
+    public get FacsControl() {return this.GetProp("facsControl", DataType.String);}
+    public set FacsControl(value) {this.SetProp("facsControl", DataType.String, value);}
+    public get Label() {return this.GetProp("label", DataType.String);}
+    public set Label(value) {this.SetProp("label", DataType.String, value);}
+    public get PostTransform() {return this.GetProp("postTransform", DataType.String);}
+    public set PostTransform(value) {this.SetProp("postTransform", DataType.String, value);}
+    public get PreTransform() {return this.GetProp("preTransform", DataType.String);}
+    public set PreTransform(value) {this.SetProp("preTransform", DataType.String, value);}
+    public get RootMotion() {return this.GetProp("rootMotion", DataType.String);}
+    public set RootMotion(value) {this.SetProp("rootMotion", DataType.String, value);}
+    public get Transform() {return this.GetProp("transform", DataType.String);}
+    public set Transform(value) {this.SetProp("transform", DataType.String, value);}
+    public get Weight() {return this.GetProp("weight", DataType.String);}
+    public set Weight(value) {this.SetProp("weight", DataType.String, value);}
 }
 
-export class Animator extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Animator");}
+export class Animator extends Instance {
+    protected constructor(className?: string) {super(className ?? "Animator"); this.addClassName("Animator");}
     public static new() {return new Animator();}
-    public get preferLodEnabled() {return this.getProp("PreferLodEnabled", DataType.Bool);}
-    public set preferLodEnabled(value) {this.setProp("PreferLodEnabled", DataType.Bool, value);}
+    public get PreferLodEnabled() {return this.GetProp("PreferLodEnabled", DataType.Bool);}
+    public set PreferLodEnabled(value) {this.SetProp("PreferLodEnabled", DataType.Bool, value);}
 }
 
-export class AppUpdateService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AppUpdateService", true);}
+export class AppUpdateService extends Instance {
+    protected constructor(className?: string) {super(className ?? "AppUpdateService", true); this.addClassName("AppUpdateService");}
     public static new() {return new AppUpdateService();}
 }
 
-export class AssetCounterService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AssetCounterService", true);}
+export class AssetCounterService extends Instance {
+    protected constructor(className?: string) {super(className ?? "AssetCounterService", true); this.addClassName("AssetCounterService");}
     public static new() {return new AssetCounterService();}
 }
 
-export class AssetDeliveryProxy extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AssetDeliveryProxy", true);}
+export class AssetDeliveryProxy extends Instance {
+    protected constructor(className?: string) {super(className ?? "AssetDeliveryProxy", true); this.addClassName("AssetDeliveryProxy");}
     public static new() {return new AssetDeliveryProxy();}
-    public get interface() {return this.getProp("Interface", DataType.String);}
-    public set interface(value) {this.setProp("Interface", DataType.String, value);}
-    public get port() {return this.getProp("Port", DataType.Int32);}
-    public set port(value) {this.setProp("Port", DataType.Int32, value);}
-    public get startServer() {return this.getProp("StartServer", DataType.Bool);}
-    public set startServer(value) {this.setProp("StartServer", DataType.Bool, value);}
+    public get Interface() {return this.GetProp("Interface", DataType.String);}
+    public set Interface(value) {this.SetProp("Interface", DataType.String, value);}
+    public get Port() {return this.GetProp("Port", DataType.Int32);}
+    public set Port(value) {this.SetProp("Port", DataType.Int32, value);}
+    public get StartServer() {return this.GetProp("StartServer", DataType.Bool);}
+    public set StartServer(value) {this.SetProp("StartServer", DataType.Bool, value);}
 }
 
-export class AssetImportService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AssetImportService", true);}
+export class AssetImportService extends Instance {
+    protected constructor(className?: string) {super(className ?? "AssetImportService", true); this.addClassName("AssetImportService");}
     public static new() {return new AssetImportService();}
 }
 
-export class AssetManagerService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AssetManagerService", true);}
+export class AssetManagerService extends Instance {
+    protected constructor(className?: string) {super(className ?? "AssetManagerService", true); this.addClassName("AssetManagerService");}
     public static new() {return new AssetManagerService();}
 }
 
-export class AssetService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AssetService", true);}
+export class AssetService extends Instance {
+    protected constructor(className?: string) {super(className ?? "AssetService", true); this.addClassName("AssetService");}
     public static new() {return new AssetService();}
 }
 
-export class Atmosphere extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Atmosphere");}
+export class Atmosphere extends Instance {
+    protected constructor(className?: string) {super(className ?? "Atmosphere"); this.addClassName("Atmosphere");}
     public static new() {return new Atmosphere();}
-    public get color() {return this.getProp("Color", DataType.Color3);}
-    public set color(value) {this.setProp("Color", DataType.Color3, value);}
-    public get decay() {return this.getProp("Decay", DataType.Color3);}
-    public set decay(value) {this.setProp("Decay", DataType.Color3, value);}
-    public get density() {return this.getProp("Density", DataType.Float32);}
-    public set density(value) {this.setProp("Density", DataType.Float32, value);}
-    public get glare() {return this.getProp("Glare", DataType.Float32);}
-    public set glare(value) {this.setProp("Glare", DataType.Float32, value);}
-    public get haze() {return this.getProp("Haze", DataType.Float32);}
-    public set haze(value) {this.setProp("Haze", DataType.Float32, value);}
-    public get offset() {return this.getProp("Offset", DataType.Float32);}
-    public set offset(value) {this.setProp("Offset", DataType.Float32, value);}
+    public get Color() {return this.GetProp("Color", DataType.Color3);}
+    public set Color(value) {this.SetProp("Color", DataType.Color3, value);}
+    public get Decay() {return this.GetProp("Decay", DataType.Color3);}
+    public set Decay(value) {this.SetProp("Decay", DataType.Color3, value);}
+    public get Density() {return this.GetProp("Density", DataType.Float32);}
+    public set Density(value) {this.SetProp("Density", DataType.Float32, value);}
+    public get Glare() {return this.GetProp("Glare", DataType.Float32);}
+    public set Glare(value) {this.SetProp("Glare", DataType.Float32, value);}
+    public get Haze() {return this.GetProp("Haze", DataType.Float32);}
+    public set Haze(value) {this.SetProp("Haze", DataType.Float32, value);}
+    public get Offset() {return this.GetProp("Offset", DataType.Float32);}
+    public set Offset(value) {this.SetProp("Offset", DataType.Float32, value);}
 }
 
-export class Attachment extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Attachment");}
+export class Attachment extends Instance {
+    protected constructor(className?: string) {super(className ?? "Attachment"); this.addClassName("Attachment");}
     public static new() {return new Attachment();}
-    public get cFrame() {return this.getProp("CFrame", DataType.CFrame);}
-    public set cFrame(value) {this.setProp("CFrame", DataType.CFrame, value);}
-    public get visible() {return this.getProp("Visible", DataType.Bool);}
-    public set visible(value) {this.setProp("Visible", DataType.Bool, value);}
+    public get CFrame() {return this.GetProp("CFrame", DataType.CFrame);}
+    public set CFrame(value) {this.SetProp("CFrame", DataType.CFrame, value);}
+    public get Visible() {return this.GetProp("Visible", DataType.Bool);}
+    public set Visible(value) {this.SetProp("Visible", DataType.Bool, value);}
 }
 
 export class Bone extends Attachment {
-    protected constructor(className?: string) {super(className ?? "Bone");}
+    protected constructor(className?: string) {super(className ?? "Bone"); this.addClassName("Bone");}
     public static new() {return new Bone();}
 }
 
-export class AudioAnalyzer extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AudioAnalyzer");}
+export class AudioAnalyzer extends Instance {
+    protected constructor(className?: string) {super(className ?? "AudioAnalyzer"); this.addClassName("AudioAnalyzer");}
     public static new() {return new AudioAnalyzer();}
 }
 
-export class AudioChorus extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AudioChorus");}
+export class AudioChorus extends Instance {
+    protected constructor(className?: string) {super(className ?? "AudioChorus"); this.addClassName("AudioChorus");}
     public static new() {return new AudioChorus();}
-    public get depth() {return this.getProp("Depth", DataType.Float32);}
-    public set depth(value) {this.setProp("Depth", DataType.Float32, value);}
-    public get mix() {return this.getProp("Mix", DataType.Float32);}
-    public set mix(value) {this.setProp("Mix", DataType.Float32, value);}
-    public get rate() {return this.getProp("Rate", DataType.Float32);}
-    public set rate(value) {this.setProp("Rate", DataType.Float32, value);}
+    public get Depth() {return this.GetProp("Depth", DataType.Float32);}
+    public set Depth(value) {this.SetProp("Depth", DataType.Float32, value);}
+    public get Mix() {return this.GetProp("Mix", DataType.Float32);}
+    public set Mix(value) {this.SetProp("Mix", DataType.Float32, value);}
+    public get Rate() {return this.GetProp("Rate", DataType.Float32);}
+    public set Rate(value) {this.SetProp("Rate", DataType.Float32, value);}
 }
 
-export class AudioCompressor extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AudioCompressor");}
+export class AudioCompressor extends Instance {
+    protected constructor(className?: string) {super(className ?? "AudioCompressor"); this.addClassName("AudioCompressor");}
     public static new() {return new AudioCompressor();}
-    public get attack() {return this.getProp("Attack", DataType.Float32);}
-    public set attack(value) {this.setProp("Attack", DataType.Float32, value);}
-    public get makeupGain() {return this.getProp("MakeupGain", DataType.Float32);}
-    public set makeupGain(value) {this.setProp("MakeupGain", DataType.Float32, value);}
-    public get ratio() {return this.getProp("Ratio", DataType.Float32);}
-    public set ratio(value) {this.setProp("Ratio", DataType.Float32, value);}
-    public get release() {return this.getProp("Release", DataType.Float32);}
-    public set release(value) {this.setProp("Release", DataType.Float32, value);}
-    public get threshold() {return this.getProp("Threshold", DataType.Float32);}
-    public set threshold(value) {this.setProp("Threshold", DataType.Float32, value);}
+    public get Attack() {return this.GetProp("Attack", DataType.Float32);}
+    public set Attack(value) {this.SetProp("Attack", DataType.Float32, value);}
+    public get MakeupGain() {return this.GetProp("MakeupGain", DataType.Float32);}
+    public set MakeupGain(value) {this.SetProp("MakeupGain", DataType.Float32, value);}
+    public get Ratio() {return this.GetProp("Ratio", DataType.Float32);}
+    public set Ratio(value) {this.SetProp("Ratio", DataType.Float32, value);}
+    public get Release() {return this.GetProp("Release", DataType.Float32);}
+    public set Release(value) {this.SetProp("Release", DataType.Float32, value);}
+    public get Threshold() {return this.GetProp("Threshold", DataType.Float32);}
+    public set Threshold(value) {this.SetProp("Threshold", DataType.Float32, value);}
 }
 
-export class AudioDeviceInput extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AudioDeviceInput");}
+export class AudioDeviceInput extends Instance {
+    protected constructor(className?: string) {super(className ?? "AudioDeviceInput"); this.addClassName("AudioDeviceInput");}
     public static new() {return new AudioDeviceInput();}
-    public get accessType() {return this.getProp("AccessType", DataType.Enum) as AccessModifierType | undefined;}
-    public set accessType(value) {this.setProp("AccessType", DataType.Enum, value);}
-    public get active() {return this.getProp("Active", DataType.Bool);}
-    public set active(value) {this.setProp("Active", DataType.Bool, value);}
-    public get muted() {return this.getProp("Muted", DataType.Bool);}
-    public set muted(value) {this.setProp("Muted", DataType.Bool, value);}
-    public get player() {return this.getProp("Player", DataType.Referent) as Player | undefined;}
-    public set player(value) {this.setProp("Player", DataType.Referent, value);}
+    public get AccessType() {return this.GetProp("AccessType", DataType.Enum) as AccessModifierType | undefined;}
+    public set AccessType(value) {this.SetProp("AccessType", DataType.Enum, value);}
+    public get Active() {return this.GetProp("Active", DataType.Bool);}
+    public set Active(value) {this.SetProp("Active", DataType.Bool, value);}
+    public get Muted() {return this.GetProp("Muted", DataType.Bool);}
+    public set Muted(value) {this.SetProp("Muted", DataType.Bool, value);}
+    public get Player() {return this.GetProp("Player", DataType.Referent) as Player | undefined;}
+    public set Player(value) {this.SetProp("Player", DataType.Referent, value);}
 }
 
-export class AudioDeviceOutput extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AudioDeviceOutput");}
+export class AudioDeviceOutput extends Instance {
+    protected constructor(className?: string) {super(className ?? "AudioDeviceOutput"); this.addClassName("AudioDeviceOutput");}
     public static new() {return new AudioDeviceOutput();}
-    public get player() {return this.getProp("Player", DataType.Referent) as Player | undefined;}
-    public set player(value) {this.setProp("Player", DataType.Referent, value);}
+    public get Player() {return this.GetProp("Player", DataType.Referent) as Player | undefined;}
+    public set Player(value) {this.SetProp("Player", DataType.Referent, value);}
 }
 
-export class AudioDistortion extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AudioDistortion");}
+export class AudioDistortion extends Instance {
+    protected constructor(className?: string) {super(className ?? "AudioDistortion"); this.addClassName("AudioDistortion");}
     public static new() {return new AudioDistortion();}
-    public get level() {return this.getProp("Level", DataType.Float32);}
-    public set level(value) {this.setProp("Level", DataType.Float32, value);}
+    public get Level() {return this.GetProp("Level", DataType.Float32);}
+    public set Level(value) {this.SetProp("Level", DataType.Float32, value);}
 }
 
-export class AudioEcho extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AudioEcho");}
+export class AudioEcho extends Instance {
+    protected constructor(className?: string) {super(className ?? "AudioEcho"); this.addClassName("AudioEcho");}
     public static new() {return new AudioEcho();}
-    public get delayTime() {return this.getProp("DelayTime", DataType.Float32);}
-    public set delayTime(value) {this.setProp("DelayTime", DataType.Float32, value);}
-    public get dryLevel() {return this.getProp("DryLevel", DataType.Float32);}
-    public set dryLevel(value) {this.setProp("DryLevel", DataType.Float32, value);}
-    public get feedback() {return this.getProp("Feedback", DataType.Float32);}
-    public set feedback(value) {this.setProp("Feedback", DataType.Float32, value);}
-    public get wetLevel() {return this.getProp("WetLevel", DataType.Float32);}
-    public set wetLevel(value) {this.setProp("WetLevel", DataType.Float32, value);}
+    public get DelayTime() {return this.GetProp("DelayTime", DataType.Float32);}
+    public set DelayTime(value) {this.SetProp("DelayTime", DataType.Float32, value);}
+    public get DryLevel() {return this.GetProp("DryLevel", DataType.Float32);}
+    public set DryLevel(value) {this.SetProp("DryLevel", DataType.Float32, value);}
+    public get Feedback() {return this.GetProp("Feedback", DataType.Float32);}
+    public set Feedback(value) {this.SetProp("Feedback", DataType.Float32, value);}
+    public get WetLevel() {return this.GetProp("WetLevel", DataType.Float32);}
+    public set WetLevel(value) {this.SetProp("WetLevel", DataType.Float32, value);}
 }
 
-export class AudioEmitter extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AudioEmitter");}
+export class AudioEmitter extends Instance {
+    protected constructor(className?: string) {super(className ?? "AudioEmitter"); this.addClassName("AudioEmitter");}
     public static new() {return new AudioEmitter();}
-    public get audioInteractionGroup() {return this.getProp("AudioInteractionGroup", DataType.String);}
-    public set audioInteractionGroup(value) {this.setProp("AudioInteractionGroup", DataType.String, value);}
-    public get distanceAttenuation() {return this.getProp("DistanceAttenuation", DataType.String);}
-    public set distanceAttenuation(value) {this.setProp("DistanceAttenuation", DataType.String, value);}
+    public get AudioInteractionGroup() {return this.GetProp("AudioInteractionGroup", DataType.String);}
+    public set AudioInteractionGroup(value) {this.SetProp("AudioInteractionGroup", DataType.String, value);}
+    public get DistanceAttenuation() {return this.GetProp("DistanceAttenuation", DataType.String);}
+    public set DistanceAttenuation(value) {this.SetProp("DistanceAttenuation", DataType.String, value);}
 }
 
-export class AudioEqualizer extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AudioEqualizer");}
+export class AudioEqualizer extends Instance {
+    protected constructor(className?: string) {super(className ?? "AudioEqualizer"); this.addClassName("AudioEqualizer");}
     public static new() {return new AudioEqualizer();}
-    public get highGain() {return this.getProp("HighGain", DataType.Float32);}
-    public set highGain(value) {this.setProp("HighGain", DataType.Float32, value);}
-    public get lowGain() {return this.getProp("LowGain", DataType.Float32);}
-    public set lowGain(value) {this.setProp("LowGain", DataType.Float32, value);}
-    public get midGain() {return this.getProp("MidGain", DataType.Float32);}
-    public set midGain(value) {this.setProp("MidGain", DataType.Float32, value);}
-    public get midRange() {return this.getProp("MidRange", DataType.NumberRange);}
-    public set midRange(value) {this.setProp("MidRange", DataType.NumberRange, value);}
+    public get HighGain() {return this.GetProp("HighGain", DataType.Float32);}
+    public set HighGain(value) {this.SetProp("HighGain", DataType.Float32, value);}
+    public get LowGain() {return this.GetProp("LowGain", DataType.Float32);}
+    public set LowGain(value) {this.SetProp("LowGain", DataType.Float32, value);}
+    public get MidGain() {return this.GetProp("MidGain", DataType.Float32);}
+    public set MidGain(value) {this.SetProp("MidGain", DataType.Float32, value);}
+    public get MidRange() {return this.GetProp("MidRange", DataType.NumberRange);}
+    public set MidRange(value) {this.SetProp("MidRange", DataType.NumberRange, value);}
 }
 
-export class AudioFader extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AudioFader");}
+export class AudioFader extends Instance {
+    protected constructor(className?: string) {super(className ?? "AudioFader"); this.addClassName("AudioFader");}
     public static new() {return new AudioFader();}
-    public get volume() {return this.getProp("Volume", DataType.Float32);}
-    public set volume(value) {this.setProp("Volume", DataType.Float32, value);}
+    public get Volume() {return this.GetProp("Volume", DataType.Float32);}
+    public set Volume(value) {this.SetProp("Volume", DataType.Float32, value);}
 }
 
-export class AudioFlanger extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AudioFlanger");}
+export class AudioFlanger extends Instance {
+    protected constructor(className?: string) {super(className ?? "AudioFlanger"); this.addClassName("AudioFlanger");}
     public static new() {return new AudioFlanger();}
-    public get depth() {return this.getProp("Depth", DataType.Float32);}
-    public set depth(value) {this.setProp("Depth", DataType.Float32, value);}
-    public get mix() {return this.getProp("Mix", DataType.Float32);}
-    public set mix(value) {this.setProp("Mix", DataType.Float32, value);}
-    public get rate() {return this.getProp("Rate", DataType.Float32);}
-    public set rate(value) {this.setProp("Rate", DataType.Float32, value);}
+    public get Depth() {return this.GetProp("Depth", DataType.Float32);}
+    public set Depth(value) {this.SetProp("Depth", DataType.Float32, value);}
+    public get Mix() {return this.GetProp("Mix", DataType.Float32);}
+    public set Mix(value) {this.SetProp("Mix", DataType.Float32, value);}
+    public get Rate() {return this.GetProp("Rate", DataType.Float32);}
+    public set Rate(value) {this.SetProp("Rate", DataType.Float32, value);}
 }
 
-export class AudioListener extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AudioListener");}
+export class AudioListener extends Instance {
+    protected constructor(className?: string) {super(className ?? "AudioListener"); this.addClassName("AudioListener");}
     public static new() {return new AudioListener();}
-    public get audioInteractionGroup() {return this.getProp("AudioInteractionGroup", DataType.String);}
-    public set audioInteractionGroup(value) {this.setProp("AudioInteractionGroup", DataType.String, value);}
+    public get AudioInteractionGroup() {return this.GetProp("AudioInteractionGroup", DataType.String);}
+    public set AudioInteractionGroup(value) {this.SetProp("AudioInteractionGroup", DataType.String, value);}
 }
 
-export class AudioPitchShifter extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AudioPitchShifter");}
+export class AudioPitchShifter extends Instance {
+    protected constructor(className?: string) {super(className ?? "AudioPitchShifter"); this.addClassName("AudioPitchShifter");}
     public static new() {return new AudioPitchShifter();}
-    public get pitch() {return this.getProp("Pitch", DataType.Float32);}
-    public set pitch(value) {this.setProp("Pitch", DataType.Float32, value);}
+    public get Pitch() {return this.GetProp("Pitch", DataType.Float32);}
+    public set Pitch(value) {this.SetProp("Pitch", DataType.Float32, value);}
 }
 
-export class AudioPlayer extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AudioPlayer");}
+export class AudioPlayer extends Instance {
+    protected constructor(className?: string) {super(className ?? "AudioPlayer"); this.addClassName("AudioPlayer");}
     public static new() {return new AudioPlayer();}
-    public get assetId() {return this.getProp("AssetId", DataType.String);}
-    public set assetId(value) {this.setProp("AssetId", DataType.String, value);}
-    public get autoLoad() {return this.getProp("AutoLoad", DataType.Bool);}
-    public set autoLoad(value) {this.setProp("AutoLoad", DataType.Bool, value);}
-    public get loopRegion() {return this.getProp("LoopRegion", DataType.NumberRange);}
-    public set loopRegion(value) {this.setProp("LoopRegion", DataType.NumberRange, value);}
-    public get looping() {return this.getProp("Looping", DataType.Bool);}
-    public set looping(value) {this.setProp("Looping", DataType.Bool, value);}
-    public get playbackRegion() {return this.getProp("PlaybackRegion", DataType.NumberRange);}
-    public set playbackRegion(value) {this.setProp("PlaybackRegion", DataType.NumberRange, value);}
-    public get playbackSpeed() {return this.getProp("PlaybackSpeed", DataType.Float64);}
-    public set playbackSpeed(value) {this.setProp("PlaybackSpeed", DataType.Float64, value);}
-    public get timePosition() {return this.getProp("TimePosition", DataType.Float64);}
-    public set timePosition(value) {this.setProp("TimePosition", DataType.Float64, value);}
+    public get AssetId() {return this.GetProp("AssetId", DataType.String);}
+    public set AssetId(value) {this.SetProp("AssetId", DataType.String, value);}
+    public get AutoLoad() {return this.GetProp("AutoLoad", DataType.Bool);}
+    public set AutoLoad(value) {this.SetProp("AutoLoad", DataType.Bool, value);}
+    public get LoopRegion() {return this.GetProp("LoopRegion", DataType.NumberRange);}
+    public set LoopRegion(value) {this.SetProp("LoopRegion", DataType.NumberRange, value);}
+    public get Looping() {return this.GetProp("Looping", DataType.Bool);}
+    public set Looping(value) {this.SetProp("Looping", DataType.Bool, value);}
+    public get PlaybackRegion() {return this.GetProp("PlaybackRegion", DataType.NumberRange);}
+    public set PlaybackRegion(value) {this.SetProp("PlaybackRegion", DataType.NumberRange, value);}
+    public get PlaybackSpeed() {return this.GetProp("PlaybackSpeed", DataType.Float64);}
+    public set PlaybackSpeed(value) {this.SetProp("PlaybackSpeed", DataType.Float64, value);}
+    public get TimePosition() {return this.GetProp("TimePosition", DataType.Float64);}
+    public set TimePosition(value) {this.SetProp("TimePosition", DataType.Float64, value);}
 }
 
-export class AudioReverb extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AudioReverb");}
+export class AudioReverb extends Instance {
+    protected constructor(className?: string) {super(className ?? "AudioReverb"); this.addClassName("AudioReverb");}
     public static new() {return new AudioReverb();}
-    public get decayRatio() {return this.getProp("DecayRatio", DataType.Float32);}
-    public set decayRatio(value) {this.setProp("DecayRatio", DataType.Float32, value);}
-    public get decayTime() {return this.getProp("DecayTime", DataType.Float32);}
-    public set decayTime(value) {this.setProp("DecayTime", DataType.Float32, value);}
-    public get density() {return this.getProp("Density", DataType.Float32);}
-    public set density(value) {this.setProp("Density", DataType.Float32, value);}
-    public get diffusion() {return this.getProp("Diffusion", DataType.Float32);}
-    public set diffusion(value) {this.setProp("Diffusion", DataType.Float32, value);}
-    public get dryLevel() {return this.getProp("DryLevel", DataType.Float32);}
-    public set dryLevel(value) {this.setProp("DryLevel", DataType.Float32, value);}
-    public get earlyDelayTime() {return this.getProp("EarlyDelayTime", DataType.Float32);}
-    public set earlyDelayTime(value) {this.setProp("EarlyDelayTime", DataType.Float32, value);}
-    public get highCutFrequency() {return this.getProp("HighCutFrequency", DataType.Float32);}
-    public set highCutFrequency(value) {this.setProp("HighCutFrequency", DataType.Float32, value);}
-    public get lateDelayTime() {return this.getProp("LateDelayTime", DataType.Float32);}
-    public set lateDelayTime(value) {this.setProp("LateDelayTime", DataType.Float32, value);}
-    public get lowShelfFrequency() {return this.getProp("LowShelfFrequency", DataType.Float32);}
-    public set lowShelfFrequency(value) {this.setProp("LowShelfFrequency", DataType.Float32, value);}
-    public get lowShelfGain() {return this.getProp("LowShelfGain", DataType.Float32);}
-    public set lowShelfGain(value) {this.setProp("LowShelfGain", DataType.Float32, value);}
-    public get referenceFrequency() {return this.getProp("ReferenceFrequency", DataType.Float32);}
-    public set referenceFrequency(value) {this.setProp("ReferenceFrequency", DataType.Float32, value);}
-    public get wetLevel() {return this.getProp("WetLevel", DataType.Float32);}
-    public set wetLevel(value) {this.setProp("WetLevel", DataType.Float32, value);}
+    public get DecayRatio() {return this.GetProp("DecayRatio", DataType.Float32);}
+    public set DecayRatio(value) {this.SetProp("DecayRatio", DataType.Float32, value);}
+    public get DecayTime() {return this.GetProp("DecayTime", DataType.Float32);}
+    public set DecayTime(value) {this.SetProp("DecayTime", DataType.Float32, value);}
+    public get Density() {return this.GetProp("Density", DataType.Float32);}
+    public set Density(value) {this.SetProp("Density", DataType.Float32, value);}
+    public get Diffusion() {return this.GetProp("Diffusion", DataType.Float32);}
+    public set Diffusion(value) {this.SetProp("Diffusion", DataType.Float32, value);}
+    public get DryLevel() {return this.GetProp("DryLevel", DataType.Float32);}
+    public set DryLevel(value) {this.SetProp("DryLevel", DataType.Float32, value);}
+    public get EarlyDelayTime() {return this.GetProp("EarlyDelayTime", DataType.Float32);}
+    public set EarlyDelayTime(value) {this.SetProp("EarlyDelayTime", DataType.Float32, value);}
+    public get HighCutFrequency() {return this.GetProp("HighCutFrequency", DataType.Float32);}
+    public set HighCutFrequency(value) {this.SetProp("HighCutFrequency", DataType.Float32, value);}
+    public get LateDelayTime() {return this.GetProp("LateDelayTime", DataType.Float32);}
+    public set LateDelayTime(value) {this.SetProp("LateDelayTime", DataType.Float32, value);}
+    public get LowShelfFrequency() {return this.GetProp("LowShelfFrequency", DataType.Float32);}
+    public set LowShelfFrequency(value) {this.SetProp("LowShelfFrequency", DataType.Float32, value);}
+    public get LowShelfGain() {return this.GetProp("LowShelfGain", DataType.Float32);}
+    public set LowShelfGain(value) {this.SetProp("LowShelfGain", DataType.Float32, value);}
+    public get ReferenceFrequency() {return this.GetProp("ReferenceFrequency", DataType.Float32);}
+    public set ReferenceFrequency(value) {this.SetProp("ReferenceFrequency", DataType.Float32, value);}
+    public get WetLevel() {return this.GetProp("WetLevel", DataType.Float32);}
+    public set WetLevel(value) {this.SetProp("WetLevel", DataType.Float32, value);}
 }
 
-export class AudioSearchParams extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AudioSearchParams");}
+export class AudioSearchParams extends Instance {
+    protected constructor(className?: string) {super(className ?? "AudioSearchParams"); this.addClassName("AudioSearchParams");}
     public static new() {return new AudioSearchParams();}
-    public get album() {return this.getProp("Album", DataType.String);}
-    public set album(value) {this.setProp("Album", DataType.String, value);}
-    public get artist() {return this.getProp("Artist", DataType.String);}
-    public set artist(value) {this.setProp("Artist", DataType.String, value);}
-    public get audioSubType() {return this.getProp("AudioSubType", DataType.Enum) as AudioSubType | undefined;}
-    public set audioSubType(value) {this.setProp("AudioSubType", DataType.Enum, value);}
-    public get audioSubtype() {return this.getProp("AudioSubtype", DataType.Enum) as AudioSubType | undefined;}
-    public set audioSubtype(value) {this.setProp("AudioSubtype", DataType.Enum, value);}
-    public get maxDuration() {return this.getProp("MaxDuration", DataType.Int32);}
-    public set maxDuration(value) {this.setProp("MaxDuration", DataType.Int32, value);}
-    public get minDuration() {return this.getProp("MinDuration", DataType.Int32);}
-    public set minDuration(value) {this.setProp("MinDuration", DataType.Int32, value);}
-    public get searchKeyword() {return this.getProp("SearchKeyword", DataType.String);}
-    public set searchKeyword(value) {this.setProp("SearchKeyword", DataType.String, value);}
-    public get tag() {return this.getProp("Tag", DataType.String);}
-    public set tag(value) {this.setProp("Tag", DataType.String, value);}
-    public get title() {return this.getProp("Title", DataType.String);}
-    public set title(value) {this.setProp("Title", DataType.String, value);}
+    public get Album() {return this.GetProp("Album", DataType.String);}
+    public set Album(value) {this.SetProp("Album", DataType.String, value);}
+    public get Artist() {return this.GetProp("Artist", DataType.String);}
+    public set Artist(value) {this.SetProp("Artist", DataType.String, value);}
+    public get AudioSubType() {return this.GetProp("AudioSubType", DataType.Enum) as AudioSubType | undefined;}
+    public set AudioSubType(value) {this.SetProp("AudioSubType", DataType.Enum, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get AudioSubtype() {return this.GetProp("AudioSubtype", DataType.Enum) as AudioSubType | undefined;}
+    /**@deprecated Deprecated by Roblox*/
+    public set AudioSubtype(value) {this.SetProp("AudioSubtype", DataType.Enum, value);}
+    public get MaxDuration() {return this.GetProp("MaxDuration", DataType.Int32);}
+    public set MaxDuration(value) {this.SetProp("MaxDuration", DataType.Int32, value);}
+    public get MinDuration() {return this.GetProp("MinDuration", DataType.Int32);}
+    public set MinDuration(value) {this.SetProp("MinDuration", DataType.Int32, value);}
+    public get SearchKeyword() {return this.GetProp("SearchKeyword", DataType.String);}
+    public set SearchKeyword(value) {this.SetProp("SearchKeyword", DataType.String, value);}
+    public get Tag() {return this.GetProp("Tag", DataType.String);}
+    public set Tag(value) {this.SetProp("Tag", DataType.String, value);}
+    public get Title() {return this.GetProp("Title", DataType.String);}
+    public set Title(value) {this.SetProp("Title", DataType.String, value);}
 }
 
-export class AvatarChatService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AvatarChatService", true);}
+export class AvatarChatService extends Instance {
+    protected constructor(className?: string) {super(className ?? "AvatarChatService", true); this.addClassName("AvatarChatService");}
     public static new() {return new AvatarChatService();}
 }
 
-export class AvatarCreationService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AvatarCreationService", true);}
+export class AvatarCreationService extends Instance {
+    protected constructor(className?: string) {super(className ?? "AvatarCreationService", true); this.addClassName("AvatarCreationService");}
     public static new() {return new AvatarCreationService();}
 }
 
-export class AvatarEditorService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AvatarEditorService", true);}
+export class AvatarEditorService extends Instance {
+    protected constructor(className?: string) {super(className ?? "AvatarEditorService", true); this.addClassName("AvatarEditorService");}
     public static new() {return new AvatarEditorService();}
 }
 
-export abstract class AvatarGenerationJob extends CoreInstance {
-    protected constructor(className: string) {super(className);}
-    public get error() {return this.getProp("Error", DataType.Enum) as AvatarGenerationError | undefined;}
-    public set error(value) {this.setProp("Error", DataType.Enum, value);}
-    public get errorMessage() {return this.getProp("ErrorMessage", DataType.String);}
-    public set errorMessage(value) {this.setProp("ErrorMessage", DataType.String, value);}
-    public get progress() {return this.getProp("Progress", DataType.Float32);}
-    public set progress(value) {this.setProp("Progress", DataType.Float32, value);}
-    public get status() {return this.getProp("Status", DataType.Enum) as AvatarGenerationJobStatus | undefined;}
-    public set status(value) {this.setProp("Status", DataType.Enum, value);}
+export abstract class AvatarGenerationJob extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("AvatarGenerationJob");}
+    public get Error() {return this.GetProp("Error", DataType.Enum) as AvatarGenerationError | undefined;}
+    public set Error(value) {this.SetProp("Error", DataType.Enum, value);}
+    public get ErrorMessage() {return this.GetProp("ErrorMessage", DataType.String);}
+    public set ErrorMessage(value) {this.SetProp("ErrorMessage", DataType.String, value);}
+    public get Progress() {return this.GetProp("Progress", DataType.Float32);}
+    public set Progress(value) {this.SetProp("Progress", DataType.Float32, value);}
+    public get Status() {return this.GetProp("Status", DataType.Enum) as AvatarGenerationJobStatus | undefined;}
+    public set Status(value) {this.SetProp("Status", DataType.Enum, value);}
 }
 
-export class AvatarImportService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "AvatarImportService", true);}
+export class AvatarImportService extends Instance {
+    protected constructor(className?: string) {super(className ?? "AvatarImportService", true); this.addClassName("AvatarImportService");}
     public static new() {return new AvatarImportService();}
 }
 
-export class Backpack extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Backpack");}
+export class Backpack extends Instance {
+    protected constructor(className?: string) {super(className ?? "Backpack"); this.addClassName("Backpack");}
     public static new() {return new Backpack();}
 }
 
-export class BadgeService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "BadgeService", true);}
+export class BadgeService extends Instance {
+    protected constructor(className?: string) {super(className ?? "BadgeService", true); this.addClassName("BadgeService");}
     public static new() {return new BadgeService();}
 }
 
-export abstract class BaseImportData extends CoreInstance {
-    protected constructor(className: string) {super(className);}
-    public get importName() {return this.getProp("ImportName", DataType.String);}
-    public set importName(value) {this.setProp("ImportName", DataType.String, value);}
-    public get shouldImport() {return this.getProp("ShouldImport", DataType.Bool);}
-    public set shouldImport(value) {this.setProp("ShouldImport", DataType.Bool, value);}
+export abstract class BaseImportData extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("BaseImportData");}
+    public get ImportName() {return this.GetProp("ImportName", DataType.String);}
+    public set ImportName(value) {this.SetProp("ImportName", DataType.String, value);}
+    public get ShouldImport() {return this.GetProp("ShouldImport", DataType.Bool);}
+    public set ShouldImport(value) {this.SetProp("ShouldImport", DataType.Bool, value);}
 }
 
-export abstract class BasePlayerGui extends CoreInstance {
-    protected constructor(className: string) {super(className);}
+export abstract class BasePlayerGui extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("BasePlayerGui");}
 }
 
 export class CoreGui extends BasePlayerGui {
-    protected constructor(className?: string) {super(className ?? "CoreGui");}
+    protected constructor(className?: string) {super(className ?? "CoreGui"); this.addClassName("CoreGui");}
     public static new() {return new CoreGui();}
-    public get selectionImageObject() {return this.getProp("SelectionImageObject", DataType.Referent) as GuiObject | undefined;}
-    public set selectionImageObject(value) {this.setProp("SelectionImageObject", DataType.Referent, value);}
+    public get SelectionImageObject() {return this.GetProp("SelectionImageObject", DataType.Referent) as GuiObject | undefined;}
+    public set SelectionImageObject(value) {this.SetProp("SelectionImageObject", DataType.Referent, value);}
 }
 
 export class StarterGui extends BasePlayerGui {
-    protected constructor(className?: string) {super(className ?? "StarterGui");}
+    protected constructor(className?: string) {super(className ?? "StarterGui"); this.addClassName("StarterGui");}
     public static new() {return new StarterGui();}
-    public get resetPlayerGuiOnSpawn() {return this.getProp("ResetPlayerGuiOnSpawn", DataType.Bool);}
-    public set resetPlayerGuiOnSpawn(value) {this.setProp("ResetPlayerGuiOnSpawn", DataType.Bool, value);}
-    public get rtlTextSupport() {return this.getProp("RtlTextSupport", DataType.Enum) as RtlTextSupport | undefined;}
-    public set rtlTextSupport(value) {this.setProp("RtlTextSupport", DataType.Enum, value);}
-    public get screenOrientation() {return this.getProp("ScreenOrientation", DataType.Enum) as ScreenOrientation | undefined;}
-    public set screenOrientation(value) {this.setProp("ScreenOrientation", DataType.Enum, value);}
-    public get showDevelopmentGui() {return this.getProp("ShowDevelopmentGui", DataType.Bool);}
-    public set showDevelopmentGui(value) {this.setProp("ShowDevelopmentGui", DataType.Bool, value);}
-    public get virtualCursorMode() {return this.getProp("VirtualCursorMode", DataType.Enum) as VirtualCursorMode | undefined;}
-    public set virtualCursorMode(value) {this.setProp("VirtualCursorMode", DataType.Enum, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get ResetPlayerGuiOnSpawn() {return this.GetProp("ResetPlayerGuiOnSpawn", DataType.Bool);}
+    /**@deprecated Deprecated by Roblox*/
+    public set ResetPlayerGuiOnSpawn(value) {this.SetProp("ResetPlayerGuiOnSpawn", DataType.Bool, value);}
+    public get RtlTextSupport() {return this.GetProp("RtlTextSupport", DataType.Enum) as RtlTextSupport | undefined;}
+    public set RtlTextSupport(value) {this.SetProp("RtlTextSupport", DataType.Enum, value);}
+    public get ScreenOrientation() {return this.GetProp("ScreenOrientation", DataType.Enum) as ScreenOrientation | undefined;}
+    public set ScreenOrientation(value) {this.SetProp("ScreenOrientation", DataType.Enum, value);}
+    public get ShowDevelopmentGui() {return this.GetProp("ShowDevelopmentGui", DataType.Bool);}
+    public set ShowDevelopmentGui(value) {this.SetProp("ShowDevelopmentGui", DataType.Bool, value);}
+    public get VirtualCursorMode() {return this.GetProp("VirtualCursorMode", DataType.Enum) as VirtualCursorMode | undefined;}
+    public set VirtualCursorMode(value) {this.SetProp("VirtualCursorMode", DataType.Enum, value);}
 }
 
-export abstract class BaseRemoteEvent extends CoreInstance {
-    protected constructor(className: string) {super(className);}
+export abstract class BaseRemoteEvent extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("BaseRemoteEvent");}
 }
 
 export class RemoteEvent extends BaseRemoteEvent {
-    protected constructor(className?: string) {super(className ?? "RemoteEvent");}
+    protected constructor(className?: string) {super(className ?? "RemoteEvent"); this.addClassName("RemoteEvent");}
     public static new() {return new RemoteEvent();}
 }
 
 export class UnreliableRemoteEvent extends BaseRemoteEvent {
-    protected constructor(className?: string) {super(className ?? "UnreliableRemoteEvent");}
+    protected constructor(className?: string) {super(className ?? "UnreliableRemoteEvent"); this.addClassName("UnreliableRemoteEvent");}
     public static new() {return new UnreliableRemoteEvent();}
 }
 
-export abstract class BaseWrap extends CoreInstance {
-    protected constructor(className: string) {super(className);}
-    public get cageMeshId() {return this.getProp("CageMeshId", DataType.String);}
-    public set cageMeshId(value) {this.setProp("CageMeshId", DataType.String, value);}
-    public get cageOrigin() {return this.getProp("CageOrigin", DataType.CFrame);}
-    public set cageOrigin(value) {this.setProp("CageOrigin", DataType.CFrame, value);}
-    public get hSRAssetId() {return this.getProp("HSRAssetId", DataType.String);}
-    public set hSRAssetId(value) {this.setProp("HSRAssetId", DataType.String, value);}
-    public get hSRData() {return this.getProp("HSRData", DataType.SharedString);}
-    public set hSRData(value) {this.setProp("HSRData", DataType.SharedString, value);}
-    public get hSRMeshIdData() {return this.getProp("HSRMeshIdData", DataType.SharedString);}
-    public set hSRMeshIdData(value) {this.setProp("HSRMeshIdData", DataType.SharedString, value);}
-    public get importOrigin() {return this.getProp("ImportOrigin", DataType.CFrame);}
-    public set importOrigin(value) {this.setProp("ImportOrigin", DataType.CFrame, value);}
-    public get temporaryCageMeshId() {return this.getProp("TemporaryCageMeshId", DataType.String);}
-    public set temporaryCageMeshId(value) {this.setProp("TemporaryCageMeshId", DataType.String, value);}
+export abstract class BaseWrap extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("BaseWrap");}
+    public get CageMeshId() {return this.GetProp("CageMeshId", DataType.String);}
+    public set CageMeshId(value) {this.SetProp("CageMeshId", DataType.String, value);}
+    public get CageOrigin() {return this.GetProp("CageOrigin", DataType.CFrame);}
+    public set CageOrigin(value) {this.SetProp("CageOrigin", DataType.CFrame, value);}
+    public get HSRAssetId() {return this.GetProp("HSRAssetId", DataType.String);}
+    public set HSRAssetId(value) {this.SetProp("HSRAssetId", DataType.String, value);}
+    public get HSRData() {return this.GetProp("HSRData", DataType.SharedString);}
+    public set HSRData(value) {this.SetProp("HSRData", DataType.SharedString, value);}
+    public get HSRMeshIdData() {return this.GetProp("HSRMeshIdData", DataType.SharedString);}
+    public set HSRMeshIdData(value) {this.SetProp("HSRMeshIdData", DataType.SharedString, value);}
+    public get ImportOrigin() {return this.GetProp("ImportOrigin", DataType.CFrame);}
+    public set ImportOrigin(value) {this.SetProp("ImportOrigin", DataType.CFrame, value);}
+    public get TemporaryCageMeshId() {return this.GetProp("TemporaryCageMeshId", DataType.String);}
+    public set TemporaryCageMeshId(value) {this.SetProp("TemporaryCageMeshId", DataType.String, value);}
 }
 
 export class WrapLayer extends BaseWrap {
-    protected constructor(className?: string) {super(className ?? "WrapLayer");}
+    protected constructor(className?: string) {super(className ?? "WrapLayer"); this.addClassName("WrapLayer");}
     public static new() {return new WrapLayer();}
-    public get autoSkin() {return this.getProp("AutoSkin", DataType.Enum) as WrapLayerAutoSkin | undefined;}
-    public set autoSkin(value) {this.setProp("AutoSkin", DataType.Enum, value);}
-    public get bindOffset() {return this.getProp("BindOffset", DataType.CFrame);}
-    public set bindOffset(value) {this.setProp("BindOffset", DataType.CFrame, value);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get order() {return this.getProp("Order", DataType.Int32);}
-    public set order(value) {this.setProp("Order", DataType.Int32, value);}
-    public get puffiness() {return this.getProp("Puffiness", DataType.Float32);}
-    public set puffiness(value) {this.setProp("Puffiness", DataType.Float32, value);}
-    public get referenceMeshId() {return this.getProp("ReferenceMeshId", DataType.String);}
-    public set referenceMeshId(value) {this.setProp("ReferenceMeshId", DataType.String, value);}
-    public get referenceOrigin() {return this.getProp("ReferenceOrigin", DataType.CFrame);}
-    public set referenceOrigin(value) {this.setProp("ReferenceOrigin", DataType.CFrame, value);}
-    public get shrinkFactor() {return this.getProp("ShrinkFactor", DataType.Float32);}
-    public set shrinkFactor(value) {this.setProp("ShrinkFactor", DataType.Float32, value);}
-    public get temporaryReferenceId() {return this.getProp("TemporaryReferenceId", DataType.String);}
-    public set temporaryReferenceId(value) {this.setProp("TemporaryReferenceId", DataType.String, value);}
+    public get AutoSkin() {return this.GetProp("AutoSkin", DataType.Enum) as WrapLayerAutoSkin | undefined;}
+    public set AutoSkin(value) {this.SetProp("AutoSkin", DataType.Enum, value);}
+    public get BindOffset() {return this.GetProp("BindOffset", DataType.CFrame);}
+    public set BindOffset(value) {this.SetProp("BindOffset", DataType.CFrame, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get Order() {return this.GetProp("Order", DataType.Int32);}
+    public set Order(value) {this.SetProp("Order", DataType.Int32, value);}
+    public get Puffiness() {return this.GetProp("Puffiness", DataType.Float32);}
+    public set Puffiness(value) {this.SetProp("Puffiness", DataType.Float32, value);}
+    public get ReferenceMeshId() {return this.GetProp("ReferenceMeshId", DataType.String);}
+    public set ReferenceMeshId(value) {this.SetProp("ReferenceMeshId", DataType.String, value);}
+    public get ReferenceOrigin() {return this.GetProp("ReferenceOrigin", DataType.CFrame);}
+    public set ReferenceOrigin(value) {this.SetProp("ReferenceOrigin", DataType.CFrame, value);}
+    public get ShrinkFactor() {return this.GetProp("ShrinkFactor", DataType.Float32);}
+    public set ShrinkFactor(value) {this.SetProp("ShrinkFactor", DataType.Float32, value);}
+    public get TemporaryReferenceId() {return this.GetProp("TemporaryReferenceId", DataType.String);}
+    public set TemporaryReferenceId(value) {this.SetProp("TemporaryReferenceId", DataType.String, value);}
 }
 
 export class WrapTarget extends BaseWrap {
-    protected constructor(className?: string) {super(className ?? "WrapTarget");}
+    protected constructor(className?: string) {super(className ?? "WrapTarget"); this.addClassName("WrapTarget");}
     public static new() {return new WrapTarget();}
-    public get stiffness() {return this.getProp("Stiffness", DataType.Float32);}
-    public set stiffness(value) {this.setProp("Stiffness", DataType.Float32, value);}
+    public get Stiffness() {return this.GetProp("Stiffness", DataType.Float32);}
+    public set Stiffness(value) {this.SetProp("Stiffness", DataType.Float32, value);}
 }
 
-export class Beam extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Beam");}
+export class Beam extends Instance {
+    protected constructor(className?: string) {super(className ?? "Beam"); this.addClassName("Beam");}
     public static new() {return new Beam();}
-    public get attachment0() {return this.getProp("Attachment0", DataType.Referent) as Attachment | undefined;}
-    public set attachment0(value) {this.setProp("Attachment0", DataType.Referent, value);}
-    public get attachment1() {return this.getProp("Attachment1", DataType.Referent) as Attachment | undefined;}
-    public set attachment1(value) {this.setProp("Attachment1", DataType.Referent, value);}
-    public get brightness() {return this.getProp("Brightness", DataType.Float32);}
-    public set brightness(value) {this.setProp("Brightness", DataType.Float32, value);}
-    public get color() {return this.getProp("Color", DataType.ColorSequence);}
-    public set color(value) {this.setProp("Color", DataType.ColorSequence, value);}
-    public get curveSize0() {return this.getProp("CurveSize0", DataType.Float32);}
-    public set curveSize0(value) {this.setProp("CurveSize0", DataType.Float32, value);}
-    public get curveSize1() {return this.getProp("CurveSize1", DataType.Float32);}
-    public set curveSize1(value) {this.setProp("CurveSize1", DataType.Float32, value);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get faceCamera() {return this.getProp("FaceCamera", DataType.Bool);}
-    public set faceCamera(value) {this.setProp("FaceCamera", DataType.Bool, value);}
-    public get lightEmission() {return this.getProp("LightEmission", DataType.Float32);}
-    public set lightEmission(value) {this.setProp("LightEmission", DataType.Float32, value);}
-    public get lightInfluence() {return this.getProp("LightInfluence", DataType.Float32);}
-    public set lightInfluence(value) {this.setProp("LightInfluence", DataType.Float32, value);}
-    public get segments() {return this.getProp("Segments", DataType.Int32);}
-    public set segments(value) {this.setProp("Segments", DataType.Int32, value);}
-    public get texture() {return this.getProp("Texture", DataType.String);}
-    public set texture(value) {this.setProp("Texture", DataType.String, value);}
-    public get textureLength() {return this.getProp("TextureLength", DataType.Float32);}
-    public set textureLength(value) {this.setProp("TextureLength", DataType.Float32, value);}
-    public get textureMode() {return this.getProp("TextureMode", DataType.Enum) as TextureMode | undefined;}
-    public set textureMode(value) {this.setProp("TextureMode", DataType.Enum, value);}
-    public get textureSpeed() {return this.getProp("TextureSpeed", DataType.Float32);}
-    public set textureSpeed(value) {this.setProp("TextureSpeed", DataType.Float32, value);}
-    public get transparency() {return this.getProp("Transparency", DataType.NumberSequence);}
-    public set transparency(value) {this.setProp("Transparency", DataType.NumberSequence, value);}
-    public get width0() {return this.getProp("Width0", DataType.Float32);}
-    public set width0(value) {this.setProp("Width0", DataType.Float32, value);}
-    public get width1() {return this.getProp("Width1", DataType.Float32);}
-    public set width1(value) {this.setProp("Width1", DataType.Float32, value);}
-    public get zOffset() {return this.getProp("ZOffset", DataType.Float32);}
-    public set zOffset(value) {this.setProp("ZOffset", DataType.Float32, value);}
+    public get Attachment0() {return this.GetProp("Attachment0", DataType.Referent) as Attachment | undefined;}
+    public set Attachment0(value) {this.SetProp("Attachment0", DataType.Referent, value);}
+    public get Attachment1() {return this.GetProp("Attachment1", DataType.Referent) as Attachment | undefined;}
+    public set Attachment1(value) {this.SetProp("Attachment1", DataType.Referent, value);}
+    public get Brightness() {return this.GetProp("Brightness", DataType.Float32);}
+    public set Brightness(value) {this.SetProp("Brightness", DataType.Float32, value);}
+    public get Color() {return this.GetProp("Color", DataType.ColorSequence);}
+    public set Color(value) {this.SetProp("Color", DataType.ColorSequence, value);}
+    public get CurveSize0() {return this.GetProp("CurveSize0", DataType.Float32);}
+    public set CurveSize0(value) {this.SetProp("CurveSize0", DataType.Float32, value);}
+    public get CurveSize1() {return this.GetProp("CurveSize1", DataType.Float32);}
+    public set CurveSize1(value) {this.SetProp("CurveSize1", DataType.Float32, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get FaceCamera() {return this.GetProp("FaceCamera", DataType.Bool);}
+    public set FaceCamera(value) {this.SetProp("FaceCamera", DataType.Bool, value);}
+    public get LightEmission() {return this.GetProp("LightEmission", DataType.Float32);}
+    public set LightEmission(value) {this.SetProp("LightEmission", DataType.Float32, value);}
+    public get LightInfluence() {return this.GetProp("LightInfluence", DataType.Float32);}
+    public set LightInfluence(value) {this.SetProp("LightInfluence", DataType.Float32, value);}
+    public get Segments() {return this.GetProp("Segments", DataType.Int32);}
+    public set Segments(value) {this.SetProp("Segments", DataType.Int32, value);}
+    public get Texture() {return this.GetProp("Texture", DataType.String);}
+    public set Texture(value) {this.SetProp("Texture", DataType.String, value);}
+    public get TextureLength() {return this.GetProp("TextureLength", DataType.Float32);}
+    public set TextureLength(value) {this.SetProp("TextureLength", DataType.Float32, value);}
+    public get TextureMode() {return this.GetProp("TextureMode", DataType.Enum) as TextureMode | undefined;}
+    public set TextureMode(value) {this.SetProp("TextureMode", DataType.Enum, value);}
+    public get TextureSpeed() {return this.GetProp("TextureSpeed", DataType.Float32);}
+    public set TextureSpeed(value) {this.SetProp("TextureSpeed", DataType.Float32, value);}
+    public get Transparency() {return this.GetProp("Transparency", DataType.NumberSequence);}
+    public set Transparency(value) {this.SetProp("Transparency", DataType.NumberSequence, value);}
+    public get Width0() {return this.GetProp("Width0", DataType.Float32);}
+    public set Width0(value) {this.SetProp("Width0", DataType.Float32, value);}
+    public get Width1() {return this.GetProp("Width1", DataType.Float32);}
+    public set Width1(value) {this.SetProp("Width1", DataType.Float32, value);}
+    public get ZOffset() {return this.GetProp("ZOffset", DataType.Float32);}
+    public set ZOffset(value) {this.SetProp("ZOffset", DataType.Float32, value);}
 }
 
-export class BindableEvent extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "BindableEvent");}
+export class BindableEvent extends Instance {
+    protected constructor(className?: string) {super(className ?? "BindableEvent"); this.addClassName("BindableEvent");}
     public static new() {return new BindableEvent();}
 }
 
-export class BindableFunction extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "BindableFunction");}
+export class BindableFunction extends Instance {
+    protected constructor(className?: string) {super(className ?? "BindableFunction"); this.addClassName("BindableFunction");}
     public static new() {return new BindableFunction();}
 }
 
-export abstract class BodyMover extends CoreInstance {
-    protected constructor(className: string) {super(className);}
+export abstract class BodyMover extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("BodyMover");}
 }
 
 export class BodyAngularVelocity extends BodyMover {
-    protected constructor(className?: string) {super(className ?? "BodyAngularVelocity");}
+    protected constructor(className?: string) {super(className ?? "BodyAngularVelocity"); this.addClassName("BodyAngularVelocity");}
     public static new() {return new BodyAngularVelocity();}
-    public get angularVelocity() {return this.getProp("AngularVelocity", DataType.Vector3);}
-    public set angularVelocity(value) {this.setProp("AngularVelocity", DataType.Vector3, value);}
-    public get maxTorque() {return this.getProp("MaxTorque", DataType.Vector3);}
-    public set maxTorque(value) {this.setProp("MaxTorque", DataType.Vector3, value);}
-    public get p() {return this.getProp("P", DataType.Float32);}
-    public set p(value) {this.setProp("P", DataType.Float32, value);}
-    public get angularvelocity() {return this.getProp("angularvelocity", DataType.Vector3);}
-    public set angularvelocity(value) {this.setProp("angularvelocity", DataType.Vector3, value);}
+    public get AngularVelocity() {return this.GetProp("AngularVelocity", DataType.Vector3);}
+    public set AngularVelocity(value) {this.SetProp("AngularVelocity", DataType.Vector3, value);}
+    public get MaxTorque() {return this.GetProp("MaxTorque", DataType.Vector3);}
+    public set MaxTorque(value) {this.SetProp("MaxTorque", DataType.Vector3, value);}
+    public get P() {return this.GetProp("P", DataType.Float32);}
+    public set P(value) {this.SetProp("P", DataType.Float32, value);}
+    /**@deprecated Use AngularVelocity instead*/
+    public get angularvelocity() {return this.AngularVelocity;}
+    /**@deprecated Use AngularVelocity instead*/
+    public set angularvelocity(value) {this.AngularVelocity = value;}
+    /**@deprecated Use MaxTorque instead*/
+    public get maxTorque() {return this.MaxTorque;}
+    /**@deprecated Use MaxTorque instead*/
+    public set maxTorque(value) {this.MaxTorque = value;}
 }
 
 export class BodyForce extends BodyMover {
-    protected constructor(className?: string) {super(className ?? "BodyForce");}
+    protected constructor(className?: string) {super(className ?? "BodyForce"); this.addClassName("BodyForce");}
     public static new() {return new BodyForce();}
-    public get force() {return this.getProp("Force", DataType.Vector3);}
-    public set force(value) {this.setProp("Force", DataType.Vector3, value);}
+    public get Force() {return this.GetProp("Force", DataType.Vector3);}
+    public set Force(value) {this.SetProp("Force", DataType.Vector3, value);}
+    /**@deprecated Use Force instead*/
+    public get force() {return this.Force;}
+    /**@deprecated Use Force instead*/
+    public set force(value) {this.Force = value;}
 }
 
 export class BodyGyro extends BodyMover {
-    protected constructor(className?: string) {super(className ?? "BodyGyro");}
+    protected constructor(className?: string) {super(className ?? "BodyGyro"); this.addClassName("BodyGyro");}
     public static new() {return new BodyGyro();}
-    public get cFrame() {return this.getProp("CFrame", DataType.CFrame);}
-    public set cFrame(value) {this.setProp("CFrame", DataType.CFrame, value);}
-    public get d() {return this.getProp("D", DataType.Float32);}
-    public set d(value) {this.setProp("D", DataType.Float32, value);}
-    public get maxTorque() {return this.getProp("MaxTorque", DataType.Vector3);}
-    public set maxTorque(value) {this.setProp("MaxTorque", DataType.Vector3, value);}
-    public get p() {return this.getProp("P", DataType.Float32);}
-    public set p(value) {this.setProp("P", DataType.Float32, value);}
-    public get cframe() {return this.getProp("cframe", DataType.CFrame);}
-    public set cframe(value) {this.setProp("cframe", DataType.CFrame, value);}
+    public get CFrame() {return this.GetProp("CFrame", DataType.CFrame);}
+    public set CFrame(value) {this.SetProp("CFrame", DataType.CFrame, value);}
+    public get D() {return this.GetProp("D", DataType.Float32);}
+    public set D(value) {this.SetProp("D", DataType.Float32, value);}
+    public get MaxTorque() {return this.GetProp("MaxTorque", DataType.Vector3);}
+    public set MaxTorque(value) {this.SetProp("MaxTorque", DataType.Vector3, value);}
+    public get P() {return this.GetProp("P", DataType.Float32);}
+    public set P(value) {this.SetProp("P", DataType.Float32, value);}
+    /**@deprecated Use CFrame instead*/
+    public get cframe() {return this.CFrame;}
+    /**@deprecated Use CFrame instead*/
+    public set cframe(value) {this.CFrame = value;}
+    /**@deprecated Use MaxTorque instead*/
+    public get maxTorque() {return this.MaxTorque;}
+    /**@deprecated Use MaxTorque instead*/
+    public set maxTorque(value) {this.MaxTorque = value;}
 }
 
 export class BodyPosition extends BodyMover {
-    protected constructor(className?: string) {super(className ?? "BodyPosition");}
+    protected constructor(className?: string) {super(className ?? "BodyPosition"); this.addClassName("BodyPosition");}
     public static new() {return new BodyPosition();}
-    public get d() {return this.getProp("D", DataType.Float32);}
-    public set d(value) {this.setProp("D", DataType.Float32, value);}
-    public get maxForce() {return this.getProp("MaxForce", DataType.Vector3);}
-    public set maxForce(value) {this.setProp("MaxForce", DataType.Vector3, value);}
-    public get p() {return this.getProp("P", DataType.Float32);}
-    public set p(value) {this.setProp("P", DataType.Float32, value);}
-    public get position() {return this.getProp("Position", DataType.Vector3);}
-    public set position(value) {this.setProp("Position", DataType.Vector3, value);}
+    public get D() {return this.GetProp("D", DataType.Float32);}
+    public set D(value) {this.SetProp("D", DataType.Float32, value);}
+    public get MaxForce() {return this.GetProp("MaxForce", DataType.Vector3);}
+    public set MaxForce(value) {this.SetProp("MaxForce", DataType.Vector3, value);}
+    public get P() {return this.GetProp("P", DataType.Float32);}
+    public set P(value) {this.SetProp("P", DataType.Float32, value);}
+    public get Position() {return this.GetProp("Position", DataType.Vector3);}
+    public set Position(value) {this.SetProp("Position", DataType.Vector3, value);}
+    /**@deprecated Use MaxForce instead*/
+    public get maxForce() {return this.MaxForce;}
+    /**@deprecated Use MaxForce instead*/
+    public set maxForce(value) {this.MaxForce = value;}
+    /**@deprecated Use Position instead*/
+    public get position() {return this.Position;}
+    /**@deprecated Use Position instead*/
+    public set position(value) {this.Position = value;}
 }
 
 export class BodyThrust extends BodyMover {
-    protected constructor(className?: string) {super(className ?? "BodyThrust");}
+    protected constructor(className?: string) {super(className ?? "BodyThrust"); this.addClassName("BodyThrust");}
     public static new() {return new BodyThrust();}
-    public get force() {return this.getProp("Force", DataType.Vector3);}
-    public set force(value) {this.setProp("Force", DataType.Vector3, value);}
-    public get location() {return this.getProp("Location", DataType.Vector3);}
-    public set location(value) {this.setProp("Location", DataType.Vector3, value);}
+    public get Force() {return this.GetProp("Force", DataType.Vector3);}
+    public set Force(value) {this.SetProp("Force", DataType.Vector3, value);}
+    public get Location() {return this.GetProp("Location", DataType.Vector3);}
+    public set Location(value) {this.SetProp("Location", DataType.Vector3, value);}
+    /**@deprecated Use Force instead*/
+    public get force() {return this.Force;}
+    /**@deprecated Use Force instead*/
+    public set force(value) {this.Force = value;}
+    /**@deprecated Use Location instead*/
+    public get location() {return this.Location;}
+    /**@deprecated Use Location instead*/
+    public set location(value) {this.Location = value;}
 }
 
 export class BodyVelocity extends BodyMover {
-    protected constructor(className?: string) {super(className ?? "BodyVelocity");}
+    protected constructor(className?: string) {super(className ?? "BodyVelocity"); this.addClassName("BodyVelocity");}
     public static new() {return new BodyVelocity();}
-    public get maxForce() {return this.getProp("MaxForce", DataType.Vector3);}
-    public set maxForce(value) {this.setProp("MaxForce", DataType.Vector3, value);}
-    public get p() {return this.getProp("P", DataType.Float32);}
-    public set p(value) {this.setProp("P", DataType.Float32, value);}
-    public get velocity() {return this.getProp("Velocity", DataType.Vector3);}
-    public set velocity(value) {this.setProp("Velocity", DataType.Vector3, value);}
+    public get MaxForce() {return this.GetProp("MaxForce", DataType.Vector3);}
+    public set MaxForce(value) {this.SetProp("MaxForce", DataType.Vector3, value);}
+    public get P() {return this.GetProp("P", DataType.Float32);}
+    public set P(value) {this.SetProp("P", DataType.Float32, value);}
+    public get Velocity() {return this.GetProp("Velocity", DataType.Vector3);}
+    public set Velocity(value) {this.SetProp("Velocity", DataType.Vector3, value);}
+    /**@deprecated Use MaxForce instead*/
+    public get maxForce() {return this.MaxForce;}
+    /**@deprecated Use MaxForce instead*/
+    public set maxForce(value) {this.MaxForce = value;}
+    /**@deprecated Use Velocity instead*/
+    public get velocity() {return this.Velocity;}
+    /**@deprecated Use Velocity instead*/
+    public set velocity(value) {this.Velocity = value;}
 }
 
 export class RocketPropulsion extends BodyMover {
-    protected constructor(className?: string) {super(className ?? "RocketPropulsion");}
+    protected constructor(className?: string) {super(className ?? "RocketPropulsion"); this.addClassName("RocketPropulsion");}
     public static new() {return new RocketPropulsion();}
-    public get cartoonFactor() {return this.getProp("CartoonFactor", DataType.Float32);}
-    public set cartoonFactor(value) {this.setProp("CartoonFactor", DataType.Float32, value);}
-    public get maxSpeed() {return this.getProp("MaxSpeed", DataType.Float32);}
-    public set maxSpeed(value) {this.setProp("MaxSpeed", DataType.Float32, value);}
-    public get maxThrust() {return this.getProp("MaxThrust", DataType.Float32);}
-    public set maxThrust(value) {this.setProp("MaxThrust", DataType.Float32, value);}
-    public get maxTorque() {return this.getProp("MaxTorque", DataType.Vector3);}
-    public set maxTorque(value) {this.setProp("MaxTorque", DataType.Vector3, value);}
-    public get target() {return this.getProp("Target", DataType.Referent) as BasePart | undefined;}
-    public set target(value) {this.setProp("Target", DataType.Referent, value);}
-    public get targetOffset() {return this.getProp("TargetOffset", DataType.Vector3);}
-    public set targetOffset(value) {this.setProp("TargetOffset", DataType.Vector3, value);}
-    public get targetRadius() {return this.getProp("TargetRadius", DataType.Float32);}
-    public set targetRadius(value) {this.setProp("TargetRadius", DataType.Float32, value);}
-    public get thrustD() {return this.getProp("ThrustD", DataType.Float32);}
-    public set thrustD(value) {this.setProp("ThrustD", DataType.Float32, value);}
-    public get thrustP() {return this.getProp("ThrustP", DataType.Float32);}
-    public set thrustP(value) {this.setProp("ThrustP", DataType.Float32, value);}
-    public get turnD() {return this.getProp("TurnD", DataType.Float32);}
-    public set turnD(value) {this.setProp("TurnD", DataType.Float32, value);}
-    public get turnP() {return this.getProp("TurnP", DataType.Float32);}
-    public set turnP(value) {this.setProp("TurnP", DataType.Float32, value);}
+    public get CartoonFactor() {return this.GetProp("CartoonFactor", DataType.Float32);}
+    public set CartoonFactor(value) {this.SetProp("CartoonFactor", DataType.Float32, value);}
+    public get MaxSpeed() {return this.GetProp("MaxSpeed", DataType.Float32);}
+    public set MaxSpeed(value) {this.SetProp("MaxSpeed", DataType.Float32, value);}
+    public get MaxThrust() {return this.GetProp("MaxThrust", DataType.Float32);}
+    public set MaxThrust(value) {this.SetProp("MaxThrust", DataType.Float32, value);}
+    public get MaxTorque() {return this.GetProp("MaxTorque", DataType.Vector3);}
+    public set MaxTorque(value) {this.SetProp("MaxTorque", DataType.Vector3, value);}
+    public get Target() {return this.GetProp("Target", DataType.Referent) as BasePart | undefined;}
+    public set Target(value) {this.SetProp("Target", DataType.Referent, value);}
+    public get TargetOffset() {return this.GetProp("TargetOffset", DataType.Vector3);}
+    public set TargetOffset(value) {this.SetProp("TargetOffset", DataType.Vector3, value);}
+    public get TargetRadius() {return this.GetProp("TargetRadius", DataType.Float32);}
+    public set TargetRadius(value) {this.SetProp("TargetRadius", DataType.Float32, value);}
+    public get ThrustD() {return this.GetProp("ThrustD", DataType.Float32);}
+    public set ThrustD(value) {this.SetProp("ThrustD", DataType.Float32, value);}
+    public get ThrustP() {return this.GetProp("ThrustP", DataType.Float32);}
+    public set ThrustP(value) {this.SetProp("ThrustP", DataType.Float32, value);}
+    public get TurnD() {return this.GetProp("TurnD", DataType.Float32);}
+    public set TurnD(value) {this.SetProp("TurnD", DataType.Float32, value);}
+    public get TurnP() {return this.GetProp("TurnP", DataType.Float32);}
+    public set TurnP(value) {this.SetProp("TurnP", DataType.Float32, value);}
 }
 
-export class BodyPartDescription extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "BodyPartDescription");}
+export class BodyPartDescription extends Instance {
+    protected constructor(className?: string) {super(className ?? "BodyPartDescription"); this.addClassName("BodyPartDescription");}
     public static new() {return new BodyPartDescription();}
-    public get assetId() {return this.getProp("AssetId", DataType.Int64);}
-    public set assetId(value) {this.setProp("AssetId", DataType.Int64, value);}
-    public get bodyPart() {return this.getProp("BodyPart", DataType.Enum) as BodyPart | undefined;}
-    public set bodyPart(value) {this.setProp("BodyPart", DataType.Enum, value);}
-    public get color() {return this.getProp("Color", DataType.Color3);}
-    public set color(value) {this.setProp("Color", DataType.Color3, value);}
-    public get instance() {return this.getProp("Instance", DataType.Referent) as CoreInstance | undefined;}
-    public set instance(value) {this.setProp("Instance", DataType.Referent, value);}
+    public get AssetId() {return this.GetProp("AssetId", DataType.Int64);}
+    public set AssetId(value) {this.SetProp("AssetId", DataType.Int64, value);}
+    public get BodyPart() {return this.GetProp("BodyPart", DataType.Enum) as BodyPart | undefined;}
+    public set BodyPart(value) {this.SetProp("BodyPart", DataType.Enum, value);}
+    public get Color() {return this.GetProp("Color", DataType.Color3);}
+    public set Color(value) {this.SetProp("Color", DataType.Color3, value);}
+    public get Instance() {return this.GetProp("Instance", DataType.Referent) as Instance | undefined;}
+    public set Instance(value) {this.SetProp("Instance", DataType.Referent, value);}
 }
 
-export class Breakpoint extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Breakpoint");}
+export class Breakpoint extends Instance {
+    protected constructor(className?: string) {super(className ?? "Breakpoint"); this.addClassName("Breakpoint");}
     public static new() {return new Breakpoint();}
 }
 
-export class BrowserService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "BrowserService", true);}
+export class BrowserService extends Instance {
+    protected constructor(className?: string) {super(className ?? "BrowserService", true); this.addClassName("BrowserService");}
     public static new() {return new BrowserService();}
 }
 
-export class BubbleChatMessageProperties extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "BubbleChatMessageProperties");}
+export class BubbleChatMessageProperties extends Instance {
+    protected constructor(className?: string) {super(className ?? "BubbleChatMessageProperties"); this.addClassName("BubbleChatMessageProperties");}
     public static new() {return new BubbleChatMessageProperties();}
 }
 
-export class BulkImportService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "BulkImportService", true);}
+export class BulkImportService extends Instance {
+    protected constructor(className?: string) {super(className ?? "BulkImportService", true); this.addClassName("BulkImportService");}
     public static new() {return new BulkImportService();}
 }
 
-export abstract class CacheableContentProvider extends CoreInstance {
-    protected constructor(className: string) {super(className, true);}
+export abstract class CacheableContentProvider extends Instance {
+    protected constructor(className: string) {super(className, true); this.addClassName("CacheableContentProvider");}
 }
 
 export class HSRDataContentProvider extends CacheableContentProvider {
-    protected constructor(className?: string) {super(className ?? "HSRDataContentProvider");}
+    protected constructor(className?: string) {super(className ?? "HSRDataContentProvider"); this.addClassName("HSRDataContentProvider");}
     public static new() {return new HSRDataContentProvider();}
 }
 
 export class MeshContentProvider extends CacheableContentProvider {
-    protected constructor(className?: string) {super(className ?? "MeshContentProvider");}
+    protected constructor(className?: string) {super(className ?? "MeshContentProvider"); this.addClassName("MeshContentProvider");}
     public static new() {return new MeshContentProvider();}
 }
 
 export class SolidModelContentProvider extends CacheableContentProvider {
-    protected constructor(className?: string) {super(className ?? "SolidModelContentProvider");}
+    protected constructor(className?: string) {super(className ?? "SolidModelContentProvider"); this.addClassName("SolidModelContentProvider");}
     public static new() {return new SolidModelContentProvider();}
 }
 
-export class CalloutService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "CalloutService", true);}
+export class CalloutService extends Instance {
+    protected constructor(className?: string) {super(className ?? "CalloutService", true); this.addClassName("CalloutService");}
     public static new() {return new CalloutService();}
 }
 
-export class Camera extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Camera");}
+export class Camera extends Instance {
+    protected constructor(className?: string) {super(className ?? "Camera"); this.addClassName("Camera");}
     public static new() {return new Camera();}
-    public get cFrame() {return this.getProp("CFrame", DataType.CFrame);}
-    public set cFrame(value) {this.setProp("CFrame", DataType.CFrame, value);}
-    public get cameraSubject() {return this.getProp("CameraSubject", DataType.Referent) as CoreInstance | undefined;}
-    public set cameraSubject(value) {this.setProp("CameraSubject", DataType.Referent, value);}
-    public get cameraType() {return this.getProp("CameraType", DataType.Enum) as CameraType | undefined;}
-    public set cameraType(value) {this.setProp("CameraType", DataType.Enum, value);}
-    public get coordinateFrame() {return this.getProp("CoordinateFrame", DataType.CFrame);}
-    public set coordinateFrame(value) {this.setProp("CoordinateFrame", DataType.CFrame, value);}
-    public get fieldOfView() {return this.getProp("FieldOfView", DataType.Float32);}
-    public set fieldOfView(value) {this.setProp("FieldOfView", DataType.Float32, value);}
-    public get fieldOfViewMode() {return this.getProp("FieldOfViewMode", DataType.Enum) as FieldOfViewMode | undefined;}
-    public set fieldOfViewMode(value) {this.setProp("FieldOfViewMode", DataType.Enum, value);}
-    public get focus() {return this.getProp("Focus", DataType.CFrame);}
-    public set focus(value) {this.setProp("Focus", DataType.CFrame, value);}
-    public get headLocked() {return this.getProp("HeadLocked", DataType.Bool);}
-    public set headLocked(value) {this.setProp("HeadLocked", DataType.Bool, value);}
-    public get headScale() {return this.getProp("HeadScale", DataType.Float32);}
-    public set headScale(value) {this.setProp("HeadScale", DataType.Float32, value);}
-    public get vRTiltAndRollEnabled() {return this.getProp("VRTiltAndRollEnabled", DataType.Bool);}
-    public set vRTiltAndRollEnabled(value) {this.setProp("VRTiltAndRollEnabled", DataType.Bool, value);}
+    public get CFrame() {return this.GetProp("CFrame", DataType.CFrame);}
+    public set CFrame(value) {this.SetProp("CFrame", DataType.CFrame, value);}
+    public get CameraSubject() {return this.GetProp("CameraSubject", DataType.Referent) as Instance | undefined;}
+    public set CameraSubject(value) {this.SetProp("CameraSubject", DataType.Referent, value);}
+    public get CameraType() {return this.GetProp("CameraType", DataType.Enum) as CameraType | undefined;}
+    public set CameraType(value) {this.SetProp("CameraType", DataType.Enum, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get CoordinateFrame() {return this.GetProp("CoordinateFrame", DataType.CFrame);}
+    /**@deprecated Deprecated by Roblox*/
+    public set CoordinateFrame(value) {this.SetProp("CoordinateFrame", DataType.CFrame, value);}
+    public get FieldOfView() {return this.GetProp("FieldOfView", DataType.Float32);}
+    public set FieldOfView(value) {this.SetProp("FieldOfView", DataType.Float32, value);}
+    public get FieldOfViewMode() {return this.GetProp("FieldOfViewMode", DataType.Enum) as FieldOfViewMode | undefined;}
+    public set FieldOfViewMode(value) {this.SetProp("FieldOfViewMode", DataType.Enum, value);}
+    public get Focus() {return this.GetProp("Focus", DataType.CFrame);}
+    public set Focus(value) {this.SetProp("Focus", DataType.CFrame, value);}
+    public get HeadLocked() {return this.GetProp("HeadLocked", DataType.Bool);}
+    public set HeadLocked(value) {this.SetProp("HeadLocked", DataType.Bool, value);}
+    public get HeadScale() {return this.GetProp("HeadScale", DataType.Float32);}
+    public set HeadScale(value) {this.SetProp("HeadScale", DataType.Float32, value);}
+    public get VRTiltAndRollEnabled() {return this.GetProp("VRTiltAndRollEnabled", DataType.Bool);}
+    public set VRTiltAndRollEnabled(value) {this.SetProp("VRTiltAndRollEnabled", DataType.Bool, value);}
+    /**@deprecated Use Focus instead*/
+    public get focus() {return this.Focus;}
+    /**@deprecated Use Focus instead*/
+    public set focus(value) {this.Focus = value;}
 }
 
-export class CaptureService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "CaptureService", true);}
+export class CaptureService extends Instance {
+    protected constructor(className?: string) {super(className ?? "CaptureService", true); this.addClassName("CaptureService");}
     public static new() {return new CaptureService();}
 }
 
-export class ChangeHistoryService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ChangeHistoryService", true);}
+export class ChangeHistoryService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ChangeHistoryService", true); this.addClassName("ChangeHistoryService");}
     public static new() {return new ChangeHistoryService();}
 }
 
-export abstract class CharacterAppearance extends CoreInstance {
-    protected constructor(className: string) {super(className);}
+export abstract class CharacterAppearance extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("CharacterAppearance");}
 }
 
 export class BodyColors extends CharacterAppearance {
-    protected constructor(className?: string) {super(className ?? "BodyColors");}
+    protected constructor(className?: string) {super(className ?? "BodyColors"); this.addClassName("BodyColors");}
     public static new() {return new BodyColors();}
-    public get headColor3() {return this.getProp("HeadColor3", DataType.Color3);}
-    public set headColor3(value) {this.setProp("HeadColor3", DataType.Color3, value);}
-    public get leftArmColor3() {return this.getProp("LeftArmColor3", DataType.Color3);}
-    public set leftArmColor3(value) {this.setProp("LeftArmColor3", DataType.Color3, value);}
-    public get leftLegColor3() {return this.getProp("LeftLegColor3", DataType.Color3);}
-    public set leftLegColor3(value) {this.setProp("LeftLegColor3", DataType.Color3, value);}
-    public get rightArmColor3() {return this.getProp("RightArmColor3", DataType.Color3);}
-    public set rightArmColor3(value) {this.setProp("RightArmColor3", DataType.Color3, value);}
-    public get rightLegColor3() {return this.getProp("RightLegColor3", DataType.Color3);}
-    public set rightLegColor3(value) {this.setProp("RightLegColor3", DataType.Color3, value);}
-    public get torsoColor3() {return this.getProp("TorsoColor3", DataType.Color3);}
-    public set torsoColor3(value) {this.setProp("TorsoColor3", DataType.Color3, value);}
+    public get HeadColor3() {return this.GetProp("HeadColor3", DataType.Color3);}
+    public set HeadColor3(value) {this.SetProp("HeadColor3", DataType.Color3, value);}
+    public get LeftArmColor3() {return this.GetProp("LeftArmColor3", DataType.Color3);}
+    public set LeftArmColor3(value) {this.SetProp("LeftArmColor3", DataType.Color3, value);}
+    public get LeftLegColor3() {return this.GetProp("LeftLegColor3", DataType.Color3);}
+    public set LeftLegColor3(value) {this.SetProp("LeftLegColor3", DataType.Color3, value);}
+    public get RightArmColor3() {return this.GetProp("RightArmColor3", DataType.Color3);}
+    public set RightArmColor3(value) {this.SetProp("RightArmColor3", DataType.Color3, value);}
+    public get RightLegColor3() {return this.GetProp("RightLegColor3", DataType.Color3);}
+    public set RightLegColor3(value) {this.SetProp("RightLegColor3", DataType.Color3, value);}
+    public get TorsoColor3() {return this.GetProp("TorsoColor3", DataType.Color3);}
+    public set TorsoColor3(value) {this.SetProp("TorsoColor3", DataType.Color3, value);}
 }
 
 export class CharacterMesh extends CharacterAppearance {
-    protected constructor(className?: string) {super(className ?? "CharacterMesh");}
+    protected constructor(className?: string) {super(className ?? "CharacterMesh"); this.addClassName("CharacterMesh");}
     public static new() {return new CharacterMesh();}
-    public get baseTextureId() {return this.getProp("BaseTextureId", DataType.Int64);}
-    public set baseTextureId(value) {this.setProp("BaseTextureId", DataType.Int64, value);}
-    public get bodyPart() {return this.getProp("BodyPart", DataType.Enum) as BodyPart | undefined;}
-    public set bodyPart(value) {this.setProp("BodyPart", DataType.Enum, value);}
-    public get meshId() {return this.getProp("MeshId", DataType.Int64);}
-    public set meshId(value) {this.setProp("MeshId", DataType.Int64, value);}
-    public get overlayTextureId() {return this.getProp("OverlayTextureId", DataType.Int64);}
-    public set overlayTextureId(value) {this.setProp("OverlayTextureId", DataType.Int64, value);}
+    public get BaseTextureId() {return this.GetProp("BaseTextureId", DataType.Int64);}
+    public set BaseTextureId(value) {this.SetProp("BaseTextureId", DataType.Int64, value);}
+    public get BodyPart() {return this.GetProp("BodyPart", DataType.Enum) as BodyPart | undefined;}
+    public set BodyPart(value) {this.SetProp("BodyPart", DataType.Enum, value);}
+    public get MeshId() {return this.GetProp("MeshId", DataType.Int64);}
+    public set MeshId(value) {this.SetProp("MeshId", DataType.Int64, value);}
+    public get OverlayTextureId() {return this.GetProp("OverlayTextureId", DataType.Int64);}
+    public set OverlayTextureId(value) {this.SetProp("OverlayTextureId", DataType.Int64, value);}
 }
 
 export abstract class Clothing extends CharacterAppearance {
-    protected constructor(className: string) {super(className);}
-    public get color3() {return this.getProp("Color3", DataType.Color3);}
-    public set color3(value) {this.setProp("Color3", DataType.Color3, value);}
+    protected constructor(className: string) {super(className); this.addClassName("Clothing");}
+    public get Color3() {return this.GetProp("Color3", DataType.Color3);}
+    public set Color3(value) {this.SetProp("Color3", DataType.Color3, value);}
 }
 
 export class Pants extends Clothing {
-    protected constructor(className?: string) {super(className ?? "Pants");}
+    protected constructor(className?: string) {super(className ?? "Pants"); this.addClassName("Pants");}
     public static new() {return new Pants();}
-    public get pantsTemplate() {return this.getProp("PantsTemplate", DataType.String);}
-    public set pantsTemplate(value) {this.setProp("PantsTemplate", DataType.String, value);}
+    public get PantsTemplate() {return this.GetProp("PantsTemplate", DataType.String);}
+    public set PantsTemplate(value) {this.SetProp("PantsTemplate", DataType.String, value);}
 }
 
 export class Shirt extends Clothing {
-    protected constructor(className?: string) {super(className ?? "Shirt");}
+    protected constructor(className?: string) {super(className ?? "Shirt"); this.addClassName("Shirt");}
     public static new() {return new Shirt();}
-    public get shirtTemplate() {return this.getProp("ShirtTemplate", DataType.String);}
-    public set shirtTemplate(value) {this.setProp("ShirtTemplate", DataType.String, value);}
+    public get ShirtTemplate() {return this.GetProp("ShirtTemplate", DataType.String);}
+    public set ShirtTemplate(value) {this.SetProp("ShirtTemplate", DataType.String, value);}
 }
 
 export class ShirtGraphic extends CharacterAppearance {
-    protected constructor(className?: string) {super(className ?? "ShirtGraphic");}
+    protected constructor(className?: string) {super(className ?? "ShirtGraphic"); this.addClassName("ShirtGraphic");}
     public static new() {return new ShirtGraphic();}
-    public get color3() {return this.getProp("Color3", DataType.Color3);}
-    public set color3(value) {this.setProp("Color3", DataType.Color3, value);}
-    public get graphic() {return this.getProp("Graphic", DataType.String);}
-    public set graphic(value) {this.setProp("Graphic", DataType.String, value);}
+    public get Color3() {return this.GetProp("Color3", DataType.Color3);}
+    public set Color3(value) {this.SetProp("Color3", DataType.Color3, value);}
+    public get Graphic() {return this.GetProp("Graphic", DataType.String);}
+    public set Graphic(value) {this.SetProp("Graphic", DataType.String, value);}
 }
 
 export class Skin extends CharacterAppearance {
-    protected constructor(className?: string) {super(className ?? "Skin");}
+    protected constructor(className?: string) {super(className ?? "Skin"); this.addClassName("Skin");}
     public static new() {return new Skin();}
-    public get skinColor() {return this.getProp("SkinColor", DataType.BrickColor);}
-    public set skinColor(value) {this.setProp("SkinColor", DataType.BrickColor, value);}
+    public get SkinColor() {return this.GetProp("SkinColor", DataType.BrickColor);}
+    public set SkinColor(value) {this.SetProp("SkinColor", DataType.BrickColor, value);}
 }
 
-export class Chat extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Chat", true);}
+export class Chat extends Instance {
+    protected constructor(className?: string) {super(className ?? "Chat", true); this.addClassName("Chat");}
     public static new() {return new Chat();}
-    public get bubbleChatEnabled() {return this.getProp("BubbleChatEnabled", DataType.Bool);}
-    public set bubbleChatEnabled(value) {this.setProp("BubbleChatEnabled", DataType.Bool, value);}
-    public get loadDefaultChat() {return this.getProp("LoadDefaultChat", DataType.Bool);}
-    public set loadDefaultChat(value) {this.setProp("LoadDefaultChat", DataType.Bool, value);}
+    public get BubbleChatEnabled() {return this.GetProp("BubbleChatEnabled", DataType.Bool);}
+    public set BubbleChatEnabled(value) {this.SetProp("BubbleChatEnabled", DataType.Bool, value);}
+    public get LoadDefaultChat() {return this.GetProp("LoadDefaultChat", DataType.Bool);}
+    public set LoadDefaultChat(value) {this.SetProp("LoadDefaultChat", DataType.Bool, value);}
 }
 
-export class ChatbotUIService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ChatbotUIService", true);}
+export class ChatbotUIService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ChatbotUIService", true); this.addClassName("ChatbotUIService");}
     public static new() {return new ChatbotUIService();}
 }
 
-export class ClickDetector extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ClickDetector");}
+export class ClickDetector extends Instance {
+    protected constructor(className?: string) {super(className ?? "ClickDetector"); this.addClassName("ClickDetector");}
     public static new() {return new ClickDetector();}
-    public get cursorIcon() {return this.getProp("CursorIcon", DataType.String);}
-    public set cursorIcon(value) {this.setProp("CursorIcon", DataType.String, value);}
-    public get maxActivationDistance() {return this.getProp("MaxActivationDistance", DataType.Float32);}
-    public set maxActivationDistance(value) {this.setProp("MaxActivationDistance", DataType.Float32, value);}
+    public get CursorIcon() {return this.GetProp("CursorIcon", DataType.String);}
+    public set CursorIcon(value) {this.SetProp("CursorIcon", DataType.String, value);}
+    public get MaxActivationDistance() {return this.GetProp("MaxActivationDistance", DataType.Float32);}
+    public set MaxActivationDistance(value) {this.SetProp("MaxActivationDistance", DataType.Float32, value);}
 }
 
 export class DragDetector extends ClickDetector {
-    protected constructor(className?: string) {super(className ?? "DragDetector");}
+    protected constructor(className?: string) {super(className ?? "DragDetector"); this.addClassName("DragDetector");}
     public static new() {return new DragDetector();}
-    public get activatedCursorIcon() {return this.getProp("ActivatedCursorIcon", DataType.String);}
-    public set activatedCursorIcon(value) {this.setProp("ActivatedCursorIcon", DataType.String, value);}
-    public get applyAtCenterOfMass() {return this.getProp("ApplyAtCenterOfMass", DataType.Bool);}
-    public set applyAtCenterOfMass(value) {this.setProp("ApplyAtCenterOfMass", DataType.Bool, value);}
-    public get dragFrame() {return this.getProp("DragFrame", DataType.CFrame);}
-    public set dragFrame(value) {this.setProp("DragFrame", DataType.CFrame, value);}
-    public get dragStyle() {return this.getProp("DragStyle", DataType.Enum) as DragDetectorDragStyle | undefined;}
-    public set dragStyle(value) {this.setProp("DragStyle", DataType.Enum, value);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get gamepadModeSwitchKeyCode() {return this.getProp("GamepadModeSwitchKeyCode", DataType.Enum) as KeyCode | undefined;}
-    public set gamepadModeSwitchKeyCode(value) {this.setProp("GamepadModeSwitchKeyCode", DataType.Enum, value);}
-    public get keyboardModeSwitchKeyCode() {return this.getProp("KeyboardModeSwitchKeyCode", DataType.Enum) as KeyCode | undefined;}
-    public set keyboardModeSwitchKeyCode(value) {this.setProp("KeyboardModeSwitchKeyCode", DataType.Enum, value);}
-    public get maxDragAngle() {return this.getProp("MaxDragAngle", DataType.Float32);}
-    public set maxDragAngle(value) {this.setProp("MaxDragAngle", DataType.Float32, value);}
-    public get maxDragTranslation() {return this.getProp("MaxDragTranslation", DataType.Vector3);}
-    public set maxDragTranslation(value) {this.setProp("MaxDragTranslation", DataType.Vector3, value);}
-    public get maxForce() {return this.getProp("MaxForce", DataType.Float32);}
-    public set maxForce(value) {this.setProp("MaxForce", DataType.Float32, value);}
-    public get maxTorque() {return this.getProp("MaxTorque", DataType.Float32);}
-    public set maxTorque(value) {this.setProp("MaxTorque", DataType.Float32, value);}
-    public get minDragAngle() {return this.getProp("MinDragAngle", DataType.Float32);}
-    public set minDragAngle(value) {this.setProp("MinDragAngle", DataType.Float32, value);}
-    public get minDragTranslation() {return this.getProp("MinDragTranslation", DataType.Vector3);}
-    public set minDragTranslation(value) {this.setProp("MinDragTranslation", DataType.Vector3, value);}
-    public get orientation() {return this.getProp("Orientation", DataType.Vector3);}
-    public set orientation(value) {this.setProp("Orientation", DataType.Vector3, value);}
-    public get permissionPolicy() {return this.getProp("PermissionPolicy", DataType.Enum) as DragDetectorPermissionPolicy | undefined;}
-    public set permissionPolicy(value) {this.setProp("PermissionPolicy", DataType.Enum, value);}
-    public get referenceInstance() {return this.getProp("ReferenceInstance", DataType.Referent) as CoreInstance | undefined;}
-    public set referenceInstance(value) {this.setProp("ReferenceInstance", DataType.Referent, value);}
-    public get responseStyle() {return this.getProp("ResponseStyle", DataType.Enum) as DragDetectorResponseStyle | undefined;}
-    public set responseStyle(value) {this.setProp("ResponseStyle", DataType.Enum, value);}
-    public get responsiveness() {return this.getProp("Responsiveness", DataType.Float32);}
-    public set responsiveness(value) {this.setProp("Responsiveness", DataType.Float32, value);}
-    public get runLocally() {return this.getProp("RunLocally", DataType.Bool);}
-    public set runLocally(value) {this.setProp("RunLocally", DataType.Bool, value);}
-    public get trackballRadialPullFactor() {return this.getProp("TrackballRadialPullFactor", DataType.Float32);}
-    public set trackballRadialPullFactor(value) {this.setProp("TrackballRadialPullFactor", DataType.Float32, value);}
-    public get trackballRollFactor() {return this.getProp("TrackballRollFactor", DataType.Float32);}
-    public set trackballRollFactor(value) {this.setProp("TrackballRollFactor", DataType.Float32, value);}
-    public get vRSwitchKeyCode() {return this.getProp("VRSwitchKeyCode", DataType.Enum) as KeyCode | undefined;}
-    public set vRSwitchKeyCode(value) {this.setProp("VRSwitchKeyCode", DataType.Enum, value);}
+    public get ActivatedCursorIcon() {return this.GetProp("ActivatedCursorIcon", DataType.String);}
+    public set ActivatedCursorIcon(value) {this.SetProp("ActivatedCursorIcon", DataType.String, value);}
+    public get ApplyAtCenterOfMass() {return this.GetProp("ApplyAtCenterOfMass", DataType.Bool);}
+    public set ApplyAtCenterOfMass(value) {this.SetProp("ApplyAtCenterOfMass", DataType.Bool, value);}
+    public get DragFrame() {return this.GetProp("DragFrame", DataType.CFrame);}
+    public set DragFrame(value) {this.SetProp("DragFrame", DataType.CFrame, value);}
+    public get DragStyle() {return this.GetProp("DragStyle", DataType.Enum) as DragDetectorDragStyle | undefined;}
+    public set DragStyle(value) {this.SetProp("DragStyle", DataType.Enum, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get GamepadModeSwitchKeyCode() {return this.GetProp("GamepadModeSwitchKeyCode", DataType.Enum) as KeyCode | undefined;}
+    public set GamepadModeSwitchKeyCode(value) {this.SetProp("GamepadModeSwitchKeyCode", DataType.Enum, value);}
+    public get KeyboardModeSwitchKeyCode() {return this.GetProp("KeyboardModeSwitchKeyCode", DataType.Enum) as KeyCode | undefined;}
+    public set KeyboardModeSwitchKeyCode(value) {this.SetProp("KeyboardModeSwitchKeyCode", DataType.Enum, value);}
+    public get MaxDragAngle() {return this.GetProp("MaxDragAngle", DataType.Float32);}
+    public set MaxDragAngle(value) {this.SetProp("MaxDragAngle", DataType.Float32, value);}
+    public get MaxDragTranslation() {return this.GetProp("MaxDragTranslation", DataType.Vector3);}
+    public set MaxDragTranslation(value) {this.SetProp("MaxDragTranslation", DataType.Vector3, value);}
+    public get MaxForce() {return this.GetProp("MaxForce", DataType.Float32);}
+    public set MaxForce(value) {this.SetProp("MaxForce", DataType.Float32, value);}
+    public get MaxTorque() {return this.GetProp("MaxTorque", DataType.Float32);}
+    public set MaxTorque(value) {this.SetProp("MaxTorque", DataType.Float32, value);}
+    public get MinDragAngle() {return this.GetProp("MinDragAngle", DataType.Float32);}
+    public set MinDragAngle(value) {this.SetProp("MinDragAngle", DataType.Float32, value);}
+    public get MinDragTranslation() {return this.GetProp("MinDragTranslation", DataType.Vector3);}
+    public set MinDragTranslation(value) {this.SetProp("MinDragTranslation", DataType.Vector3, value);}
+    public get Orientation() {return this.GetProp("Orientation", DataType.Vector3);}
+    public set Orientation(value) {this.SetProp("Orientation", DataType.Vector3, value);}
+    public get PermissionPolicy() {return this.GetProp("PermissionPolicy", DataType.Enum) as DragDetectorPermissionPolicy | undefined;}
+    public set PermissionPolicy(value) {this.SetProp("PermissionPolicy", DataType.Enum, value);}
+    public get ReferenceInstance() {return this.GetProp("ReferenceInstance", DataType.Referent) as Instance | undefined;}
+    public set ReferenceInstance(value) {this.SetProp("ReferenceInstance", DataType.Referent, value);}
+    public get ResponseStyle() {return this.GetProp("ResponseStyle", DataType.Enum) as DragDetectorResponseStyle | undefined;}
+    public set ResponseStyle(value) {this.SetProp("ResponseStyle", DataType.Enum, value);}
+    public get Responsiveness() {return this.GetProp("Responsiveness", DataType.Float32);}
+    public set Responsiveness(value) {this.SetProp("Responsiveness", DataType.Float32, value);}
+    public get RunLocally() {return this.GetProp("RunLocally", DataType.Bool);}
+    public set RunLocally(value) {this.SetProp("RunLocally", DataType.Bool, value);}
+    public get TrackballRadialPullFactor() {return this.GetProp("TrackballRadialPullFactor", DataType.Float32);}
+    public set TrackballRadialPullFactor(value) {this.SetProp("TrackballRadialPullFactor", DataType.Float32, value);}
+    public get TrackballRollFactor() {return this.GetProp("TrackballRollFactor", DataType.Float32);}
+    public set TrackballRollFactor(value) {this.SetProp("TrackballRollFactor", DataType.Float32, value);}
+    public get VRSwitchKeyCode() {return this.GetProp("VRSwitchKeyCode", DataType.Enum) as KeyCode | undefined;}
+    public set VRSwitchKeyCode(value) {this.SetProp("VRSwitchKeyCode", DataType.Enum, value);}
 }
 
-export class Clouds extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Clouds");}
+export class Clouds extends Instance {
+    protected constructor(className?: string) {super(className ?? "Clouds"); this.addClassName("Clouds");}
     public static new() {return new Clouds();}
-    public get color() {return this.getProp("Color", DataType.Color3);}
-    public set color(value) {this.setProp("Color", DataType.Color3, value);}
-    public get cover() {return this.getProp("Cover", DataType.Float32);}
-    public set cover(value) {this.setProp("Cover", DataType.Float32, value);}
-    public get density() {return this.getProp("Density", DataType.Float32);}
-    public set density(value) {this.setProp("Density", DataType.Float32, value);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
+    public get Color() {return this.GetProp("Color", DataType.Color3);}
+    public set Color(value) {this.SetProp("Color", DataType.Color3, value);}
+    public get Cover() {return this.GetProp("Cover", DataType.Float32);}
+    public set Cover(value) {this.SetProp("Cover", DataType.Float32, value);}
+    public get Density() {return this.GetProp("Density", DataType.Float32);}
+    public set Density(value) {this.SetProp("Density", DataType.Float32, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
 }
 
-export class ClusterPacketCache extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ClusterPacketCache", true);}
+export class ClusterPacketCache extends Instance {
+    protected constructor(className?: string) {super(className ?? "ClusterPacketCache", true); this.addClassName("ClusterPacketCache");}
     public static new() {return new ClusterPacketCache();}
 }
 
-export class CollaboratorsService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "CollaboratorsService", true);}
+export class CollaboratorsService extends Instance {
+    protected constructor(className?: string) {super(className ?? "CollaboratorsService", true); this.addClassName("CollaboratorsService");}
     public static new() {return new CollaboratorsService();}
 }
 
-export class CollectionService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "CollectionService", true);}
+export class CollectionService extends Instance {
+    protected constructor(className?: string) {super(className ?? "CollectionService", true); this.addClassName("CollectionService");}
     public static new() {return new CollectionService();}
 }
 
-export class CommandService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "CommandService", true);}
+export class CommandService extends Instance {
+    protected constructor(className?: string) {super(className ?? "CommandService", true); this.addClassName("CommandService");}
     public static new() {return new CommandService();}
 }
 
-export class CommerceService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "CommerceService", true);}
+export class CommerceService extends Instance {
+    protected constructor(className?: string) {super(className ?? "CommerceService", true); this.addClassName("CommerceService");}
     public static new() {return new CommerceService();}
 }
 
-export class Configuration extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Configuration");}
+export class Configuration extends Instance {
+    protected constructor(className?: string) {super(className ?? "Configuration"); this.addClassName("Configuration");}
     public static new() {return new Configuration();}
 }
 
-export class ConfigureServerService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ConfigureServerService", true);}
+export class ConfigureServerService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ConfigureServerService", true); this.addClassName("ConfigureServerService");}
     public static new() {return new ConfigureServerService();}
 }
 
-export class ConnectivityService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ConnectivityService", true);}
+export class ConnectivityService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ConnectivityService", true); this.addClassName("ConnectivityService");}
     public static new() {return new ConnectivityService();}
 }
 
-export abstract class Constraint extends CoreInstance {
-    protected constructor(className: string) {super(className);}
-    public get attachment0() {return this.getProp("Attachment0", DataType.Referent) as Attachment | undefined;}
-    public set attachment0(value) {this.setProp("Attachment0", DataType.Referent, value);}
-    public get attachment1() {return this.getProp("Attachment1", DataType.Referent) as Attachment | undefined;}
-    public set attachment1(value) {this.setProp("Attachment1", DataType.Referent, value);}
-    public get color() {return this.getProp("Color", DataType.BrickColor);}
-    public set color(value) {this.setProp("Color", DataType.BrickColor, value);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get visible() {return this.getProp("Visible", DataType.Bool);}
-    public set visible(value) {this.setProp("Visible", DataType.Bool, value);}
+export abstract class Constraint extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("Constraint");}
+    public get Attachment0() {return this.GetProp("Attachment0", DataType.Referent) as Attachment | undefined;}
+    public set Attachment0(value) {this.SetProp("Attachment0", DataType.Referent, value);}
+    public get Attachment1() {return this.GetProp("Attachment1", DataType.Referent) as Attachment | undefined;}
+    public set Attachment1(value) {this.SetProp("Attachment1", DataType.Referent, value);}
+    public get Color() {return this.GetProp("Color", DataType.BrickColor);}
+    public set Color(value) {this.SetProp("Color", DataType.BrickColor, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get Visible() {return this.GetProp("Visible", DataType.Bool);}
+    public set Visible(value) {this.SetProp("Visible", DataType.Bool, value);}
 }
 
 export class AlignOrientation extends Constraint {
-    protected constructor(className?: string) {super(className ?? "AlignOrientation");}
+    protected constructor(className?: string) {super(className ?? "AlignOrientation"); this.addClassName("AlignOrientation");}
     public static new() {return new AlignOrientation();}
-    public get alignType() {return this.getProp("AlignType", DataType.Enum) as AlignType | undefined;}
-    public set alignType(value) {this.setProp("AlignType", DataType.Enum, value);}
-    public get cFrame() {return this.getProp("CFrame", DataType.CFrame);}
-    public set cFrame(value) {this.setProp("CFrame", DataType.CFrame, value);}
-    public get maxAngularVelocity() {return this.getProp("MaxAngularVelocity", DataType.Float32);}
-    public set maxAngularVelocity(value) {this.setProp("MaxAngularVelocity", DataType.Float32, value);}
-    public get maxTorque() {return this.getProp("MaxTorque", DataType.Float32);}
-    public set maxTorque(value) {this.setProp("MaxTorque", DataType.Float32, value);}
-    public get mode() {return this.getProp("Mode", DataType.Enum) as OrientationAlignmentMode | undefined;}
-    public set mode(value) {this.setProp("Mode", DataType.Enum, value);}
-    public get primaryAxisOnly() {return this.getProp("PrimaryAxisOnly", DataType.Bool);}
-    public set primaryAxisOnly(value) {this.setProp("PrimaryAxisOnly", DataType.Bool, value);}
-    public get reactionTorqueEnabled() {return this.getProp("ReactionTorqueEnabled", DataType.Bool);}
-    public set reactionTorqueEnabled(value) {this.setProp("ReactionTorqueEnabled", DataType.Bool, value);}
-    public get responsiveness() {return this.getProp("Responsiveness", DataType.Float32);}
-    public set responsiveness(value) {this.setProp("Responsiveness", DataType.Float32, value);}
-    public get rigidityEnabled() {return this.getProp("RigidityEnabled", DataType.Bool);}
-    public set rigidityEnabled(value) {this.setProp("RigidityEnabled", DataType.Bool, value);}
+    public get AlignType() {return this.GetProp("AlignType", DataType.Enum) as AlignType | undefined;}
+    public set AlignType(value) {this.SetProp("AlignType", DataType.Enum, value);}
+    public get CFrame() {return this.GetProp("CFrame", DataType.CFrame);}
+    public set CFrame(value) {this.SetProp("CFrame", DataType.CFrame, value);}
+    public get MaxAngularVelocity() {return this.GetProp("MaxAngularVelocity", DataType.Float32);}
+    public set MaxAngularVelocity(value) {this.SetProp("MaxAngularVelocity", DataType.Float32, value);}
+    public get MaxTorque() {return this.GetProp("MaxTorque", DataType.Float32);}
+    public set MaxTorque(value) {this.SetProp("MaxTorque", DataType.Float32, value);}
+    public get Mode() {return this.GetProp("Mode", DataType.Enum) as OrientationAlignmentMode | undefined;}
+    public set Mode(value) {this.SetProp("Mode", DataType.Enum, value);}
+    public get PrimaryAxisOnly() {return this.GetProp("PrimaryAxisOnly", DataType.Bool);}
+    public set PrimaryAxisOnly(value) {this.SetProp("PrimaryAxisOnly", DataType.Bool, value);}
+    public get ReactionTorqueEnabled() {return this.GetProp("ReactionTorqueEnabled", DataType.Bool);}
+    public set ReactionTorqueEnabled(value) {this.SetProp("ReactionTorqueEnabled", DataType.Bool, value);}
+    public get Responsiveness() {return this.GetProp("Responsiveness", DataType.Float32);}
+    public set Responsiveness(value) {this.SetProp("Responsiveness", DataType.Float32, value);}
+    public get RigidityEnabled() {return this.GetProp("RigidityEnabled", DataType.Bool);}
+    public set RigidityEnabled(value) {this.SetProp("RigidityEnabled", DataType.Bool, value);}
 }
 
 export class AlignPosition extends Constraint {
-    protected constructor(className?: string) {super(className ?? "AlignPosition");}
+    protected constructor(className?: string) {super(className ?? "AlignPosition"); this.addClassName("AlignPosition");}
     public static new() {return new AlignPosition();}
-    public get applyAtCenterOfMass() {return this.getProp("ApplyAtCenterOfMass", DataType.Bool);}
-    public set applyAtCenterOfMass(value) {this.setProp("ApplyAtCenterOfMass", DataType.Bool, value);}
-    public get forceLimitMode() {return this.getProp("ForceLimitMode", DataType.Enum) as ForceLimitMode | undefined;}
-    public set forceLimitMode(value) {this.setProp("ForceLimitMode", DataType.Enum, value);}
-    public get forceRelativeTo() {return this.getProp("ForceRelativeTo", DataType.Enum) as ActuatorRelativeTo | undefined;}
-    public set forceRelativeTo(value) {this.setProp("ForceRelativeTo", DataType.Enum, value);}
-    public get maxAxesForce() {return this.getProp("MaxAxesForce", DataType.Vector3);}
-    public set maxAxesForce(value) {this.setProp("MaxAxesForce", DataType.Vector3, value);}
-    public get maxForce() {return this.getProp("MaxForce", DataType.Float32);}
-    public set maxForce(value) {this.setProp("MaxForce", DataType.Float32, value);}
-    public get maxVelocity() {return this.getProp("MaxVelocity", DataType.Float32);}
-    public set maxVelocity(value) {this.setProp("MaxVelocity", DataType.Float32, value);}
-    public get mode() {return this.getProp("Mode", DataType.Enum) as PositionAlignmentMode | undefined;}
-    public set mode(value) {this.setProp("Mode", DataType.Enum, value);}
-    public get position() {return this.getProp("Position", DataType.Vector3);}
-    public set position(value) {this.setProp("Position", DataType.Vector3, value);}
-    public get reactionForceEnabled() {return this.getProp("ReactionForceEnabled", DataType.Bool);}
-    public set reactionForceEnabled(value) {this.setProp("ReactionForceEnabled", DataType.Bool, value);}
-    public get responsiveness() {return this.getProp("Responsiveness", DataType.Float32);}
-    public set responsiveness(value) {this.setProp("Responsiveness", DataType.Float32, value);}
-    public get rigidityEnabled() {return this.getProp("RigidityEnabled", DataType.Bool);}
-    public set rigidityEnabled(value) {this.setProp("RigidityEnabled", DataType.Bool, value);}
+    public get ApplyAtCenterOfMass() {return this.GetProp("ApplyAtCenterOfMass", DataType.Bool);}
+    public set ApplyAtCenterOfMass(value) {this.SetProp("ApplyAtCenterOfMass", DataType.Bool, value);}
+    public get ForceLimitMode() {return this.GetProp("ForceLimitMode", DataType.Enum) as ForceLimitMode | undefined;}
+    public set ForceLimitMode(value) {this.SetProp("ForceLimitMode", DataType.Enum, value);}
+    public get ForceRelativeTo() {return this.GetProp("ForceRelativeTo", DataType.Enum) as ActuatorRelativeTo | undefined;}
+    public set ForceRelativeTo(value) {this.SetProp("ForceRelativeTo", DataType.Enum, value);}
+    public get MaxAxesForce() {return this.GetProp("MaxAxesForce", DataType.Vector3);}
+    public set MaxAxesForce(value) {this.SetProp("MaxAxesForce", DataType.Vector3, value);}
+    public get MaxForce() {return this.GetProp("MaxForce", DataType.Float32);}
+    public set MaxForce(value) {this.SetProp("MaxForce", DataType.Float32, value);}
+    public get MaxVelocity() {return this.GetProp("MaxVelocity", DataType.Float32);}
+    public set MaxVelocity(value) {this.SetProp("MaxVelocity", DataType.Float32, value);}
+    public get Mode() {return this.GetProp("Mode", DataType.Enum) as PositionAlignmentMode | undefined;}
+    public set Mode(value) {this.SetProp("Mode", DataType.Enum, value);}
+    public get Position() {return this.GetProp("Position", DataType.Vector3);}
+    public set Position(value) {this.SetProp("Position", DataType.Vector3, value);}
+    public get ReactionForceEnabled() {return this.GetProp("ReactionForceEnabled", DataType.Bool);}
+    public set ReactionForceEnabled(value) {this.SetProp("ReactionForceEnabled", DataType.Bool, value);}
+    public get Responsiveness() {return this.GetProp("Responsiveness", DataType.Float32);}
+    public set Responsiveness(value) {this.SetProp("Responsiveness", DataType.Float32, value);}
+    public get RigidityEnabled() {return this.GetProp("RigidityEnabled", DataType.Bool);}
+    public set RigidityEnabled(value) {this.SetProp("RigidityEnabled", DataType.Bool, value);}
 }
 
 export class AngularVelocity extends Constraint {
-    protected constructor(className?: string) {super(className ?? "AngularVelocity");}
+    protected constructor(className?: string) {super(className ?? "AngularVelocity"); this.addClassName("AngularVelocity");}
     public static new() {return new AngularVelocity();}
-    public get angularVelocity() {return this.getProp("AngularVelocity", DataType.Vector3);}
-    public set angularVelocity(value) {this.setProp("AngularVelocity", DataType.Vector3, value);}
-    public get maxTorque() {return this.getProp("MaxTorque", DataType.Float32);}
-    public set maxTorque(value) {this.setProp("MaxTorque", DataType.Float32, value);}
-    public get reactionTorqueEnabled() {return this.getProp("ReactionTorqueEnabled", DataType.Bool);}
-    public set reactionTorqueEnabled(value) {this.setProp("ReactionTorqueEnabled", DataType.Bool, value);}
-    public get relativeTo() {return this.getProp("RelativeTo", DataType.Enum) as ActuatorRelativeTo | undefined;}
-    public set relativeTo(value) {this.setProp("RelativeTo", DataType.Enum, value);}
+    public get AngularVelocity() {return this.GetProp("AngularVelocity", DataType.Vector3);}
+    public set AngularVelocity(value) {this.SetProp("AngularVelocity", DataType.Vector3, value);}
+    public get MaxTorque() {return this.GetProp("MaxTorque", DataType.Float32);}
+    public set MaxTorque(value) {this.SetProp("MaxTorque", DataType.Float32, value);}
+    public get ReactionTorqueEnabled() {return this.GetProp("ReactionTorqueEnabled", DataType.Bool);}
+    public set ReactionTorqueEnabled(value) {this.SetProp("ReactionTorqueEnabled", DataType.Bool, value);}
+    public get RelativeTo() {return this.GetProp("RelativeTo", DataType.Enum) as ActuatorRelativeTo | undefined;}
+    public set RelativeTo(value) {this.SetProp("RelativeTo", DataType.Enum, value);}
 }
 
 export class AnimationConstraint extends Constraint {
-    protected constructor(className?: string) {super(className ?? "AnimationConstraint");}
+    protected constructor(className?: string) {super(className ?? "AnimationConstraint"); this.addClassName("AnimationConstraint");}
     public static new() {return new AnimationConstraint();}
-    public get isKinematic() {return this.getProp("IsKinematic", DataType.Bool);}
-    public set isKinematic(value) {this.setProp("IsKinematic", DataType.Bool, value);}
-    public get maxForce() {return this.getProp("MaxForce", DataType.Float32);}
-    public set maxForce(value) {this.setProp("MaxForce", DataType.Float32, value);}
-    public get maxTorque() {return this.getProp("MaxTorque", DataType.Float32);}
-    public set maxTorque(value) {this.setProp("MaxTorque", DataType.Float32, value);}
-    public get transform() {return this.getProp("Transform", DataType.CFrame);}
-    public set transform(value) {this.setProp("Transform", DataType.CFrame, value);}
+    public get IsKinematic() {return this.GetProp("IsKinematic", DataType.Bool);}
+    public set IsKinematic(value) {this.SetProp("IsKinematic", DataType.Bool, value);}
+    public get MaxForce() {return this.GetProp("MaxForce", DataType.Float32);}
+    public set MaxForce(value) {this.SetProp("MaxForce", DataType.Float32, value);}
+    public get MaxTorque() {return this.GetProp("MaxTorque", DataType.Float32);}
+    public set MaxTorque(value) {this.SetProp("MaxTorque", DataType.Float32, value);}
+    public get Transform() {return this.GetProp("Transform", DataType.CFrame);}
+    public set Transform(value) {this.SetProp("Transform", DataType.CFrame, value);}
 }
 
 export class BallSocketConstraint extends Constraint {
-    protected constructor(className?: string) {super(className ?? "BallSocketConstraint");}
+    protected constructor(className?: string) {super(className ?? "BallSocketConstraint"); this.addClassName("BallSocketConstraint");}
     public static new() {return new BallSocketConstraint();}
-    public get limitsEnabled() {return this.getProp("LimitsEnabled", DataType.Bool);}
-    public set limitsEnabled(value) {this.setProp("LimitsEnabled", DataType.Bool, value);}
-    public get maxFrictionTorqueXml() {return this.getProp("MaxFrictionTorqueXml", DataType.Float32);}
-    public set maxFrictionTorqueXml(value) {this.setProp("MaxFrictionTorqueXml", DataType.Float32, value);}
-    public get radius() {return this.getProp("Radius", DataType.Float32);}
-    public set radius(value) {this.setProp("Radius", DataType.Float32, value);}
-    public get restitution() {return this.getProp("Restitution", DataType.Float32);}
-    public set restitution(value) {this.setProp("Restitution", DataType.Float32, value);}
-    public get twistLimitsEnabled() {return this.getProp("TwistLimitsEnabled", DataType.Bool);}
-    public set twistLimitsEnabled(value) {this.setProp("TwistLimitsEnabled", DataType.Bool, value);}
-    public get twistLowerAngle() {return this.getProp("TwistLowerAngle", DataType.Float32);}
-    public set twistLowerAngle(value) {this.setProp("TwistLowerAngle", DataType.Float32, value);}
-    public get twistUpperAngle() {return this.getProp("TwistUpperAngle", DataType.Float32);}
-    public set twistUpperAngle(value) {this.setProp("TwistUpperAngle", DataType.Float32, value);}
-    public get upperAngle() {return this.getProp("UpperAngle", DataType.Float32);}
-    public set upperAngle(value) {this.setProp("UpperAngle", DataType.Float32, value);}
+    public get LimitsEnabled() {return this.GetProp("LimitsEnabled", DataType.Bool);}
+    public set LimitsEnabled(value) {this.SetProp("LimitsEnabled", DataType.Bool, value);}
+    public get MaxFrictionTorqueXml() {return this.GetProp("MaxFrictionTorqueXml", DataType.Float32);}
+    public set MaxFrictionTorqueXml(value) {this.SetProp("MaxFrictionTorqueXml", DataType.Float32, value);}
+    public get Radius() {return this.GetProp("Radius", DataType.Float32);}
+    public set Radius(value) {this.SetProp("Radius", DataType.Float32, value);}
+    public get Restitution() {return this.GetProp("Restitution", DataType.Float32);}
+    public set Restitution(value) {this.SetProp("Restitution", DataType.Float32, value);}
+    public get TwistLimitsEnabled() {return this.GetProp("TwistLimitsEnabled", DataType.Bool);}
+    public set TwistLimitsEnabled(value) {this.SetProp("TwistLimitsEnabled", DataType.Bool, value);}
+    public get TwistLowerAngle() {return this.GetProp("TwistLowerAngle", DataType.Float32);}
+    public set TwistLowerAngle(value) {this.SetProp("TwistLowerAngle", DataType.Float32, value);}
+    public get TwistUpperAngle() {return this.GetProp("TwistUpperAngle", DataType.Float32);}
+    public set TwistUpperAngle(value) {this.SetProp("TwistUpperAngle", DataType.Float32, value);}
+    public get UpperAngle() {return this.GetProp("UpperAngle", DataType.Float32);}
+    public set UpperAngle(value) {this.SetProp("UpperAngle", DataType.Float32, value);}
 }
 
 export class HingeConstraint extends Constraint {
-    protected constructor(className?: string) {super(className ?? "HingeConstraint");}
+    protected constructor(className?: string) {super(className ?? "HingeConstraint"); this.addClassName("HingeConstraint");}
     public static new() {return new HingeConstraint();}
-    public get actuatorType() {return this.getProp("ActuatorType", DataType.Enum) as ActuatorType | undefined;}
-    public set actuatorType(value) {this.setProp("ActuatorType", DataType.Enum, value);}
-    public get angularResponsiveness() {return this.getProp("AngularResponsiveness", DataType.Float32);}
-    public set angularResponsiveness(value) {this.setProp("AngularResponsiveness", DataType.Float32, value);}
-    public get angularSpeed() {return this.getProp("AngularSpeed", DataType.Float32);}
-    public set angularSpeed(value) {this.setProp("AngularSpeed", DataType.Float32, value);}
-    public get angularVelocity() {return this.getProp("AngularVelocity", DataType.Float32);}
-    public set angularVelocity(value) {this.setProp("AngularVelocity", DataType.Float32, value);}
-    public get limitsEnabled() {return this.getProp("LimitsEnabled", DataType.Bool);}
-    public set limitsEnabled(value) {this.setProp("LimitsEnabled", DataType.Bool, value);}
-    public get lowerAngle() {return this.getProp("LowerAngle", DataType.Float32);}
-    public set lowerAngle(value) {this.setProp("LowerAngle", DataType.Float32, value);}
-    public get motorMaxAcceleration() {return this.getProp("MotorMaxAcceleration", DataType.Float32);}
-    public set motorMaxAcceleration(value) {this.setProp("MotorMaxAcceleration", DataType.Float32, value);}
-    public get motorMaxTorque() {return this.getProp("MotorMaxTorque", DataType.Float32);}
-    public set motorMaxTorque(value) {this.setProp("MotorMaxTorque", DataType.Float32, value);}
-    public get radius() {return this.getProp("Radius", DataType.Float32);}
-    public set radius(value) {this.setProp("Radius", DataType.Float32, value);}
-    public get restitution() {return this.getProp("Restitution", DataType.Float32);}
-    public set restitution(value) {this.setProp("Restitution", DataType.Float32, value);}
-    public get servoMaxTorque() {return this.getProp("ServoMaxTorque", DataType.Float32);}
-    public set servoMaxTorque(value) {this.setProp("ServoMaxTorque", DataType.Float32, value);}
-    public get softlockServoUponReachingTarget() {return this.getProp("SoftlockServoUponReachingTarget", DataType.Bool);}
-    public set softlockServoUponReachingTarget(value) {this.setProp("SoftlockServoUponReachingTarget", DataType.Bool, value);}
-    public get targetAngle() {return this.getProp("TargetAngle", DataType.Float32);}
-    public set targetAngle(value) {this.setProp("TargetAngle", DataType.Float32, value);}
-    public get upperAngle() {return this.getProp("UpperAngle", DataType.Float32);}
-    public set upperAngle(value) {this.setProp("UpperAngle", DataType.Float32, value);}
+    public get ActuatorType() {return this.GetProp("ActuatorType", DataType.Enum) as ActuatorType | undefined;}
+    public set ActuatorType(value) {this.SetProp("ActuatorType", DataType.Enum, value);}
+    public get AngularResponsiveness() {return this.GetProp("AngularResponsiveness", DataType.Float32);}
+    public set AngularResponsiveness(value) {this.SetProp("AngularResponsiveness", DataType.Float32, value);}
+    public get AngularSpeed() {return this.GetProp("AngularSpeed", DataType.Float32);}
+    public set AngularSpeed(value) {this.SetProp("AngularSpeed", DataType.Float32, value);}
+    public get AngularVelocity() {return this.GetProp("AngularVelocity", DataType.Float32);}
+    public set AngularVelocity(value) {this.SetProp("AngularVelocity", DataType.Float32, value);}
+    public get LimitsEnabled() {return this.GetProp("LimitsEnabled", DataType.Bool);}
+    public set LimitsEnabled(value) {this.SetProp("LimitsEnabled", DataType.Bool, value);}
+    public get LowerAngle() {return this.GetProp("LowerAngle", DataType.Float32);}
+    public set LowerAngle(value) {this.SetProp("LowerAngle", DataType.Float32, value);}
+    public get MotorMaxAcceleration() {return this.GetProp("MotorMaxAcceleration", DataType.Float32);}
+    public set MotorMaxAcceleration(value) {this.SetProp("MotorMaxAcceleration", DataType.Float32, value);}
+    public get MotorMaxTorque() {return this.GetProp("MotorMaxTorque", DataType.Float32);}
+    public set MotorMaxTorque(value) {this.SetProp("MotorMaxTorque", DataType.Float32, value);}
+    public get Radius() {return this.GetProp("Radius", DataType.Float32);}
+    public set Radius(value) {this.SetProp("Radius", DataType.Float32, value);}
+    public get Restitution() {return this.GetProp("Restitution", DataType.Float32);}
+    public set Restitution(value) {this.SetProp("Restitution", DataType.Float32, value);}
+    public get ServoMaxTorque() {return this.GetProp("ServoMaxTorque", DataType.Float32);}
+    public set ServoMaxTorque(value) {this.SetProp("ServoMaxTorque", DataType.Float32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get SoftlockServoUponReachingTarget() {return this.GetProp("SoftlockServoUponReachingTarget", DataType.Bool);}
+    /**@deprecated Deprecated by Roblox*/
+    public set SoftlockServoUponReachingTarget(value) {this.SetProp("SoftlockServoUponReachingTarget", DataType.Bool, value);}
+    public get TargetAngle() {return this.GetProp("TargetAngle", DataType.Float32);}
+    public set TargetAngle(value) {this.SetProp("TargetAngle", DataType.Float32, value);}
+    public get UpperAngle() {return this.GetProp("UpperAngle", DataType.Float32);}
+    public set UpperAngle(value) {this.SetProp("UpperAngle", DataType.Float32, value);}
 }
 
 export class LineForce extends Constraint {
-    protected constructor(className?: string) {super(className ?? "LineForce");}
+    protected constructor(className?: string) {super(className ?? "LineForce"); this.addClassName("LineForce");}
     public static new() {return new LineForce();}
-    public get applyAtCenterOfMass() {return this.getProp("ApplyAtCenterOfMass", DataType.Bool);}
-    public set applyAtCenterOfMass(value) {this.setProp("ApplyAtCenterOfMass", DataType.Bool, value);}
-    public get inverseSquareLaw() {return this.getProp("InverseSquareLaw", DataType.Bool);}
-    public set inverseSquareLaw(value) {this.setProp("InverseSquareLaw", DataType.Bool, value);}
-    public get magnitude() {return this.getProp("Magnitude", DataType.Float32);}
-    public set magnitude(value) {this.setProp("Magnitude", DataType.Float32, value);}
-    public get maxForce() {return this.getProp("MaxForce", DataType.Float32);}
-    public set maxForce(value) {this.setProp("MaxForce", DataType.Float32, value);}
-    public get reactionForceEnabled() {return this.getProp("ReactionForceEnabled", DataType.Bool);}
-    public set reactionForceEnabled(value) {this.setProp("ReactionForceEnabled", DataType.Bool, value);}
+    public get ApplyAtCenterOfMass() {return this.GetProp("ApplyAtCenterOfMass", DataType.Bool);}
+    public set ApplyAtCenterOfMass(value) {this.SetProp("ApplyAtCenterOfMass", DataType.Bool, value);}
+    public get InverseSquareLaw() {return this.GetProp("InverseSquareLaw", DataType.Bool);}
+    public set InverseSquareLaw(value) {this.SetProp("InverseSquareLaw", DataType.Bool, value);}
+    public get Magnitude() {return this.GetProp("Magnitude", DataType.Float32);}
+    public set Magnitude(value) {this.SetProp("Magnitude", DataType.Float32, value);}
+    public get MaxForce() {return this.GetProp("MaxForce", DataType.Float32);}
+    public set MaxForce(value) {this.SetProp("MaxForce", DataType.Float32, value);}
+    public get ReactionForceEnabled() {return this.GetProp("ReactionForceEnabled", DataType.Bool);}
+    public set ReactionForceEnabled(value) {this.SetProp("ReactionForceEnabled", DataType.Bool, value);}
 }
 
 export class LinearVelocity extends Constraint {
-    protected constructor(className?: string) {super(className ?? "LinearVelocity");}
+    protected constructor(className?: string) {super(className ?? "LinearVelocity"); this.addClassName("LinearVelocity");}
     public static new() {return new LinearVelocity();}
-    public get forceLimitMode() {return this.getProp("ForceLimitMode", DataType.Enum) as ForceLimitMode | undefined;}
-    public set forceLimitMode(value) {this.setProp("ForceLimitMode", DataType.Enum, value);}
-    public get forceLimitsEnabled() {return this.getProp("ForceLimitsEnabled", DataType.Bool);}
-    public set forceLimitsEnabled(value) {this.setProp("ForceLimitsEnabled", DataType.Bool, value);}
-    public get lineDirection() {return this.getProp("LineDirection", DataType.Vector3);}
-    public set lineDirection(value) {this.setProp("LineDirection", DataType.Vector3, value);}
-    public get lineVelocity() {return this.getProp("LineVelocity", DataType.Float32);}
-    public set lineVelocity(value) {this.setProp("LineVelocity", DataType.Float32, value);}
-    public get maxAxesForce() {return this.getProp("MaxAxesForce", DataType.Vector3);}
-    public set maxAxesForce(value) {this.setProp("MaxAxesForce", DataType.Vector3, value);}
-    public get maxForce() {return this.getProp("MaxForce", DataType.Float32);}
-    public set maxForce(value) {this.setProp("MaxForce", DataType.Float32, value);}
-    public get maxPlanarAxesForce() {return this.getProp("MaxPlanarAxesForce", DataType.Vector2);}
-    public set maxPlanarAxesForce(value) {this.setProp("MaxPlanarAxesForce", DataType.Vector2, value);}
-    public get planeVelocity() {return this.getProp("PlaneVelocity", DataType.Vector2);}
-    public set planeVelocity(value) {this.setProp("PlaneVelocity", DataType.Vector2, value);}
-    public get primaryTangentAxis() {return this.getProp("PrimaryTangentAxis", DataType.Vector3);}
-    public set primaryTangentAxis(value) {this.setProp("PrimaryTangentAxis", DataType.Vector3, value);}
-    public get relativeTo() {return this.getProp("RelativeTo", DataType.Enum) as ActuatorRelativeTo | undefined;}
-    public set relativeTo(value) {this.setProp("RelativeTo", DataType.Enum, value);}
-    public get secondaryTangentAxis() {return this.getProp("SecondaryTangentAxis", DataType.Vector3);}
-    public set secondaryTangentAxis(value) {this.setProp("SecondaryTangentAxis", DataType.Vector3, value);}
-    public get vectorVelocity() {return this.getProp("VectorVelocity", DataType.Vector3);}
-    public set vectorVelocity(value) {this.setProp("VectorVelocity", DataType.Vector3, value);}
-    public get velocityConstraintMode() {return this.getProp("VelocityConstraintMode", DataType.Enum) as VelocityConstraintMode | undefined;}
-    public set velocityConstraintMode(value) {this.setProp("VelocityConstraintMode", DataType.Enum, value);}
+    public get ForceLimitMode() {return this.GetProp("ForceLimitMode", DataType.Enum) as ForceLimitMode | undefined;}
+    public set ForceLimitMode(value) {this.SetProp("ForceLimitMode", DataType.Enum, value);}
+    public get ForceLimitsEnabled() {return this.GetProp("ForceLimitsEnabled", DataType.Bool);}
+    public set ForceLimitsEnabled(value) {this.SetProp("ForceLimitsEnabled", DataType.Bool, value);}
+    public get LineDirection() {return this.GetProp("LineDirection", DataType.Vector3);}
+    public set LineDirection(value) {this.SetProp("LineDirection", DataType.Vector3, value);}
+    public get LineVelocity() {return this.GetProp("LineVelocity", DataType.Float32);}
+    public set LineVelocity(value) {this.SetProp("LineVelocity", DataType.Float32, value);}
+    public get MaxAxesForce() {return this.GetProp("MaxAxesForce", DataType.Vector3);}
+    public set MaxAxesForce(value) {this.SetProp("MaxAxesForce", DataType.Vector3, value);}
+    public get MaxForce() {return this.GetProp("MaxForce", DataType.Float32);}
+    public set MaxForce(value) {this.SetProp("MaxForce", DataType.Float32, value);}
+    public get MaxPlanarAxesForce() {return this.GetProp("MaxPlanarAxesForce", DataType.Vector2);}
+    public set MaxPlanarAxesForce(value) {this.SetProp("MaxPlanarAxesForce", DataType.Vector2, value);}
+    public get PlaneVelocity() {return this.GetProp("PlaneVelocity", DataType.Vector2);}
+    public set PlaneVelocity(value) {this.SetProp("PlaneVelocity", DataType.Vector2, value);}
+    public get PrimaryTangentAxis() {return this.GetProp("PrimaryTangentAxis", DataType.Vector3);}
+    public set PrimaryTangentAxis(value) {this.SetProp("PrimaryTangentAxis", DataType.Vector3, value);}
+    public get RelativeTo() {return this.GetProp("RelativeTo", DataType.Enum) as ActuatorRelativeTo | undefined;}
+    public set RelativeTo(value) {this.SetProp("RelativeTo", DataType.Enum, value);}
+    public get SecondaryTangentAxis() {return this.GetProp("SecondaryTangentAxis", DataType.Vector3);}
+    public set SecondaryTangentAxis(value) {this.SetProp("SecondaryTangentAxis", DataType.Vector3, value);}
+    public get VectorVelocity() {return this.GetProp("VectorVelocity", DataType.Vector3);}
+    public set VectorVelocity(value) {this.SetProp("VectorVelocity", DataType.Vector3, value);}
+    public get VelocityConstraintMode() {return this.GetProp("VelocityConstraintMode", DataType.Enum) as VelocityConstraintMode | undefined;}
+    public set VelocityConstraintMode(value) {this.SetProp("VelocityConstraintMode", DataType.Enum, value);}
 }
 
 export class PlaneConstraint extends Constraint {
-    protected constructor(className?: string) {super(className ?? "PlaneConstraint");}
+    protected constructor(className?: string) {super(className ?? "PlaneConstraint"); this.addClassName("PlaneConstraint");}
     public static new() {return new PlaneConstraint();}
 }
 
 export class Plane extends PlaneConstraint {
-    protected constructor(className?: string) {super(className ?? "Plane");}
+    protected constructor(className?: string) {super(className ?? "Plane"); this.addClassName("Plane");}
     public static new() {return new Plane();}
 }
 
 export class RigidConstraint extends Constraint {
-    protected constructor(className?: string) {super(className ?? "RigidConstraint");}
+    protected constructor(className?: string) {super(className ?? "RigidConstraint"); this.addClassName("RigidConstraint");}
     public static new() {return new RigidConstraint();}
 }
 
 export class RodConstraint extends Constraint {
-    protected constructor(className?: string) {super(className ?? "RodConstraint");}
+    protected constructor(className?: string) {super(className ?? "RodConstraint"); this.addClassName("RodConstraint");}
     public static new() {return new RodConstraint();}
-    public get length() {return this.getProp("Length", DataType.Float32);}
-    public set length(value) {this.setProp("Length", DataType.Float32, value);}
-    public get limitAngle0() {return this.getProp("LimitAngle0", DataType.Float32);}
-    public set limitAngle0(value) {this.setProp("LimitAngle0", DataType.Float32, value);}
-    public get limitAngle1() {return this.getProp("LimitAngle1", DataType.Float32);}
-    public set limitAngle1(value) {this.setProp("LimitAngle1", DataType.Float32, value);}
-    public get limitsEnabled() {return this.getProp("LimitsEnabled", DataType.Bool);}
-    public set limitsEnabled(value) {this.setProp("LimitsEnabled", DataType.Bool, value);}
-    public get thickness() {return this.getProp("Thickness", DataType.Float32);}
-    public set thickness(value) {this.setProp("Thickness", DataType.Float32, value);}
+    public get Length() {return this.GetProp("Length", DataType.Float32);}
+    public set Length(value) {this.SetProp("Length", DataType.Float32, value);}
+    public get LimitAngle0() {return this.GetProp("LimitAngle0", DataType.Float32);}
+    public set LimitAngle0(value) {this.SetProp("LimitAngle0", DataType.Float32, value);}
+    public get LimitAngle1() {return this.GetProp("LimitAngle1", DataType.Float32);}
+    public set LimitAngle1(value) {this.SetProp("LimitAngle1", DataType.Float32, value);}
+    public get LimitsEnabled() {return this.GetProp("LimitsEnabled", DataType.Bool);}
+    public set LimitsEnabled(value) {this.SetProp("LimitsEnabled", DataType.Bool, value);}
+    public get Thickness() {return this.GetProp("Thickness", DataType.Float32);}
+    public set Thickness(value) {this.SetProp("Thickness", DataType.Float32, value);}
 }
 
 export class RopeConstraint extends Constraint {
-    protected constructor(className?: string) {super(className ?? "RopeConstraint");}
+    protected constructor(className?: string) {super(className ?? "RopeConstraint"); this.addClassName("RopeConstraint");}
     public static new() {return new RopeConstraint();}
-    public get length() {return this.getProp("Length", DataType.Float32);}
-    public set length(value) {this.setProp("Length", DataType.Float32, value);}
-    public get restitution() {return this.getProp("Restitution", DataType.Float32);}
-    public set restitution(value) {this.setProp("Restitution", DataType.Float32, value);}
-    public get thickness() {return this.getProp("Thickness", DataType.Float32);}
-    public set thickness(value) {this.setProp("Thickness", DataType.Float32, value);}
-    public get winchEnabled() {return this.getProp("WinchEnabled", DataType.Bool);}
-    public set winchEnabled(value) {this.setProp("WinchEnabled", DataType.Bool, value);}
-    public get winchForce() {return this.getProp("WinchForce", DataType.Float32);}
-    public set winchForce(value) {this.setProp("WinchForce", DataType.Float32, value);}
-    public get winchResponsiveness() {return this.getProp("WinchResponsiveness", DataType.Float32);}
-    public set winchResponsiveness(value) {this.setProp("WinchResponsiveness", DataType.Float32, value);}
-    public get winchSpeed() {return this.getProp("WinchSpeed", DataType.Float32);}
-    public set winchSpeed(value) {this.setProp("WinchSpeed", DataType.Float32, value);}
-    public get winchTarget() {return this.getProp("WinchTarget", DataType.Float32);}
-    public set winchTarget(value) {this.setProp("WinchTarget", DataType.Float32, value);}
+    public get Length() {return this.GetProp("Length", DataType.Float32);}
+    public set Length(value) {this.SetProp("Length", DataType.Float32, value);}
+    public get Restitution() {return this.GetProp("Restitution", DataType.Float32);}
+    public set Restitution(value) {this.SetProp("Restitution", DataType.Float32, value);}
+    public get Thickness() {return this.GetProp("Thickness", DataType.Float32);}
+    public set Thickness(value) {this.SetProp("Thickness", DataType.Float32, value);}
+    public get WinchEnabled() {return this.GetProp("WinchEnabled", DataType.Bool);}
+    public set WinchEnabled(value) {this.SetProp("WinchEnabled", DataType.Bool, value);}
+    public get WinchForce() {return this.GetProp("WinchForce", DataType.Float32);}
+    public set WinchForce(value) {this.SetProp("WinchForce", DataType.Float32, value);}
+    public get WinchResponsiveness() {return this.GetProp("WinchResponsiveness", DataType.Float32);}
+    public set WinchResponsiveness(value) {this.SetProp("WinchResponsiveness", DataType.Float32, value);}
+    public get WinchSpeed() {return this.GetProp("WinchSpeed", DataType.Float32);}
+    public set WinchSpeed(value) {this.SetProp("WinchSpeed", DataType.Float32, value);}
+    public get WinchTarget() {return this.GetProp("WinchTarget", DataType.Float32);}
+    public set WinchTarget(value) {this.SetProp("WinchTarget", DataType.Float32, value);}
 }
 
 export abstract class SlidingBallConstraint extends Constraint {
-    protected constructor(className: string) {super(className);}
-    public get actuatorType() {return this.getProp("ActuatorType", DataType.Enum) as ActuatorType | undefined;}
-    public set actuatorType(value) {this.setProp("ActuatorType", DataType.Enum, value);}
-    public get limitsEnabled() {return this.getProp("LimitsEnabled", DataType.Bool);}
-    public set limitsEnabled(value) {this.setProp("LimitsEnabled", DataType.Bool, value);}
-    public get linearResponsiveness() {return this.getProp("LinearResponsiveness", DataType.Float32);}
-    public set linearResponsiveness(value) {this.setProp("LinearResponsiveness", DataType.Float32, value);}
-    public get lowerLimit() {return this.getProp("LowerLimit", DataType.Float32);}
-    public set lowerLimit(value) {this.setProp("LowerLimit", DataType.Float32, value);}
-    public get motorMaxAcceleration() {return this.getProp("MotorMaxAcceleration", DataType.Float32);}
-    public set motorMaxAcceleration(value) {this.setProp("MotorMaxAcceleration", DataType.Float32, value);}
-    public get motorMaxForce() {return this.getProp("MotorMaxForce", DataType.Float32);}
-    public set motorMaxForce(value) {this.setProp("MotorMaxForce", DataType.Float32, value);}
-    public get restitution() {return this.getProp("Restitution", DataType.Float32);}
-    public set restitution(value) {this.setProp("Restitution", DataType.Float32, value);}
-    public get servoMaxForce() {return this.getProp("ServoMaxForce", DataType.Float32);}
-    public set servoMaxForce(value) {this.setProp("ServoMaxForce", DataType.Float32, value);}
-    public get size() {return this.getProp("Size", DataType.Float32);}
-    public set size(value) {this.setProp("Size", DataType.Float32, value);}
-    public get softlockServoUponReachingTarget() {return this.getProp("SoftlockServoUponReachingTarget", DataType.Bool);}
-    public set softlockServoUponReachingTarget(value) {this.setProp("SoftlockServoUponReachingTarget", DataType.Bool, value);}
-    public get speed() {return this.getProp("Speed", DataType.Float32);}
-    public set speed(value) {this.setProp("Speed", DataType.Float32, value);}
-    public get targetPosition() {return this.getProp("TargetPosition", DataType.Float32);}
-    public set targetPosition(value) {this.setProp("TargetPosition", DataType.Float32, value);}
-    public get upperLimit() {return this.getProp("UpperLimit", DataType.Float32);}
-    public set upperLimit(value) {this.setProp("UpperLimit", DataType.Float32, value);}
-    public get velocity() {return this.getProp("Velocity", DataType.Float32);}
-    public set velocity(value) {this.setProp("Velocity", DataType.Float32, value);}
+    protected constructor(className: string) {super(className); this.addClassName("SlidingBallConstraint");}
+    public get ActuatorType() {return this.GetProp("ActuatorType", DataType.Enum) as ActuatorType | undefined;}
+    public set ActuatorType(value) {this.SetProp("ActuatorType", DataType.Enum, value);}
+    public get LimitsEnabled() {return this.GetProp("LimitsEnabled", DataType.Bool);}
+    public set LimitsEnabled(value) {this.SetProp("LimitsEnabled", DataType.Bool, value);}
+    public get LinearResponsiveness() {return this.GetProp("LinearResponsiveness", DataType.Float32);}
+    public set LinearResponsiveness(value) {this.SetProp("LinearResponsiveness", DataType.Float32, value);}
+    public get LowerLimit() {return this.GetProp("LowerLimit", DataType.Float32);}
+    public set LowerLimit(value) {this.SetProp("LowerLimit", DataType.Float32, value);}
+    public get MotorMaxAcceleration() {return this.GetProp("MotorMaxAcceleration", DataType.Float32);}
+    public set MotorMaxAcceleration(value) {this.SetProp("MotorMaxAcceleration", DataType.Float32, value);}
+    public get MotorMaxForce() {return this.GetProp("MotorMaxForce", DataType.Float32);}
+    public set MotorMaxForce(value) {this.SetProp("MotorMaxForce", DataType.Float32, value);}
+    public get Restitution() {return this.GetProp("Restitution", DataType.Float32);}
+    public set Restitution(value) {this.SetProp("Restitution", DataType.Float32, value);}
+    public get ServoMaxForce() {return this.GetProp("ServoMaxForce", DataType.Float32);}
+    public set ServoMaxForce(value) {this.SetProp("ServoMaxForce", DataType.Float32, value);}
+    public get Size() {return this.GetProp("Size", DataType.Float32);}
+    public set Size(value) {this.SetProp("Size", DataType.Float32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get SoftlockServoUponReachingTarget() {return this.GetProp("SoftlockServoUponReachingTarget", DataType.Bool);}
+    /**@deprecated Deprecated by Roblox*/
+    public set SoftlockServoUponReachingTarget(value) {this.SetProp("SoftlockServoUponReachingTarget", DataType.Bool, value);}
+    public get Speed() {return this.GetProp("Speed", DataType.Float32);}
+    public set Speed(value) {this.SetProp("Speed", DataType.Float32, value);}
+    public get TargetPosition() {return this.GetProp("TargetPosition", DataType.Float32);}
+    public set TargetPosition(value) {this.SetProp("TargetPosition", DataType.Float32, value);}
+    public get UpperLimit() {return this.GetProp("UpperLimit", DataType.Float32);}
+    public set UpperLimit(value) {this.SetProp("UpperLimit", DataType.Float32, value);}
+    public get Velocity() {return this.GetProp("Velocity", DataType.Float32);}
+    public set Velocity(value) {this.SetProp("Velocity", DataType.Float32, value);}
 }
 
 export class CylindricalConstraint extends SlidingBallConstraint {
-    protected constructor(className?: string) {super(className ?? "CylindricalConstraint");}
+    protected constructor(className?: string) {super(className ?? "CylindricalConstraint"); this.addClassName("CylindricalConstraint");}
     public static new() {return new CylindricalConstraint();}
-    public get angularActuatorType() {return this.getProp("AngularActuatorType", DataType.Enum) as ActuatorType | undefined;}
-    public set angularActuatorType(value) {this.setProp("AngularActuatorType", DataType.Enum, value);}
-    public get angularLimitsEnabled() {return this.getProp("AngularLimitsEnabled", DataType.Bool);}
-    public set angularLimitsEnabled(value) {this.setProp("AngularLimitsEnabled", DataType.Bool, value);}
-    public get angularResponsiveness() {return this.getProp("AngularResponsiveness", DataType.Float32);}
-    public set angularResponsiveness(value) {this.setProp("AngularResponsiveness", DataType.Float32, value);}
-    public get angularRestitution() {return this.getProp("AngularRestitution", DataType.Float32);}
-    public set angularRestitution(value) {this.setProp("AngularRestitution", DataType.Float32, value);}
-    public get angularSpeed() {return this.getProp("AngularSpeed", DataType.Float32);}
-    public set angularSpeed(value) {this.setProp("AngularSpeed", DataType.Float32, value);}
-    public get angularVelocity() {return this.getProp("AngularVelocity", DataType.Float32);}
-    public set angularVelocity(value) {this.setProp("AngularVelocity", DataType.Float32, value);}
-    public get inclinationAngle() {return this.getProp("InclinationAngle", DataType.Float32);}
-    public set inclinationAngle(value) {this.setProp("InclinationAngle", DataType.Float32, value);}
-    public get lowerAngle() {return this.getProp("LowerAngle", DataType.Float32);}
-    public set lowerAngle(value) {this.setProp("LowerAngle", DataType.Float32, value);}
-    public get motorMaxAngularAcceleration() {return this.getProp("MotorMaxAngularAcceleration", DataType.Float32);}
-    public set motorMaxAngularAcceleration(value) {this.setProp("MotorMaxAngularAcceleration", DataType.Float32, value);}
-    public get motorMaxTorque() {return this.getProp("MotorMaxTorque", DataType.Float32);}
-    public set motorMaxTorque(value) {this.setProp("MotorMaxTorque", DataType.Float32, value);}
-    public get rotationAxisVisible() {return this.getProp("RotationAxisVisible", DataType.Bool);}
-    public set rotationAxisVisible(value) {this.setProp("RotationAxisVisible", DataType.Bool, value);}
-    public get servoMaxTorque() {return this.getProp("ServoMaxTorque", DataType.Float32);}
-    public set servoMaxTorque(value) {this.setProp("ServoMaxTorque", DataType.Float32, value);}
-    public get softlockAngularServoUponReachingTarget() {return this.getProp("SoftlockAngularServoUponReachingTarget", DataType.Bool);}
-    public set softlockAngularServoUponReachingTarget(value) {this.setProp("SoftlockAngularServoUponReachingTarget", DataType.Bool, value);}
-    public get targetAngle() {return this.getProp("TargetAngle", DataType.Float32);}
-    public set targetAngle(value) {this.setProp("TargetAngle", DataType.Float32, value);}
-    public get upperAngle() {return this.getProp("UpperAngle", DataType.Float32);}
-    public set upperAngle(value) {this.setProp("UpperAngle", DataType.Float32, value);}
+    public get AngularActuatorType() {return this.GetProp("AngularActuatorType", DataType.Enum) as ActuatorType | undefined;}
+    public set AngularActuatorType(value) {this.SetProp("AngularActuatorType", DataType.Enum, value);}
+    public get AngularLimitsEnabled() {return this.GetProp("AngularLimitsEnabled", DataType.Bool);}
+    public set AngularLimitsEnabled(value) {this.SetProp("AngularLimitsEnabled", DataType.Bool, value);}
+    public get AngularResponsiveness() {return this.GetProp("AngularResponsiveness", DataType.Float32);}
+    public set AngularResponsiveness(value) {this.SetProp("AngularResponsiveness", DataType.Float32, value);}
+    public get AngularRestitution() {return this.GetProp("AngularRestitution", DataType.Float32);}
+    public set AngularRestitution(value) {this.SetProp("AngularRestitution", DataType.Float32, value);}
+    public get AngularSpeed() {return this.GetProp("AngularSpeed", DataType.Float32);}
+    public set AngularSpeed(value) {this.SetProp("AngularSpeed", DataType.Float32, value);}
+    public get AngularVelocity() {return this.GetProp("AngularVelocity", DataType.Float32);}
+    public set AngularVelocity(value) {this.SetProp("AngularVelocity", DataType.Float32, value);}
+    public get InclinationAngle() {return this.GetProp("InclinationAngle", DataType.Float32);}
+    public set InclinationAngle(value) {this.SetProp("InclinationAngle", DataType.Float32, value);}
+    public get LowerAngle() {return this.GetProp("LowerAngle", DataType.Float32);}
+    public set LowerAngle(value) {this.SetProp("LowerAngle", DataType.Float32, value);}
+    public get MotorMaxAngularAcceleration() {return this.GetProp("MotorMaxAngularAcceleration", DataType.Float32);}
+    public set MotorMaxAngularAcceleration(value) {this.SetProp("MotorMaxAngularAcceleration", DataType.Float32, value);}
+    public get MotorMaxTorque() {return this.GetProp("MotorMaxTorque", DataType.Float32);}
+    public set MotorMaxTorque(value) {this.SetProp("MotorMaxTorque", DataType.Float32, value);}
+    public get RotationAxisVisible() {return this.GetProp("RotationAxisVisible", DataType.Bool);}
+    public set RotationAxisVisible(value) {this.SetProp("RotationAxisVisible", DataType.Bool, value);}
+    public get ServoMaxTorque() {return this.GetProp("ServoMaxTorque", DataType.Float32);}
+    public set ServoMaxTorque(value) {this.SetProp("ServoMaxTorque", DataType.Float32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get SoftlockAngularServoUponReachingTarget() {return this.GetProp("SoftlockAngularServoUponReachingTarget", DataType.Bool);}
+    /**@deprecated Deprecated by Roblox*/
+    public set SoftlockAngularServoUponReachingTarget(value) {this.SetProp("SoftlockAngularServoUponReachingTarget", DataType.Bool, value);}
+    public get TargetAngle() {return this.GetProp("TargetAngle", DataType.Float32);}
+    public set TargetAngle(value) {this.SetProp("TargetAngle", DataType.Float32, value);}
+    public get UpperAngle() {return this.GetProp("UpperAngle", DataType.Float32);}
+    public set UpperAngle(value) {this.SetProp("UpperAngle", DataType.Float32, value);}
 }
 
 export class PrismaticConstraint extends SlidingBallConstraint {
-    protected constructor(className?: string) {super(className ?? "PrismaticConstraint");}
+    protected constructor(className?: string) {super(className ?? "PrismaticConstraint"); this.addClassName("PrismaticConstraint");}
     public static new() {return new PrismaticConstraint();}
 }
 
 export class SpringConstraint extends Constraint {
-    protected constructor(className?: string) {super(className ?? "SpringConstraint");}
+    protected constructor(className?: string) {super(className ?? "SpringConstraint"); this.addClassName("SpringConstraint");}
     public static new() {return new SpringConstraint();}
-    public get coils() {return this.getProp("Coils", DataType.Float32);}
-    public set coils(value) {this.setProp("Coils", DataType.Float32, value);}
-    public get damping() {return this.getProp("Damping", DataType.Float32);}
-    public set damping(value) {this.setProp("Damping", DataType.Float32, value);}
-    public get freeLength() {return this.getProp("FreeLength", DataType.Float32);}
-    public set freeLength(value) {this.setProp("FreeLength", DataType.Float32, value);}
-    public get limitsEnabled() {return this.getProp("LimitsEnabled", DataType.Bool);}
-    public set limitsEnabled(value) {this.setProp("LimitsEnabled", DataType.Bool, value);}
-    public get maxForce() {return this.getProp("MaxForce", DataType.Float32);}
-    public set maxForce(value) {this.setProp("MaxForce", DataType.Float32, value);}
-    public get maxLength() {return this.getProp("MaxLength", DataType.Float32);}
-    public set maxLength(value) {this.setProp("MaxLength", DataType.Float32, value);}
-    public get minLength() {return this.getProp("MinLength", DataType.Float32);}
-    public set minLength(value) {this.setProp("MinLength", DataType.Float32, value);}
-    public get radius() {return this.getProp("Radius", DataType.Float32);}
-    public set radius(value) {this.setProp("Radius", DataType.Float32, value);}
-    public get stiffness() {return this.getProp("Stiffness", DataType.Float32);}
-    public set stiffness(value) {this.setProp("Stiffness", DataType.Float32, value);}
-    public get thickness() {return this.getProp("Thickness", DataType.Float32);}
-    public set thickness(value) {this.setProp("Thickness", DataType.Float32, value);}
+    public get Coils() {return this.GetProp("Coils", DataType.Float32);}
+    public set Coils(value) {this.SetProp("Coils", DataType.Float32, value);}
+    public get Damping() {return this.GetProp("Damping", DataType.Float32);}
+    public set Damping(value) {this.SetProp("Damping", DataType.Float32, value);}
+    public get FreeLength() {return this.GetProp("FreeLength", DataType.Float32);}
+    public set FreeLength(value) {this.SetProp("FreeLength", DataType.Float32, value);}
+    public get LimitsEnabled() {return this.GetProp("LimitsEnabled", DataType.Bool);}
+    public set LimitsEnabled(value) {this.SetProp("LimitsEnabled", DataType.Bool, value);}
+    public get MaxForce() {return this.GetProp("MaxForce", DataType.Float32);}
+    public set MaxForce(value) {this.SetProp("MaxForce", DataType.Float32, value);}
+    public get MaxLength() {return this.GetProp("MaxLength", DataType.Float32);}
+    public set MaxLength(value) {this.SetProp("MaxLength", DataType.Float32, value);}
+    public get MinLength() {return this.GetProp("MinLength", DataType.Float32);}
+    public set MinLength(value) {this.SetProp("MinLength", DataType.Float32, value);}
+    public get Radius() {return this.GetProp("Radius", DataType.Float32);}
+    public set Radius(value) {this.SetProp("Radius", DataType.Float32, value);}
+    public get Stiffness() {return this.GetProp("Stiffness", DataType.Float32);}
+    public set Stiffness(value) {this.SetProp("Stiffness", DataType.Float32, value);}
+    public get Thickness() {return this.GetProp("Thickness", DataType.Float32);}
+    public set Thickness(value) {this.SetProp("Thickness", DataType.Float32, value);}
 }
 
 export class Torque extends Constraint {
-    protected constructor(className?: string) {super(className ?? "Torque");}
+    protected constructor(className?: string) {super(className ?? "Torque"); this.addClassName("Torque");}
     public static new() {return new Torque();}
-    public get relativeTo() {return this.getProp("RelativeTo", DataType.Enum) as ActuatorRelativeTo | undefined;}
-    public set relativeTo(value) {this.setProp("RelativeTo", DataType.Enum, value);}
-    public get torque() {return this.getProp("Torque", DataType.Vector3);}
-    public set torque(value) {this.setProp("Torque", DataType.Vector3, value);}
+    public get RelativeTo() {return this.GetProp("RelativeTo", DataType.Enum) as ActuatorRelativeTo | undefined;}
+    public set RelativeTo(value) {this.SetProp("RelativeTo", DataType.Enum, value);}
+    public get Torque() {return this.GetProp("Torque", DataType.Vector3);}
+    public set Torque(value) {this.SetProp("Torque", DataType.Vector3, value);}
 }
 
 export class TorsionSpringConstraint extends Constraint {
-    protected constructor(className?: string) {super(className ?? "TorsionSpringConstraint");}
+    protected constructor(className?: string) {super(className ?? "TorsionSpringConstraint"); this.addClassName("TorsionSpringConstraint");}
     public static new() {return new TorsionSpringConstraint();}
-    public get coils() {return this.getProp("Coils", DataType.Float32);}
-    public set coils(value) {this.setProp("Coils", DataType.Float32, value);}
-    public get damping() {return this.getProp("Damping", DataType.Float32);}
-    public set damping(value) {this.setProp("Damping", DataType.Float32, value);}
-    public get limitEnabled() {return this.getProp("LimitEnabled", DataType.Bool);}
-    public set limitEnabled(value) {this.setProp("LimitEnabled", DataType.Bool, value);}
-    public get limitsEnabled() {return this.getProp("LimitsEnabled", DataType.Bool);}
-    public set limitsEnabled(value) {this.setProp("LimitsEnabled", DataType.Bool, value);}
-    public get maxAngle() {return this.getProp("MaxAngle", DataType.Float32);}
-    public set maxAngle(value) {this.setProp("MaxAngle", DataType.Float32, value);}
-    public get maxTorque() {return this.getProp("MaxTorque", DataType.Float32);}
-    public set maxTorque(value) {this.setProp("MaxTorque", DataType.Float32, value);}
-    public get radius() {return this.getProp("Radius", DataType.Float32);}
-    public set radius(value) {this.setProp("Radius", DataType.Float32, value);}
-    public get restitution() {return this.getProp("Restitution", DataType.Float32);}
-    public set restitution(value) {this.setProp("Restitution", DataType.Float32, value);}
-    public get stiffness() {return this.getProp("Stiffness", DataType.Float32);}
-    public set stiffness(value) {this.setProp("Stiffness", DataType.Float32, value);}
+    public get Coils() {return this.GetProp("Coils", DataType.Float32);}
+    public set Coils(value) {this.SetProp("Coils", DataType.Float32, value);}
+    public get Damping() {return this.GetProp("Damping", DataType.Float32);}
+    public set Damping(value) {this.SetProp("Damping", DataType.Float32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get LimitEnabled() {return this.GetProp("LimitEnabled", DataType.Bool);}
+    /**@deprecated Deprecated by Roblox*/
+    public set LimitEnabled(value) {this.SetProp("LimitEnabled", DataType.Bool, value);}
+    public get LimitsEnabled() {return this.GetProp("LimitsEnabled", DataType.Bool);}
+    public set LimitsEnabled(value) {this.SetProp("LimitsEnabled", DataType.Bool, value);}
+    public get MaxAngle() {return this.GetProp("MaxAngle", DataType.Float32);}
+    public set MaxAngle(value) {this.SetProp("MaxAngle", DataType.Float32, value);}
+    public get MaxTorque() {return this.GetProp("MaxTorque", DataType.Float32);}
+    public set MaxTorque(value) {this.SetProp("MaxTorque", DataType.Float32, value);}
+    public get Radius() {return this.GetProp("Radius", DataType.Float32);}
+    public set Radius(value) {this.SetProp("Radius", DataType.Float32, value);}
+    public get Restitution() {return this.GetProp("Restitution", DataType.Float32);}
+    public set Restitution(value) {this.SetProp("Restitution", DataType.Float32, value);}
+    public get Stiffness() {return this.GetProp("Stiffness", DataType.Float32);}
+    public set Stiffness(value) {this.SetProp("Stiffness", DataType.Float32, value);}
 }
 
 export class UniversalConstraint extends Constraint {
-    protected constructor(className?: string) {super(className ?? "UniversalConstraint");}
+    protected constructor(className?: string) {super(className ?? "UniversalConstraint"); this.addClassName("UniversalConstraint");}
     public static new() {return new UniversalConstraint();}
-    public get limitsEnabled() {return this.getProp("LimitsEnabled", DataType.Bool);}
-    public set limitsEnabled(value) {this.setProp("LimitsEnabled", DataType.Bool, value);}
-    public get maxAngle() {return this.getProp("MaxAngle", DataType.Float32);}
-    public set maxAngle(value) {this.setProp("MaxAngle", DataType.Float32, value);}
-    public get radius() {return this.getProp("Radius", DataType.Float32);}
-    public set radius(value) {this.setProp("Radius", DataType.Float32, value);}
-    public get restitution() {return this.getProp("Restitution", DataType.Float32);}
-    public set restitution(value) {this.setProp("Restitution", DataType.Float32, value);}
+    public get LimitsEnabled() {return this.GetProp("LimitsEnabled", DataType.Bool);}
+    public set LimitsEnabled(value) {this.SetProp("LimitsEnabled", DataType.Bool, value);}
+    public get MaxAngle() {return this.GetProp("MaxAngle", DataType.Float32);}
+    public set MaxAngle(value) {this.SetProp("MaxAngle", DataType.Float32, value);}
+    public get Radius() {return this.GetProp("Radius", DataType.Float32);}
+    public set Radius(value) {this.SetProp("Radius", DataType.Float32, value);}
+    public get Restitution() {return this.GetProp("Restitution", DataType.Float32);}
+    public set Restitution(value) {this.SetProp("Restitution", DataType.Float32, value);}
 }
 
 export class VectorForce extends Constraint {
-    protected constructor(className?: string) {super(className ?? "VectorForce");}
+    protected constructor(className?: string) {super(className ?? "VectorForce"); this.addClassName("VectorForce");}
     public static new() {return new VectorForce();}
-    public get applyAtCenterOfMass() {return this.getProp("ApplyAtCenterOfMass", DataType.Bool);}
-    public set applyAtCenterOfMass(value) {this.setProp("ApplyAtCenterOfMass", DataType.Bool, value);}
-    public get force() {return this.getProp("Force", DataType.Vector3);}
-    public set force(value) {this.setProp("Force", DataType.Vector3, value);}
-    public get relativeTo() {return this.getProp("RelativeTo", DataType.Enum) as ActuatorRelativeTo | undefined;}
-    public set relativeTo(value) {this.setProp("RelativeTo", DataType.Enum, value);}
+    public get ApplyAtCenterOfMass() {return this.GetProp("ApplyAtCenterOfMass", DataType.Bool);}
+    public set ApplyAtCenterOfMass(value) {this.SetProp("ApplyAtCenterOfMass", DataType.Bool, value);}
+    public get Force() {return this.GetProp("Force", DataType.Vector3);}
+    public set Force(value) {this.SetProp("Force", DataType.Vector3, value);}
+    public get RelativeTo() {return this.GetProp("RelativeTo", DataType.Enum) as ActuatorRelativeTo | undefined;}
+    public set RelativeTo(value) {this.SetProp("RelativeTo", DataType.Enum, value);}
 }
 
-export class ContentProvider extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ContentProvider", true);}
+export class ContentProvider extends Instance {
+    protected constructor(className?: string) {super(className ?? "ContentProvider", true); this.addClassName("ContentProvider");}
     public static new() {return new ContentProvider();}
 }
 
-export class ContextActionService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ContextActionService", true);}
+export class ContextActionService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ContextActionService", true); this.addClassName("ContextActionService");}
     public static new() {return new ContextActionService();}
 }
 
-export abstract class Controller extends CoreInstance {
-    protected constructor(className: string) {super(className);}
+export abstract class Controller extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("Controller");}
 }
 
 export class HumanoidController extends Controller {
-    protected constructor(className?: string) {super(className ?? "HumanoidController");}
+    protected constructor(className?: string) {super(className ?? "HumanoidController"); this.addClassName("HumanoidController");}
     public static new() {return new HumanoidController();}
 }
 
 export class SkateboardController extends Controller {
-    protected constructor(className?: string) {super(className ?? "SkateboardController");}
+    protected constructor(className?: string) {super(className ?? "SkateboardController"); this.addClassName("SkateboardController");}
     public static new() {return new SkateboardController();}
 }
 
 export class VehicleController extends Controller {
-    protected constructor(className?: string) {super(className ?? "VehicleController");}
+    protected constructor(className?: string) {super(className ?? "VehicleController"); this.addClassName("VehicleController");}
     public static new() {return new VehicleController();}
 }
 
-export abstract class ControllerBase extends CoreInstance {
-    protected constructor(className: string) {super(className);}
-    public get balanceRigidityEnabled() {return this.getProp("BalanceRigidityEnabled", DataType.Bool);}
-    public set balanceRigidityEnabled(value) {this.setProp("BalanceRigidityEnabled", DataType.Bool, value);}
-    public get moveSpeedFactor() {return this.getProp("MoveSpeedFactor", DataType.Float32);}
-    public set moveSpeedFactor(value) {this.setProp("MoveSpeedFactor", DataType.Float32, value);}
+export abstract class ControllerBase extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("ControllerBase");}
+    public get BalanceRigidityEnabled() {return this.GetProp("BalanceRigidityEnabled", DataType.Bool);}
+    public set BalanceRigidityEnabled(value) {this.SetProp("BalanceRigidityEnabled", DataType.Bool, value);}
+    public get MoveSpeedFactor() {return this.GetProp("MoveSpeedFactor", DataType.Float32);}
+    public set MoveSpeedFactor(value) {this.SetProp("MoveSpeedFactor", DataType.Float32, value);}
 }
 
 export class AirController extends ControllerBase {
-    protected constructor(className?: string) {super(className ?? "AirController");}
+    protected constructor(className?: string) {super(className ?? "AirController"); this.addClassName("AirController");}
     public static new() {return new AirController();}
-    public get balanceMaxTorque() {return this.getProp("BalanceMaxTorque", DataType.Float32);}
-    public set balanceMaxTorque(value) {this.setProp("BalanceMaxTorque", DataType.Float32, value);}
-    public get balanceSpeed() {return this.getProp("BalanceSpeed", DataType.Float32);}
-    public set balanceSpeed(value) {this.setProp("BalanceSpeed", DataType.Float32, value);}
-    public get maintainAngularMomentum() {return this.getProp("MaintainAngularMomentum", DataType.Bool);}
-    public set maintainAngularMomentum(value) {this.setProp("MaintainAngularMomentum", DataType.Bool, value);}
-    public get maintainLinearMomentum() {return this.getProp("MaintainLinearMomentum", DataType.Bool);}
-    public set maintainLinearMomentum(value) {this.setProp("MaintainLinearMomentum", DataType.Bool, value);}
-    public get moveMaxForce() {return this.getProp("MoveMaxForce", DataType.Float32);}
-    public set moveMaxForce(value) {this.setProp("MoveMaxForce", DataType.Float32, value);}
-    public get turnMaxTorque() {return this.getProp("TurnMaxTorque", DataType.Float32);}
-    public set turnMaxTorque(value) {this.setProp("TurnMaxTorque", DataType.Float32, value);}
-    public get turnSpeedFactor() {return this.getProp("TurnSpeedFactor", DataType.Float32);}
-    public set turnSpeedFactor(value) {this.setProp("TurnSpeedFactor", DataType.Float32, value);}
+    public get BalanceMaxTorque() {return this.GetProp("BalanceMaxTorque", DataType.Float32);}
+    public set BalanceMaxTorque(value) {this.SetProp("BalanceMaxTorque", DataType.Float32, value);}
+    public get BalanceSpeed() {return this.GetProp("BalanceSpeed", DataType.Float32);}
+    public set BalanceSpeed(value) {this.SetProp("BalanceSpeed", DataType.Float32, value);}
+    public get MaintainAngularMomentum() {return this.GetProp("MaintainAngularMomentum", DataType.Bool);}
+    public set MaintainAngularMomentum(value) {this.SetProp("MaintainAngularMomentum", DataType.Bool, value);}
+    public get MaintainLinearMomentum() {return this.GetProp("MaintainLinearMomentum", DataType.Bool);}
+    public set MaintainLinearMomentum(value) {this.SetProp("MaintainLinearMomentum", DataType.Bool, value);}
+    public get MoveMaxForce() {return this.GetProp("MoveMaxForce", DataType.Float32);}
+    public set MoveMaxForce(value) {this.SetProp("MoveMaxForce", DataType.Float32, value);}
+    public get TurnMaxTorque() {return this.GetProp("TurnMaxTorque", DataType.Float32);}
+    public set TurnMaxTorque(value) {this.SetProp("TurnMaxTorque", DataType.Float32, value);}
+    public get TurnSpeedFactor() {return this.GetProp("TurnSpeedFactor", DataType.Float32);}
+    public set TurnSpeedFactor(value) {this.SetProp("TurnSpeedFactor", DataType.Float32, value);}
 }
 
 export class ClimbController extends ControllerBase {
-    protected constructor(className?: string) {super(className ?? "ClimbController");}
+    protected constructor(className?: string) {super(className ?? "ClimbController"); this.addClassName("ClimbController");}
     public static new() {return new ClimbController();}
-    public get accelerationTime() {return this.getProp("AccelerationTime", DataType.Float32);}
-    public set accelerationTime(value) {this.setProp("AccelerationTime", DataType.Float32, value);}
-    public get balanceMaxTorque() {return this.getProp("BalanceMaxTorque", DataType.Float32);}
-    public set balanceMaxTorque(value) {this.setProp("BalanceMaxTorque", DataType.Float32, value);}
-    public get balanceSpeed() {return this.getProp("BalanceSpeed", DataType.Float32);}
-    public set balanceSpeed(value) {this.setProp("BalanceSpeed", DataType.Float32, value);}
-    public get moveMaxForce() {return this.getProp("MoveMaxForce", DataType.Float32);}
-    public set moveMaxForce(value) {this.setProp("MoveMaxForce", DataType.Float32, value);}
+    public get AccelerationTime() {return this.GetProp("AccelerationTime", DataType.Float32);}
+    public set AccelerationTime(value) {this.SetProp("AccelerationTime", DataType.Float32, value);}
+    public get BalanceMaxTorque() {return this.GetProp("BalanceMaxTorque", DataType.Float32);}
+    public set BalanceMaxTorque(value) {this.SetProp("BalanceMaxTorque", DataType.Float32, value);}
+    public get BalanceSpeed() {return this.GetProp("BalanceSpeed", DataType.Float32);}
+    public set BalanceSpeed(value) {this.SetProp("BalanceSpeed", DataType.Float32, value);}
+    public get MoveMaxForce() {return this.GetProp("MoveMaxForce", DataType.Float32);}
+    public set MoveMaxForce(value) {this.SetProp("MoveMaxForce", DataType.Float32, value);}
 }
 
 export class GroundController extends ControllerBase {
-    protected constructor(className?: string) {super(className ?? "GroundController");}
+    protected constructor(className?: string) {super(className ?? "GroundController"); this.addClassName("GroundController");}
     public static new() {return new GroundController();}
-    public get accelerationLean() {return this.getProp("AccelerationLean", DataType.Float32);}
-    public set accelerationLean(value) {this.setProp("AccelerationLean", DataType.Float32, value);}
-    public get accelerationTime() {return this.getProp("AccelerationTime", DataType.Float32);}
-    public set accelerationTime(value) {this.setProp("AccelerationTime", DataType.Float32, value);}
-    public get balanceMaxTorque() {return this.getProp("BalanceMaxTorque", DataType.Float32);}
-    public set balanceMaxTorque(value) {this.setProp("BalanceMaxTorque", DataType.Float32, value);}
-    public get balanceSpeed() {return this.getProp("BalanceSpeed", DataType.Float32);}
-    public set balanceSpeed(value) {this.setProp("BalanceSpeed", DataType.Float32, value);}
-    public get decelerationTime() {return this.getProp("DecelerationTime", DataType.Float32);}
-    public set decelerationTime(value) {this.setProp("DecelerationTime", DataType.Float32, value);}
-    public get friction() {return this.getProp("Friction", DataType.Float32);}
-    public set friction(value) {this.setProp("Friction", DataType.Float32, value);}
-    public get frictionWeight() {return this.getProp("FrictionWeight", DataType.Float32);}
-    public set frictionWeight(value) {this.setProp("FrictionWeight", DataType.Float32, value);}
-    public get groundOffset() {return this.getProp("GroundOffset", DataType.Float32);}
-    public set groundOffset(value) {this.setProp("GroundOffset", DataType.Float32, value);}
-    public get standForce() {return this.getProp("StandForce", DataType.Float32);}
-    public set standForce(value) {this.setProp("StandForce", DataType.Float32, value);}
-    public get standSpeed() {return this.getProp("StandSpeed", DataType.Float32);}
-    public set standSpeed(value) {this.setProp("StandSpeed", DataType.Float32, value);}
-    public get turnSpeedFactor() {return this.getProp("TurnSpeedFactor", DataType.Float32);}
-    public set turnSpeedFactor(value) {this.setProp("TurnSpeedFactor", DataType.Float32, value);}
+    public get AccelerationLean() {return this.GetProp("AccelerationLean", DataType.Float32);}
+    public set AccelerationLean(value) {this.SetProp("AccelerationLean", DataType.Float32, value);}
+    public get AccelerationTime() {return this.GetProp("AccelerationTime", DataType.Float32);}
+    public set AccelerationTime(value) {this.SetProp("AccelerationTime", DataType.Float32, value);}
+    public get BalanceMaxTorque() {return this.GetProp("BalanceMaxTorque", DataType.Float32);}
+    public set BalanceMaxTorque(value) {this.SetProp("BalanceMaxTorque", DataType.Float32, value);}
+    public get BalanceSpeed() {return this.GetProp("BalanceSpeed", DataType.Float32);}
+    public set BalanceSpeed(value) {this.SetProp("BalanceSpeed", DataType.Float32, value);}
+    public get DecelerationTime() {return this.GetProp("DecelerationTime", DataType.Float32);}
+    public set DecelerationTime(value) {this.SetProp("DecelerationTime", DataType.Float32, value);}
+    public get Friction() {return this.GetProp("Friction", DataType.Float32);}
+    public set Friction(value) {this.SetProp("Friction", DataType.Float32, value);}
+    public get FrictionWeight() {return this.GetProp("FrictionWeight", DataType.Float32);}
+    public set FrictionWeight(value) {this.SetProp("FrictionWeight", DataType.Float32, value);}
+    public get GroundOffset() {return this.GetProp("GroundOffset", DataType.Float32);}
+    public set GroundOffset(value) {this.SetProp("GroundOffset", DataType.Float32, value);}
+    public get StandForce() {return this.GetProp("StandForce", DataType.Float32);}
+    public set StandForce(value) {this.SetProp("StandForce", DataType.Float32, value);}
+    public get StandSpeed() {return this.GetProp("StandSpeed", DataType.Float32);}
+    public set StandSpeed(value) {this.SetProp("StandSpeed", DataType.Float32, value);}
+    public get TurnSpeedFactor() {return this.GetProp("TurnSpeedFactor", DataType.Float32);}
+    public set TurnSpeedFactor(value) {this.SetProp("TurnSpeedFactor", DataType.Float32, value);}
 }
 
 export class SwimController extends ControllerBase {
-    protected constructor(className?: string) {super(className ?? "SwimController");}
+    protected constructor(className?: string) {super(className ?? "SwimController"); this.addClassName("SwimController");}
     public static new() {return new SwimController();}
-    public get accelerationTime() {return this.getProp("AccelerationTime", DataType.Float32);}
-    public set accelerationTime(value) {this.setProp("AccelerationTime", DataType.Float32, value);}
-    public get pitchMaxTorque() {return this.getProp("PitchMaxTorque", DataType.Float32);}
-    public set pitchMaxTorque(value) {this.setProp("PitchMaxTorque", DataType.Float32, value);}
-    public get pitchSpeedFactor() {return this.getProp("PitchSpeedFactor", DataType.Float32);}
-    public set pitchSpeedFactor(value) {this.setProp("PitchSpeedFactor", DataType.Float32, value);}
-    public get rollMaxTorque() {return this.getProp("RollMaxTorque", DataType.Float32);}
-    public set rollMaxTorque(value) {this.setProp("RollMaxTorque", DataType.Float32, value);}
-    public get rollSpeedFactor() {return this.getProp("RollSpeedFactor", DataType.Float32);}
-    public set rollSpeedFactor(value) {this.setProp("RollSpeedFactor", DataType.Float32, value);}
+    public get AccelerationTime() {return this.GetProp("AccelerationTime", DataType.Float32);}
+    public set AccelerationTime(value) {this.SetProp("AccelerationTime", DataType.Float32, value);}
+    public get PitchMaxTorque() {return this.GetProp("PitchMaxTorque", DataType.Float32);}
+    public set PitchMaxTorque(value) {this.SetProp("PitchMaxTorque", DataType.Float32, value);}
+    public get PitchSpeedFactor() {return this.GetProp("PitchSpeedFactor", DataType.Float32);}
+    public set PitchSpeedFactor(value) {this.SetProp("PitchSpeedFactor", DataType.Float32, value);}
+    public get RollMaxTorque() {return this.GetProp("RollMaxTorque", DataType.Float32);}
+    public set RollMaxTorque(value) {this.SetProp("RollMaxTorque", DataType.Float32, value);}
+    public get RollSpeedFactor() {return this.GetProp("RollSpeedFactor", DataType.Float32);}
+    public set RollSpeedFactor(value) {this.SetProp("RollSpeedFactor", DataType.Float32, value);}
 }
 
-export class ControllerManager extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ControllerManager");}
+export class ControllerManager extends Instance {
+    protected constructor(className?: string) {super(className ?? "ControllerManager"); this.addClassName("ControllerManager");}
     public static new() {return new ControllerManager();}
-    public get activeController() {return this.getProp("ActiveController", DataType.Referent) as ControllerBase | undefined;}
-    public set activeController(value) {this.setProp("ActiveController", DataType.Referent, value);}
-    public get baseMoveSpeed() {return this.getProp("BaseMoveSpeed", DataType.Float32);}
-    public set baseMoveSpeed(value) {this.setProp("BaseMoveSpeed", DataType.Float32, value);}
-    public get baseTurnSpeed() {return this.getProp("BaseTurnSpeed", DataType.Float32);}
-    public set baseTurnSpeed(value) {this.setProp("BaseTurnSpeed", DataType.Float32, value);}
-    public get climbSensor() {return this.getProp("ClimbSensor", DataType.Referent) as ControllerSensor | undefined;}
-    public set climbSensor(value) {this.setProp("ClimbSensor", DataType.Referent, value);}
-    public get facingDirection() {return this.getProp("FacingDirection", DataType.Vector3);}
-    public set facingDirection(value) {this.setProp("FacingDirection", DataType.Vector3, value);}
-    public get groundSensor() {return this.getProp("GroundSensor", DataType.Referent) as ControllerSensor | undefined;}
-    public set groundSensor(value) {this.setProp("GroundSensor", DataType.Referent, value);}
-    public get movingDirection() {return this.getProp("MovingDirection", DataType.Vector3);}
-    public set movingDirection(value) {this.setProp("MovingDirection", DataType.Vector3, value);}
-    public get rootPart() {return this.getProp("RootPart", DataType.Referent) as BasePart | undefined;}
-    public set rootPart(value) {this.setProp("RootPart", DataType.Referent, value);}
-    public get upDirection() {return this.getProp("UpDirection", DataType.Vector3);}
-    public set upDirection(value) {this.setProp("UpDirection", DataType.Vector3, value);}
+    public get ActiveController() {return this.GetProp("ActiveController", DataType.Referent) as ControllerBase | undefined;}
+    public set ActiveController(value) {this.SetProp("ActiveController", DataType.Referent, value);}
+    public get BaseMoveSpeed() {return this.GetProp("BaseMoveSpeed", DataType.Float32);}
+    public set BaseMoveSpeed(value) {this.SetProp("BaseMoveSpeed", DataType.Float32, value);}
+    public get BaseTurnSpeed() {return this.GetProp("BaseTurnSpeed", DataType.Float32);}
+    public set BaseTurnSpeed(value) {this.SetProp("BaseTurnSpeed", DataType.Float32, value);}
+    public get ClimbSensor() {return this.GetProp("ClimbSensor", DataType.Referent) as ControllerSensor | undefined;}
+    public set ClimbSensor(value) {this.SetProp("ClimbSensor", DataType.Referent, value);}
+    public get FacingDirection() {return this.GetProp("FacingDirection", DataType.Vector3);}
+    public set FacingDirection(value) {this.SetProp("FacingDirection", DataType.Vector3, value);}
+    public get GroundSensor() {return this.GetProp("GroundSensor", DataType.Referent) as ControllerSensor | undefined;}
+    public set GroundSensor(value) {this.SetProp("GroundSensor", DataType.Referent, value);}
+    public get MovingDirection() {return this.GetProp("MovingDirection", DataType.Vector3);}
+    public set MovingDirection(value) {this.SetProp("MovingDirection", DataType.Vector3, value);}
+    public get RootPart() {return this.GetProp("RootPart", DataType.Referent) as BasePart | undefined;}
+    public set RootPart(value) {this.SetProp("RootPart", DataType.Referent, value);}
+    public get UpDirection() {return this.GetProp("UpDirection", DataType.Vector3);}
+    public set UpDirection(value) {this.SetProp("UpDirection", DataType.Vector3, value);}
 }
 
-export class ControllerService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ControllerService", true);}
+export class ControllerService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ControllerService", true); this.addClassName("ControllerService");}
     public static new() {return new ControllerService();}
 }
 
-export class ConversationalAIAcceptanceService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ConversationalAIAcceptanceService", true);}
+export class ConversationalAIAcceptanceService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ConversationalAIAcceptanceService", true); this.addClassName("ConversationalAIAcceptanceService");}
     public static new() {return new ConversationalAIAcceptanceService();}
 }
 
-export class CookiesService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "CookiesService", true);}
+export class CookiesService extends Instance {
+    protected constructor(className?: string) {super(className ?? "CookiesService", true); this.addClassName("CookiesService");}
     public static new() {return new CookiesService();}
 }
 
-export class CorePackages extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "CorePackages", true);}
+export class CorePackages extends Instance {
+    protected constructor(className?: string) {super(className ?? "CorePackages", true); this.addClassName("CorePackages");}
     public static new() {return new CorePackages();}
 }
 
-export class CoreScriptDebuggingManagerHelper extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "CoreScriptDebuggingManagerHelper", true);}
+export class CoreScriptDebuggingManagerHelper extends Instance {
+    protected constructor(className?: string) {super(className ?? "CoreScriptDebuggingManagerHelper", true); this.addClassName("CoreScriptDebuggingManagerHelper");}
     public static new() {return new CoreScriptDebuggingManagerHelper();}
 }
 
-export class CoreScriptSyncService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "CoreScriptSyncService", true);}
+export class CoreScriptSyncService extends Instance {
+    protected constructor(className?: string) {super(className ?? "CoreScriptSyncService", true); this.addClassName("CoreScriptSyncService");}
     public static new() {return new CoreScriptSyncService();}
 }
 
-export class CreationDBService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "CreationDBService", true);}
+export class CreationDBService extends Instance {
+    protected constructor(className?: string) {super(className ?? "CreationDBService", true); this.addClassName("CreationDBService");}
     public static new() {return new CreationDBService();}
 }
 
-export class CrossDMScriptChangeListener extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "CrossDMScriptChangeListener", true);}
+export class CrossDMScriptChangeListener extends Instance {
+    protected constructor(className?: string) {super(className ?? "CrossDMScriptChangeListener", true); this.addClassName("CrossDMScriptChangeListener");}
     public static new() {return new CrossDMScriptChangeListener();}
 }
 
-export class CustomEvent extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "CustomEvent");}
+export class CustomEvent extends Instance {
+    protected constructor(className?: string) {super(className ?? "CustomEvent"); this.addClassName("CustomEvent");}
     public static new() {return new CustomEvent();}
-    public get persistedCurrentValue() {return this.getProp("PersistedCurrentValue", DataType.Float32);}
-    public set persistedCurrentValue(value) {this.setProp("PersistedCurrentValue", DataType.Float32, value);}
+    public get PersistedCurrentValue() {return this.GetProp("PersistedCurrentValue", DataType.Float32);}
+    public set PersistedCurrentValue(value) {this.SetProp("PersistedCurrentValue", DataType.Float32, value);}
 }
 
-export class CustomEventReceiver extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "CustomEventReceiver");}
+export class CustomEventReceiver extends Instance {
+    protected constructor(className?: string) {super(className ?? "CustomEventReceiver"); this.addClassName("CustomEventReceiver");}
     public static new() {return new CustomEventReceiver();}
-    public get source() {return this.getProp("Source", DataType.Referent) as CoreInstance | undefined;}
-    public set source(value) {this.setProp("Source", DataType.Referent, value);}
+    public get Source() {return this.GetProp("Source", DataType.Referent) as Instance | undefined;}
+    public set Source(value) {this.SetProp("Source", DataType.Referent, value);}
 }
 
-export abstract class DataModelMesh extends CoreInstance {
-    protected constructor(className: string) {super(className);}
-    public get offset() {return this.getProp("Offset", DataType.Vector3);}
-    public set offset(value) {this.setProp("Offset", DataType.Vector3, value);}
-    public get scale() {return this.getProp("Scale", DataType.Vector3);}
-    public set scale(value) {this.setProp("Scale", DataType.Vector3, value);}
-    public get vertexColor() {return this.getProp("VertexColor", DataType.Vector3);}
-    public set vertexColor(value) {this.setProp("VertexColor", DataType.Vector3, value);}
+export abstract class DataModelMesh extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("DataModelMesh");}
+    public get Offset() {return this.GetProp("Offset", DataType.Vector3);}
+    public set Offset(value) {this.SetProp("Offset", DataType.Vector3, value);}
+    public get Scale() {return this.GetProp("Scale", DataType.Vector3);}
+    public set Scale(value) {this.SetProp("Scale", DataType.Vector3, value);}
+    public get VertexColor() {return this.GetProp("VertexColor", DataType.Vector3);}
+    public set VertexColor(value) {this.SetProp("VertexColor", DataType.Vector3, value);}
 }
 
 export abstract class BevelMesh extends DataModelMesh {
-    protected constructor(className: string) {super(className);}
-    public get bevel() {return this.getProp("Bevel", DataType.Float32);}
-    public set bevel(value) {this.setProp("Bevel", DataType.Float32, value);}
-    public get bevel_Roundness() {return this.getProp("Bevel Roundness", DataType.Float32);}
-    public set bevel_Roundness(value) {this.setProp("Bevel Roundness", DataType.Float32, value);}
-    public get bulge() {return this.getProp("Bulge", DataType.Float32);}
-    public set bulge(value) {this.setProp("Bulge", DataType.Float32, value);}
+    protected constructor(className: string) {super(className); this.addClassName("BevelMesh");}
+    public get Bevel() {return this.GetProp("Bevel", DataType.Float32);}
+    public set Bevel(value) {this.SetProp("Bevel", DataType.Float32, value);}
+    public get BevelRoundness() {return this.GetProp("Bevel Roundness", DataType.Float32);}
+    public set BevelRoundness(value) {this.SetProp("Bevel Roundness", DataType.Float32, value);}
+    public get Bulge() {return this.GetProp("Bulge", DataType.Float32);}
+    public set Bulge(value) {this.SetProp("Bulge", DataType.Float32, value);}
 }
 
 export class BlockMesh extends BevelMesh {
-    protected constructor(className?: string) {super(className ?? "BlockMesh");}
+    protected constructor(className?: string) {super(className ?? "BlockMesh"); this.addClassName("BlockMesh");}
     public static new() {return new BlockMesh();}
 }
 
 export class CylinderMesh extends BevelMesh {
-    protected constructor(className?: string) {super(className ?? "CylinderMesh");}
+    protected constructor(className?: string) {super(className ?? "CylinderMesh"); this.addClassName("CylinderMesh");}
     public static new() {return new CylinderMesh();}
 }
 
 export class EditableMesh extends DataModelMesh {
-    protected constructor(className?: string) {super(className ?? "EditableMesh");}
+    protected constructor(className?: string) {super(className ?? "EditableMesh"); this.addClassName("EditableMesh");}
     public static new() {return new EditableMesh();}
 }
 
 export class RobloxEditableMesh extends EditableMesh {
-    protected constructor(className?: string) {super(className ?? "RobloxEditableMesh");}
+    protected constructor(className?: string) {super(className ?? "RobloxEditableMesh"); this.addClassName("RobloxEditableMesh");}
     public static new() {return new RobloxEditableMesh();}
-    public get meshDataSerialize() {return this.getProp("MeshDataSerialize", DataType.String);}
-    public set meshDataSerialize(value) {this.setProp("MeshDataSerialize", DataType.String, value);}
+    public get MeshDataSerialize() {return this.GetProp("MeshDataSerialize", DataType.String);}
+    public set MeshDataSerialize(value) {this.SetProp("MeshDataSerialize", DataType.String, value);}
 }
 
 export class FileMesh extends DataModelMesh {
-    protected constructor(className?: string) {super(className ?? "FileMesh");}
+    protected constructor(className?: string) {super(className ?? "FileMesh"); this.addClassName("FileMesh");}
     public static new() {return new FileMesh();}
-    public get meshId() {return this.getProp("MeshId", DataType.String);}
-    public set meshId(value) {this.setProp("MeshId", DataType.String, value);}
-    public get textureId() {return this.getProp("TextureId", DataType.String);}
-    public set textureId(value) {this.setProp("TextureId", DataType.String, value);}
+    public get MeshId() {return this.GetProp("MeshId", DataType.String);}
+    public set MeshId(value) {this.SetProp("MeshId", DataType.String, value);}
+    public get TextureId() {return this.GetProp("TextureId", DataType.String);}
+    public set TextureId(value) {this.SetProp("TextureId", DataType.String, value);}
 }
 
 export class SpecialMesh extends FileMesh {
-    protected constructor(className?: string) {super(className ?? "SpecialMesh");}
+    protected constructor(className?: string) {super(className ?? "SpecialMesh"); this.addClassName("SpecialMesh");}
     public static new() {return new SpecialMesh();}
-    public get meshType() {return this.getProp("MeshType", DataType.Enum) as MeshType | undefined;}
-    public set meshType(value) {this.setProp("MeshType", DataType.Enum, value);}
+    public get MeshType() {return this.GetProp("MeshType", DataType.Enum) as MeshType | undefined;}
+    public set MeshType(value) {this.SetProp("MeshType", DataType.Enum, value);}
 }
 
-export class DataModelPatchService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "DataModelPatchService", true);}
+export class DataModelPatchService extends Instance {
+    protected constructor(className?: string) {super(className ?? "DataModelPatchService", true); this.addClassName("DataModelPatchService");}
     public static new() {return new DataModelPatchService();}
 }
 
-export class DataStoreGetOptions extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "DataStoreGetOptions");}
+export class DataStoreGetOptions extends Instance {
+    protected constructor(className?: string) {super(className ?? "DataStoreGetOptions"); this.addClassName("DataStoreGetOptions");}
     public static new() {return new DataStoreGetOptions();}
-    public get useCache() {return this.getProp("UseCache", DataType.Bool);}
-    public set useCache(value) {this.setProp("UseCache", DataType.Bool, value);}
+    public get UseCache() {return this.GetProp("UseCache", DataType.Bool);}
+    public set UseCache(value) {this.SetProp("UseCache", DataType.Bool, value);}
 }
 
-export class DataStoreIncrementOptions extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "DataStoreIncrementOptions");}
+export class DataStoreIncrementOptions extends Instance {
+    protected constructor(className?: string) {super(className ?? "DataStoreIncrementOptions"); this.addClassName("DataStoreIncrementOptions");}
     public static new() {return new DataStoreIncrementOptions();}
 }
 
-export class DataStoreOptions extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "DataStoreOptions");}
+export class DataStoreOptions extends Instance {
+    protected constructor(className?: string) {super(className ?? "DataStoreOptions"); this.addClassName("DataStoreOptions");}
     public static new() {return new DataStoreOptions();}
-    public get allScopes() {return this.getProp("AllScopes", DataType.Bool);}
-    public set allScopes(value) {this.setProp("AllScopes", DataType.Bool, value);}
+    public get AllScopes() {return this.GetProp("AllScopes", DataType.Bool);}
+    public set AllScopes(value) {this.SetProp("AllScopes", DataType.Bool, value);}
 }
 
-export class DataStoreService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "DataStoreService", true);}
+export class DataStoreService extends Instance {
+    protected constructor(className?: string) {super(className ?? "DataStoreService", true); this.addClassName("DataStoreService");}
     public static new() {return new DataStoreService();}
-    public get automaticRetry() {return this.getProp("AutomaticRetry", DataType.Bool);}
-    public set automaticRetry(value) {this.setProp("AutomaticRetry", DataType.Bool, value);}
-    public get legacyNamingScheme() {return this.getProp("LegacyNamingScheme", DataType.Bool);}
-    public set legacyNamingScheme(value) {this.setProp("LegacyNamingScheme", DataType.Bool, value);}
+    public get AutomaticRetry() {return this.GetProp("AutomaticRetry", DataType.Bool);}
+    public set AutomaticRetry(value) {this.SetProp("AutomaticRetry", DataType.Bool, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get LegacyNamingScheme() {return this.GetProp("LegacyNamingScheme", DataType.Bool);}
+    /**@deprecated Deprecated by Roblox*/
+    public set LegacyNamingScheme(value) {this.SetProp("LegacyNamingScheme", DataType.Bool, value);}
 }
 
-export class DataStoreSetOptions extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "DataStoreSetOptions");}
+export class DataStoreSetOptions extends Instance {
+    protected constructor(className?: string) {super(className ?? "DataStoreSetOptions"); this.addClassName("DataStoreSetOptions");}
     public static new() {return new DataStoreSetOptions();}
 }
 
-export class Debris extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Debris", true);}
+export class Debris extends Instance {
+    protected constructor(className?: string) {super(className ?? "Debris", true); this.addClassName("Debris");}
     public static new() {return new Debris();}
-    public get maxItems() {return this.getProp("MaxItems", DataType.Int32);}
-    public set maxItems(value) {this.setProp("MaxItems", DataType.Int32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get MaxItems() {return this.GetProp("MaxItems", DataType.Int32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set MaxItems(value) {this.SetProp("MaxItems", DataType.Int32, value);}
 }
 
-export class DebuggablePluginWatcher extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "DebuggablePluginWatcher", true);}
+export class DebuggablePluginWatcher extends Instance {
+    protected constructor(className?: string) {super(className ?? "DebuggablePluginWatcher", true); this.addClassName("DebuggablePluginWatcher");}
     public static new() {return new DebuggablePluginWatcher();}
 }
 
-export abstract class DebuggerConnection extends CoreInstance {
-    protected constructor(className: string) {super(className);}
+export abstract class DebuggerConnection extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("DebuggerConnection");}
 }
 
-export class DebuggerConnectionManager extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "DebuggerConnectionManager", true);}
+export class DebuggerConnectionManager extends Instance {
+    protected constructor(className?: string) {super(className ?? "DebuggerConnectionManager", true); this.addClassName("DebuggerConnectionManager");}
     public static new() {return new DebuggerConnectionManager();}
-    public get timeout() {return this.getProp("Timeout", DataType.Float64);}
-    public set timeout(value) {this.setProp("Timeout", DataType.Float64, value);}
+    public get Timeout() {return this.GetProp("Timeout", DataType.Float64);}
+    public set Timeout(value) {this.SetProp("Timeout", DataType.Float64, value);}
 }
 
-export class DebuggerManager extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "DebuggerManager", true);}
+export class DebuggerManager extends Instance {
+    protected constructor(className?: string) {super(className ?? "DebuggerManager", true); this.addClassName("DebuggerManager");}
     public static new() {return new DebuggerManager();}
 }
 
-export class DebuggerUIService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "DebuggerUIService", true);}
+export class DebuggerUIService extends Instance {
+    protected constructor(className?: string) {super(className ?? "DebuggerUIService", true); this.addClassName("DebuggerUIService");}
     public static new() {return new DebuggerUIService();}
 }
 
-export class DebuggerWatch extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "DebuggerWatch");}
+export class DebuggerWatch extends Instance {
+    protected constructor(className?: string) {super(className ?? "DebuggerWatch"); this.addClassName("DebuggerWatch");}
     public static new() {return new DebuggerWatch();}
-    public get expression() {return this.getProp("Expression", DataType.String);}
-    public set expression(value) {this.setProp("Expression", DataType.String, value);}
+    public get Expression() {return this.GetProp("Expression", DataType.String);}
+    public set Expression(value) {this.SetProp("Expression", DataType.String, value);}
 }
 
-export class DeviceIdService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "DeviceIdService", true);}
+export class DeviceIdService extends Instance {
+    protected constructor(className?: string) {super(className ?? "DeviceIdService", true); this.addClassName("DeviceIdService");}
     public static new() {return new DeviceIdService();}
 }
 
-export class Dialog extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Dialog");}
+export class Dialog extends Instance {
+    protected constructor(className?: string) {super(className ?? "Dialog"); this.addClassName("Dialog");}
     public static new() {return new Dialog();}
-    public get behaviorType() {return this.getProp("BehaviorType", DataType.Enum) as DialogBehaviorType | undefined;}
-    public set behaviorType(value) {this.setProp("BehaviorType", DataType.Enum, value);}
-    public get conversationDistance() {return this.getProp("ConversationDistance", DataType.Float32);}
-    public set conversationDistance(value) {this.setProp("ConversationDistance", DataType.Float32, value);}
-    public get goodbyeChoiceActive() {return this.getProp("GoodbyeChoiceActive", DataType.Bool);}
-    public set goodbyeChoiceActive(value) {this.setProp("GoodbyeChoiceActive", DataType.Bool, value);}
-    public get goodbyeDialog() {return this.getProp("GoodbyeDialog", DataType.String);}
-    public set goodbyeDialog(value) {this.setProp("GoodbyeDialog", DataType.String, value);}
-    public get initialPrompt() {return this.getProp("InitialPrompt", DataType.String);}
-    public set initialPrompt(value) {this.setProp("InitialPrompt", DataType.String, value);}
-    public get purpose() {return this.getProp("Purpose", DataType.Enum) as DialogPurpose | undefined;}
-    public set purpose(value) {this.setProp("Purpose", DataType.Enum, value);}
-    public get tone() {return this.getProp("Tone", DataType.Enum) as DialogTone | undefined;}
-    public set tone(value) {this.setProp("Tone", DataType.Enum, value);}
-    public get triggerDistance() {return this.getProp("TriggerDistance", DataType.Float32);}
-    public set triggerDistance(value) {this.setProp("TriggerDistance", DataType.Float32, value);}
-    public get triggerOffset() {return this.getProp("TriggerOffset", DataType.Vector3);}
-    public set triggerOffset(value) {this.setProp("TriggerOffset", DataType.Vector3, value);}
+    public get BehaviorType() {return this.GetProp("BehaviorType", DataType.Enum) as DialogBehaviorType | undefined;}
+    public set BehaviorType(value) {this.SetProp("BehaviorType", DataType.Enum, value);}
+    public get ConversationDistance() {return this.GetProp("ConversationDistance", DataType.Float32);}
+    public set ConversationDistance(value) {this.SetProp("ConversationDistance", DataType.Float32, value);}
+    public get GoodbyeChoiceActive() {return this.GetProp("GoodbyeChoiceActive", DataType.Bool);}
+    public set GoodbyeChoiceActive(value) {this.SetProp("GoodbyeChoiceActive", DataType.Bool, value);}
+    public get GoodbyeDialog() {return this.GetProp("GoodbyeDialog", DataType.String);}
+    public set GoodbyeDialog(value) {this.SetProp("GoodbyeDialog", DataType.String, value);}
+    public get InitialPrompt() {return this.GetProp("InitialPrompt", DataType.String);}
+    public set InitialPrompt(value) {this.SetProp("InitialPrompt", DataType.String, value);}
+    public get Purpose() {return this.GetProp("Purpose", DataType.Enum) as DialogPurpose | undefined;}
+    public set Purpose(value) {this.SetProp("Purpose", DataType.Enum, value);}
+    public get Tone() {return this.GetProp("Tone", DataType.Enum) as DialogTone | undefined;}
+    public set Tone(value) {this.SetProp("Tone", DataType.Enum, value);}
+    public get TriggerDistance() {return this.GetProp("TriggerDistance", DataType.Float32);}
+    public set TriggerDistance(value) {this.SetProp("TriggerDistance", DataType.Float32, value);}
+    public get TriggerOffset() {return this.GetProp("TriggerOffset", DataType.Vector3);}
+    public set TriggerOffset(value) {this.SetProp("TriggerOffset", DataType.Vector3, value);}
 }
 
-export class DialogChoice extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "DialogChoice");}
+export class DialogChoice extends Instance {
+    protected constructor(className?: string) {super(className ?? "DialogChoice"); this.addClassName("DialogChoice");}
     public static new() {return new DialogChoice();}
-    public get goodbyeChoiceActive() {return this.getProp("GoodbyeChoiceActive", DataType.Bool);}
-    public set goodbyeChoiceActive(value) {this.setProp("GoodbyeChoiceActive", DataType.Bool, value);}
-    public get goodbyeDialog() {return this.getProp("GoodbyeDialog", DataType.String);}
-    public set goodbyeDialog(value) {this.setProp("GoodbyeDialog", DataType.String, value);}
-    public get responseDialog() {return this.getProp("ResponseDialog", DataType.String);}
-    public set responseDialog(value) {this.setProp("ResponseDialog", DataType.String, value);}
-    public get userDialog() {return this.getProp("UserDialog", DataType.String);}
-    public set userDialog(value) {this.setProp("UserDialog", DataType.String, value);}
+    public get GoodbyeChoiceActive() {return this.GetProp("GoodbyeChoiceActive", DataType.Bool);}
+    public set GoodbyeChoiceActive(value) {this.SetProp("GoodbyeChoiceActive", DataType.Bool, value);}
+    public get GoodbyeDialog() {return this.GetProp("GoodbyeDialog", DataType.String);}
+    public set GoodbyeDialog(value) {this.SetProp("GoodbyeDialog", DataType.String, value);}
+    public get ResponseDialog() {return this.GetProp("ResponseDialog", DataType.String);}
+    public set ResponseDialog(value) {this.SetProp("ResponseDialog", DataType.String, value);}
+    public get UserDialog() {return this.GetProp("UserDialog", DataType.String);}
+    public set UserDialog(value) {this.SetProp("UserDialog", DataType.String, value);}
 }
 
-export class DraftsService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "DraftsService", true);}
+export class DraftsService extends Instance {
+    protected constructor(className?: string) {super(className ?? "DraftsService", true); this.addClassName("DraftsService");}
     public static new() {return new DraftsService();}
 }
 
-export class Dragger extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Dragger");}
+export class Dragger extends Instance {
+    protected constructor(className?: string) {super(className ?? "Dragger"); this.addClassName("Dragger");}
     public static new() {return new Dragger();}
 }
 
-export class DraggerService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "DraggerService", true);}
+export class DraggerService extends Instance {
+    protected constructor(className?: string) {super(className ?? "DraggerService", true); this.addClassName("DraggerService");}
     public static new() {return new DraggerService();}
 }
 
-export class EditableImage extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "EditableImage");}
+export class EditableImage extends Instance {
+    protected constructor(className?: string) {super(className ?? "EditableImage"); this.addClassName("EditableImage");}
     public static new() {return new EditableImage();}
-    public get size() {return this.getProp("Size", DataType.Vector2);}
-    public set size(value) {this.setProp("Size", DataType.Vector2, value);}
+    public get Size() {return this.GetProp("Size", DataType.Vector2);}
+    public set Size(value) {this.SetProp("Size", DataType.Vector2, value);}
 }
 
 export class RobloxEditableImage extends EditableImage {
-    protected constructor(className?: string) {super(className ?? "RobloxEditableImage");}
+    protected constructor(className?: string) {super(className ?? "RobloxEditableImage"); this.addClassName("RobloxEditableImage");}
     public static new() {return new RobloxEditableImage();}
-    public get imageDataSerialize() {return this.getProp("ImageDataSerialize", DataType.String);}
-    public set imageDataSerialize(value) {this.setProp("ImageDataSerialize", DataType.String, value);}
+    public get ImageDataSerialize() {return this.GetProp("ImageDataSerialize", DataType.String);}
+    public set ImageDataSerialize(value) {this.SetProp("ImageDataSerialize", DataType.String, value);}
 }
 
-export class EngineAPICloudProcessingService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "EngineAPICloudProcessingService", true);}
+export class EngineAPICloudProcessingService extends Instance {
+    protected constructor(className?: string) {super(className ?? "EngineAPICloudProcessingService", true); this.addClassName("EngineAPICloudProcessingService");}
     public static new() {return new EngineAPICloudProcessingService();}
 }
 
-export class EulerRotationCurve extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "EulerRotationCurve");}
+export class EulerRotationCurve extends Instance {
+    protected constructor(className?: string) {super(className ?? "EulerRotationCurve"); this.addClassName("EulerRotationCurve");}
     public static new() {return new EulerRotationCurve();}
-    public get rotationOrder() {return this.getProp("RotationOrder", DataType.Enum) as RotationOrder | undefined;}
-    public set rotationOrder(value) {this.setProp("RotationOrder", DataType.Enum, value);}
+    public get RotationOrder() {return this.GetProp("RotationOrder", DataType.Enum) as RotationOrder | undefined;}
+    public set RotationOrder(value) {this.SetProp("RotationOrder", DataType.Enum, value);}
 }
 
-export class EventIngestService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "EventIngestService", true);}
+export class EventIngestService extends Instance {
+    protected constructor(className?: string) {super(className ?? "EventIngestService", true); this.addClassName("EventIngestService");}
     public static new() {return new EventIngestService();}
 }
 
-export class ExampleService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ExampleService", true);}
+export class ExampleService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ExampleService", true); this.addClassName("ExampleService");}
     public static new() {return new ExampleService();}
 }
 
-export class ExperienceAuthService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ExperienceAuthService", true);}
+export class ExperienceAuthService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ExperienceAuthService", true); this.addClassName("ExperienceAuthService");}
     public static new() {return new ExperienceAuthService();}
 }
 
-export class ExperienceInviteOptions extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ExperienceInviteOptions");}
+export class ExperienceInviteOptions extends Instance {
+    protected constructor(className?: string) {super(className ?? "ExperienceInviteOptions"); this.addClassName("ExperienceInviteOptions");}
     public static new() {return new ExperienceInviteOptions();}
-    public get inviteMessageId() {return this.getProp("InviteMessageId", DataType.String);}
-    public set inviteMessageId(value) {this.setProp("InviteMessageId", DataType.String, value);}
-    public get inviteUser() {return this.getProp("InviteUser", DataType.Int64);}
-    public set inviteUser(value) {this.setProp("InviteUser", DataType.Int64, value);}
-    public get launchData() {return this.getProp("LaunchData", DataType.String);}
-    public set launchData(value) {this.setProp("LaunchData", DataType.String, value);}
-    public get promptMessage() {return this.getProp("PromptMessage", DataType.String);}
-    public set promptMessage(value) {this.setProp("PromptMessage", DataType.String, value);}
+    public get InviteMessageId() {return this.GetProp("InviteMessageId", DataType.String);}
+    public set InviteMessageId(value) {this.SetProp("InviteMessageId", DataType.String, value);}
+    public get InviteUser() {return this.GetProp("InviteUser", DataType.Int64);}
+    public set InviteUser(value) {this.SetProp("InviteUser", DataType.Int64, value);}
+    public get LaunchData() {return this.GetProp("LaunchData", DataType.String);}
+    public set LaunchData(value) {this.SetProp("LaunchData", DataType.String, value);}
+    public get PromptMessage() {return this.GetProp("PromptMessage", DataType.String);}
+    public set PromptMessage(value) {this.SetProp("PromptMessage", DataType.String, value);}
 }
 
-export class ExperienceNotificationService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ExperienceNotificationService", true);}
+export class ExperienceNotificationService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ExperienceNotificationService", true); this.addClassName("ExperienceNotificationService");}
     public static new() {return new ExperienceNotificationService();}
 }
 
-export class ExperienceService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ExperienceService", true);}
+export class ExperienceService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ExperienceService", true); this.addClassName("ExperienceService");}
     public static new() {return new ExperienceService();}
 }
 
-export class ExperienceStateCaptureService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ExperienceStateCaptureService", true);}
+export class ExperienceStateCaptureService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ExperienceStateCaptureService", true); this.addClassName("ExperienceStateCaptureService");}
     public static new() {return new ExperienceStateCaptureService();}
 }
 
-export class Explosion extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Explosion");}
+export class Explosion extends Instance {
+    protected constructor(className?: string) {super(className ?? "Explosion"); this.addClassName("Explosion");}
     public static new() {return new Explosion();}
-    public get blastPressure() {return this.getProp("BlastPressure", DataType.Float32);}
-    public set blastPressure(value) {this.setProp("BlastPressure", DataType.Float32, value);}
-    public get blastRadius() {return this.getProp("BlastRadius", DataType.Float32);}
-    public set blastRadius(value) {this.setProp("BlastRadius", DataType.Float32, value);}
-    public get destroyJointRadiusPercent() {return this.getProp("DestroyJointRadiusPercent", DataType.Float32);}
-    public set destroyJointRadiusPercent(value) {this.setProp("DestroyJointRadiusPercent", DataType.Float32, value);}
-    public get explosionType() {return this.getProp("ExplosionType", DataType.Enum) as ExplosionType | undefined;}
-    public set explosionType(value) {this.setProp("ExplosionType", DataType.Enum, value);}
-    public get position() {return this.getProp("Position", DataType.Vector3);}
-    public set position(value) {this.setProp("Position", DataType.Vector3, value);}
-    public get timeScale() {return this.getProp("TimeScale", DataType.Float32);}
-    public set timeScale(value) {this.setProp("TimeScale", DataType.Float32, value);}
-    public get visible() {return this.getProp("Visible", DataType.Bool);}
-    public set visible(value) {this.setProp("Visible", DataType.Bool, value);}
+    public get BlastPressure() {return this.GetProp("BlastPressure", DataType.Float32);}
+    public set BlastPressure(value) {this.SetProp("BlastPressure", DataType.Float32, value);}
+    public get BlastRadius() {return this.GetProp("BlastRadius", DataType.Float32);}
+    public set BlastRadius(value) {this.SetProp("BlastRadius", DataType.Float32, value);}
+    public get DestroyJointRadiusPercent() {return this.GetProp("DestroyJointRadiusPercent", DataType.Float32);}
+    public set DestroyJointRadiusPercent(value) {this.SetProp("DestroyJointRadiusPercent", DataType.Float32, value);}
+    public get ExplosionType() {return this.GetProp("ExplosionType", DataType.Enum) as ExplosionType | undefined;}
+    public set ExplosionType(value) {this.SetProp("ExplosionType", DataType.Enum, value);}
+    public get Position() {return this.GetProp("Position", DataType.Vector3);}
+    public set Position(value) {this.SetProp("Position", DataType.Vector3, value);}
+    public get TimeScale() {return this.GetProp("TimeScale", DataType.Float32);}
+    public set TimeScale(value) {this.SetProp("TimeScale", DataType.Float32, value);}
+    public get Visible() {return this.GetProp("Visible", DataType.Bool);}
+    public set Visible(value) {this.SetProp("Visible", DataType.Bool, value);}
 }
 
-export class FaceAnimatorService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "FaceAnimatorService", true);}
+export class FaceAnimatorService extends Instance {
+    protected constructor(className?: string) {super(className ?? "FaceAnimatorService", true); this.addClassName("FaceAnimatorService");}
     public static new() {return new FaceAnimatorService();}
 }
 
-export class FaceControls extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "FaceControls");}
+export class FaceControls extends Instance {
+    protected constructor(className?: string) {super(className ?? "FaceControls"); this.addClassName("FaceControls");}
     public static new() {return new FaceControls();}
 }
 
-export abstract class FaceInstance extends CoreInstance {
-    protected constructor(className: string) {super(className);}
-    public get face() {return this.getProp("Face", DataType.Enum) as NormalId | undefined;}
-    public set face(value) {this.setProp("Face", DataType.Enum, value);}
+export abstract class FaceInstance extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("FaceInstance");}
+    public get Face() {return this.GetProp("Face", DataType.Enum) as NormalId | undefined;}
+    public set Face(value) {this.SetProp("Face", DataType.Enum, value);}
 }
 
 export class Decal extends FaceInstance {
-    protected constructor(className?: string) {super(className ?? "Decal");}
+    protected constructor(className?: string) {super(className ?? "Decal"); this.addClassName("Decal");}
     public static new() {return new Decal();}
-    public get color3() {return this.getProp("Color3", DataType.Color3);}
-    public set color3(value) {this.setProp("Color3", DataType.Color3, value);}
-    public get shiny() {return this.getProp("Shiny", DataType.Float32);}
-    public set shiny(value) {this.setProp("Shiny", DataType.Float32, value);}
-    public get specular() {return this.getProp("Specular", DataType.Float32);}
-    public set specular(value) {this.setProp("Specular", DataType.Float32, value);}
-    public get texture() {return this.getProp("Texture", DataType.String);}
-    public set texture(value) {this.setProp("Texture", DataType.String, value);}
-    public get transparency() {return this.getProp("Transparency", DataType.Float32);}
-    public set transparency(value) {this.setProp("Transparency", DataType.Float32, value);}
-    public get zIndex() {return this.getProp("ZIndex", DataType.Int32);}
-    public set zIndex(value) {this.setProp("ZIndex", DataType.Int32, value);}
+    public get Color3() {return this.GetProp("Color3", DataType.Color3);}
+    public set Color3(value) {this.SetProp("Color3", DataType.Color3, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get Shiny() {return this.GetProp("Shiny", DataType.Float32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set Shiny(value) {this.SetProp("Shiny", DataType.Float32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get Specular() {return this.GetProp("Specular", DataType.Float32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set Specular(value) {this.SetProp("Specular", DataType.Float32, value);}
+    public get Texture() {return this.GetProp("Texture", DataType.String);}
+    public set Texture(value) {this.SetProp("Texture", DataType.String, value);}
+    public get Transparency() {return this.GetProp("Transparency", DataType.Float32);}
+    public set Transparency(value) {this.SetProp("Transparency", DataType.Float32, value);}
+    public get ZIndex() {return this.GetProp("ZIndex", DataType.Int32);}
+    public set ZIndex(value) {this.SetProp("ZIndex", DataType.Int32, value);}
 }
 
 export class Texture extends Decal {
-    protected constructor(className?: string) {super(className ?? "Texture");}
+    protected constructor(className?: string) {super(className ?? "Texture"); this.addClassName("Texture");}
     public static new() {return new Texture();}
-    public get offsetStudsU() {return this.getProp("OffsetStudsU", DataType.Float32);}
-    public set offsetStudsU(value) {this.setProp("OffsetStudsU", DataType.Float32, value);}
-    public get offsetStudsV() {return this.getProp("OffsetStudsV", DataType.Float32);}
-    public set offsetStudsV(value) {this.setProp("OffsetStudsV", DataType.Float32, value);}
-    public get studsPerTileU() {return this.getProp("StudsPerTileU", DataType.Float32);}
-    public set studsPerTileU(value) {this.setProp("StudsPerTileU", DataType.Float32, value);}
-    public get studsPerTileV() {return this.getProp("StudsPerTileV", DataType.Float32);}
-    public set studsPerTileV(value) {this.setProp("StudsPerTileV", DataType.Float32, value);}
+    public get OffsetStudsU() {return this.GetProp("OffsetStudsU", DataType.Float32);}
+    public set OffsetStudsU(value) {this.SetProp("OffsetStudsU", DataType.Float32, value);}
+    public get OffsetStudsV() {return this.GetProp("OffsetStudsV", DataType.Float32);}
+    public set OffsetStudsV(value) {this.SetProp("OffsetStudsV", DataType.Float32, value);}
+    public get StudsPerTileU() {return this.GetProp("StudsPerTileU", DataType.Float32);}
+    public set StudsPerTileU(value) {this.SetProp("StudsPerTileU", DataType.Float32, value);}
+    public get StudsPerTileV() {return this.GetProp("StudsPerTileV", DataType.Float32);}
+    public set StudsPerTileV(value) {this.SetProp("StudsPerTileV", DataType.Float32, value);}
 }
 
-export class FacialAnimationRecordingService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "FacialAnimationRecordingService", true);}
+export class FacialAnimationRecordingService extends Instance {
+    protected constructor(className?: string) {super(className ?? "FacialAnimationRecordingService", true); this.addClassName("FacialAnimationRecordingService");}
     public static new() {return new FacialAnimationRecordingService();}
 }
 
-export class FacialAnimationStreamingServiceV2 extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "FacialAnimationStreamingServiceV2", true);}
+export class FacialAnimationStreamingServiceV2 extends Instance {
+    protected constructor(className?: string) {super(className ?? "FacialAnimationStreamingServiceV2", true); this.addClassName("FacialAnimationStreamingServiceV2");}
     public static new() {return new FacialAnimationStreamingServiceV2();}
-    public get serviceState() {return this.getProp("ServiceState", DataType.Int32);}
-    public set serviceState(value) {this.setProp("ServiceState", DataType.Int32, value);}
+    public get ServiceState() {return this.GetProp("ServiceState", DataType.Int32);}
+    public set ServiceState(value) {this.SetProp("ServiceState", DataType.Int32, value);}
 }
 
-export abstract class Feature extends CoreInstance {
-    protected constructor(className: string) {super(className);}
-    public get faceId() {return this.getProp("FaceId", DataType.Enum) as NormalId | undefined;}
-    public set faceId(value) {this.setProp("FaceId", DataType.Enum, value);}
-    public get inOut() {return this.getProp("InOut", DataType.Enum) as InOut | undefined;}
-    public set inOut(value) {this.setProp("InOut", DataType.Enum, value);}
-    public get leftRight() {return this.getProp("LeftRight", DataType.Enum) as LeftRight | undefined;}
-    public set leftRight(value) {this.setProp("LeftRight", DataType.Enum, value);}
-    public get topBottom() {return this.getProp("TopBottom", DataType.Enum) as TopBottom | undefined;}
-    public set topBottom(value) {this.setProp("TopBottom", DataType.Enum, value);}
+export abstract class Feature extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("Feature");}
+    public get FaceId() {return this.GetProp("FaceId", DataType.Enum) as NormalId | undefined;}
+    public set FaceId(value) {this.SetProp("FaceId", DataType.Enum, value);}
+    public get InOut() {return this.GetProp("InOut", DataType.Enum) as InOut | undefined;}
+    public set InOut(value) {this.SetProp("InOut", DataType.Enum, value);}
+    public get LeftRight() {return this.GetProp("LeftRight", DataType.Enum) as LeftRight | undefined;}
+    public set LeftRight(value) {this.SetProp("LeftRight", DataType.Enum, value);}
+    public get TopBottom() {return this.GetProp("TopBottom", DataType.Enum) as TopBottom | undefined;}
+    public set TopBottom(value) {this.SetProp("TopBottom", DataType.Enum, value);}
 }
 
 export class Hole extends Feature {
-    protected constructor(className?: string) {super(className ?? "Hole");}
+    protected constructor(className?: string) {super(className ?? "Hole"); this.addClassName("Hole");}
     public static new() {return new Hole();}
 }
 
 export class MotorFeature extends Feature {
-    protected constructor(className?: string) {super(className ?? "MotorFeature");}
+    protected constructor(className?: string) {super(className ?? "MotorFeature"); this.addClassName("MotorFeature");}
     public static new() {return new MotorFeature();}
 }
 
-export class Fire extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Fire");}
+export class Fire extends Instance {
+    protected constructor(className?: string) {super(className ?? "Fire"); this.addClassName("Fire");}
     public static new() {return new Fire();}
-    public get color() {return this.getProp("Color", DataType.Color3);}
-    public set color(value) {this.setProp("Color", DataType.Color3, value);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get secondaryColor() {return this.getProp("SecondaryColor", DataType.Color3);}
-    public set secondaryColor(value) {this.setProp("SecondaryColor", DataType.Color3, value);}
-    public get timeScale() {return this.getProp("TimeScale", DataType.Float32);}
-    public set timeScale(value) {this.setProp("TimeScale", DataType.Float32, value);}
-    public get heat_xml() {return this.getProp("heat_xml", DataType.Float32);}
-    public set heat_xml(value) {this.setProp("heat_xml", DataType.Float32, value);}
-    public get size() {return this.getProp("size", DataType.Float32);}
-    public set size(value) {this.setProp("size", DataType.Float32, value);}
-    public get size_xml() {return this.getProp("size_xml", DataType.Float32);}
-    public set size_xml(value) {this.setProp("size_xml", DataType.Float32, value);}
+    public get Color() {return this.GetProp("Color", DataType.Color3);}
+    public set Color(value) {this.SetProp("Color", DataType.Color3, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get SecondaryColor() {return this.GetProp("SecondaryColor", DataType.Color3);}
+    public set SecondaryColor(value) {this.SetProp("SecondaryColor", DataType.Color3, value);}
+    public get TimeScale() {return this.GetProp("TimeScale", DataType.Float32);}
+    public set TimeScale(value) {this.SetProp("TimeScale", DataType.Float32, value);}
+    public get HeatXml() {return this.GetProp("heat_xml", DataType.Float32);}
+    public set HeatXml(value) {this.SetProp("heat_xml", DataType.Float32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get Size() {return this.GetProp("size", DataType.Float32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set Size(value) {this.SetProp("size", DataType.Float32, value);}
+    public get SizeXml() {return this.GetProp("size_xml", DataType.Float32);}
+    public set SizeXml(value) {this.SetProp("size_xml", DataType.Float32, value);}
 }
 
-export class FlagStandService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "FlagStandService", true);}
+export class FlagStandService extends Instance {
+    protected constructor(className?: string) {super(className ?? "FlagStandService", true); this.addClassName("FlagStandService");}
     public static new() {return new FlagStandService();}
 }
 
-export class FloatCurve extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "FloatCurve");}
+export class FloatCurve extends Instance {
+    protected constructor(className?: string) {super(className ?? "FloatCurve"); this.addClassName("FloatCurve");}
     public static new() {return new FloatCurve();}
-    public get valuesAndTimes() {return this.getProp("ValuesAndTimes", DataType.String);}
-    public set valuesAndTimes(value) {this.setProp("ValuesAndTimes", DataType.String, value);}
+    public get ValuesAndTimes() {return this.GetProp("ValuesAndTimes", DataType.String);}
+    public set ValuesAndTimes(value) {this.SetProp("ValuesAndTimes", DataType.String, value);}
 }
 
-export class FlyweightService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "FlyweightService", true);}
+export class FlyweightService extends Instance {
+    protected constructor(className?: string) {super(className ?? "FlyweightService", true); this.addClassName("FlyweightService");}
     public static new() {return new FlyweightService();}
 }
 
 export class CSGDictionaryService extends FlyweightService {
-    protected constructor(className?: string) {super(className ?? "CSGDictionaryService");}
+    protected constructor(className?: string) {super(className ?? "CSGDictionaryService"); this.addClassName("CSGDictionaryService");}
     public static new() {return new CSGDictionaryService();}
 }
 
 export class NonReplicatedCSGDictionaryService extends FlyweightService {
-    protected constructor(className?: string) {super(className ?? "NonReplicatedCSGDictionaryService");}
+    protected constructor(className?: string) {super(className ?? "NonReplicatedCSGDictionaryService"); this.addClassName("NonReplicatedCSGDictionaryService");}
     public static new() {return new NonReplicatedCSGDictionaryService();}
 }
 
-export class Folder extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Folder");}
+export class Folder extends Instance {
+    protected constructor(className?: string) {super(className ?? "Folder"); this.addClassName("Folder");}
     public static new() {return new Folder();}
 }
 
-export class ForceField extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ForceField");}
+export class ForceField extends Instance {
+    protected constructor(className?: string) {super(className ?? "ForceField"); this.addClassName("ForceField");}
     public static new() {return new ForceField();}
-    public get visible() {return this.getProp("Visible", DataType.Bool);}
-    public set visible(value) {this.setProp("Visible", DataType.Bool, value);}
+    public get Visible() {return this.GetProp("Visible", DataType.Bool);}
+    public set Visible(value) {this.SetProp("Visible", DataType.Bool, value);}
 }
 
-export class FriendService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "FriendService", true);}
+export class FriendService extends Instance {
+    protected constructor(className?: string) {super(className ?? "FriendService", true); this.addClassName("FriendService");}
     public static new() {return new FriendService();}
 }
 
-export class FunctionalTest extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "FunctionalTest");}
+export class FunctionalTest extends Instance {
+    protected constructor(className?: string) {super(className ?? "FunctionalTest"); this.addClassName("FunctionalTest");}
     public static new() {return new FunctionalTest();}
-    public get description() {return this.getProp("Description", DataType.String);}
-    public set description(value) {this.setProp("Description", DataType.String, value);}
-    public get hasMigratedSettingsToTestService() {return this.getProp("HasMigratedSettingsToTestService", DataType.Bool);}
-    public set hasMigratedSettingsToTestService(value) {this.setProp("HasMigratedSettingsToTestService", DataType.Bool, value);}
+    public get Description() {return this.GetProp("Description", DataType.String);}
+    public set Description(value) {this.SetProp("Description", DataType.String, value);}
+    public get HasMigratedSettingsToTestService() {return this.GetProp("HasMigratedSettingsToTestService", DataType.Bool);}
+    public set HasMigratedSettingsToTestService(value) {this.SetProp("HasMigratedSettingsToTestService", DataType.Bool, value);}
 }
 
-export class GamePassService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "GamePassService", true);}
+export class GamePassService extends Instance {
+    protected constructor(className?: string) {super(className ?? "GamePassService", true); this.addClassName("GamePassService");}
     public static new() {return new GamePassService();}
 }
 
-export class GamepadService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "GamepadService", true);}
+export class GamepadService extends Instance {
+    protected constructor(className?: string) {super(className ?? "GamepadService", true); this.addClassName("GamepadService");}
     public static new() {return new GamepadService();}
-    public get gamepadCursorEnabled() {return this.getProp("GamepadCursorEnabled", DataType.Bool);}
-    public set gamepadCursorEnabled(value) {this.setProp("GamepadCursorEnabled", DataType.Bool, value);}
+    public get GamepadCursorEnabled() {return this.GetProp("GamepadCursorEnabled", DataType.Bool);}
+    public set GamepadCursorEnabled(value) {this.SetProp("GamepadCursorEnabled", DataType.Bool, value);}
 }
 
-export class Geometry extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Geometry", true);}
+export class Geometry extends Instance {
+    protected constructor(className?: string) {super(className ?? "Geometry", true); this.addClassName("Geometry");}
     public static new() {return new Geometry();}
 }
 
-export class GeometryService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "GeometryService", true);}
+export class GeometryService extends Instance {
+    protected constructor(className?: string) {super(className ?? "GeometryService", true); this.addClassName("GeometryService");}
     public static new() {return new GeometryService();}
 }
 
-export class GetTextBoundsParams extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "GetTextBoundsParams");}
+export class GetTextBoundsParams extends Instance {
+    protected constructor(className?: string) {super(className ?? "GetTextBoundsParams"); this.addClassName("GetTextBoundsParams");}
     public static new() {return new GetTextBoundsParams();}
-    public get font() {return this.getProp("Font", DataType.Font);}
-    public set font(value) {this.setProp("Font", DataType.Font, value);}
-    public get size() {return this.getProp("Size", DataType.Float32);}
-    public set size(value) {this.setProp("Size", DataType.Float32, value);}
-    public get text() {return this.getProp("Text", DataType.String);}
-    public set text(value) {this.setProp("Text", DataType.String, value);}
-    public get width() {return this.getProp("Width", DataType.Float32);}
-    public set width(value) {this.setProp("Width", DataType.Float32, value);}
+    public get Font() {return this.GetProp("Font", DataType.Font);}
+    public set Font(value) {this.SetProp("Font", DataType.Font, value);}
+    public get Size() {return this.GetProp("Size", DataType.Float32);}
+    public set Size(value) {this.SetProp("Size", DataType.Float32, value);}
+    public get Text() {return this.GetProp("Text", DataType.String);}
+    public set Text(value) {this.SetProp("Text", DataType.String, value);}
+    public get Width() {return this.GetProp("Width", DataType.Float32);}
+    public set Width(value) {this.SetProp("Width", DataType.Float32, value);}
 }
 
-export abstract class GlobalDataStore extends CoreInstance {
-    protected constructor(className: string) {super(className);}
+export abstract class GlobalDataStore extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("GlobalDataStore");}
 }
 
-export class GoogleAnalyticsConfiguration extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "GoogleAnalyticsConfiguration", true);}
+export class GoogleAnalyticsConfiguration extends Instance {
+    protected constructor(className?: string) {super(className ?? "GoogleAnalyticsConfiguration", true); this.addClassName("GoogleAnalyticsConfiguration");}
     public static new() {return new GoogleAnalyticsConfiguration();}
-    public get gaID() {return this.getProp("gaID", DataType.String);}
-    public set gaID(value) {this.setProp("gaID", DataType.String, value);}
+    public get GaID() {return this.GetProp("gaID", DataType.String);}
+    public set GaID(value) {this.SetProp("gaID", DataType.String, value);}
 }
 
-export class GroupService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "GroupService", true);}
+export class GroupService extends Instance {
+    protected constructor(className?: string) {super(className ?? "GroupService", true); this.addClassName("GroupService");}
     public static new() {return new GroupService();}
 }
 
-export abstract class GuiBase extends CoreInstance {
-    protected constructor(className: string) {super(className);}
+export abstract class GuiBase extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("GuiBase");}
 }
 
 export abstract class GuiBase2d extends GuiBase {
-    protected constructor(className: string) {super(className);}
-    public get autoLocalize() {return this.getProp("AutoLocalize", DataType.Bool);}
-    public set autoLocalize(value) {this.setProp("AutoLocalize", DataType.Bool, value);}
-    public get localize() {return this.getProp("Localize", DataType.Bool);}
-    public set localize(value) {this.setProp("Localize", DataType.Bool, value);}
-    public get rootLocalizationTable() {return this.getProp("RootLocalizationTable", DataType.Referent) as LocalizationTable | undefined;}
-    public set rootLocalizationTable(value) {this.setProp("RootLocalizationTable", DataType.Referent, value);}
-    public get selectionBehaviorDown() {return this.getProp("SelectionBehaviorDown", DataType.Enum) as SelectionBehavior | undefined;}
-    public set selectionBehaviorDown(value) {this.setProp("SelectionBehaviorDown", DataType.Enum, value);}
-    public get selectionBehaviorLeft() {return this.getProp("SelectionBehaviorLeft", DataType.Enum) as SelectionBehavior | undefined;}
-    public set selectionBehaviorLeft(value) {this.setProp("SelectionBehaviorLeft", DataType.Enum, value);}
-    public get selectionBehaviorRight() {return this.getProp("SelectionBehaviorRight", DataType.Enum) as SelectionBehavior | undefined;}
-    public set selectionBehaviorRight(value) {this.setProp("SelectionBehaviorRight", DataType.Enum, value);}
-    public get selectionBehaviorUp() {return this.getProp("SelectionBehaviorUp", DataType.Enum) as SelectionBehavior | undefined;}
-    public set selectionBehaviorUp(value) {this.setProp("SelectionBehaviorUp", DataType.Enum, value);}
-    public get selectionGroup() {return this.getProp("SelectionGroup", DataType.Bool);}
-    public set selectionGroup(value) {this.setProp("SelectionGroup", DataType.Bool, value);}
+    protected constructor(className: string) {super(className); this.addClassName("GuiBase2d");}
+    public get AutoLocalize() {return this.GetProp("AutoLocalize", DataType.Bool);}
+    public set AutoLocalize(value) {this.SetProp("AutoLocalize", DataType.Bool, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get Localize() {return this.GetProp("Localize", DataType.Bool);}
+    /**@deprecated Deprecated by Roblox*/
+    public set Localize(value) {this.SetProp("Localize", DataType.Bool, value);}
+    public get RootLocalizationTable() {return this.GetProp("RootLocalizationTable", DataType.Referent) as LocalizationTable | undefined;}
+    public set RootLocalizationTable(value) {this.SetProp("RootLocalizationTable", DataType.Referent, value);}
+    public get SelectionBehaviorDown() {return this.GetProp("SelectionBehaviorDown", DataType.Enum) as SelectionBehavior | undefined;}
+    public set SelectionBehaviorDown(value) {this.SetProp("SelectionBehaviorDown", DataType.Enum, value);}
+    public get SelectionBehaviorLeft() {return this.GetProp("SelectionBehaviorLeft", DataType.Enum) as SelectionBehavior | undefined;}
+    public set SelectionBehaviorLeft(value) {this.SetProp("SelectionBehaviorLeft", DataType.Enum, value);}
+    public get SelectionBehaviorRight() {return this.GetProp("SelectionBehaviorRight", DataType.Enum) as SelectionBehavior | undefined;}
+    public set SelectionBehaviorRight(value) {this.SetProp("SelectionBehaviorRight", DataType.Enum, value);}
+    public get SelectionBehaviorUp() {return this.GetProp("SelectionBehaviorUp", DataType.Enum) as SelectionBehavior | undefined;}
+    public set SelectionBehaviorUp(value) {this.SetProp("SelectionBehaviorUp", DataType.Enum, value);}
+    public get SelectionGroup() {return this.GetProp("SelectionGroup", DataType.Bool);}
+    public set SelectionGroup(value) {this.SetProp("SelectionGroup", DataType.Bool, value);}
 }
 
 export abstract class GuiObject extends GuiBase2d {
-    protected constructor(className: string) {super(className);}
-    public get active() {return this.getProp("Active", DataType.Bool);}
-    public set active(value) {this.setProp("Active", DataType.Bool, value);}
-    public get anchorPoint() {return this.getProp("AnchorPoint", DataType.Vector2);}
-    public set anchorPoint(value) {this.setProp("AnchorPoint", DataType.Vector2, value);}
-    public get automaticSize() {return this.getProp("AutomaticSize", DataType.Enum) as AutomaticSize | undefined;}
-    public set automaticSize(value) {this.setProp("AutomaticSize", DataType.Enum, value);}
-    public get backgroundColor() {return this.getProp("BackgroundColor", DataType.BrickColor);}
-    public set backgroundColor(value) {this.setProp("BackgroundColor", DataType.BrickColor, value);}
-    public get backgroundColor3() {return this.getProp("BackgroundColor3", DataType.Color3);}
-    public set backgroundColor3(value) {this.setProp("BackgroundColor3", DataType.Color3, value);}
-    public get backgroundTransparency() {return this.getProp("BackgroundTransparency", DataType.Float32);}
-    public set backgroundTransparency(value) {this.setProp("BackgroundTransparency", DataType.Float32, value);}
-    public get borderColor() {return this.getProp("BorderColor", DataType.BrickColor);}
-    public set borderColor(value) {this.setProp("BorderColor", DataType.BrickColor, value);}
-    public get borderColor3() {return this.getProp("BorderColor3", DataType.Color3);}
-    public set borderColor3(value) {this.setProp("BorderColor3", DataType.Color3, value);}
-    public get borderMode() {return this.getProp("BorderMode", DataType.Enum) as BorderMode | undefined;}
-    public set borderMode(value) {this.setProp("BorderMode", DataType.Enum, value);}
-    public get borderSizePixel() {return this.getProp("BorderSizePixel", DataType.Int32);}
-    public set borderSizePixel(value) {this.setProp("BorderSizePixel", DataType.Int32, value);}
-    public get clipsDescendants() {return this.getProp("ClipsDescendants", DataType.Bool);}
-    public set clipsDescendants(value) {this.setProp("ClipsDescendants", DataType.Bool, value);}
-    public get draggable() {return this.getProp("Draggable", DataType.Bool);}
-    public set draggable(value) {this.setProp("Draggable", DataType.Bool, value);}
-    public get interactable() {return this.getProp("Interactable", DataType.Bool);}
-    public set interactable(value) {this.setProp("Interactable", DataType.Bool, value);}
-    public get layoutOrder() {return this.getProp("LayoutOrder", DataType.Int32);}
-    public set layoutOrder(value) {this.setProp("LayoutOrder", DataType.Int32, value);}
-    public get nextSelectionDown() {return this.getProp("NextSelectionDown", DataType.Referent) as GuiObject | undefined;}
-    public set nextSelectionDown(value) {this.setProp("NextSelectionDown", DataType.Referent, value);}
-    public get nextSelectionLeft() {return this.getProp("NextSelectionLeft", DataType.Referent) as GuiObject | undefined;}
-    public set nextSelectionLeft(value) {this.setProp("NextSelectionLeft", DataType.Referent, value);}
-    public get nextSelectionRight() {return this.getProp("NextSelectionRight", DataType.Referent) as GuiObject | undefined;}
-    public set nextSelectionRight(value) {this.setProp("NextSelectionRight", DataType.Referent, value);}
-    public get nextSelectionUp() {return this.getProp("NextSelectionUp", DataType.Referent) as GuiObject | undefined;}
-    public set nextSelectionUp(value) {this.setProp("NextSelectionUp", DataType.Referent, value);}
-    public get position() {return this.getProp("Position", DataType.UDim2);}
-    public set position(value) {this.setProp("Position", DataType.UDim2, value);}
-    public get rotation() {return this.getProp("Rotation", DataType.Float32);}
-    public set rotation(value) {this.setProp("Rotation", DataType.Float32, value);}
-    public get selectable() {return this.getProp("Selectable", DataType.Bool);}
-    public set selectable(value) {this.setProp("Selectable", DataType.Bool, value);}
-    public get selectionImageObject() {return this.getProp("SelectionImageObject", DataType.Referent) as GuiObject | undefined;}
-    public set selectionImageObject(value) {this.setProp("SelectionImageObject", DataType.Referent, value);}
-    public get selectionOrder() {return this.getProp("SelectionOrder", DataType.Int32);}
-    public set selectionOrder(value) {this.setProp("SelectionOrder", DataType.Int32, value);}
-    public get size() {return this.getProp("Size", DataType.UDim2);}
-    public set size(value) {this.setProp("Size", DataType.UDim2, value);}
-    public get sizeConstraint() {return this.getProp("SizeConstraint", DataType.Enum) as SizeConstraint | undefined;}
-    public set sizeConstraint(value) {this.setProp("SizeConstraint", DataType.Enum, value);}
-    public get visible() {return this.getProp("Visible", DataType.Bool);}
-    public set visible(value) {this.setProp("Visible", DataType.Bool, value);}
-    public get zIndex() {return this.getProp("ZIndex", DataType.Int32);}
-    public set zIndex(value) {this.setProp("ZIndex", DataType.Int32, value);}
+    protected constructor(className: string) {super(className); this.addClassName("GuiObject");}
+    public get Active() {return this.GetProp("Active", DataType.Bool);}
+    public set Active(value) {this.SetProp("Active", DataType.Bool, value);}
+    public get AnchorPoint() {return this.GetProp("AnchorPoint", DataType.Vector2);}
+    public set AnchorPoint(value) {this.SetProp("AnchorPoint", DataType.Vector2, value);}
+    public get AutomaticSize() {return this.GetProp("AutomaticSize", DataType.Enum) as AutomaticSize | undefined;}
+    public set AutomaticSize(value) {this.SetProp("AutomaticSize", DataType.Enum, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get BackgroundColor() {return this.GetProp("BackgroundColor", DataType.BrickColor);}
+    /**@deprecated Deprecated by Roblox*/
+    public set BackgroundColor(value) {this.SetProp("BackgroundColor", DataType.BrickColor, value);}
+    public get BackgroundColor3() {return this.GetProp("BackgroundColor3", DataType.Color3);}
+    public set BackgroundColor3(value) {this.SetProp("BackgroundColor3", DataType.Color3, value);}
+    public get BackgroundTransparency() {return this.GetProp("BackgroundTransparency", DataType.Float32);}
+    public set BackgroundTransparency(value) {this.SetProp("BackgroundTransparency", DataType.Float32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get BorderColor() {return this.GetProp("BorderColor", DataType.BrickColor);}
+    /**@deprecated Deprecated by Roblox*/
+    public set BorderColor(value) {this.SetProp("BorderColor", DataType.BrickColor, value);}
+    public get BorderColor3() {return this.GetProp("BorderColor3", DataType.Color3);}
+    public set BorderColor3(value) {this.SetProp("BorderColor3", DataType.Color3, value);}
+    public get BorderMode() {return this.GetProp("BorderMode", DataType.Enum) as BorderMode | undefined;}
+    public set BorderMode(value) {this.SetProp("BorderMode", DataType.Enum, value);}
+    public get BorderSizePixel() {return this.GetProp("BorderSizePixel", DataType.Int32);}
+    public set BorderSizePixel(value) {this.SetProp("BorderSizePixel", DataType.Int32, value);}
+    public get ClipsDescendants() {return this.GetProp("ClipsDescendants", DataType.Bool);}
+    public set ClipsDescendants(value) {this.SetProp("ClipsDescendants", DataType.Bool, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get Draggable() {return this.GetProp("Draggable", DataType.Bool);}
+    /**@deprecated Deprecated by Roblox*/
+    public set Draggable(value) {this.SetProp("Draggable", DataType.Bool, value);}
+    public get Interactable() {return this.GetProp("Interactable", DataType.Bool);}
+    public set Interactable(value) {this.SetProp("Interactable", DataType.Bool, value);}
+    public get LayoutOrder() {return this.GetProp("LayoutOrder", DataType.Int32);}
+    public set LayoutOrder(value) {this.SetProp("LayoutOrder", DataType.Int32, value);}
+    public get NextSelectionDown() {return this.GetProp("NextSelectionDown", DataType.Referent) as GuiObject | undefined;}
+    public set NextSelectionDown(value) {this.SetProp("NextSelectionDown", DataType.Referent, value);}
+    public get NextSelectionLeft() {return this.GetProp("NextSelectionLeft", DataType.Referent) as GuiObject | undefined;}
+    public set NextSelectionLeft(value) {this.SetProp("NextSelectionLeft", DataType.Referent, value);}
+    public get NextSelectionRight() {return this.GetProp("NextSelectionRight", DataType.Referent) as GuiObject | undefined;}
+    public set NextSelectionRight(value) {this.SetProp("NextSelectionRight", DataType.Referent, value);}
+    public get NextSelectionUp() {return this.GetProp("NextSelectionUp", DataType.Referent) as GuiObject | undefined;}
+    public set NextSelectionUp(value) {this.SetProp("NextSelectionUp", DataType.Referent, value);}
+    public get Position() {return this.GetProp("Position", DataType.UDim2);}
+    public set Position(value) {this.SetProp("Position", DataType.UDim2, value);}
+    public get Rotation() {return this.GetProp("Rotation", DataType.Float32);}
+    public set Rotation(value) {this.SetProp("Rotation", DataType.Float32, value);}
+    public get Selectable() {return this.GetProp("Selectable", DataType.Bool);}
+    public set Selectable(value) {this.SetProp("Selectable", DataType.Bool, value);}
+    public get SelectionImageObject() {return this.GetProp("SelectionImageObject", DataType.Referent) as GuiObject | undefined;}
+    public set SelectionImageObject(value) {this.SetProp("SelectionImageObject", DataType.Referent, value);}
+    public get SelectionOrder() {return this.GetProp("SelectionOrder", DataType.Int32);}
+    public set SelectionOrder(value) {this.SetProp("SelectionOrder", DataType.Int32, value);}
+    public get Size() {return this.GetProp("Size", DataType.UDim2);}
+    public set Size(value) {this.SetProp("Size", DataType.UDim2, value);}
+    public get SizeConstraint() {return this.GetProp("SizeConstraint", DataType.Enum) as SizeConstraint | undefined;}
+    public set SizeConstraint(value) {this.SetProp("SizeConstraint", DataType.Enum, value);}
+    public get Visible() {return this.GetProp("Visible", DataType.Bool);}
+    public set Visible(value) {this.SetProp("Visible", DataType.Bool, value);}
+    public get ZIndex() {return this.GetProp("ZIndex", DataType.Int32);}
+    public set ZIndex(value) {this.SetProp("ZIndex", DataType.Int32, value);}
 }
 
 export class CanvasGroup extends GuiObject {
-    protected constructor(className?: string) {super(className ?? "CanvasGroup");}
+    protected constructor(className?: string) {super(className ?? "CanvasGroup"); this.addClassName("CanvasGroup");}
     public static new() {return new CanvasGroup();}
-    public get groupColor3() {return this.getProp("GroupColor3", DataType.Color3);}
-    public set groupColor3(value) {this.setProp("GroupColor3", DataType.Color3, value);}
-    public get groupTransparency() {return this.getProp("GroupTransparency", DataType.Float32);}
-    public set groupTransparency(value) {this.setProp("GroupTransparency", DataType.Float32, value);}
+    public get GroupColor3() {return this.GetProp("GroupColor3", DataType.Color3);}
+    public set GroupColor3(value) {this.SetProp("GroupColor3", DataType.Color3, value);}
+    public get GroupTransparency() {return this.GetProp("GroupTransparency", DataType.Float32);}
+    public set GroupTransparency(value) {this.SetProp("GroupTransparency", DataType.Float32, value);}
 }
 
 export class Frame extends GuiObject {
-    protected constructor(className?: string) {super(className ?? "Frame");}
+    protected constructor(className?: string) {super(className ?? "Frame"); this.addClassName("Frame");}
     public static new() {return new Frame();}
-    public get style() {return this.getProp("Style", DataType.Enum) as FrameStyle | undefined;}
-    public set style(value) {this.setProp("Style", DataType.Enum, value);}
+    public get Style() {return this.GetProp("Style", DataType.Enum) as FrameStyle | undefined;}
+    public set Style(value) {this.SetProp("Style", DataType.Enum, value);}
 }
 
 export abstract class GuiButton extends GuiObject {
-    protected constructor(className: string) {super(className);}
-    public get autoButtonColor() {return this.getProp("AutoButtonColor", DataType.Bool);}
-    public set autoButtonColor(value) {this.setProp("AutoButtonColor", DataType.Bool, value);}
-    public get modal() {return this.getProp("Modal", DataType.Bool);}
-    public set modal(value) {this.setProp("Modal", DataType.Bool, value);}
-    public get selected() {return this.getProp("Selected", DataType.Bool);}
-    public set selected(value) {this.setProp("Selected", DataType.Bool, value);}
-    public get style() {return this.getProp("Style", DataType.Enum) as ButtonStyle | undefined;}
-    public set style(value) {this.setProp("Style", DataType.Enum, value);}
+    protected constructor(className: string) {super(className); this.addClassName("GuiButton");}
+    public get AutoButtonColor() {return this.GetProp("AutoButtonColor", DataType.Bool);}
+    public set AutoButtonColor(value) {this.SetProp("AutoButtonColor", DataType.Bool, value);}
+    public get Modal() {return this.GetProp("Modal", DataType.Bool);}
+    public set Modal(value) {this.SetProp("Modal", DataType.Bool, value);}
+    public get Selected() {return this.GetProp("Selected", DataType.Bool);}
+    public set Selected(value) {this.SetProp("Selected", DataType.Bool, value);}
+    public get Style() {return this.GetProp("Style", DataType.Enum) as ButtonStyle | undefined;}
+    public set Style(value) {this.SetProp("Style", DataType.Enum, value);}
 }
 
 export class ImageButton extends GuiButton {
-    protected constructor(className?: string) {super(className ?? "ImageButton");}
+    protected constructor(className?: string) {super(className ?? "ImageButton"); this.addClassName("ImageButton");}
     public static new() {return new ImageButton();}
-    public get hoverImage() {return this.getProp("HoverImage", DataType.String);}
-    public set hoverImage(value) {this.setProp("HoverImage", DataType.String, value);}
-    public get image() {return this.getProp("Image", DataType.String);}
-    public set image(value) {this.setProp("Image", DataType.String, value);}
-    public get imageColor3() {return this.getProp("ImageColor3", DataType.Color3);}
-    public set imageColor3(value) {this.setProp("ImageColor3", DataType.Color3, value);}
-    public get imageRectOffset() {return this.getProp("ImageRectOffset", DataType.Vector2);}
-    public set imageRectOffset(value) {this.setProp("ImageRectOffset", DataType.Vector2, value);}
-    public get imageRectSize() {return this.getProp("ImageRectSize", DataType.Vector2);}
-    public set imageRectSize(value) {this.setProp("ImageRectSize", DataType.Vector2, value);}
-    public get imageTransparency() {return this.getProp("ImageTransparency", DataType.Float32);}
-    public set imageTransparency(value) {this.setProp("ImageTransparency", DataType.Float32, value);}
-    public get pressedImage() {return this.getProp("PressedImage", DataType.String);}
-    public set pressedImage(value) {this.setProp("PressedImage", DataType.String, value);}
-    public get resampleMode() {return this.getProp("ResampleMode", DataType.Enum) as ResamplerMode | undefined;}
-    public set resampleMode(value) {this.setProp("ResampleMode", DataType.Enum, value);}
-    public get scaleType() {return this.getProp("ScaleType", DataType.Enum) as ScaleType | undefined;}
-    public set scaleType(value) {this.setProp("ScaleType", DataType.Enum, value);}
-    public get sliceCenter() {return this.getProp("SliceCenter", DataType.Rect);}
-    public set sliceCenter(value) {this.setProp("SliceCenter", DataType.Rect, value);}
-    public get sliceScale() {return this.getProp("SliceScale", DataType.Float32);}
-    public set sliceScale(value) {this.setProp("SliceScale", DataType.Float32, value);}
-    public get tileSize() {return this.getProp("TileSize", DataType.UDim2);}
-    public set tileSize(value) {this.setProp("TileSize", DataType.UDim2, value);}
+    public get HoverImage() {return this.GetProp("HoverImage", DataType.String);}
+    public set HoverImage(value) {this.SetProp("HoverImage", DataType.String, value);}
+    public get Image() {return this.GetProp("Image", DataType.String);}
+    public set Image(value) {this.SetProp("Image", DataType.String, value);}
+    public get ImageColor3() {return this.GetProp("ImageColor3", DataType.Color3);}
+    public set ImageColor3(value) {this.SetProp("ImageColor3", DataType.Color3, value);}
+    public get ImageRectOffset() {return this.GetProp("ImageRectOffset", DataType.Vector2);}
+    public set ImageRectOffset(value) {this.SetProp("ImageRectOffset", DataType.Vector2, value);}
+    public get ImageRectSize() {return this.GetProp("ImageRectSize", DataType.Vector2);}
+    public set ImageRectSize(value) {this.SetProp("ImageRectSize", DataType.Vector2, value);}
+    public get ImageTransparency() {return this.GetProp("ImageTransparency", DataType.Float32);}
+    public set ImageTransparency(value) {this.SetProp("ImageTransparency", DataType.Float32, value);}
+    public get PressedImage() {return this.GetProp("PressedImage", DataType.String);}
+    public set PressedImage(value) {this.SetProp("PressedImage", DataType.String, value);}
+    public get ResampleMode() {return this.GetProp("ResampleMode", DataType.Enum) as ResamplerMode | undefined;}
+    public set ResampleMode(value) {this.SetProp("ResampleMode", DataType.Enum, value);}
+    public get ScaleType() {return this.GetProp("ScaleType", DataType.Enum) as ScaleType | undefined;}
+    public set ScaleType(value) {this.SetProp("ScaleType", DataType.Enum, value);}
+    public get SliceCenter() {return this.GetProp("SliceCenter", DataType.Rect);}
+    public set SliceCenter(value) {this.SetProp("SliceCenter", DataType.Rect, value);}
+    public get SliceScale() {return this.GetProp("SliceScale", DataType.Float32);}
+    public set SliceScale(value) {this.SetProp("SliceScale", DataType.Float32, value);}
+    public get TileSize() {return this.GetProp("TileSize", DataType.UDim2);}
+    public set TileSize(value) {this.SetProp("TileSize", DataType.UDim2, value);}
 }
 
 export class TextButton extends GuiButton {
-    protected constructor(className?: string) {super(className ?? "TextButton");}
+    protected constructor(className?: string) {super(className ?? "TextButton"); this.addClassName("TextButton");}
     public static new() {return new TextButton();}
-    public get fontFace() {return this.getProp("FontFace", DataType.Font);}
-    public set fontFace(value) {this.setProp("FontFace", DataType.Font, value);}
-    public get fontSize() {return this.getProp("FontSize", DataType.Enum) as FontSize | undefined;}
-    public set fontSize(value) {this.setProp("FontSize", DataType.Enum, value);}
-    public get lineHeight() {return this.getProp("LineHeight", DataType.Float32);}
-    public set lineHeight(value) {this.setProp("LineHeight", DataType.Float32, value);}
-    public get localizationMatchIdentifier() {return this.getProp("LocalizationMatchIdentifier", DataType.String);}
-    public set localizationMatchIdentifier(value) {this.setProp("LocalizationMatchIdentifier", DataType.String, value);}
-    public get localizationMatchedSourceText() {return this.getProp("LocalizationMatchedSourceText", DataType.String);}
-    public set localizationMatchedSourceText(value) {this.setProp("LocalizationMatchedSourceText", DataType.String, value);}
-    public get maxVisibleGraphemes() {return this.getProp("MaxVisibleGraphemes", DataType.Int32);}
-    public set maxVisibleGraphemes(value) {this.setProp("MaxVisibleGraphemes", DataType.Int32, value);}
-    public get richText() {return this.getProp("RichText", DataType.Bool);}
-    public set richText(value) {this.setProp("RichText", DataType.Bool, value);}
-    public get text() {return this.getProp("Text", DataType.String);}
-    public set text(value) {this.setProp("Text", DataType.String, value);}
-    public get textColor() {return this.getProp("TextColor", DataType.BrickColor);}
-    public set textColor(value) {this.setProp("TextColor", DataType.BrickColor, value);}
-    public get textColor3() {return this.getProp("TextColor3", DataType.Color3);}
-    public set textColor3(value) {this.setProp("TextColor3", DataType.Color3, value);}
-    public get textDirection() {return this.getProp("TextDirection", DataType.Enum) as TextDirection | undefined;}
-    public set textDirection(value) {this.setProp("TextDirection", DataType.Enum, value);}
-    public get textScaled() {return this.getProp("TextScaled", DataType.Bool);}
-    public set textScaled(value) {this.setProp("TextScaled", DataType.Bool, value);}
-    public get textSize() {return this.getProp("TextSize", DataType.Float32);}
-    public set textSize(value) {this.setProp("TextSize", DataType.Float32, value);}
-    public get textStrokeColor3() {return this.getProp("TextStrokeColor3", DataType.Color3);}
-    public set textStrokeColor3(value) {this.setProp("TextStrokeColor3", DataType.Color3, value);}
-    public get textStrokeTransparency() {return this.getProp("TextStrokeTransparency", DataType.Float32);}
-    public set textStrokeTransparency(value) {this.setProp("TextStrokeTransparency", DataType.Float32, value);}
-    public get textTransparency() {return this.getProp("TextTransparency", DataType.Float32);}
-    public set textTransparency(value) {this.setProp("TextTransparency", DataType.Float32, value);}
-    public get textTruncate() {return this.getProp("TextTruncate", DataType.Enum) as TextTruncate | undefined;}
-    public set textTruncate(value) {this.setProp("TextTruncate", DataType.Enum, value);}
-    public get textWrap() {return this.getProp("TextWrap", DataType.Bool);}
-    public set textWrap(value) {this.setProp("TextWrap", DataType.Bool, value);}
-    public get textWrapped() {return this.getProp("TextWrapped", DataType.Bool);}
-    public set textWrapped(value) {this.setProp("TextWrapped", DataType.Bool, value);}
-    public get textXAlignment() {return this.getProp("TextXAlignment", DataType.Enum) as TextXAlignment | undefined;}
-    public set textXAlignment(value) {this.setProp("TextXAlignment", DataType.Enum, value);}
-    public get textYAlignment() {return this.getProp("TextYAlignment", DataType.Enum) as TextYAlignment | undefined;}
-    public set textYAlignment(value) {this.setProp("TextYAlignment", DataType.Enum, value);}
+    public get FontFace() {return this.GetProp("FontFace", DataType.Font);}
+    public set FontFace(value) {this.SetProp("FontFace", DataType.Font, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get FontSize() {return this.GetProp("FontSize", DataType.Enum) as FontSize | undefined;}
+    /**@deprecated Deprecated by Roblox*/
+    public set FontSize(value) {this.SetProp("FontSize", DataType.Enum, value);}
+    public get LineHeight() {return this.GetProp("LineHeight", DataType.Float32);}
+    public set LineHeight(value) {this.SetProp("LineHeight", DataType.Float32, value);}
+    public get LocalizationMatchIdentifier() {return this.GetProp("LocalizationMatchIdentifier", DataType.String);}
+    public set LocalizationMatchIdentifier(value) {this.SetProp("LocalizationMatchIdentifier", DataType.String, value);}
+    public get LocalizationMatchedSourceText() {return this.GetProp("LocalizationMatchedSourceText", DataType.String);}
+    public set LocalizationMatchedSourceText(value) {this.SetProp("LocalizationMatchedSourceText", DataType.String, value);}
+    public get MaxVisibleGraphemes() {return this.GetProp("MaxVisibleGraphemes", DataType.Int32);}
+    public set MaxVisibleGraphemes(value) {this.SetProp("MaxVisibleGraphemes", DataType.Int32, value);}
+    public get RichText() {return this.GetProp("RichText", DataType.Bool);}
+    public set RichText(value) {this.SetProp("RichText", DataType.Bool, value);}
+    public get Text() {return this.GetProp("Text", DataType.String);}
+    public set Text(value) {this.SetProp("Text", DataType.String, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get TextColor() {return this.GetProp("TextColor", DataType.BrickColor);}
+    /**@deprecated Deprecated by Roblox*/
+    public set TextColor(value) {this.SetProp("TextColor", DataType.BrickColor, value);}
+    public get TextColor3() {return this.GetProp("TextColor3", DataType.Color3);}
+    public set TextColor3(value) {this.SetProp("TextColor3", DataType.Color3, value);}
+    public get TextDirection() {return this.GetProp("TextDirection", DataType.Enum) as TextDirection | undefined;}
+    public set TextDirection(value) {this.SetProp("TextDirection", DataType.Enum, value);}
+    public get TextScaled() {return this.GetProp("TextScaled", DataType.Bool);}
+    public set TextScaled(value) {this.SetProp("TextScaled", DataType.Bool, value);}
+    public get TextSize() {return this.GetProp("TextSize", DataType.Float32);}
+    public set TextSize(value) {this.SetProp("TextSize", DataType.Float32, value);}
+    public get TextStrokeColor3() {return this.GetProp("TextStrokeColor3", DataType.Color3);}
+    public set TextStrokeColor3(value) {this.SetProp("TextStrokeColor3", DataType.Color3, value);}
+    public get TextStrokeTransparency() {return this.GetProp("TextStrokeTransparency", DataType.Float32);}
+    public set TextStrokeTransparency(value) {this.SetProp("TextStrokeTransparency", DataType.Float32, value);}
+    public get TextTransparency() {return this.GetProp("TextTransparency", DataType.Float32);}
+    public set TextTransparency(value) {this.SetProp("TextTransparency", DataType.Float32, value);}
+    public get TextTruncate() {return this.GetProp("TextTruncate", DataType.Enum) as TextTruncate | undefined;}
+    public set TextTruncate(value) {this.SetProp("TextTruncate", DataType.Enum, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get TextWrap() {return this.GetProp("TextWrap", DataType.Bool);}
+    /**@deprecated Deprecated by Roblox*/
+    public set TextWrap(value) {this.SetProp("TextWrap", DataType.Bool, value);}
+    public get TextWrapped() {return this.GetProp("TextWrapped", DataType.Bool);}
+    public set TextWrapped(value) {this.SetProp("TextWrapped", DataType.Bool, value);}
+    public get TextXAlignment() {return this.GetProp("TextXAlignment", DataType.Enum) as TextXAlignment | undefined;}
+    public set TextXAlignment(value) {this.SetProp("TextXAlignment", DataType.Enum, value);}
+    public get TextYAlignment() {return this.GetProp("TextYAlignment", DataType.Enum) as TextYAlignment | undefined;}
+    public set TextYAlignment(value) {this.SetProp("TextYAlignment", DataType.Enum, value);}
 }
 
 export abstract class GuiLabel extends GuiObject {
-    protected constructor(className: string) {super(className);}
+    protected constructor(className: string) {super(className); this.addClassName("GuiLabel");}
 }
 
 export class ImageLabel extends GuiLabel {
-    protected constructor(className?: string) {super(className ?? "ImageLabel");}
+    protected constructor(className?: string) {super(className ?? "ImageLabel"); this.addClassName("ImageLabel");}
     public static new() {return new ImageLabel();}
-    public get image() {return this.getProp("Image", DataType.String);}
-    public set image(value) {this.setProp("Image", DataType.String, value);}
-    public get imageColor3() {return this.getProp("ImageColor3", DataType.Color3);}
-    public set imageColor3(value) {this.setProp("ImageColor3", DataType.Color3, value);}
-    public get imageRectOffset() {return this.getProp("ImageRectOffset", DataType.Vector2);}
-    public set imageRectOffset(value) {this.setProp("ImageRectOffset", DataType.Vector2, value);}
-    public get imageRectSize() {return this.getProp("ImageRectSize", DataType.Vector2);}
-    public set imageRectSize(value) {this.setProp("ImageRectSize", DataType.Vector2, value);}
-    public get imageTransparency() {return this.getProp("ImageTransparency", DataType.Float32);}
-    public set imageTransparency(value) {this.setProp("ImageTransparency", DataType.Float32, value);}
-    public get resampleMode() {return this.getProp("ResampleMode", DataType.Enum) as ResamplerMode | undefined;}
-    public set resampleMode(value) {this.setProp("ResampleMode", DataType.Enum, value);}
-    public get scaleType() {return this.getProp("ScaleType", DataType.Enum) as ScaleType | undefined;}
-    public set scaleType(value) {this.setProp("ScaleType", DataType.Enum, value);}
-    public get sliceCenter() {return this.getProp("SliceCenter", DataType.Rect);}
-    public set sliceCenter(value) {this.setProp("SliceCenter", DataType.Rect, value);}
-    public get sliceScale() {return this.getProp("SliceScale", DataType.Float32);}
-    public set sliceScale(value) {this.setProp("SliceScale", DataType.Float32, value);}
-    public get tileSize() {return this.getProp("TileSize", DataType.UDim2);}
-    public set tileSize(value) {this.setProp("TileSize", DataType.UDim2, value);}
+    public get Image() {return this.GetProp("Image", DataType.String);}
+    public set Image(value) {this.SetProp("Image", DataType.String, value);}
+    public get ImageColor3() {return this.GetProp("ImageColor3", DataType.Color3);}
+    public set ImageColor3(value) {this.SetProp("ImageColor3", DataType.Color3, value);}
+    public get ImageRectOffset() {return this.GetProp("ImageRectOffset", DataType.Vector2);}
+    public set ImageRectOffset(value) {this.SetProp("ImageRectOffset", DataType.Vector2, value);}
+    public get ImageRectSize() {return this.GetProp("ImageRectSize", DataType.Vector2);}
+    public set ImageRectSize(value) {this.SetProp("ImageRectSize", DataType.Vector2, value);}
+    public get ImageTransparency() {return this.GetProp("ImageTransparency", DataType.Float32);}
+    public set ImageTransparency(value) {this.SetProp("ImageTransparency", DataType.Float32, value);}
+    public get ResampleMode() {return this.GetProp("ResampleMode", DataType.Enum) as ResamplerMode | undefined;}
+    public set ResampleMode(value) {this.SetProp("ResampleMode", DataType.Enum, value);}
+    public get ScaleType() {return this.GetProp("ScaleType", DataType.Enum) as ScaleType | undefined;}
+    public set ScaleType(value) {this.SetProp("ScaleType", DataType.Enum, value);}
+    public get SliceCenter() {return this.GetProp("SliceCenter", DataType.Rect);}
+    public set SliceCenter(value) {this.SetProp("SliceCenter", DataType.Rect, value);}
+    public get SliceScale() {return this.GetProp("SliceScale", DataType.Float32);}
+    public set SliceScale(value) {this.SetProp("SliceScale", DataType.Float32, value);}
+    public get TileSize() {return this.GetProp("TileSize", DataType.UDim2);}
+    public set TileSize(value) {this.SetProp("TileSize", DataType.UDim2, value);}
 }
 
 export class TextLabel extends GuiLabel {
-    protected constructor(className?: string) {super(className ?? "TextLabel");}
+    protected constructor(className?: string) {super(className ?? "TextLabel"); this.addClassName("TextLabel");}
     public static new() {return new TextLabel();}
-    public get fontFace() {return this.getProp("FontFace", DataType.Font);}
-    public set fontFace(value) {this.setProp("FontFace", DataType.Font, value);}
-    public get fontSize() {return this.getProp("FontSize", DataType.Enum) as FontSize | undefined;}
-    public set fontSize(value) {this.setProp("FontSize", DataType.Enum, value);}
-    public get lineHeight() {return this.getProp("LineHeight", DataType.Float32);}
-    public set lineHeight(value) {this.setProp("LineHeight", DataType.Float32, value);}
-    public get localizationMatchIdentifier() {return this.getProp("LocalizationMatchIdentifier", DataType.String);}
-    public set localizationMatchIdentifier(value) {this.setProp("LocalizationMatchIdentifier", DataType.String, value);}
-    public get localizationMatchedSourceText() {return this.getProp("LocalizationMatchedSourceText", DataType.String);}
-    public set localizationMatchedSourceText(value) {this.setProp("LocalizationMatchedSourceText", DataType.String, value);}
-    public get maxVisibleGraphemes() {return this.getProp("MaxVisibleGraphemes", DataType.Int32);}
-    public set maxVisibleGraphemes(value) {this.setProp("MaxVisibleGraphemes", DataType.Int32, value);}
-    public get richText() {return this.getProp("RichText", DataType.Bool);}
-    public set richText(value) {this.setProp("RichText", DataType.Bool, value);}
-    public get text() {return this.getProp("Text", DataType.String);}
-    public set text(value) {this.setProp("Text", DataType.String, value);}
-    public get textColor() {return this.getProp("TextColor", DataType.BrickColor);}
-    public set textColor(value) {this.setProp("TextColor", DataType.BrickColor, value);}
-    public get textColor3() {return this.getProp("TextColor3", DataType.Color3);}
-    public set textColor3(value) {this.setProp("TextColor3", DataType.Color3, value);}
-    public get textDirection() {return this.getProp("TextDirection", DataType.Enum) as TextDirection | undefined;}
-    public set textDirection(value) {this.setProp("TextDirection", DataType.Enum, value);}
-    public get textScaled() {return this.getProp("TextScaled", DataType.Bool);}
-    public set textScaled(value) {this.setProp("TextScaled", DataType.Bool, value);}
-    public get textSize() {return this.getProp("TextSize", DataType.Float32);}
-    public set textSize(value) {this.setProp("TextSize", DataType.Float32, value);}
-    public get textStrokeColor3() {return this.getProp("TextStrokeColor3", DataType.Color3);}
-    public set textStrokeColor3(value) {this.setProp("TextStrokeColor3", DataType.Color3, value);}
-    public get textStrokeTransparency() {return this.getProp("TextStrokeTransparency", DataType.Float32);}
-    public set textStrokeTransparency(value) {this.setProp("TextStrokeTransparency", DataType.Float32, value);}
-    public get textTransparency() {return this.getProp("TextTransparency", DataType.Float32);}
-    public set textTransparency(value) {this.setProp("TextTransparency", DataType.Float32, value);}
-    public get textTruncate() {return this.getProp("TextTruncate", DataType.Enum) as TextTruncate | undefined;}
-    public set textTruncate(value) {this.setProp("TextTruncate", DataType.Enum, value);}
-    public get textWrap() {return this.getProp("TextWrap", DataType.Bool);}
-    public set textWrap(value) {this.setProp("TextWrap", DataType.Bool, value);}
-    public get textWrapped() {return this.getProp("TextWrapped", DataType.Bool);}
-    public set textWrapped(value) {this.setProp("TextWrapped", DataType.Bool, value);}
-    public get textXAlignment() {return this.getProp("TextXAlignment", DataType.Enum) as TextXAlignment | undefined;}
-    public set textXAlignment(value) {this.setProp("TextXAlignment", DataType.Enum, value);}
-    public get textYAlignment() {return this.getProp("TextYAlignment", DataType.Enum) as TextYAlignment | undefined;}
-    public set textYAlignment(value) {this.setProp("TextYAlignment", DataType.Enum, value);}
+    public get FontFace() {return this.GetProp("FontFace", DataType.Font);}
+    public set FontFace(value) {this.SetProp("FontFace", DataType.Font, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get FontSize() {return this.GetProp("FontSize", DataType.Enum) as FontSize | undefined;}
+    /**@deprecated Deprecated by Roblox*/
+    public set FontSize(value) {this.SetProp("FontSize", DataType.Enum, value);}
+    public get LineHeight() {return this.GetProp("LineHeight", DataType.Float32);}
+    public set LineHeight(value) {this.SetProp("LineHeight", DataType.Float32, value);}
+    public get LocalizationMatchIdentifier() {return this.GetProp("LocalizationMatchIdentifier", DataType.String);}
+    public set LocalizationMatchIdentifier(value) {this.SetProp("LocalizationMatchIdentifier", DataType.String, value);}
+    public get LocalizationMatchedSourceText() {return this.GetProp("LocalizationMatchedSourceText", DataType.String);}
+    public set LocalizationMatchedSourceText(value) {this.SetProp("LocalizationMatchedSourceText", DataType.String, value);}
+    public get MaxVisibleGraphemes() {return this.GetProp("MaxVisibleGraphemes", DataType.Int32);}
+    public set MaxVisibleGraphemes(value) {this.SetProp("MaxVisibleGraphemes", DataType.Int32, value);}
+    public get RichText() {return this.GetProp("RichText", DataType.Bool);}
+    public set RichText(value) {this.SetProp("RichText", DataType.Bool, value);}
+    public get Text() {return this.GetProp("Text", DataType.String);}
+    public set Text(value) {this.SetProp("Text", DataType.String, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get TextColor() {return this.GetProp("TextColor", DataType.BrickColor);}
+    /**@deprecated Deprecated by Roblox*/
+    public set TextColor(value) {this.SetProp("TextColor", DataType.BrickColor, value);}
+    public get TextColor3() {return this.GetProp("TextColor3", DataType.Color3);}
+    public set TextColor3(value) {this.SetProp("TextColor3", DataType.Color3, value);}
+    public get TextDirection() {return this.GetProp("TextDirection", DataType.Enum) as TextDirection | undefined;}
+    public set TextDirection(value) {this.SetProp("TextDirection", DataType.Enum, value);}
+    public get TextScaled() {return this.GetProp("TextScaled", DataType.Bool);}
+    public set TextScaled(value) {this.SetProp("TextScaled", DataType.Bool, value);}
+    public get TextSize() {return this.GetProp("TextSize", DataType.Float32);}
+    public set TextSize(value) {this.SetProp("TextSize", DataType.Float32, value);}
+    public get TextStrokeColor3() {return this.GetProp("TextStrokeColor3", DataType.Color3);}
+    public set TextStrokeColor3(value) {this.SetProp("TextStrokeColor3", DataType.Color3, value);}
+    public get TextStrokeTransparency() {return this.GetProp("TextStrokeTransparency", DataType.Float32);}
+    public set TextStrokeTransparency(value) {this.SetProp("TextStrokeTransparency", DataType.Float32, value);}
+    public get TextTransparency() {return this.GetProp("TextTransparency", DataType.Float32);}
+    public set TextTransparency(value) {this.SetProp("TextTransparency", DataType.Float32, value);}
+    public get TextTruncate() {return this.GetProp("TextTruncate", DataType.Enum) as TextTruncate | undefined;}
+    public set TextTruncate(value) {this.SetProp("TextTruncate", DataType.Enum, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get TextWrap() {return this.GetProp("TextWrap", DataType.Bool);}
+    /**@deprecated Deprecated by Roblox*/
+    public set TextWrap(value) {this.SetProp("TextWrap", DataType.Bool, value);}
+    public get TextWrapped() {return this.GetProp("TextWrapped", DataType.Bool);}
+    public set TextWrapped(value) {this.SetProp("TextWrapped", DataType.Bool, value);}
+    public get TextXAlignment() {return this.GetProp("TextXAlignment", DataType.Enum) as TextXAlignment | undefined;}
+    public set TextXAlignment(value) {this.SetProp("TextXAlignment", DataType.Enum, value);}
+    public get TextYAlignment() {return this.GetProp("TextYAlignment", DataType.Enum) as TextYAlignment | undefined;}
+    public set TextYAlignment(value) {this.SetProp("TextYAlignment", DataType.Enum, value);}
 }
 
 export class ScrollingFrame extends GuiObject {
-    protected constructor(className?: string) {super(className ?? "ScrollingFrame");}
+    protected constructor(className?: string) {super(className ?? "ScrollingFrame"); this.addClassName("ScrollingFrame");}
     public static new() {return new ScrollingFrame();}
-    public get automaticCanvasSize() {return this.getProp("AutomaticCanvasSize", DataType.Enum) as AutomaticSize | undefined;}
-    public set automaticCanvasSize(value) {this.setProp("AutomaticCanvasSize", DataType.Enum, value);}
-    public get bottomImage() {return this.getProp("BottomImage", DataType.String);}
-    public set bottomImage(value) {this.setProp("BottomImage", DataType.String, value);}
-    public get canvasPosition() {return this.getProp("CanvasPosition", DataType.Vector2);}
-    public set canvasPosition(value) {this.setProp("CanvasPosition", DataType.Vector2, value);}
-    public get canvasSize() {return this.getProp("CanvasSize", DataType.UDim2);}
-    public set canvasSize(value) {this.setProp("CanvasSize", DataType.UDim2, value);}
-    public get elasticBehavior() {return this.getProp("ElasticBehavior", DataType.Enum) as ElasticBehavior | undefined;}
-    public set elasticBehavior(value) {this.setProp("ElasticBehavior", DataType.Enum, value);}
-    public get horizontalScrollBarInset() {return this.getProp("HorizontalScrollBarInset", DataType.Enum) as ScrollBarInset | undefined;}
-    public set horizontalScrollBarInset(value) {this.setProp("HorizontalScrollBarInset", DataType.Enum, value);}
-    public get midImage() {return this.getProp("MidImage", DataType.String);}
-    public set midImage(value) {this.setProp("MidImage", DataType.String, value);}
-    public get scrollBarImageColor3() {return this.getProp("ScrollBarImageColor3", DataType.Color3);}
-    public set scrollBarImageColor3(value) {this.setProp("ScrollBarImageColor3", DataType.Color3, value);}
-    public get scrollBarImageTransparency() {return this.getProp("ScrollBarImageTransparency", DataType.Float32);}
-    public set scrollBarImageTransparency(value) {this.setProp("ScrollBarImageTransparency", DataType.Float32, value);}
-    public get scrollBarThickness() {return this.getProp("ScrollBarThickness", DataType.Int32);}
-    public set scrollBarThickness(value) {this.setProp("ScrollBarThickness", DataType.Int32, value);}
-    public get scrollingDirection() {return this.getProp("ScrollingDirection", DataType.Enum) as ScrollingDirection | undefined;}
-    public set scrollingDirection(value) {this.setProp("ScrollingDirection", DataType.Enum, value);}
-    public get scrollingEnabled() {return this.getProp("ScrollingEnabled", DataType.Bool);}
-    public set scrollingEnabled(value) {this.setProp("ScrollingEnabled", DataType.Bool, value);}
-    public get topImage() {return this.getProp("TopImage", DataType.String);}
-    public set topImage(value) {this.setProp("TopImage", DataType.String, value);}
-    public get verticalScrollBarInset() {return this.getProp("VerticalScrollBarInset", DataType.Enum) as ScrollBarInset | undefined;}
-    public set verticalScrollBarInset(value) {this.setProp("VerticalScrollBarInset", DataType.Enum, value);}
-    public get verticalScrollBarPosition() {return this.getProp("VerticalScrollBarPosition", DataType.Enum) as VerticalScrollBarPosition | undefined;}
-    public set verticalScrollBarPosition(value) {this.setProp("VerticalScrollBarPosition", DataType.Enum, value);}
+    public get AutomaticCanvasSize() {return this.GetProp("AutomaticCanvasSize", DataType.Enum) as AutomaticSize | undefined;}
+    public set AutomaticCanvasSize(value) {this.SetProp("AutomaticCanvasSize", DataType.Enum, value);}
+    public get BottomImage() {return this.GetProp("BottomImage", DataType.String);}
+    public set BottomImage(value) {this.SetProp("BottomImage", DataType.String, value);}
+    public get CanvasPosition() {return this.GetProp("CanvasPosition", DataType.Vector2);}
+    public set CanvasPosition(value) {this.SetProp("CanvasPosition", DataType.Vector2, value);}
+    public get CanvasSize() {return this.GetProp("CanvasSize", DataType.UDim2);}
+    public set CanvasSize(value) {this.SetProp("CanvasSize", DataType.UDim2, value);}
+    public get ElasticBehavior() {return this.GetProp("ElasticBehavior", DataType.Enum) as ElasticBehavior | undefined;}
+    public set ElasticBehavior(value) {this.SetProp("ElasticBehavior", DataType.Enum, value);}
+    public get HorizontalScrollBarInset() {return this.GetProp("HorizontalScrollBarInset", DataType.Enum) as ScrollBarInset | undefined;}
+    public set HorizontalScrollBarInset(value) {this.SetProp("HorizontalScrollBarInset", DataType.Enum, value);}
+    public get MidImage() {return this.GetProp("MidImage", DataType.String);}
+    public set MidImage(value) {this.SetProp("MidImage", DataType.String, value);}
+    public get ScrollBarImageColor3() {return this.GetProp("ScrollBarImageColor3", DataType.Color3);}
+    public set ScrollBarImageColor3(value) {this.SetProp("ScrollBarImageColor3", DataType.Color3, value);}
+    public get ScrollBarImageTransparency() {return this.GetProp("ScrollBarImageTransparency", DataType.Float32);}
+    public set ScrollBarImageTransparency(value) {this.SetProp("ScrollBarImageTransparency", DataType.Float32, value);}
+    public get ScrollBarThickness() {return this.GetProp("ScrollBarThickness", DataType.Int32);}
+    public set ScrollBarThickness(value) {this.SetProp("ScrollBarThickness", DataType.Int32, value);}
+    public get ScrollingDirection() {return this.GetProp("ScrollingDirection", DataType.Enum) as ScrollingDirection | undefined;}
+    public set ScrollingDirection(value) {this.SetProp("ScrollingDirection", DataType.Enum, value);}
+    public get ScrollingEnabled() {return this.GetProp("ScrollingEnabled", DataType.Bool);}
+    public set ScrollingEnabled(value) {this.SetProp("ScrollingEnabled", DataType.Bool, value);}
+    public get TopImage() {return this.GetProp("TopImage", DataType.String);}
+    public set TopImage(value) {this.SetProp("TopImage", DataType.String, value);}
+    public get VerticalScrollBarInset() {return this.GetProp("VerticalScrollBarInset", DataType.Enum) as ScrollBarInset | undefined;}
+    public set VerticalScrollBarInset(value) {this.SetProp("VerticalScrollBarInset", DataType.Enum, value);}
+    public get VerticalScrollBarPosition() {return this.GetProp("VerticalScrollBarPosition", DataType.Enum) as VerticalScrollBarPosition | undefined;}
+    public set VerticalScrollBarPosition(value) {this.SetProp("VerticalScrollBarPosition", DataType.Enum, value);}
 }
 
 export class TextBox extends GuiObject {
-    protected constructor(className?: string) {super(className ?? "TextBox");}
+    protected constructor(className?: string) {super(className ?? "TextBox"); this.addClassName("TextBox");}
     public static new() {return new TextBox();}
-    public get clearTextOnFocus() {return this.getProp("ClearTextOnFocus", DataType.Bool);}
-    public set clearTextOnFocus(value) {this.setProp("ClearTextOnFocus", DataType.Bool, value);}
-    public get fontFace() {return this.getProp("FontFace", DataType.Font);}
-    public set fontFace(value) {this.setProp("FontFace", DataType.Font, value);}
-    public get fontSize() {return this.getProp("FontSize", DataType.Enum) as FontSize | undefined;}
-    public set fontSize(value) {this.setProp("FontSize", DataType.Enum, value);}
-    public get lineHeight() {return this.getProp("LineHeight", DataType.Float32);}
-    public set lineHeight(value) {this.setProp("LineHeight", DataType.Float32, value);}
-    public get localizationMatchIdentifier() {return this.getProp("LocalizationMatchIdentifier", DataType.String);}
-    public set localizationMatchIdentifier(value) {this.setProp("LocalizationMatchIdentifier", DataType.String, value);}
-    public get localizationMatchedSourceText() {return this.getProp("LocalizationMatchedSourceText", DataType.String);}
-    public set localizationMatchedSourceText(value) {this.setProp("LocalizationMatchedSourceText", DataType.String, value);}
-    public get maxVisibleGraphemes() {return this.getProp("MaxVisibleGraphemes", DataType.Int32);}
-    public set maxVisibleGraphemes(value) {this.setProp("MaxVisibleGraphemes", DataType.Int32, value);}
-    public get multiLine() {return this.getProp("MultiLine", DataType.Bool);}
-    public set multiLine(value) {this.setProp("MultiLine", DataType.Bool, value);}
-    public get placeholderColor3() {return this.getProp("PlaceholderColor3", DataType.Color3);}
-    public set placeholderColor3(value) {this.setProp("PlaceholderColor3", DataType.Color3, value);}
-    public get placeholderText() {return this.getProp("PlaceholderText", DataType.String);}
-    public set placeholderText(value) {this.setProp("PlaceholderText", DataType.String, value);}
-    public get richText() {return this.getProp("RichText", DataType.Bool);}
-    public set richText(value) {this.setProp("RichText", DataType.Bool, value);}
-    public get showNativeInput() {return this.getProp("ShowNativeInput", DataType.Bool);}
-    public set showNativeInput(value) {this.setProp("ShowNativeInput", DataType.Bool, value);}
-    public get text() {return this.getProp("Text", DataType.String);}
-    public set text(value) {this.setProp("Text", DataType.String, value);}
-    public get textColor() {return this.getProp("TextColor", DataType.BrickColor);}
-    public set textColor(value) {this.setProp("TextColor", DataType.BrickColor, value);}
-    public get textColor3() {return this.getProp("TextColor3", DataType.Color3);}
-    public set textColor3(value) {this.setProp("TextColor3", DataType.Color3, value);}
-    public get textDirection() {return this.getProp("TextDirection", DataType.Enum) as TextDirection | undefined;}
-    public set textDirection(value) {this.setProp("TextDirection", DataType.Enum, value);}
-    public get textEditable() {return this.getProp("TextEditable", DataType.Bool);}
-    public set textEditable(value) {this.setProp("TextEditable", DataType.Bool, value);}
-    public get textScaled() {return this.getProp("TextScaled", DataType.Bool);}
-    public set textScaled(value) {this.setProp("TextScaled", DataType.Bool, value);}
-    public get textSize() {return this.getProp("TextSize", DataType.Float32);}
-    public set textSize(value) {this.setProp("TextSize", DataType.Float32, value);}
-    public get textStrokeColor3() {return this.getProp("TextStrokeColor3", DataType.Color3);}
-    public set textStrokeColor3(value) {this.setProp("TextStrokeColor3", DataType.Color3, value);}
-    public get textStrokeTransparency() {return this.getProp("TextStrokeTransparency", DataType.Float32);}
-    public set textStrokeTransparency(value) {this.setProp("TextStrokeTransparency", DataType.Float32, value);}
-    public get textTransparency() {return this.getProp("TextTransparency", DataType.Float32);}
-    public set textTransparency(value) {this.setProp("TextTransparency", DataType.Float32, value);}
-    public get textTruncate() {return this.getProp("TextTruncate", DataType.Enum) as TextTruncate | undefined;}
-    public set textTruncate(value) {this.setProp("TextTruncate", DataType.Enum, value);}
-    public get textWrap() {return this.getProp("TextWrap", DataType.Bool);}
-    public set textWrap(value) {this.setProp("TextWrap", DataType.Bool, value);}
-    public get textWrapped() {return this.getProp("TextWrapped", DataType.Bool);}
-    public set textWrapped(value) {this.setProp("TextWrapped", DataType.Bool, value);}
-    public get textXAlignment() {return this.getProp("TextXAlignment", DataType.Enum) as TextXAlignment | undefined;}
-    public set textXAlignment(value) {this.setProp("TextXAlignment", DataType.Enum, value);}
-    public get textYAlignment() {return this.getProp("TextYAlignment", DataType.Enum) as TextYAlignment | undefined;}
-    public set textYAlignment(value) {this.setProp("TextYAlignment", DataType.Enum, value);}
+    public get ClearTextOnFocus() {return this.GetProp("ClearTextOnFocus", DataType.Bool);}
+    public set ClearTextOnFocus(value) {this.SetProp("ClearTextOnFocus", DataType.Bool, value);}
+    public get FontFace() {return this.GetProp("FontFace", DataType.Font);}
+    public set FontFace(value) {this.SetProp("FontFace", DataType.Font, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get FontSize() {return this.GetProp("FontSize", DataType.Enum) as FontSize | undefined;}
+    /**@deprecated Deprecated by Roblox*/
+    public set FontSize(value) {this.SetProp("FontSize", DataType.Enum, value);}
+    public get LineHeight() {return this.GetProp("LineHeight", DataType.Float32);}
+    public set LineHeight(value) {this.SetProp("LineHeight", DataType.Float32, value);}
+    public get LocalizationMatchIdentifier() {return this.GetProp("LocalizationMatchIdentifier", DataType.String);}
+    public set LocalizationMatchIdentifier(value) {this.SetProp("LocalizationMatchIdentifier", DataType.String, value);}
+    public get LocalizationMatchedSourceText() {return this.GetProp("LocalizationMatchedSourceText", DataType.String);}
+    public set LocalizationMatchedSourceText(value) {this.SetProp("LocalizationMatchedSourceText", DataType.String, value);}
+    public get MaxVisibleGraphemes() {return this.GetProp("MaxVisibleGraphemes", DataType.Int32);}
+    public set MaxVisibleGraphemes(value) {this.SetProp("MaxVisibleGraphemes", DataType.Int32, value);}
+    public get MultiLine() {return this.GetProp("MultiLine", DataType.Bool);}
+    public set MultiLine(value) {this.SetProp("MultiLine", DataType.Bool, value);}
+    public get PlaceholderColor3() {return this.GetProp("PlaceholderColor3", DataType.Color3);}
+    public set PlaceholderColor3(value) {this.SetProp("PlaceholderColor3", DataType.Color3, value);}
+    public get PlaceholderText() {return this.GetProp("PlaceholderText", DataType.String);}
+    public set PlaceholderText(value) {this.SetProp("PlaceholderText", DataType.String, value);}
+    public get RichText() {return this.GetProp("RichText", DataType.Bool);}
+    public set RichText(value) {this.SetProp("RichText", DataType.Bool, value);}
+    public get ShowNativeInput() {return this.GetProp("ShowNativeInput", DataType.Bool);}
+    public set ShowNativeInput(value) {this.SetProp("ShowNativeInput", DataType.Bool, value);}
+    public get Text() {return this.GetProp("Text", DataType.String);}
+    public set Text(value) {this.SetProp("Text", DataType.String, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get TextColor() {return this.GetProp("TextColor", DataType.BrickColor);}
+    /**@deprecated Deprecated by Roblox*/
+    public set TextColor(value) {this.SetProp("TextColor", DataType.BrickColor, value);}
+    public get TextColor3() {return this.GetProp("TextColor3", DataType.Color3);}
+    public set TextColor3(value) {this.SetProp("TextColor3", DataType.Color3, value);}
+    public get TextDirection() {return this.GetProp("TextDirection", DataType.Enum) as TextDirection | undefined;}
+    public set TextDirection(value) {this.SetProp("TextDirection", DataType.Enum, value);}
+    public get TextEditable() {return this.GetProp("TextEditable", DataType.Bool);}
+    public set TextEditable(value) {this.SetProp("TextEditable", DataType.Bool, value);}
+    public get TextScaled() {return this.GetProp("TextScaled", DataType.Bool);}
+    public set TextScaled(value) {this.SetProp("TextScaled", DataType.Bool, value);}
+    public get TextSize() {return this.GetProp("TextSize", DataType.Float32);}
+    public set TextSize(value) {this.SetProp("TextSize", DataType.Float32, value);}
+    public get TextStrokeColor3() {return this.GetProp("TextStrokeColor3", DataType.Color3);}
+    public set TextStrokeColor3(value) {this.SetProp("TextStrokeColor3", DataType.Color3, value);}
+    public get TextStrokeTransparency() {return this.GetProp("TextStrokeTransparency", DataType.Float32);}
+    public set TextStrokeTransparency(value) {this.SetProp("TextStrokeTransparency", DataType.Float32, value);}
+    public get TextTransparency() {return this.GetProp("TextTransparency", DataType.Float32);}
+    public set TextTransparency(value) {this.SetProp("TextTransparency", DataType.Float32, value);}
+    public get TextTruncate() {return this.GetProp("TextTruncate", DataType.Enum) as TextTruncate | undefined;}
+    public set TextTruncate(value) {this.SetProp("TextTruncate", DataType.Enum, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get TextWrap() {return this.GetProp("TextWrap", DataType.Bool);}
+    /**@deprecated Deprecated by Roblox*/
+    public set TextWrap(value) {this.SetProp("TextWrap", DataType.Bool, value);}
+    public get TextWrapped() {return this.GetProp("TextWrapped", DataType.Bool);}
+    public set TextWrapped(value) {this.SetProp("TextWrapped", DataType.Bool, value);}
+    public get TextXAlignment() {return this.GetProp("TextXAlignment", DataType.Enum) as TextXAlignment | undefined;}
+    public set TextXAlignment(value) {this.SetProp("TextXAlignment", DataType.Enum, value);}
+    public get TextYAlignment() {return this.GetProp("TextYAlignment", DataType.Enum) as TextYAlignment | undefined;}
+    public set TextYAlignment(value) {this.SetProp("TextYAlignment", DataType.Enum, value);}
 }
 
 export class VideoFrame extends GuiObject {
-    protected constructor(className?: string) {super(className ?? "VideoFrame");}
+    protected constructor(className?: string) {super(className ?? "VideoFrame"); this.addClassName("VideoFrame");}
     public static new() {return new VideoFrame();}
-    public get looped() {return this.getProp("Looped", DataType.Bool);}
-    public set looped(value) {this.setProp("Looped", DataType.Bool, value);}
-    public get playing() {return this.getProp("Playing", DataType.Bool);}
-    public set playing(value) {this.setProp("Playing", DataType.Bool, value);}
-    public get timePosition() {return this.getProp("TimePosition", DataType.Float64);}
-    public set timePosition(value) {this.setProp("TimePosition", DataType.Float64, value);}
-    public get video() {return this.getProp("Video", DataType.String);}
-    public set video(value) {this.setProp("Video", DataType.String, value);}
-    public get volume() {return this.getProp("Volume", DataType.Float32);}
-    public set volume(value) {this.setProp("Volume", DataType.Float32, value);}
+    public get Looped() {return this.GetProp("Looped", DataType.Bool);}
+    public set Looped(value) {this.SetProp("Looped", DataType.Bool, value);}
+    public get Playing() {return this.GetProp("Playing", DataType.Bool);}
+    public set Playing(value) {this.SetProp("Playing", DataType.Bool, value);}
+    public get TimePosition() {return this.GetProp("TimePosition", DataType.Float64);}
+    public set TimePosition(value) {this.SetProp("TimePosition", DataType.Float64, value);}
+    public get Video() {return this.GetProp("Video", DataType.String);}
+    public set Video(value) {this.SetProp("Video", DataType.String, value);}
+    public get Volume() {return this.GetProp("Volume", DataType.Float32);}
+    public set Volume(value) {this.SetProp("Volume", DataType.Float32, value);}
 }
 
 export class ViewportFrame extends GuiObject {
-    protected constructor(className?: string) {super(className ?? "ViewportFrame");}
+    protected constructor(className?: string) {super(className ?? "ViewportFrame"); this.addClassName("ViewportFrame");}
     public static new() {return new ViewportFrame();}
-    public get ambient() {return this.getProp("Ambient", DataType.Color3);}
-    public set ambient(value) {this.setProp("Ambient", DataType.Color3, value);}
-    public get cameraCFrame() {return this.getProp("CameraCFrame", DataType.CFrame);}
-    public set cameraCFrame(value) {this.setProp("CameraCFrame", DataType.CFrame, value);}
-    public get cameraFieldOfView() {return this.getProp("CameraFieldOfView", DataType.Float32);}
-    public set cameraFieldOfView(value) {this.setProp("CameraFieldOfView", DataType.Float32, value);}
-    public get imageColor3() {return this.getProp("ImageColor3", DataType.Color3);}
-    public set imageColor3(value) {this.setProp("ImageColor3", DataType.Color3, value);}
-    public get imageTransparency() {return this.getProp("ImageTransparency", DataType.Float32);}
-    public set imageTransparency(value) {this.setProp("ImageTransparency", DataType.Float32, value);}
-    public get lightColor() {return this.getProp("LightColor", DataType.Color3);}
-    public set lightColor(value) {this.setProp("LightColor", DataType.Color3, value);}
-    public get lightDirection() {return this.getProp("LightDirection", DataType.Vector3);}
-    public set lightDirection(value) {this.setProp("LightDirection", DataType.Vector3, value);}
+    public get Ambient() {return this.GetProp("Ambient", DataType.Color3);}
+    public set Ambient(value) {this.SetProp("Ambient", DataType.Color3, value);}
+    public get CameraCFrame() {return this.GetProp("CameraCFrame", DataType.CFrame);}
+    public set CameraCFrame(value) {this.SetProp("CameraCFrame", DataType.CFrame, value);}
+    public get CameraFieldOfView() {return this.GetProp("CameraFieldOfView", DataType.Float32);}
+    public set CameraFieldOfView(value) {this.SetProp("CameraFieldOfView", DataType.Float32, value);}
+    public get ImageColor3() {return this.GetProp("ImageColor3", DataType.Color3);}
+    public set ImageColor3(value) {this.SetProp("ImageColor3", DataType.Color3, value);}
+    public get ImageTransparency() {return this.GetProp("ImageTransparency", DataType.Float32);}
+    public set ImageTransparency(value) {this.SetProp("ImageTransparency", DataType.Float32, value);}
+    public get LightColor() {return this.GetProp("LightColor", DataType.Color3);}
+    public set LightColor(value) {this.SetProp("LightColor", DataType.Color3, value);}
+    public get LightDirection() {return this.GetProp("LightDirection", DataType.Vector3);}
+    public set LightDirection(value) {this.SetProp("LightDirection", DataType.Vector3, value);}
 }
 
 export abstract class LayerCollector extends GuiBase2d {
-    protected constructor(className: string) {super(className);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get resetOnSpawn() {return this.getProp("ResetOnSpawn", DataType.Bool);}
-    public set resetOnSpawn(value) {this.setProp("ResetOnSpawn", DataType.Bool, value);}
-    public get zIndexBehavior() {return this.getProp("ZIndexBehavior", DataType.Enum) as ZIndexBehavior | undefined;}
-    public set zIndexBehavior(value) {this.setProp("ZIndexBehavior", DataType.Enum, value);}
+    protected constructor(className: string) {super(className); this.addClassName("LayerCollector");}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get ResetOnSpawn() {return this.GetProp("ResetOnSpawn", DataType.Bool);}
+    public set ResetOnSpawn(value) {this.SetProp("ResetOnSpawn", DataType.Bool, value);}
+    public get ZIndexBehavior() {return this.GetProp("ZIndexBehavior", DataType.Enum) as ZIndexBehavior | undefined;}
+    public set ZIndexBehavior(value) {this.SetProp("ZIndexBehavior", DataType.Enum, value);}
 }
 
 export class BillboardGui extends LayerCollector {
-    protected constructor(className?: string) {super(className ?? "BillboardGui");}
+    protected constructor(className?: string) {super(className ?? "BillboardGui"); this.addClassName("BillboardGui");}
     public static new() {return new BillboardGui();}
-    public get active() {return this.getProp("Active", DataType.Bool);}
-    public set active(value) {this.setProp("Active", DataType.Bool, value);}
-    public get adornee() {return this.getProp("Adornee", DataType.Referent) as CoreInstance | undefined;}
-    public set adornee(value) {this.setProp("Adornee", DataType.Referent, value);}
-    public get alwaysOnTop() {return this.getProp("AlwaysOnTop", DataType.Bool);}
-    public set alwaysOnTop(value) {this.setProp("AlwaysOnTop", DataType.Bool, value);}
-    public get brightness() {return this.getProp("Brightness", DataType.Float32);}
-    public set brightness(value) {this.setProp("Brightness", DataType.Float32, value);}
-    public get clipsDescendants() {return this.getProp("ClipsDescendants", DataType.Bool);}
-    public set clipsDescendants(value) {this.setProp("ClipsDescendants", DataType.Bool, value);}
-    public get distanceLowerLimit() {return this.getProp("DistanceLowerLimit", DataType.Float32);}
-    public set distanceLowerLimit(value) {this.setProp("DistanceLowerLimit", DataType.Float32, value);}
-    public get distanceStep() {return this.getProp("DistanceStep", DataType.Float32);}
-    public set distanceStep(value) {this.setProp("DistanceStep", DataType.Float32, value);}
-    public get distanceUpperLimit() {return this.getProp("DistanceUpperLimit", DataType.Float32);}
-    public set distanceUpperLimit(value) {this.setProp("DistanceUpperLimit", DataType.Float32, value);}
-    public get extentsOffset() {return this.getProp("ExtentsOffset", DataType.Vector3);}
-    public set extentsOffset(value) {this.setProp("ExtentsOffset", DataType.Vector3, value);}
-    public get extentsOffsetWorldSpace() {return this.getProp("ExtentsOffsetWorldSpace", DataType.Vector3);}
-    public set extentsOffsetWorldSpace(value) {this.setProp("ExtentsOffsetWorldSpace", DataType.Vector3, value);}
-    public get lightInfluence() {return this.getProp("LightInfluence", DataType.Float32);}
-    public set lightInfluence(value) {this.setProp("LightInfluence", DataType.Float32, value);}
-    public get maxDistance() {return this.getProp("MaxDistance", DataType.Float32);}
-    public set maxDistance(value) {this.setProp("MaxDistance", DataType.Float32, value);}
-    public get playerToHideFrom() {return this.getProp("PlayerToHideFrom", DataType.Referent) as CoreInstance | undefined;}
-    public set playerToHideFrom(value) {this.setProp("PlayerToHideFrom", DataType.Referent, value);}
-    public get size() {return this.getProp("Size", DataType.UDim2);}
-    public set size(value) {this.setProp("Size", DataType.UDim2, value);}
-    public get sizeOffset() {return this.getProp("SizeOffset", DataType.Vector2);}
-    public set sizeOffset(value) {this.setProp("SizeOffset", DataType.Vector2, value);}
-    public get studsOffset() {return this.getProp("StudsOffset", DataType.Vector3);}
-    public set studsOffset(value) {this.setProp("StudsOffset", DataType.Vector3, value);}
-    public get studsOffsetWorldSpace() {return this.getProp("StudsOffsetWorldSpace", DataType.Vector3);}
-    public set studsOffsetWorldSpace(value) {this.setProp("StudsOffsetWorldSpace", DataType.Vector3, value);}
+    public get Active() {return this.GetProp("Active", DataType.Bool);}
+    public set Active(value) {this.SetProp("Active", DataType.Bool, value);}
+    public get Adornee() {return this.GetProp("Adornee", DataType.Referent) as Instance | undefined;}
+    public set Adornee(value) {this.SetProp("Adornee", DataType.Referent, value);}
+    public get AlwaysOnTop() {return this.GetProp("AlwaysOnTop", DataType.Bool);}
+    public set AlwaysOnTop(value) {this.SetProp("AlwaysOnTop", DataType.Bool, value);}
+    public get Brightness() {return this.GetProp("Brightness", DataType.Float32);}
+    public set Brightness(value) {this.SetProp("Brightness", DataType.Float32, value);}
+    public get ClipsDescendants() {return this.GetProp("ClipsDescendants", DataType.Bool);}
+    public set ClipsDescendants(value) {this.SetProp("ClipsDescendants", DataType.Bool, value);}
+    public get DistanceLowerLimit() {return this.GetProp("DistanceLowerLimit", DataType.Float32);}
+    public set DistanceLowerLimit(value) {this.SetProp("DistanceLowerLimit", DataType.Float32, value);}
+    public get DistanceStep() {return this.GetProp("DistanceStep", DataType.Float32);}
+    public set DistanceStep(value) {this.SetProp("DistanceStep", DataType.Float32, value);}
+    public get DistanceUpperLimit() {return this.GetProp("DistanceUpperLimit", DataType.Float32);}
+    public set DistanceUpperLimit(value) {this.SetProp("DistanceUpperLimit", DataType.Float32, value);}
+    public get ExtentsOffset() {return this.GetProp("ExtentsOffset", DataType.Vector3);}
+    public set ExtentsOffset(value) {this.SetProp("ExtentsOffset", DataType.Vector3, value);}
+    public get ExtentsOffsetWorldSpace() {return this.GetProp("ExtentsOffsetWorldSpace", DataType.Vector3);}
+    public set ExtentsOffsetWorldSpace(value) {this.SetProp("ExtentsOffsetWorldSpace", DataType.Vector3, value);}
+    public get LightInfluence() {return this.GetProp("LightInfluence", DataType.Float32);}
+    public set LightInfluence(value) {this.SetProp("LightInfluence", DataType.Float32, value);}
+    public get MaxDistance() {return this.GetProp("MaxDistance", DataType.Float32);}
+    public set MaxDistance(value) {this.SetProp("MaxDistance", DataType.Float32, value);}
+    public get PlayerToHideFrom() {return this.GetProp("PlayerToHideFrom", DataType.Referent) as Instance | undefined;}
+    public set PlayerToHideFrom(value) {this.SetProp("PlayerToHideFrom", DataType.Referent, value);}
+    public get Size() {return this.GetProp("Size", DataType.UDim2);}
+    public set Size(value) {this.SetProp("Size", DataType.UDim2, value);}
+    public get SizeOffset() {return this.GetProp("SizeOffset", DataType.Vector2);}
+    public set SizeOffset(value) {this.SetProp("SizeOffset", DataType.Vector2, value);}
+    public get StudsOffset() {return this.GetProp("StudsOffset", DataType.Vector3);}
+    public set StudsOffset(value) {this.SetProp("StudsOffset", DataType.Vector3, value);}
+    public get StudsOffsetWorldSpace() {return this.GetProp("StudsOffsetWorldSpace", DataType.Vector3);}
+    public set StudsOffsetWorldSpace(value) {this.SetProp("StudsOffsetWorldSpace", DataType.Vector3, value);}
 }
 
 export abstract class PluginGui extends LayerCollector {
-    protected constructor(className: string) {super(className);}
-    public get title() {return this.getProp("Title", DataType.String);}
-    public set title(value) {this.setProp("Title", DataType.String, value);}
+    protected constructor(className: string) {super(className); this.addClassName("PluginGui");}
+    public get Title() {return this.GetProp("Title", DataType.String);}
+    public set Title(value) {this.SetProp("Title", DataType.String, value);}
 }
 
 export class ScreenGui extends LayerCollector {
-    protected constructor(className?: string) {super(className ?? "ScreenGui");}
+    protected constructor(className?: string) {super(className ?? "ScreenGui"); this.addClassName("ScreenGui");}
     public static new() {return new ScreenGui();}
-    public get clipToDeviceSafeArea() {return this.getProp("ClipToDeviceSafeArea", DataType.Bool);}
-    public set clipToDeviceSafeArea(value) {this.setProp("ClipToDeviceSafeArea", DataType.Bool, value);}
-    public get displayOrder() {return this.getProp("DisplayOrder", DataType.Int32);}
-    public set displayOrder(value) {this.setProp("DisplayOrder", DataType.Int32, value);}
-    public get safeAreaCompatibility() {return this.getProp("SafeAreaCompatibility", DataType.Enum) as SafeAreaCompatibility | undefined;}
-    public set safeAreaCompatibility(value) {this.setProp("SafeAreaCompatibility", DataType.Enum, value);}
-    public get screenInsets() {return this.getProp("ScreenInsets", DataType.Enum) as ScreenInsets | undefined;}
-    public set screenInsets(value) {this.setProp("ScreenInsets", DataType.Enum, value);}
+    public get ClipToDeviceSafeArea() {return this.GetProp("ClipToDeviceSafeArea", DataType.Bool);}
+    public set ClipToDeviceSafeArea(value) {this.SetProp("ClipToDeviceSafeArea", DataType.Bool, value);}
+    public get DisplayOrder() {return this.GetProp("DisplayOrder", DataType.Int32);}
+    public set DisplayOrder(value) {this.SetProp("DisplayOrder", DataType.Int32, value);}
+    public get SafeAreaCompatibility() {return this.GetProp("SafeAreaCompatibility", DataType.Enum) as SafeAreaCompatibility | undefined;}
+    public set SafeAreaCompatibility(value) {this.SetProp("SafeAreaCompatibility", DataType.Enum, value);}
+    public get ScreenInsets() {return this.GetProp("ScreenInsets", DataType.Enum) as ScreenInsets | undefined;}
+    public set ScreenInsets(value) {this.SetProp("ScreenInsets", DataType.Enum, value);}
 }
 
 export class GuiMain extends ScreenGui {
-    protected constructor(className?: string) {super(className ?? "GuiMain");}
+    protected constructor(className?: string) {super(className ?? "GuiMain"); this.addClassName("GuiMain");}
     public static new() {return new GuiMain();}
 }
 
 export abstract class SurfaceGuiBase extends LayerCollector {
-    protected constructor(className: string) {super(className);}
-    public get active() {return this.getProp("Active", DataType.Bool);}
-    public set active(value) {this.setProp("Active", DataType.Bool, value);}
-    public get adornee() {return this.getProp("Adornee", DataType.Referent) as CoreInstance | undefined;}
-    public set adornee(value) {this.setProp("Adornee", DataType.Referent, value);}
-    public get face() {return this.getProp("Face", DataType.Enum) as NormalId | undefined;}
-    public set face(value) {this.setProp("Face", DataType.Enum, value);}
+    protected constructor(className: string) {super(className); this.addClassName("SurfaceGuiBase");}
+    public get Active() {return this.GetProp("Active", DataType.Bool);}
+    public set Active(value) {this.SetProp("Active", DataType.Bool, value);}
+    public get Adornee() {return this.GetProp("Adornee", DataType.Referent) as Instance | undefined;}
+    public set Adornee(value) {this.SetProp("Adornee", DataType.Referent, value);}
+    public get Face() {return this.GetProp("Face", DataType.Enum) as NormalId | undefined;}
+    public set Face(value) {this.SetProp("Face", DataType.Enum, value);}
 }
 
 export class AdGui extends SurfaceGuiBase {
-    protected constructor(className?: string) {super(className ?? "AdGui");}
+    protected constructor(className?: string) {super(className ?? "AdGui"); this.addClassName("AdGui");}
     public static new() {return new AdGui();}
-    public get adShape() {return this.getProp("AdShape", DataType.Enum) as AdShape | undefined;}
-    public set adShape(value) {this.setProp("AdShape", DataType.Enum, value);}
-    public get enableVideoAds() {return this.getProp("EnableVideoAds", DataType.Bool);}
-    public set enableVideoAds(value) {this.setProp("EnableVideoAds", DataType.Bool, value);}
-    public get fallbackImage() {return this.getProp("FallbackImage", DataType.String);}
-    public set fallbackImage(value) {this.setProp("FallbackImage", DataType.String, value);}
+    public get AdShape() {return this.GetProp("AdShape", DataType.Enum) as AdShape | undefined;}
+    public set AdShape(value) {this.SetProp("AdShape", DataType.Enum, value);}
+    public get EnableVideoAds() {return this.GetProp("EnableVideoAds", DataType.Bool);}
+    public set EnableVideoAds(value) {this.SetProp("EnableVideoAds", DataType.Bool, value);}
+    public get FallbackImage() {return this.GetProp("FallbackImage", DataType.String);}
+    public set FallbackImage(value) {this.SetProp("FallbackImage", DataType.String, value);}
 }
 
 export class SurfaceGui extends SurfaceGuiBase {
-    protected constructor(className?: string) {super(className ?? "SurfaceGui");}
+    protected constructor(className?: string) {super(className ?? "SurfaceGui"); this.addClassName("SurfaceGui");}
     public static new() {return new SurfaceGui();}
-    public get alwaysOnTop() {return this.getProp("AlwaysOnTop", DataType.Bool);}
-    public set alwaysOnTop(value) {this.setProp("AlwaysOnTop", DataType.Bool, value);}
-    public get brightness() {return this.getProp("Brightness", DataType.Float32);}
-    public set brightness(value) {this.setProp("Brightness", DataType.Float32, value);}
-    public get canvasSize() {return this.getProp("CanvasSize", DataType.Vector2);}
-    public set canvasSize(value) {this.setProp("CanvasSize", DataType.Vector2, value);}
-    public get clipsDescendants() {return this.getProp("ClipsDescendants", DataType.Bool);}
-    public set clipsDescendants(value) {this.setProp("ClipsDescendants", DataType.Bool, value);}
-    public get lightInfluence() {return this.getProp("LightInfluence", DataType.Float32);}
-    public set lightInfluence(value) {this.setProp("LightInfluence", DataType.Float32, value);}
-    public get maxDistance() {return this.getProp("MaxDistance", DataType.Float32);}
-    public set maxDistance(value) {this.setProp("MaxDistance", DataType.Float32, value);}
-    public get pixelsPerStud() {return this.getProp("PixelsPerStud", DataType.Float32);}
-    public set pixelsPerStud(value) {this.setProp("PixelsPerStud", DataType.Float32, value);}
-    public get sizingMode() {return this.getProp("SizingMode", DataType.Enum) as SurfaceGuiSizingMode | undefined;}
-    public set sizingMode(value) {this.setProp("SizingMode", DataType.Enum, value);}
-    public get toolPunchThroughDistance() {return this.getProp("ToolPunchThroughDistance", DataType.Float32);}
-    public set toolPunchThroughDistance(value) {this.setProp("ToolPunchThroughDistance", DataType.Float32, value);}
-    public get zOffset() {return this.getProp("ZOffset", DataType.Float32);}
-    public set zOffset(value) {this.setProp("ZOffset", DataType.Float32, value);}
+    public get AlwaysOnTop() {return this.GetProp("AlwaysOnTop", DataType.Bool);}
+    public set AlwaysOnTop(value) {this.SetProp("AlwaysOnTop", DataType.Bool, value);}
+    public get Brightness() {return this.GetProp("Brightness", DataType.Float32);}
+    public set Brightness(value) {this.SetProp("Brightness", DataType.Float32, value);}
+    public get CanvasSize() {return this.GetProp("CanvasSize", DataType.Vector2);}
+    public set CanvasSize(value) {this.SetProp("CanvasSize", DataType.Vector2, value);}
+    public get ClipsDescendants() {return this.GetProp("ClipsDescendants", DataType.Bool);}
+    public set ClipsDescendants(value) {this.SetProp("ClipsDescendants", DataType.Bool, value);}
+    public get LightInfluence() {return this.GetProp("LightInfluence", DataType.Float32);}
+    public set LightInfluence(value) {this.SetProp("LightInfluence", DataType.Float32, value);}
+    public get MaxDistance() {return this.GetProp("MaxDistance", DataType.Float32);}
+    public set MaxDistance(value) {this.SetProp("MaxDistance", DataType.Float32, value);}
+    public get PixelsPerStud() {return this.GetProp("PixelsPerStud", DataType.Float32);}
+    public set PixelsPerStud(value) {this.SetProp("PixelsPerStud", DataType.Float32, value);}
+    public get SizingMode() {return this.GetProp("SizingMode", DataType.Enum) as SurfaceGuiSizingMode | undefined;}
+    public set SizingMode(value) {this.SetProp("SizingMode", DataType.Enum, value);}
+    public get ToolPunchThroughDistance() {return this.GetProp("ToolPunchThroughDistance", DataType.Float32);}
+    public set ToolPunchThroughDistance(value) {this.SetProp("ToolPunchThroughDistance", DataType.Float32, value);}
+    public get ZOffset() {return this.GetProp("ZOffset", DataType.Float32);}
+    public set ZOffset(value) {this.SetProp("ZOffset", DataType.Float32, value);}
 }
 
 export abstract class GuiBase3d extends GuiBase {
-    protected constructor(className: string) {super(className);}
-    public get color() {return this.getProp("Color", DataType.BrickColor);}
-    public set color(value) {this.setProp("Color", DataType.BrickColor, value);}
-    public get color3() {return this.getProp("Color3", DataType.Color3);}
-    public set color3(value) {this.setProp("Color3", DataType.Color3, value);}
-    public get transparency() {return this.getProp("Transparency", DataType.Float32);}
-    public set transparency(value) {this.setProp("Transparency", DataType.Float32, value);}
-    public get visible() {return this.getProp("Visible", DataType.Bool);}
-    public set visible(value) {this.setProp("Visible", DataType.Bool, value);}
+    protected constructor(className: string) {super(className); this.addClassName("GuiBase3d");}
+    /**@deprecated Deprecated by Roblox*/
+    public get Color() {return this.GetProp("Color", DataType.BrickColor);}
+    /**@deprecated Deprecated by Roblox*/
+    public set Color(value) {this.SetProp("Color", DataType.BrickColor, value);}
+    public get Color3() {return this.GetProp("Color3", DataType.Color3);}
+    public set Color3(value) {this.SetProp("Color3", DataType.Color3, value);}
+    public get Transparency() {return this.GetProp("Transparency", DataType.Float32);}
+    public set Transparency(value) {this.SetProp("Transparency", DataType.Float32, value);}
+    public get Visible() {return this.GetProp("Visible", DataType.Bool);}
+    public set Visible(value) {this.SetProp("Visible", DataType.Bool, value);}
 }
 
 export class FloorWire extends GuiBase3d {
-    protected constructor(className?: string) {super(className ?? "FloorWire");}
+    protected constructor(className?: string) {super(className ?? "FloorWire"); this.addClassName("FloorWire");}
     public static new() {return new FloorWire();}
-    public get cycleOffset() {return this.getProp("CycleOffset", DataType.Float32);}
-    public set cycleOffset(value) {this.setProp("CycleOffset", DataType.Float32, value);}
-    public get from() {return this.getProp("From", DataType.Referent) as BasePart | undefined;}
-    public set from(value) {this.setProp("From", DataType.Referent, value);}
-    public get studsBetweenTextures() {return this.getProp("StudsBetweenTextures", DataType.Float32);}
-    public set studsBetweenTextures(value) {this.setProp("StudsBetweenTextures", DataType.Float32, value);}
-    public get texture() {return this.getProp("Texture", DataType.String);}
-    public set texture(value) {this.setProp("Texture", DataType.String, value);}
-    public get textureSize() {return this.getProp("TextureSize", DataType.Vector2);}
-    public set textureSize(value) {this.setProp("TextureSize", DataType.Vector2, value);}
-    public get to() {return this.getProp("To", DataType.Referent) as BasePart | undefined;}
-    public set to(value) {this.setProp("To", DataType.Referent, value);}
-    public get velocity() {return this.getProp("Velocity", DataType.Float32);}
-    public set velocity(value) {this.setProp("Velocity", DataType.Float32, value);}
-    public get wireRadius() {return this.getProp("WireRadius", DataType.Float32);}
-    public set wireRadius(value) {this.setProp("WireRadius", DataType.Float32, value);}
+    public get CycleOffset() {return this.GetProp("CycleOffset", DataType.Float32);}
+    public set CycleOffset(value) {this.SetProp("CycleOffset", DataType.Float32, value);}
+    public get From() {return this.GetProp("From", DataType.Referent) as BasePart | undefined;}
+    public set From(value) {this.SetProp("From", DataType.Referent, value);}
+    public get StudsBetweenTextures() {return this.GetProp("StudsBetweenTextures", DataType.Float32);}
+    public set StudsBetweenTextures(value) {this.SetProp("StudsBetweenTextures", DataType.Float32, value);}
+    public get Texture() {return this.GetProp("Texture", DataType.String);}
+    public set Texture(value) {this.SetProp("Texture", DataType.String, value);}
+    public get TextureSize() {return this.GetProp("TextureSize", DataType.Vector2);}
+    public set TextureSize(value) {this.SetProp("TextureSize", DataType.Vector2, value);}
+    public get To() {return this.GetProp("To", DataType.Referent) as BasePart | undefined;}
+    public set To(value) {this.SetProp("To", DataType.Referent, value);}
+    public get Velocity() {return this.GetProp("Velocity", DataType.Float32);}
+    public set Velocity(value) {this.SetProp("Velocity", DataType.Float32, value);}
+    public get WireRadius() {return this.GetProp("WireRadius", DataType.Float32);}
+    public set WireRadius(value) {this.SetProp("WireRadius", DataType.Float32, value);}
 }
 
 export abstract class InstanceAdornment extends GuiBase3d {
-    protected constructor(className: string) {super(className);}
-    public get adornee() {return this.getProp("Adornee", DataType.Referent) as CoreInstance | undefined;}
-    public set adornee(value) {this.setProp("Adornee", DataType.Referent, value);}
+    protected constructor(className: string) {super(className); this.addClassName("InstanceAdornment");}
+    public get Adornee() {return this.GetProp("Adornee", DataType.Referent) as Instance | undefined;}
+    public set Adornee(value) {this.SetProp("Adornee", DataType.Referent, value);}
 }
 
 export class SelectionBox extends InstanceAdornment {
-    protected constructor(className?: string) {super(className ?? "SelectionBox");}
+    protected constructor(className?: string) {super(className ?? "SelectionBox"); this.addClassName("SelectionBox");}
     public static new() {return new SelectionBox();}
-    public get lineThickness() {return this.getProp("LineThickness", DataType.Float32);}
-    public set lineThickness(value) {this.setProp("LineThickness", DataType.Float32, value);}
-    public get studioSelectionBox() {return this.getProp("StudioSelectionBox", DataType.Bool);}
-    public set studioSelectionBox(value) {this.setProp("StudioSelectionBox", DataType.Bool, value);}
-    public get surfaceColor() {return this.getProp("SurfaceColor", DataType.BrickColor);}
-    public set surfaceColor(value) {this.setProp("SurfaceColor", DataType.BrickColor, value);}
-    public get surfaceColor3() {return this.getProp("SurfaceColor3", DataType.Color3);}
-    public set surfaceColor3(value) {this.setProp("SurfaceColor3", DataType.Color3, value);}
-    public get surfaceTransparency() {return this.getProp("SurfaceTransparency", DataType.Float32);}
-    public set surfaceTransparency(value) {this.setProp("SurfaceTransparency", DataType.Float32, value);}
+    public get LineThickness() {return this.GetProp("LineThickness", DataType.Float32);}
+    public set LineThickness(value) {this.SetProp("LineThickness", DataType.Float32, value);}
+    public get StudioSelectionBox() {return this.GetProp("StudioSelectionBox", DataType.Bool);}
+    public set StudioSelectionBox(value) {this.SetProp("StudioSelectionBox", DataType.Bool, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get SurfaceColor() {return this.GetProp("SurfaceColor", DataType.BrickColor);}
+    /**@deprecated Deprecated by Roblox*/
+    public set SurfaceColor(value) {this.SetProp("SurfaceColor", DataType.BrickColor, value);}
+    public get SurfaceColor3() {return this.GetProp("SurfaceColor3", DataType.Color3);}
+    public set SurfaceColor3(value) {this.SetProp("SurfaceColor3", DataType.Color3, value);}
+    public get SurfaceTransparency() {return this.GetProp("SurfaceTransparency", DataType.Float32);}
+    public set SurfaceTransparency(value) {this.SetProp("SurfaceTransparency", DataType.Float32, value);}
 }
 
 export abstract class PVAdornment extends GuiBase3d {
-    protected constructor(className: string) {super(className);}
-    public get adornee() {return this.getProp("Adornee", DataType.Referent) as PVInstance | undefined;}
-    public set adornee(value) {this.setProp("Adornee", DataType.Referent, value);}
+    protected constructor(className: string) {super(className); this.addClassName("PVAdornment");}
+    public get Adornee() {return this.GetProp("Adornee", DataType.Referent) as PVInstance | undefined;}
+    public set Adornee(value) {this.SetProp("Adornee", DataType.Referent, value);}
 }
 
 export abstract class HandleAdornment extends PVAdornment {
-    protected constructor(className: string) {super(className);}
-    public get adornCullingMode() {return this.getProp("AdornCullingMode", DataType.Enum) as AdornCullingMode | undefined;}
-    public set adornCullingMode(value) {this.setProp("AdornCullingMode", DataType.Enum, value);}
-    public get alwaysOnTop() {return this.getProp("AlwaysOnTop", DataType.Bool);}
-    public set alwaysOnTop(value) {this.setProp("AlwaysOnTop", DataType.Bool, value);}
-    public get cFrame() {return this.getProp("CFrame", DataType.CFrame);}
-    public set cFrame(value) {this.setProp("CFrame", DataType.CFrame, value);}
-    public get sizeRelativeOffset() {return this.getProp("SizeRelativeOffset", DataType.Vector3);}
-    public set sizeRelativeOffset(value) {this.setProp("SizeRelativeOffset", DataType.Vector3, value);}
-    public get zIndex() {return this.getProp("ZIndex", DataType.Int32);}
-    public set zIndex(value) {this.setProp("ZIndex", DataType.Int32, value);}
+    protected constructor(className: string) {super(className); this.addClassName("HandleAdornment");}
+    public get AdornCullingMode() {return this.GetProp("AdornCullingMode", DataType.Enum) as AdornCullingMode | undefined;}
+    public set AdornCullingMode(value) {this.SetProp("AdornCullingMode", DataType.Enum, value);}
+    public get AlwaysOnTop() {return this.GetProp("AlwaysOnTop", DataType.Bool);}
+    public set AlwaysOnTop(value) {this.SetProp("AlwaysOnTop", DataType.Bool, value);}
+    public get CFrame() {return this.GetProp("CFrame", DataType.CFrame);}
+    public set CFrame(value) {this.SetProp("CFrame", DataType.CFrame, value);}
+    public get SizeRelativeOffset() {return this.GetProp("SizeRelativeOffset", DataType.Vector3);}
+    public set SizeRelativeOffset(value) {this.SetProp("SizeRelativeOffset", DataType.Vector3, value);}
+    public get ZIndex() {return this.GetProp("ZIndex", DataType.Int32);}
+    public set ZIndex(value) {this.SetProp("ZIndex", DataType.Int32, value);}
 }
 
 export class BoxHandleAdornment extends HandleAdornment {
-    protected constructor(className?: string) {super(className ?? "BoxHandleAdornment");}
+    protected constructor(className?: string) {super(className ?? "BoxHandleAdornment"); this.addClassName("BoxHandleAdornment");}
     public static new() {return new BoxHandleAdornment();}
-    public get size() {return this.getProp("Size", DataType.Vector3);}
-    public set size(value) {this.setProp("Size", DataType.Vector3, value);}
+    public get Size() {return this.GetProp("Size", DataType.Vector3);}
+    public set Size(value) {this.SetProp("Size", DataType.Vector3, value);}
 }
 
 export class ConeHandleAdornment extends HandleAdornment {
-    protected constructor(className?: string) {super(className ?? "ConeHandleAdornment");}
+    protected constructor(className?: string) {super(className ?? "ConeHandleAdornment"); this.addClassName("ConeHandleAdornment");}
     public static new() {return new ConeHandleAdornment();}
-    public get height() {return this.getProp("Height", DataType.Float32);}
-    public set height(value) {this.setProp("Height", DataType.Float32, value);}
-    public get radius() {return this.getProp("Radius", DataType.Float32);}
-    public set radius(value) {this.setProp("Radius", DataType.Float32, value);}
+    public get Height() {return this.GetProp("Height", DataType.Float32);}
+    public set Height(value) {this.SetProp("Height", DataType.Float32, value);}
+    public get Radius() {return this.GetProp("Radius", DataType.Float32);}
+    public set Radius(value) {this.SetProp("Radius", DataType.Float32, value);}
 }
 
 export class CylinderHandleAdornment extends HandleAdornment {
-    protected constructor(className?: string) {super(className ?? "CylinderHandleAdornment");}
+    protected constructor(className?: string) {super(className ?? "CylinderHandleAdornment"); this.addClassName("CylinderHandleAdornment");}
     public static new() {return new CylinderHandleAdornment();}
-    public get angle() {return this.getProp("Angle", DataType.Float32);}
-    public set angle(value) {this.setProp("Angle", DataType.Float32, value);}
-    public get height() {return this.getProp("Height", DataType.Float32);}
-    public set height(value) {this.setProp("Height", DataType.Float32, value);}
-    public get innerRadius() {return this.getProp("InnerRadius", DataType.Float32);}
-    public set innerRadius(value) {this.setProp("InnerRadius", DataType.Float32, value);}
-    public get radius() {return this.getProp("Radius", DataType.Float32);}
-    public set radius(value) {this.setProp("Radius", DataType.Float32, value);}
+    public get Angle() {return this.GetProp("Angle", DataType.Float32);}
+    public set Angle(value) {this.SetProp("Angle", DataType.Float32, value);}
+    public get Height() {return this.GetProp("Height", DataType.Float32);}
+    public set Height(value) {this.SetProp("Height", DataType.Float32, value);}
+    public get InnerRadius() {return this.GetProp("InnerRadius", DataType.Float32);}
+    public set InnerRadius(value) {this.SetProp("InnerRadius", DataType.Float32, value);}
+    public get Radius() {return this.GetProp("Radius", DataType.Float32);}
+    public set Radius(value) {this.SetProp("Radius", DataType.Float32, value);}
 }
 
 export class ImageHandleAdornment extends HandleAdornment {
-    protected constructor(className?: string) {super(className ?? "ImageHandleAdornment");}
+    protected constructor(className?: string) {super(className ?? "ImageHandleAdornment"); this.addClassName("ImageHandleAdornment");}
     public static new() {return new ImageHandleAdornment();}
-    public get image() {return this.getProp("Image", DataType.String);}
-    public set image(value) {this.setProp("Image", DataType.String, value);}
-    public get size() {return this.getProp("Size", DataType.Vector2);}
-    public set size(value) {this.setProp("Size", DataType.Vector2, value);}
+    public get Image() {return this.GetProp("Image", DataType.String);}
+    public set Image(value) {this.SetProp("Image", DataType.String, value);}
+    public get Size() {return this.GetProp("Size", DataType.Vector2);}
+    public set Size(value) {this.SetProp("Size", DataType.Vector2, value);}
 }
 
 export class LineHandleAdornment extends HandleAdornment {
-    protected constructor(className?: string) {super(className ?? "LineHandleAdornment");}
+    protected constructor(className?: string) {super(className ?? "LineHandleAdornment"); this.addClassName("LineHandleAdornment");}
     public static new() {return new LineHandleAdornment();}
-    public get length() {return this.getProp("Length", DataType.Float32);}
-    public set length(value) {this.setProp("Length", DataType.Float32, value);}
-    public get thickness() {return this.getProp("Thickness", DataType.Float32);}
-    public set thickness(value) {this.setProp("Thickness", DataType.Float32, value);}
+    public get Length() {return this.GetProp("Length", DataType.Float32);}
+    public set Length(value) {this.SetProp("Length", DataType.Float32, value);}
+    public get Thickness() {return this.GetProp("Thickness", DataType.Float32);}
+    public set Thickness(value) {this.SetProp("Thickness", DataType.Float32, value);}
 }
 
 export class SphereHandleAdornment extends HandleAdornment {
-    protected constructor(className?: string) {super(className ?? "SphereHandleAdornment");}
+    protected constructor(className?: string) {super(className ?? "SphereHandleAdornment"); this.addClassName("SphereHandleAdornment");}
     public static new() {return new SphereHandleAdornment();}
-    public get radius() {return this.getProp("Radius", DataType.Float32);}
-    public set radius(value) {this.setProp("Radius", DataType.Float32, value);}
+    public get Radius() {return this.GetProp("Radius", DataType.Float32);}
+    public set Radius(value) {this.SetProp("Radius", DataType.Float32, value);}
 }
 
 export class WireframeHandleAdornment extends HandleAdornment {
-    protected constructor(className?: string) {super(className ?? "WireframeHandleAdornment");}
+    protected constructor(className?: string) {super(className ?? "WireframeHandleAdornment"); this.addClassName("WireframeHandleAdornment");}
     public static new() {return new WireframeHandleAdornment();}
-    public get scale() {return this.getProp("Scale", DataType.Vector3);}
-    public set scale(value) {this.setProp("Scale", DataType.Vector3, value);}
+    public get Scale() {return this.GetProp("Scale", DataType.Vector3);}
+    public set Scale(value) {this.SetProp("Scale", DataType.Vector3, value);}
 }
 
 export class ParabolaAdornment extends PVAdornment {
-    protected constructor(className?: string) {super(className ?? "ParabolaAdornment");}
+    protected constructor(className?: string) {super(className ?? "ParabolaAdornment"); this.addClassName("ParabolaAdornment");}
     public static new() {return new ParabolaAdornment();}
 }
 
 export class SelectionSphere extends PVAdornment {
-    protected constructor(className?: string) {super(className ?? "SelectionSphere");}
+    protected constructor(className?: string) {super(className ?? "SelectionSphere"); this.addClassName("SelectionSphere");}
     public static new() {return new SelectionSphere();}
-    public get surfaceColor() {return this.getProp("SurfaceColor", DataType.BrickColor);}
-    public set surfaceColor(value) {this.setProp("SurfaceColor", DataType.BrickColor, value);}
-    public get surfaceColor3() {return this.getProp("SurfaceColor3", DataType.Color3);}
-    public set surfaceColor3(value) {this.setProp("SurfaceColor3", DataType.Color3, value);}
-    public get surfaceTransparency() {return this.getProp("SurfaceTransparency", DataType.Float32);}
-    public set surfaceTransparency(value) {this.setProp("SurfaceTransparency", DataType.Float32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get SurfaceColor() {return this.GetProp("SurfaceColor", DataType.BrickColor);}
+    /**@deprecated Deprecated by Roblox*/
+    public set SurfaceColor(value) {this.SetProp("SurfaceColor", DataType.BrickColor, value);}
+    public get SurfaceColor3() {return this.GetProp("SurfaceColor3", DataType.Color3);}
+    public set SurfaceColor3(value) {this.SetProp("SurfaceColor3", DataType.Color3, value);}
+    public get SurfaceTransparency() {return this.GetProp("SurfaceTransparency", DataType.Float32);}
+    public set SurfaceTransparency(value) {this.SetProp("SurfaceTransparency", DataType.Float32, value);}
 }
 
 export abstract class PartAdornment extends GuiBase3d {
-    protected constructor(className: string) {super(className);}
-    public get adornee() {return this.getProp("Adornee", DataType.Referent) as BasePart | undefined;}
-    public set adornee(value) {this.setProp("Adornee", DataType.Referent, value);}
+    protected constructor(className: string) {super(className); this.addClassName("PartAdornment");}
+    public get Adornee() {return this.GetProp("Adornee", DataType.Referent) as BasePart | undefined;}
+    public set Adornee(value) {this.SetProp("Adornee", DataType.Referent, value);}
 }
 
 export abstract class HandlesBase extends PartAdornment {
-    protected constructor(className: string) {super(className);}
+    protected constructor(className: string) {super(className); this.addClassName("HandlesBase");}
 }
 
 export class ArcHandles extends HandlesBase {
-    protected constructor(className?: string) {super(className ?? "ArcHandles");}
+    protected constructor(className?: string) {super(className ?? "ArcHandles"); this.addClassName("ArcHandles");}
     public static new() {return new ArcHandles();}
-    public get axes() {return this.getProp("Axes", DataType.Axes);}
-    public set axes(value) {this.setProp("Axes", DataType.Axes, value);}
+    public get Axes() {return this.GetProp("Axes", DataType.Axes);}
+    public set Axes(value) {this.SetProp("Axes", DataType.Axes, value);}
 }
 
 export class Handles extends HandlesBase {
-    protected constructor(className?: string) {super(className ?? "Handles");}
+    protected constructor(className?: string) {super(className ?? "Handles"); this.addClassName("Handles");}
     public static new() {return new Handles();}
-    public get faces() {return this.getProp("Faces", DataType.Faces);}
-    public set faces(value) {this.setProp("Faces", DataType.Faces, value);}
-    public get style() {return this.getProp("Style", DataType.Enum) as HandlesStyle | undefined;}
-    public set style(value) {this.setProp("Style", DataType.Enum, value);}
+    public get Faces() {return this.GetProp("Faces", DataType.Faces);}
+    public set Faces(value) {this.SetProp("Faces", DataType.Faces, value);}
+    public get Style() {return this.GetProp("Style", DataType.Enum) as HandlesStyle | undefined;}
+    public set Style(value) {this.SetProp("Style", DataType.Enum, value);}
 }
 
 export class SurfaceSelection extends PartAdornment {
-    protected constructor(className?: string) {super(className ?? "SurfaceSelection");}
+    protected constructor(className?: string) {super(className ?? "SurfaceSelection"); this.addClassName("SurfaceSelection");}
     public static new() {return new SurfaceSelection();}
-    public get targetSurface() {return this.getProp("TargetSurface", DataType.Enum) as NormalId | undefined;}
-    public set targetSurface(value) {this.setProp("TargetSurface", DataType.Enum, value);}
+    public get TargetSurface() {return this.GetProp("TargetSurface", DataType.Enum) as NormalId | undefined;}
+    public set TargetSurface(value) {this.SetProp("TargetSurface", DataType.Enum, value);}
 }
 
 export abstract class SelectionLasso extends GuiBase3d {
-    protected constructor(className: string) {super(className);}
-    public get humanoid() {return this.getProp("Humanoid", DataType.Referent) as Humanoid | undefined;}
-    public set humanoid(value) {this.setProp("Humanoid", DataType.Referent, value);}
+    protected constructor(className: string) {super(className); this.addClassName("SelectionLasso");}
+    public get Humanoid() {return this.GetProp("Humanoid", DataType.Referent) as Humanoid | undefined;}
+    public set Humanoid(value) {this.SetProp("Humanoid", DataType.Referent, value);}
 }
 
 export class SelectionPartLasso extends SelectionLasso {
-    protected constructor(className?: string) {super(className ?? "SelectionPartLasso");}
+    protected constructor(className?: string) {super(className ?? "SelectionPartLasso"); this.addClassName("SelectionPartLasso");}
     public static new() {return new SelectionPartLasso();}
-    public get part() {return this.getProp("Part", DataType.Referent) as BasePart | undefined;}
-    public set part(value) {this.setProp("Part", DataType.Referent, value);}
+    public get Part() {return this.GetProp("Part", DataType.Referent) as BasePart | undefined;}
+    public set Part(value) {this.SetProp("Part", DataType.Referent, value);}
 }
 
 export class SelectionPointLasso extends SelectionLasso {
-    protected constructor(className?: string) {super(className ?? "SelectionPointLasso");}
+    protected constructor(className?: string) {super(className ?? "SelectionPointLasso"); this.addClassName("SelectionPointLasso");}
     public static new() {return new SelectionPointLasso();}
-    public get point() {return this.getProp("Point", DataType.Vector3);}
-    public set point(value) {this.setProp("Point", DataType.Vector3, value);}
+    public get Point() {return this.GetProp("Point", DataType.Vector3);}
+    public set Point(value) {this.SetProp("Point", DataType.Vector3, value);}
 }
 
 export class Path2D extends GuiBase {
-    protected constructor(className?: string) {super(className ?? "Path2D");}
+    protected constructor(className?: string) {super(className ?? "Path2D"); this.addClassName("Path2D");}
     public static new() {return new Path2D();}
-    public get color3() {return this.getProp("Color3", DataType.Color3);}
-    public set color3(value) {this.setProp("Color3", DataType.Color3, value);}
-    public get propertiesSerialize() {return this.getProp("PropertiesSerialize", DataType.String);}
-    public set propertiesSerialize(value) {this.setProp("PropertiesSerialize", DataType.String, value);}
-    public get thickness() {return this.getProp("Thickness", DataType.Float32);}
-    public set thickness(value) {this.setProp("Thickness", DataType.Float32, value);}
-    public get transparency() {return this.getProp("Transparency", DataType.Float32);}
-    public set transparency(value) {this.setProp("Transparency", DataType.Float32, value);}
-    public get visible() {return this.getProp("Visible", DataType.Bool);}
-    public set visible(value) {this.setProp("Visible", DataType.Bool, value);}
-    public get zIndex() {return this.getProp("ZIndex", DataType.Int32);}
-    public set zIndex(value) {this.setProp("ZIndex", DataType.Int32, value);}
+    public get Color3() {return this.GetProp("Color3", DataType.Color3);}
+    public set Color3(value) {this.SetProp("Color3", DataType.Color3, value);}
+    public get PropertiesSerialize() {return this.GetProp("PropertiesSerialize", DataType.String);}
+    public set PropertiesSerialize(value) {this.SetProp("PropertiesSerialize", DataType.String, value);}
+    public get Thickness() {return this.GetProp("Thickness", DataType.Float32);}
+    public set Thickness(value) {this.SetProp("Thickness", DataType.Float32, value);}
+    public get Transparency() {return this.GetProp("Transparency", DataType.Float32);}
+    public set Transparency(value) {this.SetProp("Transparency", DataType.Float32, value);}
+    public get Visible() {return this.GetProp("Visible", DataType.Bool);}
+    public set Visible(value) {this.SetProp("Visible", DataType.Bool, value);}
+    public get ZIndex() {return this.GetProp("ZIndex", DataType.Int32);}
+    public set ZIndex(value) {this.SetProp("ZIndex", DataType.Int32, value);}
 }
 
-export class GuiService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "GuiService", true);}
+export class GuiService extends Instance {
+    protected constructor(className?: string) {super(className ?? "GuiService", true); this.addClassName("GuiService");}
     public static new() {return new GuiService();}
-    public get autoSelectGuiEnabled() {return this.getProp("AutoSelectGuiEnabled", DataType.Bool);}
-    public set autoSelectGuiEnabled(value) {this.setProp("AutoSelectGuiEnabled", DataType.Bool, value);}
-    public get guiNavigationEnabled() {return this.getProp("GuiNavigationEnabled", DataType.Bool);}
-    public set guiNavigationEnabled(value) {this.setProp("GuiNavigationEnabled", DataType.Bool, value);}
-    public get selectedObject() {return this.getProp("SelectedObject", DataType.Referent) as GuiObject | undefined;}
-    public set selectedObject(value) {this.setProp("SelectedObject", DataType.Referent, value);}
+    public get AutoSelectGuiEnabled() {return this.GetProp("AutoSelectGuiEnabled", DataType.Bool);}
+    public set AutoSelectGuiEnabled(value) {this.SetProp("AutoSelectGuiEnabled", DataType.Bool, value);}
+    public get GuiNavigationEnabled() {return this.GetProp("GuiNavigationEnabled", DataType.Bool);}
+    public set GuiNavigationEnabled(value) {this.SetProp("GuiNavigationEnabled", DataType.Bool, value);}
+    public get SelectedObject() {return this.GetProp("SelectedObject", DataType.Referent) as GuiObject | undefined;}
+    public set SelectedObject(value) {this.SetProp("SelectedObject", DataType.Referent, value);}
 }
 
-export class GuidRegistryService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "GuidRegistryService", true);}
+export class GuidRegistryService extends Instance {
+    protected constructor(className?: string) {super(className ?? "GuidRegistryService", true); this.addClassName("GuidRegistryService");}
     public static new() {return new GuidRegistryService();}
 }
 
-export class HapticService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "HapticService", true);}
+export class HapticService extends Instance {
+    protected constructor(className?: string) {super(className ?? "HapticService", true); this.addClassName("HapticService");}
     public static new() {return new HapticService();}
 }
 
-export class HeightmapImporterService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "HeightmapImporterService", true);}
+export class HeightmapImporterService extends Instance {
+    protected constructor(className?: string) {super(className ?? "HeightmapImporterService", true); this.addClassName("HeightmapImporterService");}
     public static new() {return new HeightmapImporterService();}
 }
 
-export class HiddenSurfaceRemovalAsset extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "HiddenSurfaceRemovalAsset");}
+export class HiddenSurfaceRemovalAsset extends Instance {
+    protected constructor(className?: string) {super(className ?? "HiddenSurfaceRemovalAsset"); this.addClassName("HiddenSurfaceRemovalAsset");}
     public static new() {return new HiddenSurfaceRemovalAsset();}
-    public get hSRData() {return this.getProp("HSRData", DataType.String);}
-    public set hSRData(value) {this.setProp("HSRData", DataType.String, value);}
-    public get hSRMeshIdData() {return this.getProp("HSRMeshIdData", DataType.String);}
-    public set hSRMeshIdData(value) {this.setProp("HSRMeshIdData", DataType.String, value);}
+    public get HSRData() {return this.GetProp("HSRData", DataType.String);}
+    public set HSRData(value) {this.SetProp("HSRData", DataType.String, value);}
+    public get HSRMeshIdData() {return this.GetProp("HSRMeshIdData", DataType.String);}
+    public set HSRMeshIdData(value) {this.SetProp("HSRMeshIdData", DataType.String, value);}
 }
 
-export class Highlight extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Highlight");}
+export class Highlight extends Instance {
+    protected constructor(className?: string) {super(className ?? "Highlight"); this.addClassName("Highlight");}
     public static new() {return new Highlight();}
-    public get adornee() {return this.getProp("Adornee", DataType.Referent) as CoreInstance | undefined;}
-    public set adornee(value) {this.setProp("Adornee", DataType.Referent, value);}
-    public get depthMode() {return this.getProp("DepthMode", DataType.Enum) as HighlightDepthMode | undefined;}
-    public set depthMode(value) {this.setProp("DepthMode", DataType.Enum, value);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get fillColor() {return this.getProp("FillColor", DataType.Color3);}
-    public set fillColor(value) {this.setProp("FillColor", DataType.Color3, value);}
-    public get fillTransparency() {return this.getProp("FillTransparency", DataType.Float32);}
-    public set fillTransparency(value) {this.setProp("FillTransparency", DataType.Float32, value);}
-    public get outlineColor() {return this.getProp("OutlineColor", DataType.Color3);}
-    public set outlineColor(value) {this.setProp("OutlineColor", DataType.Color3, value);}
-    public get outlineTransparency() {return this.getProp("OutlineTransparency", DataType.Float32);}
-    public set outlineTransparency(value) {this.setProp("OutlineTransparency", DataType.Float32, value);}
+    public get Adornee() {return this.GetProp("Adornee", DataType.Referent) as Instance | undefined;}
+    public set Adornee(value) {this.SetProp("Adornee", DataType.Referent, value);}
+    public get DepthMode() {return this.GetProp("DepthMode", DataType.Enum) as HighlightDepthMode | undefined;}
+    public set DepthMode(value) {this.SetProp("DepthMode", DataType.Enum, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get FillColor() {return this.GetProp("FillColor", DataType.Color3);}
+    public set FillColor(value) {this.SetProp("FillColor", DataType.Color3, value);}
+    public get FillTransparency() {return this.GetProp("FillTransparency", DataType.Float32);}
+    public set FillTransparency(value) {this.SetProp("FillTransparency", DataType.Float32, value);}
+    public get OutlineColor() {return this.GetProp("OutlineColor", DataType.Color3);}
+    public set OutlineColor(value) {this.SetProp("OutlineColor", DataType.Color3, value);}
+    public get OutlineTransparency() {return this.GetProp("OutlineTransparency", DataType.Float32);}
+    public set OutlineTransparency(value) {this.SetProp("OutlineTransparency", DataType.Float32, value);}
 }
 
-export class Hopper extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Hopper", true);}
+export class Hopper extends Instance {
+    protected constructor(className?: string) {super(className ?? "Hopper", true); this.addClassName("Hopper");}
     public static new() {return new Hopper();}
 }
 
-export class HttpRbxApiService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "HttpRbxApiService", true);}
+export class HttpRbxApiService extends Instance {
+    protected constructor(className?: string) {super(className ?? "HttpRbxApiService", true); this.addClassName("HttpRbxApiService");}
     public static new() {return new HttpRbxApiService();}
 }
 
-export class HttpService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "HttpService", true);}
+export class HttpService extends Instance {
+    protected constructor(className?: string) {super(className ?? "HttpService", true); this.addClassName("HttpService");}
     public static new() {return new HttpService();}
-    public get httpEnabled() {return this.getProp("HttpEnabled", DataType.Bool);}
-    public set httpEnabled(value) {this.setProp("HttpEnabled", DataType.Bool, value);}
+    public get HttpEnabled() {return this.GetProp("HttpEnabled", DataType.Bool);}
+    public set HttpEnabled(value) {this.SetProp("HttpEnabled", DataType.Bool, value);}
 }
 
-export class Humanoid extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Humanoid");}
+export class Humanoid extends Instance {
+    protected constructor(className?: string) {super(className ?? "Humanoid"); this.addClassName("Humanoid");}
     public static new() {return new Humanoid();}
-    public get autoJumpEnabled() {return this.getProp("AutoJumpEnabled", DataType.Bool);}
-    public set autoJumpEnabled(value) {this.setProp("AutoJumpEnabled", DataType.Bool, value);}
-    public get autoRotate() {return this.getProp("AutoRotate", DataType.Bool);}
-    public set autoRotate(value) {this.setProp("AutoRotate", DataType.Bool, value);}
-    public get automaticScalingEnabled() {return this.getProp("AutomaticScalingEnabled", DataType.Bool);}
-    public set automaticScalingEnabled(value) {this.setProp("AutomaticScalingEnabled", DataType.Bool, value);}
-    public get breakJointsOnDeath() {return this.getProp("BreakJointsOnDeath", DataType.Bool);}
-    public set breakJointsOnDeath(value) {this.setProp("BreakJointsOnDeath", DataType.Bool, value);}
-    public get collisionType() {return this.getProp("CollisionType", DataType.Enum) as HumanoidCollisionType | undefined;}
-    public set collisionType(value) {this.setProp("CollisionType", DataType.Enum, value);}
-    public get displayDistanceType() {return this.getProp("DisplayDistanceType", DataType.Enum) as HumanoidDisplayDistanceType | undefined;}
-    public set displayDistanceType(value) {this.setProp("DisplayDistanceType", DataType.Enum, value);}
-    public get displayName() {return this.getProp("DisplayName", DataType.String);}
-    public set displayName(value) {this.setProp("DisplayName", DataType.String, value);}
-    public get evaluateStateMachine() {return this.getProp("EvaluateStateMachine", DataType.Bool);}
-    public set evaluateStateMachine(value) {this.setProp("EvaluateStateMachine", DataType.Bool, value);}
-    public get healthDisplayDistance() {return this.getProp("HealthDisplayDistance", DataType.Float32);}
-    public set healthDisplayDistance(value) {this.setProp("HealthDisplayDistance", DataType.Float32, value);}
-    public get healthDisplayType() {return this.getProp("HealthDisplayType", DataType.Enum) as HumanoidHealthDisplayType | undefined;}
-    public set healthDisplayType(value) {this.setProp("HealthDisplayType", DataType.Enum, value);}
-    public get health_XML() {return this.getProp("Health_XML", DataType.Float32);}
-    public set health_XML(value) {this.setProp("Health_XML", DataType.Float32, value);}
-    public get hipHeight() {return this.getProp("HipHeight", DataType.Float32);}
-    public set hipHeight(value) {this.setProp("HipHeight", DataType.Float32, value);}
-    public get internalBodyScale() {return this.getProp("InternalBodyScale", DataType.Vector3);}
-    public set internalBodyScale(value) {this.setProp("InternalBodyScale", DataType.Vector3, value);}
-    public get internalHeadScale() {return this.getProp("InternalHeadScale", DataType.Float32);}
-    public set internalHeadScale(value) {this.setProp("InternalHeadScale", DataType.Float32, value);}
-    public get jumpHeight() {return this.getProp("JumpHeight", DataType.Float32);}
-    public set jumpHeight(value) {this.setProp("JumpHeight", DataType.Float32, value);}
-    public get jumpPower() {return this.getProp("JumpPower", DataType.Float32);}
-    public set jumpPower(value) {this.setProp("JumpPower", DataType.Float32, value);}
-    public get leftLeg() {return this.getProp("LeftLeg", DataType.Referent) as BasePart | undefined;}
-    public set leftLeg(value) {this.setProp("LeftLeg", DataType.Referent, value);}
-    public get maxHealth() {return this.getProp("MaxHealth", DataType.Float32);}
-    public set maxHealth(value) {this.setProp("MaxHealth", DataType.Float32, value);}
-    public get maxSlopeAngle() {return this.getProp("MaxSlopeAngle", DataType.Float32);}
-    public set maxSlopeAngle(value) {this.setProp("MaxSlopeAngle", DataType.Float32, value);}
-    public get nameDisplayDistance() {return this.getProp("NameDisplayDistance", DataType.Float32);}
-    public set nameDisplayDistance(value) {this.setProp("NameDisplayDistance", DataType.Float32, value);}
-    public get nameOcclusion() {return this.getProp("NameOcclusion", DataType.Enum) as NameOcclusion | undefined;}
-    public set nameOcclusion(value) {this.setProp("NameOcclusion", DataType.Enum, value);}
-    public get requiresNeck() {return this.getProp("RequiresNeck", DataType.Bool);}
-    public set requiresNeck(value) {this.setProp("RequiresNeck", DataType.Bool, value);}
-    public get rigType() {return this.getProp("RigType", DataType.Enum) as HumanoidRigType | undefined;}
-    public set rigType(value) {this.setProp("RigType", DataType.Enum, value);}
-    public get rightLeg() {return this.getProp("RightLeg", DataType.Referent) as BasePart | undefined;}
-    public set rightLeg(value) {this.setProp("RightLeg", DataType.Referent, value);}
-    public get torso() {return this.getProp("Torso", DataType.Referent) as BasePart | undefined;}
-    public set torso(value) {this.setProp("Torso", DataType.Referent, value);}
-    public get useJumpPower() {return this.getProp("UseJumpPower", DataType.Bool);}
-    public set useJumpPower(value) {this.setProp("UseJumpPower", DataType.Bool, value);}
-    public get walkSpeed() {return this.getProp("WalkSpeed", DataType.Float32);}
-    public set walkSpeed(value) {this.setProp("WalkSpeed", DataType.Float32, value);}
+    public get AutoJumpEnabled() {return this.GetProp("AutoJumpEnabled", DataType.Bool);}
+    public set AutoJumpEnabled(value) {this.SetProp("AutoJumpEnabled", DataType.Bool, value);}
+    public get AutoRotate() {return this.GetProp("AutoRotate", DataType.Bool);}
+    public set AutoRotate(value) {this.SetProp("AutoRotate", DataType.Bool, value);}
+    public get AutomaticScalingEnabled() {return this.GetProp("AutomaticScalingEnabled", DataType.Bool);}
+    public set AutomaticScalingEnabled(value) {this.SetProp("AutomaticScalingEnabled", DataType.Bool, value);}
+    public get BreakJointsOnDeath() {return this.GetProp("BreakJointsOnDeath", DataType.Bool);}
+    public set BreakJointsOnDeath(value) {this.SetProp("BreakJointsOnDeath", DataType.Bool, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get CollisionType() {return this.GetProp("CollisionType", DataType.Enum) as HumanoidCollisionType | undefined;}
+    /**@deprecated Deprecated by Roblox*/
+    public set CollisionType(value) {this.SetProp("CollisionType", DataType.Enum, value);}
+    public get DisplayDistanceType() {return this.GetProp("DisplayDistanceType", DataType.Enum) as HumanoidDisplayDistanceType | undefined;}
+    public set DisplayDistanceType(value) {this.SetProp("DisplayDistanceType", DataType.Enum, value);}
+    public get DisplayName() {return this.GetProp("DisplayName", DataType.String);}
+    public set DisplayName(value) {this.SetProp("DisplayName", DataType.String, value);}
+    public get EvaluateStateMachine() {return this.GetProp("EvaluateStateMachine", DataType.Bool);}
+    public set EvaluateStateMachine(value) {this.SetProp("EvaluateStateMachine", DataType.Bool, value);}
+    public get HealthDisplayDistance() {return this.GetProp("HealthDisplayDistance", DataType.Float32);}
+    public set HealthDisplayDistance(value) {this.SetProp("HealthDisplayDistance", DataType.Float32, value);}
+    public get HealthDisplayType() {return this.GetProp("HealthDisplayType", DataType.Enum) as HumanoidHealthDisplayType | undefined;}
+    public set HealthDisplayType(value) {this.SetProp("HealthDisplayType", DataType.Enum, value);}
+    public get HealthXml() {return this.GetProp("Health_XML", DataType.Float32);}
+    public set HealthXml(value) {this.SetProp("Health_XML", DataType.Float32, value);}
+    public get HipHeight() {return this.GetProp("HipHeight", DataType.Float32);}
+    public set HipHeight(value) {this.SetProp("HipHeight", DataType.Float32, value);}
+    public get InternalBodyScale() {return this.GetProp("InternalBodyScale", DataType.Vector3);}
+    public set InternalBodyScale(value) {this.SetProp("InternalBodyScale", DataType.Vector3, value);}
+    public get InternalHeadScale() {return this.GetProp("InternalHeadScale", DataType.Float32);}
+    public set InternalHeadScale(value) {this.SetProp("InternalHeadScale", DataType.Float32, value);}
+    public get JumpHeight() {return this.GetProp("JumpHeight", DataType.Float32);}
+    public set JumpHeight(value) {this.SetProp("JumpHeight", DataType.Float32, value);}
+    public get JumpPower() {return this.GetProp("JumpPower", DataType.Float32);}
+    public set JumpPower(value) {this.SetProp("JumpPower", DataType.Float32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get LeftLeg() {return this.GetProp("LeftLeg", DataType.Referent) as BasePart | undefined;}
+    /**@deprecated Deprecated by Roblox*/
+    public set LeftLeg(value) {this.SetProp("LeftLeg", DataType.Referent, value);}
+    public get MaxHealth() {return this.GetProp("MaxHealth", DataType.Float32);}
+    public set MaxHealth(value) {this.SetProp("MaxHealth", DataType.Float32, value);}
+    public get MaxSlopeAngle() {return this.GetProp("MaxSlopeAngle", DataType.Float32);}
+    public set MaxSlopeAngle(value) {this.SetProp("MaxSlopeAngle", DataType.Float32, value);}
+    public get NameDisplayDistance() {return this.GetProp("NameDisplayDistance", DataType.Float32);}
+    public set NameDisplayDistance(value) {this.SetProp("NameDisplayDistance", DataType.Float32, value);}
+    public get NameOcclusion() {return this.GetProp("NameOcclusion", DataType.Enum) as NameOcclusion | undefined;}
+    public set NameOcclusion(value) {this.SetProp("NameOcclusion", DataType.Enum, value);}
+    public get RequiresNeck() {return this.GetProp("RequiresNeck", DataType.Bool);}
+    public set RequiresNeck(value) {this.SetProp("RequiresNeck", DataType.Bool, value);}
+    public get RigType() {return this.GetProp("RigType", DataType.Enum) as HumanoidRigType | undefined;}
+    public set RigType(value) {this.SetProp("RigType", DataType.Enum, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get RightLeg() {return this.GetProp("RightLeg", DataType.Referent) as BasePart | undefined;}
+    /**@deprecated Deprecated by Roblox*/
+    public set RightLeg(value) {this.SetProp("RightLeg", DataType.Referent, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get Torso() {return this.GetProp("Torso", DataType.Referent) as BasePart | undefined;}
+    /**@deprecated Deprecated by Roblox*/
+    public set Torso(value) {this.SetProp("Torso", DataType.Referent, value);}
+    public get UseJumpPower() {return this.GetProp("UseJumpPower", DataType.Bool);}
+    public set UseJumpPower(value) {this.SetProp("UseJumpPower", DataType.Bool, value);}
+    public get WalkSpeed() {return this.GetProp("WalkSpeed", DataType.Float32);}
+    public set WalkSpeed(value) {this.SetProp("WalkSpeed", DataType.Float32, value);}
+    /**@deprecated Use MaxHealth instead*/
+    public get maxHealth() {return this.MaxHealth;}
+    /**@deprecated Use MaxHealth instead*/
+    public set maxHealth(value) {this.MaxHealth = value;}
 }
 
-export class HumanoidDescription extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "HumanoidDescription");}
+export class HumanoidDescription extends Instance {
+    protected constructor(className?: string) {super(className ?? "HumanoidDescription"); this.addClassName("HumanoidDescription");}
     public static new() {return new HumanoidDescription();}
-    public get accessoryBlob() {return this.getProp("AccessoryBlob", DataType.String);}
-    public set accessoryBlob(value) {this.setProp("AccessoryBlob", DataType.String, value);}
-    public get accessoryRigidAndLayeredBlob() {return this.getProp("AccessoryRigidAndLayeredBlob", DataType.String);}
-    public set accessoryRigidAndLayeredBlob(value) {this.setProp("AccessoryRigidAndLayeredBlob", DataType.String, value);}
-    public get backAccessory() {return this.getProp("BackAccessory", DataType.String);}
-    public set backAccessory(value) {this.setProp("BackAccessory", DataType.String, value);}
-    public get bodyTypeScale() {return this.getProp("BodyTypeScale", DataType.Float32);}
-    public set bodyTypeScale(value) {this.setProp("BodyTypeScale", DataType.Float32, value);}
-    public get climbAnimation() {return this.getProp("ClimbAnimation", DataType.Int64);}
-    public set climbAnimation(value) {this.setProp("ClimbAnimation", DataType.Int64, value);}
-    public get depthScale() {return this.getProp("DepthScale", DataType.Float32);}
-    public set depthScale(value) {this.setProp("DepthScale", DataType.Float32, value);}
-    public get emotesDataInternal() {return this.getProp("EmotesDataInternal", DataType.String);}
-    public set emotesDataInternal(value) {this.setProp("EmotesDataInternal", DataType.String, value);}
-    public get equippedEmotesDataInternal() {return this.getProp("EquippedEmotesDataInternal", DataType.String);}
-    public set equippedEmotesDataInternal(value) {this.setProp("EquippedEmotesDataInternal", DataType.String, value);}
-    public get face() {return this.getProp("Face", DataType.Int64);}
-    public set face(value) {this.setProp("Face", DataType.Int64, value);}
-    public get faceAccessory() {return this.getProp("FaceAccessory", DataType.String);}
-    public set faceAccessory(value) {this.setProp("FaceAccessory", DataType.String, value);}
-    public get fallAnimation() {return this.getProp("FallAnimation", DataType.Int64);}
-    public set fallAnimation(value) {this.setProp("FallAnimation", DataType.Int64, value);}
-    public get frontAccessory() {return this.getProp("FrontAccessory", DataType.String);}
-    public set frontAccessory(value) {this.setProp("FrontAccessory", DataType.String, value);}
-    public get graphicTShirt() {return this.getProp("GraphicTShirt", DataType.Int64);}
-    public set graphicTShirt(value) {this.setProp("GraphicTShirt", DataType.Int64, value);}
-    public get hairAccessory() {return this.getProp("HairAccessory", DataType.String);}
-    public set hairAccessory(value) {this.setProp("HairAccessory", DataType.String, value);}
-    public get hatAccessory() {return this.getProp("HatAccessory", DataType.String);}
-    public set hatAccessory(value) {this.setProp("HatAccessory", DataType.String, value);}
-    public get head() {return this.getProp("Head", DataType.Int64);}
-    public set head(value) {this.setProp("Head", DataType.Int64, value);}
-    public get headColor() {return this.getProp("HeadColor", DataType.Color3);}
-    public set headColor(value) {this.setProp("HeadColor", DataType.Color3, value);}
-    public get headScale() {return this.getProp("HeadScale", DataType.Float32);}
-    public set headScale(value) {this.setProp("HeadScale", DataType.Float32, value);}
-    public get heightScale() {return this.getProp("HeightScale", DataType.Float32);}
-    public set heightScale(value) {this.setProp("HeightScale", DataType.Float32, value);}
-    public get idleAnimation() {return this.getProp("IdleAnimation", DataType.Int64);}
-    public set idleAnimation(value) {this.setProp("IdleAnimation", DataType.Int64, value);}
-    public get jumpAnimation() {return this.getProp("JumpAnimation", DataType.Int64);}
-    public set jumpAnimation(value) {this.setProp("JumpAnimation", DataType.Int64, value);}
-    public get leftArm() {return this.getProp("LeftArm", DataType.Int64);}
-    public set leftArm(value) {this.setProp("LeftArm", DataType.Int64, value);}
-    public get leftArmColor() {return this.getProp("LeftArmColor", DataType.Color3);}
-    public set leftArmColor(value) {this.setProp("LeftArmColor", DataType.Color3, value);}
-    public get leftLeg() {return this.getProp("LeftLeg", DataType.Int64);}
-    public set leftLeg(value) {this.setProp("LeftLeg", DataType.Int64, value);}
-    public get leftLegColor() {return this.getProp("LeftLegColor", DataType.Color3);}
-    public set leftLegColor(value) {this.setProp("LeftLegColor", DataType.Color3, value);}
-    public get moodAnimation() {return this.getProp("MoodAnimation", DataType.Int64);}
-    public set moodAnimation(value) {this.setProp("MoodAnimation", DataType.Int64, value);}
-    public get neckAccessory() {return this.getProp("NeckAccessory", DataType.String);}
-    public set neckAccessory(value) {this.setProp("NeckAccessory", DataType.String, value);}
-    public get pants() {return this.getProp("Pants", DataType.Int64);}
-    public set pants(value) {this.setProp("Pants", DataType.Int64, value);}
-    public get proportionScale() {return this.getProp("ProportionScale", DataType.Float32);}
-    public set proportionScale(value) {this.setProp("ProportionScale", DataType.Float32, value);}
-    public get rightArm() {return this.getProp("RightArm", DataType.Int64);}
-    public set rightArm(value) {this.setProp("RightArm", DataType.Int64, value);}
-    public get rightArmColor() {return this.getProp("RightArmColor", DataType.Color3);}
-    public set rightArmColor(value) {this.setProp("RightArmColor", DataType.Color3, value);}
-    public get rightLeg() {return this.getProp("RightLeg", DataType.Int64);}
-    public set rightLeg(value) {this.setProp("RightLeg", DataType.Int64, value);}
-    public get rightLegColor() {return this.getProp("RightLegColor", DataType.Color3);}
-    public set rightLegColor(value) {this.setProp("RightLegColor", DataType.Color3, value);}
-    public get runAnimation() {return this.getProp("RunAnimation", DataType.Int64);}
-    public set runAnimation(value) {this.setProp("RunAnimation", DataType.Int64, value);}
-    public get shirt() {return this.getProp("Shirt", DataType.Int64);}
-    public set shirt(value) {this.setProp("Shirt", DataType.Int64, value);}
-    public get shouldersAccessory() {return this.getProp("ShouldersAccessory", DataType.String);}
-    public set shouldersAccessory(value) {this.setProp("ShouldersAccessory", DataType.String, value);}
-    public get swimAnimation() {return this.getProp("SwimAnimation", DataType.Int64);}
-    public set swimAnimation(value) {this.setProp("SwimAnimation", DataType.Int64, value);}
-    public get torso() {return this.getProp("Torso", DataType.Int64);}
-    public set torso(value) {this.setProp("Torso", DataType.Int64, value);}
-    public get torsoColor() {return this.getProp("TorsoColor", DataType.Color3);}
-    public set torsoColor(value) {this.setProp("TorsoColor", DataType.Color3, value);}
-    public get waistAccessory() {return this.getProp("WaistAccessory", DataType.String);}
-    public set waistAccessory(value) {this.setProp("WaistAccessory", DataType.String, value);}
-    public get walkAnimation() {return this.getProp("WalkAnimation", DataType.Int64);}
-    public set walkAnimation(value) {this.setProp("WalkAnimation", DataType.Int64, value);}
-    public get widthScale() {return this.getProp("WidthScale", DataType.Float32);}
-    public set widthScale(value) {this.setProp("WidthScale", DataType.Float32, value);}
+    public get AccessoryBlob() {return this.GetProp("AccessoryBlob", DataType.String);}
+    public set AccessoryBlob(value) {this.SetProp("AccessoryBlob", DataType.String, value);}
+    public get AccessoryRigidAndLayeredBlob() {return this.GetProp("AccessoryRigidAndLayeredBlob", DataType.String);}
+    public set AccessoryRigidAndLayeredBlob(value) {this.SetProp("AccessoryRigidAndLayeredBlob", DataType.String, value);}
+    public get BackAccessory() {return this.GetProp("BackAccessory", DataType.String);}
+    public set BackAccessory(value) {this.SetProp("BackAccessory", DataType.String, value);}
+    public get BodyTypeScale() {return this.GetProp("BodyTypeScale", DataType.Float32);}
+    public set BodyTypeScale(value) {this.SetProp("BodyTypeScale", DataType.Float32, value);}
+    public get ClimbAnimation() {return this.GetProp("ClimbAnimation", DataType.Int64);}
+    public set ClimbAnimation(value) {this.SetProp("ClimbAnimation", DataType.Int64, value);}
+    public get DepthScale() {return this.GetProp("DepthScale", DataType.Float32);}
+    public set DepthScale(value) {this.SetProp("DepthScale", DataType.Float32, value);}
+    public get EmotesDataInternal() {return this.GetProp("EmotesDataInternal", DataType.String);}
+    public set EmotesDataInternal(value) {this.SetProp("EmotesDataInternal", DataType.String, value);}
+    public get EquippedEmotesDataInternal() {return this.GetProp("EquippedEmotesDataInternal", DataType.String);}
+    public set EquippedEmotesDataInternal(value) {this.SetProp("EquippedEmotesDataInternal", DataType.String, value);}
+    public get Face() {return this.GetProp("Face", DataType.Int64);}
+    public set Face(value) {this.SetProp("Face", DataType.Int64, value);}
+    public get FaceAccessory() {return this.GetProp("FaceAccessory", DataType.String);}
+    public set FaceAccessory(value) {this.SetProp("FaceAccessory", DataType.String, value);}
+    public get FallAnimation() {return this.GetProp("FallAnimation", DataType.Int64);}
+    public set FallAnimation(value) {this.SetProp("FallAnimation", DataType.Int64, value);}
+    public get FrontAccessory() {return this.GetProp("FrontAccessory", DataType.String);}
+    public set FrontAccessory(value) {this.SetProp("FrontAccessory", DataType.String, value);}
+    public get GraphicTShirt() {return this.GetProp("GraphicTShirt", DataType.Int64);}
+    public set GraphicTShirt(value) {this.SetProp("GraphicTShirt", DataType.Int64, value);}
+    public get HairAccessory() {return this.GetProp("HairAccessory", DataType.String);}
+    public set HairAccessory(value) {this.SetProp("HairAccessory", DataType.String, value);}
+    public get HatAccessory() {return this.GetProp("HatAccessory", DataType.String);}
+    public set HatAccessory(value) {this.SetProp("HatAccessory", DataType.String, value);}
+    public get Head() {return this.GetProp("Head", DataType.Int64);}
+    public set Head(value) {this.SetProp("Head", DataType.Int64, value);}
+    public get HeadColor() {return this.GetProp("HeadColor", DataType.Color3);}
+    public set HeadColor(value) {this.SetProp("HeadColor", DataType.Color3, value);}
+    public get HeadScale() {return this.GetProp("HeadScale", DataType.Float32);}
+    public set HeadScale(value) {this.SetProp("HeadScale", DataType.Float32, value);}
+    public get HeightScale() {return this.GetProp("HeightScale", DataType.Float32);}
+    public set HeightScale(value) {this.SetProp("HeightScale", DataType.Float32, value);}
+    public get IdleAnimation() {return this.GetProp("IdleAnimation", DataType.Int64);}
+    public set IdleAnimation(value) {this.SetProp("IdleAnimation", DataType.Int64, value);}
+    public get JumpAnimation() {return this.GetProp("JumpAnimation", DataType.Int64);}
+    public set JumpAnimation(value) {this.SetProp("JumpAnimation", DataType.Int64, value);}
+    public get LeftArm() {return this.GetProp("LeftArm", DataType.Int64);}
+    public set LeftArm(value) {this.SetProp("LeftArm", DataType.Int64, value);}
+    public get LeftArmColor() {return this.GetProp("LeftArmColor", DataType.Color3);}
+    public set LeftArmColor(value) {this.SetProp("LeftArmColor", DataType.Color3, value);}
+    public get LeftLeg() {return this.GetProp("LeftLeg", DataType.Int64);}
+    public set LeftLeg(value) {this.SetProp("LeftLeg", DataType.Int64, value);}
+    public get LeftLegColor() {return this.GetProp("LeftLegColor", DataType.Color3);}
+    public set LeftLegColor(value) {this.SetProp("LeftLegColor", DataType.Color3, value);}
+    public get MoodAnimation() {return this.GetProp("MoodAnimation", DataType.Int64);}
+    public set MoodAnimation(value) {this.SetProp("MoodAnimation", DataType.Int64, value);}
+    public get NeckAccessory() {return this.GetProp("NeckAccessory", DataType.String);}
+    public set NeckAccessory(value) {this.SetProp("NeckAccessory", DataType.String, value);}
+    public get Pants() {return this.GetProp("Pants", DataType.Int64);}
+    public set Pants(value) {this.SetProp("Pants", DataType.Int64, value);}
+    public get ProportionScale() {return this.GetProp("ProportionScale", DataType.Float32);}
+    public set ProportionScale(value) {this.SetProp("ProportionScale", DataType.Float32, value);}
+    public get RightArm() {return this.GetProp("RightArm", DataType.Int64);}
+    public set RightArm(value) {this.SetProp("RightArm", DataType.Int64, value);}
+    public get RightArmColor() {return this.GetProp("RightArmColor", DataType.Color3);}
+    public set RightArmColor(value) {this.SetProp("RightArmColor", DataType.Color3, value);}
+    public get RightLeg() {return this.GetProp("RightLeg", DataType.Int64);}
+    public set RightLeg(value) {this.SetProp("RightLeg", DataType.Int64, value);}
+    public get RightLegColor() {return this.GetProp("RightLegColor", DataType.Color3);}
+    public set RightLegColor(value) {this.SetProp("RightLegColor", DataType.Color3, value);}
+    public get RunAnimation() {return this.GetProp("RunAnimation", DataType.Int64);}
+    public set RunAnimation(value) {this.SetProp("RunAnimation", DataType.Int64, value);}
+    public get Shirt() {return this.GetProp("Shirt", DataType.Int64);}
+    public set Shirt(value) {this.SetProp("Shirt", DataType.Int64, value);}
+    public get ShouldersAccessory() {return this.GetProp("ShouldersAccessory", DataType.String);}
+    public set ShouldersAccessory(value) {this.SetProp("ShouldersAccessory", DataType.String, value);}
+    public get SwimAnimation() {return this.GetProp("SwimAnimation", DataType.Int64);}
+    public set SwimAnimation(value) {this.SetProp("SwimAnimation", DataType.Int64, value);}
+    public get Torso() {return this.GetProp("Torso", DataType.Int64);}
+    public set Torso(value) {this.SetProp("Torso", DataType.Int64, value);}
+    public get TorsoColor() {return this.GetProp("TorsoColor", DataType.Color3);}
+    public set TorsoColor(value) {this.SetProp("TorsoColor", DataType.Color3, value);}
+    public get WaistAccessory() {return this.GetProp("WaistAccessory", DataType.String);}
+    public set WaistAccessory(value) {this.SetProp("WaistAccessory", DataType.String, value);}
+    public get WalkAnimation() {return this.GetProp("WalkAnimation", DataType.Int64);}
+    public set WalkAnimation(value) {this.SetProp("WalkAnimation", DataType.Int64, value);}
+    public get WidthScale() {return this.GetProp("WidthScale", DataType.Float32);}
+    public set WidthScale(value) {this.SetProp("WidthScale", DataType.Float32, value);}
 }
 
-export class IKControl extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "IKControl");}
+export class IKControl extends Instance {
+    protected constructor(className?: string) {super(className ?? "IKControl"); this.addClassName("IKControl");}
     public static new() {return new IKControl();}
-    public get chainRoot() {return this.getProp("ChainRoot", DataType.Referent) as CoreInstance | undefined;}
-    public set chainRoot(value) {this.setProp("ChainRoot", DataType.Referent, value);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get endEffector() {return this.getProp("EndEffector", DataType.Referent) as CoreInstance | undefined;}
-    public set endEffector(value) {this.setProp("EndEffector", DataType.Referent, value);}
-    public get endEffectorOffset() {return this.getProp("EndEffectorOffset", DataType.CFrame);}
-    public set endEffectorOffset(value) {this.setProp("EndEffectorOffset", DataType.CFrame, value);}
-    public get offset() {return this.getProp("Offset", DataType.CFrame);}
-    public set offset(value) {this.setProp("Offset", DataType.CFrame, value);}
-    public get pole() {return this.getProp("Pole", DataType.Referent) as CoreInstance | undefined;}
-    public set pole(value) {this.setProp("Pole", DataType.Referent, value);}
-    public get priority() {return this.getProp("Priority", DataType.Int32);}
-    public set priority(value) {this.setProp("Priority", DataType.Int32, value);}
-    public get smoothTime() {return this.getProp("SmoothTime", DataType.Float32);}
-    public set smoothTime(value) {this.setProp("SmoothTime", DataType.Float32, value);}
-    public get target() {return this.getProp("Target", DataType.Referent) as CoreInstance | undefined;}
-    public set target(value) {this.setProp("Target", DataType.Referent, value);}
-    public get type() {return this.getProp("Type", DataType.Enum) as IKControlType | undefined;}
-    public set type(value) {this.setProp("Type", DataType.Enum, value);}
-    public get weight() {return this.getProp("Weight", DataType.Float32);}
-    public set weight(value) {this.setProp("Weight", DataType.Float32, value);}
+    public get ChainRoot() {return this.GetProp("ChainRoot", DataType.Referent) as Instance | undefined;}
+    public set ChainRoot(value) {this.SetProp("ChainRoot", DataType.Referent, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get EndEffector() {return this.GetProp("EndEffector", DataType.Referent) as Instance | undefined;}
+    public set EndEffector(value) {this.SetProp("EndEffector", DataType.Referent, value);}
+    public get EndEffectorOffset() {return this.GetProp("EndEffectorOffset", DataType.CFrame);}
+    public set EndEffectorOffset(value) {this.SetProp("EndEffectorOffset", DataType.CFrame, value);}
+    public get Offset() {return this.GetProp("Offset", DataType.CFrame);}
+    public set Offset(value) {this.SetProp("Offset", DataType.CFrame, value);}
+    public get Pole() {return this.GetProp("Pole", DataType.Referent) as Instance | undefined;}
+    public set Pole(value) {this.SetProp("Pole", DataType.Referent, value);}
+    public get Priority() {return this.GetProp("Priority", DataType.Int32);}
+    public set Priority(value) {this.SetProp("Priority", DataType.Int32, value);}
+    public get SmoothTime() {return this.GetProp("SmoothTime", DataType.Float32);}
+    public set SmoothTime(value) {this.SetProp("SmoothTime", DataType.Float32, value);}
+    public get Target() {return this.GetProp("Target", DataType.Referent) as Instance | undefined;}
+    public set Target(value) {this.SetProp("Target", DataType.Referent, value);}
+    public get Type() {return this.GetProp("Type", DataType.Enum) as IKControlType | undefined;}
+    public set Type(value) {this.SetProp("Type", DataType.Enum, value);}
+    public get Weight() {return this.GetProp("Weight", DataType.Float32);}
+    public set Weight(value) {this.SetProp("Weight", DataType.Float32, value);}
 }
 
-export abstract class ILegacyStudioBridge extends CoreInstance {
-    protected constructor(className: string) {super(className, true);}
+export abstract class ILegacyStudioBridge extends Instance {
+    protected constructor(className: string) {super(className, true); this.addClassName("ILegacyStudioBridge");}
 }
 
 export class LegacyStudioBridge extends ILegacyStudioBridge {
-    protected constructor(className?: string) {super(className ?? "LegacyStudioBridge");}
+    protected constructor(className?: string) {super(className ?? "LegacyStudioBridge"); this.addClassName("LegacyStudioBridge");}
     public static new() {return new LegacyStudioBridge();}
 }
 
-export class IXPService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "IXPService", true);}
+export class IXPService extends Instance {
+    protected constructor(className?: string) {super(className ?? "IXPService", true); this.addClassName("IXPService");}
     public static new() {return new IXPService();}
 }
 
-export class IncrementalPatchBuilder extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "IncrementalPatchBuilder", true);}
+export class IncrementalPatchBuilder extends Instance {
+    protected constructor(className?: string) {super(className ?? "IncrementalPatchBuilder", true); this.addClassName("IncrementalPatchBuilder");}
     public static new() {return new IncrementalPatchBuilder();}
-    public get addPathsToBundle() {return this.getProp("AddPathsToBundle", DataType.Bool);}
-    public set addPathsToBundle(value) {this.setProp("AddPathsToBundle", DataType.Bool, value);}
-    public get buildDebouncePeriod() {return this.getProp("BuildDebouncePeriod", DataType.Float64);}
-    public set buildDebouncePeriod(value) {this.setProp("BuildDebouncePeriod", DataType.Float64, value);}
-    public get highCompression() {return this.getProp("HighCompression", DataType.Bool);}
-    public set highCompression(value) {this.setProp("HighCompression", DataType.Bool, value);}
-    public get serializePatch() {return this.getProp("SerializePatch", DataType.Bool);}
-    public set serializePatch(value) {this.setProp("SerializePatch", DataType.Bool, value);}
-    public get zstdCompression() {return this.getProp("ZstdCompression", DataType.Bool);}
-    public set zstdCompression(value) {this.setProp("ZstdCompression", DataType.Bool, value);}
+    public get AddPathsToBundle() {return this.GetProp("AddPathsToBundle", DataType.Bool);}
+    public set AddPathsToBundle(value) {this.SetProp("AddPathsToBundle", DataType.Bool, value);}
+    public get BuildDebouncePeriod() {return this.GetProp("BuildDebouncePeriod", DataType.Float64);}
+    public set BuildDebouncePeriod(value) {this.SetProp("BuildDebouncePeriod", DataType.Float64, value);}
+    public get HighCompression() {return this.GetProp("HighCompression", DataType.Bool);}
+    public set HighCompression(value) {this.SetProp("HighCompression", DataType.Bool, value);}
+    public get SerializePatch() {return this.GetProp("SerializePatch", DataType.Bool);}
+    public set SerializePatch(value) {this.SetProp("SerializePatch", DataType.Bool, value);}
+    public get ZstdCompression() {return this.GetProp("ZstdCompression", DataType.Bool);}
+    public set ZstdCompression(value) {this.SetProp("ZstdCompression", DataType.Bool, value);}
 }
 
-export class InsertService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "InsertService", true);}
+export class InsertService extends Instance {
+    protected constructor(className?: string) {super(className ?? "InsertService", true); this.addClassName("InsertService");}
     public static new() {return new InsertService();}
-    public get allowClientInsertModels() {return this.getProp("AllowClientInsertModels", DataType.Bool);}
-    public set allowClientInsertModels(value) {this.setProp("AllowClientInsertModels", DataType.Bool, value);}
-    public get allowInsertFreeModels() {return this.getProp("AllowInsertFreeModels", DataType.Bool);}
-    public set allowInsertFreeModels(value) {this.setProp("AllowInsertFreeModels", DataType.Bool, value);}
+    public get AllowClientInsertModels() {return this.GetProp("AllowClientInsertModels", DataType.Bool);}
+    public set AllowClientInsertModels(value) {this.SetProp("AllowClientInsertModels", DataType.Bool, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get AllowInsertFreeModels() {return this.GetProp("AllowInsertFreeModels", DataType.Bool);}
+    /**@deprecated Deprecated by Roblox*/
+    public set AllowInsertFreeModels(value) {this.SetProp("AllowInsertFreeModels", DataType.Bool, value);}
 }
 
-export class InternalSyncItem extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "InternalSyncItem");}
+export class InternalSyncItem extends Instance {
+    protected constructor(className?: string) {super(className ?? "InternalSyncItem"); this.addClassName("InternalSyncItem");}
     public static new() {return new InternalSyncItem();}
-    public get autoSync() {return this.getProp("AutoSync", DataType.Bool);}
-    public set autoSync(value) {this.setProp("AutoSync", DataType.Bool, value);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get path() {return this.getProp("Path", DataType.String);}
-    public set path(value) {this.setProp("Path", DataType.String, value);}
+    public get AutoSync() {return this.GetProp("AutoSync", DataType.Bool);}
+    public set AutoSync(value) {this.SetProp("AutoSync", DataType.Bool, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get Path() {return this.GetProp("Path", DataType.String);}
+    public set Path(value) {this.SetProp("Path", DataType.String, value);}
 }
 
-export class InternalSyncService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "InternalSyncService", true);}
+export class InternalSyncService extends Instance {
+    protected constructor(className?: string) {super(className ?? "InternalSyncService", true); this.addClassName("InternalSyncService");}
     public static new() {return new InternalSyncService();}
 }
 
-export abstract class JointInstance extends CoreInstance {
-    protected constructor(className: string) {super(className);}
-    public get c0() {return this.getProp("C0", DataType.CFrame);}
-    public set c0(value) {this.setProp("C0", DataType.CFrame, value);}
-    public get c1() {return this.getProp("C1", DataType.CFrame);}
-    public set c1(value) {this.setProp("C1", DataType.CFrame, value);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get part0() {return this.getProp("Part0", DataType.Referent) as BasePart | undefined;}
-    public set part0(value) {this.setProp("Part0", DataType.Referent, value);}
-    public get part1() {return this.getProp("Part1", DataType.Referent) as BasePart | undefined;}
-    public set part1(value) {this.setProp("Part1", DataType.Referent, value);}
+export abstract class JointInstance extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("JointInstance");}
+    public get C0() {return this.GetProp("C0", DataType.CFrame);}
+    public set C0(value) {this.SetProp("C0", DataType.CFrame, value);}
+    public get C1() {return this.GetProp("C1", DataType.CFrame);}
+    public set C1(value) {this.SetProp("C1", DataType.CFrame, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get Part0() {return this.GetProp("Part0", DataType.Referent) as BasePart | undefined;}
+    public set Part0(value) {this.SetProp("Part0", DataType.Referent, value);}
+    public get Part1() {return this.GetProp("Part1", DataType.Referent) as BasePart | undefined;}
+    public set Part1(value) {this.SetProp("Part1", DataType.Referent, value);}
 }
 
 export abstract class DynamicRotate extends JointInstance {
-    protected constructor(className: string) {super(className);}
-    public get baseAngle() {return this.getProp("BaseAngle", DataType.Float32);}
-    public set baseAngle(value) {this.setProp("BaseAngle", DataType.Float32, value);}
+    protected constructor(className: string) {super(className); this.addClassName("DynamicRotate");}
+    public get BaseAngle() {return this.GetProp("BaseAngle", DataType.Float32);}
+    public set BaseAngle(value) {this.SetProp("BaseAngle", DataType.Float32, value);}
 }
 
 export class RotateP extends DynamicRotate {
-    protected constructor(className?: string) {super(className ?? "RotateP");}
+    protected constructor(className?: string) {super(className ?? "RotateP"); this.addClassName("RotateP");}
     public static new() {return new RotateP();}
 }
 
 export class RotateV extends DynamicRotate {
-    protected constructor(className?: string) {super(className ?? "RotateV");}
+    protected constructor(className?: string) {super(className ?? "RotateV"); this.addClassName("RotateV");}
     public static new() {return new RotateV();}
 }
 
 export class Glue extends JointInstance {
-    protected constructor(className?: string) {super(className ?? "Glue");}
+    protected constructor(className?: string) {super(className ?? "Glue"); this.addClassName("Glue");}
     public static new() {return new Glue();}
-    public get f0() {return this.getProp("F0", DataType.Vector3);}
-    public set f0(value) {this.setProp("F0", DataType.Vector3, value);}
-    public get f1() {return this.getProp("F1", DataType.Vector3);}
-    public set f1(value) {this.setProp("F1", DataType.Vector3, value);}
-    public get f2() {return this.getProp("F2", DataType.Vector3);}
-    public set f2(value) {this.setProp("F2", DataType.Vector3, value);}
-    public get f3() {return this.getProp("F3", DataType.Vector3);}
-    public set f3(value) {this.setProp("F3", DataType.Vector3, value);}
+    public get F0() {return this.GetProp("F0", DataType.Vector3);}
+    public set F0(value) {this.SetProp("F0", DataType.Vector3, value);}
+    public get F1() {return this.GetProp("F1", DataType.Vector3);}
+    public set F1(value) {this.SetProp("F1", DataType.Vector3, value);}
+    public get F2() {return this.GetProp("F2", DataType.Vector3);}
+    public set F2(value) {this.SetProp("F2", DataType.Vector3, value);}
+    public get F3() {return this.GetProp("F3", DataType.Vector3);}
+    public set F3(value) {this.SetProp("F3", DataType.Vector3, value);}
 }
 
 export abstract class ManualSurfaceJointInstance extends JointInstance {
-    protected constructor(className: string) {super(className);}
+    protected constructor(className: string) {super(className); this.addClassName("ManualSurfaceJointInstance");}
 }
 
 export class ManualGlue extends ManualSurfaceJointInstance {
-    protected constructor(className?: string) {super(className ?? "ManualGlue");}
+    protected constructor(className?: string) {super(className ?? "ManualGlue"); this.addClassName("ManualGlue");}
     public static new() {return new ManualGlue();}
 }
 
 export class ManualWeld extends ManualSurfaceJointInstance {
-    protected constructor(className?: string) {super(className ?? "ManualWeld");}
+    protected constructor(className?: string) {super(className ?? "ManualWeld"); this.addClassName("ManualWeld");}
     public static new() {return new ManualWeld();}
 }
 
 export class Motor extends JointInstance {
-    protected constructor(className?: string) {super(className ?? "Motor");}
+    protected constructor(className?: string) {super(className ?? "Motor"); this.addClassName("Motor");}
     public static new() {return new Motor();}
-    public get desiredAngle() {return this.getProp("DesiredAngle", DataType.Float32);}
-    public set desiredAngle(value) {this.setProp("DesiredAngle", DataType.Float32, value);}
-    public get maxVelocity() {return this.getProp("MaxVelocity", DataType.Float32);}
-    public set maxVelocity(value) {this.setProp("MaxVelocity", DataType.Float32, value);}
+    public get DesiredAngle() {return this.GetProp("DesiredAngle", DataType.Float32);}
+    public set DesiredAngle(value) {this.SetProp("DesiredAngle", DataType.Float32, value);}
+    public get MaxVelocity() {return this.GetProp("MaxVelocity", DataType.Float32);}
+    public set MaxVelocity(value) {this.SetProp("MaxVelocity", DataType.Float32, value);}
 }
 
 export class Motor6D extends Motor {
-    protected constructor(className?: string) {super(className ?? "Motor6D");}
+    protected constructor(className?: string) {super(className ?? "Motor6D"); this.addClassName("Motor6D");}
     public static new() {return new Motor6D();}
 }
 
 export class Rotate extends JointInstance {
-    protected constructor(className?: string) {super(className ?? "Rotate");}
+    protected constructor(className?: string) {super(className ?? "Rotate"); this.addClassName("Rotate");}
     public static new() {return new Rotate();}
 }
 
 export class Snap extends JointInstance {
-    protected constructor(className?: string) {super(className ?? "Snap");}
+    protected constructor(className?: string) {super(className ?? "Snap"); this.addClassName("Snap");}
     public static new() {return new Snap();}
 }
 
 export class VelocityMotor extends JointInstance {
-    protected constructor(className?: string) {super(className ?? "VelocityMotor");}
+    protected constructor(className?: string) {super(className ?? "VelocityMotor"); this.addClassName("VelocityMotor");}
     public static new() {return new VelocityMotor();}
-    public get currentAngle() {return this.getProp("CurrentAngle", DataType.Float32);}
-    public set currentAngle(value) {this.setProp("CurrentAngle", DataType.Float32, value);}
-    public get desiredAngle() {return this.getProp("DesiredAngle", DataType.Float32);}
-    public set desiredAngle(value) {this.setProp("DesiredAngle", DataType.Float32, value);}
-    public get hole() {return this.getProp("Hole", DataType.Referent) as Hole | undefined;}
-    public set hole(value) {this.setProp("Hole", DataType.Referent, value);}
-    public get maxVelocity() {return this.getProp("MaxVelocity", DataType.Float32);}
-    public set maxVelocity(value) {this.setProp("MaxVelocity", DataType.Float32, value);}
+    public get CurrentAngle() {return this.GetProp("CurrentAngle", DataType.Float32);}
+    public set CurrentAngle(value) {this.SetProp("CurrentAngle", DataType.Float32, value);}
+    public get DesiredAngle() {return this.GetProp("DesiredAngle", DataType.Float32);}
+    public set DesiredAngle(value) {this.SetProp("DesiredAngle", DataType.Float32, value);}
+    public get Hole() {return this.GetProp("Hole", DataType.Referent) as Hole | undefined;}
+    public set Hole(value) {this.SetProp("Hole", DataType.Referent, value);}
+    public get MaxVelocity() {return this.GetProp("MaxVelocity", DataType.Float32);}
+    public set MaxVelocity(value) {this.SetProp("MaxVelocity", DataType.Float32, value);}
 }
 
 export class Weld extends JointInstance {
-    protected constructor(className?: string) {super(className ?? "Weld");}
+    protected constructor(className?: string) {super(className ?? "Weld"); this.addClassName("Weld");}
     public static new() {return new Weld();}
 }
 
-export class JointsService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "JointsService", true);}
+export class JointsService extends Instance {
+    protected constructor(className?: string) {super(className ?? "JointsService", true); this.addClassName("JointsService");}
     public static new() {return new JointsService();}
 }
 
-export class KeyboardService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "KeyboardService", true);}
+export class KeyboardService extends Instance {
+    protected constructor(className?: string) {super(className ?? "KeyboardService", true); this.addClassName("KeyboardService");}
     public static new() {return new KeyboardService();}
 }
 
-export class Keyframe extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Keyframe");}
+export class Keyframe extends Instance {
+    protected constructor(className?: string) {super(className ?? "Keyframe"); this.addClassName("Keyframe");}
     public static new() {return new Keyframe();}
-    public get time() {return this.getProp("Time", DataType.Float32);}
-    public set time(value) {this.setProp("Time", DataType.Float32, value);}
+    public get Time() {return this.GetProp("Time", DataType.Float32);}
+    public set Time(value) {this.SetProp("Time", DataType.Float32, value);}
 }
 
-export class KeyframeMarker extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "KeyframeMarker");}
+export class KeyframeMarker extends Instance {
+    protected constructor(className?: string) {super(className ?? "KeyframeMarker"); this.addClassName("KeyframeMarker");}
     public static new() {return new KeyframeMarker();}
-    public get value() {return this.getProp("Value", DataType.String);}
-    public set value(value) {this.setProp("Value", DataType.String, value);}
+    public get Value() {return this.GetProp("Value", DataType.String);}
+    public set Value(value) {this.SetProp("Value", DataType.String, value);}
 }
 
-export class KeyframeSequenceProvider extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "KeyframeSequenceProvider", true);}
+export class KeyframeSequenceProvider extends Instance {
+    protected constructor(className?: string) {super(className ?? "KeyframeSequenceProvider", true); this.addClassName("KeyframeSequenceProvider");}
     public static new() {return new KeyframeSequenceProvider();}
 }
 
-export class LSPFileSyncService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "LSPFileSyncService", true);}
+export class LSPFileSyncService extends Instance {
+    protected constructor(className?: string) {super(className ?? "LSPFileSyncService", true); this.addClassName("LSPFileSyncService");}
     public static new() {return new LSPFileSyncService();}
 }
 
-export class LanguageService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "LanguageService", true);}
+export class LanguageService extends Instance {
+    protected constructor(className?: string) {super(className ?? "LanguageService", true); this.addClassName("LanguageService");}
     public static new() {return new LanguageService();}
 }
 
-export abstract class Light extends CoreInstance {
-    protected constructor(className: string) {super(className);}
-    public get brightness() {return this.getProp("Brightness", DataType.Float32);}
-    public set brightness(value) {this.setProp("Brightness", DataType.Float32, value);}
-    public get color() {return this.getProp("Color", DataType.Color3);}
-    public set color(value) {this.setProp("Color", DataType.Color3, value);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get shadows() {return this.getProp("Shadows", DataType.Bool);}
-    public set shadows(value) {this.setProp("Shadows", DataType.Bool, value);}
+export abstract class Light extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("Light");}
+    public get Brightness() {return this.GetProp("Brightness", DataType.Float32);}
+    public set Brightness(value) {this.SetProp("Brightness", DataType.Float32, value);}
+    public get Color() {return this.GetProp("Color", DataType.Color3);}
+    public set Color(value) {this.SetProp("Color", DataType.Color3, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get Shadows() {return this.GetProp("Shadows", DataType.Bool);}
+    public set Shadows(value) {this.SetProp("Shadows", DataType.Bool, value);}
 }
 
 export class PointLight extends Light {
-    protected constructor(className?: string) {super(className ?? "PointLight");}
+    protected constructor(className?: string) {super(className ?? "PointLight"); this.addClassName("PointLight");}
     public static new() {return new PointLight();}
-    public get range() {return this.getProp("Range", DataType.Float32);}
-    public set range(value) {this.setProp("Range", DataType.Float32, value);}
+    public get Range() {return this.GetProp("Range", DataType.Float32);}
+    public set Range(value) {this.SetProp("Range", DataType.Float32, value);}
 }
 
 export class SpotLight extends Light {
-    protected constructor(className?: string) {super(className ?? "SpotLight");}
+    protected constructor(className?: string) {super(className ?? "SpotLight"); this.addClassName("SpotLight");}
     public static new() {return new SpotLight();}
-    public get angle() {return this.getProp("Angle", DataType.Float32);}
-    public set angle(value) {this.setProp("Angle", DataType.Float32, value);}
-    public get face() {return this.getProp("Face", DataType.Enum) as NormalId | undefined;}
-    public set face(value) {this.setProp("Face", DataType.Enum, value);}
-    public get range() {return this.getProp("Range", DataType.Float32);}
-    public set range(value) {this.setProp("Range", DataType.Float32, value);}
+    public get Angle() {return this.GetProp("Angle", DataType.Float32);}
+    public set Angle(value) {this.SetProp("Angle", DataType.Float32, value);}
+    public get Face() {return this.GetProp("Face", DataType.Enum) as NormalId | undefined;}
+    public set Face(value) {this.SetProp("Face", DataType.Enum, value);}
+    public get Range() {return this.GetProp("Range", DataType.Float32);}
+    public set Range(value) {this.SetProp("Range", DataType.Float32, value);}
 }
 
 export class SurfaceLight extends Light {
-    protected constructor(className?: string) {super(className ?? "SurfaceLight");}
+    protected constructor(className?: string) {super(className ?? "SurfaceLight"); this.addClassName("SurfaceLight");}
     public static new() {return new SurfaceLight();}
-    public get angle() {return this.getProp("Angle", DataType.Float32);}
-    public set angle(value) {this.setProp("Angle", DataType.Float32, value);}
-    public get face() {return this.getProp("Face", DataType.Enum) as NormalId | undefined;}
-    public set face(value) {this.setProp("Face", DataType.Enum, value);}
-    public get range() {return this.getProp("Range", DataType.Float32);}
-    public set range(value) {this.setProp("Range", DataType.Float32, value);}
+    public get Angle() {return this.GetProp("Angle", DataType.Float32);}
+    public set Angle(value) {this.SetProp("Angle", DataType.Float32, value);}
+    public get Face() {return this.GetProp("Face", DataType.Enum) as NormalId | undefined;}
+    public set Face(value) {this.SetProp("Face", DataType.Enum, value);}
+    public get Range() {return this.GetProp("Range", DataType.Float32);}
+    public set Range(value) {this.SetProp("Range", DataType.Float32, value);}
 }
 
-export class Lighting extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Lighting", true);}
+export class Lighting extends Instance {
+    protected constructor(className?: string) {super(className ?? "Lighting", true); this.addClassName("Lighting");}
     public static new() {return new Lighting();}
-    public get ambient() {return this.getProp("Ambient", DataType.Color3);}
-    public set ambient(value) {this.setProp("Ambient", DataType.Color3, value);}
-    public get brightness() {return this.getProp("Brightness", DataType.Float32);}
-    public set brightness(value) {this.setProp("Brightness", DataType.Float32, value);}
-    public get colorShift_Bottom() {return this.getProp("ColorShift_Bottom", DataType.Color3);}
-    public set colorShift_Bottom(value) {this.setProp("ColorShift_Bottom", DataType.Color3, value);}
-    public get colorShift_Top() {return this.getProp("ColorShift_Top", DataType.Color3);}
-    public set colorShift_Top(value) {this.setProp("ColorShift_Top", DataType.Color3, value);}
-    public get environmentDiffuseScale() {return this.getProp("EnvironmentDiffuseScale", DataType.Float32);}
-    public set environmentDiffuseScale(value) {this.setProp("EnvironmentDiffuseScale", DataType.Float32, value);}
-    public get environmentSpecularScale() {return this.getProp("EnvironmentSpecularScale", DataType.Float32);}
-    public set environmentSpecularScale(value) {this.setProp("EnvironmentSpecularScale", DataType.Float32, value);}
-    public get exposureCompensation() {return this.getProp("ExposureCompensation", DataType.Float32);}
-    public set exposureCompensation(value) {this.setProp("ExposureCompensation", DataType.Float32, value);}
-    public get fogColor() {return this.getProp("FogColor", DataType.Color3);}
-    public set fogColor(value) {this.setProp("FogColor", DataType.Color3, value);}
-    public get fogEnd() {return this.getProp("FogEnd", DataType.Float32);}
-    public set fogEnd(value) {this.setProp("FogEnd", DataType.Float32, value);}
-    public get fogStart() {return this.getProp("FogStart", DataType.Float32);}
-    public set fogStart(value) {this.setProp("FogStart", DataType.Float32, value);}
-    public get geographicLatitude() {return this.getProp("GeographicLatitude", DataType.Float32);}
-    public set geographicLatitude(value) {this.setProp("GeographicLatitude", DataType.Float32, value);}
-    public get globalShadows() {return this.getProp("GlobalShadows", DataType.Bool);}
-    public set globalShadows(value) {this.setProp("GlobalShadows", DataType.Bool, value);}
-    public get outdoorAmbient() {return this.getProp("OutdoorAmbient", DataType.Color3);}
-    public set outdoorAmbient(value) {this.setProp("OutdoorAmbient", DataType.Color3, value);}
-    public get outlines() {return this.getProp("Outlines", DataType.Bool);}
-    public set outlines(value) {this.setProp("Outlines", DataType.Bool, value);}
-    public get shadowColor() {return this.getProp("ShadowColor", DataType.Color3);}
-    public set shadowColor(value) {this.setProp("ShadowColor", DataType.Color3, value);}
-    public get shadowSoftness() {return this.getProp("ShadowSoftness", DataType.Float32);}
-    public set shadowSoftness(value) {this.setProp("ShadowSoftness", DataType.Float32, value);}
-    public get technology() {return this.getProp("Technology", DataType.Enum) as Technology | undefined;}
-    public set technology(value) {this.setProp("Technology", DataType.Enum, value);}
-    public get timeOfDay() {return this.getProp("TimeOfDay", DataType.String);}
-    public set timeOfDay(value) {this.setProp("TimeOfDay", DataType.String, value);}
+    public get Ambient() {return this.GetProp("Ambient", DataType.Color3);}
+    public set Ambient(value) {this.SetProp("Ambient", DataType.Color3, value);}
+    public get Brightness() {return this.GetProp("Brightness", DataType.Float32);}
+    public set Brightness(value) {this.SetProp("Brightness", DataType.Float32, value);}
+    public get ColorshiftBottom() {return this.GetProp("ColorShift_Bottom", DataType.Color3);}
+    public set ColorshiftBottom(value) {this.SetProp("ColorShift_Bottom", DataType.Color3, value);}
+    public get ColorshiftTop() {return this.GetProp("ColorShift_Top", DataType.Color3);}
+    public set ColorshiftTop(value) {this.SetProp("ColorShift_Top", DataType.Color3, value);}
+    public get EnvironmentDiffuseScale() {return this.GetProp("EnvironmentDiffuseScale", DataType.Float32);}
+    public set EnvironmentDiffuseScale(value) {this.SetProp("EnvironmentDiffuseScale", DataType.Float32, value);}
+    public get EnvironmentSpecularScale() {return this.GetProp("EnvironmentSpecularScale", DataType.Float32);}
+    public set EnvironmentSpecularScale(value) {this.SetProp("EnvironmentSpecularScale", DataType.Float32, value);}
+    public get ExposureCompensation() {return this.GetProp("ExposureCompensation", DataType.Float32);}
+    public set ExposureCompensation(value) {this.SetProp("ExposureCompensation", DataType.Float32, value);}
+    public get FogColor() {return this.GetProp("FogColor", DataType.Color3);}
+    public set FogColor(value) {this.SetProp("FogColor", DataType.Color3, value);}
+    public get FogEnd() {return this.GetProp("FogEnd", DataType.Float32);}
+    public set FogEnd(value) {this.SetProp("FogEnd", DataType.Float32, value);}
+    public get FogStart() {return this.GetProp("FogStart", DataType.Float32);}
+    public set FogStart(value) {this.SetProp("FogStart", DataType.Float32, value);}
+    public get GeographicLatitude() {return this.GetProp("GeographicLatitude", DataType.Float32);}
+    public set GeographicLatitude(value) {this.SetProp("GeographicLatitude", DataType.Float32, value);}
+    public get GlobalShadows() {return this.GetProp("GlobalShadows", DataType.Bool);}
+    public set GlobalShadows(value) {this.SetProp("GlobalShadows", DataType.Bool, value);}
+    public get OutdoorAmbient() {return this.GetProp("OutdoorAmbient", DataType.Color3);}
+    public set OutdoorAmbient(value) {this.SetProp("OutdoorAmbient", DataType.Color3, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get Outlines() {return this.GetProp("Outlines", DataType.Bool);}
+    /**@deprecated Deprecated by Roblox*/
+    public set Outlines(value) {this.SetProp("Outlines", DataType.Bool, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get ShadowColor() {return this.GetProp("ShadowColor", DataType.Color3);}
+    /**@deprecated Deprecated by Roblox*/
+    public set ShadowColor(value) {this.SetProp("ShadowColor", DataType.Color3, value);}
+    public get ShadowSoftness() {return this.GetProp("ShadowSoftness", DataType.Float32);}
+    public set ShadowSoftness(value) {this.SetProp("ShadowSoftness", DataType.Float32, value);}
+    public get Technology() {return this.GetProp("Technology", DataType.Enum) as Technology | undefined;}
+    public set Technology(value) {this.SetProp("Technology", DataType.Enum, value);}
+    public get TimeOfDay() {return this.GetProp("TimeOfDay", DataType.String);}
+    public set TimeOfDay(value) {this.SetProp("TimeOfDay", DataType.String, value);}
 }
 
-export class LiveScriptingService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "LiveScriptingService", true);}
+export class LiveScriptingService extends Instance {
+    protected constructor(className?: string) {super(className ?? "LiveScriptingService", true); this.addClassName("LiveScriptingService");}
     public static new() {return new LiveScriptingService();}
 }
 
-export abstract class LocalStorageService extends CoreInstance {
-    protected constructor(className: string) {super(className, true);}
+export abstract class LocalStorageService extends Instance {
+    protected constructor(className: string) {super(className, true); this.addClassName("LocalStorageService");}
 }
 
 export class AppStorageService extends LocalStorageService {
-    protected constructor(className?: string) {super(className ?? "AppStorageService");}
+    protected constructor(className?: string) {super(className ?? "AppStorageService"); this.addClassName("AppStorageService");}
     public static new() {return new AppStorageService();}
 }
 
 export class UserStorageService extends LocalStorageService {
-    protected constructor(className?: string) {super(className ?? "UserStorageService");}
+    protected constructor(className?: string) {super(className ?? "UserStorageService"); this.addClassName("UserStorageService");}
     public static new() {return new UserStorageService();}
 }
 
-export class LocalizationService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "LocalizationService", true);}
+export class LocalizationService extends Instance {
+    protected constructor(className?: string) {super(className ?? "LocalizationService", true); this.addClassName("LocalizationService");}
     public static new() {return new LocalizationService();}
 }
 
-export class LocalizationTable extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "LocalizationTable");}
+export class LocalizationTable extends Instance {
+    protected constructor(className?: string) {super(className ?? "LocalizationTable"); this.addClassName("LocalizationTable");}
     public static new() {return new LocalizationTable();}
-    public get contents() {return this.getProp("Contents", DataType.String);}
-    public set contents(value) {this.setProp("Contents", DataType.String, value);}
-    public get developmentLanguage() {return this.getProp("DevelopmentLanguage", DataType.String);}
-    public set developmentLanguage(value) {this.setProp("DevelopmentLanguage", DataType.String, value);}
-    public get sourceLocaleId() {return this.getProp("SourceLocaleId", DataType.String);}
-    public set sourceLocaleId(value) {this.setProp("SourceLocaleId", DataType.String, value);}
+    public get Contents() {return this.GetProp("Contents", DataType.String);}
+    public set Contents(value) {this.SetProp("Contents", DataType.String, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get DevelopmentLanguage() {return this.GetProp("DevelopmentLanguage", DataType.String);}
+    /**@deprecated Deprecated by Roblox*/
+    public set DevelopmentLanguage(value) {this.SetProp("DevelopmentLanguage", DataType.String, value);}
+    public get SourceLocaleId() {return this.GetProp("SourceLocaleId", DataType.String);}
+    public set SourceLocaleId(value) {this.SetProp("SourceLocaleId", DataType.String, value);}
 }
 
-export class LodDataService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "LodDataService", true);}
+export class LodDataService extends Instance {
+    protected constructor(className?: string) {super(className ?? "LodDataService", true); this.addClassName("LodDataService");}
     public static new() {return new LodDataService();}
 }
 
-export class LogReporterService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "LogReporterService", true);}
+export class LogReporterService extends Instance {
+    protected constructor(className?: string) {super(className ?? "LogReporterService", true); this.addClassName("LogReporterService");}
     public static new() {return new LogReporterService();}
 }
 
-export class LogService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "LogService", true);}
+export class LogService extends Instance {
+    protected constructor(className?: string) {super(className ?? "LogService", true); this.addClassName("LogService");}
     public static new() {return new LogService();}
 }
 
-export class LoginService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "LoginService", true);}
+export class LoginService extends Instance {
+    protected constructor(className?: string) {super(className ?? "LoginService", true); this.addClassName("LoginService");}
     public static new() {return new LoginService();}
 }
 
-export abstract class LuaSourceContainer extends CoreInstance {
-    protected constructor(className: string) {super(className);}
-    public get scriptGuid() {return this.getProp("ScriptGuid", DataType.String);}
-    public set scriptGuid(value) {this.setProp("ScriptGuid", DataType.String, value);}
+export abstract class LuaSourceContainer extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("LuaSourceContainer");}
+    public get ScriptGuid() {return this.GetProp("ScriptGuid", DataType.String);}
+    public set ScriptGuid(value) {this.SetProp("ScriptGuid", DataType.String, value);}
 }
 
 export abstract class BaseScript extends LuaSourceContainer {
-    protected constructor(className: string) {super(className);}
-    public get disabled() {return this.getProp("Disabled", DataType.Bool);}
-    public set disabled(value) {this.setProp("Disabled", DataType.Bool, value);}
-    public get linkedSource() {return this.getProp("LinkedSource", DataType.String);}
-    public set linkedSource(value) {this.setProp("LinkedSource", DataType.String, value);}
-    public get runContext() {return this.getProp("RunContext", DataType.Enum) as RunContext | undefined;}
-    public set runContext(value) {this.setProp("RunContext", DataType.Enum, value);}
+    protected constructor(className: string) {super(className); this.addClassName("BaseScript");}
+    public get Disabled() {return this.GetProp("Disabled", DataType.Bool);}
+    public set Disabled(value) {this.SetProp("Disabled", DataType.Bool, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get LinkedSource() {return this.GetProp("LinkedSource", DataType.String);}
+    /**@deprecated Deprecated by Roblox*/
+    public set LinkedSource(value) {this.SetProp("LinkedSource", DataType.String, value);}
+    public get RunContext() {return this.GetProp("RunContext", DataType.Enum) as RunContext | undefined;}
+    public set RunContext(value) {this.SetProp("RunContext", DataType.Enum, value);}
 }
 
 export class Script extends BaseScript {
-    protected constructor(className?: string) {super(className ?? "Script");}
+    protected constructor(className?: string) {super(className ?? "Script"); this.addClassName("Script");}
     public static new() {return new Script();}
-    public get source() {return this.getProp("Source", DataType.String);}
-    public set source(value) {this.setProp("Source", DataType.String, value);}
+    public get Source() {return this.GetProp("Source", DataType.String);}
+    public set Source(value) {this.SetProp("Source", DataType.String, value);}
 }
 
 export class LocalScript extends Script {
-    protected constructor(className?: string) {super(className ?? "LocalScript");}
+    protected constructor(className?: string) {super(className ?? "LocalScript"); this.addClassName("LocalScript");}
     public static new() {return new LocalScript();}
 }
 
 export class ModuleScript extends LuaSourceContainer {
-    protected constructor(className?: string) {super(className ?? "ModuleScript");}
+    protected constructor(className?: string) {super(className ?? "ModuleScript"); this.addClassName("ModuleScript");}
     public static new() {return new ModuleScript();}
-    public get linkedSource() {return this.getProp("LinkedSource", DataType.String);}
-    public set linkedSource(value) {this.setProp("LinkedSource", DataType.String, value);}
-    public get source() {return this.getProp("Source", DataType.String);}
-    public set source(value) {this.setProp("Source", DataType.String, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get LinkedSource() {return this.GetProp("LinkedSource", DataType.String);}
+    /**@deprecated Deprecated by Roblox*/
+    public set LinkedSource(value) {this.SetProp("LinkedSource", DataType.String, value);}
+    public get Source() {return this.GetProp("Source", DataType.String);}
+    public set Source(value) {this.SetProp("Source", DataType.String, value);}
 }
 
-export class LuaWebService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "LuaWebService", true);}
+export class LuaWebService extends Instance {
+    protected constructor(className?: string) {super(className ?? "LuaWebService", true); this.addClassName("LuaWebService");}
     public static new() {return new LuaWebService();}
 }
 
-export class LuauScriptAnalyzerService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "LuauScriptAnalyzerService", true);}
+export class LuauScriptAnalyzerService extends Instance {
+    protected constructor(className?: string) {super(className ?? "LuauScriptAnalyzerService", true); this.addClassName("LuauScriptAnalyzerService");}
     public static new() {return new LuauScriptAnalyzerService();}
 }
 
-export class MarkerCurve extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "MarkerCurve");}
+export class MarkerCurve extends Instance {
+    protected constructor(className?: string) {super(className ?? "MarkerCurve"); this.addClassName("MarkerCurve");}
     public static new() {return new MarkerCurve();}
-    public get valuesAndTimes() {return this.getProp("ValuesAndTimes", DataType.String);}
-    public set valuesAndTimes(value) {this.setProp("ValuesAndTimes", DataType.String, value);}
+    public get ValuesAndTimes() {return this.GetProp("ValuesAndTimes", DataType.String);}
+    public set ValuesAndTimes(value) {this.SetProp("ValuesAndTimes", DataType.String, value);}
 }
 
-export class MarketplaceService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "MarketplaceService", true);}
+export class MarketplaceService extends Instance {
+    protected constructor(className?: string) {super(className ?? "MarketplaceService", true); this.addClassName("MarketplaceService");}
     public static new() {return new MarketplaceService();}
 }
 
-export class MaterialGenerationService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "MaterialGenerationService", true);}
+export class MaterialGenerationService extends Instance {
+    protected constructor(className?: string) {super(className ?? "MaterialGenerationService", true); this.addClassName("MaterialGenerationService");}
     public static new() {return new MaterialGenerationService();}
 }
 
-export class MaterialService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "MaterialService", true);}
+export class MaterialService extends Instance {
+    protected constructor(className?: string) {super(className ?? "MaterialService", true); this.addClassName("MaterialService");}
     public static new() {return new MaterialService();}
-    public get asphaltName() {return this.getProp("AsphaltName", DataType.String);}
-    public set asphaltName(value) {this.setProp("AsphaltName", DataType.String, value);}
-    public get basaltName() {return this.getProp("BasaltName", DataType.String);}
-    public set basaltName(value) {this.setProp("BasaltName", DataType.String, value);}
-    public get brickName() {return this.getProp("BrickName", DataType.String);}
-    public set brickName(value) {this.setProp("BrickName", DataType.String, value);}
-    public get cardboardName() {return this.getProp("CardboardName", DataType.String);}
-    public set cardboardName(value) {this.setProp("CardboardName", DataType.String, value);}
-    public get carpetName() {return this.getProp("CarpetName", DataType.String);}
-    public set carpetName(value) {this.setProp("CarpetName", DataType.String, value);}
-    public get ceramicTilesName() {return this.getProp("CeramicTilesName", DataType.String);}
-    public set ceramicTilesName(value) {this.setProp("CeramicTilesName", DataType.String, value);}
-    public get clayRoofTilesName() {return this.getProp("ClayRoofTilesName", DataType.String);}
-    public set clayRoofTilesName(value) {this.setProp("ClayRoofTilesName", DataType.String, value);}
-    public get cobblestoneName() {return this.getProp("CobblestoneName", DataType.String);}
-    public set cobblestoneName(value) {this.setProp("CobblestoneName", DataType.String, value);}
-    public get concreteName() {return this.getProp("ConcreteName", DataType.String);}
-    public set concreteName(value) {this.setProp("ConcreteName", DataType.String, value);}
-    public get corrodedMetalName() {return this.getProp("CorrodedMetalName", DataType.String);}
-    public set corrodedMetalName(value) {this.setProp("CorrodedMetalName", DataType.String, value);}
-    public get crackedLavaName() {return this.getProp("CrackedLavaName", DataType.String);}
-    public set crackedLavaName(value) {this.setProp("CrackedLavaName", DataType.String, value);}
-    public get diamondPlateName() {return this.getProp("DiamondPlateName", DataType.String);}
-    public set diamondPlateName(value) {this.setProp("DiamondPlateName", DataType.String, value);}
-    public get fabricName() {return this.getProp("FabricName", DataType.String);}
-    public set fabricName(value) {this.setProp("FabricName", DataType.String, value);}
-    public get foilName() {return this.getProp("FoilName", DataType.String);}
-    public set foilName(value) {this.setProp("FoilName", DataType.String, value);}
-    public get glacierName() {return this.getProp("GlacierName", DataType.String);}
-    public set glacierName(value) {this.setProp("GlacierName", DataType.String, value);}
-    public get graniteName() {return this.getProp("GraniteName", DataType.String);}
-    public set graniteName(value) {this.setProp("GraniteName", DataType.String, value);}
-    public get grassName() {return this.getProp("GrassName", DataType.String);}
-    public set grassName(value) {this.setProp("GrassName", DataType.String, value);}
-    public get groundName() {return this.getProp("GroundName", DataType.String);}
-    public set groundName(value) {this.setProp("GroundName", DataType.String, value);}
-    public get iceName() {return this.getProp("IceName", DataType.String);}
-    public set iceName(value) {this.setProp("IceName", DataType.String, value);}
-    public get leafyGrassName() {return this.getProp("LeafyGrassName", DataType.String);}
-    public set leafyGrassName(value) {this.setProp("LeafyGrassName", DataType.String, value);}
-    public get leatherName() {return this.getProp("LeatherName", DataType.String);}
-    public set leatherName(value) {this.setProp("LeatherName", DataType.String, value);}
-    public get limestoneName() {return this.getProp("LimestoneName", DataType.String);}
-    public set limestoneName(value) {this.setProp("LimestoneName", DataType.String, value);}
-    public get marbleName() {return this.getProp("MarbleName", DataType.String);}
-    public set marbleName(value) {this.setProp("MarbleName", DataType.String, value);}
-    public get metalName() {return this.getProp("MetalName", DataType.String);}
-    public set metalName(value) {this.setProp("MetalName", DataType.String, value);}
-    public get mudName() {return this.getProp("MudName", DataType.String);}
-    public set mudName(value) {this.setProp("MudName", DataType.String, value);}
-    public get pavementName() {return this.getProp("PavementName", DataType.String);}
-    public set pavementName(value) {this.setProp("PavementName", DataType.String, value);}
-    public get pebbleName() {return this.getProp("PebbleName", DataType.String);}
-    public set pebbleName(value) {this.setProp("PebbleName", DataType.String, value);}
-    public get plasterName() {return this.getProp("PlasterName", DataType.String);}
-    public set plasterName(value) {this.setProp("PlasterName", DataType.String, value);}
-    public get plasticName() {return this.getProp("PlasticName", DataType.String);}
-    public set plasticName(value) {this.setProp("PlasticName", DataType.String, value);}
-    public get rockName() {return this.getProp("RockName", DataType.String);}
-    public set rockName(value) {this.setProp("RockName", DataType.String, value);}
-    public get roofShinglesName() {return this.getProp("RoofShinglesName", DataType.String);}
-    public set roofShinglesName(value) {this.setProp("RoofShinglesName", DataType.String, value);}
-    public get rubberName() {return this.getProp("RubberName", DataType.String);}
-    public set rubberName(value) {this.setProp("RubberName", DataType.String, value);}
-    public get saltName() {return this.getProp("SaltName", DataType.String);}
-    public set saltName(value) {this.setProp("SaltName", DataType.String, value);}
-    public get sandName() {return this.getProp("SandName", DataType.String);}
-    public set sandName(value) {this.setProp("SandName", DataType.String, value);}
-    public get sandstoneName() {return this.getProp("SandstoneName", DataType.String);}
-    public set sandstoneName(value) {this.setProp("SandstoneName", DataType.String, value);}
-    public get slateName() {return this.getProp("SlateName", DataType.String);}
-    public set slateName(value) {this.setProp("SlateName", DataType.String, value);}
-    public get smoothPlasticName() {return this.getProp("SmoothPlasticName", DataType.String);}
-    public set smoothPlasticName(value) {this.setProp("SmoothPlasticName", DataType.String, value);}
-    public get snowName() {return this.getProp("SnowName", DataType.String);}
-    public set snowName(value) {this.setProp("SnowName", DataType.String, value);}
-    public get use2022MaterialsXml() {return this.getProp("Use2022MaterialsXml", DataType.Bool);}
-    public set use2022MaterialsXml(value) {this.setProp("Use2022MaterialsXml", DataType.Bool, value);}
-    public get woodName() {return this.getProp("WoodName", DataType.String);}
-    public set woodName(value) {this.setProp("WoodName", DataType.String, value);}
-    public get woodPlanksName() {return this.getProp("WoodPlanksName", DataType.String);}
-    public set woodPlanksName(value) {this.setProp("WoodPlanksName", DataType.String, value);}
+    public get AsphaltName() {return this.GetProp("AsphaltName", DataType.String);}
+    public set AsphaltName(value) {this.SetProp("AsphaltName", DataType.String, value);}
+    public get BasaltName() {return this.GetProp("BasaltName", DataType.String);}
+    public set BasaltName(value) {this.SetProp("BasaltName", DataType.String, value);}
+    public get BrickName() {return this.GetProp("BrickName", DataType.String);}
+    public set BrickName(value) {this.SetProp("BrickName", DataType.String, value);}
+    public get CardboardName() {return this.GetProp("CardboardName", DataType.String);}
+    public set CardboardName(value) {this.SetProp("CardboardName", DataType.String, value);}
+    public get CarpetName() {return this.GetProp("CarpetName", DataType.String);}
+    public set CarpetName(value) {this.SetProp("CarpetName", DataType.String, value);}
+    public get CeramicTilesName() {return this.GetProp("CeramicTilesName", DataType.String);}
+    public set CeramicTilesName(value) {this.SetProp("CeramicTilesName", DataType.String, value);}
+    public get ClayRoofTilesName() {return this.GetProp("ClayRoofTilesName", DataType.String);}
+    public set ClayRoofTilesName(value) {this.SetProp("ClayRoofTilesName", DataType.String, value);}
+    public get CobblestoneName() {return this.GetProp("CobblestoneName", DataType.String);}
+    public set CobblestoneName(value) {this.SetProp("CobblestoneName", DataType.String, value);}
+    public get ConcreteName() {return this.GetProp("ConcreteName", DataType.String);}
+    public set ConcreteName(value) {this.SetProp("ConcreteName", DataType.String, value);}
+    public get CorrodedMetalName() {return this.GetProp("CorrodedMetalName", DataType.String);}
+    public set CorrodedMetalName(value) {this.SetProp("CorrodedMetalName", DataType.String, value);}
+    public get CrackedLavaName() {return this.GetProp("CrackedLavaName", DataType.String);}
+    public set CrackedLavaName(value) {this.SetProp("CrackedLavaName", DataType.String, value);}
+    public get DiamondPlateName() {return this.GetProp("DiamondPlateName", DataType.String);}
+    public set DiamondPlateName(value) {this.SetProp("DiamondPlateName", DataType.String, value);}
+    public get FabricName() {return this.GetProp("FabricName", DataType.String);}
+    public set FabricName(value) {this.SetProp("FabricName", DataType.String, value);}
+    public get FoilName() {return this.GetProp("FoilName", DataType.String);}
+    public set FoilName(value) {this.SetProp("FoilName", DataType.String, value);}
+    public get GlacierName() {return this.GetProp("GlacierName", DataType.String);}
+    public set GlacierName(value) {this.SetProp("GlacierName", DataType.String, value);}
+    public get GraniteName() {return this.GetProp("GraniteName", DataType.String);}
+    public set GraniteName(value) {this.SetProp("GraniteName", DataType.String, value);}
+    public get GrassName() {return this.GetProp("GrassName", DataType.String);}
+    public set GrassName(value) {this.SetProp("GrassName", DataType.String, value);}
+    public get GroundName() {return this.GetProp("GroundName", DataType.String);}
+    public set GroundName(value) {this.SetProp("GroundName", DataType.String, value);}
+    public get IceName() {return this.GetProp("IceName", DataType.String);}
+    public set IceName(value) {this.SetProp("IceName", DataType.String, value);}
+    public get LeafyGrassName() {return this.GetProp("LeafyGrassName", DataType.String);}
+    public set LeafyGrassName(value) {this.SetProp("LeafyGrassName", DataType.String, value);}
+    public get LeatherName() {return this.GetProp("LeatherName", DataType.String);}
+    public set LeatherName(value) {this.SetProp("LeatherName", DataType.String, value);}
+    public get LimestoneName() {return this.GetProp("LimestoneName", DataType.String);}
+    public set LimestoneName(value) {this.SetProp("LimestoneName", DataType.String, value);}
+    public get MarbleName() {return this.GetProp("MarbleName", DataType.String);}
+    public set MarbleName(value) {this.SetProp("MarbleName", DataType.String, value);}
+    public get MetalName() {return this.GetProp("MetalName", DataType.String);}
+    public set MetalName(value) {this.SetProp("MetalName", DataType.String, value);}
+    public get MudName() {return this.GetProp("MudName", DataType.String);}
+    public set MudName(value) {this.SetProp("MudName", DataType.String, value);}
+    public get PavementName() {return this.GetProp("PavementName", DataType.String);}
+    public set PavementName(value) {this.SetProp("PavementName", DataType.String, value);}
+    public get PebbleName() {return this.GetProp("PebbleName", DataType.String);}
+    public set PebbleName(value) {this.SetProp("PebbleName", DataType.String, value);}
+    public get PlasterName() {return this.GetProp("PlasterName", DataType.String);}
+    public set PlasterName(value) {this.SetProp("PlasterName", DataType.String, value);}
+    public get PlasticName() {return this.GetProp("PlasticName", DataType.String);}
+    public set PlasticName(value) {this.SetProp("PlasticName", DataType.String, value);}
+    public get RockName() {return this.GetProp("RockName", DataType.String);}
+    public set RockName(value) {this.SetProp("RockName", DataType.String, value);}
+    public get RoofShinglesName() {return this.GetProp("RoofShinglesName", DataType.String);}
+    public set RoofShinglesName(value) {this.SetProp("RoofShinglesName", DataType.String, value);}
+    public get RubberName() {return this.GetProp("RubberName", DataType.String);}
+    public set RubberName(value) {this.SetProp("RubberName", DataType.String, value);}
+    public get SaltName() {return this.GetProp("SaltName", DataType.String);}
+    public set SaltName(value) {this.SetProp("SaltName", DataType.String, value);}
+    public get SandName() {return this.GetProp("SandName", DataType.String);}
+    public set SandName(value) {this.SetProp("SandName", DataType.String, value);}
+    public get SandstoneName() {return this.GetProp("SandstoneName", DataType.String);}
+    public set SandstoneName(value) {this.SetProp("SandstoneName", DataType.String, value);}
+    public get SlateName() {return this.GetProp("SlateName", DataType.String);}
+    public set SlateName(value) {this.SetProp("SlateName", DataType.String, value);}
+    public get SmoothPlasticName() {return this.GetProp("SmoothPlasticName", DataType.String);}
+    public set SmoothPlasticName(value) {this.SetProp("SmoothPlasticName", DataType.String, value);}
+    public get SnowName() {return this.GetProp("SnowName", DataType.String);}
+    public set SnowName(value) {this.SetProp("SnowName", DataType.String, value);}
+    public get Use2022MaterialsXml() {return this.GetProp("Use2022MaterialsXml", DataType.Bool);}
+    public set Use2022MaterialsXml(value) {this.SetProp("Use2022MaterialsXml", DataType.Bool, value);}
+    public get WoodName() {return this.GetProp("WoodName", DataType.String);}
+    public set WoodName(value) {this.SetProp("WoodName", DataType.String, value);}
+    public get WoodPlanksName() {return this.GetProp("WoodPlanksName", DataType.String);}
+    public set WoodPlanksName(value) {this.SetProp("WoodPlanksName", DataType.String, value);}
 }
 
-export class MaterialVariant extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "MaterialVariant");}
+export class MaterialVariant extends Instance {
+    protected constructor(className?: string) {super(className ?? "MaterialVariant"); this.addClassName("MaterialVariant");}
     public static new() {return new MaterialVariant();}
-    public get baseMaterial() {return this.getProp("BaseMaterial", DataType.Enum) as Material | undefined;}
-    public set baseMaterial(value) {this.setProp("BaseMaterial", DataType.Enum, value);}
-    public get colorMap() {return this.getProp("ColorMap", DataType.String);}
-    public set colorMap(value) {this.setProp("ColorMap", DataType.String, value);}
-    public get customPhysicalProperties() {return this.getProp("CustomPhysicalProperties", DataType.PhysicalProperties);}
-    public set customPhysicalProperties(value) {this.setProp("CustomPhysicalProperties", DataType.PhysicalProperties, value);}
-    public get materialPattern() {return this.getProp("MaterialPattern", DataType.Enum) as MaterialPattern | undefined;}
-    public set materialPattern(value) {this.setProp("MaterialPattern", DataType.Enum, value);}
-    public get metalnessMap() {return this.getProp("MetalnessMap", DataType.String);}
-    public set metalnessMap(value) {this.setProp("MetalnessMap", DataType.String, value);}
-    public get normalMap() {return this.getProp("NormalMap", DataType.String);}
-    public set normalMap(value) {this.setProp("NormalMap", DataType.String, value);}
-    public get roughnessMap() {return this.getProp("RoughnessMap", DataType.String);}
-    public set roughnessMap(value) {this.setProp("RoughnessMap", DataType.String, value);}
-    public get studsPerTile() {return this.getProp("StudsPerTile", DataType.Float32);}
-    public set studsPerTile(value) {this.setProp("StudsPerTile", DataType.Float32, value);}
-    public get texturePack() {return this.getProp("TexturePack", DataType.String);}
-    public set texturePack(value) {this.setProp("TexturePack", DataType.String, value);}
+    public get BaseMaterial() {return this.GetProp("BaseMaterial", DataType.Enum) as Material | undefined;}
+    public set BaseMaterial(value) {this.SetProp("BaseMaterial", DataType.Enum, value);}
+    public get ColorMap() {return this.GetProp("ColorMap", DataType.String);}
+    public set ColorMap(value) {this.SetProp("ColorMap", DataType.String, value);}
+    public get CustomPhysicalProperties() {return this.GetProp("CustomPhysicalProperties", DataType.PhysicalProperties);}
+    public set CustomPhysicalProperties(value) {this.SetProp("CustomPhysicalProperties", DataType.PhysicalProperties, value);}
+    public get MaterialPattern() {return this.GetProp("MaterialPattern", DataType.Enum) as MaterialPattern | undefined;}
+    public set MaterialPattern(value) {this.SetProp("MaterialPattern", DataType.Enum, value);}
+    public get MetalnessMap() {return this.GetProp("MetalnessMap", DataType.String);}
+    public set MetalnessMap(value) {this.SetProp("MetalnessMap", DataType.String, value);}
+    public get NormalMap() {return this.GetProp("NormalMap", DataType.String);}
+    public set NormalMap(value) {this.SetProp("NormalMap", DataType.String, value);}
+    public get RoughnessMap() {return this.GetProp("RoughnessMap", DataType.String);}
+    public set RoughnessMap(value) {this.SetProp("RoughnessMap", DataType.String, value);}
+    public get StudsPerTile() {return this.GetProp("StudsPerTile", DataType.Float32);}
+    public set StudsPerTile(value) {this.SetProp("StudsPerTile", DataType.Float32, value);}
+    public get TexturePack() {return this.GetProp("TexturePack", DataType.String);}
+    public set TexturePack(value) {this.SetProp("TexturePack", DataType.String, value);}
 }
 
-export class MemStorageService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "MemStorageService", true);}
+export class MemStorageService extends Instance {
+    protected constructor(className?: string) {super(className ?? "MemStorageService", true); this.addClassName("MemStorageService");}
     public static new() {return new MemStorageService();}
 }
 
-export class MemoryStoreService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "MemoryStoreService", true);}
+export class MemoryStoreService extends Instance {
+    protected constructor(className?: string) {super(className ?? "MemoryStoreService", true); this.addClassName("MemoryStoreService");}
     public static new() {return new MemoryStoreService();}
 }
 
-export class Message extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Message");}
+export class Message extends Instance {
+    protected constructor(className?: string) {super(className ?? "Message"); this.addClassName("Message");}
     public static new() {return new Message();}
-    public get text() {return this.getProp("Text", DataType.String);}
-    public set text(value) {this.setProp("Text", DataType.String, value);}
+    public get Text() {return this.GetProp("Text", DataType.String);}
+    public set Text(value) {this.SetProp("Text", DataType.String, value);}
 }
 
 export class Hint extends Message {
-    protected constructor(className?: string) {super(className ?? "Hint");}
+    protected constructor(className?: string) {super(className ?? "Hint"); this.addClassName("Hint");}
     public static new() {return new Hint();}
 }
 
-export class MessageBusService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "MessageBusService", true);}
+export class MessageBusService extends Instance {
+    protected constructor(className?: string) {super(className ?? "MessageBusService", true); this.addClassName("MessageBusService");}
     public static new() {return new MessageBusService();}
 }
 
-export class MessagingService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "MessagingService", true);}
+export class MessagingService extends Instance {
+    protected constructor(className?: string) {super(className ?? "MessagingService", true); this.addClassName("MessagingService");}
     public static new() {return new MessagingService();}
 }
 
-export class MetaBreakpointManager extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "MetaBreakpointManager", true);}
+export class MetaBreakpointManager extends Instance {
+    protected constructor(className?: string) {super(className ?? "MetaBreakpointManager", true); this.addClassName("MetaBreakpointManager");}
     public static new() {return new MetaBreakpointManager();}
 }
 
-export abstract class Mouse extends CoreInstance {
-    protected constructor(className: string) {super(className);}
-    public get icon() {return this.getProp("Icon", DataType.String);}
-    public set icon(value) {this.setProp("Icon", DataType.String, value);}
-    public get targetFilter() {return this.getProp("TargetFilter", DataType.Referent) as CoreInstance | undefined;}
-    public set targetFilter(value) {this.setProp("TargetFilter", DataType.Referent, value);}
+export abstract class Mouse extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("Mouse");}
+    public get Icon() {return this.GetProp("Icon", DataType.String);}
+    public set Icon(value) {this.SetProp("Icon", DataType.String, value);}
+    public get TargetFilter() {return this.GetProp("TargetFilter", DataType.Referent) as Instance | undefined;}
+    public set TargetFilter(value) {this.SetProp("TargetFilter", DataType.Referent, value);}
 }
 
-export class MouseService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "MouseService", true);}
+export class MouseService extends Instance {
+    protected constructor(className?: string) {super(className ?? "MouseService", true); this.addClassName("MouseService");}
     public static new() {return new MouseService();}
 }
 
-export abstract class NetworkPeer extends CoreInstance {
-    protected constructor(className: string) {super(className);}
+export abstract class NetworkPeer extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("NetworkPeer");}
 }
 
 export class NetworkClient extends NetworkPeer {
-    protected constructor(className?: string) {super(className ?? "NetworkClient");}
+    protected constructor(className?: string) {super(className ?? "NetworkClient"); this.addClassName("NetworkClient");}
     public static new() {return new NetworkClient();}
 }
 
 export class NetworkServer extends NetworkPeer {
-    protected constructor(className?: string) {super(className ?? "NetworkServer");}
+    protected constructor(className?: string) {super(className ?? "NetworkServer"); this.addClassName("NetworkServer");}
     public static new() {return new NetworkServer();}
 }
 
-export abstract class NetworkReplicator extends CoreInstance {
-    protected constructor(className: string) {super(className);}
+export abstract class NetworkReplicator extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("NetworkReplicator");}
 }
 
-export class NetworkSettings extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "NetworkSettings", true);}
+export class NetworkSettings extends Instance {
+    protected constructor(className?: string) {super(className ?? "NetworkSettings", true); this.addClassName("NetworkSettings");}
     public static new() {return new NetworkSettings();}
-    public get httpProxyEnabled() {return this.getProp("HttpProxyEnabled", DataType.Bool);}
-    public set httpProxyEnabled(value) {this.setProp("HttpProxyEnabled", DataType.Bool, value);}
-    public get httpProxyURL() {return this.getProp("HttpProxyURL", DataType.String);}
-    public set httpProxyURL(value) {this.setProp("HttpProxyURL", DataType.String, value);}
-    public get incomingReplicationLag() {return this.getProp("IncomingReplicationLag", DataType.Float64);}
-    public set incomingReplicationLag(value) {this.setProp("IncomingReplicationLag", DataType.Float64, value);}
-    public get printJoinSizeBreakdown() {return this.getProp("PrintJoinSizeBreakdown", DataType.Bool);}
-    public set printJoinSizeBreakdown(value) {this.setProp("PrintJoinSizeBreakdown", DataType.Bool, value);}
-    public get printPhysicsErrors() {return this.getProp("PrintPhysicsErrors", DataType.Bool);}
-    public set printPhysicsErrors(value) {this.setProp("PrintPhysicsErrors", DataType.Bool, value);}
-    public get printStreamInstanceQuota() {return this.getProp("PrintStreamInstanceQuota", DataType.Bool);}
-    public set printStreamInstanceQuota(value) {this.setProp("PrintStreamInstanceQuota", DataType.Bool, value);}
-    public get randomizeJoinInstanceOrder() {return this.getProp("RandomizeJoinInstanceOrder", DataType.Bool);}
-    public set randomizeJoinInstanceOrder(value) {this.setProp("RandomizeJoinInstanceOrder", DataType.Bool, value);}
-    public get renderStreamedRegions() {return this.getProp("RenderStreamedRegions", DataType.Bool);}
-    public set renderStreamedRegions(value) {this.setProp("RenderStreamedRegions", DataType.Bool, value);}
-    public get showActiveAnimationAsset() {return this.getProp("ShowActiveAnimationAsset", DataType.Bool);}
-    public set showActiveAnimationAsset(value) {this.setProp("ShowActiveAnimationAsset", DataType.Bool, value);}
+    public get HttpProxyEnabled() {return this.GetProp("HttpProxyEnabled", DataType.Bool);}
+    public set HttpProxyEnabled(value) {this.SetProp("HttpProxyEnabled", DataType.Bool, value);}
+    public get HttpProxyURL() {return this.GetProp("HttpProxyURL", DataType.String);}
+    public set HttpProxyURL(value) {this.SetProp("HttpProxyURL", DataType.String, value);}
+    public get IncomingReplicationLag() {return this.GetProp("IncomingReplicationLag", DataType.Float64);}
+    public set IncomingReplicationLag(value) {this.SetProp("IncomingReplicationLag", DataType.Float64, value);}
+    public get PrintJoinSizeBreakdown() {return this.GetProp("PrintJoinSizeBreakdown", DataType.Bool);}
+    public set PrintJoinSizeBreakdown(value) {this.SetProp("PrintJoinSizeBreakdown", DataType.Bool, value);}
+    public get PrintPhysicsErrors() {return this.GetProp("PrintPhysicsErrors", DataType.Bool);}
+    public set PrintPhysicsErrors(value) {this.SetProp("PrintPhysicsErrors", DataType.Bool, value);}
+    public get PrintStreamInstanceQuota() {return this.GetProp("PrintStreamInstanceQuota", DataType.Bool);}
+    public set PrintStreamInstanceQuota(value) {this.SetProp("PrintStreamInstanceQuota", DataType.Bool, value);}
+    public get RandomizeJoinInstanceOrder() {return this.GetProp("RandomizeJoinInstanceOrder", DataType.Bool);}
+    public set RandomizeJoinInstanceOrder(value) {this.SetProp("RandomizeJoinInstanceOrder", DataType.Bool, value);}
+    public get RenderStreamedRegions() {return this.GetProp("RenderStreamedRegions", DataType.Bool);}
+    public set RenderStreamedRegions(value) {this.SetProp("RenderStreamedRegions", DataType.Bool, value);}
+    public get ShowActiveAnimationAsset() {return this.GetProp("ShowActiveAnimationAsset", DataType.Bool);}
+    public set ShowActiveAnimationAsset(value) {this.SetProp("ShowActiveAnimationAsset", DataType.Bool, value);}
 }
 
-export class NoCollisionConstraint extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "NoCollisionConstraint");}
+export class NoCollisionConstraint extends Instance {
+    protected constructor(className?: string) {super(className ?? "NoCollisionConstraint"); this.addClassName("NoCollisionConstraint");}
     public static new() {return new NoCollisionConstraint();}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get part0() {return this.getProp("Part0", DataType.Referent) as BasePart | undefined;}
-    public set part0(value) {this.setProp("Part0", DataType.Referent, value);}
-    public get part1() {return this.getProp("Part1", DataType.Referent) as BasePart | undefined;}
-    public set part1(value) {this.setProp("Part1", DataType.Referent, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get Part0() {return this.GetProp("Part0", DataType.Referent) as BasePart | undefined;}
+    public set Part0(value) {this.SetProp("Part0", DataType.Referent, value);}
+    public get Part1() {return this.GetProp("Part1", DataType.Referent) as BasePart | undefined;}
+    public set Part1(value) {this.SetProp("Part1", DataType.Referent, value);}
 }
 
-export class Noise extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Noise");}
+export class Noise extends Instance {
+    protected constructor(className?: string) {super(className ?? "Noise"); this.addClassName("Noise");}
     public static new() {return new Noise();}
-    public get noiseType() {return this.getProp("NoiseType", DataType.Enum) as NoiseType | undefined;}
-    public set noiseType(value) {this.setProp("NoiseType", DataType.Enum, value);}
-    public get seed() {return this.getProp("Seed", DataType.Int32);}
-    public set seed(value) {this.setProp("Seed", DataType.Int32, value);}
+    public get NoiseType() {return this.GetProp("NoiseType", DataType.Enum) as NoiseType | undefined;}
+    public set NoiseType(value) {this.SetProp("NoiseType", DataType.Enum, value);}
+    public get Seed() {return this.GetProp("Seed", DataType.Int32);}
+    public set Seed(value) {this.SetProp("Seed", DataType.Int32, value);}
 }
 
-export class NotificationService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "NotificationService", true);}
+export class NotificationService extends Instance {
+    protected constructor(className?: string) {super(className ?? "NotificationService", true); this.addClassName("NotificationService");}
     public static new() {return new NotificationService();}
 }
 
-export class OmniRecommendationsService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "OmniRecommendationsService", true);}
+export class OmniRecommendationsService extends Instance {
+    protected constructor(className?: string) {super(className ?? "OmniRecommendationsService", true); this.addClassName("OmniRecommendationsService");}
     public static new() {return new OmniRecommendationsService();}
 }
 
-export class OpenCloudService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "OpenCloudService", true);}
+export class OpenCloudService extends Instance {
+    protected constructor(className?: string) {super(className ?? "OpenCloudService", true); this.addClassName("OpenCloudService");}
     public static new() {return new OpenCloudService();}
 }
 
-export class OperationGraph extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "OperationGraph");}
+export class OperationGraph extends Instance {
+    protected constructor(className?: string) {super(className ?? "OperationGraph"); this.addClassName("OperationGraph");}
     public static new() {return new OperationGraph();}
 }
 
-export abstract class PVInstance extends CoreInstance {
-    protected constructor(className: string) {super(className);}
+export abstract class PVInstance extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("PVInstance");}
 }
 
 export abstract class BasePart extends PVInstance {
-    protected constructor(className: string) {super(className);}
-    public get anchored() {return this.getProp("Anchored", DataType.Bool);}
-    public set anchored(value) {this.setProp("Anchored", DataType.Bool, value);}
-    public get backParamA() {return this.getProp("BackParamA", DataType.Float32);}
-    public set backParamA(value) {this.setProp("BackParamA", DataType.Float32, value);}
-    public get backParamB() {return this.getProp("BackParamB", DataType.Float32);}
-    public set backParamB(value) {this.setProp("BackParamB", DataType.Float32, value);}
-    public get backSurface() {return this.getProp("BackSurface", DataType.Enum) as SurfaceType | undefined;}
-    public set backSurface(value) {this.setProp("BackSurface", DataType.Enum, value);}
-    public get backSurfaceInput() {return this.getProp("BackSurfaceInput", DataType.Enum) as InputType | undefined;}
-    public set backSurfaceInput(value) {this.setProp("BackSurfaceInput", DataType.Enum, value);}
-    public get bottomParamA() {return this.getProp("BottomParamA", DataType.Float32);}
-    public set bottomParamA(value) {this.setProp("BottomParamA", DataType.Float32, value);}
-    public get bottomParamB() {return this.getProp("BottomParamB", DataType.Float32);}
-    public set bottomParamB(value) {this.setProp("BottomParamB", DataType.Float32, value);}
-    public get bottomSurface() {return this.getProp("BottomSurface", DataType.Enum) as SurfaceType | undefined;}
-    public set bottomSurface(value) {this.setProp("BottomSurface", DataType.Enum, value);}
-    public get bottomSurfaceInput() {return this.getProp("BottomSurfaceInput", DataType.Enum) as InputType | undefined;}
-    public set bottomSurfaceInput(value) {this.setProp("BottomSurfaceInput", DataType.Enum, value);}
-    public get cFrame() {return this.getProp("CFrame", DataType.CFrame);}
-    public set cFrame(value) {this.setProp("CFrame", DataType.CFrame, value);}
-    public get canCollide() {return this.getProp("CanCollide", DataType.Bool);}
-    public set canCollide(value) {this.setProp("CanCollide", DataType.Bool, value);}
-    public get canQuery() {return this.getProp("CanQuery", DataType.Bool);}
-    public set canQuery(value) {this.setProp("CanQuery", DataType.Bool, value);}
-    public get canTouch() {return this.getProp("CanTouch", DataType.Bool);}
-    public set canTouch(value) {this.setProp("CanTouch", DataType.Bool, value);}
-    public get castShadow() {return this.getProp("CastShadow", DataType.Bool);}
-    public set castShadow(value) {this.setProp("CastShadow", DataType.Bool, value);}
-    public get collisionGroup() {return this.getProp("CollisionGroup", DataType.String);}
-    public set collisionGroup(value) {this.setProp("CollisionGroup", DataType.String, value);}
-    public get collisionGroupId() {return this.getProp("CollisionGroupId", DataType.Int32);}
-    public set collisionGroupId(value) {this.setProp("CollisionGroupId", DataType.Int32, value);}
-    public get color3uint8() {return this.getProp("Color3uint8", DataType.Color3uint8);}
-    public set color3uint8(value) {this.setProp("Color3uint8", DataType.Color3uint8, value);}
-    public get customPhysicalProperties() {return this.getProp("CustomPhysicalProperties", DataType.PhysicalProperties);}
-    public set customPhysicalProperties(value) {this.setProp("CustomPhysicalProperties", DataType.PhysicalProperties, value);}
-    public get elasticity() {return this.getProp("Elasticity", DataType.Float32);}
-    public set elasticity(value) {this.setProp("Elasticity", DataType.Float32, value);}
-    public get enableFluidForces() {return this.getProp("EnableFluidForces", DataType.Bool);}
-    public set enableFluidForces(value) {this.setProp("EnableFluidForces", DataType.Bool, value);}
-    public get friction() {return this.getProp("Friction", DataType.Float32);}
-    public set friction(value) {this.setProp("Friction", DataType.Float32, value);}
-    public get frontParamA() {return this.getProp("FrontParamA", DataType.Float32);}
-    public set frontParamA(value) {this.setProp("FrontParamA", DataType.Float32, value);}
-    public get frontParamB() {return this.getProp("FrontParamB", DataType.Float32);}
-    public set frontParamB(value) {this.setProp("FrontParamB", DataType.Float32, value);}
-    public get frontSurface() {return this.getProp("FrontSurface", DataType.Enum) as SurfaceType | undefined;}
-    public set frontSurface(value) {this.setProp("FrontSurface", DataType.Enum, value);}
-    public get frontSurfaceInput() {return this.getProp("FrontSurfaceInput", DataType.Enum) as InputType | undefined;}
-    public set frontSurfaceInput(value) {this.setProp("FrontSurfaceInput", DataType.Enum, value);}
-    public get leftParamA() {return this.getProp("LeftParamA", DataType.Float32);}
-    public set leftParamA(value) {this.setProp("LeftParamA", DataType.Float32, value);}
-    public get leftParamB() {return this.getProp("LeftParamB", DataType.Float32);}
-    public set leftParamB(value) {this.setProp("LeftParamB", DataType.Float32, value);}
-    public get leftSurface() {return this.getProp("LeftSurface", DataType.Enum) as SurfaceType | undefined;}
-    public set leftSurface(value) {this.setProp("LeftSurface", DataType.Enum, value);}
-    public get leftSurfaceInput() {return this.getProp("LeftSurfaceInput", DataType.Enum) as InputType | undefined;}
-    public set leftSurfaceInput(value) {this.setProp("LeftSurfaceInput", DataType.Enum, value);}
-    public get locked() {return this.getProp("Locked", DataType.Bool);}
-    public set locked(value) {this.setProp("Locked", DataType.Bool, value);}
-    public get massless() {return this.getProp("Massless", DataType.Bool);}
-    public set massless(value) {this.setProp("Massless", DataType.Bool, value);}
-    public get material() {return this.getProp("Material", DataType.Enum) as Material | undefined;}
-    public set material(value) {this.setProp("Material", DataType.Enum, value);}
-    public get materialVariantSerialized() {return this.getProp("MaterialVariantSerialized", DataType.String);}
-    public set materialVariantSerialized(value) {this.setProp("MaterialVariantSerialized", DataType.String, value);}
-    public get pivotOffset() {return this.getProp("PivotOffset", DataType.CFrame);}
-    public set pivotOffset(value) {this.setProp("PivotOffset", DataType.CFrame, value);}
-    public get reflectance() {return this.getProp("Reflectance", DataType.Float32);}
-    public set reflectance(value) {this.setProp("Reflectance", DataType.Float32, value);}
-    public get rightParamA() {return this.getProp("RightParamA", DataType.Float32);}
-    public set rightParamA(value) {this.setProp("RightParamA", DataType.Float32, value);}
-    public get rightParamB() {return this.getProp("RightParamB", DataType.Float32);}
-    public set rightParamB(value) {this.setProp("RightParamB", DataType.Float32, value);}
-    public get rightSurface() {return this.getProp("RightSurface", DataType.Enum) as SurfaceType | undefined;}
-    public set rightSurface(value) {this.setProp("RightSurface", DataType.Enum, value);}
-    public get rightSurfaceInput() {return this.getProp("RightSurfaceInput", DataType.Enum) as InputType | undefined;}
-    public set rightSurfaceInput(value) {this.setProp("RightSurfaceInput", DataType.Enum, value);}
-    public get rootPriority() {return this.getProp("RootPriority", DataType.Int32);}
-    public set rootPriority(value) {this.setProp("RootPriority", DataType.Int32, value);}
-    public get rotVelocity() {return this.getProp("RotVelocity", DataType.Vector3);}
-    public set rotVelocity(value) {this.setProp("RotVelocity", DataType.Vector3, value);}
-    public get topParamA() {return this.getProp("TopParamA", DataType.Float32);}
-    public set topParamA(value) {this.setProp("TopParamA", DataType.Float32, value);}
-    public get topParamB() {return this.getProp("TopParamB", DataType.Float32);}
-    public set topParamB(value) {this.setProp("TopParamB", DataType.Float32, value);}
-    public get topSurface() {return this.getProp("TopSurface", DataType.Enum) as SurfaceType | undefined;}
-    public set topSurface(value) {this.setProp("TopSurface", DataType.Enum, value);}
-    public get topSurfaceInput() {return this.getProp("TopSurfaceInput", DataType.Enum) as InputType | undefined;}
-    public set topSurfaceInput(value) {this.setProp("TopSurfaceInput", DataType.Enum, value);}
-    public get transparency() {return this.getProp("Transparency", DataType.Float32);}
-    public set transparency(value) {this.setProp("Transparency", DataType.Float32, value);}
-    public get velocity() {return this.getProp("Velocity", DataType.Vector3);}
-    public set velocity(value) {this.setProp("Velocity", DataType.Vector3, value);}
-    public get brickColor() {return this.getProp("brickColor", DataType.BrickColor);}
-    public set brickColor(value) {this.setProp("brickColor", DataType.BrickColor, value);}
-    public get size() {return this.getProp("size", DataType.Vector3);}
-    public set size(value) {this.setProp("size", DataType.Vector3, value);}
+    protected constructor(className: string) {super(className); this.addClassName("BasePart");}
+    public get Anchored() {return this.GetProp("Anchored", DataType.Bool);}
+    public set Anchored(value) {this.SetProp("Anchored", DataType.Bool, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get BackParamA() {return this.GetProp("BackParamA", DataType.Float32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set BackParamA(value) {this.SetProp("BackParamA", DataType.Float32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get BackParamB() {return this.GetProp("BackParamB", DataType.Float32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set BackParamB(value) {this.SetProp("BackParamB", DataType.Float32, value);}
+    public get BackSurface() {return this.GetProp("BackSurface", DataType.Enum) as SurfaceType | undefined;}
+    public set BackSurface(value) {this.SetProp("BackSurface", DataType.Enum, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get BackSurfaceInput() {return this.GetProp("BackSurfaceInput", DataType.Enum) as InputType | undefined;}
+    /**@deprecated Deprecated by Roblox*/
+    public set BackSurfaceInput(value) {this.SetProp("BackSurfaceInput", DataType.Enum, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get BottomParamA() {return this.GetProp("BottomParamA", DataType.Float32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set BottomParamA(value) {this.SetProp("BottomParamA", DataType.Float32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get BottomParamB() {return this.GetProp("BottomParamB", DataType.Float32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set BottomParamB(value) {this.SetProp("BottomParamB", DataType.Float32, value);}
+    public get BottomSurface() {return this.GetProp("BottomSurface", DataType.Enum) as SurfaceType | undefined;}
+    public set BottomSurface(value) {this.SetProp("BottomSurface", DataType.Enum, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get BottomSurfaceInput() {return this.GetProp("BottomSurfaceInput", DataType.Enum) as InputType | undefined;}
+    /**@deprecated Deprecated by Roblox*/
+    public set BottomSurfaceInput(value) {this.SetProp("BottomSurfaceInput", DataType.Enum, value);}
+    public get CFrame() {return this.GetProp("CFrame", DataType.CFrame);}
+    public set CFrame(value) {this.SetProp("CFrame", DataType.CFrame, value);}
+    public get CanCollide() {return this.GetProp("CanCollide", DataType.Bool);}
+    public set CanCollide(value) {this.SetProp("CanCollide", DataType.Bool, value);}
+    public get CanQuery() {return this.GetProp("CanQuery", DataType.Bool);}
+    public set CanQuery(value) {this.SetProp("CanQuery", DataType.Bool, value);}
+    public get CanTouch() {return this.GetProp("CanTouch", DataType.Bool);}
+    public set CanTouch(value) {this.SetProp("CanTouch", DataType.Bool, value);}
+    public get CastShadow() {return this.GetProp("CastShadow", DataType.Bool);}
+    public set CastShadow(value) {this.SetProp("CastShadow", DataType.Bool, value);}
+    public get CollisionGroup() {return this.GetProp("CollisionGroup", DataType.String);}
+    public set CollisionGroup(value) {this.SetProp("CollisionGroup", DataType.String, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get CollisionGroupId() {return this.GetProp("CollisionGroupId", DataType.Int32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set CollisionGroupId(value) {this.SetProp("CollisionGroupId", DataType.Int32, value);}
+    public get Color3uint8() {return this.GetProp("Color3uint8", DataType.Color3uint8);}
+    public set Color3uint8(value) {this.SetProp("Color3uint8", DataType.Color3uint8, value);}
+    public get CustomPhysicalProperties() {return this.GetProp("CustomPhysicalProperties", DataType.PhysicalProperties);}
+    public set CustomPhysicalProperties(value) {this.SetProp("CustomPhysicalProperties", DataType.PhysicalProperties, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get Elasticity() {return this.GetProp("Elasticity", DataType.Float32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set Elasticity(value) {this.SetProp("Elasticity", DataType.Float32, value);}
+    public get EnableFluidForces() {return this.GetProp("EnableFluidForces", DataType.Bool);}
+    public set EnableFluidForces(value) {this.SetProp("EnableFluidForces", DataType.Bool, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get Friction() {return this.GetProp("Friction", DataType.Float32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set Friction(value) {this.SetProp("Friction", DataType.Float32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get FrontParamA() {return this.GetProp("FrontParamA", DataType.Float32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set FrontParamA(value) {this.SetProp("FrontParamA", DataType.Float32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get FrontParamB() {return this.GetProp("FrontParamB", DataType.Float32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set FrontParamB(value) {this.SetProp("FrontParamB", DataType.Float32, value);}
+    public get FrontSurface() {return this.GetProp("FrontSurface", DataType.Enum) as SurfaceType | undefined;}
+    public set FrontSurface(value) {this.SetProp("FrontSurface", DataType.Enum, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get FrontSurfaceInput() {return this.GetProp("FrontSurfaceInput", DataType.Enum) as InputType | undefined;}
+    /**@deprecated Deprecated by Roblox*/
+    public set FrontSurfaceInput(value) {this.SetProp("FrontSurfaceInput", DataType.Enum, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get LeftParamA() {return this.GetProp("LeftParamA", DataType.Float32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set LeftParamA(value) {this.SetProp("LeftParamA", DataType.Float32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get LeftParamB() {return this.GetProp("LeftParamB", DataType.Float32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set LeftParamB(value) {this.SetProp("LeftParamB", DataType.Float32, value);}
+    public get LeftSurface() {return this.GetProp("LeftSurface", DataType.Enum) as SurfaceType | undefined;}
+    public set LeftSurface(value) {this.SetProp("LeftSurface", DataType.Enum, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get LeftSurfaceInput() {return this.GetProp("LeftSurfaceInput", DataType.Enum) as InputType | undefined;}
+    /**@deprecated Deprecated by Roblox*/
+    public set LeftSurfaceInput(value) {this.SetProp("LeftSurfaceInput", DataType.Enum, value);}
+    public get Locked() {return this.GetProp("Locked", DataType.Bool);}
+    public set Locked(value) {this.SetProp("Locked", DataType.Bool, value);}
+    public get Massless() {return this.GetProp("Massless", DataType.Bool);}
+    public set Massless(value) {this.SetProp("Massless", DataType.Bool, value);}
+    public get Material() {return this.GetProp("Material", DataType.Enum) as Material | undefined;}
+    public set Material(value) {this.SetProp("Material", DataType.Enum, value);}
+    public get MaterialVariantSerialized() {return this.GetProp("MaterialVariantSerialized", DataType.String);}
+    public set MaterialVariantSerialized(value) {this.SetProp("MaterialVariantSerialized", DataType.String, value);}
+    public get PivotOffset() {return this.GetProp("PivotOffset", DataType.CFrame);}
+    public set PivotOffset(value) {this.SetProp("PivotOffset", DataType.CFrame, value);}
+    public get Reflectance() {return this.GetProp("Reflectance", DataType.Float32);}
+    public set Reflectance(value) {this.SetProp("Reflectance", DataType.Float32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get RightParamA() {return this.GetProp("RightParamA", DataType.Float32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set RightParamA(value) {this.SetProp("RightParamA", DataType.Float32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get RightParamB() {return this.GetProp("RightParamB", DataType.Float32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set RightParamB(value) {this.SetProp("RightParamB", DataType.Float32, value);}
+    public get RightSurface() {return this.GetProp("RightSurface", DataType.Enum) as SurfaceType | undefined;}
+    public set RightSurface(value) {this.SetProp("RightSurface", DataType.Enum, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get RightSurfaceInput() {return this.GetProp("RightSurfaceInput", DataType.Enum) as InputType | undefined;}
+    /**@deprecated Deprecated by Roblox*/
+    public set RightSurfaceInput(value) {this.SetProp("RightSurfaceInput", DataType.Enum, value);}
+    public get RootPriority() {return this.GetProp("RootPriority", DataType.Int32);}
+    public set RootPriority(value) {this.SetProp("RootPriority", DataType.Int32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get RotVelocity() {return this.GetProp("RotVelocity", DataType.Vector3);}
+    /**@deprecated Deprecated by Roblox*/
+    public set RotVelocity(value) {this.SetProp("RotVelocity", DataType.Vector3, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get TopParamA() {return this.GetProp("TopParamA", DataType.Float32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set TopParamA(value) {this.SetProp("TopParamA", DataType.Float32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get TopParamB() {return this.GetProp("TopParamB", DataType.Float32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set TopParamB(value) {this.SetProp("TopParamB", DataType.Float32, value);}
+    public get TopSurface() {return this.GetProp("TopSurface", DataType.Enum) as SurfaceType | undefined;}
+    public set TopSurface(value) {this.SetProp("TopSurface", DataType.Enum, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get TopSurfaceInput() {return this.GetProp("TopSurfaceInput", DataType.Enum) as InputType | undefined;}
+    /**@deprecated Deprecated by Roblox*/
+    public set TopSurfaceInput(value) {this.SetProp("TopSurfaceInput", DataType.Enum, value);}
+    public get Transparency() {return this.GetProp("Transparency", DataType.Float32);}
+    public set Transparency(value) {this.SetProp("Transparency", DataType.Float32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get Velocity() {return this.GetProp("Velocity", DataType.Vector3);}
+    /**@deprecated Deprecated by Roblox*/
+    public set Velocity(value) {this.SetProp("Velocity", DataType.Vector3, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get BrickColor() {return this.GetProp("brickColor", DataType.BrickColor);}
+    /**@deprecated Deprecated by Roblox*/
+    public set BrickColor(value) {this.SetProp("brickColor", DataType.BrickColor, value);}
+    public get Size() {return this.GetProp("size", DataType.Vector3);}
+    public set Size(value) {this.SetProp("size", DataType.Vector3, value);}
 }
 
 export class CornerWedgePart extends BasePart {
-    protected constructor(className?: string) {super(className ?? "CornerWedgePart");}
+    protected constructor(className?: string) {super(className ?? "CornerWedgePart"); this.addClassName("CornerWedgePart");}
     public static new() {return new CornerWedgePart();}
 }
 
 export abstract class FormFactorPart extends BasePart {
-    protected constructor(className: string) {super(className);}
-    public get formFactor() {return this.getProp("FormFactor", DataType.Enum) as FormFactor | undefined;}
-    public set formFactor(value) {this.setProp("FormFactor", DataType.Enum, value);}
-    public get formFactorRaw() {return this.getProp("formFactorRaw", DataType.Enum) as FormFactor | undefined;}
-    public set formFactorRaw(value) {this.setProp("formFactorRaw", DataType.Enum, value);}
+    protected constructor(className: string) {super(className); this.addClassName("FormFactorPart");}
+    /**@deprecated Deprecated by Roblox*/
+    public get FormFactor() {return this.GetProp("FormFactor", DataType.Enum) as FormFactor | undefined;}
+    /**@deprecated Deprecated by Roblox*/
+    public set FormFactor(value) {this.SetProp("FormFactor", DataType.Enum, value);}
+    /**@deprecated Use FormFactor instead*/
+    public get formFactor() {return this.FormFactor;}
+    /**@deprecated Use FormFactor instead*/
+    public set formFactor(value) {this.FormFactor = value;}
+    public get FormFactorRaw() {return this.GetProp("formFactorRaw", DataType.Enum) as FormFactor | undefined;}
+    public set FormFactorRaw(value) {this.SetProp("formFactorRaw", DataType.Enum, value);}
 }
 
 export class Part extends FormFactorPart {
-    protected constructor(className?: string) {super(className ?? "Part");}
+    protected constructor(className?: string) {super(className ?? "Part"); this.addClassName("Part");}
     public static new() {return new Part();}
-    public get shape() {return this.getProp("shape", DataType.Enum) as PartType | undefined;}
-    public set shape(value) {this.setProp("shape", DataType.Enum, value);}
+    public get Shape() {return this.GetProp("shape", DataType.Enum) as PartType | undefined;}
+    public set Shape(value) {this.SetProp("shape", DataType.Enum, value);}
 }
 
 export class FlagStand extends Part {
-    protected constructor(className?: string) {super(className ?? "FlagStand");}
+    protected constructor(className?: string) {super(className ?? "FlagStand"); this.addClassName("FlagStand");}
     public static new() {return new FlagStand();}
-    public get teamColor() {return this.getProp("TeamColor", DataType.BrickColor);}
-    public set teamColor(value) {this.setProp("TeamColor", DataType.BrickColor, value);}
+    public get TeamColor() {return this.GetProp("TeamColor", DataType.BrickColor);}
+    public set TeamColor(value) {this.SetProp("TeamColor", DataType.BrickColor, value);}
 }
 
 export class Seat extends Part {
-    protected constructor(className?: string) {super(className ?? "Seat");}
+    protected constructor(className?: string) {super(className ?? "Seat"); this.addClassName("Seat");}
     public static new() {return new Seat();}
-    public get disabled() {return this.getProp("Disabled", DataType.Bool);}
-    public set disabled(value) {this.setProp("Disabled", DataType.Bool, value);}
+    public get Disabled() {return this.GetProp("Disabled", DataType.Bool);}
+    public set Disabled(value) {this.SetProp("Disabled", DataType.Bool, value);}
 }
 
 export class SkateboardPlatform extends Part {
-    protected constructor(className?: string) {super(className ?? "SkateboardPlatform");}
+    protected constructor(className?: string) {super(className ?? "SkateboardPlatform"); this.addClassName("SkateboardPlatform");}
     public static new() {return new SkateboardPlatform();}
-    public get steer() {return this.getProp("Steer", DataType.Int32);}
-    public set steer(value) {this.setProp("Steer", DataType.Int32, value);}
-    public get stickyWheels() {return this.getProp("StickyWheels", DataType.Bool);}
-    public set stickyWheels(value) {this.setProp("StickyWheels", DataType.Bool, value);}
-    public get throttle() {return this.getProp("Throttle", DataType.Int32);}
-    public set throttle(value) {this.setProp("Throttle", DataType.Int32, value);}
+    public get Steer() {return this.GetProp("Steer", DataType.Int32);}
+    public set Steer(value) {this.SetProp("Steer", DataType.Int32, value);}
+    public get StickyWheels() {return this.GetProp("StickyWheels", DataType.Bool);}
+    public set StickyWheels(value) {this.SetProp("StickyWheels", DataType.Bool, value);}
+    public get Throttle() {return this.GetProp("Throttle", DataType.Int32);}
+    public set Throttle(value) {this.SetProp("Throttle", DataType.Int32, value);}
 }
 
 export class SpawnLocation extends Part {
-    protected constructor(className?: string) {super(className ?? "SpawnLocation");}
+    protected constructor(className?: string) {super(className ?? "SpawnLocation"); this.addClassName("SpawnLocation");}
     public static new() {return new SpawnLocation();}
-    public get allowTeamChangeOnTouch() {return this.getProp("AllowTeamChangeOnTouch", DataType.Bool);}
-    public set allowTeamChangeOnTouch(value) {this.setProp("AllowTeamChangeOnTouch", DataType.Bool, value);}
-    public get duration() {return this.getProp("Duration", DataType.Int32);}
-    public set duration(value) {this.setProp("Duration", DataType.Int32, value);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get neutral() {return this.getProp("Neutral", DataType.Bool);}
-    public set neutral(value) {this.setProp("Neutral", DataType.Bool, value);}
-    public get teamColor() {return this.getProp("TeamColor", DataType.BrickColor);}
-    public set teamColor(value) {this.setProp("TeamColor", DataType.BrickColor, value);}
+    public get AllowTeamChangeOnTouch() {return this.GetProp("AllowTeamChangeOnTouch", DataType.Bool);}
+    public set AllowTeamChangeOnTouch(value) {this.SetProp("AllowTeamChangeOnTouch", DataType.Bool, value);}
+    public get Duration() {return this.GetProp("Duration", DataType.Int32);}
+    public set Duration(value) {this.SetProp("Duration", DataType.Int32, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get Neutral() {return this.GetProp("Neutral", DataType.Bool);}
+    public set Neutral(value) {this.SetProp("Neutral", DataType.Bool, value);}
+    public get TeamColor() {return this.GetProp("TeamColor", DataType.BrickColor);}
+    public set TeamColor(value) {this.SetProp("TeamColor", DataType.BrickColor, value);}
 }
 
 export class WedgePart extends FormFactorPart {
-    protected constructor(className?: string) {super(className ?? "WedgePart");}
+    protected constructor(className?: string) {super(className ?? "WedgePart"); this.addClassName("WedgePart");}
     public static new() {return new WedgePart();}
 }
 
 export class Terrain extends BasePart {
-    protected constructor(className?: string) {super(className ?? "Terrain");}
+    protected constructor(className?: string) {super(className ?? "Terrain"); this.addClassName("Terrain");}
     public static new() {return new Terrain();}
-    public get acquisitionMethod() {return this.getProp("AcquisitionMethod", DataType.Enum) as TerrainAcquisitionMethod | undefined;}
-    public set acquisitionMethod(value) {this.setProp("AcquisitionMethod", DataType.Enum, value);}
-    public get decoration() {return this.getProp("Decoration", DataType.Bool);}
-    public set decoration(value) {this.setProp("Decoration", DataType.Bool, value);}
-    public get grassLength() {return this.getProp("GrassLength", DataType.Float32);}
-    public set grassLength(value) {this.setProp("GrassLength", DataType.Float32, value);}
-    public get materialColors() {return this.getProp("MaterialColors", DataType.String);}
-    public set materialColors(value) {this.setProp("MaterialColors", DataType.String, value);}
-    public get physicsGrid() {return this.getProp("PhysicsGrid", DataType.String);}
-    public set physicsGrid(value) {this.setProp("PhysicsGrid", DataType.String, value);}
-    public get shorelinesUpgraded() {return this.getProp("ShorelinesUpgraded", DataType.Bool);}
-    public set shorelinesUpgraded(value) {this.setProp("ShorelinesUpgraded", DataType.Bool, value);}
-    public get smoothGrid() {return this.getProp("SmoothGrid", DataType.String);}
-    public set smoothGrid(value) {this.setProp("SmoothGrid", DataType.String, value);}
-    public get smoothVoxelsUpgraded() {return this.getProp("SmoothVoxelsUpgraded", DataType.Bool);}
-    public set smoothVoxelsUpgraded(value) {this.setProp("SmoothVoxelsUpgraded", DataType.Bool, value);}
-    public get waterColor() {return this.getProp("WaterColor", DataType.Color3);}
-    public set waterColor(value) {this.setProp("WaterColor", DataType.Color3, value);}
-    public get waterReflectance() {return this.getProp("WaterReflectance", DataType.Float32);}
-    public set waterReflectance(value) {this.setProp("WaterReflectance", DataType.Float32, value);}
-    public get waterTransparency() {return this.getProp("WaterTransparency", DataType.Float32);}
-    public set waterTransparency(value) {this.setProp("WaterTransparency", DataType.Float32, value);}
-    public get waterWaveSize() {return this.getProp("WaterWaveSize", DataType.Float32);}
-    public set waterWaveSize(value) {this.setProp("WaterWaveSize", DataType.Float32, value);}
-    public get waterWaveSpeed() {return this.getProp("WaterWaveSpeed", DataType.Float32);}
-    public set waterWaveSpeed(value) {this.setProp("WaterWaveSpeed", DataType.Float32, value);}
+    public get AcquisitionMethod() {return this.GetProp("AcquisitionMethod", DataType.Enum) as TerrainAcquisitionMethod | undefined;}
+    public set AcquisitionMethod(value) {this.SetProp("AcquisitionMethod", DataType.Enum, value);}
+    public get Decoration() {return this.GetProp("Decoration", DataType.Bool);}
+    public set Decoration(value) {this.SetProp("Decoration", DataType.Bool, value);}
+    public get GrassLength() {return this.GetProp("GrassLength", DataType.Float32);}
+    public set GrassLength(value) {this.SetProp("GrassLength", DataType.Float32, value);}
+    public get MaterialColors() {return this.GetProp("MaterialColors", DataType.String);}
+    public set MaterialColors(value) {this.SetProp("MaterialColors", DataType.String, value);}
+    public get PhysicsGrid() {return this.GetProp("PhysicsGrid", DataType.String);}
+    public set PhysicsGrid(value) {this.SetProp("PhysicsGrid", DataType.String, value);}
+    public get ShorelinesUpgraded() {return this.GetProp("ShorelinesUpgraded", DataType.Bool);}
+    public set ShorelinesUpgraded(value) {this.SetProp("ShorelinesUpgraded", DataType.Bool, value);}
+    public get SmoothGrid() {return this.GetProp("SmoothGrid", DataType.String);}
+    public set SmoothGrid(value) {this.SetProp("SmoothGrid", DataType.String, value);}
+    public get SmoothVoxelsUpgraded() {return this.GetProp("SmoothVoxelsUpgraded", DataType.Bool);}
+    public set SmoothVoxelsUpgraded(value) {this.SetProp("SmoothVoxelsUpgraded", DataType.Bool, value);}
+    public get WaterColor() {return this.GetProp("WaterColor", DataType.Color3);}
+    public set WaterColor(value) {this.SetProp("WaterColor", DataType.Color3, value);}
+    public get WaterReflectance() {return this.GetProp("WaterReflectance", DataType.Float32);}
+    public set WaterReflectance(value) {this.SetProp("WaterReflectance", DataType.Float32, value);}
+    public get WaterTransparency() {return this.GetProp("WaterTransparency", DataType.Float32);}
+    public set WaterTransparency(value) {this.SetProp("WaterTransparency", DataType.Float32, value);}
+    public get WaterWaveSize() {return this.GetProp("WaterWaveSize", DataType.Float32);}
+    public set WaterWaveSize(value) {this.SetProp("WaterWaveSize", DataType.Float32, value);}
+    public get WaterWaveSpeed() {return this.GetProp("WaterWaveSpeed", DataType.Float32);}
+    public set WaterWaveSpeed(value) {this.SetProp("WaterWaveSpeed", DataType.Float32, value);}
 }
 
 export abstract class TriangleMeshPart extends BasePart {
-    protected constructor(className: string) {super(className);}
-    public get aeroMeshData() {return this.getProp("AeroMeshData", DataType.SharedString);}
-    public set aeroMeshData(value) {this.setProp("AeroMeshData", DataType.SharedString, value);}
-    public get fluidFidelityInternal() {return this.getProp("FluidFidelityInternal", DataType.Enum) as FluidFidelity | undefined;}
-    public set fluidFidelityInternal(value) {this.setProp("FluidFidelityInternal", DataType.Enum, value);}
-    public get physicalConfigData() {return this.getProp("PhysicalConfigData", DataType.SharedString);}
-    public set physicalConfigData(value) {this.setProp("PhysicalConfigData", DataType.SharedString, value);}
+    protected constructor(className: string) {super(className); this.addClassName("TriangleMeshPart");}
+    public get AeroMeshData() {return this.GetProp("AeroMeshData", DataType.SharedString);}
+    public set AeroMeshData(value) {this.SetProp("AeroMeshData", DataType.SharedString, value);}
+    public get FluidFidelityInternal() {return this.GetProp("FluidFidelityInternal", DataType.Enum) as FluidFidelity | undefined;}
+    public set FluidFidelityInternal(value) {this.SetProp("FluidFidelityInternal", DataType.Enum, value);}
+    public get PhysicalConfigData() {return this.GetProp("PhysicalConfigData", DataType.SharedString);}
+    public set PhysicalConfigData(value) {this.SetProp("PhysicalConfigData", DataType.SharedString, value);}
 }
 
 export class MeshPart extends TriangleMeshPart {
-    protected constructor(className?: string) {super(className ?? "MeshPart");}
+    protected constructor(className?: string) {super(className ?? "MeshPart"); this.addClassName("MeshPart");}
     public static new() {return new MeshPart();}
-    public get doubleSided() {return this.getProp("DoubleSided", DataType.Bool);}
-    public set doubleSided(value) {this.setProp("DoubleSided", DataType.Bool, value);}
-    public get hasJointOffset() {return this.getProp("HasJointOffset", DataType.Bool);}
-    public set hasJointOffset(value) {this.setProp("HasJointOffset", DataType.Bool, value);}
-    public get hasSkinnedMesh() {return this.getProp("HasSkinnedMesh", DataType.Bool);}
-    public set hasSkinnedMesh(value) {this.setProp("HasSkinnedMesh", DataType.Bool, value);}
-    public get initialSize() {return this.getProp("InitialSize", DataType.Vector3);}
-    public set initialSize(value) {this.setProp("InitialSize", DataType.Vector3, value);}
-    public get jointOffset() {return this.getProp("JointOffset", DataType.Vector3);}
-    public set jointOffset(value) {this.setProp("JointOffset", DataType.Vector3, value);}
-    public get meshID() {return this.getProp("MeshID", DataType.String);}
-    public set meshID(value) {this.setProp("MeshID", DataType.String, value);}
-    public get meshId() {return this.getProp("MeshId", DataType.String);}
-    public set meshId(value) {this.setProp("MeshId", DataType.String, value);}
-    public get physicsData() {return this.getProp("PhysicsData", DataType.String);}
-    public set physicsData(value) {this.setProp("PhysicsData", DataType.String, value);}
-    public get renderFidelity() {return this.getProp("RenderFidelity", DataType.Enum) as RenderFidelity | undefined;}
-    public set renderFidelity(value) {this.setProp("RenderFidelity", DataType.Enum, value);}
-    public get textureID() {return this.getProp("TextureID", DataType.String);}
-    public set textureID(value) {this.setProp("TextureID", DataType.String, value);}
-    public get vertexCount() {return this.getProp("VertexCount", DataType.Int32);}
-    public set vertexCount(value) {this.setProp("VertexCount", DataType.Int32, value);}
+    public get DoubleSided() {return this.GetProp("DoubleSided", DataType.Bool);}
+    public set DoubleSided(value) {this.SetProp("DoubleSided", DataType.Bool, value);}
+    public get HasJointOffset() {return this.GetProp("HasJointOffset", DataType.Bool);}
+    public set HasJointOffset(value) {this.SetProp("HasJointOffset", DataType.Bool, value);}
+    public get HasSkinnedMesh() {return this.GetProp("HasSkinnedMesh", DataType.Bool);}
+    public set HasSkinnedMesh(value) {this.SetProp("HasSkinnedMesh", DataType.Bool, value);}
+    public get InitialSize() {return this.GetProp("InitialSize", DataType.Vector3);}
+    public set InitialSize(value) {this.SetProp("InitialSize", DataType.Vector3, value);}
+    public get JointOffset() {return this.GetProp("JointOffset", DataType.Vector3);}
+    public set JointOffset(value) {this.SetProp("JointOffset", DataType.Vector3, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get MeshID() {return this.GetProp("MeshID", DataType.String);}
+    /**@deprecated Deprecated by Roblox*/
+    public set MeshID(value) {this.SetProp("MeshID", DataType.String, value);}
+    public get MeshId() {return this.GetProp("MeshId", DataType.String);}
+    public set MeshId(value) {this.SetProp("MeshId", DataType.String, value);}
+    public get PhysicsData() {return this.GetProp("PhysicsData", DataType.String);}
+    public set PhysicsData(value) {this.SetProp("PhysicsData", DataType.String, value);}
+    public get RenderFidelity() {return this.GetProp("RenderFidelity", DataType.Enum) as RenderFidelity | undefined;}
+    public set RenderFidelity(value) {this.SetProp("RenderFidelity", DataType.Enum, value);}
+    public get TextureID() {return this.GetProp("TextureID", DataType.String);}
+    public set TextureID(value) {this.SetProp("TextureID", DataType.String, value);}
+    public get VertexCount() {return this.GetProp("VertexCount", DataType.Int32);}
+    public set VertexCount(value) {this.SetProp("VertexCount", DataType.Int32, value);}
 }
 
 export class PartOperation extends TriangleMeshPart {
-    protected constructor(className?: string) {super(className ?? "PartOperation");}
+    protected constructor(className?: string) {super(className ?? "PartOperation"); this.addClassName("PartOperation");}
     public static new() {return new PartOperation();}
-    public get assetId() {return this.getProp("AssetId", DataType.String);}
-    public set assetId(value) {this.setProp("AssetId", DataType.String, value);}
-    public get childData() {return this.getProp("ChildData", DataType.String);}
-    public set childData(value) {this.setProp("ChildData", DataType.String, value);}
-    public get childData2() {return this.getProp("ChildData2", DataType.SharedString);}
-    public set childData2(value) {this.setProp("ChildData2", DataType.SharedString, value);}
-    public get formFactor() {return this.getProp("FormFactor", DataType.Enum) as FormFactor | undefined;}
-    public set formFactor(value) {this.setProp("FormFactor", DataType.Enum, value);}
-    public get initialSize() {return this.getProp("InitialSize", DataType.Vector3);}
-    public set initialSize(value) {this.setProp("InitialSize", DataType.Vector3, value);}
-    public get meshData() {return this.getProp("MeshData", DataType.String);}
-    public set meshData(value) {this.setProp("MeshData", DataType.String, value);}
-    public get meshData2() {return this.getProp("MeshData2", DataType.SharedString);}
-    public set meshData2(value) {this.setProp("MeshData2", DataType.SharedString, value);}
-    public get physicsData() {return this.getProp("PhysicsData", DataType.String);}
-    public set physicsData(value) {this.setProp("PhysicsData", DataType.String, value);}
-    public get renderFidelity() {return this.getProp("RenderFidelity", DataType.Enum) as RenderFidelity | undefined;}
-    public set renderFidelity(value) {this.setProp("RenderFidelity", DataType.Enum, value);}
-    public get smoothingAngle() {return this.getProp("SmoothingAngle", DataType.Float32);}
-    public set smoothingAngle(value) {this.setProp("SmoothingAngle", DataType.Float32, value);}
-    public get usePartColor() {return this.getProp("UsePartColor", DataType.Bool);}
-    public set usePartColor(value) {this.setProp("UsePartColor", DataType.Bool, value);}
+    public get AssetId() {return this.GetProp("AssetId", DataType.String);}
+    public set AssetId(value) {this.SetProp("AssetId", DataType.String, value);}
+    public get ChildData() {return this.GetProp("ChildData", DataType.String);}
+    public set ChildData(value) {this.SetProp("ChildData", DataType.String, value);}
+    public get ChildData2() {return this.GetProp("ChildData2", DataType.SharedString);}
+    public set ChildData2(value) {this.SetProp("ChildData2", DataType.SharedString, value);}
+    public get FormFactor() {return this.GetProp("FormFactor", DataType.Enum) as FormFactor | undefined;}
+    public set FormFactor(value) {this.SetProp("FormFactor", DataType.Enum, value);}
+    public get InitialSize() {return this.GetProp("InitialSize", DataType.Vector3);}
+    public set InitialSize(value) {this.SetProp("InitialSize", DataType.Vector3, value);}
+    public get MeshData() {return this.GetProp("MeshData", DataType.String);}
+    public set MeshData(value) {this.SetProp("MeshData", DataType.String, value);}
+    public get MeshData2() {return this.GetProp("MeshData2", DataType.SharedString);}
+    public set MeshData2(value) {this.SetProp("MeshData2", DataType.SharedString, value);}
+    public get PhysicsData() {return this.GetProp("PhysicsData", DataType.String);}
+    public set PhysicsData(value) {this.SetProp("PhysicsData", DataType.String, value);}
+    public get RenderFidelity() {return this.GetProp("RenderFidelity", DataType.Enum) as RenderFidelity | undefined;}
+    public set RenderFidelity(value) {this.SetProp("RenderFidelity", DataType.Enum, value);}
+    public get SmoothingAngle() {return this.GetProp("SmoothingAngle", DataType.Float32);}
+    public set SmoothingAngle(value) {this.SetProp("SmoothingAngle", DataType.Float32, value);}
+    public get UsePartColor() {return this.GetProp("UsePartColor", DataType.Bool);}
+    public set UsePartColor(value) {this.SetProp("UsePartColor", DataType.Bool, value);}
 }
 
 export class IntersectOperation extends PartOperation {
-    protected constructor(className?: string) {super(className ?? "IntersectOperation");}
+    protected constructor(className?: string) {super(className ?? "IntersectOperation"); this.addClassName("IntersectOperation");}
     public static new() {return new IntersectOperation();}
 }
 
 export class NegateOperation extends PartOperation {
-    protected constructor(className?: string) {super(className ?? "NegateOperation");}
+    protected constructor(className?: string) {super(className ?? "NegateOperation"); this.addClassName("NegateOperation");}
     public static new() {return new NegateOperation();}
 }
 
 export class UnionOperation extends PartOperation {
-    protected constructor(className?: string) {super(className ?? "UnionOperation");}
+    protected constructor(className?: string) {super(className ?? "UnionOperation"); this.addClassName("UnionOperation");}
     public static new() {return new UnionOperation();}
 }
 
 export class TrussPart extends BasePart {
-    protected constructor(className?: string) {super(className ?? "TrussPart");}
+    protected constructor(className?: string) {super(className ?? "TrussPart"); this.addClassName("TrussPart");}
     public static new() {return new TrussPart();}
-    public get style() {return this.getProp("style", DataType.Enum) as Style | undefined;}
-    public set style(value) {this.setProp("style", DataType.Enum, value);}
+    public get Style() {return this.GetProp("style", DataType.Enum) as Style | undefined;}
+    public set Style(value) {this.SetProp("style", DataType.Enum, value);}
 }
 
 export class VehicleSeat extends BasePart {
-    protected constructor(className?: string) {super(className ?? "VehicleSeat");}
+    protected constructor(className?: string) {super(className ?? "VehicleSeat"); this.addClassName("VehicleSeat");}
     public static new() {return new VehicleSeat();}
-    public get disabled() {return this.getProp("Disabled", DataType.Bool);}
-    public set disabled(value) {this.setProp("Disabled", DataType.Bool, value);}
-    public get headsUpDisplay() {return this.getProp("HeadsUpDisplay", DataType.Bool);}
-    public set headsUpDisplay(value) {this.setProp("HeadsUpDisplay", DataType.Bool, value);}
-    public get maxSpeed() {return this.getProp("MaxSpeed", DataType.Float32);}
-    public set maxSpeed(value) {this.setProp("MaxSpeed", DataType.Float32, value);}
-    public get steer() {return this.getProp("Steer", DataType.Int32);}
-    public set steer(value) {this.setProp("Steer", DataType.Int32, value);}
-    public get steerFloat() {return this.getProp("SteerFloat", DataType.Float32);}
-    public set steerFloat(value) {this.setProp("SteerFloat", DataType.Float32, value);}
-    public get throttle() {return this.getProp("Throttle", DataType.Int32);}
-    public set throttle(value) {this.setProp("Throttle", DataType.Int32, value);}
-    public get throttleFloat() {return this.getProp("ThrottleFloat", DataType.Float32);}
-    public set throttleFloat(value) {this.setProp("ThrottleFloat", DataType.Float32, value);}
-    public get torque() {return this.getProp("Torque", DataType.Float32);}
-    public set torque(value) {this.setProp("Torque", DataType.Float32, value);}
-    public get turnSpeed() {return this.getProp("TurnSpeed", DataType.Float32);}
-    public set turnSpeed(value) {this.setProp("TurnSpeed", DataType.Float32, value);}
+    public get Disabled() {return this.GetProp("Disabled", DataType.Bool);}
+    public set Disabled(value) {this.SetProp("Disabled", DataType.Bool, value);}
+    public get HeadsUpDisplay() {return this.GetProp("HeadsUpDisplay", DataType.Bool);}
+    public set HeadsUpDisplay(value) {this.SetProp("HeadsUpDisplay", DataType.Bool, value);}
+    public get MaxSpeed() {return this.GetProp("MaxSpeed", DataType.Float32);}
+    public set MaxSpeed(value) {this.SetProp("MaxSpeed", DataType.Float32, value);}
+    public get Steer() {return this.GetProp("Steer", DataType.Int32);}
+    public set Steer(value) {this.SetProp("Steer", DataType.Int32, value);}
+    public get SteerFloat() {return this.GetProp("SteerFloat", DataType.Float32);}
+    public set SteerFloat(value) {this.SetProp("SteerFloat", DataType.Float32, value);}
+    public get Throttle() {return this.GetProp("Throttle", DataType.Int32);}
+    public set Throttle(value) {this.SetProp("Throttle", DataType.Int32, value);}
+    public get ThrottleFloat() {return this.GetProp("ThrottleFloat", DataType.Float32);}
+    public set ThrottleFloat(value) {this.SetProp("ThrottleFloat", DataType.Float32, value);}
+    public get Torque() {return this.GetProp("Torque", DataType.Float32);}
+    public set Torque(value) {this.SetProp("Torque", DataType.Float32, value);}
+    public get TurnSpeed() {return this.GetProp("TurnSpeed", DataType.Float32);}
+    public set TurnSpeed(value) {this.SetProp("TurnSpeed", DataType.Float32, value);}
 }
 
 export class Model extends PVInstance {
-    protected constructor(className?: string) {super(className ?? "Model");}
+    protected constructor(className?: string) {super(className ?? "Model"); this.addClassName("Model");}
     public static new() {return new Model();}
-    public get levelOfDetail() {return this.getProp("LevelOfDetail", DataType.Enum) as ModelLevelOfDetail | undefined;}
-    public set levelOfDetail(value) {this.setProp("LevelOfDetail", DataType.Enum, value);}
-    public get modelMeshCFrame() {return this.getProp("ModelMeshCFrame", DataType.CFrame);}
-    public set modelMeshCFrame(value) {this.setProp("ModelMeshCFrame", DataType.CFrame, value);}
-    public get modelMeshData() {return this.getProp("ModelMeshData", DataType.SharedString);}
-    public set modelMeshData(value) {this.setProp("ModelMeshData", DataType.SharedString, value);}
-    public get modelMeshSize() {return this.getProp("ModelMeshSize", DataType.Vector3);}
-    public set modelMeshSize(value) {this.setProp("ModelMeshSize", DataType.Vector3, value);}
-    public get modelStreamingMode() {return this.getProp("ModelStreamingMode", DataType.Enum) as ModelStreamingMode | undefined;}
-    public set modelStreamingMode(value) {this.setProp("ModelStreamingMode", DataType.Enum, value);}
-    public get needsPivotMigration() {return this.getProp("NeedsPivotMigration", DataType.Bool);}
-    public set needsPivotMigration(value) {this.setProp("NeedsPivotMigration", DataType.Bool, value);}
-    public get primaryPart() {return this.getProp("PrimaryPart", DataType.Referent) as BasePart | undefined;}
-    public set primaryPart(value) {this.setProp("PrimaryPart", DataType.Referent, value);}
-    public get scaleFactor() {return this.getProp("ScaleFactor", DataType.Float32);}
-    public set scaleFactor(value) {this.setProp("ScaleFactor", DataType.Float32, value);}
-    public get worldPivotData() {return this.getProp("WorldPivotData", DataType.OptionalCFrame);}
-    public set worldPivotData(value) {this.setProp("WorldPivotData", DataType.OptionalCFrame, value);}
+    public get LevelOfDetail() {return this.GetProp("LevelOfDetail", DataType.Enum) as ModelLevelOfDetail | undefined;}
+    public set LevelOfDetail(value) {this.SetProp("LevelOfDetail", DataType.Enum, value);}
+    public get ModelMeshCFrame() {return this.GetProp("ModelMeshCFrame", DataType.CFrame);}
+    public set ModelMeshCFrame(value) {this.SetProp("ModelMeshCFrame", DataType.CFrame, value);}
+    public get ModelMeshData() {return this.GetProp("ModelMeshData", DataType.SharedString);}
+    public set ModelMeshData(value) {this.SetProp("ModelMeshData", DataType.SharedString, value);}
+    public get ModelMeshSize() {return this.GetProp("ModelMeshSize", DataType.Vector3);}
+    public set ModelMeshSize(value) {this.SetProp("ModelMeshSize", DataType.Vector3, value);}
+    public get ModelStreamingMode() {return this.GetProp("ModelStreamingMode", DataType.Enum) as ModelStreamingMode | undefined;}
+    public set ModelStreamingMode(value) {this.SetProp("ModelStreamingMode", DataType.Enum, value);}
+    public get NeedsPivotMigration() {return this.GetProp("NeedsPivotMigration", DataType.Bool);}
+    public set NeedsPivotMigration(value) {this.SetProp("NeedsPivotMigration", DataType.Bool, value);}
+    public get PrimaryPart() {return this.GetProp("PrimaryPart", DataType.Referent) as BasePart | undefined;}
+    public set PrimaryPart(value) {this.SetProp("PrimaryPart", DataType.Referent, value);}
+    public get ScaleFactor() {return this.GetProp("ScaleFactor", DataType.Float32);}
+    public set ScaleFactor(value) {this.SetProp("ScaleFactor", DataType.Float32, value);}
+    public get WorldPivotData() {return this.GetProp("WorldPivotData", DataType.OptionalCFrame);}
+    public set WorldPivotData(value) {this.SetProp("WorldPivotData", DataType.OptionalCFrame, value);}
 }
 
 export class Actor extends Model {
-    protected constructor(className?: string) {super(className ?? "Actor");}
+    protected constructor(className?: string) {super(className ?? "Actor"); this.addClassName("Actor");}
     public static new() {return new Actor();}
 }
 
 export abstract class BackpackItem extends Model {
-    protected constructor(className: string) {super(className);}
-    public get textureId() {return this.getProp("TextureId", DataType.String);}
-    public set textureId(value) {this.setProp("TextureId", DataType.String, value);}
+    protected constructor(className: string) {super(className); this.addClassName("BackpackItem");}
+    public get TextureId() {return this.GetProp("TextureId", DataType.String);}
+    public set TextureId(value) {this.SetProp("TextureId", DataType.String, value);}
 }
 
 export class HopperBin extends BackpackItem {
-    protected constructor(className?: string) {super(className ?? "HopperBin");}
+    protected constructor(className?: string) {super(className ?? "HopperBin"); this.addClassName("HopperBin");}
     public static new() {return new HopperBin();}
-    public get active() {return this.getProp("Active", DataType.Bool);}
-    public set active(value) {this.setProp("Active", DataType.Bool, value);}
-    public get binType() {return this.getProp("BinType", DataType.Enum) as BinType | undefined;}
-    public set binType(value) {this.setProp("BinType", DataType.Enum, value);}
+    public get Active() {return this.GetProp("Active", DataType.Bool);}
+    public set Active(value) {this.SetProp("Active", DataType.Bool, value);}
+    public get BinType() {return this.GetProp("BinType", DataType.Enum) as BinType | undefined;}
+    public set BinType(value) {this.SetProp("BinType", DataType.Enum, value);}
 }
 
 export class Tool extends BackpackItem {
-    protected constructor(className?: string) {super(className ?? "Tool");}
+    protected constructor(className?: string) {super(className ?? "Tool"); this.addClassName("Tool");}
     public static new() {return new Tool();}
-    public get canBeDropped() {return this.getProp("CanBeDropped", DataType.Bool);}
-    public set canBeDropped(value) {this.setProp("CanBeDropped", DataType.Bool, value);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get grip() {return this.getProp("Grip", DataType.CFrame);}
-    public set grip(value) {this.setProp("Grip", DataType.CFrame, value);}
-    public get manualActivationOnly() {return this.getProp("ManualActivationOnly", DataType.Bool);}
-    public set manualActivationOnly(value) {this.setProp("ManualActivationOnly", DataType.Bool, value);}
-    public get requiresHandle() {return this.getProp("RequiresHandle", DataType.Bool);}
-    public set requiresHandle(value) {this.setProp("RequiresHandle", DataType.Bool, value);}
-    public get toolTip() {return this.getProp("ToolTip", DataType.String);}
-    public set toolTip(value) {this.setProp("ToolTip", DataType.String, value);}
+    public get CanBeDropped() {return this.GetProp("CanBeDropped", DataType.Bool);}
+    public set CanBeDropped(value) {this.SetProp("CanBeDropped", DataType.Bool, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get Grip() {return this.GetProp("Grip", DataType.CFrame);}
+    public set Grip(value) {this.SetProp("Grip", DataType.CFrame, value);}
+    public get ManualActivationOnly() {return this.GetProp("ManualActivationOnly", DataType.Bool);}
+    public set ManualActivationOnly(value) {this.SetProp("ManualActivationOnly", DataType.Bool, value);}
+    public get RequiresHandle() {return this.GetProp("RequiresHandle", DataType.Bool);}
+    public set RequiresHandle(value) {this.SetProp("RequiresHandle", DataType.Bool, value);}
+    public get ToolTip() {return this.GetProp("ToolTip", DataType.String);}
+    public set ToolTip(value) {this.SetProp("ToolTip", DataType.String, value);}
 }
 
 export class Flag extends Tool {
-    protected constructor(className?: string) {super(className ?? "Flag");}
+    protected constructor(className?: string) {super(className ?? "Flag"); this.addClassName("Flag");}
     public static new() {return new Flag();}
-    public get teamColor() {return this.getProp("TeamColor", DataType.BrickColor);}
-    public set teamColor(value) {this.setProp("TeamColor", DataType.BrickColor, value);}
+    public get TeamColor() {return this.GetProp("TeamColor", DataType.BrickColor);}
+    public set TeamColor(value) {this.SetProp("TeamColor", DataType.BrickColor, value);}
 }
 
 export abstract class WorldRoot extends Model {
-    protected constructor(className: string) {super(className);}
+    protected constructor(className: string) {super(className); this.addClassName("WorldRoot");}
 }
 
 export class Workspace extends WorldRoot {
-    protected constructor(className?: string) {super(className ?? "Workspace");}
+    protected constructor(className?: string) {super(className ?? "Workspace"); this.addClassName("Workspace");}
     public static new() {return new Workspace();}
-    public get airDensity() {return this.getProp("AirDensity", DataType.Float32);}
-    public set airDensity(value) {this.setProp("AirDensity", DataType.Float32, value);}
-    public get allowThirdPartySales() {return this.getProp("AllowThirdPartySales", DataType.Bool);}
-    public set allowThirdPartySales(value) {this.setProp("AllowThirdPartySales", DataType.Bool, value);}
-    public get avatarUnificationMode() {return this.getProp("AvatarUnificationMode", DataType.Enum) as AvatarUnificationMode | undefined;}
-    public set avatarUnificationMode(value) {this.setProp("AvatarUnificationMode", DataType.Enum, value);}
-    public get cSGAsyncDynamicCollision() {return this.getProp("CSGAsyncDynamicCollision", DataType.Enum) as CSGAsyncDynamicCollision | undefined;}
-    public set cSGAsyncDynamicCollision(value) {this.setProp("CSGAsyncDynamicCollision", DataType.Enum, value);}
-    public get clientAnimatorThrottling() {return this.getProp("ClientAnimatorThrottling", DataType.Enum) as ClientAnimatorThrottlingMode | undefined;}
-    public set clientAnimatorThrottling(value) {this.setProp("ClientAnimatorThrottling", DataType.Enum, value);}
-    public get collisionGroupData() {return this.getProp("CollisionGroupData", DataType.String);}
-    public set collisionGroupData(value) {this.setProp("CollisionGroupData", DataType.String, value);}
-    public get currentCamera() {return this.getProp("CurrentCamera", DataType.Referent) as Camera | undefined;}
-    public set currentCamera(value) {this.setProp("CurrentCamera", DataType.Referent, value);}
-    public get decreaseMinimumPartDensityMode() {return this.getProp("DecreaseMinimumPartDensityMode", DataType.Enum) as DecreaseMinimumPartDensityMode | undefined;}
-    public set decreaseMinimumPartDensityMode(value) {this.setProp("DecreaseMinimumPartDensityMode", DataType.Enum, value);}
-    public get distributedGameTime() {return this.getProp("DistributedGameTime", DataType.Float64);}
-    public set distributedGameTime(value) {this.setProp("DistributedGameTime", DataType.Float64, value);}
-    public get editorLiveScripting() {return this.getProp("EditorLiveScripting", DataType.Enum) as EditorLiveScripting | undefined;}
-    public set editorLiveScripting(value) {this.setProp("EditorLiveScripting", DataType.Enum, value);}
-    public get explicitAutoJoints() {return this.getProp("ExplicitAutoJoints", DataType.Bool);}
-    public set explicitAutoJoints(value) {this.setProp("ExplicitAutoJoints", DataType.Bool, value);}
-    public get fallenPartsDestroyHeight() {return this.getProp("FallenPartsDestroyHeight", DataType.Float32);}
-    public set fallenPartsDestroyHeight(value) {this.setProp("FallenPartsDestroyHeight", DataType.Float32, value);}
-    public get fluidForces() {return this.getProp("FluidForces", DataType.Enum) as FluidForces | undefined;}
-    public set fluidForces(value) {this.setProp("FluidForces", DataType.Enum, value);}
-    public get globalWind() {return this.getProp("GlobalWind", DataType.Vector3);}
-    public set globalWind(value) {this.setProp("GlobalWind", DataType.Vector3, value);}
-    public get gravity() {return this.getProp("Gravity", DataType.Float32);}
-    public set gravity(value) {this.setProp("Gravity", DataType.Float32, value);}
-    public get iKControlConstraintSupport() {return this.getProp("IKControlConstraintSupport", DataType.Enum) as IKControlConstraintSupport | undefined;}
-    public set iKControlConstraintSupport(value) {this.setProp("IKControlConstraintSupport", DataType.Enum, value);}
-    public get meshPartHeadsAndAccessories() {return this.getProp("MeshPartHeadsAndAccessories", DataType.Enum) as MeshPartHeadsAndAccessories | undefined;}
-    public set meshPartHeadsAndAccessories(value) {this.setProp("MeshPartHeadsAndAccessories", DataType.Enum, value);}
-    public get modelStreamingBehavior() {return this.getProp("ModelStreamingBehavior", DataType.Enum) as ModelStreamingBehavior | undefined;}
-    public set modelStreamingBehavior(value) {this.setProp("ModelStreamingBehavior", DataType.Enum, value);}
-    public get physicsSteppingMethod() {return this.getProp("PhysicsSteppingMethod", DataType.Enum) as PhysicsSteppingMethod | undefined;}
-    public set physicsSteppingMethod(value) {this.setProp("PhysicsSteppingMethod", DataType.Enum, value);}
-    public get playerCharacterDestroyBehavior() {return this.getProp("PlayerCharacterDestroyBehavior", DataType.Enum) as PlayerCharacterDestroyBehavior | undefined;}
-    public set playerCharacterDestroyBehavior(value) {this.setProp("PlayerCharacterDestroyBehavior", DataType.Enum, value);}
-    public get primalPhysicsSolver() {return this.getProp("PrimalPhysicsSolver", DataType.Enum) as PrimalPhysicsSolver | undefined;}
-    public set primalPhysicsSolver(value) {this.setProp("PrimalPhysicsSolver", DataType.Enum, value);}
-    public get rejectCharacterDeletions() {return this.getProp("RejectCharacterDeletions", DataType.Enum) as RejectCharacterDeletions | undefined;}
-    public set rejectCharacterDeletions(value) {this.setProp("RejectCharacterDeletions", DataType.Enum, value);}
-    public get replicateInstanceDestroySetting() {return this.getProp("ReplicateInstanceDestroySetting", DataType.Enum) as ReplicateInstanceDestroySetting | undefined;}
-    public set replicateInstanceDestroySetting(value) {this.setProp("ReplicateInstanceDestroySetting", DataType.Enum, value);}
-    public get retargeting() {return this.getProp("Retargeting", DataType.Enum) as AnimatorRetargetingMode | undefined;}
-    public set retargeting(value) {this.setProp("Retargeting", DataType.Enum, value);}
-    public get signalBehavior2() {return this.getProp("SignalBehavior2", DataType.Enum) as SignalBehavior | undefined;}
-    public set signalBehavior2(value) {this.setProp("SignalBehavior2", DataType.Enum, value);}
-    public get streamOutBehavior() {return this.getProp("StreamOutBehavior", DataType.Enum) as StreamOutBehavior | undefined;}
-    public set streamOutBehavior(value) {this.setProp("StreamOutBehavior", DataType.Enum, value);}
-    public get streamingEnabled() {return this.getProp("StreamingEnabled", DataType.Bool);}
-    public set streamingEnabled(value) {this.setProp("StreamingEnabled", DataType.Bool, value);}
-    public get streamingIntegrityMode() {return this.getProp("StreamingIntegrityMode", DataType.Enum) as StreamingIntegrityMode | undefined;}
-    public set streamingIntegrityMode(value) {this.setProp("StreamingIntegrityMode", DataType.Enum, value);}
-    public get streamingMinRadius() {return this.getProp("StreamingMinRadius", DataType.Int32);}
-    public set streamingMinRadius(value) {this.setProp("StreamingMinRadius", DataType.Int32, value);}
-    public get streamingTargetRadius() {return this.getProp("StreamingTargetRadius", DataType.Int32);}
-    public set streamingTargetRadius(value) {this.setProp("StreamingTargetRadius", DataType.Int32, value);}
-    public get terrainWeldsFixed() {return this.getProp("TerrainWeldsFixed", DataType.Bool);}
-    public set terrainWeldsFixed(value) {this.setProp("TerrainWeldsFixed", DataType.Bool, value);}
-    public get touchesUseCollisionGroups() {return this.getProp("TouchesUseCollisionGroups", DataType.Bool);}
-    public set touchesUseCollisionGroups(value) {this.setProp("TouchesUseCollisionGroups", DataType.Bool, value);}
+    public get AirDensity() {return this.GetProp("AirDensity", DataType.Float32);}
+    public set AirDensity(value) {this.SetProp("AirDensity", DataType.Float32, value);}
+    public get AllowThirdPartySales() {return this.GetProp("AllowThirdPartySales", DataType.Bool);}
+    public set AllowThirdPartySales(value) {this.SetProp("AllowThirdPartySales", DataType.Bool, value);}
+    public get AvatarUnificationMode() {return this.GetProp("AvatarUnificationMode", DataType.Enum) as AvatarUnificationMode | undefined;}
+    public set AvatarUnificationMode(value) {this.SetProp("AvatarUnificationMode", DataType.Enum, value);}
+    public get CSGAsyncDynamicCollision() {return this.GetProp("CSGAsyncDynamicCollision", DataType.Enum) as CSGAsyncDynamicCollision | undefined;}
+    public set CSGAsyncDynamicCollision(value) {this.SetProp("CSGAsyncDynamicCollision", DataType.Enum, value);}
+    public get ClientAnimatorThrottling() {return this.GetProp("ClientAnimatorThrottling", DataType.Enum) as ClientAnimatorThrottlingMode | undefined;}
+    public set ClientAnimatorThrottling(value) {this.SetProp("ClientAnimatorThrottling", DataType.Enum, value);}
+    public get CollisionGroupData() {return this.GetProp("CollisionGroupData", DataType.String);}
+    public set CollisionGroupData(value) {this.SetProp("CollisionGroupData", DataType.String, value);}
+    public get CurrentCamera() {return this.GetProp("CurrentCamera", DataType.Referent) as Camera | undefined;}
+    public set CurrentCamera(value) {this.SetProp("CurrentCamera", DataType.Referent, value);}
+    public get DecreaseMinimumPartDensityMode() {return this.GetProp("DecreaseMinimumPartDensityMode", DataType.Enum) as DecreaseMinimumPartDensityMode | undefined;}
+    public set DecreaseMinimumPartDensityMode(value) {this.SetProp("DecreaseMinimumPartDensityMode", DataType.Enum, value);}
+    public get DistributedGameTime() {return this.GetProp("DistributedGameTime", DataType.Float64);}
+    public set DistributedGameTime(value) {this.SetProp("DistributedGameTime", DataType.Float64, value);}
+    public get EditorLiveScripting() {return this.GetProp("EditorLiveScripting", DataType.Enum) as EditorLiveScripting | undefined;}
+    public set EditorLiveScripting(value) {this.SetProp("EditorLiveScripting", DataType.Enum, value);}
+    public get ExplicitAutoJoints() {return this.GetProp("ExplicitAutoJoints", DataType.Bool);}
+    public set ExplicitAutoJoints(value) {this.SetProp("ExplicitAutoJoints", DataType.Bool, value);}
+    public get FallenPartsDestroyHeight() {return this.GetProp("FallenPartsDestroyHeight", DataType.Float32);}
+    public set FallenPartsDestroyHeight(value) {this.SetProp("FallenPartsDestroyHeight", DataType.Float32, value);}
+    public get FluidForces() {return this.GetProp("FluidForces", DataType.Enum) as FluidForces | undefined;}
+    public set FluidForces(value) {this.SetProp("FluidForces", DataType.Enum, value);}
+    public get GlobalWind() {return this.GetProp("GlobalWind", DataType.Vector3);}
+    public set GlobalWind(value) {this.SetProp("GlobalWind", DataType.Vector3, value);}
+    public get Gravity() {return this.GetProp("Gravity", DataType.Float32);}
+    public set Gravity(value) {this.SetProp("Gravity", DataType.Float32, value);}
+    public get IKControlConstraintSupport() {return this.GetProp("IKControlConstraintSupport", DataType.Enum) as IKControlConstraintSupport | undefined;}
+    public set IKControlConstraintSupport(value) {this.SetProp("IKControlConstraintSupport", DataType.Enum, value);}
+    public get MeshPartHeadsAndAccessories() {return this.GetProp("MeshPartHeadsAndAccessories", DataType.Enum) as MeshPartHeadsAndAccessories | undefined;}
+    public set MeshPartHeadsAndAccessories(value) {this.SetProp("MeshPartHeadsAndAccessories", DataType.Enum, value);}
+    public get ModelStreamingBehavior() {return this.GetProp("ModelStreamingBehavior", DataType.Enum) as ModelStreamingBehavior | undefined;}
+    public set ModelStreamingBehavior(value) {this.SetProp("ModelStreamingBehavior", DataType.Enum, value);}
+    public get PhysicsSteppingMethod() {return this.GetProp("PhysicsSteppingMethod", DataType.Enum) as PhysicsSteppingMethod | undefined;}
+    public set PhysicsSteppingMethod(value) {this.SetProp("PhysicsSteppingMethod", DataType.Enum, value);}
+    public get PlayerCharacterDestroyBehavior() {return this.GetProp("PlayerCharacterDestroyBehavior", DataType.Enum) as PlayerCharacterDestroyBehavior | undefined;}
+    public set PlayerCharacterDestroyBehavior(value) {this.SetProp("PlayerCharacterDestroyBehavior", DataType.Enum, value);}
+    public get PrimalPhysicsSolver() {return this.GetProp("PrimalPhysicsSolver", DataType.Enum) as PrimalPhysicsSolver | undefined;}
+    public set PrimalPhysicsSolver(value) {this.SetProp("PrimalPhysicsSolver", DataType.Enum, value);}
+    public get RejectCharacterDeletions() {return this.GetProp("RejectCharacterDeletions", DataType.Enum) as RejectCharacterDeletions | undefined;}
+    public set RejectCharacterDeletions(value) {this.SetProp("RejectCharacterDeletions", DataType.Enum, value);}
+    public get ReplicateInstanceDestroySetting() {return this.GetProp("ReplicateInstanceDestroySetting", DataType.Enum) as ReplicateInstanceDestroySetting | undefined;}
+    public set ReplicateInstanceDestroySetting(value) {this.SetProp("ReplicateInstanceDestroySetting", DataType.Enum, value);}
+    public get Retargeting() {return this.GetProp("Retargeting", DataType.Enum) as AnimatorRetargetingMode | undefined;}
+    public set Retargeting(value) {this.SetProp("Retargeting", DataType.Enum, value);}
+    public get SignalBehavior2() {return this.GetProp("SignalBehavior2", DataType.Enum) as SignalBehavior | undefined;}
+    public set SignalBehavior2(value) {this.SetProp("SignalBehavior2", DataType.Enum, value);}
+    public get StreamOutBehavior() {return this.GetProp("StreamOutBehavior", DataType.Enum) as StreamOutBehavior | undefined;}
+    public set StreamOutBehavior(value) {this.SetProp("StreamOutBehavior", DataType.Enum, value);}
+    public get StreamingEnabled() {return this.GetProp("StreamingEnabled", DataType.Bool);}
+    public set StreamingEnabled(value) {this.SetProp("StreamingEnabled", DataType.Bool, value);}
+    public get StreamingIntegrityMode() {return this.GetProp("StreamingIntegrityMode", DataType.Enum) as StreamingIntegrityMode | undefined;}
+    public set StreamingIntegrityMode(value) {this.SetProp("StreamingIntegrityMode", DataType.Enum, value);}
+    public get StreamingMinRadius() {return this.GetProp("StreamingMinRadius", DataType.Int32);}
+    public set StreamingMinRadius(value) {this.SetProp("StreamingMinRadius", DataType.Int32, value);}
+    public get StreamingTargetRadius() {return this.GetProp("StreamingTargetRadius", DataType.Int32);}
+    public set StreamingTargetRadius(value) {this.SetProp("StreamingTargetRadius", DataType.Int32, value);}
+    public get TerrainWeldsFixed() {return this.GetProp("TerrainWeldsFixed", DataType.Bool);}
+    public set TerrainWeldsFixed(value) {this.SetProp("TerrainWeldsFixed", DataType.Bool, value);}
+    public get TouchesUseCollisionGroups() {return this.GetProp("TouchesUseCollisionGroups", DataType.Bool);}
+    public set TouchesUseCollisionGroups(value) {this.SetProp("TouchesUseCollisionGroups", DataType.Bool, value);}
 }
 
 export class WorldModel extends WorldRoot {
-    protected constructor(className?: string) {super(className ?? "WorldModel");}
+    protected constructor(className?: string) {super(className ?? "WorldModel"); this.addClassName("WorldModel");}
     public static new() {return new WorldModel();}
 }
 
-export class PackageService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "PackageService", true);}
+export class PackageService extends Instance {
+    protected constructor(className?: string) {super(className ?? "PackageService", true); this.addClassName("PackageService");}
     public static new() {return new PackageService();}
 }
 
-export class PackageUIService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "PackageUIService", true);}
+export class PackageUIService extends Instance {
+    protected constructor(className?: string) {super(className ?? "PackageUIService", true); this.addClassName("PackageUIService");}
     public static new() {return new PackageUIService();}
 }
 
-export abstract class Pages extends CoreInstance {
-    protected constructor(className: string) {super(className);}
+export abstract class Pages extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("Pages");}
 }
 
 export abstract class InventoryPages extends Pages {
-    protected constructor(className: string) {super(className);}
+    protected constructor(className: string) {super(className); this.addClassName("InventoryPages");}
 }
 
-export class PartOperationAsset extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "PartOperationAsset");}
+export class PartOperationAsset extends Instance {
+    protected constructor(className?: string) {super(className ?? "PartOperationAsset"); this.addClassName("PartOperationAsset");}
     public static new() {return new PartOperationAsset();}
-    public get childData() {return this.getProp("ChildData", DataType.String);}
-    public set childData(value) {this.setProp("ChildData", DataType.String, value);}
-    public get meshData() {return this.getProp("MeshData", DataType.String);}
-    public set meshData(value) {this.setProp("MeshData", DataType.String, value);}
+    public get ChildData() {return this.GetProp("ChildData", DataType.String);}
+    public set ChildData(value) {this.SetProp("ChildData", DataType.String, value);}
+    public get MeshData() {return this.GetProp("MeshData", DataType.String);}
+    public set MeshData(value) {this.SetProp("MeshData", DataType.String, value);}
 }
 
-export class ParticleEmitter extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ParticleEmitter");}
+export class ParticleEmitter extends Instance {
+    protected constructor(className?: string) {super(className ?? "ParticleEmitter"); this.addClassName("ParticleEmitter");}
     public static new() {return new ParticleEmitter();}
-    public get acceleration() {return this.getProp("Acceleration", DataType.Vector3);}
-    public set acceleration(value) {this.setProp("Acceleration", DataType.Vector3, value);}
-    public get brightness() {return this.getProp("Brightness", DataType.Float32);}
-    public set brightness(value) {this.setProp("Brightness", DataType.Float32, value);}
-    public get color() {return this.getProp("Color", DataType.ColorSequence);}
-    public set color(value) {this.setProp("Color", DataType.ColorSequence, value);}
-    public get drag() {return this.getProp("Drag", DataType.Float32);}
-    public set drag(value) {this.setProp("Drag", DataType.Float32, value);}
-    public get emissionDirection() {return this.getProp("EmissionDirection", DataType.Enum) as NormalId | undefined;}
-    public set emissionDirection(value) {this.setProp("EmissionDirection", DataType.Enum, value);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get flipbookFramerate() {return this.getProp("FlipbookFramerate", DataType.NumberRange);}
-    public set flipbookFramerate(value) {this.setProp("FlipbookFramerate", DataType.NumberRange, value);}
-    public get flipbookIncompatible() {return this.getProp("FlipbookIncompatible", DataType.String);}
-    public set flipbookIncompatible(value) {this.setProp("FlipbookIncompatible", DataType.String, value);}
-    public get flipbookLayout() {return this.getProp("FlipbookLayout", DataType.Enum) as ParticleFlipbookLayout | undefined;}
-    public set flipbookLayout(value) {this.setProp("FlipbookLayout", DataType.Enum, value);}
-    public get flipbookMode() {return this.getProp("FlipbookMode", DataType.Enum) as ParticleFlipbookMode | undefined;}
-    public set flipbookMode(value) {this.setProp("FlipbookMode", DataType.Enum, value);}
-    public get flipbookStartRandom() {return this.getProp("FlipbookStartRandom", DataType.Bool);}
-    public set flipbookStartRandom(value) {this.setProp("FlipbookStartRandom", DataType.Bool, value);}
-    public get lifetime() {return this.getProp("Lifetime", DataType.NumberRange);}
-    public set lifetime(value) {this.setProp("Lifetime", DataType.NumberRange, value);}
-    public get lightEmission() {return this.getProp("LightEmission", DataType.Float32);}
-    public set lightEmission(value) {this.setProp("LightEmission", DataType.Float32, value);}
-    public get lightInfluence() {return this.getProp("LightInfluence", DataType.Float32);}
-    public set lightInfluence(value) {this.setProp("LightInfluence", DataType.Float32, value);}
-    public get lockedToPart() {return this.getProp("LockedToPart", DataType.Bool);}
-    public set lockedToPart(value) {this.setProp("LockedToPart", DataType.Bool, value);}
-    public get orientation() {return this.getProp("Orientation", DataType.Enum) as ParticleOrientation | undefined;}
-    public set orientation(value) {this.setProp("Orientation", DataType.Enum, value);}
-    public get rate() {return this.getProp("Rate", DataType.Float32);}
-    public set rate(value) {this.setProp("Rate", DataType.Float32, value);}
-    public get rotSpeed() {return this.getProp("RotSpeed", DataType.NumberRange);}
-    public set rotSpeed(value) {this.setProp("RotSpeed", DataType.NumberRange, value);}
-    public get rotation() {return this.getProp("Rotation", DataType.NumberRange);}
-    public set rotation(value) {this.setProp("Rotation", DataType.NumberRange, value);}
-    public get shape() {return this.getProp("Shape", DataType.Enum) as ParticleEmitterShape | undefined;}
-    public set shape(value) {this.setProp("Shape", DataType.Enum, value);}
-    public get shapeInOut() {return this.getProp("ShapeInOut", DataType.Enum) as ParticleEmitterShapeInOut | undefined;}
-    public set shapeInOut(value) {this.setProp("ShapeInOut", DataType.Enum, value);}
-    public get shapePartial() {return this.getProp("ShapePartial", DataType.Float32);}
-    public set shapePartial(value) {this.setProp("ShapePartial", DataType.Float32, value);}
-    public get shapeStyle() {return this.getProp("ShapeStyle", DataType.Enum) as ParticleEmitterShapeStyle | undefined;}
-    public set shapeStyle(value) {this.setProp("ShapeStyle", DataType.Enum, value);}
-    public get size() {return this.getProp("Size", DataType.NumberSequence);}
-    public set size(value) {this.setProp("Size", DataType.NumberSequence, value);}
-    public get speed() {return this.getProp("Speed", DataType.NumberRange);}
-    public set speed(value) {this.setProp("Speed", DataType.NumberRange, value);}
-    public get spreadAngle() {return this.getProp("SpreadAngle", DataType.Vector2);}
-    public set spreadAngle(value) {this.setProp("SpreadAngle", DataType.Vector2, value);}
-    public get squash() {return this.getProp("Squash", DataType.NumberSequence);}
-    public set squash(value) {this.setProp("Squash", DataType.NumberSequence, value);}
-    public get texture() {return this.getProp("Texture", DataType.String);}
-    public set texture(value) {this.setProp("Texture", DataType.String, value);}
-    public get timeScale() {return this.getProp("TimeScale", DataType.Float32);}
-    public set timeScale(value) {this.setProp("TimeScale", DataType.Float32, value);}
-    public get transparency() {return this.getProp("Transparency", DataType.NumberSequence);}
-    public set transparency(value) {this.setProp("Transparency", DataType.NumberSequence, value);}
-    public get velocityInheritance() {return this.getProp("VelocityInheritance", DataType.Float32);}
-    public set velocityInheritance(value) {this.setProp("VelocityInheritance", DataType.Float32, value);}
-    public get velocitySpread() {return this.getProp("VelocitySpread", DataType.Float32);}
-    public set velocitySpread(value) {this.setProp("VelocitySpread", DataType.Float32, value);}
-    public get windAffectsDrag() {return this.getProp("WindAffectsDrag", DataType.Bool);}
-    public set windAffectsDrag(value) {this.setProp("WindAffectsDrag", DataType.Bool, value);}
-    public get zOffset() {return this.getProp("ZOffset", DataType.Float32);}
-    public set zOffset(value) {this.setProp("ZOffset", DataType.Float32, value);}
+    public get Acceleration() {return this.GetProp("Acceleration", DataType.Vector3);}
+    public set Acceleration(value) {this.SetProp("Acceleration", DataType.Vector3, value);}
+    public get Brightness() {return this.GetProp("Brightness", DataType.Float32);}
+    public set Brightness(value) {this.SetProp("Brightness", DataType.Float32, value);}
+    public get Color() {return this.GetProp("Color", DataType.ColorSequence);}
+    public set Color(value) {this.SetProp("Color", DataType.ColorSequence, value);}
+    public get Drag() {return this.GetProp("Drag", DataType.Float32);}
+    public set Drag(value) {this.SetProp("Drag", DataType.Float32, value);}
+    public get EmissionDirection() {return this.GetProp("EmissionDirection", DataType.Enum) as NormalId | undefined;}
+    public set EmissionDirection(value) {this.SetProp("EmissionDirection", DataType.Enum, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get FlipbookFramerate() {return this.GetProp("FlipbookFramerate", DataType.NumberRange);}
+    public set FlipbookFramerate(value) {this.SetProp("FlipbookFramerate", DataType.NumberRange, value);}
+    public get FlipbookIncompatible() {return this.GetProp("FlipbookIncompatible", DataType.String);}
+    public set FlipbookIncompatible(value) {this.SetProp("FlipbookIncompatible", DataType.String, value);}
+    public get FlipbookLayout() {return this.GetProp("FlipbookLayout", DataType.Enum) as ParticleFlipbookLayout | undefined;}
+    public set FlipbookLayout(value) {this.SetProp("FlipbookLayout", DataType.Enum, value);}
+    public get FlipbookMode() {return this.GetProp("FlipbookMode", DataType.Enum) as ParticleFlipbookMode | undefined;}
+    public set FlipbookMode(value) {this.SetProp("FlipbookMode", DataType.Enum, value);}
+    public get FlipbookStartRandom() {return this.GetProp("FlipbookStartRandom", DataType.Bool);}
+    public set FlipbookStartRandom(value) {this.SetProp("FlipbookStartRandom", DataType.Bool, value);}
+    public get Lifetime() {return this.GetProp("Lifetime", DataType.NumberRange);}
+    public set Lifetime(value) {this.SetProp("Lifetime", DataType.NumberRange, value);}
+    public get LightEmission() {return this.GetProp("LightEmission", DataType.Float32);}
+    public set LightEmission(value) {this.SetProp("LightEmission", DataType.Float32, value);}
+    public get LightInfluence() {return this.GetProp("LightInfluence", DataType.Float32);}
+    public set LightInfluence(value) {this.SetProp("LightInfluence", DataType.Float32, value);}
+    public get LockedToPart() {return this.GetProp("LockedToPart", DataType.Bool);}
+    public set LockedToPart(value) {this.SetProp("LockedToPart", DataType.Bool, value);}
+    public get Orientation() {return this.GetProp("Orientation", DataType.Enum) as ParticleOrientation | undefined;}
+    public set Orientation(value) {this.SetProp("Orientation", DataType.Enum, value);}
+    public get Rate() {return this.GetProp("Rate", DataType.Float32);}
+    public set Rate(value) {this.SetProp("Rate", DataType.Float32, value);}
+    public get RotSpeed() {return this.GetProp("RotSpeed", DataType.NumberRange);}
+    public set RotSpeed(value) {this.SetProp("RotSpeed", DataType.NumberRange, value);}
+    public get Rotation() {return this.GetProp("Rotation", DataType.NumberRange);}
+    public set Rotation(value) {this.SetProp("Rotation", DataType.NumberRange, value);}
+    public get Shape() {return this.GetProp("Shape", DataType.Enum) as ParticleEmitterShape | undefined;}
+    public set Shape(value) {this.SetProp("Shape", DataType.Enum, value);}
+    public get ShapeInOut() {return this.GetProp("ShapeInOut", DataType.Enum) as ParticleEmitterShapeInOut | undefined;}
+    public set ShapeInOut(value) {this.SetProp("ShapeInOut", DataType.Enum, value);}
+    public get ShapePartial() {return this.GetProp("ShapePartial", DataType.Float32);}
+    public set ShapePartial(value) {this.SetProp("ShapePartial", DataType.Float32, value);}
+    public get ShapeStyle() {return this.GetProp("ShapeStyle", DataType.Enum) as ParticleEmitterShapeStyle | undefined;}
+    public set ShapeStyle(value) {this.SetProp("ShapeStyle", DataType.Enum, value);}
+    public get Size() {return this.GetProp("Size", DataType.NumberSequence);}
+    public set Size(value) {this.SetProp("Size", DataType.NumberSequence, value);}
+    public get Speed() {return this.GetProp("Speed", DataType.NumberRange);}
+    public set Speed(value) {this.SetProp("Speed", DataType.NumberRange, value);}
+    public get SpreadAngle() {return this.GetProp("SpreadAngle", DataType.Vector2);}
+    public set SpreadAngle(value) {this.SetProp("SpreadAngle", DataType.Vector2, value);}
+    public get Squash() {return this.GetProp("Squash", DataType.NumberSequence);}
+    public set Squash(value) {this.SetProp("Squash", DataType.NumberSequence, value);}
+    public get Texture() {return this.GetProp("Texture", DataType.String);}
+    public set Texture(value) {this.SetProp("Texture", DataType.String, value);}
+    public get TimeScale() {return this.GetProp("TimeScale", DataType.Float32);}
+    public set TimeScale(value) {this.SetProp("TimeScale", DataType.Float32, value);}
+    public get Transparency() {return this.GetProp("Transparency", DataType.NumberSequence);}
+    public set Transparency(value) {this.SetProp("Transparency", DataType.NumberSequence, value);}
+    public get VelocityInheritance() {return this.GetProp("VelocityInheritance", DataType.Float32);}
+    public set VelocityInheritance(value) {this.SetProp("VelocityInheritance", DataType.Float32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get VelocitySpread() {return this.GetProp("VelocitySpread", DataType.Float32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set VelocitySpread(value) {this.SetProp("VelocitySpread", DataType.Float32, value);}
+    public get WindAffectsDrag() {return this.GetProp("WindAffectsDrag", DataType.Bool);}
+    public set WindAffectsDrag(value) {this.SetProp("WindAffectsDrag", DataType.Bool, value);}
+    public get ZOffset() {return this.GetProp("ZOffset", DataType.Float32);}
+    public set ZOffset(value) {this.SetProp("ZOffset", DataType.Float32, value);}
 }
 
-export class PatchBundlerFileWatch extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "PatchBundlerFileWatch", true);}
+export class PatchBundlerFileWatch extends Instance {
+    protected constructor(className?: string) {super(className ?? "PatchBundlerFileWatch", true); this.addClassName("PatchBundlerFileWatch");}
     public static new() {return new PatchBundlerFileWatch();}
 }
 
-export class PathfindingLink extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "PathfindingLink");}
+export class PathfindingLink extends Instance {
+    protected constructor(className?: string) {super(className ?? "PathfindingLink"); this.addClassName("PathfindingLink");}
     public static new() {return new PathfindingLink();}
-    public get attachment0() {return this.getProp("Attachment0", DataType.Referent) as Attachment | undefined;}
-    public set attachment0(value) {this.setProp("Attachment0", DataType.Referent, value);}
-    public get attachment1() {return this.getProp("Attachment1", DataType.Referent) as Attachment | undefined;}
-    public set attachment1(value) {this.setProp("Attachment1", DataType.Referent, value);}
-    public get isBidirectional() {return this.getProp("IsBidirectional", DataType.Bool);}
-    public set isBidirectional(value) {this.setProp("IsBidirectional", DataType.Bool, value);}
-    public get label() {return this.getProp("Label", DataType.String);}
-    public set label(value) {this.setProp("Label", DataType.String, value);}
+    public get Attachment0() {return this.GetProp("Attachment0", DataType.Referent) as Attachment | undefined;}
+    public set Attachment0(value) {this.SetProp("Attachment0", DataType.Referent, value);}
+    public get Attachment1() {return this.GetProp("Attachment1", DataType.Referent) as Attachment | undefined;}
+    public set Attachment1(value) {this.SetProp("Attachment1", DataType.Referent, value);}
+    public get IsBidirectional() {return this.GetProp("IsBidirectional", DataType.Bool);}
+    public set IsBidirectional(value) {this.SetProp("IsBidirectional", DataType.Bool, value);}
+    public get Label() {return this.GetProp("Label", DataType.String);}
+    public set Label(value) {this.SetProp("Label", DataType.String, value);}
 }
 
-export class PathfindingModifier extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "PathfindingModifier");}
+export class PathfindingModifier extends Instance {
+    protected constructor(className?: string) {super(className ?? "PathfindingModifier"); this.addClassName("PathfindingModifier");}
     public static new() {return new PathfindingModifier();}
-    public get label() {return this.getProp("Label", DataType.String);}
-    public set label(value) {this.setProp("Label", DataType.String, value);}
-    public get passThrough() {return this.getProp("PassThrough", DataType.Bool);}
-    public set passThrough(value) {this.setProp("PassThrough", DataType.Bool, value);}
+    public get Label() {return this.GetProp("Label", DataType.String);}
+    public set Label(value) {this.SetProp("Label", DataType.String, value);}
+    public get PassThrough() {return this.GetProp("PassThrough", DataType.Bool);}
+    public set PassThrough(value) {this.SetProp("PassThrough", DataType.Bool, value);}
 }
 
-export class PathfindingService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "PathfindingService", true);}
+export class PathfindingService extends Instance {
+    protected constructor(className?: string) {super(className ?? "PathfindingService", true); this.addClassName("PathfindingService");}
     public static new() {return new PathfindingService();}
-    public get emptyCutoff() {return this.getProp("EmptyCutoff", DataType.Float32);}
-    public set emptyCutoff(value) {this.setProp("EmptyCutoff", DataType.Float32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get EmptyCutoff() {return this.GetProp("EmptyCutoff", DataType.Float32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set EmptyCutoff(value) {this.SetProp("EmptyCutoff", DataType.Float32, value);}
 }
 
-export abstract class PausedState extends CoreInstance {
-    protected constructor(className: string) {super(className);}
+export abstract class PausedState extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("PausedState");}
 }
 
-export class PermissionsService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "PermissionsService", true);}
+export class PermissionsService extends Instance {
+    protected constructor(className?: string) {super(className ?? "PermissionsService", true); this.addClassName("PermissionsService");}
     public static new() {return new PermissionsService();}
 }
 
-export class PhysicsService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "PhysicsService", true);}
+export class PhysicsService extends Instance {
+    protected constructor(className?: string) {super(className ?? "PhysicsService", true); this.addClassName("PhysicsService");}
     public static new() {return new PhysicsService();}
 }
 
-export class PlaceStatsService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "PlaceStatsService", true);}
+export class PlaceStatsService extends Instance {
+    protected constructor(className?: string) {super(className ?? "PlaceStatsService", true); this.addClassName("PlaceStatsService");}
     public static new() {return new PlaceStatsService();}
 }
 
-export class PlacesService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "PlacesService", true);}
+export class PlacesService extends Instance {
+    protected constructor(className?: string) {super(className ?? "PlacesService", true); this.addClassName("PlacesService");}
     public static new() {return new PlacesService();}
 }
 
-export class PlatformCloudStorageService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "PlatformCloudStorageService", true);}
+export class PlatformCloudStorageService extends Instance {
+    protected constructor(className?: string) {super(className ?? "PlatformCloudStorageService", true); this.addClassName("PlatformCloudStorageService");}
     public static new() {return new PlatformCloudStorageService();}
 }
 
-export class PlatformFriendsService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "PlatformFriendsService", true);}
+export class PlatformFriendsService extends Instance {
+    protected constructor(className?: string) {super(className ?? "PlatformFriendsService", true); this.addClassName("PlatformFriendsService");}
     public static new() {return new PlatformFriendsService();}
 }
 
-export class Player extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Player");}
+export class Player extends Instance {
+    protected constructor(className?: string) {super(className ?? "Player"); this.addClassName("Player");}
     public static new() {return new Player();}
-    public get autoJumpEnabled() {return this.getProp("AutoJumpEnabled", DataType.Bool);}
-    public set autoJumpEnabled(value) {this.setProp("AutoJumpEnabled", DataType.Bool, value);}
-    public get cameraMaxZoomDistance() {return this.getProp("CameraMaxZoomDistance", DataType.Float32);}
-    public set cameraMaxZoomDistance(value) {this.setProp("CameraMaxZoomDistance", DataType.Float32, value);}
-    public get cameraMinZoomDistance() {return this.getProp("CameraMinZoomDistance", DataType.Float32);}
-    public set cameraMinZoomDistance(value) {this.setProp("CameraMinZoomDistance", DataType.Float32, value);}
-    public get cameraMode() {return this.getProp("CameraMode", DataType.Enum) as CameraMode | undefined;}
-    public set cameraMode(value) {this.setProp("CameraMode", DataType.Enum, value);}
-    public get character() {return this.getProp("Character", DataType.Referent) as Model | undefined;}
-    public set character(value) {this.setProp("Character", DataType.Referent, value);}
-    public get characterAppearance() {return this.getProp("CharacterAppearance", DataType.String);}
-    public set characterAppearance(value) {this.setProp("CharacterAppearance", DataType.String, value);}
-    public get characterAppearanceId() {return this.getProp("CharacterAppearanceId", DataType.Int64);}
-    public set characterAppearanceId(value) {this.setProp("CharacterAppearanceId", DataType.Int64, value);}
-    public get devCameraOcclusionMode() {return this.getProp("DevCameraOcclusionMode", DataType.Enum) as DevCameraOcclusionMode | undefined;}
-    public set devCameraOcclusionMode(value) {this.setProp("DevCameraOcclusionMode", DataType.Enum, value);}
-    public get devComputerCameraMode() {return this.getProp("DevComputerCameraMode", DataType.Enum) as DevComputerCameraMovementMode | undefined;}
-    public set devComputerCameraMode(value) {this.setProp("DevComputerCameraMode", DataType.Enum, value);}
-    public get devComputerMovementMode() {return this.getProp("DevComputerMovementMode", DataType.Enum) as DevComputerMovementMode | undefined;}
-    public set devComputerMovementMode(value) {this.setProp("DevComputerMovementMode", DataType.Enum, value);}
-    public get devEnableMouseLock() {return this.getProp("DevEnableMouseLock", DataType.Bool);}
-    public set devEnableMouseLock(value) {this.setProp("DevEnableMouseLock", DataType.Bool, value);}
-    public get devTouchCameraMode() {return this.getProp("DevTouchCameraMode", DataType.Enum) as DevTouchCameraMovementMode | undefined;}
-    public set devTouchCameraMode(value) {this.setProp("DevTouchCameraMode", DataType.Enum, value);}
-    public get devTouchMovementMode() {return this.getProp("DevTouchMovementMode", DataType.Enum) as DevTouchMovementMode | undefined;}
-    public set devTouchMovementMode(value) {this.setProp("DevTouchMovementMode", DataType.Enum, value);}
-    public get gameplayPaused() {return this.getProp("GameplayPaused", DataType.Bool);}
-    public set gameplayPaused(value) {this.setProp("GameplayPaused", DataType.Bool, value);}
-    public get healthDisplayDistance() {return this.getProp("HealthDisplayDistance", DataType.Float32);}
-    public set healthDisplayDistance(value) {this.setProp("HealthDisplayDistance", DataType.Float32, value);}
-    public get nameDisplayDistance() {return this.getProp("NameDisplayDistance", DataType.Float32);}
-    public set nameDisplayDistance(value) {this.setProp("NameDisplayDistance", DataType.Float32, value);}
-    public get neutral() {return this.getProp("Neutral", DataType.Bool);}
-    public set neutral(value) {this.setProp("Neutral", DataType.Bool, value);}
-    public get rawJoinData() {return this.getProp("RawJoinData", DataType.String);}
-    public set rawJoinData(value) {this.setProp("RawJoinData", DataType.String, value);}
-    public get replicationFocus() {return this.getProp("ReplicationFocus", DataType.Referent) as CoreInstance | undefined;}
-    public set replicationFocus(value) {this.setProp("ReplicationFocus", DataType.Referent, value);}
-    public get respawnLocation() {return this.getProp("RespawnLocation", DataType.Referent) as SpawnLocation | undefined;}
-    public set respawnLocation(value) {this.setProp("RespawnLocation", DataType.Referent, value);}
-    public get team() {return this.getProp("Team", DataType.Referent) as Team | undefined;}
-    public set team(value) {this.setProp("Team", DataType.Referent, value);}
-    public get teamColor() {return this.getProp("TeamColor", DataType.BrickColor);}
-    public set teamColor(value) {this.setProp("TeamColor", DataType.BrickColor, value);}
-    public get teleportedIn() {return this.getProp("TeleportedIn", DataType.Bool);}
-    public set teleportedIn(value) {this.setProp("TeleportedIn", DataType.Bool, value);}
+    public get AutoJumpEnabled() {return this.GetProp("AutoJumpEnabled", DataType.Bool);}
+    public set AutoJumpEnabled(value) {this.SetProp("AutoJumpEnabled", DataType.Bool, value);}
+    public get CameraMaxZoomDistance() {return this.GetProp("CameraMaxZoomDistance", DataType.Float32);}
+    public set CameraMaxZoomDistance(value) {this.SetProp("CameraMaxZoomDistance", DataType.Float32, value);}
+    public get CameraMinZoomDistance() {return this.GetProp("CameraMinZoomDistance", DataType.Float32);}
+    public set CameraMinZoomDistance(value) {this.SetProp("CameraMinZoomDistance", DataType.Float32, value);}
+    public get CameraMode() {return this.GetProp("CameraMode", DataType.Enum) as CameraMode | undefined;}
+    public set CameraMode(value) {this.SetProp("CameraMode", DataType.Enum, value);}
+    public get Character() {return this.GetProp("Character", DataType.Referent) as Model | undefined;}
+    public set Character(value) {this.SetProp("Character", DataType.Referent, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get CharacterAppearance() {return this.GetProp("CharacterAppearance", DataType.String);}
+    /**@deprecated Deprecated by Roblox*/
+    public set CharacterAppearance(value) {this.SetProp("CharacterAppearance", DataType.String, value);}
+    public get CharacterAppearanceId() {return this.GetProp("CharacterAppearanceId", DataType.Int64);}
+    public set CharacterAppearanceId(value) {this.SetProp("CharacterAppearanceId", DataType.Int64, value);}
+    public get DevCameraOcclusionMode() {return this.GetProp("DevCameraOcclusionMode", DataType.Enum) as DevCameraOcclusionMode | undefined;}
+    public set DevCameraOcclusionMode(value) {this.SetProp("DevCameraOcclusionMode", DataType.Enum, value);}
+    public get DevComputerCameraMode() {return this.GetProp("DevComputerCameraMode", DataType.Enum) as DevComputerCameraMovementMode | undefined;}
+    public set DevComputerCameraMode(value) {this.SetProp("DevComputerCameraMode", DataType.Enum, value);}
+    public get DevComputerMovementMode() {return this.GetProp("DevComputerMovementMode", DataType.Enum) as DevComputerMovementMode | undefined;}
+    public set DevComputerMovementMode(value) {this.SetProp("DevComputerMovementMode", DataType.Enum, value);}
+    public get DevEnableMouseLock() {return this.GetProp("DevEnableMouseLock", DataType.Bool);}
+    public set DevEnableMouseLock(value) {this.SetProp("DevEnableMouseLock", DataType.Bool, value);}
+    public get DevTouchCameraMode() {return this.GetProp("DevTouchCameraMode", DataType.Enum) as DevTouchCameraMovementMode | undefined;}
+    public set DevTouchCameraMode(value) {this.SetProp("DevTouchCameraMode", DataType.Enum, value);}
+    public get DevTouchMovementMode() {return this.GetProp("DevTouchMovementMode", DataType.Enum) as DevTouchMovementMode | undefined;}
+    public set DevTouchMovementMode(value) {this.SetProp("DevTouchMovementMode", DataType.Enum, value);}
+    public get GameplayPaused() {return this.GetProp("GameplayPaused", DataType.Bool);}
+    public set GameplayPaused(value) {this.SetProp("GameplayPaused", DataType.Bool, value);}
+    public get HealthDisplayDistance() {return this.GetProp("HealthDisplayDistance", DataType.Float32);}
+    public set HealthDisplayDistance(value) {this.SetProp("HealthDisplayDistance", DataType.Float32, value);}
+    public get NameDisplayDistance() {return this.GetProp("NameDisplayDistance", DataType.Float32);}
+    public set NameDisplayDistance(value) {this.SetProp("NameDisplayDistance", DataType.Float32, value);}
+    public get Neutral() {return this.GetProp("Neutral", DataType.Bool);}
+    public set Neutral(value) {this.SetProp("Neutral", DataType.Bool, value);}
+    public get RawJoinData() {return this.GetProp("RawJoinData", DataType.String);}
+    public set RawJoinData(value) {this.SetProp("RawJoinData", DataType.String, value);}
+    public get ReplicationFocus() {return this.GetProp("ReplicationFocus", DataType.Referent) as Instance | undefined;}
+    public set ReplicationFocus(value) {this.SetProp("ReplicationFocus", DataType.Referent, value);}
+    public get RespawnLocation() {return this.GetProp("RespawnLocation", DataType.Referent) as SpawnLocation | undefined;}
+    public set RespawnLocation(value) {this.SetProp("RespawnLocation", DataType.Referent, value);}
+    public get Team() {return this.GetProp("Team", DataType.Referent) as Team | undefined;}
+    public set Team(value) {this.SetProp("Team", DataType.Referent, value);}
+    public get TeamColor() {return this.GetProp("TeamColor", DataType.BrickColor);}
+    public set TeamColor(value) {this.SetProp("TeamColor", DataType.BrickColor, value);}
+    public get TeleportedIn() {return this.GetProp("TeleportedIn", DataType.Bool);}
+    public set TeleportedIn(value) {this.SetProp("TeleportedIn", DataType.Bool, value);}
 }
 
-export class PlayerEmulatorService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "PlayerEmulatorService", true);}
+export class PlayerEmulatorService extends Instance {
+    protected constructor(className?: string) {super(className ?? "PlayerEmulatorService", true); this.addClassName("PlayerEmulatorService");}
     public static new() {return new PlayerEmulatorService();}
-    public get customPoliciesEnabled() {return this.getProp("CustomPoliciesEnabled", DataType.Bool);}
-    public set customPoliciesEnabled(value) {this.setProp("CustomPoliciesEnabled", DataType.Bool, value);}
-    public get emulatedCountryCode() {return this.getProp("EmulatedCountryCode", DataType.String);}
-    public set emulatedCountryCode(value) {this.setProp("EmulatedCountryCode", DataType.String, value);}
-    public get emulatedGameLocale() {return this.getProp("EmulatedGameLocale", DataType.String);}
-    public set emulatedGameLocale(value) {this.setProp("EmulatedGameLocale", DataType.String, value);}
-    public get playerEmulationEnabled() {return this.getProp("PlayerEmulationEnabled", DataType.Bool);}
-    public set playerEmulationEnabled(value) {this.setProp("PlayerEmulationEnabled", DataType.Bool, value);}
-    public get pseudolocalizationEnabled() {return this.getProp("PseudolocalizationEnabled", DataType.Bool);}
-    public set pseudolocalizationEnabled(value) {this.setProp("PseudolocalizationEnabled", DataType.Bool, value);}
-    public get serializedEmulatedPolicyInfo() {return this.getProp("SerializedEmulatedPolicyInfo", DataType.String);}
-    public set serializedEmulatedPolicyInfo(value) {this.setProp("SerializedEmulatedPolicyInfo", DataType.String, value);}
+    public get CustomPoliciesEnabled() {return this.GetProp("CustomPoliciesEnabled", DataType.Bool);}
+    public set CustomPoliciesEnabled(value) {this.SetProp("CustomPoliciesEnabled", DataType.Bool, value);}
+    public get EmulatedCountryCode() {return this.GetProp("EmulatedCountryCode", DataType.String);}
+    public set EmulatedCountryCode(value) {this.SetProp("EmulatedCountryCode", DataType.String, value);}
+    public get EmulatedGameLocale() {return this.GetProp("EmulatedGameLocale", DataType.String);}
+    public set EmulatedGameLocale(value) {this.SetProp("EmulatedGameLocale", DataType.String, value);}
+    public get PlayerEmulationEnabled() {return this.GetProp("PlayerEmulationEnabled", DataType.Bool);}
+    public set PlayerEmulationEnabled(value) {this.SetProp("PlayerEmulationEnabled", DataType.Bool, value);}
+    public get PseudolocalizationEnabled() {return this.GetProp("PseudolocalizationEnabled", DataType.Bool);}
+    public set PseudolocalizationEnabled(value) {this.SetProp("PseudolocalizationEnabled", DataType.Bool, value);}
+    public get SerializedEmulatedPolicyInfo() {return this.GetProp("SerializedEmulatedPolicyInfo", DataType.String);}
+    public set SerializedEmulatedPolicyInfo(value) {this.SetProp("SerializedEmulatedPolicyInfo", DataType.String, value);}
 }
 
-export class PlayerViewService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "PlayerViewService", true);}
+export class PlayerViewService extends Instance {
+    protected constructor(className?: string) {super(className ?? "PlayerViewService", true); this.addClassName("PlayerViewService");}
     public static new() {return new PlayerViewService();}
 }
 
-export class Players extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Players", true);}
+export class Players extends Instance {
+    protected constructor(className?: string) {super(className ?? "Players", true); this.addClassName("Players");}
     public static new() {return new Players();}
-    public get characterAutoLoads() {return this.getProp("CharacterAutoLoads", DataType.Bool);}
-    public set characterAutoLoads(value) {this.setProp("CharacterAutoLoads", DataType.Bool, value);}
-    public get maxPlayersInternal() {return this.getProp("MaxPlayersInternal", DataType.Int32);}
-    public set maxPlayersInternal(value) {this.setProp("MaxPlayersInternal", DataType.Int32, value);}
-    public get preferredPlayersInternal() {return this.getProp("PreferredPlayersInternal", DataType.Int32);}
-    public set preferredPlayersInternal(value) {this.setProp("PreferredPlayersInternal", DataType.Int32, value);}
-    public get respawnTime() {return this.getProp("RespawnTime", DataType.Float32);}
-    public set respawnTime(value) {this.setProp("RespawnTime", DataType.Float32, value);}
-    public get useStrafingAnimations() {return this.getProp("UseStrafingAnimations", DataType.Bool);}
-    public set useStrafingAnimations(value) {this.setProp("UseStrafingAnimations", DataType.Bool, value);}
+    public get CharacterAutoLoads() {return this.GetProp("CharacterAutoLoads", DataType.Bool);}
+    public set CharacterAutoLoads(value) {this.SetProp("CharacterAutoLoads", DataType.Bool, value);}
+    public get MaxPlayersInternal() {return this.GetProp("MaxPlayersInternal", DataType.Int32);}
+    public set MaxPlayersInternal(value) {this.SetProp("MaxPlayersInternal", DataType.Int32, value);}
+    public get PreferredPlayersInternal() {return this.GetProp("PreferredPlayersInternal", DataType.Int32);}
+    public set PreferredPlayersInternal(value) {this.SetProp("PreferredPlayersInternal", DataType.Int32, value);}
+    public get RespawnTime() {return this.GetProp("RespawnTime", DataType.Float32);}
+    public set RespawnTime(value) {this.SetProp("RespawnTime", DataType.Float32, value);}
+    public get UseStrafingAnimations() {return this.GetProp("UseStrafingAnimations", DataType.Bool);}
+    public set UseStrafingAnimations(value) {this.SetProp("UseStrafingAnimations", DataType.Bool, value);}
 }
 
-export class PluginAction extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "PluginAction");}
+export class PluginAction extends Instance {
+    protected constructor(className?: string) {super(className ?? "PluginAction"); this.addClassName("PluginAction");}
     public static new() {return new PluginAction();}
 }
 
-export class PluginCapabilities extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "PluginCapabilities");}
+export class PluginCapabilities extends Instance {
+    protected constructor(className?: string) {super(className ?? "PluginCapabilities"); this.addClassName("PluginCapabilities");}
     public static new() {return new PluginCapabilities();}
-    public get manifest() {return this.getProp("Manifest", DataType.String);}
-    public set manifest(value) {this.setProp("Manifest", DataType.String, value);}
+    public get Manifest() {return this.GetProp("Manifest", DataType.String);}
+    public set Manifest(value) {this.SetProp("Manifest", DataType.String, value);}
 }
 
-export class PluginDebugService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "PluginDebugService", true);}
+export class PluginDebugService extends Instance {
+    protected constructor(className?: string) {super(className ?? "PluginDebugService", true); this.addClassName("PluginDebugService");}
     public static new() {return new PluginDebugService();}
 }
 
-export class PluginGuiService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "PluginGuiService", true);}
+export class PluginGuiService extends Instance {
+    protected constructor(className?: string) {super(className ?? "PluginGuiService", true); this.addClassName("PluginGuiService");}
     public static new() {return new PluginGuiService();}
 }
 
-export class PluginManagementService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "PluginManagementService", true);}
+export class PluginManagementService extends Instance {
+    protected constructor(className?: string) {super(className ?? "PluginManagementService", true); this.addClassName("PluginManagementService");}
     public static new() {return new PluginManagementService();}
 }
 
-export class PluginPolicyService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "PluginPolicyService", true);}
+export class PluginPolicyService extends Instance {
+    protected constructor(className?: string) {super(className ?? "PluginPolicyService", true); this.addClassName("PluginPolicyService");}
     public static new() {return new PluginPolicyService();}
 }
 
-export class PointsService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "PointsService", true);}
+export class PointsService extends Instance {
+    protected constructor(className?: string) {super(className ?? "PointsService", true); this.addClassName("PointsService");}
     public static new() {return new PointsService();}
 }
 
-export class PolicyService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "PolicyService", true);}
+export class PolicyService extends Instance {
+    protected constructor(className?: string) {super(className ?? "PolicyService", true); this.addClassName("PolicyService");}
     public static new() {return new PolicyService();}
-    public get isLuobuServer() {return this.getProp("IsLuobuServer", DataType.Enum) as TriStateBoolean | undefined;}
-    public set isLuobuServer(value) {this.setProp("IsLuobuServer", DataType.Enum, value);}
-    public get luobuWhitelisted() {return this.getProp("LuobuWhitelisted", DataType.Enum) as TriStateBoolean | undefined;}
-    public set luobuWhitelisted(value) {this.setProp("LuobuWhitelisted", DataType.Enum, value);}
+    public get IsLuobuServer() {return this.GetProp("IsLuobuServer", DataType.Enum) as TriStateBoolean | undefined;}
+    public set IsLuobuServer(value) {this.SetProp("IsLuobuServer", DataType.Enum, value);}
+    public get LuobuWhitelisted() {return this.GetProp("LuobuWhitelisted", DataType.Enum) as TriStateBoolean | undefined;}
+    public set LuobuWhitelisted(value) {this.SetProp("LuobuWhitelisted", DataType.Enum, value);}
 }
 
-export abstract class PoseBase extends CoreInstance {
-    protected constructor(className: string) {super(className);}
-    public get easingDirection() {return this.getProp("EasingDirection", DataType.Enum) as PoseEasingDirection | undefined;}
-    public set easingDirection(value) {this.setProp("EasingDirection", DataType.Enum, value);}
-    public get easingStyle() {return this.getProp("EasingStyle", DataType.Enum) as PoseEasingStyle | undefined;}
-    public set easingStyle(value) {this.setProp("EasingStyle", DataType.Enum, value);}
-    public get weight() {return this.getProp("Weight", DataType.Float32);}
-    public set weight(value) {this.setProp("Weight", DataType.Float32, value);}
+export abstract class PoseBase extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("PoseBase");}
+    public get EasingDirection() {return this.GetProp("EasingDirection", DataType.Enum) as PoseEasingDirection | undefined;}
+    public set EasingDirection(value) {this.SetProp("EasingDirection", DataType.Enum, value);}
+    public get EasingStyle() {return this.GetProp("EasingStyle", DataType.Enum) as PoseEasingStyle | undefined;}
+    public set EasingStyle(value) {this.SetProp("EasingStyle", DataType.Enum, value);}
+    public get Weight() {return this.GetProp("Weight", DataType.Float32);}
+    public set Weight(value) {this.SetProp("Weight", DataType.Float32, value);}
 }
 
 export class NumberPose extends PoseBase {
-    protected constructor(className?: string) {super(className ?? "NumberPose");}
+    protected constructor(className?: string) {super(className ?? "NumberPose"); this.addClassName("NumberPose");}
     public static new() {return new NumberPose();}
-    public get value() {return this.getProp("Value", DataType.Float64);}
-    public set value(value) {this.setProp("Value", DataType.Float64, value);}
+    public get Value() {return this.GetProp("Value", DataType.Float64);}
+    public set Value(value) {this.SetProp("Value", DataType.Float64, value);}
 }
 
 export class Pose extends PoseBase {
-    protected constructor(className?: string) {super(className ?? "Pose");}
+    protected constructor(className?: string) {super(className ?? "Pose"); this.addClassName("Pose");}
     public static new() {return new Pose();}
-    public get cFrame() {return this.getProp("CFrame", DataType.CFrame);}
-    public set cFrame(value) {this.setProp("CFrame", DataType.CFrame, value);}
-    public get maskWeight() {return this.getProp("MaskWeight", DataType.Float32);}
-    public set maskWeight(value) {this.setProp("MaskWeight", DataType.Float32, value);}
+    public get CFrame() {return this.GetProp("CFrame", DataType.CFrame);}
+    public set CFrame(value) {this.SetProp("CFrame", DataType.CFrame, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get MaskWeight() {return this.GetProp("MaskWeight", DataType.Float32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set MaskWeight(value) {this.SetProp("MaskWeight", DataType.Float32, value);}
 }
 
-export abstract class PostEffect extends CoreInstance {
-    protected constructor(className: string) {super(className);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
+export abstract class PostEffect extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("PostEffect");}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
 }
 
 export class BloomEffect extends PostEffect {
-    protected constructor(className?: string) {super(className ?? "BloomEffect");}
+    protected constructor(className?: string) {super(className ?? "BloomEffect"); this.addClassName("BloomEffect");}
     public static new() {return new BloomEffect();}
-    public get intensity() {return this.getProp("Intensity", DataType.Float32);}
-    public set intensity(value) {this.setProp("Intensity", DataType.Float32, value);}
-    public get size() {return this.getProp("Size", DataType.Float32);}
-    public set size(value) {this.setProp("Size", DataType.Float32, value);}
-    public get threshold() {return this.getProp("Threshold", DataType.Float32);}
-    public set threshold(value) {this.setProp("Threshold", DataType.Float32, value);}
+    public get Intensity() {return this.GetProp("Intensity", DataType.Float32);}
+    public set Intensity(value) {this.SetProp("Intensity", DataType.Float32, value);}
+    public get Size() {return this.GetProp("Size", DataType.Float32);}
+    public set Size(value) {this.SetProp("Size", DataType.Float32, value);}
+    public get Threshold() {return this.GetProp("Threshold", DataType.Float32);}
+    public set Threshold(value) {this.SetProp("Threshold", DataType.Float32, value);}
 }
 
 export class BlurEffect extends PostEffect {
-    protected constructor(className?: string) {super(className ?? "BlurEffect");}
+    protected constructor(className?: string) {super(className ?? "BlurEffect"); this.addClassName("BlurEffect");}
     public static new() {return new BlurEffect();}
-    public get size() {return this.getProp("Size", DataType.Float32);}
-    public set size(value) {this.setProp("Size", DataType.Float32, value);}
+    public get Size() {return this.GetProp("Size", DataType.Float32);}
+    public set Size(value) {this.SetProp("Size", DataType.Float32, value);}
 }
 
 export class ColorCorrectionEffect extends PostEffect {
-    protected constructor(className?: string) {super(className ?? "ColorCorrectionEffect");}
+    protected constructor(className?: string) {super(className ?? "ColorCorrectionEffect"); this.addClassName("ColorCorrectionEffect");}
     public static new() {return new ColorCorrectionEffect();}
-    public get brightness() {return this.getProp("Brightness", DataType.Float32);}
-    public set brightness(value) {this.setProp("Brightness", DataType.Float32, value);}
-    public get contrast() {return this.getProp("Contrast", DataType.Float32);}
-    public set contrast(value) {this.setProp("Contrast", DataType.Float32, value);}
-    public get saturation() {return this.getProp("Saturation", DataType.Float32);}
-    public set saturation(value) {this.setProp("Saturation", DataType.Float32, value);}
-    public get tintColor() {return this.getProp("TintColor", DataType.Color3);}
-    public set tintColor(value) {this.setProp("TintColor", DataType.Color3, value);}
+    public get Brightness() {return this.GetProp("Brightness", DataType.Float32);}
+    public set Brightness(value) {this.SetProp("Brightness", DataType.Float32, value);}
+    public get Contrast() {return this.GetProp("Contrast", DataType.Float32);}
+    public set Contrast(value) {this.SetProp("Contrast", DataType.Float32, value);}
+    public get Saturation() {return this.GetProp("Saturation", DataType.Float32);}
+    public set Saturation(value) {this.SetProp("Saturation", DataType.Float32, value);}
+    public get TintColor() {return this.GetProp("TintColor", DataType.Color3);}
+    public set TintColor(value) {this.SetProp("TintColor", DataType.Color3, value);}
 }
 
 export class DepthOfFieldEffect extends PostEffect {
-    protected constructor(className?: string) {super(className ?? "DepthOfFieldEffect");}
+    protected constructor(className?: string) {super(className ?? "DepthOfFieldEffect"); this.addClassName("DepthOfFieldEffect");}
     public static new() {return new DepthOfFieldEffect();}
-    public get farIntensity() {return this.getProp("FarIntensity", DataType.Float32);}
-    public set farIntensity(value) {this.setProp("FarIntensity", DataType.Float32, value);}
-    public get focusDistance() {return this.getProp("FocusDistance", DataType.Float32);}
-    public set focusDistance(value) {this.setProp("FocusDistance", DataType.Float32, value);}
-    public get inFocusRadius() {return this.getProp("InFocusRadius", DataType.Float32);}
-    public set inFocusRadius(value) {this.setProp("InFocusRadius", DataType.Float32, value);}
-    public get nearIntensity() {return this.getProp("NearIntensity", DataType.Float32);}
-    public set nearIntensity(value) {this.setProp("NearIntensity", DataType.Float32, value);}
+    public get FarIntensity() {return this.GetProp("FarIntensity", DataType.Float32);}
+    public set FarIntensity(value) {this.SetProp("FarIntensity", DataType.Float32, value);}
+    public get FocusDistance() {return this.GetProp("FocusDistance", DataType.Float32);}
+    public set FocusDistance(value) {this.SetProp("FocusDistance", DataType.Float32, value);}
+    public get InFocusRadius() {return this.GetProp("InFocusRadius", DataType.Float32);}
+    public set InFocusRadius(value) {this.SetProp("InFocusRadius", DataType.Float32, value);}
+    public get NearIntensity() {return this.GetProp("NearIntensity", DataType.Float32);}
+    public set NearIntensity(value) {this.SetProp("NearIntensity", DataType.Float32, value);}
 }
 
 export class SunRaysEffect extends PostEffect {
-    protected constructor(className?: string) {super(className ?? "SunRaysEffect");}
+    protected constructor(className?: string) {super(className ?? "SunRaysEffect"); this.addClassName("SunRaysEffect");}
     public static new() {return new SunRaysEffect();}
-    public get intensity() {return this.getProp("Intensity", DataType.Float32);}
-    public set intensity(value) {this.setProp("Intensity", DataType.Float32, value);}
-    public get spread() {return this.getProp("Spread", DataType.Float32);}
-    public set spread(value) {this.setProp("Spread", DataType.Float32, value);}
+    public get Intensity() {return this.GetProp("Intensity", DataType.Float32);}
+    public set Intensity(value) {this.SetProp("Intensity", DataType.Float32, value);}
+    public get Spread() {return this.GetProp("Spread", DataType.Float32);}
+    public set Spread(value) {this.SetProp("Spread", DataType.Float32, value);}
 }
 
-export class ProcessInstancePhysicsService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ProcessInstancePhysicsService", true);}
+export class ProcessInstancePhysicsService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ProcessInstancePhysicsService", true); this.addClassName("ProcessInstancePhysicsService");}
     public static new() {return new ProcessInstancePhysicsService();}
 }
 
-export class ProjectFolderService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ProjectFolderService", true);}
+export class ProjectFolderService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ProjectFolderService", true); this.addClassName("ProjectFolderService");}
     public static new() {return new ProjectFolderService();}
 }
 
-export class ProximityPrompt extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ProximityPrompt");}
+export class ProximityPrompt extends Instance {
+    protected constructor(className?: string) {super(className ?? "ProximityPrompt"); this.addClassName("ProximityPrompt");}
     public static new() {return new ProximityPrompt();}
-    public get actionText() {return this.getProp("ActionText", DataType.String);}
-    public set actionText(value) {this.setProp("ActionText", DataType.String, value);}
-    public get autoLocalize() {return this.getProp("AutoLocalize", DataType.Bool);}
-    public set autoLocalize(value) {this.setProp("AutoLocalize", DataType.Bool, value);}
-    public get clickablePrompt() {return this.getProp("ClickablePrompt", DataType.Bool);}
-    public set clickablePrompt(value) {this.setProp("ClickablePrompt", DataType.Bool, value);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get exclusivity() {return this.getProp("Exclusivity", DataType.Enum) as ProximityPromptExclusivity | undefined;}
-    public set exclusivity(value) {this.setProp("Exclusivity", DataType.Enum, value);}
-    public get gamepadKeyCode() {return this.getProp("GamepadKeyCode", DataType.Enum) as KeyCode | undefined;}
-    public set gamepadKeyCode(value) {this.setProp("GamepadKeyCode", DataType.Enum, value);}
-    public get holdDuration() {return this.getProp("HoldDuration", DataType.Float32);}
-    public set holdDuration(value) {this.setProp("HoldDuration", DataType.Float32, value);}
-    public get keyboardKeyCode() {return this.getProp("KeyboardKeyCode", DataType.Enum) as KeyCode | undefined;}
-    public set keyboardKeyCode(value) {this.setProp("KeyboardKeyCode", DataType.Enum, value);}
-    public get maxActivationDistance() {return this.getProp("MaxActivationDistance", DataType.Float32);}
-    public set maxActivationDistance(value) {this.setProp("MaxActivationDistance", DataType.Float32, value);}
-    public get objectText() {return this.getProp("ObjectText", DataType.String);}
-    public set objectText(value) {this.setProp("ObjectText", DataType.String, value);}
-    public get requiresLineOfSight() {return this.getProp("RequiresLineOfSight", DataType.Bool);}
-    public set requiresLineOfSight(value) {this.setProp("RequiresLineOfSight", DataType.Bool, value);}
-    public get rootLocalizationTable() {return this.getProp("RootLocalizationTable", DataType.Referent) as LocalizationTable | undefined;}
-    public set rootLocalizationTable(value) {this.setProp("RootLocalizationTable", DataType.Referent, value);}
-    public get style() {return this.getProp("Style", DataType.Enum) as ProximityPromptStyle | undefined;}
-    public set style(value) {this.setProp("Style", DataType.Enum, value);}
-    public get uIOffset() {return this.getProp("UIOffset", DataType.Vector2);}
-    public set uIOffset(value) {this.setProp("UIOffset", DataType.Vector2, value);}
+    public get ActionText() {return this.GetProp("ActionText", DataType.String);}
+    public set ActionText(value) {this.SetProp("ActionText", DataType.String, value);}
+    public get AutoLocalize() {return this.GetProp("AutoLocalize", DataType.Bool);}
+    public set AutoLocalize(value) {this.SetProp("AutoLocalize", DataType.Bool, value);}
+    public get ClickablePrompt() {return this.GetProp("ClickablePrompt", DataType.Bool);}
+    public set ClickablePrompt(value) {this.SetProp("ClickablePrompt", DataType.Bool, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get Exclusivity() {return this.GetProp("Exclusivity", DataType.Enum) as ProximityPromptExclusivity | undefined;}
+    public set Exclusivity(value) {this.SetProp("Exclusivity", DataType.Enum, value);}
+    public get GamepadKeyCode() {return this.GetProp("GamepadKeyCode", DataType.Enum) as KeyCode | undefined;}
+    public set GamepadKeyCode(value) {this.SetProp("GamepadKeyCode", DataType.Enum, value);}
+    public get HoldDuration() {return this.GetProp("HoldDuration", DataType.Float32);}
+    public set HoldDuration(value) {this.SetProp("HoldDuration", DataType.Float32, value);}
+    public get KeyboardKeyCode() {return this.GetProp("KeyboardKeyCode", DataType.Enum) as KeyCode | undefined;}
+    public set KeyboardKeyCode(value) {this.SetProp("KeyboardKeyCode", DataType.Enum, value);}
+    public get MaxActivationDistance() {return this.GetProp("MaxActivationDistance", DataType.Float32);}
+    public set MaxActivationDistance(value) {this.SetProp("MaxActivationDistance", DataType.Float32, value);}
+    public get ObjectText() {return this.GetProp("ObjectText", DataType.String);}
+    public set ObjectText(value) {this.SetProp("ObjectText", DataType.String, value);}
+    public get RequiresLineOfSight() {return this.GetProp("RequiresLineOfSight", DataType.Bool);}
+    public set RequiresLineOfSight(value) {this.SetProp("RequiresLineOfSight", DataType.Bool, value);}
+    public get RootLocalizationTable() {return this.GetProp("RootLocalizationTable", DataType.Referent) as LocalizationTable | undefined;}
+    public set RootLocalizationTable(value) {this.SetProp("RootLocalizationTable", DataType.Referent, value);}
+    public get Style() {return this.GetProp("Style", DataType.Enum) as ProximityPromptStyle | undefined;}
+    public set Style(value) {this.SetProp("Style", DataType.Enum, value);}
+    public get UIOffset() {return this.GetProp("UIOffset", DataType.Vector2);}
+    public set UIOffset(value) {this.SetProp("UIOffset", DataType.Vector2, value);}
 }
 
-export class ProximityPromptService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ProximityPromptService", true);}
+export class ProximityPromptService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ProximityPromptService", true); this.addClassName("ProximityPromptService");}
     public static new() {return new ProximityPromptService();}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get maxPromptsVisible() {return this.getProp("MaxPromptsVisible", DataType.Int32);}
-    public set maxPromptsVisible(value) {this.setProp("MaxPromptsVisible", DataType.Int32, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get MaxPromptsVisible() {return this.GetProp("MaxPromptsVisible", DataType.Int32);}
+    public set MaxPromptsVisible(value) {this.SetProp("MaxPromptsVisible", DataType.Int32, value);}
 }
 
-export class PublishService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "PublishService", true);}
+export class PublishService extends Instance {
+    protected constructor(className?: string) {super(className ?? "PublishService", true); this.addClassName("PublishService");}
     public static new() {return new PublishService();}
 }
 
-export class RbxAnalyticsService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "RbxAnalyticsService", true);}
+export class RbxAnalyticsService extends Instance {
+    protected constructor(className?: string) {super(className ?? "RbxAnalyticsService", true); this.addClassName("RbxAnalyticsService");}
     public static new() {return new RbxAnalyticsService();}
 }
 
-export class ReflectionMetadata extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ReflectionMetadata");}
+export class ReflectionMetadata extends Instance {
+    protected constructor(className?: string) {super(className ?? "ReflectionMetadata"); this.addClassName("ReflectionMetadata");}
     public static new() {return new ReflectionMetadata();}
 }
 
-export class ReflectionMetadataCallbacks extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ReflectionMetadataCallbacks");}
+export class ReflectionMetadataCallbacks extends Instance {
+    protected constructor(className?: string) {super(className ?? "ReflectionMetadataCallbacks"); this.addClassName("ReflectionMetadataCallbacks");}
     public static new() {return new ReflectionMetadataCallbacks();}
 }
 
-export class ReflectionMetadataClasses extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ReflectionMetadataClasses");}
+export class ReflectionMetadataClasses extends Instance {
+    protected constructor(className?: string) {super(className ?? "ReflectionMetadataClasses"); this.addClassName("ReflectionMetadataClasses");}
     public static new() {return new ReflectionMetadataClasses();}
 }
 
-export class ReflectionMetadataEnums extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ReflectionMetadataEnums");}
+export class ReflectionMetadataEnums extends Instance {
+    protected constructor(className?: string) {super(className ?? "ReflectionMetadataEnums"); this.addClassName("ReflectionMetadataEnums");}
     public static new() {return new ReflectionMetadataEnums();}
 }
 
-export class ReflectionMetadataEvents extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ReflectionMetadataEvents");}
+export class ReflectionMetadataEvents extends Instance {
+    protected constructor(className?: string) {super(className ?? "ReflectionMetadataEvents"); this.addClassName("ReflectionMetadataEvents");}
     public static new() {return new ReflectionMetadataEvents();}
 }
 
-export class ReflectionMetadataFunctions extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ReflectionMetadataFunctions");}
+export class ReflectionMetadataFunctions extends Instance {
+    protected constructor(className?: string) {super(className ?? "ReflectionMetadataFunctions"); this.addClassName("ReflectionMetadataFunctions");}
     public static new() {return new ReflectionMetadataFunctions();}
 }
 
-export abstract class ReflectionMetadataItem extends CoreInstance {
-    protected constructor(className: string) {super(className);}
-    public get browsable() {return this.getProp("Browsable", DataType.Bool);}
-    public set browsable(value) {this.setProp("Browsable", DataType.Bool, value);}
-    public get classCategory() {return this.getProp("ClassCategory", DataType.String);}
-    public set classCategory(value) {this.setProp("ClassCategory", DataType.String, value);}
-    public get clientOnly() {return this.getProp("ClientOnly", DataType.Bool);}
-    public set clientOnly(value) {this.setProp("ClientOnly", DataType.Bool, value);}
-    public get constraint() {return this.getProp("Constraint", DataType.String);}
-    public set constraint(value) {this.setProp("Constraint", DataType.String, value);}
-    public get deprecated() {return this.getProp("Deprecated", DataType.Bool);}
-    public set deprecated(value) {this.setProp("Deprecated", DataType.Bool, value);}
-    public get editingDisabled() {return this.getProp("EditingDisabled", DataType.Bool);}
-    public set editingDisabled(value) {this.setProp("EditingDisabled", DataType.Bool, value);}
-    public get editorType() {return this.getProp("EditorType", DataType.String);}
-    public set editorType(value) {this.setProp("EditorType", DataType.String, value);}
-    public get fFlag() {return this.getProp("FFlag", DataType.String);}
-    public set fFlag(value) {this.setProp("FFlag", DataType.String, value);}
-    public get isBackend() {return this.getProp("IsBackend", DataType.Bool);}
-    public set isBackend(value) {this.setProp("IsBackend", DataType.Bool, value);}
-    public get propertyOrder() {return this.getProp("PropertyOrder", DataType.Int32);}
-    public set propertyOrder(value) {this.setProp("PropertyOrder", DataType.Int32, value);}
-    public get scriptContext() {return this.getProp("ScriptContext", DataType.String);}
-    public set scriptContext(value) {this.setProp("ScriptContext", DataType.String, value);}
-    public get serverOnly() {return this.getProp("ServerOnly", DataType.Bool);}
-    public set serverOnly(value) {this.setProp("ServerOnly", DataType.Bool, value);}
-    public get sliderScaling() {return this.getProp("SliderScaling", DataType.String);}
-    public set sliderScaling(value) {this.setProp("SliderScaling", DataType.String, value);}
-    public get uIMaximum() {return this.getProp("UIMaximum", DataType.Float64);}
-    public set uIMaximum(value) {this.setProp("UIMaximum", DataType.Float64, value);}
-    public get uIMinimum() {return this.getProp("UIMinimum", DataType.Float64);}
-    public set uIMinimum(value) {this.setProp("UIMinimum", DataType.Float64, value);}
-    public get uINumTicks() {return this.getProp("UINumTicks", DataType.Float64);}
-    public set uINumTicks(value) {this.setProp("UINumTicks", DataType.Float64, value);}
+export abstract class ReflectionMetadataItem extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("ReflectionMetadataItem");}
+    public get Browsable() {return this.GetProp("Browsable", DataType.Bool);}
+    public set Browsable(value) {this.SetProp("Browsable", DataType.Bool, value);}
+    public get ClassCategory() {return this.GetProp("ClassCategory", DataType.String);}
+    public set ClassCategory(value) {this.SetProp("ClassCategory", DataType.String, value);}
+    public get ClientOnly() {return this.GetProp("ClientOnly", DataType.Bool);}
+    public set ClientOnly(value) {this.SetProp("ClientOnly", DataType.Bool, value);}
+    public get Constraint() {return this.GetProp("Constraint", DataType.String);}
+    public set Constraint(value) {this.SetProp("Constraint", DataType.String, value);}
+    public get Deprecated() {return this.GetProp("Deprecated", DataType.Bool);}
+    public set Deprecated(value) {this.SetProp("Deprecated", DataType.Bool, value);}
+    public get EditingDisabled() {return this.GetProp("EditingDisabled", DataType.Bool);}
+    public set EditingDisabled(value) {this.SetProp("EditingDisabled", DataType.Bool, value);}
+    public get EditorType() {return this.GetProp("EditorType", DataType.String);}
+    public set EditorType(value) {this.SetProp("EditorType", DataType.String, value);}
+    public get FFlag() {return this.GetProp("FFlag", DataType.String);}
+    public set FFlag(value) {this.SetProp("FFlag", DataType.String, value);}
+    public get IsBackend() {return this.GetProp("IsBackend", DataType.Bool);}
+    public set IsBackend(value) {this.SetProp("IsBackend", DataType.Bool, value);}
+    public get PropertyOrder() {return this.GetProp("PropertyOrder", DataType.Int32);}
+    public set PropertyOrder(value) {this.SetProp("PropertyOrder", DataType.Int32, value);}
+    public get ScriptContext() {return this.GetProp("ScriptContext", DataType.String);}
+    public set ScriptContext(value) {this.SetProp("ScriptContext", DataType.String, value);}
+    public get ServerOnly() {return this.GetProp("ServerOnly", DataType.Bool);}
+    public set ServerOnly(value) {this.SetProp("ServerOnly", DataType.Bool, value);}
+    public get SliderScaling() {return this.GetProp("SliderScaling", DataType.String);}
+    public set SliderScaling(value) {this.SetProp("SliderScaling", DataType.String, value);}
+    public get UIMaximum() {return this.GetProp("UIMaximum", DataType.Float64);}
+    public set UIMaximum(value) {this.SetProp("UIMaximum", DataType.Float64, value);}
+    public get UIMinimum() {return this.GetProp("UIMinimum", DataType.Float64);}
+    public set UIMinimum(value) {this.SetProp("UIMinimum", DataType.Float64, value);}
+    public get UINumTicks() {return this.GetProp("UINumTicks", DataType.Float64);}
+    public set UINumTicks(value) {this.SetProp("UINumTicks", DataType.Float64, value);}
 }
 
 export class ReflectionMetadataClass extends ReflectionMetadataItem {
-    protected constructor(className?: string) {super(className ?? "ReflectionMetadataClass");}
+    protected constructor(className?: string) {super(className ?? "ReflectionMetadataClass"); this.addClassName("ReflectionMetadataClass");}
     public static new() {return new ReflectionMetadataClass();}
-    public get explorerImageIndex() {return this.getProp("ExplorerImageIndex", DataType.Int32);}
-    public set explorerImageIndex(value) {this.setProp("ExplorerImageIndex", DataType.Int32, value);}
-    public get explorerOrder() {return this.getProp("ExplorerOrder", DataType.Int32);}
-    public set explorerOrder(value) {this.setProp("ExplorerOrder", DataType.Int32, value);}
-    public get insertable() {return this.getProp("Insertable", DataType.Bool);}
-    public set insertable(value) {this.setProp("Insertable", DataType.Bool, value);}
-    public get preferredParent() {return this.getProp("PreferredParent", DataType.String);}
-    public set preferredParent(value) {this.setProp("PreferredParent", DataType.String, value);}
-    public get serviceVisibility() {return this.getProp("ServiceVisibility", DataType.Enum) as ServiceVisibility | undefined;}
-    public set serviceVisibility(value) {this.setProp("ServiceVisibility", DataType.Enum, value);}
+    public get ExplorerImageIndex() {return this.GetProp("ExplorerImageIndex", DataType.Int32);}
+    public set ExplorerImageIndex(value) {this.SetProp("ExplorerImageIndex", DataType.Int32, value);}
+    public get ExplorerOrder() {return this.GetProp("ExplorerOrder", DataType.Int32);}
+    public set ExplorerOrder(value) {this.SetProp("ExplorerOrder", DataType.Int32, value);}
+    public get Insertable() {return this.GetProp("Insertable", DataType.Bool);}
+    public set Insertable(value) {this.SetProp("Insertable", DataType.Bool, value);}
+    public get PreferredParent() {return this.GetProp("PreferredParent", DataType.String);}
+    public set PreferredParent(value) {this.SetProp("PreferredParent", DataType.String, value);}
+    public get ServiceVisibility() {return this.GetProp("ServiceVisibility", DataType.Enum) as ServiceVisibility | undefined;}
+    public set ServiceVisibility(value) {this.SetProp("ServiceVisibility", DataType.Enum, value);}
 }
 
 export class ReflectionMetadataEnum extends ReflectionMetadataItem {
-    protected constructor(className?: string) {super(className ?? "ReflectionMetadataEnum");}
+    protected constructor(className?: string) {super(className ?? "ReflectionMetadataEnum"); this.addClassName("ReflectionMetadataEnum");}
     public static new() {return new ReflectionMetadataEnum();}
 }
 
 export class ReflectionMetadataEnumItem extends ReflectionMetadataItem {
-    protected constructor(className?: string) {super(className ?? "ReflectionMetadataEnumItem");}
+    protected constructor(className?: string) {super(className ?? "ReflectionMetadataEnumItem"); this.addClassName("ReflectionMetadataEnumItem");}
     public static new() {return new ReflectionMetadataEnumItem();}
 }
 
 export class ReflectionMetadataMember extends ReflectionMetadataItem {
-    protected constructor(className?: string) {super(className ?? "ReflectionMetadataMember");}
+    protected constructor(className?: string) {super(className ?? "ReflectionMetadataMember"); this.addClassName("ReflectionMetadataMember");}
     public static new() {return new ReflectionMetadataMember();}
 }
 
-export class ReflectionMetadataProperties extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ReflectionMetadataProperties");}
+export class ReflectionMetadataProperties extends Instance {
+    protected constructor(className?: string) {super(className ?? "ReflectionMetadataProperties"); this.addClassName("ReflectionMetadataProperties");}
     public static new() {return new ReflectionMetadataProperties();}
 }
 
-export class ReflectionMetadataYieldFunctions extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ReflectionMetadataYieldFunctions");}
+export class ReflectionMetadataYieldFunctions extends Instance {
+    protected constructor(className?: string) {super(className ?? "ReflectionMetadataYieldFunctions"); this.addClassName("ReflectionMetadataYieldFunctions");}
     public static new() {return new ReflectionMetadataYieldFunctions();}
 }
 
-export class ReflectionService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ReflectionService", true);}
+export class ReflectionService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ReflectionService", true); this.addClassName("ReflectionService");}
     public static new() {return new ReflectionService();}
 }
 
-export class RemoteCursorService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "RemoteCursorService", true);}
+export class RemoteCursorService extends Instance {
+    protected constructor(className?: string) {super(className ?? "RemoteCursorService", true); this.addClassName("RemoteCursorService");}
     public static new() {return new RemoteCursorService();}
 }
 
-export class RemoteDebuggerServer extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "RemoteDebuggerServer", true);}
+export class RemoteDebuggerServer extends Instance {
+    protected constructor(className?: string) {super(className ?? "RemoteDebuggerServer", true); this.addClassName("RemoteDebuggerServer");}
     public static new() {return new RemoteDebuggerServer();}
 }
 
-export class RemoteFunction extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "RemoteFunction");}
+export class RemoteFunction extends Instance {
+    protected constructor(className?: string) {super(className ?? "RemoteFunction"); this.addClassName("RemoteFunction");}
     public static new() {return new RemoteFunction();}
 }
 
-export class RenderSettings extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "RenderSettings", true);}
+export class RenderSettings extends Instance {
+    protected constructor(className?: string) {super(className ?? "RenderSettings", true); this.addClassName("RenderSettings");}
     public static new() {return new RenderSettings();}
-    public get autoFRMLevel() {return this.getProp("AutoFRMLevel", DataType.Int32);}
-    public set autoFRMLevel(value) {this.setProp("AutoFRMLevel", DataType.Int32, value);}
-    public get eagerBulkExecution() {return this.getProp("EagerBulkExecution", DataType.Bool);}
-    public set eagerBulkExecution(value) {this.setProp("EagerBulkExecution", DataType.Bool, value);}
-    public get editQualityLevel() {return this.getProp("EditQualityLevel", DataType.Enum) as QualityLevel | undefined;}
-    public set editQualityLevel(value) {this.setProp("EditQualityLevel", DataType.Enum, value);}
-    public get enable_VR_Mode() {return this.getProp("Enable VR Mode", DataType.Bool);}
-    public set enable_VR_Mode(value) {this.setProp("Enable VR Mode", DataType.Bool, value);}
-    public get exportMergeByMaterial() {return this.getProp("ExportMergeByMaterial", DataType.Bool);}
-    public set exportMergeByMaterial(value) {this.setProp("ExportMergeByMaterial", DataType.Bool, value);}
-    public get frameRateManager() {return this.getProp("FrameRateManager", DataType.Enum) as FramerateManagerMode | undefined;}
-    public set frameRateManager(value) {this.setProp("FrameRateManager", DataType.Enum, value);}
-    public get graphicsMode() {return this.getProp("GraphicsMode", DataType.Enum) as GraphicsMode | undefined;}
-    public set graphicsMode(value) {this.setProp("GraphicsMode", DataType.Enum, value);}
-    public get meshCacheSize() {return this.getProp("MeshCacheSize", DataType.Int32);}
-    public set meshCacheSize(value) {this.setProp("MeshCacheSize", DataType.Int32, value);}
-    public get meshPartDetailLevel() {return this.getProp("MeshPartDetailLevel", DataType.Enum) as MeshPartDetailLevel | undefined;}
-    public set meshPartDetailLevel(value) {this.setProp("MeshPartDetailLevel", DataType.Enum, value);}
-    public get qualityLevel() {return this.getProp("QualityLevel", DataType.Enum) as QualityLevel | undefined;}
-    public set qualityLevel(value) {this.setProp("QualityLevel", DataType.Enum, value);}
-    public get reloadAssets() {return this.getProp("ReloadAssets", DataType.Bool);}
-    public set reloadAssets(value) {this.setProp("ReloadAssets", DataType.Bool, value);}
-    public get renderCSGTrianglesDebug() {return this.getProp("RenderCSGTrianglesDebug", DataType.Bool);}
-    public set renderCSGTrianglesDebug(value) {this.setProp("RenderCSGTrianglesDebug", DataType.Bool, value);}
-    public get showBoundingBoxes() {return this.getProp("ShowBoundingBoxes", DataType.Bool);}
-    public set showBoundingBoxes(value) {this.setProp("ShowBoundingBoxes", DataType.Bool, value);}
-    public get viewMode() {return this.getProp("ViewMode", DataType.Enum) as ViewMode | undefined;}
-    public set viewMode(value) {this.setProp("ViewMode", DataType.Enum, value);}
+    public get AutoFRMLevel() {return this.GetProp("AutoFRMLevel", DataType.Int32);}
+    public set AutoFRMLevel(value) {this.SetProp("AutoFRMLevel", DataType.Int32, value);}
+    public get EagerBulkExecution() {return this.GetProp("EagerBulkExecution", DataType.Bool);}
+    public set EagerBulkExecution(value) {this.SetProp("EagerBulkExecution", DataType.Bool, value);}
+    public get EditQualityLevel() {return this.GetProp("EditQualityLevel", DataType.Enum) as QualityLevel | undefined;}
+    public set EditQualityLevel(value) {this.SetProp("EditQualityLevel", DataType.Enum, value);}
+    public get EnableVrMode() {return this.GetProp("Enable VR Mode", DataType.Bool);}
+    public set EnableVrMode(value) {this.SetProp("Enable VR Mode", DataType.Bool, value);}
+    public get ExportMergeByMaterial() {return this.GetProp("ExportMergeByMaterial", DataType.Bool);}
+    public set ExportMergeByMaterial(value) {this.SetProp("ExportMergeByMaterial", DataType.Bool, value);}
+    public get FrameRateManager() {return this.GetProp("FrameRateManager", DataType.Enum) as FramerateManagerMode | undefined;}
+    public set FrameRateManager(value) {this.SetProp("FrameRateManager", DataType.Enum, value);}
+    public get GraphicsMode() {return this.GetProp("GraphicsMode", DataType.Enum) as GraphicsMode | undefined;}
+    public set GraphicsMode(value) {this.SetProp("GraphicsMode", DataType.Enum, value);}
+    public get MeshCacheSize() {return this.GetProp("MeshCacheSize", DataType.Int32);}
+    public set MeshCacheSize(value) {this.SetProp("MeshCacheSize", DataType.Int32, value);}
+    public get MeshPartDetailLevel() {return this.GetProp("MeshPartDetailLevel", DataType.Enum) as MeshPartDetailLevel | undefined;}
+    public set MeshPartDetailLevel(value) {this.SetProp("MeshPartDetailLevel", DataType.Enum, value);}
+    public get QualityLevel() {return this.GetProp("QualityLevel", DataType.Enum) as QualityLevel | undefined;}
+    public set QualityLevel(value) {this.SetProp("QualityLevel", DataType.Enum, value);}
+    public get ReloadAssets() {return this.GetProp("ReloadAssets", DataType.Bool);}
+    public set ReloadAssets(value) {this.SetProp("ReloadAssets", DataType.Bool, value);}
+    public get RenderCSGTrianglesDebug() {return this.GetProp("RenderCSGTrianglesDebug", DataType.Bool);}
+    public set RenderCSGTrianglesDebug(value) {this.SetProp("RenderCSGTrianglesDebug", DataType.Bool, value);}
+    public get ShowBoundingBoxes() {return this.GetProp("ShowBoundingBoxes", DataType.Bool);}
+    public set ShowBoundingBoxes(value) {this.SetProp("ShowBoundingBoxes", DataType.Bool, value);}
+    public get ViewMode() {return this.GetProp("ViewMode", DataType.Enum) as ViewMode | undefined;}
+    public set ViewMode(value) {this.SetProp("ViewMode", DataType.Enum, value);}
 }
 
-export class RenderingTest extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "RenderingTest");}
+export class RenderingTest extends Instance {
+    protected constructor(className?: string) {super(className ?? "RenderingTest"); this.addClassName("RenderingTest");}
     public static new() {return new RenderingTest();}
-    public get cFrame() {return this.getProp("CFrame", DataType.CFrame);}
-    public set cFrame(value) {this.setProp("CFrame", DataType.CFrame, value);}
-    public get comparisonDiffThreshold() {return this.getProp("ComparisonDiffThreshold", DataType.Int32);}
-    public set comparisonDiffThreshold(value) {this.setProp("ComparisonDiffThreshold", DataType.Int32, value);}
-    public get comparisonMethod() {return this.getProp("ComparisonMethod", DataType.Enum) as RenderingTestComparisonMethod | undefined;}
-    public set comparisonMethod(value) {this.setProp("ComparisonMethod", DataType.Enum, value);}
-    public get comparisonPsnrThreshold() {return this.getProp("ComparisonPsnrThreshold", DataType.Float32);}
-    public set comparisonPsnrThreshold(value) {this.setProp("ComparisonPsnrThreshold", DataType.Float32, value);}
-    public get description() {return this.getProp("Description", DataType.String);}
-    public set description(value) {this.setProp("Description", DataType.String, value);}
-    public get fieldOfView() {return this.getProp("FieldOfView", DataType.Float32);}
-    public set fieldOfView(value) {this.setProp("FieldOfView", DataType.Float32, value);}
-    public get perfTest() {return this.getProp("PerfTest", DataType.Bool);}
-    public set perfTest(value) {this.setProp("PerfTest", DataType.Bool, value);}
-    public get qualityAuto() {return this.getProp("QualityAuto", DataType.Bool);}
-    public set qualityAuto(value) {this.setProp("QualityAuto", DataType.Bool, value);}
-    public get qualityLevel() {return this.getProp("QualityLevel", DataType.Int32);}
-    public set qualityLevel(value) {this.setProp("QualityLevel", DataType.Int32, value);}
-    public get renderingTestFrameCount() {return this.getProp("RenderingTestFrameCount", DataType.Int32);}
-    public set renderingTestFrameCount(value) {this.setProp("RenderingTestFrameCount", DataType.Int32, value);}
-    public get shouldSkip() {return this.getProp("ShouldSkip", DataType.Bool);}
-    public set shouldSkip(value) {this.setProp("ShouldSkip", DataType.Bool, value);}
-    public get ticket() {return this.getProp("Ticket", DataType.String);}
-    public set ticket(value) {this.setProp("Ticket", DataType.String, value);}
-    public get timeout() {return this.getProp("Timeout", DataType.Int32);}
-    public set timeout(value) {this.setProp("Timeout", DataType.Int32, value);}
+    public get CFrame() {return this.GetProp("CFrame", DataType.CFrame);}
+    public set CFrame(value) {this.SetProp("CFrame", DataType.CFrame, value);}
+    public get ComparisonDiffThreshold() {return this.GetProp("ComparisonDiffThreshold", DataType.Int32);}
+    public set ComparisonDiffThreshold(value) {this.SetProp("ComparisonDiffThreshold", DataType.Int32, value);}
+    public get ComparisonMethod() {return this.GetProp("ComparisonMethod", DataType.Enum) as RenderingTestComparisonMethod | undefined;}
+    public set ComparisonMethod(value) {this.SetProp("ComparisonMethod", DataType.Enum, value);}
+    public get ComparisonPsnrThreshold() {return this.GetProp("ComparisonPsnrThreshold", DataType.Float32);}
+    public set ComparisonPsnrThreshold(value) {this.SetProp("ComparisonPsnrThreshold", DataType.Float32, value);}
+    public get Description() {return this.GetProp("Description", DataType.String);}
+    public set Description(value) {this.SetProp("Description", DataType.String, value);}
+    public get FieldOfView() {return this.GetProp("FieldOfView", DataType.Float32);}
+    public set FieldOfView(value) {this.SetProp("FieldOfView", DataType.Float32, value);}
+    public get PerfTest() {return this.GetProp("PerfTest", DataType.Bool);}
+    public set PerfTest(value) {this.SetProp("PerfTest", DataType.Bool, value);}
+    public get QualityAuto() {return this.GetProp("QualityAuto", DataType.Bool);}
+    public set QualityAuto(value) {this.SetProp("QualityAuto", DataType.Bool, value);}
+    public get QualityLevel() {return this.GetProp("QualityLevel", DataType.Int32);}
+    public set QualityLevel(value) {this.SetProp("QualityLevel", DataType.Int32, value);}
+    public get RenderingTestFrameCount() {return this.GetProp("RenderingTestFrameCount", DataType.Int32);}
+    public set RenderingTestFrameCount(value) {this.SetProp("RenderingTestFrameCount", DataType.Int32, value);}
+    public get ShouldSkip() {return this.GetProp("ShouldSkip", DataType.Bool);}
+    public set ShouldSkip(value) {this.SetProp("ShouldSkip", DataType.Bool, value);}
+    public get Ticket() {return this.GetProp("Ticket", DataType.String);}
+    public set Ticket(value) {this.SetProp("Ticket", DataType.String, value);}
+    public get Timeout() {return this.GetProp("Timeout", DataType.Int32);}
+    public set Timeout(value) {this.SetProp("Timeout", DataType.Int32, value);}
 }
 
-export class ReplicatedFirst extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ReplicatedFirst", true);}
+export class ReplicatedFirst extends Instance {
+    protected constructor(className?: string) {super(className ?? "ReplicatedFirst", true); this.addClassName("ReplicatedFirst");}
     public static new() {return new ReplicatedFirst();}
 }
 
-export class ReplicatedStorage extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ReplicatedStorage", true);}
+export class ReplicatedStorage extends Instance {
+    protected constructor(className?: string) {super(className ?? "ReplicatedStorage", true); this.addClassName("ReplicatedStorage");}
     public static new() {return new ReplicatedStorage();}
 }
 
-export class RibbonNotificationService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "RibbonNotificationService", true);}
+export class RibbonNotificationService extends Instance {
+    protected constructor(className?: string) {super(className ?? "RibbonNotificationService", true); this.addClassName("RibbonNotificationService");}
     public static new() {return new RibbonNotificationService();}
 }
 
-export class RobloxPluginGuiService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "RobloxPluginGuiService", true);}
+export class RobloxPluginGuiService extends Instance {
+    protected constructor(className?: string) {super(className ?? "RobloxPluginGuiService", true); this.addClassName("RobloxPluginGuiService");}
     public static new() {return new RobloxPluginGuiService();}
 }
 
-export class RobloxReplicatedStorage extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "RobloxReplicatedStorage", true);}
+export class RobloxReplicatedStorage extends Instance {
+    protected constructor(className?: string) {super(className ?? "RobloxReplicatedStorage", true); this.addClassName("RobloxReplicatedStorage");}
     public static new() {return new RobloxReplicatedStorage();}
 }
 
-export class RobloxServerStorage extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "RobloxServerStorage", true);}
+export class RobloxServerStorage extends Instance {
+    protected constructor(className?: string) {super(className ?? "RobloxServerStorage", true); this.addClassName("RobloxServerStorage");}
     public static new() {return new RobloxServerStorage();}
 }
 
-export class RomarkService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "RomarkService", true);}
+export class RomarkService extends Instance {
+    protected constructor(className?: string) {super(className ?? "RomarkService", true); this.addClassName("RomarkService");}
     public static new() {return new RomarkService();}
 }
 
-export class RotationCurve extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "RotationCurve");}
+export class RotationCurve extends Instance {
+    protected constructor(className?: string) {super(className ?? "RotationCurve"); this.addClassName("RotationCurve");}
     public static new() {return new RotationCurve();}
-    public get valuesAndTimes() {return this.getProp("ValuesAndTimes", DataType.String);}
-    public set valuesAndTimes(value) {this.setProp("ValuesAndTimes", DataType.String, value);}
+    public get ValuesAndTimes() {return this.GetProp("ValuesAndTimes", DataType.String);}
+    public set ValuesAndTimes(value) {this.SetProp("ValuesAndTimes", DataType.String, value);}
 }
 
-export class RtMessagingService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "RtMessagingService", true);}
+export class RtMessagingService extends Instance {
+    protected constructor(className?: string) {super(className ?? "RtMessagingService", true); this.addClassName("RtMessagingService");}
     public static new() {return new RtMessagingService();}
 }
 
-export class RunService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "RunService", true);}
+export class RunService extends Instance {
+    protected constructor(className?: string) {super(className ?? "RunService", true); this.addClassName("RunService");}
     public static new() {return new RunService();}
 }
 
-export class RuntimeScriptService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "RuntimeScriptService", true);}
+export class RuntimeScriptService extends Instance {
+    protected constructor(className?: string) {super(className ?? "RuntimeScriptService", true); this.addClassName("RuntimeScriptService");}
     public static new() {return new RuntimeScriptService();}
 }
 
-export class SafetyService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "SafetyService", true);}
+export class SafetyService extends Instance {
+    protected constructor(className?: string) {super(className ?? "SafetyService", true); this.addClassName("SafetyService");}
     public static new() {return new SafetyService();}
-    public get isCaptureModeForReport() {return this.getProp("IsCaptureModeForReport", DataType.Bool);}
-    public set isCaptureModeForReport(value) {this.setProp("IsCaptureModeForReport", DataType.Bool, value);}
+    public get IsCaptureModeForReport() {return this.GetProp("IsCaptureModeForReport", DataType.Bool);}
+    public set IsCaptureModeForReport(value) {this.SetProp("IsCaptureModeForReport", DataType.Bool, value);}
 }
 
-export abstract class ScriptBuilder extends CoreInstance {
-    protected constructor(className: string) {super(className);}
+export abstract class ScriptBuilder extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("ScriptBuilder");}
 }
 
-export class ScriptChangeService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ScriptChangeService", true);}
+export class ScriptChangeService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ScriptChangeService", true); this.addClassName("ScriptChangeService");}
     public static new() {return new ScriptChangeService();}
 }
 
-export class ScriptCloneWatcher extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ScriptCloneWatcher", true);}
+export class ScriptCloneWatcher extends Instance {
+    protected constructor(className?: string) {super(className ?? "ScriptCloneWatcher", true); this.addClassName("ScriptCloneWatcher");}
     public static new() {return new ScriptCloneWatcher();}
 }
 
-export class ScriptCloneWatcherHelper extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ScriptCloneWatcherHelper", true);}
+export class ScriptCloneWatcherHelper extends Instance {
+    protected constructor(className?: string) {super(className ?? "ScriptCloneWatcherHelper", true); this.addClassName("ScriptCloneWatcherHelper");}
     public static new() {return new ScriptCloneWatcherHelper();}
 }
 
-export class ScriptCommitService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ScriptCommitService", true);}
+export class ScriptCommitService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ScriptCommitService", true); this.addClassName("ScriptCommitService");}
     public static new() {return new ScriptCommitService();}
 }
 
-export class ScriptContext extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ScriptContext", true);}
+export class ScriptContext extends Instance {
+    protected constructor(className?: string) {super(className ?? "ScriptContext", true); this.addClassName("ScriptContext");}
     public static new() {return new ScriptContext();}
 }
 
-export class ScriptEditorService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ScriptEditorService", true);}
+export class ScriptEditorService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ScriptEditorService", true); this.addClassName("ScriptEditorService");}
     public static new() {return new ScriptEditorService();}
 }
 
-export class ScriptProfilerService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ScriptProfilerService", true);}
+export class ScriptProfilerService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ScriptProfilerService", true); this.addClassName("ScriptProfilerService");}
     public static new() {return new ScriptProfilerService();}
 }
 
-export class ScriptRegistrationService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ScriptRegistrationService", true);}
+export class ScriptRegistrationService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ScriptRegistrationService", true); this.addClassName("ScriptRegistrationService");}
     public static new() {return new ScriptRegistrationService();}
 }
 
-export class ScriptService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ScriptService", true);}
+export class ScriptService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ScriptService", true); this.addClassName("ScriptService");}
     public static new() {return new ScriptService();}
 }
 
-export class Selection extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Selection", true);}
+export class Selection extends Instance {
+    protected constructor(className?: string) {super(className ?? "Selection", true); this.addClassName("Selection");}
     public static new() {return new Selection();}
 }
 
-export class SelectionHighlightManager extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "SelectionHighlightManager", true);}
+export class SelectionHighlightManager extends Instance {
+    protected constructor(className?: string) {super(className ?? "SelectionHighlightManager", true); this.addClassName("SelectionHighlightManager");}
     public static new() {return new SelectionHighlightManager();}
 }
 
-export abstract class SensorBase extends CoreInstance {
-    protected constructor(className: string) {super(className);}
-    public get updateType() {return this.getProp("UpdateType", DataType.Enum) as SensorUpdateType | undefined;}
-    public set updateType(value) {this.setProp("UpdateType", DataType.Enum, value);}
+export abstract class SensorBase extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("SensorBase");}
+    public get UpdateType() {return this.GetProp("UpdateType", DataType.Enum) as SensorUpdateType | undefined;}
+    public set UpdateType(value) {this.SetProp("UpdateType", DataType.Enum, value);}
 }
 
 export class BuoyancySensor extends SensorBase {
-    protected constructor(className?: string) {super(className ?? "BuoyancySensor");}
+    protected constructor(className?: string) {super(className ?? "BuoyancySensor"); this.addClassName("BuoyancySensor");}
     public static new() {return new BuoyancySensor();}
-    public get fullySubmerged() {return this.getProp("FullySubmerged", DataType.Bool);}
-    public set fullySubmerged(value) {this.setProp("FullySubmerged", DataType.Bool, value);}
-    public get touchingSurface() {return this.getProp("TouchingSurface", DataType.Bool);}
-    public set touchingSurface(value) {this.setProp("TouchingSurface", DataType.Bool, value);}
+    public get FullySubmerged() {return this.GetProp("FullySubmerged", DataType.Bool);}
+    public set FullySubmerged(value) {this.SetProp("FullySubmerged", DataType.Bool, value);}
+    public get TouchingSurface() {return this.GetProp("TouchingSurface", DataType.Bool);}
+    public set TouchingSurface(value) {this.SetProp("TouchingSurface", DataType.Bool, value);}
 }
 
 export abstract class ControllerSensor extends SensorBase {
-    protected constructor(className: string) {super(className);}
+    protected constructor(className: string) {super(className); this.addClassName("ControllerSensor");}
 }
 
 export class ControllerPartSensor extends ControllerSensor {
-    protected constructor(className?: string) {super(className ?? "ControllerPartSensor");}
+    protected constructor(className?: string) {super(className ?? "ControllerPartSensor"); this.addClassName("ControllerPartSensor");}
     public static new() {return new ControllerPartSensor();}
-    public get hitFrame() {return this.getProp("HitFrame", DataType.CFrame);}
-    public set hitFrame(value) {this.setProp("HitFrame", DataType.CFrame, value);}
-    public get hitNormal() {return this.getProp("HitNormal", DataType.Vector3);}
-    public set hitNormal(value) {this.setProp("HitNormal", DataType.Vector3, value);}
-    public get searchDistance() {return this.getProp("SearchDistance", DataType.Float32);}
-    public set searchDistance(value) {this.setProp("SearchDistance", DataType.Float32, value);}
-    public get sensedPart() {return this.getProp("SensedPart", DataType.Referent) as BasePart | undefined;}
-    public set sensedPart(value) {this.setProp("SensedPart", DataType.Referent, value);}
-    public get sensorMode() {return this.getProp("SensorMode", DataType.Enum) as SensorMode | undefined;}
-    public set sensorMode(value) {this.setProp("SensorMode", DataType.Enum, value);}
+    public get HitFrame() {return this.GetProp("HitFrame", DataType.CFrame);}
+    public set HitFrame(value) {this.SetProp("HitFrame", DataType.CFrame, value);}
+    public get HitNormal() {return this.GetProp("HitNormal", DataType.Vector3);}
+    public set HitNormal(value) {this.SetProp("HitNormal", DataType.Vector3, value);}
+    public get SearchDistance() {return this.GetProp("SearchDistance", DataType.Float32);}
+    public set SearchDistance(value) {this.SetProp("SearchDistance", DataType.Float32, value);}
+    public get SensedPart() {return this.GetProp("SensedPart", DataType.Referent) as BasePart | undefined;}
+    public set SensedPart(value) {this.SetProp("SensedPart", DataType.Referent, value);}
+    public get SensorMode() {return this.GetProp("SensorMode", DataType.Enum) as SensorMode | undefined;}
+    public set SensorMode(value) {this.SetProp("SensorMode", DataType.Enum, value);}
 }
 
-export class ServerScriptService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ServerScriptService", true);}
+export class ServerScriptService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ServerScriptService", true); this.addClassName("ServerScriptService");}
     public static new() {return new ServerScriptService();}
-    public get loadStringEnabled() {return this.getProp("LoadStringEnabled", DataType.Bool);}
-    public set loadStringEnabled(value) {this.setProp("LoadStringEnabled", DataType.Bool, value);}
+    public get LoadStringEnabled() {return this.GetProp("LoadStringEnabled", DataType.Bool);}
+    public set LoadStringEnabled(value) {this.SetProp("LoadStringEnabled", DataType.Bool, value);}
 }
 
-export class ServerStorage extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ServerStorage", true);}
+export class ServerStorage extends Instance {
+    protected constructor(className?: string) {super(className ?? "ServerStorage", true); this.addClassName("ServerStorage");}
     public static new() {return new ServerStorage();}
 }
 
-export abstract class ServiceProvider extends CoreInstance {
-    protected constructor(className: string) {super(className);}
+export abstract class ServiceProvider extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("ServiceProvider");}
 }
 
 export abstract class GenericSettings extends ServiceProvider {
-    protected constructor(className: string) {super(className);}
+    protected constructor(className: string) {super(className); this.addClassName("GenericSettings");}
 }
 
-export class ServiceVisibilityService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ServiceVisibilityService", true);}
+export class ServiceVisibilityService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ServiceVisibilityService", true); this.addClassName("ServiceVisibilityService");}
     public static new() {return new ServiceVisibilityService();}
-    public get hiddenServices() {return this.getProp("HiddenServices", DataType.String);}
-    public set hiddenServices(value) {this.setProp("HiddenServices", DataType.String, value);}
-    public get visibleServices() {return this.getProp("VisibleServices", DataType.String);}
-    public set visibleServices(value) {this.setProp("VisibleServices", DataType.String, value);}
+    public get HiddenServices() {return this.GetProp("HiddenServices", DataType.String);}
+    public set HiddenServices(value) {this.SetProp("HiddenServices", DataType.String, value);}
+    public get VisibleServices() {return this.GetProp("VisibleServices", DataType.String);}
+    public set VisibleServices(value) {this.SetProp("VisibleServices", DataType.String, value);}
 }
 
-export class SessionService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "SessionService", true);}
+export class SessionService extends Instance {
+    protected constructor(className?: string) {super(className ?? "SessionService", true); this.addClassName("SessionService");}
     public static new() {return new SessionService();}
 }
 
-export class SharedTableRegistry extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "SharedTableRegistry", true);}
+export class SharedTableRegistry extends Instance {
+    protected constructor(className?: string) {super(className ?? "SharedTableRegistry", true); this.addClassName("SharedTableRegistry");}
     public static new() {return new SharedTableRegistry();}
 }
 
-export class ShorelineUpgraderService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ShorelineUpgraderService", true);}
+export class ShorelineUpgraderService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ShorelineUpgraderService", true); this.addClassName("ShorelineUpgraderService");}
     public static new() {return new ShorelineUpgraderService();}
 }
 
-export class Sky extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Sky");}
+export class Sky extends Instance {
+    protected constructor(className?: string) {super(className ?? "Sky"); this.addClassName("Sky");}
     public static new() {return new Sky();}
-    public get celestialBodiesShown() {return this.getProp("CelestialBodiesShown", DataType.Bool);}
-    public set celestialBodiesShown(value) {this.setProp("CelestialBodiesShown", DataType.Bool, value);}
-    public get moonAngularSize() {return this.getProp("MoonAngularSize", DataType.Float32);}
-    public set moonAngularSize(value) {this.setProp("MoonAngularSize", DataType.Float32, value);}
-    public get moonTextureId() {return this.getProp("MoonTextureId", DataType.String);}
-    public set moonTextureId(value) {this.setProp("MoonTextureId", DataType.String, value);}
-    public get skyboxBk() {return this.getProp("SkyboxBk", DataType.String);}
-    public set skyboxBk(value) {this.setProp("SkyboxBk", DataType.String, value);}
-    public get skyboxDn() {return this.getProp("SkyboxDn", DataType.String);}
-    public set skyboxDn(value) {this.setProp("SkyboxDn", DataType.String, value);}
-    public get skyboxFt() {return this.getProp("SkyboxFt", DataType.String);}
-    public set skyboxFt(value) {this.setProp("SkyboxFt", DataType.String, value);}
-    public get skyboxLf() {return this.getProp("SkyboxLf", DataType.String);}
-    public set skyboxLf(value) {this.setProp("SkyboxLf", DataType.String, value);}
-    public get skyboxRt() {return this.getProp("SkyboxRt", DataType.String);}
-    public set skyboxRt(value) {this.setProp("SkyboxRt", DataType.String, value);}
-    public get skyboxUp() {return this.getProp("SkyboxUp", DataType.String);}
-    public set skyboxUp(value) {this.setProp("SkyboxUp", DataType.String, value);}
-    public get starCount() {return this.getProp("StarCount", DataType.Int32);}
-    public set starCount(value) {this.setProp("StarCount", DataType.Int32, value);}
-    public get sunAngularSize() {return this.getProp("SunAngularSize", DataType.Float32);}
-    public set sunAngularSize(value) {this.setProp("SunAngularSize", DataType.Float32, value);}
-    public get sunTextureId() {return this.getProp("SunTextureId", DataType.String);}
-    public set sunTextureId(value) {this.setProp("SunTextureId", DataType.String, value);}
+    public get CelestialBodiesShown() {return this.GetProp("CelestialBodiesShown", DataType.Bool);}
+    public set CelestialBodiesShown(value) {this.SetProp("CelestialBodiesShown", DataType.Bool, value);}
+    public get MoonAngularSize() {return this.GetProp("MoonAngularSize", DataType.Float32);}
+    public set MoonAngularSize(value) {this.SetProp("MoonAngularSize", DataType.Float32, value);}
+    public get MoonTextureId() {return this.GetProp("MoonTextureId", DataType.String);}
+    public set MoonTextureId(value) {this.SetProp("MoonTextureId", DataType.String, value);}
+    public get SkyboxBk() {return this.GetProp("SkyboxBk", DataType.String);}
+    public set SkyboxBk(value) {this.SetProp("SkyboxBk", DataType.String, value);}
+    public get SkyboxDn() {return this.GetProp("SkyboxDn", DataType.String);}
+    public set SkyboxDn(value) {this.SetProp("SkyboxDn", DataType.String, value);}
+    public get SkyboxFt() {return this.GetProp("SkyboxFt", DataType.String);}
+    public set SkyboxFt(value) {this.SetProp("SkyboxFt", DataType.String, value);}
+    public get SkyboxLf() {return this.GetProp("SkyboxLf", DataType.String);}
+    public set SkyboxLf(value) {this.SetProp("SkyboxLf", DataType.String, value);}
+    public get SkyboxRt() {return this.GetProp("SkyboxRt", DataType.String);}
+    public set SkyboxRt(value) {this.SetProp("SkyboxRt", DataType.String, value);}
+    public get SkyboxUp() {return this.GetProp("SkyboxUp", DataType.String);}
+    public set SkyboxUp(value) {this.SetProp("SkyboxUp", DataType.String, value);}
+    public get StarCount() {return this.GetProp("StarCount", DataType.Int32);}
+    public set StarCount(value) {this.SetProp("StarCount", DataType.Int32, value);}
+    public get SunAngularSize() {return this.GetProp("SunAngularSize", DataType.Float32);}
+    public set SunAngularSize(value) {this.SetProp("SunAngularSize", DataType.Float32, value);}
+    public get SunTextureId() {return this.GetProp("SunTextureId", DataType.String);}
+    public set SunTextureId(value) {this.SetProp("SunTextureId", DataType.String, value);}
 }
 
-export class Smoke extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Smoke");}
+export class Smoke extends Instance {
+    protected constructor(className?: string) {super(className ?? "Smoke"); this.addClassName("Smoke");}
     public static new() {return new Smoke();}
-    public get color() {return this.getProp("Color", DataType.Color3);}
-    public set color(value) {this.setProp("Color", DataType.Color3, value);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get timeScale() {return this.getProp("TimeScale", DataType.Float32);}
-    public set timeScale(value) {this.setProp("TimeScale", DataType.Float32, value);}
-    public get opacity_xml() {return this.getProp("opacity_xml", DataType.Float32);}
-    public set opacity_xml(value) {this.setProp("opacity_xml", DataType.Float32, value);}
-    public get riseVelocity_xml() {return this.getProp("riseVelocity_xml", DataType.Float32);}
-    public set riseVelocity_xml(value) {this.setProp("riseVelocity_xml", DataType.Float32, value);}
-    public get size_xml() {return this.getProp("size_xml", DataType.Float32);}
-    public set size_xml(value) {this.setProp("size_xml", DataType.Float32, value);}
+    public get Color() {return this.GetProp("Color", DataType.Color3);}
+    public set Color(value) {this.SetProp("Color", DataType.Color3, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get TimeScale() {return this.GetProp("TimeScale", DataType.Float32);}
+    public set TimeScale(value) {this.SetProp("TimeScale", DataType.Float32, value);}
+    public get OpacityXml() {return this.GetProp("opacity_xml", DataType.Float32);}
+    public set OpacityXml(value) {this.SetProp("opacity_xml", DataType.Float32, value);}
+    public get RisevelocityXml() {return this.GetProp("riseVelocity_xml", DataType.Float32);}
+    public set RisevelocityXml(value) {this.SetProp("riseVelocity_xml", DataType.Float32, value);}
+    public get SizeXml() {return this.GetProp("size_xml", DataType.Float32);}
+    public set SizeXml(value) {this.SetProp("size_xml", DataType.Float32, value);}
 }
 
-export class SmoothVoxelsUpgraderService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "SmoothVoxelsUpgraderService", true);}
+export class SmoothVoxelsUpgraderService extends Instance {
+    protected constructor(className?: string) {super(className ?? "SmoothVoxelsUpgraderService", true); this.addClassName("SmoothVoxelsUpgraderService");}
     public static new() {return new SmoothVoxelsUpgraderService();}
 }
 
-export class SnippetService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "SnippetService", true);}
+export class SnippetService extends Instance {
+    protected constructor(className?: string) {super(className ?? "SnippetService", true); this.addClassName("SnippetService");}
     public static new() {return new SnippetService();}
 }
 
-export class SocialService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "SocialService", true);}
+export class SocialService extends Instance {
+    protected constructor(className?: string) {super(className ?? "SocialService", true); this.addClassName("SocialService");}
     public static new() {return new SocialService();}
 }
 
-export class Sound extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Sound");}
+export class Sound extends Instance {
+    protected constructor(className?: string) {super(className ?? "Sound"); this.addClassName("Sound");}
     public static new() {return new Sound();}
-    public get emitterSize() {return this.getProp("EmitterSize", DataType.Float32);}
-    public set emitterSize(value) {this.setProp("EmitterSize", DataType.Float32, value);}
-    public get loopRegion() {return this.getProp("LoopRegion", DataType.NumberRange);}
-    public set loopRegion(value) {this.setProp("LoopRegion", DataType.NumberRange, value);}
-    public get looped() {return this.getProp("Looped", DataType.Bool);}
-    public set looped(value) {this.setProp("Looped", DataType.Bool, value);}
-    public get minDistance() {return this.getProp("MinDistance", DataType.Float32);}
-    public set minDistance(value) {this.setProp("MinDistance", DataType.Float32, value);}
-    public get pitch() {return this.getProp("Pitch", DataType.Float32);}
-    public set pitch(value) {this.setProp("Pitch", DataType.Float32, value);}
-    public get playOnRemove() {return this.getProp("PlayOnRemove", DataType.Bool);}
-    public set playOnRemove(value) {this.setProp("PlayOnRemove", DataType.Bool, value);}
-    public get playbackRegion() {return this.getProp("PlaybackRegion", DataType.NumberRange);}
-    public set playbackRegion(value) {this.setProp("PlaybackRegion", DataType.NumberRange, value);}
-    public get playbackRegionsEnabled() {return this.getProp("PlaybackRegionsEnabled", DataType.Bool);}
-    public set playbackRegionsEnabled(value) {this.setProp("PlaybackRegionsEnabled", DataType.Bool, value);}
-    public get playbackSpeed() {return this.getProp("PlaybackSpeed", DataType.Float32);}
-    public set playbackSpeed(value) {this.setProp("PlaybackSpeed", DataType.Float32, value);}
-    public get playing() {return this.getProp("Playing", DataType.Bool);}
-    public set playing(value) {this.setProp("Playing", DataType.Bool, value);}
-    public get rollOffMode() {return this.getProp("RollOffMode", DataType.Enum) as RollOffMode | undefined;}
-    public set rollOffMode(value) {this.setProp("RollOffMode", DataType.Enum, value);}
-    public get soundGroup() {return this.getProp("SoundGroup", DataType.Referent) as SoundGroup | undefined;}
-    public set soundGroup(value) {this.setProp("SoundGroup", DataType.Referent, value);}
-    public get soundId() {return this.getProp("SoundId", DataType.String);}
-    public set soundId(value) {this.setProp("SoundId", DataType.String, value);}
-    public get timePosition() {return this.getProp("TimePosition", DataType.Float64);}
-    public set timePosition(value) {this.setProp("TimePosition", DataType.Float64, value);}
-    public get volume() {return this.getProp("Volume", DataType.Float32);}
-    public set volume(value) {this.setProp("Volume", DataType.Float32, value);}
-    public get xmlRead_MaxDistance_3() {return this.getProp("xmlRead_MaxDistance_3", DataType.Float32);}
-    public set xmlRead_MaxDistance_3(value) {this.setProp("xmlRead_MaxDistance_3", DataType.Float32, value);}
-    public get xmlRead_MinDistance_3() {return this.getProp("xmlRead_MinDistance_3", DataType.Float32);}
-    public set xmlRead_MinDistance_3(value) {this.setProp("xmlRead_MinDistance_3", DataType.Float32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get EmitterSize() {return this.GetProp("EmitterSize", DataType.Float32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set EmitterSize(value) {this.SetProp("EmitterSize", DataType.Float32, value);}
+    public get LoopRegion() {return this.GetProp("LoopRegion", DataType.NumberRange);}
+    public set LoopRegion(value) {this.SetProp("LoopRegion", DataType.NumberRange, value);}
+    public get Looped() {return this.GetProp("Looped", DataType.Bool);}
+    public set Looped(value) {this.SetProp("Looped", DataType.Bool, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get MinDistance() {return this.GetProp("MinDistance", DataType.Float32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set MinDistance(value) {this.SetProp("MinDistance", DataType.Float32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get Pitch() {return this.GetProp("Pitch", DataType.Float32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set Pitch(value) {this.SetProp("Pitch", DataType.Float32, value);}
+    public get PlayOnRemove() {return this.GetProp("PlayOnRemove", DataType.Bool);}
+    public set PlayOnRemove(value) {this.SetProp("PlayOnRemove", DataType.Bool, value);}
+    public get PlaybackRegion() {return this.GetProp("PlaybackRegion", DataType.NumberRange);}
+    public set PlaybackRegion(value) {this.SetProp("PlaybackRegion", DataType.NumberRange, value);}
+    public get PlaybackRegionsEnabled() {return this.GetProp("PlaybackRegionsEnabled", DataType.Bool);}
+    public set PlaybackRegionsEnabled(value) {this.SetProp("PlaybackRegionsEnabled", DataType.Bool, value);}
+    public get PlaybackSpeed() {return this.GetProp("PlaybackSpeed", DataType.Float32);}
+    public set PlaybackSpeed(value) {this.SetProp("PlaybackSpeed", DataType.Float32, value);}
+    public get Playing() {return this.GetProp("Playing", DataType.Bool);}
+    public set Playing(value) {this.SetProp("Playing", DataType.Bool, value);}
+    public get RollOffMode() {return this.GetProp("RollOffMode", DataType.Enum) as RollOffMode | undefined;}
+    public set RollOffMode(value) {this.SetProp("RollOffMode", DataType.Enum, value);}
+    public get SoundGroup() {return this.GetProp("SoundGroup", DataType.Referent) as SoundGroup | undefined;}
+    public set SoundGroup(value) {this.SetProp("SoundGroup", DataType.Referent, value);}
+    public get SoundId() {return this.GetProp("SoundId", DataType.String);}
+    public set SoundId(value) {this.SetProp("SoundId", DataType.String, value);}
+    public get TimePosition() {return this.GetProp("TimePosition", DataType.Float64);}
+    public set TimePosition(value) {this.SetProp("TimePosition", DataType.Float64, value);}
+    public get Volume() {return this.GetProp("Volume", DataType.Float32);}
+    public set Volume(value) {this.SetProp("Volume", DataType.Float32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get XmlreadMaxdistance3() {return this.GetProp("xmlRead_MaxDistance_3", DataType.Float32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set XmlreadMaxdistance3(value) {this.SetProp("xmlRead_MaxDistance_3", DataType.Float32, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get XmlreadMindistance3() {return this.GetProp("xmlRead_MinDistance_3", DataType.Float32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set XmlreadMindistance3(value) {this.SetProp("xmlRead_MinDistance_3", DataType.Float32, value);}
 }
 
-export abstract class SoundEffect extends CoreInstance {
-    protected constructor(className: string) {super(className);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get priority() {return this.getProp("Priority", DataType.Int32);}
-    public set priority(value) {this.setProp("Priority", DataType.Int32, value);}
+export abstract class SoundEffect extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("SoundEffect");}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get Priority() {return this.GetProp("Priority", DataType.Int32);}
+    public set Priority(value) {this.SetProp("Priority", DataType.Int32, value);}
 }
 
 export class ChorusSoundEffect extends SoundEffect {
-    protected constructor(className?: string) {super(className ?? "ChorusSoundEffect");}
+    protected constructor(className?: string) {super(className ?? "ChorusSoundEffect"); this.addClassName("ChorusSoundEffect");}
     public static new() {return new ChorusSoundEffect();}
-    public get depth() {return this.getProp("Depth", DataType.Float32);}
-    public set depth(value) {this.setProp("Depth", DataType.Float32, value);}
-    public get mix() {return this.getProp("Mix", DataType.Float32);}
-    public set mix(value) {this.setProp("Mix", DataType.Float32, value);}
-    public get rate() {return this.getProp("Rate", DataType.Float32);}
-    public set rate(value) {this.setProp("Rate", DataType.Float32, value);}
+    public get Depth() {return this.GetProp("Depth", DataType.Float32);}
+    public set Depth(value) {this.SetProp("Depth", DataType.Float32, value);}
+    public get Mix() {return this.GetProp("Mix", DataType.Float32);}
+    public set Mix(value) {this.SetProp("Mix", DataType.Float32, value);}
+    public get Rate() {return this.GetProp("Rate", DataType.Float32);}
+    public set Rate(value) {this.SetProp("Rate", DataType.Float32, value);}
 }
 
 export class CompressorSoundEffect extends SoundEffect {
-    protected constructor(className?: string) {super(className ?? "CompressorSoundEffect");}
+    protected constructor(className?: string) {super(className ?? "CompressorSoundEffect"); this.addClassName("CompressorSoundEffect");}
     public static new() {return new CompressorSoundEffect();}
-    public get attack() {return this.getProp("Attack", DataType.Float32);}
-    public set attack(value) {this.setProp("Attack", DataType.Float32, value);}
-    public get gainMakeup() {return this.getProp("GainMakeup", DataType.Float32);}
-    public set gainMakeup(value) {this.setProp("GainMakeup", DataType.Float32, value);}
-    public get ratio() {return this.getProp("Ratio", DataType.Float32);}
-    public set ratio(value) {this.setProp("Ratio", DataType.Float32, value);}
-    public get release() {return this.getProp("Release", DataType.Float32);}
-    public set release(value) {this.setProp("Release", DataType.Float32, value);}
-    public get sideChain() {return this.getProp("SideChain", DataType.Referent) as CoreInstance | undefined;}
-    public set sideChain(value) {this.setProp("SideChain", DataType.Referent, value);}
-    public get threshold() {return this.getProp("Threshold", DataType.Float32);}
-    public set threshold(value) {this.setProp("Threshold", DataType.Float32, value);}
+    public get Attack() {return this.GetProp("Attack", DataType.Float32);}
+    public set Attack(value) {this.SetProp("Attack", DataType.Float32, value);}
+    public get GainMakeup() {return this.GetProp("GainMakeup", DataType.Float32);}
+    public set GainMakeup(value) {this.SetProp("GainMakeup", DataType.Float32, value);}
+    public get Ratio() {return this.GetProp("Ratio", DataType.Float32);}
+    public set Ratio(value) {this.SetProp("Ratio", DataType.Float32, value);}
+    public get Release() {return this.GetProp("Release", DataType.Float32);}
+    public set Release(value) {this.SetProp("Release", DataType.Float32, value);}
+    public get SideChain() {return this.GetProp("SideChain", DataType.Referent) as Instance | undefined;}
+    public set SideChain(value) {this.SetProp("SideChain", DataType.Referent, value);}
+    public get Threshold() {return this.GetProp("Threshold", DataType.Float32);}
+    public set Threshold(value) {this.SetProp("Threshold", DataType.Float32, value);}
 }
 
 export abstract class CustomSoundEffect extends SoundEffect {
-    protected constructor(className: string) {super(className);}
+    protected constructor(className: string) {super(className); this.addClassName("CustomSoundEffect");}
 }
 
 export class DistortionSoundEffect extends SoundEffect {
-    protected constructor(className?: string) {super(className ?? "DistortionSoundEffect");}
+    protected constructor(className?: string) {super(className ?? "DistortionSoundEffect"); this.addClassName("DistortionSoundEffect");}
     public static new() {return new DistortionSoundEffect();}
-    public get level() {return this.getProp("Level", DataType.Float32);}
-    public set level(value) {this.setProp("Level", DataType.Float32, value);}
+    public get Level() {return this.GetProp("Level", DataType.Float32);}
+    public set Level(value) {this.SetProp("Level", DataType.Float32, value);}
 }
 
 export class EchoSoundEffect extends SoundEffect {
-    protected constructor(className?: string) {super(className ?? "EchoSoundEffect");}
+    protected constructor(className?: string) {super(className ?? "EchoSoundEffect"); this.addClassName("EchoSoundEffect");}
     public static new() {return new EchoSoundEffect();}
-    public get delay() {return this.getProp("Delay", DataType.Float32);}
-    public set delay(value) {this.setProp("Delay", DataType.Float32, value);}
-    public get dryLevel() {return this.getProp("DryLevel", DataType.Float32);}
-    public set dryLevel(value) {this.setProp("DryLevel", DataType.Float32, value);}
-    public get feedback() {return this.getProp("Feedback", DataType.Float32);}
-    public set feedback(value) {this.setProp("Feedback", DataType.Float32, value);}
-    public get wetLevel() {return this.getProp("WetLevel", DataType.Float32);}
-    public set wetLevel(value) {this.setProp("WetLevel", DataType.Float32, value);}
+    public get Delay() {return this.GetProp("Delay", DataType.Float32);}
+    public set Delay(value) {this.SetProp("Delay", DataType.Float32, value);}
+    public get DryLevel() {return this.GetProp("DryLevel", DataType.Float32);}
+    public set DryLevel(value) {this.SetProp("DryLevel", DataType.Float32, value);}
+    public get Feedback() {return this.GetProp("Feedback", DataType.Float32);}
+    public set Feedback(value) {this.SetProp("Feedback", DataType.Float32, value);}
+    public get WetLevel() {return this.GetProp("WetLevel", DataType.Float32);}
+    public set WetLevel(value) {this.SetProp("WetLevel", DataType.Float32, value);}
 }
 
 export class EqualizerSoundEffect extends SoundEffect {
-    protected constructor(className?: string) {super(className ?? "EqualizerSoundEffect");}
+    protected constructor(className?: string) {super(className ?? "EqualizerSoundEffect"); this.addClassName("EqualizerSoundEffect");}
     public static new() {return new EqualizerSoundEffect();}
-    public get highGain() {return this.getProp("HighGain", DataType.Float32);}
-    public set highGain(value) {this.setProp("HighGain", DataType.Float32, value);}
-    public get lowGain() {return this.getProp("LowGain", DataType.Float32);}
-    public set lowGain(value) {this.setProp("LowGain", DataType.Float32, value);}
-    public get midGain() {return this.getProp("MidGain", DataType.Float32);}
-    public set midGain(value) {this.setProp("MidGain", DataType.Float32, value);}
+    public get HighGain() {return this.GetProp("HighGain", DataType.Float32);}
+    public set HighGain(value) {this.SetProp("HighGain", DataType.Float32, value);}
+    public get LowGain() {return this.GetProp("LowGain", DataType.Float32);}
+    public set LowGain(value) {this.SetProp("LowGain", DataType.Float32, value);}
+    public get MidGain() {return this.GetProp("MidGain", DataType.Float32);}
+    public set MidGain(value) {this.SetProp("MidGain", DataType.Float32, value);}
 }
 
 export class FlangeSoundEffect extends SoundEffect {
-    protected constructor(className?: string) {super(className ?? "FlangeSoundEffect");}
+    protected constructor(className?: string) {super(className ?? "FlangeSoundEffect"); this.addClassName("FlangeSoundEffect");}
     public static new() {return new FlangeSoundEffect();}
-    public get depth() {return this.getProp("Depth", DataType.Float32);}
-    public set depth(value) {this.setProp("Depth", DataType.Float32, value);}
-    public get mix() {return this.getProp("Mix", DataType.Float32);}
-    public set mix(value) {this.setProp("Mix", DataType.Float32, value);}
-    public get rate() {return this.getProp("Rate", DataType.Float32);}
-    public set rate(value) {this.setProp("Rate", DataType.Float32, value);}
+    public get Depth() {return this.GetProp("Depth", DataType.Float32);}
+    public set Depth(value) {this.SetProp("Depth", DataType.Float32, value);}
+    public get Mix() {return this.GetProp("Mix", DataType.Float32);}
+    public set Mix(value) {this.SetProp("Mix", DataType.Float32, value);}
+    public get Rate() {return this.GetProp("Rate", DataType.Float32);}
+    public set Rate(value) {this.SetProp("Rate", DataType.Float32, value);}
 }
 
 export class PitchShiftSoundEffect extends SoundEffect {
-    protected constructor(className?: string) {super(className ?? "PitchShiftSoundEffect");}
+    protected constructor(className?: string) {super(className ?? "PitchShiftSoundEffect"); this.addClassName("PitchShiftSoundEffect");}
     public static new() {return new PitchShiftSoundEffect();}
-    public get octave() {return this.getProp("Octave", DataType.Float32);}
-    public set octave(value) {this.setProp("Octave", DataType.Float32, value);}
+    public get Octave() {return this.GetProp("Octave", DataType.Float32);}
+    public set Octave(value) {this.SetProp("Octave", DataType.Float32, value);}
 }
 
 export class ReverbSoundEffect extends SoundEffect {
-    protected constructor(className?: string) {super(className ?? "ReverbSoundEffect");}
+    protected constructor(className?: string) {super(className ?? "ReverbSoundEffect"); this.addClassName("ReverbSoundEffect");}
     public static new() {return new ReverbSoundEffect();}
-    public get decayTime() {return this.getProp("DecayTime", DataType.Float32);}
-    public set decayTime(value) {this.setProp("DecayTime", DataType.Float32, value);}
-    public get density() {return this.getProp("Density", DataType.Float32);}
-    public set density(value) {this.setProp("Density", DataType.Float32, value);}
-    public get diffusion() {return this.getProp("Diffusion", DataType.Float32);}
-    public set diffusion(value) {this.setProp("Diffusion", DataType.Float32, value);}
-    public get dryLevel() {return this.getProp("DryLevel", DataType.Float32);}
-    public set dryLevel(value) {this.setProp("DryLevel", DataType.Float32, value);}
-    public get wetLevel() {return this.getProp("WetLevel", DataType.Float32);}
-    public set wetLevel(value) {this.setProp("WetLevel", DataType.Float32, value);}
+    public get DecayTime() {return this.GetProp("DecayTime", DataType.Float32);}
+    public set DecayTime(value) {this.SetProp("DecayTime", DataType.Float32, value);}
+    public get Density() {return this.GetProp("Density", DataType.Float32);}
+    public set Density(value) {this.SetProp("Density", DataType.Float32, value);}
+    public get Diffusion() {return this.GetProp("Diffusion", DataType.Float32);}
+    public set Diffusion(value) {this.SetProp("Diffusion", DataType.Float32, value);}
+    public get DryLevel() {return this.GetProp("DryLevel", DataType.Float32);}
+    public set DryLevel(value) {this.SetProp("DryLevel", DataType.Float32, value);}
+    public get WetLevel() {return this.GetProp("WetLevel", DataType.Float32);}
+    public set WetLevel(value) {this.SetProp("WetLevel", DataType.Float32, value);}
 }
 
 export class TremoloSoundEffect extends SoundEffect {
-    protected constructor(className?: string) {super(className ?? "TremoloSoundEffect");}
+    protected constructor(className?: string) {super(className ?? "TremoloSoundEffect"); this.addClassName("TremoloSoundEffect");}
     public static new() {return new TremoloSoundEffect();}
-    public get depth() {return this.getProp("Depth", DataType.Float32);}
-    public set depth(value) {this.setProp("Depth", DataType.Float32, value);}
-    public get duty() {return this.getProp("Duty", DataType.Float32);}
-    public set duty(value) {this.setProp("Duty", DataType.Float32, value);}
-    public get frequency() {return this.getProp("Frequency", DataType.Float32);}
-    public set frequency(value) {this.setProp("Frequency", DataType.Float32, value);}
+    public get Depth() {return this.GetProp("Depth", DataType.Float32);}
+    public set Depth(value) {this.SetProp("Depth", DataType.Float32, value);}
+    public get Duty() {return this.GetProp("Duty", DataType.Float32);}
+    public set Duty(value) {this.SetProp("Duty", DataType.Float32, value);}
+    public get Frequency() {return this.GetProp("Frequency", DataType.Float32);}
+    public set Frequency(value) {this.SetProp("Frequency", DataType.Float32, value);}
 }
 
-export class SoundGroup extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "SoundGroup");}
+export class SoundGroup extends Instance {
+    protected constructor(className?: string) {super(className ?? "SoundGroup"); this.addClassName("SoundGroup");}
     public static new() {return new SoundGroup();}
-    public get volume() {return this.getProp("Volume", DataType.Float32);}
-    public set volume(value) {this.setProp("Volume", DataType.Float32, value);}
+    public get Volume() {return this.GetProp("Volume", DataType.Float32);}
+    public set Volume(value) {this.SetProp("Volume", DataType.Float32, value);}
 }
 
-export class SoundService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "SoundService", true);}
+export class SoundService extends Instance {
+    protected constructor(className?: string) {super(className ?? "SoundService", true); this.addClassName("SoundService");}
     public static new() {return new SoundService();}
-    public get ambientReverb() {return this.getProp("AmbientReverb", DataType.Enum) as ReverbType | undefined;}
-    public set ambientReverb(value) {this.setProp("AmbientReverb", DataType.Enum, value);}
-    public get distanceFactor() {return this.getProp("DistanceFactor", DataType.Float32);}
-    public set distanceFactor(value) {this.setProp("DistanceFactor", DataType.Float32, value);}
-    public get dopplerScale() {return this.getProp("DopplerScale", DataType.Float32);}
-    public set dopplerScale(value) {this.setProp("DopplerScale", DataType.Float32, value);}
-    public get respectFilteringEnabled() {return this.getProp("RespectFilteringEnabled", DataType.Bool);}
-    public set respectFilteringEnabled(value) {this.setProp("RespectFilteringEnabled", DataType.Bool, value);}
-    public get rolloffScale() {return this.getProp("RolloffScale", DataType.Float32);}
-    public set rolloffScale(value) {this.setProp("RolloffScale", DataType.Float32, value);}
-    public get volumetricAudio() {return this.getProp("VolumetricAudio", DataType.Enum) as VolumetricAudio | undefined;}
-    public set volumetricAudio(value) {this.setProp("VolumetricAudio", DataType.Enum, value);}
+    public get AmbientReverb() {return this.GetProp("AmbientReverb", DataType.Enum) as ReverbType | undefined;}
+    public set AmbientReverb(value) {this.SetProp("AmbientReverb", DataType.Enum, value);}
+    public get DistanceFactor() {return this.GetProp("DistanceFactor", DataType.Float32);}
+    public set DistanceFactor(value) {this.SetProp("DistanceFactor", DataType.Float32, value);}
+    public get DopplerScale() {return this.GetProp("DopplerScale", DataType.Float32);}
+    public set DopplerScale(value) {this.SetProp("DopplerScale", DataType.Float32, value);}
+    public get RespectFilteringEnabled() {return this.GetProp("RespectFilteringEnabled", DataType.Bool);}
+    public set RespectFilteringEnabled(value) {this.SetProp("RespectFilteringEnabled", DataType.Bool, value);}
+    public get RolloffScale() {return this.GetProp("RolloffScale", DataType.Float32);}
+    public set RolloffScale(value) {this.SetProp("RolloffScale", DataType.Float32, value);}
+    public get VolumetricAudio() {return this.GetProp("VolumetricAudio", DataType.Enum) as VolumetricAudio | undefined;}
+    public set VolumetricAudio(value) {this.SetProp("VolumetricAudio", DataType.Enum, value);}
 }
 
-export class Sparkles extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Sparkles");}
+export class Sparkles extends Instance {
+    protected constructor(className?: string) {super(className ?? "Sparkles"); this.addClassName("Sparkles");}
     public static new() {return new Sparkles();}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get sparkleColor() {return this.getProp("SparkleColor", DataType.Color3);}
-    public set sparkleColor(value) {this.setProp("SparkleColor", DataType.Color3, value);}
-    public get timeScale() {return this.getProp("TimeScale", DataType.Float32);}
-    public set timeScale(value) {this.setProp("TimeScale", DataType.Float32, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get SparkleColor() {return this.GetProp("SparkleColor", DataType.Color3);}
+    public set SparkleColor(value) {this.SetProp("SparkleColor", DataType.Color3, value);}
+    public get TimeScale() {return this.GetProp("TimeScale", DataType.Float32);}
+    public set TimeScale(value) {this.SetProp("TimeScale", DataType.Float32, value);}
 }
 
-export class SpawnerService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "SpawnerService", true);}
+export class SpawnerService extends Instance {
+    protected constructor(className?: string) {super(className ?? "SpawnerService", true); this.addClassName("SpawnerService");}
     public static new() {return new SpawnerService();}
 }
 
-export class StandalonePluginScripts extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "StandalonePluginScripts");}
+export class StandalonePluginScripts extends Instance {
+    protected constructor(className?: string) {super(className ?? "StandalonePluginScripts"); this.addClassName("StandalonePluginScripts");}
     public static new() {return new StandalonePluginScripts();}
 }
 
-export class StarterGear extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "StarterGear");}
+export class StarterGear extends Instance {
+    protected constructor(className?: string) {super(className ?? "StarterGear"); this.addClassName("StarterGear");}
     public static new() {return new StarterGear();}
 }
 
-export class StarterPack extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "StarterPack", true);}
+export class StarterPack extends Instance {
+    protected constructor(className?: string) {super(className ?? "StarterPack", true); this.addClassName("StarterPack");}
     public static new() {return new StarterPack();}
 }
 
-export class StarterPlayer extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "StarterPlayer", true);}
+export class StarterPlayer extends Instance {
+    protected constructor(className?: string) {super(className ?? "StarterPlayer", true); this.addClassName("StarterPlayer");}
     public static new() {return new StarterPlayer();}
-    public get allowCustomAnimations() {return this.getProp("AllowCustomAnimations", DataType.Bool);}
-    public set allowCustomAnimations(value) {this.setProp("AllowCustomAnimations", DataType.Bool, value);}
-    public get autoJumpEnabled() {return this.getProp("AutoJumpEnabled", DataType.Bool);}
-    public set autoJumpEnabled(value) {this.setProp("AutoJumpEnabled", DataType.Bool, value);}
-    public get avatarJointUpgrade_Serialized() {return this.getProp("AvatarJointUpgrade_Serialized", DataType.Enum) as AvatarJointUpgrade | undefined;}
-    public set avatarJointUpgrade_Serialized(value) {this.setProp("AvatarJointUpgrade_Serialized", DataType.Enum, value);}
-    public get cameraMaxZoomDistance() {return this.getProp("CameraMaxZoomDistance", DataType.Float32);}
-    public set cameraMaxZoomDistance(value) {this.setProp("CameraMaxZoomDistance", DataType.Float32, value);}
-    public get cameraMinZoomDistance() {return this.getProp("CameraMinZoomDistance", DataType.Float32);}
-    public set cameraMinZoomDistance(value) {this.setProp("CameraMinZoomDistance", DataType.Float32, value);}
-    public get cameraMode() {return this.getProp("CameraMode", DataType.Enum) as CameraMode | undefined;}
-    public set cameraMode(value) {this.setProp("CameraMode", DataType.Enum, value);}
-    public get characterJumpHeight() {return this.getProp("CharacterJumpHeight", DataType.Float32);}
-    public set characterJumpHeight(value) {this.setProp("CharacterJumpHeight", DataType.Float32, value);}
-    public get characterJumpPower() {return this.getProp("CharacterJumpPower", DataType.Float32);}
-    public set characterJumpPower(value) {this.setProp("CharacterJumpPower", DataType.Float32, value);}
-    public get characterMaxSlopeAngle() {return this.getProp("CharacterMaxSlopeAngle", DataType.Float32);}
-    public set characterMaxSlopeAngle(value) {this.setProp("CharacterMaxSlopeAngle", DataType.Float32, value);}
-    public get characterUseJumpPower() {return this.getProp("CharacterUseJumpPower", DataType.Bool);}
-    public set characterUseJumpPower(value) {this.setProp("CharacterUseJumpPower", DataType.Bool, value);}
-    public get characterWalkSpeed() {return this.getProp("CharacterWalkSpeed", DataType.Float32);}
-    public set characterWalkSpeed(value) {this.setProp("CharacterWalkSpeed", DataType.Float32, value);}
-    public get devCameraOcclusionMode() {return this.getProp("DevCameraOcclusionMode", DataType.Enum) as DevCameraOcclusionMode | undefined;}
-    public set devCameraOcclusionMode(value) {this.setProp("DevCameraOcclusionMode", DataType.Enum, value);}
-    public get devComputerCameraMovementMode() {return this.getProp("DevComputerCameraMovementMode", DataType.Enum) as DevComputerCameraMovementMode | undefined;}
-    public set devComputerCameraMovementMode(value) {this.setProp("DevComputerCameraMovementMode", DataType.Enum, value);}
-    public get devComputerMovementMode() {return this.getProp("DevComputerMovementMode", DataType.Enum) as DevComputerMovementMode | undefined;}
-    public set devComputerMovementMode(value) {this.setProp("DevComputerMovementMode", DataType.Enum, value);}
-    public get devTouchCameraMovementMode() {return this.getProp("DevTouchCameraMovementMode", DataType.Enum) as DevTouchCameraMovementMode | undefined;}
-    public set devTouchCameraMovementMode(value) {this.setProp("DevTouchCameraMovementMode", DataType.Enum, value);}
-    public get devTouchMovementMode() {return this.getProp("DevTouchMovementMode", DataType.Enum) as DevTouchMovementMode | undefined;}
-    public set devTouchMovementMode(value) {this.setProp("DevTouchMovementMode", DataType.Enum, value);}
-    public get enableDynamicHeads() {return this.getProp("EnableDynamicHeads", DataType.Enum) as LoadDynamicHeads | undefined;}
-    public set enableDynamicHeads(value) {this.setProp("EnableDynamicHeads", DataType.Enum, value);}
-    public get enableMouseLockOption() {return this.getProp("EnableMouseLockOption", DataType.Bool);}
-    public set enableMouseLockOption(value) {this.setProp("EnableMouseLockOption", DataType.Bool, value);}
-    public get gameSettingsAssetIDFace() {return this.getProp("GameSettingsAssetIDFace", DataType.Int64);}
-    public set gameSettingsAssetIDFace(value) {this.setProp("GameSettingsAssetIDFace", DataType.Int64, value);}
-    public get gameSettingsAssetIDHead() {return this.getProp("GameSettingsAssetIDHead", DataType.Int64);}
-    public set gameSettingsAssetIDHead(value) {this.setProp("GameSettingsAssetIDHead", DataType.Int64, value);}
-    public get gameSettingsAssetIDLeftArm() {return this.getProp("GameSettingsAssetIDLeftArm", DataType.Int64);}
-    public set gameSettingsAssetIDLeftArm(value) {this.setProp("GameSettingsAssetIDLeftArm", DataType.Int64, value);}
-    public get gameSettingsAssetIDLeftLeg() {return this.getProp("GameSettingsAssetIDLeftLeg", DataType.Int64);}
-    public set gameSettingsAssetIDLeftLeg(value) {this.setProp("GameSettingsAssetIDLeftLeg", DataType.Int64, value);}
-    public get gameSettingsAssetIDPants() {return this.getProp("GameSettingsAssetIDPants", DataType.Int64);}
-    public set gameSettingsAssetIDPants(value) {this.setProp("GameSettingsAssetIDPants", DataType.Int64, value);}
-    public get gameSettingsAssetIDRightArm() {return this.getProp("GameSettingsAssetIDRightArm", DataType.Int64);}
-    public set gameSettingsAssetIDRightArm(value) {this.setProp("GameSettingsAssetIDRightArm", DataType.Int64, value);}
-    public get gameSettingsAssetIDRightLeg() {return this.getProp("GameSettingsAssetIDRightLeg", DataType.Int64);}
-    public set gameSettingsAssetIDRightLeg(value) {this.setProp("GameSettingsAssetIDRightLeg", DataType.Int64, value);}
-    public get gameSettingsAssetIDShirt() {return this.getProp("GameSettingsAssetIDShirt", DataType.Int64);}
-    public set gameSettingsAssetIDShirt(value) {this.setProp("GameSettingsAssetIDShirt", DataType.Int64, value);}
-    public get gameSettingsAssetIDTeeShirt() {return this.getProp("GameSettingsAssetIDTeeShirt", DataType.Int64);}
-    public set gameSettingsAssetIDTeeShirt(value) {this.setProp("GameSettingsAssetIDTeeShirt", DataType.Int64, value);}
-    public get gameSettingsAssetIDTorso() {return this.getProp("GameSettingsAssetIDTorso", DataType.Int64);}
-    public set gameSettingsAssetIDTorso(value) {this.setProp("GameSettingsAssetIDTorso", DataType.Int64, value);}
-    public get gameSettingsAvatar() {return this.getProp("GameSettingsAvatar", DataType.Enum) as GameAvatarType | undefined;}
-    public set gameSettingsAvatar(value) {this.setProp("GameSettingsAvatar", DataType.Enum, value);}
-    public get gameSettingsR15Collision() {return this.getProp("GameSettingsR15Collision", DataType.Enum) as R15CollisionType | undefined;}
-    public set gameSettingsR15Collision(value) {this.setProp("GameSettingsR15Collision", DataType.Enum, value);}
-    public get gameSettingsScaleRangeBodyType() {return this.getProp("GameSettingsScaleRangeBodyType", DataType.NumberRange);}
-    public set gameSettingsScaleRangeBodyType(value) {this.setProp("GameSettingsScaleRangeBodyType", DataType.NumberRange, value);}
-    public get gameSettingsScaleRangeHead() {return this.getProp("GameSettingsScaleRangeHead", DataType.NumberRange);}
-    public set gameSettingsScaleRangeHead(value) {this.setProp("GameSettingsScaleRangeHead", DataType.NumberRange, value);}
-    public get gameSettingsScaleRangeHeight() {return this.getProp("GameSettingsScaleRangeHeight", DataType.NumberRange);}
-    public set gameSettingsScaleRangeHeight(value) {this.setProp("GameSettingsScaleRangeHeight", DataType.NumberRange, value);}
-    public get gameSettingsScaleRangeProportion() {return this.getProp("GameSettingsScaleRangeProportion", DataType.NumberRange);}
-    public set gameSettingsScaleRangeProportion(value) {this.setProp("GameSettingsScaleRangeProportion", DataType.NumberRange, value);}
-    public get gameSettingsScaleRangeWidth() {return this.getProp("GameSettingsScaleRangeWidth", DataType.NumberRange);}
-    public set gameSettingsScaleRangeWidth(value) {this.setProp("GameSettingsScaleRangeWidth", DataType.NumberRange, value);}
-    public get healthDisplayDistance() {return this.getProp("HealthDisplayDistance", DataType.Float32);}
-    public set healthDisplayDistance(value) {this.setProp("HealthDisplayDistance", DataType.Float32, value);}
-    public get loadCharacterAppearance() {return this.getProp("LoadCharacterAppearance", DataType.Bool);}
-    public set loadCharacterAppearance(value) {this.setProp("LoadCharacterAppearance", DataType.Bool, value);}
-    public get loadCharacterLayeredClothing() {return this.getProp("LoadCharacterLayeredClothing", DataType.Enum) as LoadCharacterLayeredClothing | undefined;}
-    public set loadCharacterLayeredClothing(value) {this.setProp("LoadCharacterLayeredClothing", DataType.Enum, value);}
-    public get luaCharacterController() {return this.getProp("LuaCharacterController", DataType.Enum) as CharacterControlMode | undefined;}
-    public set luaCharacterController(value) {this.setProp("LuaCharacterController", DataType.Enum, value);}
-    public get nameDisplayDistance() {return this.getProp("NameDisplayDistance", DataType.Float32);}
-    public set nameDisplayDistance(value) {this.setProp("NameDisplayDistance", DataType.Float32, value);}
-    public get userEmotesEnabled() {return this.getProp("UserEmotesEnabled", DataType.Bool);}
-    public set userEmotesEnabled(value) {this.setProp("UserEmotesEnabled", DataType.Bool, value);}
+    public get AllowCustomAnimations() {return this.GetProp("AllowCustomAnimations", DataType.Bool);}
+    public set AllowCustomAnimations(value) {this.SetProp("AllowCustomAnimations", DataType.Bool, value);}
+    public get AutoJumpEnabled() {return this.GetProp("AutoJumpEnabled", DataType.Bool);}
+    public set AutoJumpEnabled(value) {this.SetProp("AutoJumpEnabled", DataType.Bool, value);}
+    public get AvatarjointupgradeSerialized() {return this.GetProp("AvatarJointUpgrade_Serialized", DataType.Enum) as AvatarJointUpgrade | undefined;}
+    public set AvatarjointupgradeSerialized(value) {this.SetProp("AvatarJointUpgrade_Serialized", DataType.Enum, value);}
+    public get CameraMaxZoomDistance() {return this.GetProp("CameraMaxZoomDistance", DataType.Float32);}
+    public set CameraMaxZoomDistance(value) {this.SetProp("CameraMaxZoomDistance", DataType.Float32, value);}
+    public get CameraMinZoomDistance() {return this.GetProp("CameraMinZoomDistance", DataType.Float32);}
+    public set CameraMinZoomDistance(value) {this.SetProp("CameraMinZoomDistance", DataType.Float32, value);}
+    public get CameraMode() {return this.GetProp("CameraMode", DataType.Enum) as CameraMode | undefined;}
+    public set CameraMode(value) {this.SetProp("CameraMode", DataType.Enum, value);}
+    public get CharacterJumpHeight() {return this.GetProp("CharacterJumpHeight", DataType.Float32);}
+    public set CharacterJumpHeight(value) {this.SetProp("CharacterJumpHeight", DataType.Float32, value);}
+    public get CharacterJumpPower() {return this.GetProp("CharacterJumpPower", DataType.Float32);}
+    public set CharacterJumpPower(value) {this.SetProp("CharacterJumpPower", DataType.Float32, value);}
+    public get CharacterMaxSlopeAngle() {return this.GetProp("CharacterMaxSlopeAngle", DataType.Float32);}
+    public set CharacterMaxSlopeAngle(value) {this.SetProp("CharacterMaxSlopeAngle", DataType.Float32, value);}
+    public get CharacterUseJumpPower() {return this.GetProp("CharacterUseJumpPower", DataType.Bool);}
+    public set CharacterUseJumpPower(value) {this.SetProp("CharacterUseJumpPower", DataType.Bool, value);}
+    public get CharacterWalkSpeed() {return this.GetProp("CharacterWalkSpeed", DataType.Float32);}
+    public set CharacterWalkSpeed(value) {this.SetProp("CharacterWalkSpeed", DataType.Float32, value);}
+    public get DevCameraOcclusionMode() {return this.GetProp("DevCameraOcclusionMode", DataType.Enum) as DevCameraOcclusionMode | undefined;}
+    public set DevCameraOcclusionMode(value) {this.SetProp("DevCameraOcclusionMode", DataType.Enum, value);}
+    public get DevComputerCameraMovementMode() {return this.GetProp("DevComputerCameraMovementMode", DataType.Enum) as DevComputerCameraMovementMode | undefined;}
+    public set DevComputerCameraMovementMode(value) {this.SetProp("DevComputerCameraMovementMode", DataType.Enum, value);}
+    public get DevComputerMovementMode() {return this.GetProp("DevComputerMovementMode", DataType.Enum) as DevComputerMovementMode | undefined;}
+    public set DevComputerMovementMode(value) {this.SetProp("DevComputerMovementMode", DataType.Enum, value);}
+    public get DevTouchCameraMovementMode() {return this.GetProp("DevTouchCameraMovementMode", DataType.Enum) as DevTouchCameraMovementMode | undefined;}
+    public set DevTouchCameraMovementMode(value) {this.SetProp("DevTouchCameraMovementMode", DataType.Enum, value);}
+    public get DevTouchMovementMode() {return this.GetProp("DevTouchMovementMode", DataType.Enum) as DevTouchMovementMode | undefined;}
+    public set DevTouchMovementMode(value) {this.SetProp("DevTouchMovementMode", DataType.Enum, value);}
+    public get EnableDynamicHeads() {return this.GetProp("EnableDynamicHeads", DataType.Enum) as LoadDynamicHeads | undefined;}
+    public set EnableDynamicHeads(value) {this.SetProp("EnableDynamicHeads", DataType.Enum, value);}
+    public get EnableMouseLockOption() {return this.GetProp("EnableMouseLockOption", DataType.Bool);}
+    public set EnableMouseLockOption(value) {this.SetProp("EnableMouseLockOption", DataType.Bool, value);}
+    public get GameSettingsAssetIDFace() {return this.GetProp("GameSettingsAssetIDFace", DataType.Int64);}
+    public set GameSettingsAssetIDFace(value) {this.SetProp("GameSettingsAssetIDFace", DataType.Int64, value);}
+    public get GameSettingsAssetIDHead() {return this.GetProp("GameSettingsAssetIDHead", DataType.Int64);}
+    public set GameSettingsAssetIDHead(value) {this.SetProp("GameSettingsAssetIDHead", DataType.Int64, value);}
+    public get GameSettingsAssetIDLeftArm() {return this.GetProp("GameSettingsAssetIDLeftArm", DataType.Int64);}
+    public set GameSettingsAssetIDLeftArm(value) {this.SetProp("GameSettingsAssetIDLeftArm", DataType.Int64, value);}
+    public get GameSettingsAssetIDLeftLeg() {return this.GetProp("GameSettingsAssetIDLeftLeg", DataType.Int64);}
+    public set GameSettingsAssetIDLeftLeg(value) {this.SetProp("GameSettingsAssetIDLeftLeg", DataType.Int64, value);}
+    public get GameSettingsAssetIDPants() {return this.GetProp("GameSettingsAssetIDPants", DataType.Int64);}
+    public set GameSettingsAssetIDPants(value) {this.SetProp("GameSettingsAssetIDPants", DataType.Int64, value);}
+    public get GameSettingsAssetIDRightArm() {return this.GetProp("GameSettingsAssetIDRightArm", DataType.Int64);}
+    public set GameSettingsAssetIDRightArm(value) {this.SetProp("GameSettingsAssetIDRightArm", DataType.Int64, value);}
+    public get GameSettingsAssetIDRightLeg() {return this.GetProp("GameSettingsAssetIDRightLeg", DataType.Int64);}
+    public set GameSettingsAssetIDRightLeg(value) {this.SetProp("GameSettingsAssetIDRightLeg", DataType.Int64, value);}
+    public get GameSettingsAssetIDShirt() {return this.GetProp("GameSettingsAssetIDShirt", DataType.Int64);}
+    public set GameSettingsAssetIDShirt(value) {this.SetProp("GameSettingsAssetIDShirt", DataType.Int64, value);}
+    public get GameSettingsAssetIDTeeShirt() {return this.GetProp("GameSettingsAssetIDTeeShirt", DataType.Int64);}
+    public set GameSettingsAssetIDTeeShirt(value) {this.SetProp("GameSettingsAssetIDTeeShirt", DataType.Int64, value);}
+    public get GameSettingsAssetIDTorso() {return this.GetProp("GameSettingsAssetIDTorso", DataType.Int64);}
+    public set GameSettingsAssetIDTorso(value) {this.SetProp("GameSettingsAssetIDTorso", DataType.Int64, value);}
+    public get GameSettingsAvatar() {return this.GetProp("GameSettingsAvatar", DataType.Enum) as GameAvatarType | undefined;}
+    public set GameSettingsAvatar(value) {this.SetProp("GameSettingsAvatar", DataType.Enum, value);}
+    public get GameSettingsR15Collision() {return this.GetProp("GameSettingsR15Collision", DataType.Enum) as R15CollisionType | undefined;}
+    public set GameSettingsR15Collision(value) {this.SetProp("GameSettingsR15Collision", DataType.Enum, value);}
+    public get GameSettingsScaleRangeBodyType() {return this.GetProp("GameSettingsScaleRangeBodyType", DataType.NumberRange);}
+    public set GameSettingsScaleRangeBodyType(value) {this.SetProp("GameSettingsScaleRangeBodyType", DataType.NumberRange, value);}
+    public get GameSettingsScaleRangeHead() {return this.GetProp("GameSettingsScaleRangeHead", DataType.NumberRange);}
+    public set GameSettingsScaleRangeHead(value) {this.SetProp("GameSettingsScaleRangeHead", DataType.NumberRange, value);}
+    public get GameSettingsScaleRangeHeight() {return this.GetProp("GameSettingsScaleRangeHeight", DataType.NumberRange);}
+    public set GameSettingsScaleRangeHeight(value) {this.SetProp("GameSettingsScaleRangeHeight", DataType.NumberRange, value);}
+    public get GameSettingsScaleRangeProportion() {return this.GetProp("GameSettingsScaleRangeProportion", DataType.NumberRange);}
+    public set GameSettingsScaleRangeProportion(value) {this.SetProp("GameSettingsScaleRangeProportion", DataType.NumberRange, value);}
+    public get GameSettingsScaleRangeWidth() {return this.GetProp("GameSettingsScaleRangeWidth", DataType.NumberRange);}
+    public set GameSettingsScaleRangeWidth(value) {this.SetProp("GameSettingsScaleRangeWidth", DataType.NumberRange, value);}
+    public get HealthDisplayDistance() {return this.GetProp("HealthDisplayDistance", DataType.Float32);}
+    public set HealthDisplayDistance(value) {this.SetProp("HealthDisplayDistance", DataType.Float32, value);}
+    public get LoadCharacterAppearance() {return this.GetProp("LoadCharacterAppearance", DataType.Bool);}
+    public set LoadCharacterAppearance(value) {this.SetProp("LoadCharacterAppearance", DataType.Bool, value);}
+    public get LoadCharacterLayeredClothing() {return this.GetProp("LoadCharacterLayeredClothing", DataType.Enum) as LoadCharacterLayeredClothing | undefined;}
+    public set LoadCharacterLayeredClothing(value) {this.SetProp("LoadCharacterLayeredClothing", DataType.Enum, value);}
+    public get LuaCharacterController() {return this.GetProp("LuaCharacterController", DataType.Enum) as CharacterControlMode | undefined;}
+    public set LuaCharacterController(value) {this.SetProp("LuaCharacterController", DataType.Enum, value);}
+    public get NameDisplayDistance() {return this.GetProp("NameDisplayDistance", DataType.Float32);}
+    public set NameDisplayDistance(value) {this.SetProp("NameDisplayDistance", DataType.Float32, value);}
+    public get UserEmotesEnabled() {return this.GetProp("UserEmotesEnabled", DataType.Bool);}
+    public set UserEmotesEnabled(value) {this.SetProp("UserEmotesEnabled", DataType.Bool, value);}
 }
 
-export class StarterPlayerScripts extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "StarterPlayerScripts");}
+export class StarterPlayerScripts extends Instance {
+    protected constructor(className?: string) {super(className ?? "StarterPlayerScripts"); this.addClassName("StarterPlayerScripts");}
     public static new() {return new StarterPlayerScripts();}
 }
 
 export class StarterCharacterScripts extends StarterPlayerScripts {
-    protected constructor(className?: string) {super(className ?? "StarterCharacterScripts");}
+    protected constructor(className?: string) {super(className ?? "StarterCharacterScripts"); this.addClassName("StarterCharacterScripts");}
     public static new() {return new StarterCharacterScripts();}
 }
 
-export class StartupMessageService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "StartupMessageService", true);}
+export class StartupMessageService extends Instance {
+    protected constructor(className?: string) {super(className ?? "StartupMessageService", true); this.addClassName("StartupMessageService");}
     public static new() {return new StartupMessageService();}
 }
 
-export class Stats extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Stats", true);}
+export class Stats extends Instance {
+    protected constructor(className?: string) {super(className ?? "Stats", true); this.addClassName("Stats");}
     public static new() {return new Stats();}
 }
 
-export abstract class StatsItem extends CoreInstance {
-    protected constructor(className: string) {super(className);}
+export abstract class StatsItem extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("StatsItem");}
 }
 
-export class StopWatchReporter extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "StopWatchReporter", true);}
+export class StopWatchReporter extends Instance {
+    protected constructor(className?: string) {super(className ?? "StopWatchReporter", true); this.addClassName("StopWatchReporter");}
     public static new() {return new StopWatchReporter();}
 }
 
-export class StreamingService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "StreamingService", true);}
+export class StreamingService extends Instance {
+    protected constructor(className?: string) {super(className ?? "StreamingService", true); this.addClassName("StreamingService");}
     public static new() {return new StreamingService();}
 }
 
-export class StudioAssetService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "StudioAssetService", true);}
+export class StudioAssetService extends Instance {
+    protected constructor(className?: string) {super(className ?? "StudioAssetService", true); this.addClassName("StudioAssetService");}
     public static new() {return new StudioAssetService();}
 }
 
-export class StudioAttachment extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "StudioAttachment");}
+export class StudioAttachment extends Instance {
+    protected constructor(className?: string) {super(className ?? "StudioAttachment"); this.addClassName("StudioAttachment");}
     public static new() {return new StudioAttachment();}
-    public get autoHideParent() {return this.getProp("AutoHideParent", DataType.Bool);}
-    public set autoHideParent(value) {this.setProp("AutoHideParent", DataType.Bool, value);}
-    public get isArrowVisible() {return this.getProp("IsArrowVisible", DataType.Bool);}
-    public set isArrowVisible(value) {this.setProp("IsArrowVisible", DataType.Bool, value);}
-    public get offset() {return this.getProp("Offset", DataType.Vector2);}
-    public set offset(value) {this.setProp("Offset", DataType.Vector2, value);}
-    public get sourceAnchorPoint() {return this.getProp("SourceAnchorPoint", DataType.Vector2);}
-    public set sourceAnchorPoint(value) {this.setProp("SourceAnchorPoint", DataType.Vector2, value);}
-    public get targetAnchorPoint() {return this.getProp("TargetAnchorPoint", DataType.Vector2);}
-    public set targetAnchorPoint(value) {this.setProp("TargetAnchorPoint", DataType.Vector2, value);}
+    public get AutoHideParent() {return this.GetProp("AutoHideParent", DataType.Bool);}
+    public set AutoHideParent(value) {this.SetProp("AutoHideParent", DataType.Bool, value);}
+    public get IsArrowVisible() {return this.GetProp("IsArrowVisible", DataType.Bool);}
+    public set IsArrowVisible(value) {this.SetProp("IsArrowVisible", DataType.Bool, value);}
+    public get Offset() {return this.GetProp("Offset", DataType.Vector2);}
+    public set Offset(value) {this.SetProp("Offset", DataType.Vector2, value);}
+    public get SourceAnchorPoint() {return this.GetProp("SourceAnchorPoint", DataType.Vector2);}
+    public set SourceAnchorPoint(value) {this.SetProp("SourceAnchorPoint", DataType.Vector2, value);}
+    public get TargetAnchorPoint() {return this.GetProp("TargetAnchorPoint", DataType.Vector2);}
+    public set TargetAnchorPoint(value) {this.SetProp("TargetAnchorPoint", DataType.Vector2, value);}
 }
 
-export class StudioCallout extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "StudioCallout");}
+export class StudioCallout extends Instance {
+    protected constructor(className?: string) {super(className ?? "StudioCallout"); this.addClassName("StudioCallout");}
     public static new() {return new StudioCallout();}
 }
 
-export class StudioData extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "StudioData", true);}
+export class StudioData extends Instance {
+    protected constructor(className?: string) {super(className ?? "StudioData", true); this.addClassName("StudioData");}
     public static new() {return new StudioData();}
-    public get enableScriptCollabByDefaultOnLoad() {return this.getProp("EnableScriptCollabByDefaultOnLoad", DataType.Bool);}
-    public set enableScriptCollabByDefaultOnLoad(value) {this.setProp("EnableScriptCollabByDefaultOnLoad", DataType.Bool, value);}
+    public get EnableScriptCollabByDefaultOnLoad() {return this.GetProp("EnableScriptCollabByDefaultOnLoad", DataType.Bool);}
+    public set EnableScriptCollabByDefaultOnLoad(value) {this.SetProp("EnableScriptCollabByDefaultOnLoad", DataType.Bool, value);}
 }
 
-export class StudioDeviceEmulatorService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "StudioDeviceEmulatorService", true);}
+export class StudioDeviceEmulatorService extends Instance {
+    protected constructor(className?: string) {super(className ?? "StudioDeviceEmulatorService", true); this.addClassName("StudioDeviceEmulatorService");}
     public static new() {return new StudioDeviceEmulatorService();}
 }
 
-export abstract class StudioObjectBase extends CoreInstance {
-    protected constructor(className: string) {super(className);}
+export abstract class StudioObjectBase extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("StudioObjectBase");}
 }
 
-export class StudioPublishService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "StudioPublishService", true);}
+export class StudioPublishService extends Instance {
+    protected constructor(className?: string) {super(className ?? "StudioPublishService", true); this.addClassName("StudioPublishService");}
     public static new() {return new StudioPublishService();}
-    public get publishLocked() {return this.getProp("PublishLocked", DataType.Bool);}
-    public set publishLocked(value) {this.setProp("PublishLocked", DataType.Bool, value);}
+    public get PublishLocked() {return this.GetProp("PublishLocked", DataType.Bool);}
+    public set PublishLocked(value) {this.SetProp("PublishLocked", DataType.Bool, value);}
 }
 
-export class StudioScriptDebugEventListener extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "StudioScriptDebugEventListener", true);}
+export class StudioScriptDebugEventListener extends Instance {
+    protected constructor(className?: string) {super(className ?? "StudioScriptDebugEventListener", true); this.addClassName("StudioScriptDebugEventListener");}
     public static new() {return new StudioScriptDebugEventListener();}
 }
 
-export class StudioSdkService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "StudioSdkService", true);}
+export class StudioSdkService extends Instance {
+    protected constructor(className?: string) {super(className ?? "StudioSdkService", true); this.addClassName("StudioSdkService");}
     public static new() {return new StudioSdkService();}
 }
 
-export class StudioService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "StudioService", true);}
+export class StudioService extends Instance {
+    protected constructor(className?: string) {super(className ?? "StudioService", true); this.addClassName("StudioService");}
     public static new() {return new StudioService();}
 }
 
-export class StudioWidgetsService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "StudioWidgetsService", true);}
+export class StudioWidgetsService extends Instance {
+    protected constructor(className?: string) {super(className ?? "StudioWidgetsService", true); this.addClassName("StudioWidgetsService");}
     public static new() {return new StudioWidgetsService();}
 }
 
-export abstract class StyleBase extends CoreInstance {
-    protected constructor(className: string) {super(className);}
+export abstract class StyleBase extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("StyleBase");}
 }
 
 export class StyleRule extends StyleBase {
-    protected constructor(className?: string) {super(className ?? "StyleRule");}
+    protected constructor(className?: string) {super(className ?? "StyleRule"); this.addClassName("StyleRule");}
     public static new() {return new StyleRule();}
-    public get index() {return this.getProp("Index", DataType.Int32);}
-    public set index(value) {this.setProp("Index", DataType.Int32, value);}
-    public get propertiesSerialize() {return this.getProp("PropertiesSerialize", DataType.String);}
-    public set propertiesSerialize(value) {this.setProp("PropertiesSerialize", DataType.String, value);}
-    public get selector() {return this.getProp("Selector", DataType.String);}
-    public set selector(value) {this.setProp("Selector", DataType.String, value);}
+    public get Index() {return this.GetProp("Index", DataType.Int32);}
+    public set Index(value) {this.SetProp("Index", DataType.Int32, value);}
+    public get PropertiesSerialize() {return this.GetProp("PropertiesSerialize", DataType.String);}
+    public set PropertiesSerialize(value) {this.SetProp("PropertiesSerialize", DataType.String, value);}
+    public get Selector() {return this.GetProp("Selector", DataType.String);}
+    public set Selector(value) {this.SetProp("Selector", DataType.String, value);}
 }
 
 export class StyleSheet extends StyleBase {
-    protected constructor(className?: string) {super(className ?? "StyleSheet");}
+    protected constructor(className?: string) {super(className ?? "StyleSheet"); this.addClassName("StyleSheet");}
     public static new() {return new StyleSheet();}
 }
 
-export class StyleDerive extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "StyleDerive");}
+export class StyleDerive extends Instance {
+    protected constructor(className?: string) {super(className ?? "StyleDerive"); this.addClassName("StyleDerive");}
     public static new() {return new StyleDerive();}
-    public get index() {return this.getProp("Index", DataType.Int32);}
-    public set index(value) {this.setProp("Index", DataType.Int32, value);}
-    public get styleSheet() {return this.getProp("StyleSheet", DataType.Referent) as StyleSheet | undefined;}
-    public set styleSheet(value) {this.setProp("StyleSheet", DataType.Referent, value);}
+    public get Index() {return this.GetProp("Index", DataType.Int32);}
+    public set Index(value) {this.SetProp("Index", DataType.Int32, value);}
+    public get StyleSheet() {return this.GetProp("StyleSheet", DataType.Referent) as StyleSheet | undefined;}
+    public set StyleSheet(value) {this.SetProp("StyleSheet", DataType.Referent, value);}
 }
 
-export class StyleLink extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "StyleLink");}
+export class StyleLink extends Instance {
+    protected constructor(className?: string) {super(className ?? "StyleLink"); this.addClassName("StyleLink");}
     public static new() {return new StyleLink();}
-    public get styleSheet() {return this.getProp("StyleSheet", DataType.Referent) as StyleSheet | undefined;}
-    public set styleSheet(value) {this.setProp("StyleSheet", DataType.Referent, value);}
+    public get StyleSheet() {return this.GetProp("StyleSheet", DataType.Referent) as StyleSheet | undefined;}
+    public set StyleSheet(value) {this.SetProp("StyleSheet", DataType.Referent, value);}
 }
 
-export class StylingService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "StylingService", true);}
+export class StylingService extends Instance {
+    protected constructor(className?: string) {super(className ?? "StylingService", true); this.addClassName("StylingService");}
     public static new() {return new StylingService();}
 }
 
-export class SurfaceAppearance extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "SurfaceAppearance");}
+export class SurfaceAppearance extends Instance {
+    protected constructor(className?: string) {super(className ?? "SurfaceAppearance"); this.addClassName("SurfaceAppearance");}
     public static new() {return new SurfaceAppearance();}
-    public get alphaMode() {return this.getProp("AlphaMode", DataType.Enum) as AlphaMode | undefined;}
-    public set alphaMode(value) {this.setProp("AlphaMode", DataType.Enum, value);}
-    public get colorMap() {return this.getProp("ColorMap", DataType.String);}
-    public set colorMap(value) {this.setProp("ColorMap", DataType.String, value);}
-    public get metalnessMap() {return this.getProp("MetalnessMap", DataType.String);}
-    public set metalnessMap(value) {this.setProp("MetalnessMap", DataType.String, value);}
-    public get normalMap() {return this.getProp("NormalMap", DataType.String);}
-    public set normalMap(value) {this.setProp("NormalMap", DataType.String, value);}
-    public get roughnessMap() {return this.getProp("RoughnessMap", DataType.String);}
-    public set roughnessMap(value) {this.setProp("RoughnessMap", DataType.String, value);}
-    public get texturePack() {return this.getProp("TexturePack", DataType.String);}
-    public set texturePack(value) {this.setProp("TexturePack", DataType.String, value);}
+    public get AlphaMode() {return this.GetProp("AlphaMode", DataType.Enum) as AlphaMode | undefined;}
+    public set AlphaMode(value) {this.SetProp("AlphaMode", DataType.Enum, value);}
+    public get ColorMap() {return this.GetProp("ColorMap", DataType.String);}
+    public set ColorMap(value) {this.SetProp("ColorMap", DataType.String, value);}
+    public get MetalnessMap() {return this.GetProp("MetalnessMap", DataType.String);}
+    public set MetalnessMap(value) {this.SetProp("MetalnessMap", DataType.String, value);}
+    public get NormalMap() {return this.GetProp("NormalMap", DataType.String);}
+    public set NormalMap(value) {this.SetProp("NormalMap", DataType.String, value);}
+    public get RoughnessMap() {return this.GetProp("RoughnessMap", DataType.String);}
+    public set RoughnessMap(value) {this.SetProp("RoughnessMap", DataType.String, value);}
+    public get TexturePack() {return this.GetProp("TexturePack", DataType.String);}
+    public set TexturePack(value) {this.SetProp("TexturePack", DataType.String, value);}
 }
 
-export class TaskScheduler extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "TaskScheduler", true);}
+export class TaskScheduler extends Instance {
+    protected constructor(className?: string) {super(className ?? "TaskScheduler", true); this.addClassName("TaskScheduler");}
     public static new() {return new TaskScheduler();}
-    public get threadPoolConfig() {return this.getProp("ThreadPoolConfig", DataType.Enum) as ThreadPoolConfig | undefined;}
-    public set threadPoolConfig(value) {this.setProp("ThreadPoolConfig", DataType.Enum, value);}
+    public get ThreadPoolConfig() {return this.GetProp("ThreadPoolConfig", DataType.Enum) as ThreadPoolConfig | undefined;}
+    public set ThreadPoolConfig(value) {this.SetProp("ThreadPoolConfig", DataType.Enum, value);}
 }
 
-export class Team extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Team");}
+export class Team extends Instance {
+    protected constructor(className?: string) {super(className ?? "Team"); this.addClassName("Team");}
     public static new() {return new Team();}
-    public get autoAssignable() {return this.getProp("AutoAssignable", DataType.Bool);}
-    public set autoAssignable(value) {this.setProp("AutoAssignable", DataType.Bool, value);}
-    public get autoColorCharacters() {return this.getProp("AutoColorCharacters", DataType.Bool);}
-    public set autoColorCharacters(value) {this.setProp("AutoColorCharacters", DataType.Bool, value);}
-    public get score() {return this.getProp("Score", DataType.Int32);}
-    public set score(value) {this.setProp("Score", DataType.Int32, value);}
-    public get teamColor() {return this.getProp("TeamColor", DataType.BrickColor);}
-    public set teamColor(value) {this.setProp("TeamColor", DataType.BrickColor, value);}
+    public get AutoAssignable() {return this.GetProp("AutoAssignable", DataType.Bool);}
+    public set AutoAssignable(value) {this.SetProp("AutoAssignable", DataType.Bool, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get AutoColorCharacters() {return this.GetProp("AutoColorCharacters", DataType.Bool);}
+    /**@deprecated Deprecated by Roblox*/
+    public set AutoColorCharacters(value) {this.SetProp("AutoColorCharacters", DataType.Bool, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get Score() {return this.GetProp("Score", DataType.Int32);}
+    /**@deprecated Deprecated by Roblox*/
+    public set Score(value) {this.SetProp("Score", DataType.Int32, value);}
+    public get TeamColor() {return this.GetProp("TeamColor", DataType.BrickColor);}
+    public set TeamColor(value) {this.SetProp("TeamColor", DataType.BrickColor, value);}
 }
 
-export class TeamCreateData extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "TeamCreateData", true);}
+export class TeamCreateData extends Instance {
+    protected constructor(className?: string) {super(className ?? "TeamCreateData", true); this.addClassName("TeamCreateData");}
     public static new() {return new TeamCreateData();}
 }
 
-export class TeamCreatePublishService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "TeamCreatePublishService", true);}
+export class TeamCreatePublishService extends Instance {
+    protected constructor(className?: string) {super(className ?? "TeamCreatePublishService", true); this.addClassName("TeamCreatePublishService");}
     public static new() {return new TeamCreatePublishService();}
 }
 
-export class TeamCreateService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "TeamCreateService", true);}
+export class TeamCreateService extends Instance {
+    protected constructor(className?: string) {super(className ?? "TeamCreateService", true); this.addClassName("TeamCreateService");}
     public static new() {return new TeamCreateService();}
 }
 
-export class Teams extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Teams", true);}
+export class Teams extends Instance {
+    protected constructor(className?: string) {super(className ?? "Teams", true); this.addClassName("Teams");}
     public static new() {return new Teams();}
 }
 
-export class TeleportOptions extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "TeleportOptions");}
+export class TeleportOptions extends Instance {
+    protected constructor(className?: string) {super(className ?? "TeleportOptions"); this.addClassName("TeleportOptions");}
     public static new() {return new TeleportOptions();}
-    public get reservedServerAccessCode() {return this.getProp("ReservedServerAccessCode", DataType.String);}
-    public set reservedServerAccessCode(value) {this.setProp("ReservedServerAccessCode", DataType.String, value);}
-    public get serverInstanceId() {return this.getProp("ServerInstanceId", DataType.String);}
-    public set serverInstanceId(value) {this.setProp("ServerInstanceId", DataType.String, value);}
-    public get shouldReserveServer() {return this.getProp("ShouldReserveServer", DataType.Bool);}
-    public set shouldReserveServer(value) {this.setProp("ShouldReserveServer", DataType.Bool, value);}
+    public get ReservedServerAccessCode() {return this.GetProp("ReservedServerAccessCode", DataType.String);}
+    public set ReservedServerAccessCode(value) {this.SetProp("ReservedServerAccessCode", DataType.String, value);}
+    public get ServerInstanceId() {return this.GetProp("ServerInstanceId", DataType.String);}
+    public set ServerInstanceId(value) {this.SetProp("ServerInstanceId", DataType.String, value);}
+    public get ShouldReserveServer() {return this.GetProp("ShouldReserveServer", DataType.Bool);}
+    public set ShouldReserveServer(value) {this.SetProp("ShouldReserveServer", DataType.Bool, value);}
 }
 
-export class TeleportService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "TeleportService", true);}
+export class TeleportService extends Instance {
+    protected constructor(className?: string) {super(className ?? "TeleportService", true); this.addClassName("TeleportService");}
     public static new() {return new TeleportService();}
-    public get customizedTeleportUI() {return this.getProp("CustomizedTeleportUI", DataType.Bool);}
-    public set customizedTeleportUI(value) {this.setProp("CustomizedTeleportUI", DataType.Bool, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get CustomizedTeleportUI() {return this.GetProp("CustomizedTeleportUI", DataType.Bool);}
+    /**@deprecated Deprecated by Roblox*/
+    public set CustomizedTeleportUI(value) {this.SetProp("CustomizedTeleportUI", DataType.Bool, value);}
 }
 
-export class TemporaryCageMeshProvider extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "TemporaryCageMeshProvider", true);}
+export class TemporaryCageMeshProvider extends Instance {
+    protected constructor(className?: string) {super(className ?? "TemporaryCageMeshProvider", true); this.addClassName("TemporaryCageMeshProvider");}
     public static new() {return new TemporaryCageMeshProvider();}
 }
 
-export class TemporaryScriptService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "TemporaryScriptService", true);}
+export class TemporaryScriptService extends Instance {
+    protected constructor(className?: string) {super(className ?? "TemporaryScriptService", true); this.addClassName("TemporaryScriptService");}
     public static new() {return new TemporaryScriptService();}
 }
 
-export class TerrainDetail extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "TerrainDetail");}
+export class TerrainDetail extends Instance {
+    protected constructor(className?: string) {super(className ?? "TerrainDetail"); this.addClassName("TerrainDetail");}
     public static new() {return new TerrainDetail();}
-    public get colorMap() {return this.getProp("ColorMap", DataType.String);}
-    public set colorMap(value) {this.setProp("ColorMap", DataType.String, value);}
-    public get face() {return this.getProp("Face", DataType.Enum) as TerrainFace | undefined;}
-    public set face(value) {this.setProp("Face", DataType.Enum, value);}
-    public get materialPattern() {return this.getProp("MaterialPattern", DataType.Enum) as MaterialPattern | undefined;}
-    public set materialPattern(value) {this.setProp("MaterialPattern", DataType.Enum, value);}
-    public get metalnessMap() {return this.getProp("MetalnessMap", DataType.String);}
-    public set metalnessMap(value) {this.setProp("MetalnessMap", DataType.String, value);}
-    public get normalMap() {return this.getProp("NormalMap", DataType.String);}
-    public set normalMap(value) {this.setProp("NormalMap", DataType.String, value);}
-    public get roughnessMap() {return this.getProp("RoughnessMap", DataType.String);}
-    public set roughnessMap(value) {this.setProp("RoughnessMap", DataType.String, value);}
-    public get studsPerTile() {return this.getProp("StudsPerTile", DataType.Float32);}
-    public set studsPerTile(value) {this.setProp("StudsPerTile", DataType.Float32, value);}
-    public get texturePack() {return this.getProp("TexturePack", DataType.String);}
-    public set texturePack(value) {this.setProp("TexturePack", DataType.String, value);}
+    public get ColorMap() {return this.GetProp("ColorMap", DataType.String);}
+    public set ColorMap(value) {this.SetProp("ColorMap", DataType.String, value);}
+    public get Face() {return this.GetProp("Face", DataType.Enum) as TerrainFace | undefined;}
+    public set Face(value) {this.SetProp("Face", DataType.Enum, value);}
+    public get MaterialPattern() {return this.GetProp("MaterialPattern", DataType.Enum) as MaterialPattern | undefined;}
+    public set MaterialPattern(value) {this.SetProp("MaterialPattern", DataType.Enum, value);}
+    public get MetalnessMap() {return this.GetProp("MetalnessMap", DataType.String);}
+    public set MetalnessMap(value) {this.SetProp("MetalnessMap", DataType.String, value);}
+    public get NormalMap() {return this.GetProp("NormalMap", DataType.String);}
+    public set NormalMap(value) {this.SetProp("NormalMap", DataType.String, value);}
+    public get RoughnessMap() {return this.GetProp("RoughnessMap", DataType.String);}
+    public set RoughnessMap(value) {this.SetProp("RoughnessMap", DataType.String, value);}
+    public get StudsPerTile() {return this.GetProp("StudsPerTile", DataType.Float32);}
+    public set StudsPerTile(value) {this.SetProp("StudsPerTile", DataType.Float32, value);}
+    public get TexturePack() {return this.GetProp("TexturePack", DataType.String);}
+    public set TexturePack(value) {this.SetProp("TexturePack", DataType.String, value);}
 }
 
-export class TerrainRegion extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "TerrainRegion");}
+export class TerrainRegion extends Instance {
+    protected constructor(className?: string) {super(className ?? "TerrainRegion"); this.addClassName("TerrainRegion");}
     public static new() {return new TerrainRegion();}
-    public get smoothGrid() {return this.getProp("SmoothGrid", DataType.String);}
-    public set smoothGrid(value) {this.setProp("SmoothGrid", DataType.String, value);}
+    public get SmoothGrid() {return this.GetProp("SmoothGrid", DataType.String);}
+    public set SmoothGrid(value) {this.SetProp("SmoothGrid", DataType.String, value);}
 }
 
-export class TestService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "TestService", true);}
+export class TestService extends Instance {
+    protected constructor(className?: string) {super(className ?? "TestService", true); this.addClassName("TestService");}
     public static new() {return new TestService();}
-    public get autoRuns() {return this.getProp("AutoRuns", DataType.Bool);}
-    public set autoRuns(value) {this.setProp("AutoRuns", DataType.Bool, value);}
-    public get description() {return this.getProp("Description", DataType.String);}
-    public set description(value) {this.setProp("Description", DataType.String, value);}
-    public get executeWithStudioRun() {return this.getProp("ExecuteWithStudioRun", DataType.Bool);}
-    public set executeWithStudioRun(value) {this.setProp("ExecuteWithStudioRun", DataType.Bool, value);}
-    public get isSleepAllowed() {return this.getProp("IsSleepAllowed", DataType.Bool);}
-    public set isSleepAllowed(value) {this.setProp("IsSleepAllowed", DataType.Bool, value);}
-    public get numberOfPlayers() {return this.getProp("NumberOfPlayers", DataType.Int32);}
-    public set numberOfPlayers(value) {this.setProp("NumberOfPlayers", DataType.Int32, value);}
-    public get simulateSecondsLag() {return this.getProp("SimulateSecondsLag", DataType.Float64);}
-    public set simulateSecondsLag(value) {this.setProp("SimulateSecondsLag", DataType.Float64, value);}
-    public get timeout() {return this.getProp("Timeout", DataType.Float64);}
-    public set timeout(value) {this.setProp("Timeout", DataType.Float64, value);}
+    public get AutoRuns() {return this.GetProp("AutoRuns", DataType.Bool);}
+    public set AutoRuns(value) {this.SetProp("AutoRuns", DataType.Bool, value);}
+    public get Description() {return this.GetProp("Description", DataType.String);}
+    public set Description(value) {this.SetProp("Description", DataType.String, value);}
+    public get ExecuteWithStudioRun() {return this.GetProp("ExecuteWithStudioRun", DataType.Bool);}
+    public set ExecuteWithStudioRun(value) {this.SetProp("ExecuteWithStudioRun", DataType.Bool, value);}
+    public get IsSleepAllowed() {return this.GetProp("IsSleepAllowed", DataType.Bool);}
+    public set IsSleepAllowed(value) {this.SetProp("IsSleepAllowed", DataType.Bool, value);}
+    public get NumberOfPlayers() {return this.GetProp("NumberOfPlayers", DataType.Int32);}
+    public set NumberOfPlayers(value) {this.SetProp("NumberOfPlayers", DataType.Int32, value);}
+    public get SimulateSecondsLag() {return this.GetProp("SimulateSecondsLag", DataType.Float64);}
+    public set SimulateSecondsLag(value) {this.SetProp("SimulateSecondsLag", DataType.Float64, value);}
+    public get Timeout() {return this.GetProp("Timeout", DataType.Float64);}
+    public set Timeout(value) {this.SetProp("Timeout", DataType.Float64, value);}
 }
 
-export class TextBoxService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "TextBoxService", true);}
+export class TextBoxService extends Instance {
+    protected constructor(className?: string) {super(className ?? "TextBoxService", true); this.addClassName("TextBoxService");}
     public static new() {return new TextBoxService();}
 }
 
-export class TextChannel extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "TextChannel");}
+export class TextChannel extends Instance {
+    protected constructor(className?: string) {super(className ?? "TextChannel"); this.addClassName("TextChannel");}
     public static new() {return new TextChannel();}
 }
 
-export class TextChatCommand extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "TextChatCommand");}
+export class TextChatCommand extends Instance {
+    protected constructor(className?: string) {super(className ?? "TextChatCommand"); this.addClassName("TextChatCommand");}
     public static new() {return new TextChatCommand();}
-    public get autocompleteVisible() {return this.getProp("AutocompleteVisible", DataType.Bool);}
-    public set autocompleteVisible(value) {this.setProp("AutocompleteVisible", DataType.Bool, value);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get primaryAlias() {return this.getProp("PrimaryAlias", DataType.String);}
-    public set primaryAlias(value) {this.setProp("PrimaryAlias", DataType.String, value);}
-    public get secondaryAlias() {return this.getProp("SecondaryAlias", DataType.String);}
-    public set secondaryAlias(value) {this.setProp("SecondaryAlias", DataType.String, value);}
+    public get AutocompleteVisible() {return this.GetProp("AutocompleteVisible", DataType.Bool);}
+    public set AutocompleteVisible(value) {this.SetProp("AutocompleteVisible", DataType.Bool, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get PrimaryAlias() {return this.GetProp("PrimaryAlias", DataType.String);}
+    public set PrimaryAlias(value) {this.SetProp("PrimaryAlias", DataType.String, value);}
+    public get SecondaryAlias() {return this.GetProp("SecondaryAlias", DataType.String);}
+    public set SecondaryAlias(value) {this.SetProp("SecondaryAlias", DataType.String, value);}
 }
 
-export abstract class TextChatConfigurations extends CoreInstance {
-    protected constructor(className: string) {super(className);}
+export abstract class TextChatConfigurations extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("TextChatConfigurations");}
 }
 
 export class BubbleChatConfiguration extends TextChatConfigurations {
-    protected constructor(className?: string) {super(className ?? "BubbleChatConfiguration");}
+    protected constructor(className?: string) {super(className ?? "BubbleChatConfiguration"); this.addClassName("BubbleChatConfiguration");}
     public static new() {return new BubbleChatConfiguration();}
-    public get adorneeName() {return this.getProp("AdorneeName", DataType.String);}
-    public set adorneeName(value) {this.setProp("AdorneeName", DataType.String, value);}
-    public get backgroundColor3() {return this.getProp("BackgroundColor3", DataType.Color3);}
-    public set backgroundColor3(value) {this.setProp("BackgroundColor3", DataType.Color3, value);}
-    public get backgroundTransparency() {return this.getProp("BackgroundTransparency", DataType.Float64);}
-    public set backgroundTransparency(value) {this.setProp("BackgroundTransparency", DataType.Float64, value);}
-    public get bubbleDuration() {return this.getProp("BubbleDuration", DataType.Float32);}
-    public set bubbleDuration(value) {this.setProp("BubbleDuration", DataType.Float32, value);}
-    public get bubblesSpacing() {return this.getProp("BubblesSpacing", DataType.Float32);}
-    public set bubblesSpacing(value) {this.setProp("BubblesSpacing", DataType.Float32, value);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get font() {return this.getProp("Font", DataType.Enum) as Font | undefined;}
-    public set font(value) {this.setProp("Font", DataType.Enum, value);}
-    public get fontFace() {return this.getProp("FontFace", DataType.Font);}
-    public set fontFace(value) {this.setProp("FontFace", DataType.Font, value);}
-    public get localPlayerStudsOffset() {return this.getProp("LocalPlayerStudsOffset", DataType.Vector3);}
-    public set localPlayerStudsOffset(value) {this.setProp("LocalPlayerStudsOffset", DataType.Vector3, value);}
-    public get maxBubbles() {return this.getProp("MaxBubbles", DataType.Float32);}
-    public set maxBubbles(value) {this.setProp("MaxBubbles", DataType.Float32, value);}
-    public get maxDistance() {return this.getProp("MaxDistance", DataType.Float32);}
-    public set maxDistance(value) {this.setProp("MaxDistance", DataType.Float32, value);}
-    public get minimizeDistance() {return this.getProp("MinimizeDistance", DataType.Float32);}
-    public set minimizeDistance(value) {this.setProp("MinimizeDistance", DataType.Float32, value);}
-    public get tailVisible() {return this.getProp("TailVisible", DataType.Bool);}
-    public set tailVisible(value) {this.setProp("TailVisible", DataType.Bool, value);}
-    public get textColor3() {return this.getProp("TextColor3", DataType.Color3);}
-    public set textColor3(value) {this.setProp("TextColor3", DataType.Color3, value);}
-    public get textSize() {return this.getProp("TextSize", DataType.Int64);}
-    public set textSize(value) {this.setProp("TextSize", DataType.Int64, value);}
-    public get verticalStudsOffset() {return this.getProp("VerticalStudsOffset", DataType.Float32);}
-    public set verticalStudsOffset(value) {this.setProp("VerticalStudsOffset", DataType.Float32, value);}
+    public get AdorneeName() {return this.GetProp("AdorneeName", DataType.String);}
+    public set AdorneeName(value) {this.SetProp("AdorneeName", DataType.String, value);}
+    public get BackgroundColor3() {return this.GetProp("BackgroundColor3", DataType.Color3);}
+    public set BackgroundColor3(value) {this.SetProp("BackgroundColor3", DataType.Color3, value);}
+    public get BackgroundTransparency() {return this.GetProp("BackgroundTransparency", DataType.Float64);}
+    public set BackgroundTransparency(value) {this.SetProp("BackgroundTransparency", DataType.Float64, value);}
+    public get BubbleDuration() {return this.GetProp("BubbleDuration", DataType.Float32);}
+    public set BubbleDuration(value) {this.SetProp("BubbleDuration", DataType.Float32, value);}
+    public get BubblesSpacing() {return this.GetProp("BubblesSpacing", DataType.Float32);}
+    public set BubblesSpacing(value) {this.SetProp("BubblesSpacing", DataType.Float32, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get Font() {return this.GetProp("Font", DataType.Enum) as Font | undefined;}
+    public set Font(value) {this.SetProp("Font", DataType.Enum, value);}
+    public get FontFace() {return this.GetProp("FontFace", DataType.Font);}
+    public set FontFace(value) {this.SetProp("FontFace", DataType.Font, value);}
+    public get LocalPlayerStudsOffset() {return this.GetProp("LocalPlayerStudsOffset", DataType.Vector3);}
+    public set LocalPlayerStudsOffset(value) {this.SetProp("LocalPlayerStudsOffset", DataType.Vector3, value);}
+    public get MaxBubbles() {return this.GetProp("MaxBubbles", DataType.Float32);}
+    public set MaxBubbles(value) {this.SetProp("MaxBubbles", DataType.Float32, value);}
+    public get MaxDistance() {return this.GetProp("MaxDistance", DataType.Float32);}
+    public set MaxDistance(value) {this.SetProp("MaxDistance", DataType.Float32, value);}
+    public get MinimizeDistance() {return this.GetProp("MinimizeDistance", DataType.Float32);}
+    public set MinimizeDistance(value) {this.SetProp("MinimizeDistance", DataType.Float32, value);}
+    public get TailVisible() {return this.GetProp("TailVisible", DataType.Bool);}
+    public set TailVisible(value) {this.SetProp("TailVisible", DataType.Bool, value);}
+    public get TextColor3() {return this.GetProp("TextColor3", DataType.Color3);}
+    public set TextColor3(value) {this.SetProp("TextColor3", DataType.Color3, value);}
+    public get TextSize() {return this.GetProp("TextSize", DataType.Int64);}
+    public set TextSize(value) {this.SetProp("TextSize", DataType.Int64, value);}
+    public get VerticalStudsOffset() {return this.GetProp("VerticalStudsOffset", DataType.Float32);}
+    public set VerticalStudsOffset(value) {this.SetProp("VerticalStudsOffset", DataType.Float32, value);}
 }
 
 export class ChatInputBarConfiguration extends TextChatConfigurations {
-    protected constructor(className?: string) {super(className ?? "ChatInputBarConfiguration");}
+    protected constructor(className?: string) {super(className ?? "ChatInputBarConfiguration"); this.addClassName("ChatInputBarConfiguration");}
     public static new() {return new ChatInputBarConfiguration();}
-    public get autocompleteEnabled() {return this.getProp("AutocompleteEnabled", DataType.Bool);}
-    public set autocompleteEnabled(value) {this.setProp("AutocompleteEnabled", DataType.Bool, value);}
-    public get backgroundColor3() {return this.getProp("BackgroundColor3", DataType.Color3);}
-    public set backgroundColor3(value) {this.setProp("BackgroundColor3", DataType.Color3, value);}
-    public get backgroundTransparency() {return this.getProp("BackgroundTransparency", DataType.Float64);}
-    public set backgroundTransparency(value) {this.setProp("BackgroundTransparency", DataType.Float64, value);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get fontFace() {return this.getProp("FontFace", DataType.Font);}
-    public set fontFace(value) {this.setProp("FontFace", DataType.Font, value);}
-    public get keyboardKeyCode() {return this.getProp("KeyboardKeyCode", DataType.Enum) as KeyCode | undefined;}
-    public set keyboardKeyCode(value) {this.setProp("KeyboardKeyCode", DataType.Enum, value);}
-    public get placeholderColor3() {return this.getProp("PlaceholderColor3", DataType.Color3);}
-    public set placeholderColor3(value) {this.setProp("PlaceholderColor3", DataType.Color3, value);}
-    public get targetTextChannel() {return this.getProp("TargetTextChannel", DataType.Referent) as TextChannel | undefined;}
-    public set targetTextChannel(value) {this.setProp("TargetTextChannel", DataType.Referent, value);}
-    public get textColor3() {return this.getProp("TextColor3", DataType.Color3);}
-    public set textColor3(value) {this.setProp("TextColor3", DataType.Color3, value);}
-    public get textSize() {return this.getProp("TextSize", DataType.Int64);}
-    public set textSize(value) {this.setProp("TextSize", DataType.Int64, value);}
-    public get textStrokeColor3() {return this.getProp("TextStrokeColor3", DataType.Color3);}
-    public set textStrokeColor3(value) {this.setProp("TextStrokeColor3", DataType.Color3, value);}
-    public get textStrokeTransparency() {return this.getProp("TextStrokeTransparency", DataType.Float64);}
-    public set textStrokeTransparency(value) {this.setProp("TextStrokeTransparency", DataType.Float64, value);}
+    public get AutocompleteEnabled() {return this.GetProp("AutocompleteEnabled", DataType.Bool);}
+    public set AutocompleteEnabled(value) {this.SetProp("AutocompleteEnabled", DataType.Bool, value);}
+    public get BackgroundColor3() {return this.GetProp("BackgroundColor3", DataType.Color3);}
+    public set BackgroundColor3(value) {this.SetProp("BackgroundColor3", DataType.Color3, value);}
+    public get BackgroundTransparency() {return this.GetProp("BackgroundTransparency", DataType.Float64);}
+    public set BackgroundTransparency(value) {this.SetProp("BackgroundTransparency", DataType.Float64, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get FontFace() {return this.GetProp("FontFace", DataType.Font);}
+    public set FontFace(value) {this.SetProp("FontFace", DataType.Font, value);}
+    public get KeyboardKeyCode() {return this.GetProp("KeyboardKeyCode", DataType.Enum) as KeyCode | undefined;}
+    public set KeyboardKeyCode(value) {this.SetProp("KeyboardKeyCode", DataType.Enum, value);}
+    public get PlaceholderColor3() {return this.GetProp("PlaceholderColor3", DataType.Color3);}
+    public set PlaceholderColor3(value) {this.SetProp("PlaceholderColor3", DataType.Color3, value);}
+    public get TargetTextChannel() {return this.GetProp("TargetTextChannel", DataType.Referent) as TextChannel | undefined;}
+    public set TargetTextChannel(value) {this.SetProp("TargetTextChannel", DataType.Referent, value);}
+    public get TextColor3() {return this.GetProp("TextColor3", DataType.Color3);}
+    public set TextColor3(value) {this.SetProp("TextColor3", DataType.Color3, value);}
+    public get TextSize() {return this.GetProp("TextSize", DataType.Int64);}
+    public set TextSize(value) {this.SetProp("TextSize", DataType.Int64, value);}
+    public get TextStrokeColor3() {return this.GetProp("TextStrokeColor3", DataType.Color3);}
+    public set TextStrokeColor3(value) {this.SetProp("TextStrokeColor3", DataType.Color3, value);}
+    public get TextStrokeTransparency() {return this.GetProp("TextStrokeTransparency", DataType.Float64);}
+    public set TextStrokeTransparency(value) {this.SetProp("TextStrokeTransparency", DataType.Float64, value);}
 }
 
 export class ChatWindowConfiguration extends TextChatConfigurations {
-    protected constructor(className?: string) {super(className ?? "ChatWindowConfiguration");}
+    protected constructor(className?: string) {super(className ?? "ChatWindowConfiguration"); this.addClassName("ChatWindowConfiguration");}
     public static new() {return new ChatWindowConfiguration();}
-    public get backgroundColor3() {return this.getProp("BackgroundColor3", DataType.Color3);}
-    public set backgroundColor3(value) {this.setProp("BackgroundColor3", DataType.Color3, value);}
-    public get backgroundTransparency() {return this.getProp("BackgroundTransparency", DataType.Float64);}
-    public set backgroundTransparency(value) {this.setProp("BackgroundTransparency", DataType.Float64, value);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get fontFace() {return this.getProp("FontFace", DataType.Font);}
-    public set fontFace(value) {this.setProp("FontFace", DataType.Font, value);}
-    public get heightScale() {return this.getProp("HeightScale", DataType.Float32);}
-    public set heightScale(value) {this.setProp("HeightScale", DataType.Float32, value);}
-    public get horizontalAlignment() {return this.getProp("HorizontalAlignment", DataType.Enum) as HorizontalAlignment | undefined;}
-    public set horizontalAlignment(value) {this.setProp("HorizontalAlignment", DataType.Enum, value);}
-    public get textColor3() {return this.getProp("TextColor3", DataType.Color3);}
-    public set textColor3(value) {this.setProp("TextColor3", DataType.Color3, value);}
-    public get textSize() {return this.getProp("TextSize", DataType.Int64);}
-    public set textSize(value) {this.setProp("TextSize", DataType.Int64, value);}
-    public get textStrokeColor3() {return this.getProp("TextStrokeColor3", DataType.Color3);}
-    public set textStrokeColor3(value) {this.setProp("TextStrokeColor3", DataType.Color3, value);}
-    public get textStrokeTransparency() {return this.getProp("TextStrokeTransparency", DataType.Float64);}
-    public set textStrokeTransparency(value) {this.setProp("TextStrokeTransparency", DataType.Float64, value);}
-    public get verticalAlignment() {return this.getProp("VerticalAlignment", DataType.Enum) as VerticalAlignment | undefined;}
-    public set verticalAlignment(value) {this.setProp("VerticalAlignment", DataType.Enum, value);}
-    public get widthScale() {return this.getProp("WidthScale", DataType.Float32);}
-    public set widthScale(value) {this.setProp("WidthScale", DataType.Float32, value);}
+    public get BackgroundColor3() {return this.GetProp("BackgroundColor3", DataType.Color3);}
+    public set BackgroundColor3(value) {this.SetProp("BackgroundColor3", DataType.Color3, value);}
+    public get BackgroundTransparency() {return this.GetProp("BackgroundTransparency", DataType.Float64);}
+    public set BackgroundTransparency(value) {this.SetProp("BackgroundTransparency", DataType.Float64, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get FontFace() {return this.GetProp("FontFace", DataType.Font);}
+    public set FontFace(value) {this.SetProp("FontFace", DataType.Font, value);}
+    public get HeightScale() {return this.GetProp("HeightScale", DataType.Float32);}
+    public set HeightScale(value) {this.SetProp("HeightScale", DataType.Float32, value);}
+    public get HorizontalAlignment() {return this.GetProp("HorizontalAlignment", DataType.Enum) as HorizontalAlignment | undefined;}
+    public set HorizontalAlignment(value) {this.SetProp("HorizontalAlignment", DataType.Enum, value);}
+    public get TextColor3() {return this.GetProp("TextColor3", DataType.Color3);}
+    public set TextColor3(value) {this.SetProp("TextColor3", DataType.Color3, value);}
+    public get TextSize() {return this.GetProp("TextSize", DataType.Int64);}
+    public set TextSize(value) {this.SetProp("TextSize", DataType.Int64, value);}
+    public get TextStrokeColor3() {return this.GetProp("TextStrokeColor3", DataType.Color3);}
+    public set TextStrokeColor3(value) {this.SetProp("TextStrokeColor3", DataType.Color3, value);}
+    public get TextStrokeTransparency() {return this.GetProp("TextStrokeTransparency", DataType.Float64);}
+    public set TextStrokeTransparency(value) {this.SetProp("TextStrokeTransparency", DataType.Float64, value);}
+    public get VerticalAlignment() {return this.GetProp("VerticalAlignment", DataType.Enum) as VerticalAlignment | undefined;}
+    public set VerticalAlignment(value) {this.SetProp("VerticalAlignment", DataType.Enum, value);}
+    public get WidthScale() {return this.GetProp("WidthScale", DataType.Float32);}
+    public set WidthScale(value) {this.SetProp("WidthScale", DataType.Float32, value);}
 }
 
-export class TextChatMessageProperties extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "TextChatMessageProperties");}
+export class TextChatMessageProperties extends Instance {
+    protected constructor(className?: string) {super(className ?? "TextChatMessageProperties"); this.addClassName("TextChatMessageProperties");}
     public static new() {return new TextChatMessageProperties();}
 }
 
-export class TextChatService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "TextChatService", true);}
+export class TextChatService extends Instance {
+    protected constructor(className?: string) {super(className ?? "TextChatService", true); this.addClassName("TextChatService");}
     public static new() {return new TextChatService();}
-    public get chatTranslationFTUXShown() {return this.getProp("ChatTranslationFTUXShown", DataType.Bool);}
-    public set chatTranslationFTUXShown(value) {this.setProp("ChatTranslationFTUXShown", DataType.Bool, value);}
-    public get chatTranslationToggleEnabled() {return this.getProp("ChatTranslationToggleEnabled", DataType.Bool);}
-    public set chatTranslationToggleEnabled(value) {this.setProp("ChatTranslationToggleEnabled", DataType.Bool, value);}
-    public get chatVersion() {return this.getProp("ChatVersion", DataType.Enum) as ChatVersion | undefined;}
-    public set chatVersion(value) {this.setProp("ChatVersion", DataType.Enum, value);}
-    public get createDefaultCommands() {return this.getProp("CreateDefaultCommands", DataType.Bool);}
-    public set createDefaultCommands(value) {this.setProp("CreateDefaultCommands", DataType.Bool, value);}
-    public get createDefaultTextChannels() {return this.getProp("CreateDefaultTextChannels", DataType.Bool);}
-    public set createDefaultTextChannels(value) {this.setProp("CreateDefaultTextChannels", DataType.Bool, value);}
+    public get ChatTranslationFTUXShown() {return this.GetProp("ChatTranslationFTUXShown", DataType.Bool);}
+    public set ChatTranslationFTUXShown(value) {this.SetProp("ChatTranslationFTUXShown", DataType.Bool, value);}
+    public get ChatTranslationToggleEnabled() {return this.GetProp("ChatTranslationToggleEnabled", DataType.Bool);}
+    public set ChatTranslationToggleEnabled(value) {this.SetProp("ChatTranslationToggleEnabled", DataType.Bool, value);}
+    public get ChatVersion() {return this.GetProp("ChatVersion", DataType.Enum) as ChatVersion | undefined;}
+    public set ChatVersion(value) {this.SetProp("ChatVersion", DataType.Enum, value);}
+    public get CreateDefaultCommands() {return this.GetProp("CreateDefaultCommands", DataType.Bool);}
+    public set CreateDefaultCommands(value) {this.SetProp("CreateDefaultCommands", DataType.Bool, value);}
+    public get CreateDefaultTextChannels() {return this.GetProp("CreateDefaultTextChannels", DataType.Bool);}
+    public set CreateDefaultTextChannels(value) {this.SetProp("CreateDefaultTextChannels", DataType.Bool, value);}
 }
 
-export class TextService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "TextService", true);}
+export class TextService extends Instance {
+    protected constructor(className?: string) {super(className ?? "TextService", true); this.addClassName("TextService");}
     public static new() {return new TextService();}
 }
 
-export class TextureGenerationService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "TextureGenerationService", true);}
+export class TextureGenerationService extends Instance {
+    protected constructor(className?: string) {super(className ?? "TextureGenerationService", true); this.addClassName("TextureGenerationService");}
     public static new() {return new TextureGenerationService();}
 }
 
-export class ThirdPartyUserService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ThirdPartyUserService", true);}
+export class ThirdPartyUserService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ThirdPartyUserService", true); this.addClassName("ThirdPartyUserService");}
     public static new() {return new ThirdPartyUserService();}
 }
 
-export class TimerService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "TimerService", true);}
+export class TimerService extends Instance {
+    protected constructor(className?: string) {super(className ?? "TimerService", true); this.addClassName("TimerService");}
     public static new() {return new TimerService();}
 }
 
-export class ToastNotificationService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "ToastNotificationService", true);}
+export class ToastNotificationService extends Instance {
+    protected constructor(className?: string) {super(className ?? "ToastNotificationService", true); this.addClassName("ToastNotificationService");}
     public static new() {return new ToastNotificationService();}
 }
 
-export class TouchInputService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "TouchInputService", true);}
+export class TouchInputService extends Instance {
+    protected constructor(className?: string) {super(className ?? "TouchInputService", true); this.addClassName("TouchInputService");}
     public static new() {return new TouchInputService();}
 }
 
-export class TracerService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "TracerService", true);}
+export class TracerService extends Instance {
+    protected constructor(className?: string) {super(className ?? "TracerService", true); this.addClassName("TracerService");}
     public static new() {return new TracerService();}
 }
 
-export class TrackerStreamAnimation extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "TrackerStreamAnimation");}
+export class TrackerStreamAnimation extends Instance {
+    protected constructor(className?: string) {super(className ?? "TrackerStreamAnimation"); this.addClassName("TrackerStreamAnimation");}
     public static new() {return new TrackerStreamAnimation();}
 }
 
-export class Trail extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Trail");}
+export class Trail extends Instance {
+    protected constructor(className?: string) {super(className ?? "Trail"); this.addClassName("Trail");}
     public static new() {return new Trail();}
-    public get attachment0() {return this.getProp("Attachment0", DataType.Referent) as Attachment | undefined;}
-    public set attachment0(value) {this.setProp("Attachment0", DataType.Referent, value);}
-    public get attachment1() {return this.getProp("Attachment1", DataType.Referent) as Attachment | undefined;}
-    public set attachment1(value) {this.setProp("Attachment1", DataType.Referent, value);}
-    public get brightness() {return this.getProp("Brightness", DataType.Float32);}
-    public set brightness(value) {this.setProp("Brightness", DataType.Float32, value);}
-    public get color() {return this.getProp("Color", DataType.ColorSequence);}
-    public set color(value) {this.setProp("Color", DataType.ColorSequence, value);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get faceCamera() {return this.getProp("FaceCamera", DataType.Bool);}
-    public set faceCamera(value) {this.setProp("FaceCamera", DataType.Bool, value);}
-    public get lifetime() {return this.getProp("Lifetime", DataType.Float32);}
-    public set lifetime(value) {this.setProp("Lifetime", DataType.Float32, value);}
-    public get lightEmission() {return this.getProp("LightEmission", DataType.Float32);}
-    public set lightEmission(value) {this.setProp("LightEmission", DataType.Float32, value);}
-    public get lightInfluence() {return this.getProp("LightInfluence", DataType.Float32);}
-    public set lightInfluence(value) {this.setProp("LightInfluence", DataType.Float32, value);}
-    public get maxLength() {return this.getProp("MaxLength", DataType.Float32);}
-    public set maxLength(value) {this.setProp("MaxLength", DataType.Float32, value);}
-    public get minLength() {return this.getProp("MinLength", DataType.Float32);}
-    public set minLength(value) {this.setProp("MinLength", DataType.Float32, value);}
-    public get texture() {return this.getProp("Texture", DataType.String);}
-    public set texture(value) {this.setProp("Texture", DataType.String, value);}
-    public get textureLength() {return this.getProp("TextureLength", DataType.Float32);}
-    public set textureLength(value) {this.setProp("TextureLength", DataType.Float32, value);}
-    public get textureMode() {return this.getProp("TextureMode", DataType.Enum) as TextureMode | undefined;}
-    public set textureMode(value) {this.setProp("TextureMode", DataType.Enum, value);}
-    public get transparency() {return this.getProp("Transparency", DataType.NumberSequence);}
-    public set transparency(value) {this.setProp("Transparency", DataType.NumberSequence, value);}
-    public get widthScale() {return this.getProp("WidthScale", DataType.NumberSequence);}
-    public set widthScale(value) {this.setProp("WidthScale", DataType.NumberSequence, value);}
+    public get Attachment0() {return this.GetProp("Attachment0", DataType.Referent) as Attachment | undefined;}
+    public set Attachment0(value) {this.SetProp("Attachment0", DataType.Referent, value);}
+    public get Attachment1() {return this.GetProp("Attachment1", DataType.Referent) as Attachment | undefined;}
+    public set Attachment1(value) {this.SetProp("Attachment1", DataType.Referent, value);}
+    public get Brightness() {return this.GetProp("Brightness", DataType.Float32);}
+    public set Brightness(value) {this.SetProp("Brightness", DataType.Float32, value);}
+    public get Color() {return this.GetProp("Color", DataType.ColorSequence);}
+    public set Color(value) {this.SetProp("Color", DataType.ColorSequence, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get FaceCamera() {return this.GetProp("FaceCamera", DataType.Bool);}
+    public set FaceCamera(value) {this.SetProp("FaceCamera", DataType.Bool, value);}
+    public get Lifetime() {return this.GetProp("Lifetime", DataType.Float32);}
+    public set Lifetime(value) {this.SetProp("Lifetime", DataType.Float32, value);}
+    public get LightEmission() {return this.GetProp("LightEmission", DataType.Float32);}
+    public set LightEmission(value) {this.SetProp("LightEmission", DataType.Float32, value);}
+    public get LightInfluence() {return this.GetProp("LightInfluence", DataType.Float32);}
+    public set LightInfluence(value) {this.SetProp("LightInfluence", DataType.Float32, value);}
+    public get MaxLength() {return this.GetProp("MaxLength", DataType.Float32);}
+    public set MaxLength(value) {this.SetProp("MaxLength", DataType.Float32, value);}
+    public get MinLength() {return this.GetProp("MinLength", DataType.Float32);}
+    public set MinLength(value) {this.SetProp("MinLength", DataType.Float32, value);}
+    public get Texture() {return this.GetProp("Texture", DataType.String);}
+    public set Texture(value) {this.SetProp("Texture", DataType.String, value);}
+    public get TextureLength() {return this.GetProp("TextureLength", DataType.Float32);}
+    public set TextureLength(value) {this.SetProp("TextureLength", DataType.Float32, value);}
+    public get TextureMode() {return this.GetProp("TextureMode", DataType.Enum) as TextureMode | undefined;}
+    public set TextureMode(value) {this.SetProp("TextureMode", DataType.Enum, value);}
+    public get Transparency() {return this.GetProp("Transparency", DataType.NumberSequence);}
+    public set Transparency(value) {this.SetProp("Transparency", DataType.NumberSequence, value);}
+    public get WidthScale() {return this.GetProp("WidthScale", DataType.NumberSequence);}
+    public set WidthScale(value) {this.SetProp("WidthScale", DataType.NumberSequence, value);}
 }
 
-export class TutorialService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "TutorialService", true);}
+export class TutorialService extends Instance {
+    protected constructor(className?: string) {super(className ?? "TutorialService", true); this.addClassName("TutorialService");}
     public static new() {return new TutorialService();}
 }
 
-export abstract class TweenBase extends CoreInstance {
-    protected constructor(className: string) {super(className);}
+export abstract class TweenBase extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("TweenBase");}
 }
 
 export class Tween extends TweenBase {
-    protected constructor(className?: string) {super(className ?? "Tween");}
+    protected constructor(className?: string) {super(className ?? "Tween"); this.addClassName("Tween");}
     public static new() {return new Tween();}
 }
 
-export class TweenService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "TweenService", true);}
+export class TweenService extends Instance {
+    protected constructor(className?: string) {super(className ?? "TweenService", true); this.addClassName("TweenService");}
     public static new() {return new TweenService();}
 }
 
-export class UGCAvatarService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "UGCAvatarService", true);}
+export class UGCAvatarService extends Instance {
+    protected constructor(className?: string) {super(className ?? "UGCAvatarService", true); this.addClassName("UGCAvatarService");}
     public static new() {return new UGCAvatarService();}
 }
 
-export class UGCValidationService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "UGCValidationService", true);}
+export class UGCValidationService extends Instance {
+    protected constructor(className?: string) {super(className ?? "UGCValidationService", true); this.addClassName("UGCValidationService");}
     public static new() {return new UGCValidationService();}
 }
 
-export abstract class UIBase extends CoreInstance {
-    protected constructor(className: string) {super(className);}
+export abstract class UIBase extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("UIBase");}
 }
 
 export abstract class UIComponent extends UIBase {
-    protected constructor(className: string) {super(className);}
+    protected constructor(className: string) {super(className); this.addClassName("UIComponent");}
 }
 
 export abstract class UIConstraint extends UIComponent {
-    protected constructor(className: string) {super(className);}
+    protected constructor(className: string) {super(className); this.addClassName("UIConstraint");}
 }
 
 export class UIAspectRatioConstraint extends UIConstraint {
-    protected constructor(className?: string) {super(className ?? "UIAspectRatioConstraint");}
+    protected constructor(className?: string) {super(className ?? "UIAspectRatioConstraint"); this.addClassName("UIAspectRatioConstraint");}
     public static new() {return new UIAspectRatioConstraint();}
-    public get aspectRatio() {return this.getProp("AspectRatio", DataType.Float32);}
-    public set aspectRatio(value) {this.setProp("AspectRatio", DataType.Float32, value);}
-    public get aspectType() {return this.getProp("AspectType", DataType.Enum) as AspectType | undefined;}
-    public set aspectType(value) {this.setProp("AspectType", DataType.Enum, value);}
-    public get dominantAxis() {return this.getProp("DominantAxis", DataType.Enum) as DominantAxis | undefined;}
-    public set dominantAxis(value) {this.setProp("DominantAxis", DataType.Enum, value);}
+    public get AspectRatio() {return this.GetProp("AspectRatio", DataType.Float32);}
+    public set AspectRatio(value) {this.SetProp("AspectRatio", DataType.Float32, value);}
+    public get AspectType() {return this.GetProp("AspectType", DataType.Enum) as AspectType | undefined;}
+    public set AspectType(value) {this.SetProp("AspectType", DataType.Enum, value);}
+    public get DominantAxis() {return this.GetProp("DominantAxis", DataType.Enum) as DominantAxis | undefined;}
+    public set DominantAxis(value) {this.SetProp("DominantAxis", DataType.Enum, value);}
 }
 
 export class UISizeConstraint extends UIConstraint {
-    protected constructor(className?: string) {super(className ?? "UISizeConstraint");}
+    protected constructor(className?: string) {super(className ?? "UISizeConstraint"); this.addClassName("UISizeConstraint");}
     public static new() {return new UISizeConstraint();}
-    public get maxSize() {return this.getProp("MaxSize", DataType.Vector2);}
-    public set maxSize(value) {this.setProp("MaxSize", DataType.Vector2, value);}
-    public get minSize() {return this.getProp("MinSize", DataType.Vector2);}
-    public set minSize(value) {this.setProp("MinSize", DataType.Vector2, value);}
+    public get MaxSize() {return this.GetProp("MaxSize", DataType.Vector2);}
+    public set MaxSize(value) {this.SetProp("MaxSize", DataType.Vector2, value);}
+    public get MinSize() {return this.GetProp("MinSize", DataType.Vector2);}
+    public set MinSize(value) {this.SetProp("MinSize", DataType.Vector2, value);}
 }
 
 export class UITextSizeConstraint extends UIConstraint {
-    protected constructor(className?: string) {super(className ?? "UITextSizeConstraint");}
+    protected constructor(className?: string) {super(className ?? "UITextSizeConstraint"); this.addClassName("UITextSizeConstraint");}
     public static new() {return new UITextSizeConstraint();}
-    public get maxTextSize() {return this.getProp("MaxTextSize", DataType.Int32);}
-    public set maxTextSize(value) {this.setProp("MaxTextSize", DataType.Int32, value);}
-    public get minTextSize() {return this.getProp("MinTextSize", DataType.Int32);}
-    public set minTextSize(value) {this.setProp("MinTextSize", DataType.Int32, value);}
+    public get MaxTextSize() {return this.GetProp("MaxTextSize", DataType.Int32);}
+    public set MaxTextSize(value) {this.SetProp("MaxTextSize", DataType.Int32, value);}
+    public get MinTextSize() {return this.GetProp("MinTextSize", DataType.Int32);}
+    public set MinTextSize(value) {this.SetProp("MinTextSize", DataType.Int32, value);}
 }
 
 export class UICorner extends UIComponent {
-    protected constructor(className?: string) {super(className ?? "UICorner");}
+    protected constructor(className?: string) {super(className ?? "UICorner"); this.addClassName("UICorner");}
     public static new() {return new UICorner();}
-    public get cornerRadius() {return this.getProp("CornerRadius", DataType.UDim);}
-    public set cornerRadius(value) {this.setProp("CornerRadius", DataType.UDim, value);}
+    public get CornerRadius() {return this.GetProp("CornerRadius", DataType.UDim);}
+    public set CornerRadius(value) {this.SetProp("CornerRadius", DataType.UDim, value);}
 }
 
 export class UIFlexItem extends UIComponent {
-    protected constructor(className?: string) {super(className ?? "UIFlexItem");}
+    protected constructor(className?: string) {super(className ?? "UIFlexItem"); this.addClassName("UIFlexItem");}
     public static new() {return new UIFlexItem();}
-    public get flexMode() {return this.getProp("FlexMode", DataType.Enum) as UIFlexMode | undefined;}
-    public set flexMode(value) {this.setProp("FlexMode", DataType.Enum, value);}
-    public get growRatio() {return this.getProp("GrowRatio", DataType.Float32);}
-    public set growRatio(value) {this.setProp("GrowRatio", DataType.Float32, value);}
-    public get itemLineAlignment() {return this.getProp("ItemLineAlignment", DataType.Enum) as ItemLineAlignment | undefined;}
-    public set itemLineAlignment(value) {this.setProp("ItemLineAlignment", DataType.Enum, value);}
-    public get shrinkRatio() {return this.getProp("ShrinkRatio", DataType.Float32);}
-    public set shrinkRatio(value) {this.setProp("ShrinkRatio", DataType.Float32, value);}
+    public get FlexMode() {return this.GetProp("FlexMode", DataType.Enum) as UIFlexMode | undefined;}
+    public set FlexMode(value) {this.SetProp("FlexMode", DataType.Enum, value);}
+    public get GrowRatio() {return this.GetProp("GrowRatio", DataType.Float32);}
+    public set GrowRatio(value) {this.SetProp("GrowRatio", DataType.Float32, value);}
+    public get ItemLineAlignment() {return this.GetProp("ItemLineAlignment", DataType.Enum) as ItemLineAlignment | undefined;}
+    public set ItemLineAlignment(value) {this.SetProp("ItemLineAlignment", DataType.Enum, value);}
+    public get ShrinkRatio() {return this.GetProp("ShrinkRatio", DataType.Float32);}
+    public set ShrinkRatio(value) {this.SetProp("ShrinkRatio", DataType.Float32, value);}
 }
 
 export class UIGradient extends UIComponent {
-    protected constructor(className?: string) {super(className ?? "UIGradient");}
+    protected constructor(className?: string) {super(className ?? "UIGradient"); this.addClassName("UIGradient");}
     public static new() {return new UIGradient();}
-    public get color() {return this.getProp("Color", DataType.ColorSequence);}
-    public set color(value) {this.setProp("Color", DataType.ColorSequence, value);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get offset() {return this.getProp("Offset", DataType.Vector2);}
-    public set offset(value) {this.setProp("Offset", DataType.Vector2, value);}
-    public get rotation() {return this.getProp("Rotation", DataType.Float32);}
-    public set rotation(value) {this.setProp("Rotation", DataType.Float32, value);}
-    public get transparency() {return this.getProp("Transparency", DataType.NumberSequence);}
-    public set transparency(value) {this.setProp("Transparency", DataType.NumberSequence, value);}
+    public get Color() {return this.GetProp("Color", DataType.ColorSequence);}
+    public set Color(value) {this.SetProp("Color", DataType.ColorSequence, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get Offset() {return this.GetProp("Offset", DataType.Vector2);}
+    public set Offset(value) {this.SetProp("Offset", DataType.Vector2, value);}
+    public get Rotation() {return this.GetProp("Rotation", DataType.Float32);}
+    public set Rotation(value) {this.SetProp("Rotation", DataType.Float32, value);}
+    public get Transparency() {return this.GetProp("Transparency", DataType.NumberSequence);}
+    public set Transparency(value) {this.SetProp("Transparency", DataType.NumberSequence, value);}
 }
 
 export abstract class UILayout extends UIComponent {
-    protected constructor(className: string) {super(className);}
+    protected constructor(className: string) {super(className); this.addClassName("UILayout");}
 }
 
 export abstract class UIGridStyleLayout extends UILayout {
-    protected constructor(className: string) {super(className);}
-    public get fillDirection() {return this.getProp("FillDirection", DataType.Enum) as FillDirection | undefined;}
-    public set fillDirection(value) {this.setProp("FillDirection", DataType.Enum, value);}
-    public get horizontalAlignment() {return this.getProp("HorizontalAlignment", DataType.Enum) as HorizontalAlignment | undefined;}
-    public set horizontalAlignment(value) {this.setProp("HorizontalAlignment", DataType.Enum, value);}
-    public get sortOrder() {return this.getProp("SortOrder", DataType.Enum) as SortOrder | undefined;}
-    public set sortOrder(value) {this.setProp("SortOrder", DataType.Enum, value);}
-    public get verticalAlignment() {return this.getProp("VerticalAlignment", DataType.Enum) as VerticalAlignment | undefined;}
-    public set verticalAlignment(value) {this.setProp("VerticalAlignment", DataType.Enum, value);}
+    protected constructor(className: string) {super(className); this.addClassName("UIGridStyleLayout");}
+    public get FillDirection() {return this.GetProp("FillDirection", DataType.Enum) as FillDirection | undefined;}
+    public set FillDirection(value) {this.SetProp("FillDirection", DataType.Enum, value);}
+    public get HorizontalAlignment() {return this.GetProp("HorizontalAlignment", DataType.Enum) as HorizontalAlignment | undefined;}
+    public set HorizontalAlignment(value) {this.SetProp("HorizontalAlignment", DataType.Enum, value);}
+    public get SortOrder() {return this.GetProp("SortOrder", DataType.Enum) as SortOrder | undefined;}
+    public set SortOrder(value) {this.SetProp("SortOrder", DataType.Enum, value);}
+    public get VerticalAlignment() {return this.GetProp("VerticalAlignment", DataType.Enum) as VerticalAlignment | undefined;}
+    public set VerticalAlignment(value) {this.SetProp("VerticalAlignment", DataType.Enum, value);}
 }
 
 export class UIGridLayout extends UIGridStyleLayout {
-    protected constructor(className?: string) {super(className ?? "UIGridLayout");}
+    protected constructor(className?: string) {super(className ?? "UIGridLayout"); this.addClassName("UIGridLayout");}
     public static new() {return new UIGridLayout();}
-    public get cellPadding() {return this.getProp("CellPadding", DataType.UDim2);}
-    public set cellPadding(value) {this.setProp("CellPadding", DataType.UDim2, value);}
-    public get cellSize() {return this.getProp("CellSize", DataType.UDim2);}
-    public set cellSize(value) {this.setProp("CellSize", DataType.UDim2, value);}
-    public get fillDirectionMaxCells() {return this.getProp("FillDirectionMaxCells", DataType.Int32);}
-    public set fillDirectionMaxCells(value) {this.setProp("FillDirectionMaxCells", DataType.Int32, value);}
-    public get startCorner() {return this.getProp("StartCorner", DataType.Enum) as StartCorner | undefined;}
-    public set startCorner(value) {this.setProp("StartCorner", DataType.Enum, value);}
+    public get CellPadding() {return this.GetProp("CellPadding", DataType.UDim2);}
+    public set CellPadding(value) {this.SetProp("CellPadding", DataType.UDim2, value);}
+    public get CellSize() {return this.GetProp("CellSize", DataType.UDim2);}
+    public set CellSize(value) {this.SetProp("CellSize", DataType.UDim2, value);}
+    public get FillDirectionMaxCells() {return this.GetProp("FillDirectionMaxCells", DataType.Int32);}
+    public set FillDirectionMaxCells(value) {this.SetProp("FillDirectionMaxCells", DataType.Int32, value);}
+    public get StartCorner() {return this.GetProp("StartCorner", DataType.Enum) as StartCorner | undefined;}
+    public set StartCorner(value) {this.SetProp("StartCorner", DataType.Enum, value);}
 }
 
 export class UIListLayout extends UIGridStyleLayout {
-    protected constructor(className?: string) {super(className ?? "UIListLayout");}
+    protected constructor(className?: string) {super(className ?? "UIListLayout"); this.addClassName("UIListLayout");}
     public static new() {return new UIListLayout();}
-    public get horizontalFlex() {return this.getProp("HorizontalFlex", DataType.Enum) as UIFlexAlignment | undefined;}
-    public set horizontalFlex(value) {this.setProp("HorizontalFlex", DataType.Enum, value);}
-    public get itemLineAlignment() {return this.getProp("ItemLineAlignment", DataType.Enum) as ItemLineAlignment | undefined;}
-    public set itemLineAlignment(value) {this.setProp("ItemLineAlignment", DataType.Enum, value);}
-    public get padding() {return this.getProp("Padding", DataType.UDim);}
-    public set padding(value) {this.setProp("Padding", DataType.UDim, value);}
-    public get verticalFlex() {return this.getProp("VerticalFlex", DataType.Enum) as UIFlexAlignment | undefined;}
-    public set verticalFlex(value) {this.setProp("VerticalFlex", DataType.Enum, value);}
-    public get wraps() {return this.getProp("Wraps", DataType.Bool);}
-    public set wraps(value) {this.setProp("Wraps", DataType.Bool, value);}
+    public get HorizontalFlex() {return this.GetProp("HorizontalFlex", DataType.Enum) as UIFlexAlignment | undefined;}
+    public set HorizontalFlex(value) {this.SetProp("HorizontalFlex", DataType.Enum, value);}
+    public get ItemLineAlignment() {return this.GetProp("ItemLineAlignment", DataType.Enum) as ItemLineAlignment | undefined;}
+    public set ItemLineAlignment(value) {this.SetProp("ItemLineAlignment", DataType.Enum, value);}
+    public get Padding() {return this.GetProp("Padding", DataType.UDim);}
+    public set Padding(value) {this.SetProp("Padding", DataType.UDim, value);}
+    public get VerticalFlex() {return this.GetProp("VerticalFlex", DataType.Enum) as UIFlexAlignment | undefined;}
+    public set VerticalFlex(value) {this.SetProp("VerticalFlex", DataType.Enum, value);}
+    public get Wraps() {return this.GetProp("Wraps", DataType.Bool);}
+    public set Wraps(value) {this.SetProp("Wraps", DataType.Bool, value);}
 }
 
 export class UIPageLayout extends UIGridStyleLayout {
-    protected constructor(className?: string) {super(className ?? "UIPageLayout");}
+    protected constructor(className?: string) {super(className ?? "UIPageLayout"); this.addClassName("UIPageLayout");}
     public static new() {return new UIPageLayout();}
-    public get animated() {return this.getProp("Animated", DataType.Bool);}
-    public set animated(value) {this.setProp("Animated", DataType.Bool, value);}
-    public get circular() {return this.getProp("Circular", DataType.Bool);}
-    public set circular(value) {this.setProp("Circular", DataType.Bool, value);}
-    public get easingDirection() {return this.getProp("EasingDirection", DataType.Enum) as EasingDirection | undefined;}
-    public set easingDirection(value) {this.setProp("EasingDirection", DataType.Enum, value);}
-    public get easingStyle() {return this.getProp("EasingStyle", DataType.Enum) as EasingStyle | undefined;}
-    public set easingStyle(value) {this.setProp("EasingStyle", DataType.Enum, value);}
-    public get gamepadInputEnabled() {return this.getProp("GamepadInputEnabled", DataType.Bool);}
-    public set gamepadInputEnabled(value) {this.setProp("GamepadInputEnabled", DataType.Bool, value);}
-    public get padding() {return this.getProp("Padding", DataType.UDim);}
-    public set padding(value) {this.setProp("Padding", DataType.UDim, value);}
-    public get scrollWheelInputEnabled() {return this.getProp("ScrollWheelInputEnabled", DataType.Bool);}
-    public set scrollWheelInputEnabled(value) {this.setProp("ScrollWheelInputEnabled", DataType.Bool, value);}
-    public get touchInputEnabled() {return this.getProp("TouchInputEnabled", DataType.Bool);}
-    public set touchInputEnabled(value) {this.setProp("TouchInputEnabled", DataType.Bool, value);}
-    public get tweenTime() {return this.getProp("TweenTime", DataType.Float32);}
-    public set tweenTime(value) {this.setProp("TweenTime", DataType.Float32, value);}
+    public get Animated() {return this.GetProp("Animated", DataType.Bool);}
+    public set Animated(value) {this.SetProp("Animated", DataType.Bool, value);}
+    public get Circular() {return this.GetProp("Circular", DataType.Bool);}
+    public set Circular(value) {this.SetProp("Circular", DataType.Bool, value);}
+    public get EasingDirection() {return this.GetProp("EasingDirection", DataType.Enum) as EasingDirection | undefined;}
+    public set EasingDirection(value) {this.SetProp("EasingDirection", DataType.Enum, value);}
+    public get EasingStyle() {return this.GetProp("EasingStyle", DataType.Enum) as EasingStyle | undefined;}
+    public set EasingStyle(value) {this.SetProp("EasingStyle", DataType.Enum, value);}
+    public get GamepadInputEnabled() {return this.GetProp("GamepadInputEnabled", DataType.Bool);}
+    public set GamepadInputEnabled(value) {this.SetProp("GamepadInputEnabled", DataType.Bool, value);}
+    public get Padding() {return this.GetProp("Padding", DataType.UDim);}
+    public set Padding(value) {this.SetProp("Padding", DataType.UDim, value);}
+    public get ScrollWheelInputEnabled() {return this.GetProp("ScrollWheelInputEnabled", DataType.Bool);}
+    public set ScrollWheelInputEnabled(value) {this.SetProp("ScrollWheelInputEnabled", DataType.Bool, value);}
+    public get TouchInputEnabled() {return this.GetProp("TouchInputEnabled", DataType.Bool);}
+    public set TouchInputEnabled(value) {this.SetProp("TouchInputEnabled", DataType.Bool, value);}
+    public get TweenTime() {return this.GetProp("TweenTime", DataType.Float32);}
+    public set TweenTime(value) {this.SetProp("TweenTime", DataType.Float32, value);}
 }
 
 export class UITableLayout extends UIGridStyleLayout {
-    protected constructor(className?: string) {super(className ?? "UITableLayout");}
+    protected constructor(className?: string) {super(className ?? "UITableLayout"); this.addClassName("UITableLayout");}
     public static new() {return new UITableLayout();}
-    public get fillEmptySpaceColumns() {return this.getProp("FillEmptySpaceColumns", DataType.Bool);}
-    public set fillEmptySpaceColumns(value) {this.setProp("FillEmptySpaceColumns", DataType.Bool, value);}
-    public get fillEmptySpaceRows() {return this.getProp("FillEmptySpaceRows", DataType.Bool);}
-    public set fillEmptySpaceRows(value) {this.setProp("FillEmptySpaceRows", DataType.Bool, value);}
-    public get majorAxis() {return this.getProp("MajorAxis", DataType.Enum) as TableMajorAxis | undefined;}
-    public set majorAxis(value) {this.setProp("MajorAxis", DataType.Enum, value);}
-    public get padding() {return this.getProp("Padding", DataType.UDim2);}
-    public set padding(value) {this.setProp("Padding", DataType.UDim2, value);}
+    public get FillEmptySpaceColumns() {return this.GetProp("FillEmptySpaceColumns", DataType.Bool);}
+    public set FillEmptySpaceColumns(value) {this.SetProp("FillEmptySpaceColumns", DataType.Bool, value);}
+    public get FillEmptySpaceRows() {return this.GetProp("FillEmptySpaceRows", DataType.Bool);}
+    public set FillEmptySpaceRows(value) {this.SetProp("FillEmptySpaceRows", DataType.Bool, value);}
+    public get MajorAxis() {return this.GetProp("MajorAxis", DataType.Enum) as TableMajorAxis | undefined;}
+    public set MajorAxis(value) {this.SetProp("MajorAxis", DataType.Enum, value);}
+    public get Padding() {return this.GetProp("Padding", DataType.UDim2);}
+    public set Padding(value) {this.SetProp("Padding", DataType.UDim2, value);}
 }
 
 export class UIPadding extends UIComponent {
-    protected constructor(className?: string) {super(className ?? "UIPadding");}
+    protected constructor(className?: string) {super(className ?? "UIPadding"); this.addClassName("UIPadding");}
     public static new() {return new UIPadding();}
-    public get paddingBottom() {return this.getProp("PaddingBottom", DataType.UDim);}
-    public set paddingBottom(value) {this.setProp("PaddingBottom", DataType.UDim, value);}
-    public get paddingLeft() {return this.getProp("PaddingLeft", DataType.UDim);}
-    public set paddingLeft(value) {this.setProp("PaddingLeft", DataType.UDim, value);}
-    public get paddingRight() {return this.getProp("PaddingRight", DataType.UDim);}
-    public set paddingRight(value) {this.setProp("PaddingRight", DataType.UDim, value);}
-    public get paddingTop() {return this.getProp("PaddingTop", DataType.UDim);}
-    public set paddingTop(value) {this.setProp("PaddingTop", DataType.UDim, value);}
+    public get PaddingBottom() {return this.GetProp("PaddingBottom", DataType.UDim);}
+    public set PaddingBottom(value) {this.SetProp("PaddingBottom", DataType.UDim, value);}
+    public get PaddingLeft() {return this.GetProp("PaddingLeft", DataType.UDim);}
+    public set PaddingLeft(value) {this.SetProp("PaddingLeft", DataType.UDim, value);}
+    public get PaddingRight() {return this.GetProp("PaddingRight", DataType.UDim);}
+    public set PaddingRight(value) {this.SetProp("PaddingRight", DataType.UDim, value);}
+    public get PaddingTop() {return this.GetProp("PaddingTop", DataType.UDim);}
+    public set PaddingTop(value) {this.SetProp("PaddingTop", DataType.UDim, value);}
 }
 
 export class UIScale extends UIComponent {
-    protected constructor(className?: string) {super(className ?? "UIScale");}
+    protected constructor(className?: string) {super(className ?? "UIScale"); this.addClassName("UIScale");}
     public static new() {return new UIScale();}
-    public get scale() {return this.getProp("Scale", DataType.Float32);}
-    public set scale(value) {this.setProp("Scale", DataType.Float32, value);}
+    public get Scale() {return this.GetProp("Scale", DataType.Float32);}
+    public set Scale(value) {this.SetProp("Scale", DataType.Float32, value);}
 }
 
 export class UIStroke extends UIComponent {
-    protected constructor(className?: string) {super(className ?? "UIStroke");}
+    protected constructor(className?: string) {super(className ?? "UIStroke"); this.addClassName("UIStroke");}
     public static new() {return new UIStroke();}
-    public get applyStrokeMode() {return this.getProp("ApplyStrokeMode", DataType.Enum) as ApplyStrokeMode | undefined;}
-    public set applyStrokeMode(value) {this.setProp("ApplyStrokeMode", DataType.Enum, value);}
-    public get color() {return this.getProp("Color", DataType.Color3);}
-    public set color(value) {this.setProp("Color", DataType.Color3, value);}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get lineJoinMode() {return this.getProp("LineJoinMode", DataType.Enum) as LineJoinMode | undefined;}
-    public set lineJoinMode(value) {this.setProp("LineJoinMode", DataType.Enum, value);}
-    public get thickness() {return this.getProp("Thickness", DataType.Float32);}
-    public set thickness(value) {this.setProp("Thickness", DataType.Float32, value);}
-    public get transparency() {return this.getProp("Transparency", DataType.Float32);}
-    public set transparency(value) {this.setProp("Transparency", DataType.Float32, value);}
+    public get ApplyStrokeMode() {return this.GetProp("ApplyStrokeMode", DataType.Enum) as ApplyStrokeMode | undefined;}
+    public set ApplyStrokeMode(value) {this.SetProp("ApplyStrokeMode", DataType.Enum, value);}
+    public get Color() {return this.GetProp("Color", DataType.Color3);}
+    public set Color(value) {this.SetProp("Color", DataType.Color3, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get LineJoinMode() {return this.GetProp("LineJoinMode", DataType.Enum) as LineJoinMode | undefined;}
+    public set LineJoinMode(value) {this.SetProp("LineJoinMode", DataType.Enum, value);}
+    public get Thickness() {return this.GetProp("Thickness", DataType.Float32);}
+    public set Thickness(value) {this.SetProp("Thickness", DataType.Float32, value);}
+    public get Transparency() {return this.GetProp("Transparency", DataType.Float32);}
+    public set Transparency(value) {this.SetProp("Transparency", DataType.Float32, value);}
 }
 
-export class UnvalidatedAssetService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "UnvalidatedAssetService", true);}
+export class UnvalidatedAssetService extends Instance {
+    protected constructor(className?: string) {super(className ?? "UnvalidatedAssetService", true); this.addClassName("UnvalidatedAssetService");}
     public static new() {return new UnvalidatedAssetService();}
-    public get cachedData() {return this.getProp("CachedData", DataType.String);}
-    public set cachedData(value) {this.setProp("CachedData", DataType.String, value);}
+    public get CachedData() {return this.GetProp("CachedData", DataType.String);}
+    public set CachedData(value) {this.SetProp("CachedData", DataType.String, value);}
 }
 
-export class UserInputService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "UserInputService", true);}
+export class UserInputService extends Instance {
+    protected constructor(className?: string) {super(className ?? "UserInputService", true); this.addClassName("UserInputService");}
     public static new() {return new UserInputService();}
-    public get legacyInputEventsEnabled() {return this.getProp("LegacyInputEventsEnabled", DataType.Bool);}
-    public set legacyInputEventsEnabled(value) {this.setProp("LegacyInputEventsEnabled", DataType.Bool, value);}
-    public get mouseBehavior() {return this.getProp("MouseBehavior", DataType.Enum) as MouseBehavior | undefined;}
-    public set mouseBehavior(value) {this.setProp("MouseBehavior", DataType.Enum, value);}
-    public get mouseIcon() {return this.getProp("MouseIcon", DataType.String);}
-    public set mouseIcon(value) {this.setProp("MouseIcon", DataType.String, value);}
-    public get mouseIconEnabled() {return this.getProp("MouseIconEnabled", DataType.Bool);}
-    public set mouseIconEnabled(value) {this.setProp("MouseIconEnabled", DataType.Bool, value);}
+    public get LegacyInputEventsEnabled() {return this.GetProp("LegacyInputEventsEnabled", DataType.Bool);}
+    public set LegacyInputEventsEnabled(value) {this.SetProp("LegacyInputEventsEnabled", DataType.Bool, value);}
+    public get MouseBehavior() {return this.GetProp("MouseBehavior", DataType.Enum) as MouseBehavior | undefined;}
+    public set MouseBehavior(value) {this.SetProp("MouseBehavior", DataType.Enum, value);}
+    public get MouseIcon() {return this.GetProp("MouseIcon", DataType.String);}
+    public set MouseIcon(value) {this.SetProp("MouseIcon", DataType.String, value);}
+    public get MouseIconEnabled() {return this.GetProp("MouseIconEnabled", DataType.Bool);}
+    public set MouseIconEnabled(value) {this.SetProp("MouseIconEnabled", DataType.Bool, value);}
 }
 
-export class UserService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "UserService", true);}
+export class UserService extends Instance {
+    protected constructor(className?: string) {super(className ?? "UserService", true); this.addClassName("UserService");}
     public static new() {return new UserService();}
 }
 
-export class VRService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "VRService", true);}
+export class VRService extends Instance {
+    protected constructor(className?: string) {super(className ?? "VRService", true); this.addClassName("VRService");}
     public static new() {return new VRService();}
-    public get automaticScaling() {return this.getProp("AutomaticScaling", DataType.Enum) as VRScaling | undefined;}
-    public set automaticScaling(value) {this.setProp("AutomaticScaling", DataType.Enum, value);}
-    public get avatarGestures() {return this.getProp("AvatarGestures", DataType.Bool);}
-    public set avatarGestures(value) {this.setProp("AvatarGestures", DataType.Bool, value);}
-    public get fadeOutViewOnCollision() {return this.getProp("FadeOutViewOnCollision", DataType.Bool);}
-    public set fadeOutViewOnCollision(value) {this.setProp("FadeOutViewOnCollision", DataType.Bool, value);}
+    public get AutomaticScaling() {return this.GetProp("AutomaticScaling", DataType.Enum) as VRScaling | undefined;}
+    public set AutomaticScaling(value) {this.SetProp("AutomaticScaling", DataType.Enum, value);}
+    public get AvatarGestures() {return this.GetProp("AvatarGestures", DataType.Bool);}
+    public set AvatarGestures(value) {this.SetProp("AvatarGestures", DataType.Bool, value);}
+    public get FadeOutViewOnCollision() {return this.GetProp("FadeOutViewOnCollision", DataType.Bool);}
+    public set FadeOutViewOnCollision(value) {this.SetProp("FadeOutViewOnCollision", DataType.Bool, value);}
 }
 
-export class VRStatusService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "VRStatusService", true);}
+export class VRStatusService extends Instance {
+    protected constructor(className?: string) {super(className ?? "VRStatusService", true); this.addClassName("VRStatusService");}
     public static new() {return new VRStatusService();}
 }
 
-export abstract class ValueBase extends CoreInstance {
-    protected constructor(className: string) {super(className);}
+export abstract class ValueBase extends Instance {
+    protected constructor(className: string) {super(className); this.addClassName("ValueBase");}
 }
 
 export class BinaryStringValue extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "BinaryStringValue");}
+    protected constructor(className?: string) {super(className ?? "BinaryStringValue"); this.addClassName("BinaryStringValue");}
     public static new() {return new BinaryStringValue();}
-    public get value() {return this.getProp("Value", DataType.String);}
-    public set value(value) {this.setProp("Value", DataType.String, value);}
+    public get Value() {return this.GetProp("Value", DataType.String);}
+    public set Value(value) {this.SetProp("Value", DataType.String, value);}
 }
 
 export class BoolValue extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "BoolValue");}
+    protected constructor(className?: string) {super(className ?? "BoolValue"); this.addClassName("BoolValue");}
     public static new() {return new BoolValue();}
-    public get value() {return this.getProp("Value", DataType.Bool);}
-    public set value(value) {this.setProp("Value", DataType.Bool, value);}
+    public get Value() {return this.GetProp("Value", DataType.Bool);}
+    public set Value(value) {this.SetProp("Value", DataType.Bool, value);}
 }
 
 export class BrickColorValue extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "BrickColorValue");}
+    protected constructor(className?: string) {super(className ?? "BrickColorValue"); this.addClassName("BrickColorValue");}
     public static new() {return new BrickColorValue();}
-    public get value() {return this.getProp("Value", DataType.BrickColor);}
-    public set value(value) {this.setProp("Value", DataType.BrickColor, value);}
+    public get Value() {return this.GetProp("Value", DataType.BrickColor);}
+    public set Value(value) {this.SetProp("Value", DataType.BrickColor, value);}
 }
 
 export class CFrameValue extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "CFrameValue");}
+    protected constructor(className?: string) {super(className ?? "CFrameValue"); this.addClassName("CFrameValue");}
     public static new() {return new CFrameValue();}
-    public get value() {return this.getProp("Value", DataType.CFrame);}
-    public set value(value) {this.setProp("Value", DataType.CFrame, value);}
+    public get Value() {return this.GetProp("Value", DataType.CFrame);}
+    public set Value(value) {this.SetProp("Value", DataType.CFrame, value);}
 }
 
 export class Color3Value extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "Color3Value");}
+    protected constructor(className?: string) {super(className ?? "Color3Value"); this.addClassName("Color3Value");}
     public static new() {return new Color3Value();}
-    public get value() {return this.getProp("Value", DataType.Color3);}
-    public set value(value) {this.setProp("Value", DataType.Color3, value);}
+    public get Value() {return this.GetProp("Value", DataType.Color3);}
+    public set Value(value) {this.SetProp("Value", DataType.Color3, value);}
 }
 
 export class DoubleConstrainedValue extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "DoubleConstrainedValue");}
+    protected constructor(className?: string) {super(className ?? "DoubleConstrainedValue"); this.addClassName("DoubleConstrainedValue");}
     public static new() {return new DoubleConstrainedValue();}
-    public get maxValue() {return this.getProp("MaxValue", DataType.Float64);}
-    public set maxValue(value) {this.setProp("MaxValue", DataType.Float64, value);}
-    public get minValue() {return this.getProp("MinValue", DataType.Float64);}
-    public set minValue(value) {this.setProp("MinValue", DataType.Float64, value);}
-    public get value() {return this.getProp("value", DataType.Float64);}
-    public set value(value) {this.setProp("value", DataType.Float64, value);}
+    public get MaxValue() {return this.GetProp("MaxValue", DataType.Float64);}
+    public set MaxValue(value) {this.SetProp("MaxValue", DataType.Float64, value);}
+    public get MinValue() {return this.GetProp("MinValue", DataType.Float64);}
+    public set MinValue(value) {this.SetProp("MinValue", DataType.Float64, value);}
+    public get Value() {return this.GetProp("value", DataType.Float64);}
+    public set Value(value) {this.SetProp("value", DataType.Float64, value);}
 }
 
 export class IntConstrainedValue extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "IntConstrainedValue");}
+    protected constructor(className?: string) {super(className ?? "IntConstrainedValue"); this.addClassName("IntConstrainedValue");}
     public static new() {return new IntConstrainedValue();}
-    public get maxValue() {return this.getProp("MaxValue", DataType.Int64);}
-    public set maxValue(value) {this.setProp("MaxValue", DataType.Int64, value);}
-    public get minValue() {return this.getProp("MinValue", DataType.Int64);}
-    public set minValue(value) {this.setProp("MinValue", DataType.Int64, value);}
-    public get value() {return this.getProp("value", DataType.Int64);}
-    public set value(value) {this.setProp("value", DataType.Int64, value);}
+    public get MaxValue() {return this.GetProp("MaxValue", DataType.Int64);}
+    public set MaxValue(value) {this.SetProp("MaxValue", DataType.Int64, value);}
+    public get MinValue() {return this.GetProp("MinValue", DataType.Int64);}
+    public set MinValue(value) {this.SetProp("MinValue", DataType.Int64, value);}
+    public get Value() {return this.GetProp("value", DataType.Int64);}
+    public set Value(value) {this.SetProp("value", DataType.Int64, value);}
 }
 
 export class IntValue extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "IntValue");}
+    protected constructor(className?: string) {super(className ?? "IntValue"); this.addClassName("IntValue");}
     public static new() {return new IntValue();}
-    public get value() {return this.getProp("Value", DataType.Int64);}
-    public set value(value) {this.setProp("Value", DataType.Int64, value);}
+    public get Value() {return this.GetProp("Value", DataType.Int64);}
+    public set Value(value) {this.SetProp("Value", DataType.Int64, value);}
 }
 
 export class NumberValue extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "NumberValue");}
+    protected constructor(className?: string) {super(className ?? "NumberValue"); this.addClassName("NumberValue");}
     public static new() {return new NumberValue();}
-    public get value() {return this.getProp("Value", DataType.Float64);}
-    public set value(value) {this.setProp("Value", DataType.Float64, value);}
+    public get Value() {return this.GetProp("Value", DataType.Float64);}
+    public set Value(value) {this.SetProp("Value", DataType.Float64, value);}
 }
 
 export class ObjectValue extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "ObjectValue");}
+    protected constructor(className?: string) {super(className ?? "ObjectValue"); this.addClassName("ObjectValue");}
     public static new() {return new ObjectValue();}
-    public get value() {return this.getProp("Value", DataType.Referent) as CoreInstance | undefined;}
-    public set value(value) {this.setProp("Value", DataType.Referent, value);}
+    public get Value() {return this.GetProp("Value", DataType.Referent) as Instance | undefined;}
+    public set Value(value) {this.SetProp("Value", DataType.Referent, value);}
 }
 
 export class RayValue extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "RayValue");}
+    protected constructor(className?: string) {super(className ?? "RayValue"); this.addClassName("RayValue");}
     public static new() {return new RayValue();}
-    public get value() {return this.getProp("Value", DataType.Ray);}
-    public set value(value) {this.setProp("Value", DataType.Ray, value);}
+    public get Value() {return this.GetProp("Value", DataType.Ray);}
+    public set Value(value) {this.SetProp("Value", DataType.Ray, value);}
 }
 
 export class StringValue extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "StringValue");}
+    protected constructor(className?: string) {super(className ?? "StringValue"); this.addClassName("StringValue");}
     public static new() {return new StringValue();}
-    public get value() {return this.getProp("Value", DataType.String);}
-    public set value(value) {this.setProp("Value", DataType.String, value);}
+    public get Value() {return this.GetProp("Value", DataType.String);}
+    public set Value(value) {this.SetProp("Value", DataType.String, value);}
 }
 
 export class Vector3Value extends ValueBase {
-    protected constructor(className?: string) {super(className ?? "Vector3Value");}
+    protected constructor(className?: string) {super(className ?? "Vector3Value"); this.addClassName("Vector3Value");}
     public static new() {return new Vector3Value();}
-    public get value() {return this.getProp("Value", DataType.Vector3);}
-    public set value(value) {this.setProp("Value", DataType.Vector3, value);}
+    public get Value() {return this.GetProp("Value", DataType.Vector3);}
+    public set Value(value) {this.SetProp("Value", DataType.Vector3, value);}
 }
 
-export class Vector3Curve extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Vector3Curve");}
+export class Vector3Curve extends Instance {
+    protected constructor(className?: string) {super(className ?? "Vector3Curve"); this.addClassName("Vector3Curve");}
     public static new() {return new Vector3Curve();}
 }
 
-export class VersionControlService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "VersionControlService", true);}
+export class VersionControlService extends Instance {
+    protected constructor(className?: string) {super(className ?? "VersionControlService", true); this.addClassName("VersionControlService");}
     public static new() {return new VersionControlService();}
 }
 
-export class VideoCaptureService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "VideoCaptureService", true);}
+export class VideoCaptureService extends Instance {
+    protected constructor(className?: string) {super(className ?? "VideoCaptureService", true); this.addClassName("VideoCaptureService");}
     public static new() {return new VideoCaptureService();}
 }
 
-export class VideoDeviceInput extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "VideoDeviceInput");}
+export class VideoDeviceInput extends Instance {
+    protected constructor(className?: string) {super(className ?? "VideoDeviceInput"); this.addClassName("VideoDeviceInput");}
     public static new() {return new VideoDeviceInput();}
-    public get active() {return this.getProp("Active", DataType.Bool);}
-    public set active(value) {this.setProp("Active", DataType.Bool, value);}
-    public get cameraId() {return this.getProp("CameraId", DataType.String);}
-    public set cameraId(value) {this.setProp("CameraId", DataType.String, value);}
-    public get captureQuality() {return this.getProp("CaptureQuality", DataType.Enum) as VideoDeviceCaptureQuality | undefined;}
-    public set captureQuality(value) {this.setProp("CaptureQuality", DataType.Enum, value);}
+    public get Active() {return this.GetProp("Active", DataType.Bool);}
+    public set Active(value) {this.SetProp("Active", DataType.Bool, value);}
+    public get CameraId() {return this.GetProp("CameraId", DataType.String);}
+    public set CameraId(value) {this.SetProp("CameraId", DataType.String, value);}
+    public get CaptureQuality() {return this.GetProp("CaptureQuality", DataType.Enum) as VideoDeviceCaptureQuality | undefined;}
+    public set CaptureQuality(value) {this.SetProp("CaptureQuality", DataType.Enum, value);}
 }
 
-export class VideoService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "VideoService", true);}
+export class VideoService extends Instance {
+    protected constructor(className?: string) {super(className ?? "VideoService", true); this.addClassName("VideoService");}
     public static new() {return new VideoService();}
 }
 
-export class VirtualInputManager extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "VirtualInputManager", true);}
+export class VirtualInputManager extends Instance {
+    protected constructor(className?: string) {super(className ?? "VirtualInputManager", true); this.addClassName("VirtualInputManager");}
     public static new() {return new VirtualInputManager();}
 }
 
-export class VirtualUser extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "VirtualUser", true);}
+export class VirtualUser extends Instance {
+    protected constructor(className?: string) {super(className ?? "VirtualUser", true); this.addClassName("VirtualUser");}
     public static new() {return new VirtualUser();}
 }
 
-export class VisibilityCheckDispatcher extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "VisibilityCheckDispatcher", true);}
+export class VisibilityCheckDispatcher extends Instance {
+    protected constructor(className?: string) {super(className ?? "VisibilityCheckDispatcher", true); this.addClassName("VisibilityCheckDispatcher");}
     public static new() {return new VisibilityCheckDispatcher();}
 }
 
-export class Visit extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Visit", true);}
+export class Visit extends Instance {
+    protected constructor(className?: string) {super(className ?? "Visit", true); this.addClassName("Visit");}
     public static new() {return new Visit();}
 }
 
-export class VisualizationMode extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "VisualizationMode");}
+export class VisualizationMode extends Instance {
+    protected constructor(className?: string) {super(className ?? "VisualizationMode"); this.addClassName("VisualizationMode");}
     public static new() {return new VisualizationMode();}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get title() {return this.getProp("Title", DataType.String);}
-    public set title(value) {this.setProp("Title", DataType.String, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get Title() {return this.GetProp("Title", DataType.String);}
+    public set Title(value) {this.SetProp("Title", DataType.String, value);}
 }
 
-export class VisualizationModeCategory extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "VisualizationModeCategory");}
+export class VisualizationModeCategory extends Instance {
+    protected constructor(className?: string) {super(className ?? "VisualizationModeCategory"); this.addClassName("VisualizationModeCategory");}
     public static new() {return new VisualizationModeCategory();}
-    public get enabled() {return this.getProp("Enabled", DataType.Bool);}
-    public set enabled(value) {this.setProp("Enabled", DataType.Bool, value);}
-    public get title() {return this.getProp("Title", DataType.String);}
-    public set title(value) {this.setProp("Title", DataType.String, value);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get Title() {return this.GetProp("Title", DataType.String);}
+    public set Title(value) {this.SetProp("Title", DataType.String, value);}
 }
 
-export class VisualizationModeService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "VisualizationModeService", true);}
+export class VisualizationModeService extends Instance {
+    protected constructor(className?: string) {super(className ?? "VisualizationModeService", true); this.addClassName("VisualizationModeService");}
     public static new() {return new VisualizationModeService();}
 }
 
-export class VoiceChatInternal extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "VoiceChatInternal", true);}
+export class VoiceChatInternal extends Instance {
+    protected constructor(className?: string) {super(className ?? "VoiceChatInternal", true); this.addClassName("VoiceChatInternal");}
     public static new() {return new VoiceChatInternal();}
 }
 
-export class VoiceChatService extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "VoiceChatService", true);}
+export class VoiceChatService extends Instance {
+    protected constructor(className?: string) {super(className ?? "VoiceChatService", true); this.addClassName("VoiceChatService");}
     public static new() {return new VoiceChatService();}
-    public get enableDefaultVoice() {return this.getProp("EnableDefaultVoice", DataType.Bool);}
-    public set enableDefaultVoice(value) {this.setProp("EnableDefaultVoice", DataType.Bool, value);}
-    public get useAudioApi() {return this.getProp("UseAudioApi", DataType.Enum) as AudioApiRollout | undefined;}
-    public set useAudioApi(value) {this.setProp("UseAudioApi", DataType.Enum, value);}
+    public get EnableDefaultVoice() {return this.GetProp("EnableDefaultVoice", DataType.Bool);}
+    public set EnableDefaultVoice(value) {this.SetProp("EnableDefaultVoice", DataType.Bool, value);}
+    public get UseAudioApi() {return this.GetProp("UseAudioApi", DataType.Enum) as AudioApiRollout | undefined;}
+    public set UseAudioApi(value) {this.SetProp("UseAudioApi", DataType.Enum, value);}
 }
 
-export class WeldConstraint extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "WeldConstraint");}
+export class WeldConstraint extends Instance {
+    protected constructor(className?: string) {super(className ?? "WeldConstraint"); this.addClassName("WeldConstraint");}
     public static new() {return new WeldConstraint();}
-    public get cFrame0() {return this.getProp("CFrame0", DataType.CFrame);}
-    public set cFrame0(value) {this.setProp("CFrame0", DataType.CFrame, value);}
-    public get part0Internal() {return this.getProp("Part0Internal", DataType.Referent) as BasePart | undefined;}
-    public set part0Internal(value) {this.setProp("Part0Internal", DataType.Referent, value);}
-    public get part1Internal() {return this.getProp("Part1Internal", DataType.Referent) as BasePart | undefined;}
-    public set part1Internal(value) {this.setProp("Part1Internal", DataType.Referent, value);}
-    public get state() {return this.getProp("State", DataType.Int32);}
-    public set state(value) {this.setProp("State", DataType.Int32, value);}
+    public get CFrame0() {return this.GetProp("CFrame0", DataType.CFrame);}
+    public set CFrame0(value) {this.SetProp("CFrame0", DataType.CFrame, value);}
+    public get Part0Internal() {return this.GetProp("Part0Internal", DataType.Referent) as BasePart | undefined;}
+    public set Part0Internal(value) {this.SetProp("Part0Internal", DataType.Referent, value);}
+    public get Part1Internal() {return this.GetProp("Part1Internal", DataType.Referent) as BasePart | undefined;}
+    public set Part1Internal(value) {this.SetProp("Part1Internal", DataType.Referent, value);}
+    public get State() {return this.GetProp("State", DataType.Int32);}
+    public set State(value) {this.SetProp("State", DataType.Int32, value);}
 }
 
-export class Wire extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Wire");}
+export class Wire extends Instance {
+    protected constructor(className?: string) {super(className ?? "Wire"); this.addClassName("Wire");}
     public static new() {return new Wire();}
-    public get sourceInstance() {return this.getProp("SourceInstance", DataType.Referent) as CoreInstance | undefined;}
-    public set sourceInstance(value) {this.setProp("SourceInstance", DataType.Referent, value);}
-    public get sourceName() {return this.getProp("SourceName", DataType.String);}
-    public set sourceName(value) {this.setProp("SourceName", DataType.String, value);}
-    public get targetInstance() {return this.getProp("TargetInstance", DataType.Referent) as CoreInstance | undefined;}
-    public set targetInstance(value) {this.setProp("TargetInstance", DataType.Referent, value);}
-    public get targetName() {return this.getProp("TargetName", DataType.String);}
-    public set targetName(value) {this.setProp("TargetName", DataType.String, value);}
+    public get SourceInstance() {return this.GetProp("SourceInstance", DataType.Referent) as Instance | undefined;}
+    public set SourceInstance(value) {this.SetProp("SourceInstance", DataType.Referent, value);}
+    public get SourceName() {return this.GetProp("SourceName", DataType.String);}
+    public set SourceName(value) {this.SetProp("SourceName", DataType.String, value);}
+    public get TargetInstance() {return this.GetProp("TargetInstance", DataType.Referent) as Instance | undefined;}
+    public set TargetInstance(value) {this.SetProp("TargetInstance", DataType.Referent, value);}
+    public get TargetName() {return this.GetProp("TargetName", DataType.String);}
+    public set TargetName(value) {this.SetProp("TargetName", DataType.String, value);}
+}
+
+export type NameToClass = {
+    ["AccessoryDescription"]: AccessoryDescription
+    ["AccountService"]: AccountService
+    ["Accoutrement"]: Accoutrement
+    ["Accessory"]: Accessory
+    ["Hat"]: Hat
+    ["ActivityHistoryService"]: ActivityHistoryService
+    ["AdPortal"]: AdPortal
+    ["AdService"]: AdService
+    ["AdvancedDragger"]: AdvancedDragger
+    ["AnalyticsService"]: AnalyticsService
+    ["Animation"]: Animation
+    ["AnimationClip"]: AnimationClip
+    ["CurveAnimation"]: CurveAnimation
+    ["KeyframeSequence"]: KeyframeSequence
+    ["AnimationClipProvider"]: AnimationClipProvider
+    ["AnimationController"]: AnimationController
+    ["AnimationFromVideoCreatorService"]: AnimationFromVideoCreatorService
+    ["AnimationFromVideoCreatorStudioService"]: AnimationFromVideoCreatorStudioService
+    ["AnimationRigData"]: AnimationRigData
+    ["Animator"]: Animator
+    ["AppUpdateService"]: AppUpdateService
+    ["AssetCounterService"]: AssetCounterService
+    ["AssetDeliveryProxy"]: AssetDeliveryProxy
+    ["AssetImportService"]: AssetImportService
+    ["AssetManagerService"]: AssetManagerService
+    ["AssetService"]: AssetService
+    ["Atmosphere"]: Atmosphere
+    ["Attachment"]: Attachment
+    ["Bone"]: Bone
+    ["AudioAnalyzer"]: AudioAnalyzer
+    ["AudioChorus"]: AudioChorus
+    ["AudioCompressor"]: AudioCompressor
+    ["AudioDeviceInput"]: AudioDeviceInput
+    ["AudioDeviceOutput"]: AudioDeviceOutput
+    ["AudioDistortion"]: AudioDistortion
+    ["AudioEcho"]: AudioEcho
+    ["AudioEmitter"]: AudioEmitter
+    ["AudioEqualizer"]: AudioEqualizer
+    ["AudioFader"]: AudioFader
+    ["AudioFlanger"]: AudioFlanger
+    ["AudioListener"]: AudioListener
+    ["AudioPitchShifter"]: AudioPitchShifter
+    ["AudioPlayer"]: AudioPlayer
+    ["AudioReverb"]: AudioReverb
+    ["AudioSearchParams"]: AudioSearchParams
+    ["AvatarChatService"]: AvatarChatService
+    ["AvatarCreationService"]: AvatarCreationService
+    ["AvatarEditorService"]: AvatarEditorService
+    ["AvatarGenerationJob"]: AvatarGenerationJob
+    ["AvatarImportService"]: AvatarImportService
+    ["Backpack"]: Backpack
+    ["BadgeService"]: BadgeService
+    ["BaseImportData"]: BaseImportData
+    ["BasePlayerGui"]: BasePlayerGui
+    ["CoreGui"]: CoreGui
+    ["StarterGui"]: StarterGui
+    ["BaseRemoteEvent"]: BaseRemoteEvent
+    ["RemoteEvent"]: RemoteEvent
+    ["UnreliableRemoteEvent"]: UnreliableRemoteEvent
+    ["BaseWrap"]: BaseWrap
+    ["WrapLayer"]: WrapLayer
+    ["WrapTarget"]: WrapTarget
+    ["Beam"]: Beam
+    ["BindableEvent"]: BindableEvent
+    ["BindableFunction"]: BindableFunction
+    ["BodyMover"]: BodyMover
+    ["BodyAngularVelocity"]: BodyAngularVelocity
+    ["BodyForce"]: BodyForce
+    ["BodyGyro"]: BodyGyro
+    ["BodyPosition"]: BodyPosition
+    ["BodyThrust"]: BodyThrust
+    ["BodyVelocity"]: BodyVelocity
+    ["RocketPropulsion"]: RocketPropulsion
+    ["BodyPartDescription"]: BodyPartDescription
+    ["Breakpoint"]: Breakpoint
+    ["BrowserService"]: BrowserService
+    ["BubbleChatMessageProperties"]: BubbleChatMessageProperties
+    ["BulkImportService"]: BulkImportService
+    ["CacheableContentProvider"]: CacheableContentProvider
+    ["HSRDataContentProvider"]: HSRDataContentProvider
+    ["MeshContentProvider"]: MeshContentProvider
+    ["SolidModelContentProvider"]: SolidModelContentProvider
+    ["CalloutService"]: CalloutService
+    ["Camera"]: Camera
+    ["CaptureService"]: CaptureService
+    ["ChangeHistoryService"]: ChangeHistoryService
+    ["CharacterAppearance"]: CharacterAppearance
+    ["BodyColors"]: BodyColors
+    ["CharacterMesh"]: CharacterMesh
+    ["Clothing"]: Clothing
+    ["Pants"]: Pants
+    ["Shirt"]: Shirt
+    ["ShirtGraphic"]: ShirtGraphic
+    ["Skin"]: Skin
+    ["Chat"]: Chat
+    ["ChatbotUIService"]: ChatbotUIService
+    ["ClickDetector"]: ClickDetector
+    ["DragDetector"]: DragDetector
+    ["Clouds"]: Clouds
+    ["ClusterPacketCache"]: ClusterPacketCache
+    ["CollaboratorsService"]: CollaboratorsService
+    ["CollectionService"]: CollectionService
+    ["CommandService"]: CommandService
+    ["CommerceService"]: CommerceService
+    ["Configuration"]: Configuration
+    ["ConfigureServerService"]: ConfigureServerService
+    ["ConnectivityService"]: ConnectivityService
+    ["Constraint"]: Constraint
+    ["AlignOrientation"]: AlignOrientation
+    ["AlignPosition"]: AlignPosition
+    ["AngularVelocity"]: AngularVelocity
+    ["AnimationConstraint"]: AnimationConstraint
+    ["BallSocketConstraint"]: BallSocketConstraint
+    ["HingeConstraint"]: HingeConstraint
+    ["LineForce"]: LineForce
+    ["LinearVelocity"]: LinearVelocity
+    ["PlaneConstraint"]: PlaneConstraint
+    ["Plane"]: Plane
+    ["RigidConstraint"]: RigidConstraint
+    ["RodConstraint"]: RodConstraint
+    ["RopeConstraint"]: RopeConstraint
+    ["SlidingBallConstraint"]: SlidingBallConstraint
+    ["CylindricalConstraint"]: CylindricalConstraint
+    ["PrismaticConstraint"]: PrismaticConstraint
+    ["SpringConstraint"]: SpringConstraint
+    ["Torque"]: Torque
+    ["TorsionSpringConstraint"]: TorsionSpringConstraint
+    ["UniversalConstraint"]: UniversalConstraint
+    ["VectorForce"]: VectorForce
+    ["ContentProvider"]: ContentProvider
+    ["ContextActionService"]: ContextActionService
+    ["Controller"]: Controller
+    ["HumanoidController"]: HumanoidController
+    ["SkateboardController"]: SkateboardController
+    ["VehicleController"]: VehicleController
+    ["ControllerBase"]: ControllerBase
+    ["AirController"]: AirController
+    ["ClimbController"]: ClimbController
+    ["GroundController"]: GroundController
+    ["SwimController"]: SwimController
+    ["ControllerManager"]: ControllerManager
+    ["ControllerService"]: ControllerService
+    ["ConversationalAIAcceptanceService"]: ConversationalAIAcceptanceService
+    ["CookiesService"]: CookiesService
+    ["CorePackages"]: CorePackages
+    ["CoreScriptDebuggingManagerHelper"]: CoreScriptDebuggingManagerHelper
+    ["CoreScriptSyncService"]: CoreScriptSyncService
+    ["CreationDBService"]: CreationDBService
+    ["CrossDMScriptChangeListener"]: CrossDMScriptChangeListener
+    ["CustomEvent"]: CustomEvent
+    ["CustomEventReceiver"]: CustomEventReceiver
+    ["DataModelMesh"]: DataModelMesh
+    ["BevelMesh"]: BevelMesh
+    ["BlockMesh"]: BlockMesh
+    ["CylinderMesh"]: CylinderMesh
+    ["EditableMesh"]: EditableMesh
+    ["RobloxEditableMesh"]: RobloxEditableMesh
+    ["FileMesh"]: FileMesh
+    ["SpecialMesh"]: SpecialMesh
+    ["DataModelPatchService"]: DataModelPatchService
+    ["DataStoreGetOptions"]: DataStoreGetOptions
+    ["DataStoreIncrementOptions"]: DataStoreIncrementOptions
+    ["DataStoreOptions"]: DataStoreOptions
+    ["DataStoreService"]: DataStoreService
+    ["DataStoreSetOptions"]: DataStoreSetOptions
+    ["Debris"]: Debris
+    ["DebuggablePluginWatcher"]: DebuggablePluginWatcher
+    ["DebuggerConnection"]: DebuggerConnection
+    ["DebuggerConnectionManager"]: DebuggerConnectionManager
+    ["DebuggerManager"]: DebuggerManager
+    ["DebuggerUIService"]: DebuggerUIService
+    ["DebuggerWatch"]: DebuggerWatch
+    ["DeviceIdService"]: DeviceIdService
+    ["Dialog"]: Dialog
+    ["DialogChoice"]: DialogChoice
+    ["DraftsService"]: DraftsService
+    ["Dragger"]: Dragger
+    ["DraggerService"]: DraggerService
+    ["EditableImage"]: EditableImage
+    ["RobloxEditableImage"]: RobloxEditableImage
+    ["EngineAPICloudProcessingService"]: EngineAPICloudProcessingService
+    ["EulerRotationCurve"]: EulerRotationCurve
+    ["EventIngestService"]: EventIngestService
+    ["ExampleService"]: ExampleService
+    ["ExperienceAuthService"]: ExperienceAuthService
+    ["ExperienceInviteOptions"]: ExperienceInviteOptions
+    ["ExperienceNotificationService"]: ExperienceNotificationService
+    ["ExperienceService"]: ExperienceService
+    ["ExperienceStateCaptureService"]: ExperienceStateCaptureService
+    ["Explosion"]: Explosion
+    ["FaceAnimatorService"]: FaceAnimatorService
+    ["FaceControls"]: FaceControls
+    ["FaceInstance"]: FaceInstance
+    ["Decal"]: Decal
+    ["Texture"]: Texture
+    ["FacialAnimationRecordingService"]: FacialAnimationRecordingService
+    ["FacialAnimationStreamingServiceV2"]: FacialAnimationStreamingServiceV2
+    ["Feature"]: Feature
+    ["Hole"]: Hole
+    ["MotorFeature"]: MotorFeature
+    ["Fire"]: Fire
+    ["FlagStandService"]: FlagStandService
+    ["FloatCurve"]: FloatCurve
+    ["FlyweightService"]: FlyweightService
+    ["CSGDictionaryService"]: CSGDictionaryService
+    ["NonReplicatedCSGDictionaryService"]: NonReplicatedCSGDictionaryService
+    ["Folder"]: Folder
+    ["ForceField"]: ForceField
+    ["FriendService"]: FriendService
+    ["FunctionalTest"]: FunctionalTest
+    ["GamePassService"]: GamePassService
+    ["GamepadService"]: GamepadService
+    ["Geometry"]: Geometry
+    ["GeometryService"]: GeometryService
+    ["GetTextBoundsParams"]: GetTextBoundsParams
+    ["GlobalDataStore"]: GlobalDataStore
+    ["GoogleAnalyticsConfiguration"]: GoogleAnalyticsConfiguration
+    ["GroupService"]: GroupService
+    ["GuiBase"]: GuiBase
+    ["GuiBase2d"]: GuiBase2d
+    ["GuiObject"]: GuiObject
+    ["CanvasGroup"]: CanvasGroup
+    ["Frame"]: Frame
+    ["GuiButton"]: GuiButton
+    ["ImageButton"]: ImageButton
+    ["TextButton"]: TextButton
+    ["GuiLabel"]: GuiLabel
+    ["ImageLabel"]: ImageLabel
+    ["TextLabel"]: TextLabel
+    ["ScrollingFrame"]: ScrollingFrame
+    ["TextBox"]: TextBox
+    ["VideoFrame"]: VideoFrame
+    ["ViewportFrame"]: ViewportFrame
+    ["LayerCollector"]: LayerCollector
+    ["BillboardGui"]: BillboardGui
+    ["PluginGui"]: PluginGui
+    ["ScreenGui"]: ScreenGui
+    ["GuiMain"]: GuiMain
+    ["SurfaceGuiBase"]: SurfaceGuiBase
+    ["AdGui"]: AdGui
+    ["SurfaceGui"]: SurfaceGui
+    ["GuiBase3d"]: GuiBase3d
+    ["FloorWire"]: FloorWire
+    ["InstanceAdornment"]: InstanceAdornment
+    ["SelectionBox"]: SelectionBox
+    ["PVAdornment"]: PVAdornment
+    ["HandleAdornment"]: HandleAdornment
+    ["BoxHandleAdornment"]: BoxHandleAdornment
+    ["ConeHandleAdornment"]: ConeHandleAdornment
+    ["CylinderHandleAdornment"]: CylinderHandleAdornment
+    ["ImageHandleAdornment"]: ImageHandleAdornment
+    ["LineHandleAdornment"]: LineHandleAdornment
+    ["SphereHandleAdornment"]: SphereHandleAdornment
+    ["WireframeHandleAdornment"]: WireframeHandleAdornment
+    ["ParabolaAdornment"]: ParabolaAdornment
+    ["SelectionSphere"]: SelectionSphere
+    ["PartAdornment"]: PartAdornment
+    ["HandlesBase"]: HandlesBase
+    ["ArcHandles"]: ArcHandles
+    ["Handles"]: Handles
+    ["SurfaceSelection"]: SurfaceSelection
+    ["SelectionLasso"]: SelectionLasso
+    ["SelectionPartLasso"]: SelectionPartLasso
+    ["SelectionPointLasso"]: SelectionPointLasso
+    ["Path2D"]: Path2D
+    ["GuiService"]: GuiService
+    ["GuidRegistryService"]: GuidRegistryService
+    ["HapticService"]: HapticService
+    ["HeightmapImporterService"]: HeightmapImporterService
+    ["HiddenSurfaceRemovalAsset"]: HiddenSurfaceRemovalAsset
+    ["Highlight"]: Highlight
+    ["Hopper"]: Hopper
+    ["HttpRbxApiService"]: HttpRbxApiService
+    ["HttpService"]: HttpService
+    ["Humanoid"]: Humanoid
+    ["HumanoidDescription"]: HumanoidDescription
+    ["IKControl"]: IKControl
+    ["ILegacyStudioBridge"]: ILegacyStudioBridge
+    ["LegacyStudioBridge"]: LegacyStudioBridge
+    ["IXPService"]: IXPService
+    ["IncrementalPatchBuilder"]: IncrementalPatchBuilder
+    ["InsertService"]: InsertService
+    ["InternalSyncItem"]: InternalSyncItem
+    ["InternalSyncService"]: InternalSyncService
+    ["JointInstance"]: JointInstance
+    ["DynamicRotate"]: DynamicRotate
+    ["RotateP"]: RotateP
+    ["RotateV"]: RotateV
+    ["Glue"]: Glue
+    ["ManualSurfaceJointInstance"]: ManualSurfaceJointInstance
+    ["ManualGlue"]: ManualGlue
+    ["ManualWeld"]: ManualWeld
+    ["Motor"]: Motor
+    ["Motor6D"]: Motor6D
+    ["Rotate"]: Rotate
+    ["Snap"]: Snap
+    ["VelocityMotor"]: VelocityMotor
+    ["Weld"]: Weld
+    ["JointsService"]: JointsService
+    ["KeyboardService"]: KeyboardService
+    ["Keyframe"]: Keyframe
+    ["KeyframeMarker"]: KeyframeMarker
+    ["KeyframeSequenceProvider"]: KeyframeSequenceProvider
+    ["LSPFileSyncService"]: LSPFileSyncService
+    ["LanguageService"]: LanguageService
+    ["Light"]: Light
+    ["PointLight"]: PointLight
+    ["SpotLight"]: SpotLight
+    ["SurfaceLight"]: SurfaceLight
+    ["Lighting"]: Lighting
+    ["LiveScriptingService"]: LiveScriptingService
+    ["LocalStorageService"]: LocalStorageService
+    ["AppStorageService"]: AppStorageService
+    ["UserStorageService"]: UserStorageService
+    ["LocalizationService"]: LocalizationService
+    ["LocalizationTable"]: LocalizationTable
+    ["LodDataService"]: LodDataService
+    ["LogReporterService"]: LogReporterService
+    ["LogService"]: LogService
+    ["LoginService"]: LoginService
+    ["LuaSourceContainer"]: LuaSourceContainer
+    ["BaseScript"]: BaseScript
+    ["Script"]: Script
+    ["LocalScript"]: LocalScript
+    ["ModuleScript"]: ModuleScript
+    ["LuaWebService"]: LuaWebService
+    ["LuauScriptAnalyzerService"]: LuauScriptAnalyzerService
+    ["MarkerCurve"]: MarkerCurve
+    ["MarketplaceService"]: MarketplaceService
+    ["MaterialGenerationService"]: MaterialGenerationService
+    ["MaterialService"]: MaterialService
+    ["MaterialVariant"]: MaterialVariant
+    ["MemStorageService"]: MemStorageService
+    ["MemoryStoreService"]: MemoryStoreService
+    ["Message"]: Message
+    ["Hint"]: Hint
+    ["MessageBusService"]: MessageBusService
+    ["MessagingService"]: MessagingService
+    ["MetaBreakpointManager"]: MetaBreakpointManager
+    ["Mouse"]: Mouse
+    ["MouseService"]: MouseService
+    ["NetworkPeer"]: NetworkPeer
+    ["NetworkClient"]: NetworkClient
+    ["NetworkServer"]: NetworkServer
+    ["NetworkReplicator"]: NetworkReplicator
+    ["NetworkSettings"]: NetworkSettings
+    ["NoCollisionConstraint"]: NoCollisionConstraint
+    ["Noise"]: Noise
+    ["NotificationService"]: NotificationService
+    ["OmniRecommendationsService"]: OmniRecommendationsService
+    ["OpenCloudService"]: OpenCloudService
+    ["OperationGraph"]: OperationGraph
+    ["PVInstance"]: PVInstance
+    ["BasePart"]: BasePart
+    ["CornerWedgePart"]: CornerWedgePart
+    ["FormFactorPart"]: FormFactorPart
+    ["Part"]: Part
+    ["FlagStand"]: FlagStand
+    ["Seat"]: Seat
+    ["SkateboardPlatform"]: SkateboardPlatform
+    ["SpawnLocation"]: SpawnLocation
+    ["WedgePart"]: WedgePart
+    ["Terrain"]: Terrain
+    ["TriangleMeshPart"]: TriangleMeshPart
+    ["MeshPart"]: MeshPart
+    ["PartOperation"]: PartOperation
+    ["IntersectOperation"]: IntersectOperation
+    ["NegateOperation"]: NegateOperation
+    ["UnionOperation"]: UnionOperation
+    ["TrussPart"]: TrussPart
+    ["VehicleSeat"]: VehicleSeat
+    ["Model"]: Model
+    ["Actor"]: Actor
+    ["BackpackItem"]: BackpackItem
+    ["HopperBin"]: HopperBin
+    ["Tool"]: Tool
+    ["Flag"]: Flag
+    ["WorldRoot"]: WorldRoot
+    ["Workspace"]: Workspace
+    ["WorldModel"]: WorldModel
+    ["PackageService"]: PackageService
+    ["PackageUIService"]: PackageUIService
+    ["Pages"]: Pages
+    ["InventoryPages"]: InventoryPages
+    ["PartOperationAsset"]: PartOperationAsset
+    ["ParticleEmitter"]: ParticleEmitter
+    ["PatchBundlerFileWatch"]: PatchBundlerFileWatch
+    ["PathfindingLink"]: PathfindingLink
+    ["PathfindingModifier"]: PathfindingModifier
+    ["PathfindingService"]: PathfindingService
+    ["PausedState"]: PausedState
+    ["PermissionsService"]: PermissionsService
+    ["PhysicsService"]: PhysicsService
+    ["PlaceStatsService"]: PlaceStatsService
+    ["PlacesService"]: PlacesService
+    ["PlatformCloudStorageService"]: PlatformCloudStorageService
+    ["PlatformFriendsService"]: PlatformFriendsService
+    ["Player"]: Player
+    ["PlayerEmulatorService"]: PlayerEmulatorService
+    ["PlayerViewService"]: PlayerViewService
+    ["Players"]: Players
+    ["PluginAction"]: PluginAction
+    ["PluginCapabilities"]: PluginCapabilities
+    ["PluginDebugService"]: PluginDebugService
+    ["PluginGuiService"]: PluginGuiService
+    ["PluginManagementService"]: PluginManagementService
+    ["PluginPolicyService"]: PluginPolicyService
+    ["PointsService"]: PointsService
+    ["PolicyService"]: PolicyService
+    ["PoseBase"]: PoseBase
+    ["NumberPose"]: NumberPose
+    ["Pose"]: Pose
+    ["PostEffect"]: PostEffect
+    ["BloomEffect"]: BloomEffect
+    ["BlurEffect"]: BlurEffect
+    ["ColorCorrectionEffect"]: ColorCorrectionEffect
+    ["DepthOfFieldEffect"]: DepthOfFieldEffect
+    ["SunRaysEffect"]: SunRaysEffect
+    ["ProcessInstancePhysicsService"]: ProcessInstancePhysicsService
+    ["ProjectFolderService"]: ProjectFolderService
+    ["ProximityPrompt"]: ProximityPrompt
+    ["ProximityPromptService"]: ProximityPromptService
+    ["PublishService"]: PublishService
+    ["RbxAnalyticsService"]: RbxAnalyticsService
+    ["ReflectionMetadata"]: ReflectionMetadata
+    ["ReflectionMetadataCallbacks"]: ReflectionMetadataCallbacks
+    ["ReflectionMetadataClasses"]: ReflectionMetadataClasses
+    ["ReflectionMetadataEnums"]: ReflectionMetadataEnums
+    ["ReflectionMetadataEvents"]: ReflectionMetadataEvents
+    ["ReflectionMetadataFunctions"]: ReflectionMetadataFunctions
+    ["ReflectionMetadataItem"]: ReflectionMetadataItem
+    ["ReflectionMetadataClass"]: ReflectionMetadataClass
+    ["ReflectionMetadataEnum"]: ReflectionMetadataEnum
+    ["ReflectionMetadataEnumItem"]: ReflectionMetadataEnumItem
+    ["ReflectionMetadataMember"]: ReflectionMetadataMember
+    ["ReflectionMetadataProperties"]: ReflectionMetadataProperties
+    ["ReflectionMetadataYieldFunctions"]: ReflectionMetadataYieldFunctions
+    ["ReflectionService"]: ReflectionService
+    ["RemoteCursorService"]: RemoteCursorService
+    ["RemoteDebuggerServer"]: RemoteDebuggerServer
+    ["RemoteFunction"]: RemoteFunction
+    ["RenderSettings"]: RenderSettings
+    ["RenderingTest"]: RenderingTest
+    ["ReplicatedFirst"]: ReplicatedFirst
+    ["ReplicatedStorage"]: ReplicatedStorage
+    ["RibbonNotificationService"]: RibbonNotificationService
+    ["RobloxPluginGuiService"]: RobloxPluginGuiService
+    ["RobloxReplicatedStorage"]: RobloxReplicatedStorage
+    ["RobloxServerStorage"]: RobloxServerStorage
+    ["RomarkService"]: RomarkService
+    ["RotationCurve"]: RotationCurve
+    ["RtMessagingService"]: RtMessagingService
+    ["RunService"]: RunService
+    ["RuntimeScriptService"]: RuntimeScriptService
+    ["SafetyService"]: SafetyService
+    ["ScriptBuilder"]: ScriptBuilder
+    ["ScriptChangeService"]: ScriptChangeService
+    ["ScriptCloneWatcher"]: ScriptCloneWatcher
+    ["ScriptCloneWatcherHelper"]: ScriptCloneWatcherHelper
+    ["ScriptCommitService"]: ScriptCommitService
+    ["ScriptContext"]: ScriptContext
+    ["ScriptEditorService"]: ScriptEditorService
+    ["ScriptProfilerService"]: ScriptProfilerService
+    ["ScriptRegistrationService"]: ScriptRegistrationService
+    ["ScriptService"]: ScriptService
+    ["Selection"]: Selection
+    ["SelectionHighlightManager"]: SelectionHighlightManager
+    ["SensorBase"]: SensorBase
+    ["BuoyancySensor"]: BuoyancySensor
+    ["ControllerSensor"]: ControllerSensor
+    ["ControllerPartSensor"]: ControllerPartSensor
+    ["ServerScriptService"]: ServerScriptService
+    ["ServerStorage"]: ServerStorage
+    ["ServiceProvider"]: ServiceProvider
+    ["GenericSettings"]: GenericSettings
+    ["ServiceVisibilityService"]: ServiceVisibilityService
+    ["SessionService"]: SessionService
+    ["SharedTableRegistry"]: SharedTableRegistry
+    ["ShorelineUpgraderService"]: ShorelineUpgraderService
+    ["Sky"]: Sky
+    ["Smoke"]: Smoke
+    ["SmoothVoxelsUpgraderService"]: SmoothVoxelsUpgraderService
+    ["SnippetService"]: SnippetService
+    ["SocialService"]: SocialService
+    ["Sound"]: Sound
+    ["SoundEffect"]: SoundEffect
+    ["ChorusSoundEffect"]: ChorusSoundEffect
+    ["CompressorSoundEffect"]: CompressorSoundEffect
+    ["CustomSoundEffect"]: CustomSoundEffect
+    ["DistortionSoundEffect"]: DistortionSoundEffect
+    ["EchoSoundEffect"]: EchoSoundEffect
+    ["EqualizerSoundEffect"]: EqualizerSoundEffect
+    ["FlangeSoundEffect"]: FlangeSoundEffect
+    ["PitchShiftSoundEffect"]: PitchShiftSoundEffect
+    ["ReverbSoundEffect"]: ReverbSoundEffect
+    ["TremoloSoundEffect"]: TremoloSoundEffect
+    ["SoundGroup"]: SoundGroup
+    ["SoundService"]: SoundService
+    ["Sparkles"]: Sparkles
+    ["SpawnerService"]: SpawnerService
+    ["StandalonePluginScripts"]: StandalonePluginScripts
+    ["StarterGear"]: StarterGear
+    ["StarterPack"]: StarterPack
+    ["StarterPlayer"]: StarterPlayer
+    ["StarterPlayerScripts"]: StarterPlayerScripts
+    ["StarterCharacterScripts"]: StarterCharacterScripts
+    ["StartupMessageService"]: StartupMessageService
+    ["Stats"]: Stats
+    ["StatsItem"]: StatsItem
+    ["StopWatchReporter"]: StopWatchReporter
+    ["StreamingService"]: StreamingService
+    ["StudioAssetService"]: StudioAssetService
+    ["StudioAttachment"]: StudioAttachment
+    ["StudioCallout"]: StudioCallout
+    ["StudioData"]: StudioData
+    ["StudioDeviceEmulatorService"]: StudioDeviceEmulatorService
+    ["StudioObjectBase"]: StudioObjectBase
+    ["StudioPublishService"]: StudioPublishService
+    ["StudioScriptDebugEventListener"]: StudioScriptDebugEventListener
+    ["StudioSdkService"]: StudioSdkService
+    ["StudioService"]: StudioService
+    ["StudioWidgetsService"]: StudioWidgetsService
+    ["StyleBase"]: StyleBase
+    ["StyleRule"]: StyleRule
+    ["StyleSheet"]: StyleSheet
+    ["StyleDerive"]: StyleDerive
+    ["StyleLink"]: StyleLink
+    ["StylingService"]: StylingService
+    ["SurfaceAppearance"]: SurfaceAppearance
+    ["TaskScheduler"]: TaskScheduler
+    ["Team"]: Team
+    ["TeamCreateData"]: TeamCreateData
+    ["TeamCreatePublishService"]: TeamCreatePublishService
+    ["TeamCreateService"]: TeamCreateService
+    ["Teams"]: Teams
+    ["TeleportOptions"]: TeleportOptions
+    ["TeleportService"]: TeleportService
+    ["TemporaryCageMeshProvider"]: TemporaryCageMeshProvider
+    ["TemporaryScriptService"]: TemporaryScriptService
+    ["TerrainDetail"]: TerrainDetail
+    ["TerrainRegion"]: TerrainRegion
+    ["TestService"]: TestService
+    ["TextBoxService"]: TextBoxService
+    ["TextChannel"]: TextChannel
+    ["TextChatCommand"]: TextChatCommand
+    ["TextChatConfigurations"]: TextChatConfigurations
+    ["BubbleChatConfiguration"]: BubbleChatConfiguration
+    ["ChatInputBarConfiguration"]: ChatInputBarConfiguration
+    ["ChatWindowConfiguration"]: ChatWindowConfiguration
+    ["TextChatMessageProperties"]: TextChatMessageProperties
+    ["TextChatService"]: TextChatService
+    ["TextService"]: TextService
+    ["TextureGenerationService"]: TextureGenerationService
+    ["ThirdPartyUserService"]: ThirdPartyUserService
+    ["TimerService"]: TimerService
+    ["ToastNotificationService"]: ToastNotificationService
+    ["TouchInputService"]: TouchInputService
+    ["TracerService"]: TracerService
+    ["TrackerStreamAnimation"]: TrackerStreamAnimation
+    ["Trail"]: Trail
+    ["TutorialService"]: TutorialService
+    ["TweenBase"]: TweenBase
+    ["Tween"]: Tween
+    ["TweenService"]: TweenService
+    ["UGCAvatarService"]: UGCAvatarService
+    ["UGCValidationService"]: UGCValidationService
+    ["UIBase"]: UIBase
+    ["UIComponent"]: UIComponent
+    ["UIConstraint"]: UIConstraint
+    ["UIAspectRatioConstraint"]: UIAspectRatioConstraint
+    ["UISizeConstraint"]: UISizeConstraint
+    ["UITextSizeConstraint"]: UITextSizeConstraint
+    ["UICorner"]: UICorner
+    ["UIFlexItem"]: UIFlexItem
+    ["UIGradient"]: UIGradient
+    ["UILayout"]: UILayout
+    ["UIGridStyleLayout"]: UIGridStyleLayout
+    ["UIGridLayout"]: UIGridLayout
+    ["UIListLayout"]: UIListLayout
+    ["UIPageLayout"]: UIPageLayout
+    ["UITableLayout"]: UITableLayout
+    ["UIPadding"]: UIPadding
+    ["UIScale"]: UIScale
+    ["UIStroke"]: UIStroke
+    ["UnvalidatedAssetService"]: UnvalidatedAssetService
+    ["UserInputService"]: UserInputService
+    ["UserService"]: UserService
+    ["VRService"]: VRService
+    ["VRStatusService"]: VRStatusService
+    ["ValueBase"]: ValueBase
+    ["BinaryStringValue"]: BinaryStringValue
+    ["BoolValue"]: BoolValue
+    ["BrickColorValue"]: BrickColorValue
+    ["CFrameValue"]: CFrameValue
+    ["Color3Value"]: Color3Value
+    ["DoubleConstrainedValue"]: DoubleConstrainedValue
+    ["IntConstrainedValue"]: IntConstrainedValue
+    ["IntValue"]: IntValue
+    ["NumberValue"]: NumberValue
+    ["ObjectValue"]: ObjectValue
+    ["RayValue"]: RayValue
+    ["StringValue"]: StringValue
+    ["Vector3Value"]: Vector3Value
+    ["Vector3Curve"]: Vector3Curve
+    ["VersionControlService"]: VersionControlService
+    ["VideoCaptureService"]: VideoCaptureService
+    ["VideoDeviceInput"]: VideoDeviceInput
+    ["VideoService"]: VideoService
+    ["VirtualInputManager"]: VirtualInputManager
+    ["VirtualUser"]: VirtualUser
+    ["VisibilityCheckDispatcher"]: VisibilityCheckDispatcher
+    ["Visit"]: Visit
+    ["VisualizationMode"]: VisualizationMode
+    ["VisualizationModeCategory"]: VisualizationModeCategory
+    ["VisualizationModeService"]: VisualizationModeService
+    ["VoiceChatInternal"]: VoiceChatInternal
+    ["VoiceChatService"]: VoiceChatService
+    ["WeldConstraint"]: WeldConstraint
+    ["Wire"]: Wire
+}
+
+export type ClassFactory = () => Instance
+
+export class ClassMap {
+    protected readonly _map: Map<string, ClassFactory> = getClassMap();
+    public getFactory(className: string): ClassFactory | undefined {
+        return this._map.get(className);
+    }
+}
+
+function getClassMap() {
+    const map = new Map<string, ClassFactory>();
+    map.set("AccessoryDescription", AccessoryDescription.new);
+    map.set("AccountService", AccountService.new);
+    map.set("Accoutrement", Accoutrement.new);
+    map.set("Accessory", Accessory.new);
+    map.set("Hat", Hat.new);
+    map.set("ActivityHistoryService", ActivityHistoryService.new);
+    map.set("AdPortal", AdPortal.new);
+    map.set("AdService", AdService.new);
+    map.set("AdvancedDragger", AdvancedDragger.new);
+    map.set("AnalyticsService", AnalyticsService.new);
+    map.set("Animation", Animation.new);
+    map.set("CurveAnimation", CurveAnimation.new);
+    map.set("KeyframeSequence", KeyframeSequence.new);
+    map.set("AnimationClipProvider", AnimationClipProvider.new);
+    map.set("AnimationController", AnimationController.new);
+    map.set("AnimationFromVideoCreatorService", AnimationFromVideoCreatorService.new);
+    map.set("AnimationFromVideoCreatorStudioService", AnimationFromVideoCreatorStudioService.new);
+    map.set("AnimationRigData", AnimationRigData.new);
+    map.set("Animator", Animator.new);
+    map.set("AppUpdateService", AppUpdateService.new);
+    map.set("AssetCounterService", AssetCounterService.new);
+    map.set("AssetDeliveryProxy", AssetDeliveryProxy.new);
+    map.set("AssetImportService", AssetImportService.new);
+    map.set("AssetManagerService", AssetManagerService.new);
+    map.set("AssetService", AssetService.new);
+    map.set("Atmosphere", Atmosphere.new);
+    map.set("Attachment", Attachment.new);
+    map.set("Bone", Bone.new);
+    map.set("AudioAnalyzer", AudioAnalyzer.new);
+    map.set("AudioChorus", AudioChorus.new);
+    map.set("AudioCompressor", AudioCompressor.new);
+    map.set("AudioDeviceInput", AudioDeviceInput.new);
+    map.set("AudioDeviceOutput", AudioDeviceOutput.new);
+    map.set("AudioDistortion", AudioDistortion.new);
+    map.set("AudioEcho", AudioEcho.new);
+    map.set("AudioEmitter", AudioEmitter.new);
+    map.set("AudioEqualizer", AudioEqualizer.new);
+    map.set("AudioFader", AudioFader.new);
+    map.set("AudioFlanger", AudioFlanger.new);
+    map.set("AudioListener", AudioListener.new);
+    map.set("AudioPitchShifter", AudioPitchShifter.new);
+    map.set("AudioPlayer", AudioPlayer.new);
+    map.set("AudioReverb", AudioReverb.new);
+    map.set("AudioSearchParams", AudioSearchParams.new);
+    map.set("AvatarChatService", AvatarChatService.new);
+    map.set("AvatarCreationService", AvatarCreationService.new);
+    map.set("AvatarEditorService", AvatarEditorService.new);
+    map.set("AvatarImportService", AvatarImportService.new);
+    map.set("Backpack", Backpack.new);
+    map.set("BadgeService", BadgeService.new);
+    map.set("CoreGui", CoreGui.new);
+    map.set("StarterGui", StarterGui.new);
+    map.set("RemoteEvent", RemoteEvent.new);
+    map.set("UnreliableRemoteEvent", UnreliableRemoteEvent.new);
+    map.set("WrapLayer", WrapLayer.new);
+    map.set("WrapTarget", WrapTarget.new);
+    map.set("Beam", Beam.new);
+    map.set("BindableEvent", BindableEvent.new);
+    map.set("BindableFunction", BindableFunction.new);
+    map.set("BodyAngularVelocity", BodyAngularVelocity.new);
+    map.set("BodyForce", BodyForce.new);
+    map.set("BodyGyro", BodyGyro.new);
+    map.set("BodyPosition", BodyPosition.new);
+    map.set("BodyThrust", BodyThrust.new);
+    map.set("BodyVelocity", BodyVelocity.new);
+    map.set("RocketPropulsion", RocketPropulsion.new);
+    map.set("BodyPartDescription", BodyPartDescription.new);
+    map.set("Breakpoint", Breakpoint.new);
+    map.set("BrowserService", BrowserService.new);
+    map.set("BubbleChatMessageProperties", BubbleChatMessageProperties.new);
+    map.set("BulkImportService", BulkImportService.new);
+    map.set("HSRDataContentProvider", HSRDataContentProvider.new);
+    map.set("MeshContentProvider", MeshContentProvider.new);
+    map.set("SolidModelContentProvider", SolidModelContentProvider.new);
+    map.set("CalloutService", CalloutService.new);
+    map.set("Camera", Camera.new);
+    map.set("CaptureService", CaptureService.new);
+    map.set("ChangeHistoryService", ChangeHistoryService.new);
+    map.set("BodyColors", BodyColors.new);
+    map.set("CharacterMesh", CharacterMesh.new);
+    map.set("Pants", Pants.new);
+    map.set("Shirt", Shirt.new);
+    map.set("ShirtGraphic", ShirtGraphic.new);
+    map.set("Skin", Skin.new);
+    map.set("Chat", Chat.new);
+    map.set("ChatbotUIService", ChatbotUIService.new);
+    map.set("ClickDetector", ClickDetector.new);
+    map.set("DragDetector", DragDetector.new);
+    map.set("Clouds", Clouds.new);
+    map.set("ClusterPacketCache", ClusterPacketCache.new);
+    map.set("CollaboratorsService", CollaboratorsService.new);
+    map.set("CollectionService", CollectionService.new);
+    map.set("CommandService", CommandService.new);
+    map.set("CommerceService", CommerceService.new);
+    map.set("Configuration", Configuration.new);
+    map.set("ConfigureServerService", ConfigureServerService.new);
+    map.set("ConnectivityService", ConnectivityService.new);
+    map.set("AlignOrientation", AlignOrientation.new);
+    map.set("AlignPosition", AlignPosition.new);
+    map.set("AngularVelocity", AngularVelocity.new);
+    map.set("AnimationConstraint", AnimationConstraint.new);
+    map.set("BallSocketConstraint", BallSocketConstraint.new);
+    map.set("HingeConstraint", HingeConstraint.new);
+    map.set("LineForce", LineForce.new);
+    map.set("LinearVelocity", LinearVelocity.new);
+    map.set("PlaneConstraint", PlaneConstraint.new);
+    map.set("Plane", Plane.new);
+    map.set("RigidConstraint", RigidConstraint.new);
+    map.set("RodConstraint", RodConstraint.new);
+    map.set("RopeConstraint", RopeConstraint.new);
+    map.set("CylindricalConstraint", CylindricalConstraint.new);
+    map.set("PrismaticConstraint", PrismaticConstraint.new);
+    map.set("SpringConstraint", SpringConstraint.new);
+    map.set("Torque", Torque.new);
+    map.set("TorsionSpringConstraint", TorsionSpringConstraint.new);
+    map.set("UniversalConstraint", UniversalConstraint.new);
+    map.set("VectorForce", VectorForce.new);
+    map.set("ContentProvider", ContentProvider.new);
+    map.set("ContextActionService", ContextActionService.new);
+    map.set("HumanoidController", HumanoidController.new);
+    map.set("SkateboardController", SkateboardController.new);
+    map.set("VehicleController", VehicleController.new);
+    map.set("AirController", AirController.new);
+    map.set("ClimbController", ClimbController.new);
+    map.set("GroundController", GroundController.new);
+    map.set("SwimController", SwimController.new);
+    map.set("ControllerManager", ControllerManager.new);
+    map.set("ControllerService", ControllerService.new);
+    map.set("ConversationalAIAcceptanceService", ConversationalAIAcceptanceService.new);
+    map.set("CookiesService", CookiesService.new);
+    map.set("CorePackages", CorePackages.new);
+    map.set("CoreScriptDebuggingManagerHelper", CoreScriptDebuggingManagerHelper.new);
+    map.set("CoreScriptSyncService", CoreScriptSyncService.new);
+    map.set("CreationDBService", CreationDBService.new);
+    map.set("CrossDMScriptChangeListener", CrossDMScriptChangeListener.new);
+    map.set("CustomEvent", CustomEvent.new);
+    map.set("CustomEventReceiver", CustomEventReceiver.new);
+    map.set("BlockMesh", BlockMesh.new);
+    map.set("CylinderMesh", CylinderMesh.new);
+    map.set("EditableMesh", EditableMesh.new);
+    map.set("RobloxEditableMesh", RobloxEditableMesh.new);
+    map.set("FileMesh", FileMesh.new);
+    map.set("SpecialMesh", SpecialMesh.new);
+    map.set("DataModelPatchService", DataModelPatchService.new);
+    map.set("DataStoreGetOptions", DataStoreGetOptions.new);
+    map.set("DataStoreIncrementOptions", DataStoreIncrementOptions.new);
+    map.set("DataStoreOptions", DataStoreOptions.new);
+    map.set("DataStoreService", DataStoreService.new);
+    map.set("DataStoreSetOptions", DataStoreSetOptions.new);
+    map.set("Debris", Debris.new);
+    map.set("DebuggablePluginWatcher", DebuggablePluginWatcher.new);
+    map.set("DebuggerConnectionManager", DebuggerConnectionManager.new);
+    map.set("DebuggerManager", DebuggerManager.new);
+    map.set("DebuggerUIService", DebuggerUIService.new);
+    map.set("DebuggerWatch", DebuggerWatch.new);
+    map.set("DeviceIdService", DeviceIdService.new);
+    map.set("Dialog", Dialog.new);
+    map.set("DialogChoice", DialogChoice.new);
+    map.set("DraftsService", DraftsService.new);
+    map.set("Dragger", Dragger.new);
+    map.set("DraggerService", DraggerService.new);
+    map.set("EditableImage", EditableImage.new);
+    map.set("RobloxEditableImage", RobloxEditableImage.new);
+    map.set("EngineAPICloudProcessingService", EngineAPICloudProcessingService.new);
+    map.set("EulerRotationCurve", EulerRotationCurve.new);
+    map.set("EventIngestService", EventIngestService.new);
+    map.set("ExampleService", ExampleService.new);
+    map.set("ExperienceAuthService", ExperienceAuthService.new);
+    map.set("ExperienceInviteOptions", ExperienceInviteOptions.new);
+    map.set("ExperienceNotificationService", ExperienceNotificationService.new);
+    map.set("ExperienceService", ExperienceService.new);
+    map.set("ExperienceStateCaptureService", ExperienceStateCaptureService.new);
+    map.set("Explosion", Explosion.new);
+    map.set("FaceAnimatorService", FaceAnimatorService.new);
+    map.set("FaceControls", FaceControls.new);
+    map.set("Decal", Decal.new);
+    map.set("Texture", Texture.new);
+    map.set("FacialAnimationRecordingService", FacialAnimationRecordingService.new);
+    map.set("FacialAnimationStreamingServiceV2", FacialAnimationStreamingServiceV2.new);
+    map.set("Hole", Hole.new);
+    map.set("MotorFeature", MotorFeature.new);
+    map.set("Fire", Fire.new);
+    map.set("FlagStandService", FlagStandService.new);
+    map.set("FloatCurve", FloatCurve.new);
+    map.set("FlyweightService", FlyweightService.new);
+    map.set("CSGDictionaryService", CSGDictionaryService.new);
+    map.set("NonReplicatedCSGDictionaryService", NonReplicatedCSGDictionaryService.new);
+    map.set("Folder", Folder.new);
+    map.set("ForceField", ForceField.new);
+    map.set("FriendService", FriendService.new);
+    map.set("FunctionalTest", FunctionalTest.new);
+    map.set("GamePassService", GamePassService.new);
+    map.set("GamepadService", GamepadService.new);
+    map.set("Geometry", Geometry.new);
+    map.set("GeometryService", GeometryService.new);
+    map.set("GetTextBoundsParams", GetTextBoundsParams.new);
+    map.set("GoogleAnalyticsConfiguration", GoogleAnalyticsConfiguration.new);
+    map.set("GroupService", GroupService.new);
+    map.set("CanvasGroup", CanvasGroup.new);
+    map.set("Frame", Frame.new);
+    map.set("ImageButton", ImageButton.new);
+    map.set("TextButton", TextButton.new);
+    map.set("ImageLabel", ImageLabel.new);
+    map.set("TextLabel", TextLabel.new);
+    map.set("ScrollingFrame", ScrollingFrame.new);
+    map.set("TextBox", TextBox.new);
+    map.set("VideoFrame", VideoFrame.new);
+    map.set("ViewportFrame", ViewportFrame.new);
+    map.set("BillboardGui", BillboardGui.new);
+    map.set("ScreenGui", ScreenGui.new);
+    map.set("GuiMain", GuiMain.new);
+    map.set("AdGui", AdGui.new);
+    map.set("SurfaceGui", SurfaceGui.new);
+    map.set("FloorWire", FloorWire.new);
+    map.set("SelectionBox", SelectionBox.new);
+    map.set("BoxHandleAdornment", BoxHandleAdornment.new);
+    map.set("ConeHandleAdornment", ConeHandleAdornment.new);
+    map.set("CylinderHandleAdornment", CylinderHandleAdornment.new);
+    map.set("ImageHandleAdornment", ImageHandleAdornment.new);
+    map.set("LineHandleAdornment", LineHandleAdornment.new);
+    map.set("SphereHandleAdornment", SphereHandleAdornment.new);
+    map.set("WireframeHandleAdornment", WireframeHandleAdornment.new);
+    map.set("ParabolaAdornment", ParabolaAdornment.new);
+    map.set("SelectionSphere", SelectionSphere.new);
+    map.set("ArcHandles", ArcHandles.new);
+    map.set("Handles", Handles.new);
+    map.set("SurfaceSelection", SurfaceSelection.new);
+    map.set("SelectionPartLasso", SelectionPartLasso.new);
+    map.set("SelectionPointLasso", SelectionPointLasso.new);
+    map.set("Path2D", Path2D.new);
+    map.set("GuiService", GuiService.new);
+    map.set("GuidRegistryService", GuidRegistryService.new);
+    map.set("HapticService", HapticService.new);
+    map.set("HeightmapImporterService", HeightmapImporterService.new);
+    map.set("HiddenSurfaceRemovalAsset", HiddenSurfaceRemovalAsset.new);
+    map.set("Highlight", Highlight.new);
+    map.set("Hopper", Hopper.new);
+    map.set("HttpRbxApiService", HttpRbxApiService.new);
+    map.set("HttpService", HttpService.new);
+    map.set("Humanoid", Humanoid.new);
+    map.set("HumanoidDescription", HumanoidDescription.new);
+    map.set("IKControl", IKControl.new);
+    map.set("LegacyStudioBridge", LegacyStudioBridge.new);
+    map.set("IXPService", IXPService.new);
+    map.set("IncrementalPatchBuilder", IncrementalPatchBuilder.new);
+    map.set("InsertService", InsertService.new);
+    map.set("InternalSyncItem", InternalSyncItem.new);
+    map.set("InternalSyncService", InternalSyncService.new);
+    map.set("RotateP", RotateP.new);
+    map.set("RotateV", RotateV.new);
+    map.set("Glue", Glue.new);
+    map.set("ManualGlue", ManualGlue.new);
+    map.set("ManualWeld", ManualWeld.new);
+    map.set("Motor", Motor.new);
+    map.set("Motor6D", Motor6D.new);
+    map.set("Rotate", Rotate.new);
+    map.set("Snap", Snap.new);
+    map.set("VelocityMotor", VelocityMotor.new);
+    map.set("Weld", Weld.new);
+    map.set("JointsService", JointsService.new);
+    map.set("KeyboardService", KeyboardService.new);
+    map.set("Keyframe", Keyframe.new);
+    map.set("KeyframeMarker", KeyframeMarker.new);
+    map.set("KeyframeSequenceProvider", KeyframeSequenceProvider.new);
+    map.set("LSPFileSyncService", LSPFileSyncService.new);
+    map.set("LanguageService", LanguageService.new);
+    map.set("PointLight", PointLight.new);
+    map.set("SpotLight", SpotLight.new);
+    map.set("SurfaceLight", SurfaceLight.new);
+    map.set("Lighting", Lighting.new);
+    map.set("LiveScriptingService", LiveScriptingService.new);
+    map.set("AppStorageService", AppStorageService.new);
+    map.set("UserStorageService", UserStorageService.new);
+    map.set("LocalizationService", LocalizationService.new);
+    map.set("LocalizationTable", LocalizationTable.new);
+    map.set("LodDataService", LodDataService.new);
+    map.set("LogReporterService", LogReporterService.new);
+    map.set("LogService", LogService.new);
+    map.set("LoginService", LoginService.new);
+    map.set("Script", Script.new);
+    map.set("LocalScript", LocalScript.new);
+    map.set("ModuleScript", ModuleScript.new);
+    map.set("LuaWebService", LuaWebService.new);
+    map.set("LuauScriptAnalyzerService", LuauScriptAnalyzerService.new);
+    map.set("MarkerCurve", MarkerCurve.new);
+    map.set("MarketplaceService", MarketplaceService.new);
+    map.set("MaterialGenerationService", MaterialGenerationService.new);
+    map.set("MaterialService", MaterialService.new);
+    map.set("MaterialVariant", MaterialVariant.new);
+    map.set("MemStorageService", MemStorageService.new);
+    map.set("MemoryStoreService", MemoryStoreService.new);
+    map.set("Message", Message.new);
+    map.set("Hint", Hint.new);
+    map.set("MessageBusService", MessageBusService.new);
+    map.set("MessagingService", MessagingService.new);
+    map.set("MetaBreakpointManager", MetaBreakpointManager.new);
+    map.set("MouseService", MouseService.new);
+    map.set("NetworkClient", NetworkClient.new);
+    map.set("NetworkServer", NetworkServer.new);
+    map.set("NetworkSettings", NetworkSettings.new);
+    map.set("NoCollisionConstraint", NoCollisionConstraint.new);
+    map.set("Noise", Noise.new);
+    map.set("NotificationService", NotificationService.new);
+    map.set("OmniRecommendationsService", OmniRecommendationsService.new);
+    map.set("OpenCloudService", OpenCloudService.new);
+    map.set("OperationGraph", OperationGraph.new);
+    map.set("CornerWedgePart", CornerWedgePart.new);
+    map.set("Part", Part.new);
+    map.set("FlagStand", FlagStand.new);
+    map.set("Seat", Seat.new);
+    map.set("SkateboardPlatform", SkateboardPlatform.new);
+    map.set("SpawnLocation", SpawnLocation.new);
+    map.set("WedgePart", WedgePart.new);
+    map.set("Terrain", Terrain.new);
+    map.set("MeshPart", MeshPart.new);
+    map.set("PartOperation", PartOperation.new);
+    map.set("IntersectOperation", IntersectOperation.new);
+    map.set("NegateOperation", NegateOperation.new);
+    map.set("UnionOperation", UnionOperation.new);
+    map.set("TrussPart", TrussPart.new);
+    map.set("VehicleSeat", VehicleSeat.new);
+    map.set("Model", Model.new);
+    map.set("Actor", Actor.new);
+    map.set("HopperBin", HopperBin.new);
+    map.set("Tool", Tool.new);
+    map.set("Flag", Flag.new);
+    map.set("Workspace", Workspace.new);
+    map.set("WorldModel", WorldModel.new);
+    map.set("PackageService", PackageService.new);
+    map.set("PackageUIService", PackageUIService.new);
+    map.set("PartOperationAsset", PartOperationAsset.new);
+    map.set("ParticleEmitter", ParticleEmitter.new);
+    map.set("PatchBundlerFileWatch", PatchBundlerFileWatch.new);
+    map.set("PathfindingLink", PathfindingLink.new);
+    map.set("PathfindingModifier", PathfindingModifier.new);
+    map.set("PathfindingService", PathfindingService.new);
+    map.set("PermissionsService", PermissionsService.new);
+    map.set("PhysicsService", PhysicsService.new);
+    map.set("PlaceStatsService", PlaceStatsService.new);
+    map.set("PlacesService", PlacesService.new);
+    map.set("PlatformCloudStorageService", PlatformCloudStorageService.new);
+    map.set("PlatformFriendsService", PlatformFriendsService.new);
+    map.set("Player", Player.new);
+    map.set("PlayerEmulatorService", PlayerEmulatorService.new);
+    map.set("PlayerViewService", PlayerViewService.new);
+    map.set("Players", Players.new);
+    map.set("PluginAction", PluginAction.new);
+    map.set("PluginCapabilities", PluginCapabilities.new);
+    map.set("PluginDebugService", PluginDebugService.new);
+    map.set("PluginGuiService", PluginGuiService.new);
+    map.set("PluginManagementService", PluginManagementService.new);
+    map.set("PluginPolicyService", PluginPolicyService.new);
+    map.set("PointsService", PointsService.new);
+    map.set("PolicyService", PolicyService.new);
+    map.set("NumberPose", NumberPose.new);
+    map.set("Pose", Pose.new);
+    map.set("BloomEffect", BloomEffect.new);
+    map.set("BlurEffect", BlurEffect.new);
+    map.set("ColorCorrectionEffect", ColorCorrectionEffect.new);
+    map.set("DepthOfFieldEffect", DepthOfFieldEffect.new);
+    map.set("SunRaysEffect", SunRaysEffect.new);
+    map.set("ProcessInstancePhysicsService", ProcessInstancePhysicsService.new);
+    map.set("ProjectFolderService", ProjectFolderService.new);
+    map.set("ProximityPrompt", ProximityPrompt.new);
+    map.set("ProximityPromptService", ProximityPromptService.new);
+    map.set("PublishService", PublishService.new);
+    map.set("RbxAnalyticsService", RbxAnalyticsService.new);
+    map.set("ReflectionMetadata", ReflectionMetadata.new);
+    map.set("ReflectionMetadataCallbacks", ReflectionMetadataCallbacks.new);
+    map.set("ReflectionMetadataClasses", ReflectionMetadataClasses.new);
+    map.set("ReflectionMetadataEnums", ReflectionMetadataEnums.new);
+    map.set("ReflectionMetadataEvents", ReflectionMetadataEvents.new);
+    map.set("ReflectionMetadataFunctions", ReflectionMetadataFunctions.new);
+    map.set("ReflectionMetadataClass", ReflectionMetadataClass.new);
+    map.set("ReflectionMetadataEnum", ReflectionMetadataEnum.new);
+    map.set("ReflectionMetadataEnumItem", ReflectionMetadataEnumItem.new);
+    map.set("ReflectionMetadataMember", ReflectionMetadataMember.new);
+    map.set("ReflectionMetadataProperties", ReflectionMetadataProperties.new);
+    map.set("ReflectionMetadataYieldFunctions", ReflectionMetadataYieldFunctions.new);
+    map.set("ReflectionService", ReflectionService.new);
+    map.set("RemoteCursorService", RemoteCursorService.new);
+    map.set("RemoteDebuggerServer", RemoteDebuggerServer.new);
+    map.set("RemoteFunction", RemoteFunction.new);
+    map.set("RenderSettings", RenderSettings.new);
+    map.set("RenderingTest", RenderingTest.new);
+    map.set("ReplicatedFirst", ReplicatedFirst.new);
+    map.set("ReplicatedStorage", ReplicatedStorage.new);
+    map.set("RibbonNotificationService", RibbonNotificationService.new);
+    map.set("RobloxPluginGuiService", RobloxPluginGuiService.new);
+    map.set("RobloxReplicatedStorage", RobloxReplicatedStorage.new);
+    map.set("RobloxServerStorage", RobloxServerStorage.new);
+    map.set("RomarkService", RomarkService.new);
+    map.set("RotationCurve", RotationCurve.new);
+    map.set("RtMessagingService", RtMessagingService.new);
+    map.set("RunService", RunService.new);
+    map.set("RuntimeScriptService", RuntimeScriptService.new);
+    map.set("SafetyService", SafetyService.new);
+    map.set("ScriptChangeService", ScriptChangeService.new);
+    map.set("ScriptCloneWatcher", ScriptCloneWatcher.new);
+    map.set("ScriptCloneWatcherHelper", ScriptCloneWatcherHelper.new);
+    map.set("ScriptCommitService", ScriptCommitService.new);
+    map.set("ScriptContext", ScriptContext.new);
+    map.set("ScriptEditorService", ScriptEditorService.new);
+    map.set("ScriptProfilerService", ScriptProfilerService.new);
+    map.set("ScriptRegistrationService", ScriptRegistrationService.new);
+    map.set("ScriptService", ScriptService.new);
+    map.set("Selection", Selection.new);
+    map.set("SelectionHighlightManager", SelectionHighlightManager.new);
+    map.set("BuoyancySensor", BuoyancySensor.new);
+    map.set("ControllerPartSensor", ControllerPartSensor.new);
+    map.set("ServerScriptService", ServerScriptService.new);
+    map.set("ServerStorage", ServerStorage.new);
+    map.set("ServiceVisibilityService", ServiceVisibilityService.new);
+    map.set("SessionService", SessionService.new);
+    map.set("SharedTableRegistry", SharedTableRegistry.new);
+    map.set("ShorelineUpgraderService", ShorelineUpgraderService.new);
+    map.set("Sky", Sky.new);
+    map.set("Smoke", Smoke.new);
+    map.set("SmoothVoxelsUpgraderService", SmoothVoxelsUpgraderService.new);
+    map.set("SnippetService", SnippetService.new);
+    map.set("SocialService", SocialService.new);
+    map.set("Sound", Sound.new);
+    map.set("ChorusSoundEffect", ChorusSoundEffect.new);
+    map.set("CompressorSoundEffect", CompressorSoundEffect.new);
+    map.set("DistortionSoundEffect", DistortionSoundEffect.new);
+    map.set("EchoSoundEffect", EchoSoundEffect.new);
+    map.set("EqualizerSoundEffect", EqualizerSoundEffect.new);
+    map.set("FlangeSoundEffect", FlangeSoundEffect.new);
+    map.set("PitchShiftSoundEffect", PitchShiftSoundEffect.new);
+    map.set("ReverbSoundEffect", ReverbSoundEffect.new);
+    map.set("TremoloSoundEffect", TremoloSoundEffect.new);
+    map.set("SoundGroup", SoundGroup.new);
+    map.set("SoundService", SoundService.new);
+    map.set("Sparkles", Sparkles.new);
+    map.set("SpawnerService", SpawnerService.new);
+    map.set("StandalonePluginScripts", StandalonePluginScripts.new);
+    map.set("StarterGear", StarterGear.new);
+    map.set("StarterPack", StarterPack.new);
+    map.set("StarterPlayer", StarterPlayer.new);
+    map.set("StarterPlayerScripts", StarterPlayerScripts.new);
+    map.set("StarterCharacterScripts", StarterCharacterScripts.new);
+    map.set("StartupMessageService", StartupMessageService.new);
+    map.set("Stats", Stats.new);
+    map.set("StopWatchReporter", StopWatchReporter.new);
+    map.set("StreamingService", StreamingService.new);
+    map.set("StudioAssetService", StudioAssetService.new);
+    map.set("StudioAttachment", StudioAttachment.new);
+    map.set("StudioCallout", StudioCallout.new);
+    map.set("StudioData", StudioData.new);
+    map.set("StudioDeviceEmulatorService", StudioDeviceEmulatorService.new);
+    map.set("StudioPublishService", StudioPublishService.new);
+    map.set("StudioScriptDebugEventListener", StudioScriptDebugEventListener.new);
+    map.set("StudioSdkService", StudioSdkService.new);
+    map.set("StudioService", StudioService.new);
+    map.set("StudioWidgetsService", StudioWidgetsService.new);
+    map.set("StyleRule", StyleRule.new);
+    map.set("StyleSheet", StyleSheet.new);
+    map.set("StyleDerive", StyleDerive.new);
+    map.set("StyleLink", StyleLink.new);
+    map.set("StylingService", StylingService.new);
+    map.set("SurfaceAppearance", SurfaceAppearance.new);
+    map.set("TaskScheduler", TaskScheduler.new);
+    map.set("Team", Team.new);
+    map.set("TeamCreateData", TeamCreateData.new);
+    map.set("TeamCreatePublishService", TeamCreatePublishService.new);
+    map.set("TeamCreateService", TeamCreateService.new);
+    map.set("Teams", Teams.new);
+    map.set("TeleportOptions", TeleportOptions.new);
+    map.set("TeleportService", TeleportService.new);
+    map.set("TemporaryCageMeshProvider", TemporaryCageMeshProvider.new);
+    map.set("TemporaryScriptService", TemporaryScriptService.new);
+    map.set("TerrainDetail", TerrainDetail.new);
+    map.set("TerrainRegion", TerrainRegion.new);
+    map.set("TestService", TestService.new);
+    map.set("TextBoxService", TextBoxService.new);
+    map.set("TextChannel", TextChannel.new);
+    map.set("TextChatCommand", TextChatCommand.new);
+    map.set("BubbleChatConfiguration", BubbleChatConfiguration.new);
+    map.set("ChatInputBarConfiguration", ChatInputBarConfiguration.new);
+    map.set("ChatWindowConfiguration", ChatWindowConfiguration.new);
+    map.set("TextChatMessageProperties", TextChatMessageProperties.new);
+    map.set("TextChatService", TextChatService.new);
+    map.set("TextService", TextService.new);
+    map.set("TextureGenerationService", TextureGenerationService.new);
+    map.set("ThirdPartyUserService", ThirdPartyUserService.new);
+    map.set("TimerService", TimerService.new);
+    map.set("ToastNotificationService", ToastNotificationService.new);
+    map.set("TouchInputService", TouchInputService.new);
+    map.set("TracerService", TracerService.new);
+    map.set("TrackerStreamAnimation", TrackerStreamAnimation.new);
+    map.set("Trail", Trail.new);
+    map.set("TutorialService", TutorialService.new);
+    map.set("Tween", Tween.new);
+    map.set("TweenService", TweenService.new);
+    map.set("UGCAvatarService", UGCAvatarService.new);
+    map.set("UGCValidationService", UGCValidationService.new);
+    map.set("UIAspectRatioConstraint", UIAspectRatioConstraint.new);
+    map.set("UISizeConstraint", UISizeConstraint.new);
+    map.set("UITextSizeConstraint", UITextSizeConstraint.new);
+    map.set("UICorner", UICorner.new);
+    map.set("UIFlexItem", UIFlexItem.new);
+    map.set("UIGradient", UIGradient.new);
+    map.set("UIGridLayout", UIGridLayout.new);
+    map.set("UIListLayout", UIListLayout.new);
+    map.set("UIPageLayout", UIPageLayout.new);
+    map.set("UITableLayout", UITableLayout.new);
+    map.set("UIPadding", UIPadding.new);
+    map.set("UIScale", UIScale.new);
+    map.set("UIStroke", UIStroke.new);
+    map.set("UnvalidatedAssetService", UnvalidatedAssetService.new);
+    map.set("UserInputService", UserInputService.new);
+    map.set("UserService", UserService.new);
+    map.set("VRService", VRService.new);
+    map.set("VRStatusService", VRStatusService.new);
+    map.set("BinaryStringValue", BinaryStringValue.new);
+    map.set("BoolValue", BoolValue.new);
+    map.set("BrickColorValue", BrickColorValue.new);
+    map.set("CFrameValue", CFrameValue.new);
+    map.set("Color3Value", Color3Value.new);
+    map.set("DoubleConstrainedValue", DoubleConstrainedValue.new);
+    map.set("IntConstrainedValue", IntConstrainedValue.new);
+    map.set("IntValue", IntValue.new);
+    map.set("NumberValue", NumberValue.new);
+    map.set("ObjectValue", ObjectValue.new);
+    map.set("RayValue", RayValue.new);
+    map.set("StringValue", StringValue.new);
+    map.set("Vector3Value", Vector3Value.new);
+    map.set("Vector3Curve", Vector3Curve.new);
+    map.set("VersionControlService", VersionControlService.new);
+    map.set("VideoCaptureService", VideoCaptureService.new);
+    map.set("VideoDeviceInput", VideoDeviceInput.new);
+    map.set("VideoService", VideoService.new);
+    map.set("VirtualInputManager", VirtualInputManager.new);
+    map.set("VirtualUser", VirtualUser.new);
+    map.set("VisibilityCheckDispatcher", VisibilityCheckDispatcher.new);
+    map.set("Visit", Visit.new);
+    map.set("VisualizationMode", VisualizationMode.new);
+    map.set("VisualizationModeCategory", VisualizationModeCategory.new);
+    map.set("VisualizationModeService", VisualizationModeService.new);
+    map.set("VoiceChatInternal", VoiceChatInternal.new);
+    map.set("VoiceChatService", VoiceChatService.new);
+    map.set("WeldConstraint", WeldConstraint.new);
+    map.set("Wire", Wire.new);
+    return map;
 }
 
 export class AccessModifierType extends EnumItem {
@@ -8066,4 +9455,244 @@ export class ZIndexBehavior extends EnumItem {
     public static readonly Sibling = new ZIndexBehavior("Sibling", 1);
     public static get items() {return [ZIndexBehavior.Global, ZIndexBehavior.Sibling];}
     public static fromValue(value: number) {return ZIndexBehavior.items.find((item) => item._value === value);}
+}
+
+export type EnumFactory = (value: number) => EnumItem | undefined
+
+export class EnumMap {
+    protected readonly _map: Map<string, EnumFactory> = getEnumMap();
+    public getFactory(className: string, propName: string): EnumFactory | undefined {
+        return this._map.get(`${className},${propName}`);
+    }
+}
+
+function getEnumMap() {
+    const map = new Map<string, EnumFactory>();
+    map.set("AccessoryDescription,AccessoryType", AccessoryType.fromValue);
+    map.set("Accessory,AccessoryType", AccessoryType.fromValue);
+    map.set("AnimationClip,Priority", AnimationPriority.fromValue);
+    map.set("AudioDeviceInput,AccessType", AccessModifierType.fromValue);
+    map.set("AudioSearchParams,AudioSubType", AudioSubType.fromValue);
+    map.set("AudioSearchParams,AudioSubtype", AudioSubType.fromValue);
+    map.set("AvatarGenerationJob,Error", AvatarGenerationError.fromValue);
+    map.set("AvatarGenerationJob,Status", AvatarGenerationJobStatus.fromValue);
+    map.set("StarterGui,RtlTextSupport", RtlTextSupport.fromValue);
+    map.set("StarterGui,ScreenOrientation", ScreenOrientation.fromValue);
+    map.set("StarterGui,VirtualCursorMode", VirtualCursorMode.fromValue);
+    map.set("WrapLayer,AutoSkin", WrapLayerAutoSkin.fromValue);
+    map.set("Beam,TextureMode", TextureMode.fromValue);
+    map.set("BodyPartDescription,BodyPart", BodyPart.fromValue);
+    map.set("Camera,CameraType", CameraType.fromValue);
+    map.set("Camera,FieldOfViewMode", FieldOfViewMode.fromValue);
+    map.set("CharacterMesh,BodyPart", BodyPart.fromValue);
+    map.set("DragDetector,DragStyle", DragDetectorDragStyle.fromValue);
+    map.set("DragDetector,GamepadModeSwitchKeyCode", KeyCode.fromValue);
+    map.set("DragDetector,KeyboardModeSwitchKeyCode", KeyCode.fromValue);
+    map.set("DragDetector,PermissionPolicy", DragDetectorPermissionPolicy.fromValue);
+    map.set("DragDetector,ResponseStyle", DragDetectorResponseStyle.fromValue);
+    map.set("DragDetector,VRSwitchKeyCode", KeyCode.fromValue);
+    map.set("AlignOrientation,AlignType", AlignType.fromValue);
+    map.set("AlignOrientation,Mode", OrientationAlignmentMode.fromValue);
+    map.set("AlignPosition,ForceLimitMode", ForceLimitMode.fromValue);
+    map.set("AlignPosition,ForceRelativeTo", ActuatorRelativeTo.fromValue);
+    map.set("AlignPosition,Mode", PositionAlignmentMode.fromValue);
+    map.set("AngularVelocity,RelativeTo", ActuatorRelativeTo.fromValue);
+    map.set("HingeConstraint,ActuatorType", ActuatorType.fromValue);
+    map.set("LinearVelocity,ForceLimitMode", ForceLimitMode.fromValue);
+    map.set("LinearVelocity,RelativeTo", ActuatorRelativeTo.fromValue);
+    map.set("LinearVelocity,VelocityConstraintMode", VelocityConstraintMode.fromValue);
+    map.set("SlidingBallConstraint,ActuatorType", ActuatorType.fromValue);
+    map.set("CylindricalConstraint,AngularActuatorType", ActuatorType.fromValue);
+    map.set("Torque,RelativeTo", ActuatorRelativeTo.fromValue);
+    map.set("VectorForce,RelativeTo", ActuatorRelativeTo.fromValue);
+    map.set("SpecialMesh,MeshType", MeshType.fromValue);
+    map.set("Dialog,BehaviorType", DialogBehaviorType.fromValue);
+    map.set("Dialog,Purpose", DialogPurpose.fromValue);
+    map.set("Dialog,Tone", DialogTone.fromValue);
+    map.set("EulerRotationCurve,RotationOrder", RotationOrder.fromValue);
+    map.set("Explosion,ExplosionType", ExplosionType.fromValue);
+    map.set("FaceInstance,Face", NormalId.fromValue);
+    map.set("Feature,FaceId", NormalId.fromValue);
+    map.set("Feature,InOut", InOut.fromValue);
+    map.set("Feature,LeftRight", LeftRight.fromValue);
+    map.set("Feature,TopBottom", TopBottom.fromValue);
+    map.set("GuiBase2d,SelectionBehaviorDown", SelectionBehavior.fromValue);
+    map.set("GuiBase2d,SelectionBehaviorLeft", SelectionBehavior.fromValue);
+    map.set("GuiBase2d,SelectionBehaviorRight", SelectionBehavior.fromValue);
+    map.set("GuiBase2d,SelectionBehaviorUp", SelectionBehavior.fromValue);
+    map.set("GuiObject,AutomaticSize", AutomaticSize.fromValue);
+    map.set("GuiObject,BorderMode", BorderMode.fromValue);
+    map.set("GuiObject,SizeConstraint", SizeConstraint.fromValue);
+    map.set("Frame,Style", FrameStyle.fromValue);
+    map.set("GuiButton,Style", ButtonStyle.fromValue);
+    map.set("ImageButton,ResampleMode", ResamplerMode.fromValue);
+    map.set("ImageButton,ScaleType", ScaleType.fromValue);
+    map.set("TextButton,FontSize", FontSize.fromValue);
+    map.set("TextButton,TextDirection", TextDirection.fromValue);
+    map.set("TextButton,TextTruncate", TextTruncate.fromValue);
+    map.set("TextButton,TextXAlignment", TextXAlignment.fromValue);
+    map.set("TextButton,TextYAlignment", TextYAlignment.fromValue);
+    map.set("ImageLabel,ResampleMode", ResamplerMode.fromValue);
+    map.set("ImageLabel,ScaleType", ScaleType.fromValue);
+    map.set("TextLabel,FontSize", FontSize.fromValue);
+    map.set("TextLabel,TextDirection", TextDirection.fromValue);
+    map.set("TextLabel,TextTruncate", TextTruncate.fromValue);
+    map.set("TextLabel,TextXAlignment", TextXAlignment.fromValue);
+    map.set("TextLabel,TextYAlignment", TextYAlignment.fromValue);
+    map.set("ScrollingFrame,AutomaticCanvasSize", AutomaticSize.fromValue);
+    map.set("ScrollingFrame,ElasticBehavior", ElasticBehavior.fromValue);
+    map.set("ScrollingFrame,HorizontalScrollBarInset", ScrollBarInset.fromValue);
+    map.set("ScrollingFrame,ScrollingDirection", ScrollingDirection.fromValue);
+    map.set("ScrollingFrame,VerticalScrollBarInset", ScrollBarInset.fromValue);
+    map.set("ScrollingFrame,VerticalScrollBarPosition", VerticalScrollBarPosition.fromValue);
+    map.set("TextBox,FontSize", FontSize.fromValue);
+    map.set("TextBox,TextDirection", TextDirection.fromValue);
+    map.set("TextBox,TextTruncate", TextTruncate.fromValue);
+    map.set("TextBox,TextXAlignment", TextXAlignment.fromValue);
+    map.set("TextBox,TextYAlignment", TextYAlignment.fromValue);
+    map.set("LayerCollector,ZIndexBehavior", ZIndexBehavior.fromValue);
+    map.set("ScreenGui,SafeAreaCompatibility", SafeAreaCompatibility.fromValue);
+    map.set("ScreenGui,ScreenInsets", ScreenInsets.fromValue);
+    map.set("SurfaceGuiBase,Face", NormalId.fromValue);
+    map.set("AdGui,AdShape", AdShape.fromValue);
+    map.set("SurfaceGui,SizingMode", SurfaceGuiSizingMode.fromValue);
+    map.set("HandleAdornment,AdornCullingMode", AdornCullingMode.fromValue);
+    map.set("Handles,Style", HandlesStyle.fromValue);
+    map.set("SurfaceSelection,TargetSurface", NormalId.fromValue);
+    map.set("Highlight,DepthMode", HighlightDepthMode.fromValue);
+    map.set("Humanoid,CollisionType", HumanoidCollisionType.fromValue);
+    map.set("Humanoid,DisplayDistanceType", HumanoidDisplayDistanceType.fromValue);
+    map.set("Humanoid,HealthDisplayType", HumanoidHealthDisplayType.fromValue);
+    map.set("Humanoid,NameOcclusion", NameOcclusion.fromValue);
+    map.set("Humanoid,RigType", HumanoidRigType.fromValue);
+    map.set("IKControl,Type", IKControlType.fromValue);
+    map.set("SpotLight,Face", NormalId.fromValue);
+    map.set("SurfaceLight,Face", NormalId.fromValue);
+    map.set("Lighting,Technology", Technology.fromValue);
+    map.set("BaseScript,RunContext", RunContext.fromValue);
+    map.set("MaterialVariant,BaseMaterial", Material.fromValue);
+    map.set("MaterialVariant,MaterialPattern", MaterialPattern.fromValue);
+    map.set("Noise,NoiseType", NoiseType.fromValue);
+    map.set("BasePart,BackSurface", SurfaceType.fromValue);
+    map.set("BasePart,BackSurfaceInput", InputType.fromValue);
+    map.set("BasePart,BottomSurface", SurfaceType.fromValue);
+    map.set("BasePart,BottomSurfaceInput", InputType.fromValue);
+    map.set("BasePart,FrontSurface", SurfaceType.fromValue);
+    map.set("BasePart,FrontSurfaceInput", InputType.fromValue);
+    map.set("BasePart,LeftSurface", SurfaceType.fromValue);
+    map.set("BasePart,LeftSurfaceInput", InputType.fromValue);
+    map.set("BasePart,Material", Material.fromValue);
+    map.set("BasePart,RightSurface", SurfaceType.fromValue);
+    map.set("BasePart,RightSurfaceInput", InputType.fromValue);
+    map.set("BasePart,TopSurface", SurfaceType.fromValue);
+    map.set("BasePart,TopSurfaceInput", InputType.fromValue);
+    map.set("FormFactorPart,FormFactor", FormFactor.fromValue);
+    map.set("FormFactorPart,formFactor", FormFactor.fromValue);
+    map.set("FormFactorPart,formFactorRaw", FormFactor.fromValue);
+    map.set("Part,shape", PartType.fromValue);
+    map.set("Terrain,AcquisitionMethod", TerrainAcquisitionMethod.fromValue);
+    map.set("TriangleMeshPart,FluidFidelityInternal", FluidFidelity.fromValue);
+    map.set("MeshPart,RenderFidelity", RenderFidelity.fromValue);
+    map.set("PartOperation,FormFactor", FormFactor.fromValue);
+    map.set("PartOperation,RenderFidelity", RenderFidelity.fromValue);
+    map.set("TrussPart,style", Style.fromValue);
+    map.set("Model,LevelOfDetail", ModelLevelOfDetail.fromValue);
+    map.set("Model,ModelStreamingMode", ModelStreamingMode.fromValue);
+    map.set("HopperBin,BinType", BinType.fromValue);
+    map.set("Workspace,AvatarUnificationMode", AvatarUnificationMode.fromValue);
+    map.set("Workspace,CSGAsyncDynamicCollision", CSGAsyncDynamicCollision.fromValue);
+    map.set("Workspace,ClientAnimatorThrottling", ClientAnimatorThrottlingMode.fromValue);
+    map.set("Workspace,DecreaseMinimumPartDensityMode", DecreaseMinimumPartDensityMode.fromValue);
+    map.set("Workspace,EditorLiveScripting", EditorLiveScripting.fromValue);
+    map.set("Workspace,FluidForces", FluidForces.fromValue);
+    map.set("Workspace,IKControlConstraintSupport", IKControlConstraintSupport.fromValue);
+    map.set("Workspace,MeshPartHeadsAndAccessories", MeshPartHeadsAndAccessories.fromValue);
+    map.set("Workspace,ModelStreamingBehavior", ModelStreamingBehavior.fromValue);
+    map.set("Workspace,PhysicsSteppingMethod", PhysicsSteppingMethod.fromValue);
+    map.set("Workspace,PlayerCharacterDestroyBehavior", PlayerCharacterDestroyBehavior.fromValue);
+    map.set("Workspace,PrimalPhysicsSolver", PrimalPhysicsSolver.fromValue);
+    map.set("Workspace,RejectCharacterDeletions", RejectCharacterDeletions.fromValue);
+    map.set("Workspace,ReplicateInstanceDestroySetting", ReplicateInstanceDestroySetting.fromValue);
+    map.set("Workspace,Retargeting", AnimatorRetargetingMode.fromValue);
+    map.set("Workspace,SignalBehavior2", SignalBehavior.fromValue);
+    map.set("Workspace,StreamOutBehavior", StreamOutBehavior.fromValue);
+    map.set("Workspace,StreamingIntegrityMode", StreamingIntegrityMode.fromValue);
+    map.set("ParticleEmitter,EmissionDirection", NormalId.fromValue);
+    map.set("ParticleEmitter,FlipbookLayout", ParticleFlipbookLayout.fromValue);
+    map.set("ParticleEmitter,FlipbookMode", ParticleFlipbookMode.fromValue);
+    map.set("ParticleEmitter,Orientation", ParticleOrientation.fromValue);
+    map.set("ParticleEmitter,Shape", ParticleEmitterShape.fromValue);
+    map.set("ParticleEmitter,ShapeInOut", ParticleEmitterShapeInOut.fromValue);
+    map.set("ParticleEmitter,ShapeStyle", ParticleEmitterShapeStyle.fromValue);
+    map.set("Player,CameraMode", CameraMode.fromValue);
+    map.set("Player,DevCameraOcclusionMode", DevCameraOcclusionMode.fromValue);
+    map.set("Player,DevComputerCameraMode", DevComputerCameraMovementMode.fromValue);
+    map.set("Player,DevComputerMovementMode", DevComputerMovementMode.fromValue);
+    map.set("Player,DevTouchCameraMode", DevTouchCameraMovementMode.fromValue);
+    map.set("Player,DevTouchMovementMode", DevTouchMovementMode.fromValue);
+    map.set("PolicyService,IsLuobuServer", TriStateBoolean.fromValue);
+    map.set("PolicyService,LuobuWhitelisted", TriStateBoolean.fromValue);
+    map.set("PoseBase,EasingDirection", PoseEasingDirection.fromValue);
+    map.set("PoseBase,EasingStyle", PoseEasingStyle.fromValue);
+    map.set("ProximityPrompt,Exclusivity", ProximityPromptExclusivity.fromValue);
+    map.set("ProximityPrompt,GamepadKeyCode", KeyCode.fromValue);
+    map.set("ProximityPrompt,KeyboardKeyCode", KeyCode.fromValue);
+    map.set("ProximityPrompt,Style", ProximityPromptStyle.fromValue);
+    map.set("ReflectionMetadataClass,ServiceVisibility", ServiceVisibility.fromValue);
+    map.set("RenderSettings,EditQualityLevel", QualityLevel.fromValue);
+    map.set("RenderSettings,FrameRateManager", FramerateManagerMode.fromValue);
+    map.set("RenderSettings,GraphicsMode", GraphicsMode.fromValue);
+    map.set("RenderSettings,MeshPartDetailLevel", MeshPartDetailLevel.fromValue);
+    map.set("RenderSettings,QualityLevel", QualityLevel.fromValue);
+    map.set("RenderSettings,ViewMode", ViewMode.fromValue);
+    map.set("RenderingTest,ComparisonMethod", RenderingTestComparisonMethod.fromValue);
+    map.set("SensorBase,UpdateType", SensorUpdateType.fromValue);
+    map.set("ControllerPartSensor,SensorMode", SensorMode.fromValue);
+    map.set("Sound,RollOffMode", RollOffMode.fromValue);
+    map.set("SoundService,AmbientReverb", ReverbType.fromValue);
+    map.set("SoundService,VolumetricAudio", VolumetricAudio.fromValue);
+    map.set("StarterPlayer,AvatarJointUpgrade_Serialized", AvatarJointUpgrade.fromValue);
+    map.set("StarterPlayer,CameraMode", CameraMode.fromValue);
+    map.set("StarterPlayer,DevCameraOcclusionMode", DevCameraOcclusionMode.fromValue);
+    map.set("StarterPlayer,DevComputerCameraMovementMode", DevComputerCameraMovementMode.fromValue);
+    map.set("StarterPlayer,DevComputerMovementMode", DevComputerMovementMode.fromValue);
+    map.set("StarterPlayer,DevTouchCameraMovementMode", DevTouchCameraMovementMode.fromValue);
+    map.set("StarterPlayer,DevTouchMovementMode", DevTouchMovementMode.fromValue);
+    map.set("StarterPlayer,EnableDynamicHeads", LoadDynamicHeads.fromValue);
+    map.set("StarterPlayer,GameSettingsAvatar", GameAvatarType.fromValue);
+    map.set("StarterPlayer,GameSettingsR15Collision", R15CollisionType.fromValue);
+    map.set("StarterPlayer,LoadCharacterLayeredClothing", LoadCharacterLayeredClothing.fromValue);
+    map.set("StarterPlayer,LuaCharacterController", CharacterControlMode.fromValue);
+    map.set("SurfaceAppearance,AlphaMode", AlphaMode.fromValue);
+    map.set("TaskScheduler,ThreadPoolConfig", ThreadPoolConfig.fromValue);
+    map.set("TerrainDetail,Face", TerrainFace.fromValue);
+    map.set("TerrainDetail,MaterialPattern", MaterialPattern.fromValue);
+    map.set("BubbleChatConfiguration,Font", Font.fromValue);
+    map.set("ChatInputBarConfiguration,KeyboardKeyCode", KeyCode.fromValue);
+    map.set("ChatWindowConfiguration,HorizontalAlignment", HorizontalAlignment.fromValue);
+    map.set("ChatWindowConfiguration,VerticalAlignment", VerticalAlignment.fromValue);
+    map.set("TextChatService,ChatVersion", ChatVersion.fromValue);
+    map.set("Trail,TextureMode", TextureMode.fromValue);
+    map.set("UIAspectRatioConstraint,AspectType", AspectType.fromValue);
+    map.set("UIAspectRatioConstraint,DominantAxis", DominantAxis.fromValue);
+    map.set("UIFlexItem,FlexMode", UIFlexMode.fromValue);
+    map.set("UIFlexItem,ItemLineAlignment", ItemLineAlignment.fromValue);
+    map.set("UIGridStyleLayout,FillDirection", FillDirection.fromValue);
+    map.set("UIGridStyleLayout,HorizontalAlignment", HorizontalAlignment.fromValue);
+    map.set("UIGridStyleLayout,SortOrder", SortOrder.fromValue);
+    map.set("UIGridStyleLayout,VerticalAlignment", VerticalAlignment.fromValue);
+    map.set("UIGridLayout,StartCorner", StartCorner.fromValue);
+    map.set("UIListLayout,HorizontalFlex", UIFlexAlignment.fromValue);
+    map.set("UIListLayout,ItemLineAlignment", ItemLineAlignment.fromValue);
+    map.set("UIListLayout,VerticalFlex", UIFlexAlignment.fromValue);
+    map.set("UIPageLayout,EasingDirection", EasingDirection.fromValue);
+    map.set("UIPageLayout,EasingStyle", EasingStyle.fromValue);
+    map.set("UITableLayout,MajorAxis", TableMajorAxis.fromValue);
+    map.set("UIStroke,ApplyStrokeMode", ApplyStrokeMode.fromValue);
+    map.set("UIStroke,LineJoinMode", LineJoinMode.fromValue);
+    map.set("UserInputService,MouseBehavior", MouseBehavior.fromValue);
+    map.set("VRService,AutomaticScaling", VRScaling.fromValue);
+    map.set("VideoDeviceInput,CaptureQuality", VideoDeviceCaptureQuality.fromValue);
+    map.set("VoiceChatService,UseAudioApi", AudioApiRollout.fromValue);
+    return map;
 }

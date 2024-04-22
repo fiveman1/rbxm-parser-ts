@@ -4,6 +4,7 @@
  * Contains some Roblox related types/enums.
  */
 
+import { NameToClass, NormalId } from "../generated/generated_types";
 import { narrowCopyArray, formatNum } from "./util";
 
 // https://dom.rojo.space/binary#data-types
@@ -131,7 +132,7 @@ type RobloxEnum = {
 
 type RobloxReferent = {
     type: DataType.Referent
-    value: CoreInstance
+    value: Instance
 }
 
 type RobloxColor3uint8 = {
@@ -243,7 +244,7 @@ type PropKeyType = {
     [DataType.Vector3]: Vector3
     [DataType.CFrame]: CFrame
     [DataType.Enum]: EnumItem
-    [DataType.Referent]: CoreInstance
+    [DataType.Referent]: Instance
     [DataType.Color3uint8]: Color3uint8
     [DataType.NumberSequence]: NumberSequence
     [DataType.ColorSequence]: ColorSequence
@@ -267,13 +268,14 @@ export type SharedString = {
  * Represents a single Roblox Instance.
  * @example const part = new Instance("Part");
  */
-export class CoreInstance
+export class Instance
 {
     protected readonly _className: string;
+    protected readonly _classNameSet: Set<string> = new Set<string>();
     protected readonly _isService: boolean;
     protected readonly _props: Map<string, RobloxValue> = new Map<string, RobloxValue>();
-    protected _parent?: CoreInstance;
-    protected readonly _children: Set<CoreInstance> = new Set<CoreInstance>();
+    protected _parent?: Instance;
+    protected readonly _children: Set<Instance> = new Set<Instance>();
 
     /**
      * Creates a new Instance.
@@ -283,7 +285,13 @@ export class CoreInstance
     public constructor(className: string, isService: boolean = false)
     {
         this._className = className;
+        this.addClassName("Instance");
         this._isService = isService;
+    }
+
+    protected addClassName(className: string)
+    {
+        this._classNameSet.add(className);
     }
 
     /**
@@ -294,17 +302,17 @@ export class CoreInstance
      * @example
      * const size: Vector3 | undefined = part.getProp("size", DataType.Vector3);
      */
-    public getProp<T extends DataType>(propName: string, type: T): PropKeyType[T] | undefined
+    public GetProp<T extends DataType>(propName: string, type: T): PropKeyType[T] | undefined
     {
         const prop = this._props.get(propName);
         if (prop?.type === type)
         {
-            return CoreInstance.copyValue(prop) as PropKeyType[T];
+            return Instance.CopyValue(prop) as PropKeyType[T];
         }
         return undefined;
     }
 
-    protected static copyValue(rbxValue: RobloxValue)
+    protected static CopyValue(rbxValue: RobloxValue)
     {
         switch (rbxValue.type)
         {
@@ -332,29 +340,34 @@ export class CoreInstance
      * @example
      * part.setProp("size", DataType.Vector3, new Vector3(2, 3, 4));
      */
-    public setProp<T extends DataType>(propName: string, type: T, value: PropKeyType[T] | undefined)
+    public SetProp<T extends DataType>(propName: string, type: T, value: PropKeyType[T] | undefined)
     {
         if (value === undefined)
         {
             this._props.delete(propName);
             return;
         }
-        const valueCopy = CoreInstance.copyValue({ type: type, value: value } as RobloxValue) as PropKeyType[T];
+        const valueCopy = Instance.CopyValue({ type: type, value: value } as RobloxValue) as PropKeyType[T];
         this._props.set(propName, { type: type, value: valueCopy } as RobloxValue);
     }
 
     /**
      * The class name.
      */
-    public get className(): string
+    public get ClassName(): string
     {
         return this._className;
+    }
+
+    public get ClassNameList(): readonly string[]
+    {
+        return Array.from(this._classNameSet.values());
     }
 
     /**
      * Whether or not this is a service.
      */
-    public get isService(): boolean
+    public get IsService(): boolean
     {
         return this._isService;
     }
@@ -362,25 +375,25 @@ export class CoreInstance
     /**
      * The name of this instance.
      */
-    public get name(): string
+    public get Name(): string
     {
-        return this.getProp("Name", DataType.String) ?? "";
+        return this.GetProp("Name", DataType.String) ?? "";
     }
 
-    public set name(newName: string)
+    public set Name(newName: string)
     {
-        this.setProp("Name", DataType.String, newName);
+        this.SetProp("Name", DataType.String, newName);
     }
 
     /**
      * The parent of this instance. This is undefined if the parent is the root of the model.
      */
-    public get parent(): CoreInstance | undefined
+    public get Parent(): Instance | undefined
     {
         return this._parent;
     }
 
-    public set parent(newParent: CoreInstance | undefined)
+    public set Parent(newParent: Instance | undefined)
     {
         if (this._parent)
         {
@@ -397,7 +410,7 @@ export class CoreInstance
      * The children of this instance. This is a readonly array; you cannot change children directly.
      * You must change the parent value of child instances if you want to move them.
      */
-    public get children(): readonly CoreInstance[]
+    public get Children(): readonly Instance[]
     {
         return Array.from(this._children.values());
     }
@@ -406,9 +419,9 @@ export class CoreInstance
      * @param className the class name
      * @returns whether or not this is an instance of the given class name.
      */
-    public isA(className: string)
+    public IsA(className: string)
     {
-        return this._className === className;
+        return this._classNameSet.has(className);
     }
 
     /**
@@ -416,7 +429,7 @@ export class CoreInstance
      * @param predicate this will keep searching until the predicate returns true
      * @returns the first child that met the predicate, or undefined if none were found.
      */
-    public findFirstChild(predicate: (child: CoreInstance) => boolean)
+    public FindFirstChild(predicate: (child: Instance) => boolean)
     {
         for (const child of this._children)
         {
@@ -425,9 +438,9 @@ export class CoreInstance
         return undefined;
     }
 
-    public findFirstChildOfClass<T extends ClassNames>(className: T): NameToClass[T] | undefined
+    public FindFirstChildOfClass<T extends keyof NameToClass>(className: T, predicate?: (child: Instance) => boolean): NameToClass[T] | undefined
     {
-        return this.findFirstChild((child) => child.isA(className)) as NameToClass[T];
+        return this.FindFirstChild((child) => child.IsA(className) && (!predicate || predicate(child))) as NameToClass[T];
     }
 
     /**
@@ -435,20 +448,20 @@ export class CoreInstance
      * @param predicate this will keep searching until the predicate returns true
      * @returns the first descendant that met the predicate, or undefined if none were found.
      */
-    public findFirstDescendant(predicate: (child: CoreInstance) => boolean): CoreInstance | undefined
+    public FindFirstDescendant(predicate: (child: Instance) => boolean): Instance | undefined
     {
         for (const child of this._children)
         {
             if (predicate(child)) return child;
-            const childResult = child.findFirstDescendant(predicate);
+            const childResult = child.FindFirstDescendant(predicate);
             if (childResult) return childResult;
         }
         return undefined;
     }
 
-    public findFirstDescendantOfClass<T extends ClassNames>(className: T): NameToClass[T] | undefined
+    public FindFirstDescendantOfClass<T extends keyof NameToClass>(className: T, predicate?: (child: Instance) => boolean): NameToClass[T] | undefined
     {
-        return this.findFirstDescendant((child) => child.isA(className)) as NameToClass[T];
+        return this.FindFirstDescendant((child) => child.IsA(className) && (!predicate || predicate(child))) as NameToClass[T];
     }
 
     /**
@@ -456,7 +469,7 @@ export class CoreInstance
      * @param predicate this will include the child if the predicate returns true
      * @returns the list of children that met the predicate. This will have a length of 0 if none were found.
      */
-    public findChildren(predicate: (child: CoreInstance) => boolean)
+    public FindChildren(predicate: (child: Instance) => boolean)
     {
         const children = [];
         for (const child of this._children)
@@ -466,13 +479,23 @@ export class CoreInstance
         return children;
     }
 
+    public FindChildrenOfClass<T extends keyof NameToClass>(className: T, predicate?: (child: Instance) => boolean): NameToClass[T][]
+    {
+        const children = [];
+        for (const child of this._children)
+        {
+            if (child.IsA(className) && (!predicate || predicate(child))) children.push(child);
+        }
+        return children as NameToClass[T][];
+    }
+
     /**
      * A title string that represents this instance for debugging purposes.
      * @returns "{name} (class:{className})"
      */
-    public getTitleString()
+    public GetTitleString()
     {
-        return `${this.name} (class:${this._className})`;
+        return `${this.Name} (class:${this._className})`;
     }
 
     public toString()
@@ -494,7 +517,7 @@ export class CoreInstance
             }
             propStrings.push(`${key}: ${valueStr}`);
         });
-        return `${this.getTitleString()} {${propStrings.join(", ")}}`;
+        return `${this.GetTitleString()} {${propStrings.join(", ")}}`;
     }
 }
 
@@ -1045,86 +1068,110 @@ export class OptionalCFrame implements ICopyable
     }
 }
 
-// I will auto generate the stuff below and it will be awesome
 export class EnumItem {
     protected readonly _name: string;
-    public get name() {return this._name;}
     protected readonly _value: number;
-    public get value() {return this._value;}
+
     protected constructor(name: string, value: number) {this._name = name, this._value = value;}
-    public toString() {return this._name !== "" ? this._name : this._value.toString();}
-    public static makeUnknownEnum(value: number) {return new EnumItem("", value);}
-}
 
-export class AccessModifierType extends EnumItem {
-    public static readonly Allow = new AccessModifierType("Allow", 0);
-    public static readonly Deny = new AccessModifierType("Deny", 1);
-    public static get items() {return [AccessModifierType.Allow, AccessModifierType.Deny];}
-    public static fromValue(value: number) { return AccessModifierType.items.find((item) => item._value === value); }
-}
-
-export class NormalId extends EnumItem {
-    public static readonly Right = new NormalId("Right", 0);
-    public static readonly Top = new NormalId("Top", 1);
-    public static readonly Back = new NormalId("Back", 2);
-    public static readonly Left = new NormalId("Left", 3);
-    public static readonly Bottom = new NormalId("Bottom", 4);
-    public static readonly Front = new NormalId("Front", 5);
-    public static get items() {return [NormalId.Right, NormalId.Top, NormalId.Back, NormalId.Left, NormalId.Bottom, NormalId.Front];}
-    public static fromValue(value: number) { return NormalId.items.find((item) => item._value === value); }
-}
-
-export type EnumFactory = (value: number) => EnumItem | undefined;
-
-function getEnumMap() {
-    const map = new Map<string, EnumFactory>();
-    map.set("AudioDeviceInput,AccessType", AccessModifierType.fromValue);
-    map.set("Texture,Face", NormalId.fromValue);
-    return map;
-}
-
-export class EnumMap {
-    protected readonly _map: Map<string, EnumFactory> = getEnumMap();
-    public getFactory(className: string, propName: string): EnumFactory | undefined {
-        return this._map.get(`${className},${propName}`);
+    /**
+     * The name of this Enum.
+     */
+    public get name() 
+    {
+        return this._name;
+    }
+    
+    /**
+     * The value of this Enum.
+     */
+    public get value() 
+    {
+        return this._value;
+    }
+    
+    public toString() 
+    {
+        return this._name !== "" ? this._name : this._value.toString();
+    }
+    
+    /**
+     * Allows you to construct an EnumItem that hasn't been mapped by the generated types.
+     * @param value the value of the enum
+     * @returns the unknown enum with the given value.
+     */
+    public static makeUnknownEnum(value: number) 
+    {
+        return new EnumItem("", value);
     }
 }
 
-export class Instance extends CoreInstance {
-    protected constructor(className?: string) {super(className ?? "Instance");}
-    public static new() {return new Instance();}
-}
+// I will auto generate the stuff below and it will be awesome
 
-export class Part extends Instance {
-    protected constructor(className?: string) {super(className ?? "Part");}
-    public static new() {return new Part();}
-    public get mEnum() {return this.getProp("mEnum", DataType.Enum) as NormalId | undefined;}
-    public get canCollide() {return this.getProp("CanCollide", DataType.Bool);}
-    public set canCollide(value) {this.setProp("CanCollide", DataType.Bool, value);}
-}
+// export class AccessModifierType extends EnumItem {
+//     public static readonly Allow = new AccessModifierType("Allow", 0);
+//     public static readonly Deny = new AccessModifierType("Deny", 1);
+//     public static get items() {return [AccessModifierType.Allow, AccessModifierType.Deny];}
+//     public static fromValue(value: number) { return AccessModifierType.items.find((item) => item._value === value); }
+// }
 
-type ClassNames =
-    | "Instance"
-    | "Part"
-;
+// export class NormalId extends EnumItem {
+//     public static readonly Right = new NormalId("Right", 0);
+//     public static readonly Top = new NormalId("Top", 1);
+//     public static readonly Back = new NormalId("Back", 2);
+//     public static readonly Left = new NormalId("Left", 3);
+//     public static readonly Bottom = new NormalId("Bottom", 4);
+//     public static readonly Front = new NormalId("Front", 5);
+//     public static get items() {return [NormalId.Right, NormalId.Top, NormalId.Back, NormalId.Left, NormalId.Bottom, NormalId.Front];}
+//     public static fromValue(value: number) { return NormalId.items.find((item) => item._value === value); }
+// }
 
-type NameToClass = {
-    ["Instance"]: CoreInstance
-    ["Part"]: Part
-};
+// export type EnumFactory = (value: number) => EnumItem | undefined
 
-type ClassFactory = () => CoreInstance;
+// function getEnumMap() {
+//     const map = new Map<string, EnumFactory>();
+//     map.set("AudioDeviceInput,AccessType", AccessModifierType.fromValue);
+//     map.set("Texture,Face", NormalId.fromValue);
+//     return map;
+// }
 
-function getClassMap() {
-    const map = new Map<string, ClassFactory>();
-    map.set("Instance", Instance.new);
-    map.set("Part", Part.new);
-    return map;
-}
+// export class EnumMap {
+//     protected readonly _map: Map<string, EnumFactory> = getEnumMap();
+//     public getFactory(className: string, propName: string): EnumFactory | undefined {
+//         return this._map.get(`${className},${propName}`);
+//     }
+// }
 
-export class ClassMap {
-    protected readonly _map: Map<string, ClassFactory> = getClassMap();
-    public getFactory(className: string): ClassFactory | undefined {
-        return this._map.get(className);
-    }
-}
+// export class Instance extends CoreInstance {
+//     protected constructor(className?: string) {super(className ?? "Instance");}
+//     public static new() {return new Instance();}
+// }
+
+// export class Part extends Instance {
+//     protected constructor(className?: string) {super(className ?? "Part");}
+//     public static new() {return new Part();}
+//     public get mEnum() {return this.GetProp("mEnum", DataType.Enum) as NormalId | undefined;}
+//     public get canCollide() {return this.GetProp("CanCollide", DataType.Bool);}
+//     public set canCollide(value) {this.SetProp("CanCollide", DataType.Bool, value);}
+// }
+
+// export type NameToClass = {
+//     //["Instance"]: Instance
+//     ["Part"]: Part
+// }
+
+// type ClassFactory = () => Instance
+
+// function getClassMap() {
+//     const map = new Map<string, ClassFactory>();
+//     //map.set("Instance", Instance.new);
+//     map.set("Part", Part.new);
+//     return map;
+// }
+
+// export class ClassMap {
+//     protected readonly _map: Map<string, ClassFactory> = getClassMap();
+//     public getFactory(className: string): ClassFactory | undefined {
+//         return this._map.get(className);
+//     }
+// }
