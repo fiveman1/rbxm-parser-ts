@@ -318,13 +318,13 @@ export class CFrameParser extends DataTypeParser
             if (orientId > 0)
             {
                 // Stolen from https://github.com/MaximumADHD/Roblox-File-Format/blob/main/DataTypes/CFrame FromOrientId
-                const r0 = Vector3.fromNormalId(NormalId.fromValue(Math.floor(orientId / 6))!);
-                const r1 = Vector3.fromNormalId(NormalId.fromValue(orientId % 6)!);
-                const r2 = r0.cross(r1);
+                const r0 = Vector3.FromNormalId(NormalId.fromValue(Math.floor(orientId / 6))!);
+                const r1 = Vector3.FromNormalId(NormalId.fromValue(orientId % 6)!);
+                const r2 = r0.Cross(r1);
                 orientations.push([
-                    r0.x, r0.y, r0.z,
-                    r1.x, r1.y, r1.z,
-                    r2.x, r2.y, r2.z
+                    r0.X, r0.Y, r0.Z,
+                    r1.X, r1.Y, r1.Z,
+                    r2.X, r2.Y, r2.Z
                 ]);
             }
             else
@@ -364,9 +364,9 @@ export class EnumParser extends DataTypeParser
         if (enumFactory)
         {
             const enumValue = enumFactory(value);
-            return enumValue ?? EnumItem.makeUnknownEnum(value);
+            return enumValue ?? EnumItem.MakeUnknownEnum(value);
         }
-        return EnumItem.makeUnknownEnum(value);
+        return EnumItem.MakeUnknownEnum(value);
     }
 }
 

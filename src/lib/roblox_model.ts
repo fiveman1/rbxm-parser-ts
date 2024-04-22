@@ -5,7 +5,7 @@
  */
 
 import axios from "axios";
-import { Instance, SharedString } from "./roblox_types";
+import { ChildContainer, Instance, SharedString } from "./roblox_types";
 import { RobloxModelDOMReader } from "./roblox_model_reader";
 
 // Helpful resources I used:
@@ -16,14 +16,37 @@ import { RobloxModelDOMReader } from "./roblox_model_reader";
  * Represents a Roblox model/place file. Contains all the data necessary for
  * saving/loading to a file.
  */
-export class RobloxModel
+export class RobloxModel extends ChildContainer
 {
-    public roots: Instance[] = [];
-    public version: number = 0;
-    public numClasses: number = 0;
-    public numInstances: number = 0;
-    public metadata: Map<string, string> = new Map<string, string>();
-    public sharedStrings: SharedString[] = [];
+    public readonly Metadata: Map<string, string> = new Map<string, string>();
+    public readonly SharedStrings: SharedString[] = [];
+
+    /**
+     * The root instances of this model. This is a readonly array, to add or remove an instance
+     * use AddToRoots and RemoveFromRoots
+     */
+    public get Roots(): readonly Instance[]
+    {
+        return Array.from(this._children.values());
+    }
+
+    /**
+     * Adds the given instance as a root of this model.
+     * @param instance the instance
+     */
+    public AddToRoots(instance: Instance)
+    {
+        this._children.add(instance);
+    }
+
+    /**
+     * Removes the given instance as a root of this model.
+     * @param instance the instance
+     */
+    public RemoveFromRoots(instance: Instance)
+    {
+        this._children.delete(instance);
+    }
 
     /**
      * Create a RobloxModel from an asset ID. The uses the Roblox AssetDelivery web API
@@ -31,9 +54,9 @@ export class RobloxModel
      * this will return null. This may throw an error if there are problems accessing the API endpoint.
      * @param assetId the ID of the model
      * @returns a Roblox model object or null if the asset ID is not a valid model.
-     * @example const model = await RobloxModel.fromAssetId(4249137687);
+     * @example const model = await RobloxModel.ReadFromAssetId(4249137687);
      */
-    public static async fromAssetId(assetId: number)
+    public static async ReadFromAssetId(assetId: number)
     {
         const res = await axios.get("https://assetdelivery.roblox.com/v2/asset/", {
             params: {id: assetId},
@@ -68,9 +91,9 @@ export class RobloxModel
      * to load a .rbxm file then pass the result to this function to load it.
      * @param buffer a data buffer
      * @returns a Roblox model object
-     * @example const model = RobloxModel.fromBuffer(fs.readFileSync("my_model.rbxm"));
+     * @example const model = RobloxModel.ReadFromBuffer(fs.readFileSync("my_model.rbxm"));
      */
-    public static fromBuffer(buffer: Buffer)
+    public static ReadFromBuffer(buffer: Buffer)
     {
         const data = Uint8Array.from(buffer);
         return new RobloxModelDOMReader().read(data);

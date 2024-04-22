@@ -39,7 +39,7 @@ async function main()
     //const assetId = 17195837905; // my test model
 
     const assetId = 4249137687; // Arcane
-    const model = await RobloxModel.fromAssetId(assetId);
+    const model = await RobloxModel.ReadFromAssetId(assetId);
 
     if (!model)
     {
@@ -47,7 +47,7 @@ async function main()
         return;
     }
 
-    const root = model.roots[0];
+    const root = model.Roots[0];
     const firstPart = root.FindFirstDescendantOfClass("Part");
     if (firstPart)
     {
@@ -55,9 +55,9 @@ async function main()
         if (size)
         {
             console.log(`First part's size: ${size}`);
-            size.x = 33333;
-            size.y += 2;
-            size.z *= 0.3;
+            size.X = 33333;
+            size.Y += 2;
+            size.Z *= 0.3;
             console.log(`First part's size (should not change yet): ${firstPart.Size}`);
             firstPart.Size = size;
             console.log(`First part's new size: ${firstPart.Size}`);
@@ -76,7 +76,7 @@ async function main()
     console.log("\n" + mapStringValues.join("\n"));
     
     let str = "";
-    for (const root of model.roots)
+    for (const root of model.Roots)
     {
         str += depthFirstPrint(root, 0);
     }

@@ -46,7 +46,7 @@ export class RobloxModelDOMReader extends RobloxModelDOM
         } while (chunkType !== ChunkType.END);
 
         this.findRoots();
-        if (this.model.roots.length === 0) return null;
+        if (this.model.Roots.length === 0) return null;
         
         return this.model;
     }
@@ -59,13 +59,12 @@ export class RobloxModelDOMReader extends RobloxModelDOM
             {
                 if (!instance.Parent)
                 {
-                    this.model.roots.push(instance);
+                    this.model.AddToRoots(instance);
                 }
             }
         }
     }
     
-    protected static readonly MAGIC_HEADER = "<roblox!\x89\xff\x0d\x0a\x1a\x0a";
     protected readHeader()
     {
         // Must have a 32-byte header and at least 1 16-byte chunk
@@ -74,15 +73,16 @@ export class RobloxModelDOMReader extends RobloxModelDOM
             return false;
         }
 
-        const magicBytes = this.data.getBytesAsString(RobloxModelDOMReader.MAGIC_HEADER.length);
-        if (magicBytes !== RobloxModelDOMReader.MAGIC_HEADER)
+        const MAGIC_HEADER = "<roblox!\x89\xff\x0d\x0a\x1a\x0a";
+        const magicBytes = this.data.getBytesAsString(MAGIC_HEADER.length);
+        if (magicBytes !== MAGIC_HEADER)
         {
             return false;
         }
 
-        this.model.version = this.data.getUint16();
-        this.model.numClasses = this.data.getInt32();
-        this.model.numInstances = this.data.getInt32();
+        this.data.getUint16(); // Model version
+        this.data.getInt32(); // The number of classes in the model
+        this.data.getInt32(); // The number of instances in the model
 
         this.data.skipBytes(8); // 8 reserved bytes
 
@@ -179,7 +179,7 @@ export class RobloxModelDOMReader extends RobloxModelDOM
         {
             const key = bytes.getString();
             const value = bytes.getString();
-            this.model.metadata.set(key, value);
+            this.model.Metadata.set(key, value);
         }
     }
 
@@ -191,7 +191,7 @@ export class RobloxModelDOMReader extends RobloxModelDOM
         {
             const hash = bytes.getBytesAsString(16);
             const sharedString = bytes.getString();
-            this.model.sharedStrings.push({ hash: hash, sharedString: sharedString });
+            this.model.SharedStrings.push({ hash: hash, sharedString: sharedString });
         }
     }
 
