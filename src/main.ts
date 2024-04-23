@@ -35,8 +35,8 @@ async function main()
     //const model = RobloxModel.ReadFromBuffer(fs.readFileSync(`input_files/${name}.rbxl`));
 
     //const assetId = 5258147910; // Map making starter kit
-    //const assetId = 5227232138; // Numismatic
-    const assetId = 17195837905; // my test model
+    const assetId = 5227232138; // Numismatic
+    //const assetId = 17195837905; // my test model
 
     //const assetId = 4249137687; // Arcane
     const model = await RobloxModel.ReadFromAssetId(assetId);
@@ -74,6 +74,9 @@ async function main()
 
     const mapStringValues = root.FindChildrenOfClass("StringValue", (child) => child.Name === "DisplayName" || child.Name === "Creator");
     console.log("\n" + mapStringValues.join("\n"));
+
+    // const numberValues = root.FindDescendantsOfClass("NumberValue");
+    // console.log("\n" + numberValues.join("\n"));
     
     let str = "";
     for (const root of model.Roots)

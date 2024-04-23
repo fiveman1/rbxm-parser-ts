@@ -7,7 +7,9 @@
 import { NameToClass, NormalId } from "../generated/generated_types";
 import { narrowCopyArray, formatNum } from "./util";
 
-// https://dom.rojo.space/binary#data-types
+/**
+ * See https://dom.rojo.space/binary#data-types
+ */
 export enum DataType
 {
     String = 0x01,
@@ -130,7 +132,7 @@ type RobloxReferent = {
 
 type RobloxColor3uint8 = {
     type: DataType.Color3uint8
-    value: Color3uint8
+    value: Color3
 }
 
 type RobloxVector3in16 = {
@@ -250,7 +252,7 @@ type PropKeyType = {
     [DataType.CFrame]: CFrame
     [DataType.Enum]: EnumItem
     [DataType.Referent]: CoreInstance
-    [DataType.Color3uint8]: Color3uint8
+    [DataType.Color3uint8]: Color3
     [DataType.Vector3int16]: Vector3
     [DataType.NumberSequence]: NumberSequence
     [DataType.ColorSequence]: ColorSequence
@@ -289,6 +291,12 @@ export abstract class ChildContainer
         return undefined;
     }
 
+    /**
+     * Finds the first child of a given class.
+     * @param className the class name
+     * @param predicate this will keep searching until the predicate returns true
+     * @returns the first child of the given class or undefined
+     */
     public FindFirstChildOfClass<T extends keyof NameToClass>(className: T, predicate?: (child: NameToClass[T]) => boolean): NameToClass[T] | undefined
     {
         return this.FindFirstChild((child) => child.IsA(className) && (!predicate || predicate(child as NameToClass[T]))) as NameToClass[T];
@@ -310,6 +318,12 @@ export abstract class ChildContainer
         return undefined;
     }
 
+    /**
+     * Finds the first descendant of a given class. Performs a depth-first search.
+     * @param className the class name
+     * @param predicate this will keep searching until the predicate returns true
+     * @returns the first descendant of the given class or undefined
+     */
     public FindFirstDescendantOfClass<T extends keyof NameToClass>(className: T, predicate?: (child: NameToClass[T]) => boolean): NameToClass[T] | undefined
     {
         return this.FindFirstDescendant((child) => child.IsA(className) && (!predicate || predicate(child as NameToClass[T]))) as NameToClass[T];
@@ -318,7 +332,7 @@ export abstract class ChildContainer
     /**
      * Gathers a list of children that satisfy the given predicate.
      * @param predicate this will include the child if the predicate returns true
-     * @returns the list of children that met the predicate. This will have a length of 0 if none were found.
+     * @returns the list of children that met the predicate, this will have a length of 0 if none were found.
      */
     public FindChildren(predicate: (child: CoreInstance) => boolean)
     {
@@ -330,9 +344,44 @@ export abstract class ChildContainer
         return children;
     }
 
+    /**
+     * Gathers a list of children that are of the given class.
+     * @param predicate this will include the child if the predicate returns true
+     * @returns the list of children, this will have a length of 0 if none were found.
+     */
     public FindChildrenOfClass<T extends keyof NameToClass>(className: T, predicate?: (child: NameToClass[T]) => boolean): NameToClass[T][]
     {
         return this.FindChildren((child) => child.IsA(className) && (!predicate || predicate(child as NameToClass[T]))) as NameToClass[T][];
+    }
+
+    /**
+     * Gathers a list of descendants that satisfy the given predicate.
+     * @param predicate this will include the descendant if the predicate returns true
+     * @returns the list of descendants that met the predicate, this will have a length of 0 if none were found.
+     */
+    public FindDescendants(predicate: (child: CoreInstance) => boolean): CoreInstance[]
+    {
+        const descendants = [];
+        for (const child of this._children)
+        {
+            if (predicate(child)) descendants.push(child);
+            const childResult = child.FindDescendants(predicate);
+            for (const descendant of childResult)
+            {
+                descendants.push(descendant);
+            }
+        }
+        return descendants;
+    }
+
+     /**
+     * Gathers a list of descendants that are of the given class.
+     * @param predicate this will include the descendant if the predicate returns true
+     * @returns the list of descendants, this will have a length of 0 if none were found.
+     */
+    public FindDescendantsOfClass<T extends keyof NameToClass>(className: T, predicate?: (child: NameToClass[T]) => boolean): NameToClass[T][]
+    {
+        return this.FindDescendants((child) => child.IsA(className) && (!predicate || predicate(child as NameToClass[T]))) as NameToClass[T][];
     }
 }
 
@@ -551,6 +600,9 @@ function deepCopyArray<T extends ICopyable>(arr: T[])
     return copyArr;
 }
 
+/**
+ * Used to describe GUI properties.
+ */
 export class UDim implements ICopyable
 {
     public Scale: number;
@@ -573,6 +625,9 @@ export class UDim implements ICopyable
     }
 }
 
+/**
+ * Defines the dimensions of a GUI property.
+ */
 export class UDim2 implements ICopyable
 {
     public X: UDim;
@@ -595,6 +650,9 @@ export class UDim2 implements ICopyable
     }
 }
 
+/**
+ * A ray with a point and direction.
+ */
 export class Ray implements ICopyable
 {
     public Origin: Vector3;
@@ -617,6 +675,9 @@ export class Ray implements ICopyable
     }
 }
 
+/**
+ * The enum for Face as it is stored in .rbxm format.
+ */
 export enum RBXMFace 
 {
     Front = 0b000001,
@@ -627,6 +688,9 @@ export enum RBXMFace
     Right = 0b100000
 }
 
+/**
+ * A list of Face values.
+ */
 export class Faces implements ICopyable
 {
     public Faces: Array<RBXMFace>;
@@ -654,6 +718,9 @@ export class Faces implements ICopyable
     }
 }
 
+/**
+ * The enum for Axis as it is stored in .rbxm format.
+ */
 export enum RBXMAxis 
 {
     X = 0b001,
@@ -661,6 +728,9 @@ export enum RBXMAxis
     Z = 0b100
 }
 
+/**
+ * A list of Axis values
+ */
 export class Axes implements ICopyable
 {
     public Axes: Array<RBXMAxis>;
@@ -689,7 +759,7 @@ export class Axes implements ICopyable
 }
 
 /**
- * This treats the RGB values as floats between 0 to 1. See Color3uint8 for the 0-255 version.
+ * An RGB value, this treats the RGB values as floats between 0 to 1
  */
 export class Color3 implements ICopyable
 {
@@ -714,6 +784,18 @@ export class Color3 implements ICopyable
         return Math.round(float * 255);
     }
 
+    /**
+     * Creates a Color3 from 0-255 RGB values.
+     * @param r red
+     * @param g green
+     * @param b blue
+     * @returns a Color3
+     */
+    public static FromRGB(r: number, g: number, b: number)
+    {
+        return new Color3(r / 255, g / 255, b / 255);
+    }
+
     public toString()
     {
         return `Color3(R: ${Color3.FloatToUint8(this.R)}, G: ${Color3.FloatToUint8(this.G)}, B: ${Color3.FloatToUint8(this.B)})`;
@@ -725,30 +807,9 @@ export class Color3 implements ICopyable
     }
 }
 
-export class Color3uint8 implements ICopyable
-{
-    public R: number;
-    public G: number;
-    public B: number;
-
-    public constructor(r: number, g: number, b: number)
-    {
-        this.R = r;
-        this.G = g;
-        this.B = b;
-    }
-
-    public toString()
-    {
-        return `Color3uint8(R: ${this.R}, G: ${this.G}, B: ${this.B})`;
-    }
-
-    public Copy()
-    {
-        return new Color3uint8(this.R, this.G, this.B) as this;
-    }
-}
-
+/**
+ * A 2D vector.
+ */
 export class Vector2 implements ICopyable
 {
     public X: number;
@@ -771,6 +832,9 @@ export class Vector2 implements ICopyable
     }
 }
 
+/**
+ * A 3D vector.
+ */
 export class Vector3 implements ICopyable
 {
     public X: number;
@@ -823,6 +887,9 @@ export class Vector3 implements ICopyable
     }
 }
 
+/**
+ * A coordinate frame.
+ */
 export class CFrame implements ICopyable
 {
     public Position: Vector3;
@@ -845,6 +912,9 @@ export class CFrame implements ICopyable
     }
 }
 
+/**
+ * A sequence of number keypoints.
+ */
 export class NumberSequence implements ICopyable
 {
     public Keypoints: NumberSequenceKeypoint[];
@@ -865,6 +935,9 @@ export class NumberSequence implements ICopyable
     }
 }
 
+/**
+ * A keypoint in a number sequence.
+ */
 export class NumberSequenceKeypoint implements ICopyable
 {
     public Time: number;
@@ -889,6 +962,9 @@ export class NumberSequenceKeypoint implements ICopyable
     }
 }
 
+/**
+ * A sequence of color keypoints.
+ */
 export class ColorSequence implements ICopyable
 {
     public Keypoints: ColorSequenceKeypoint[];
@@ -909,6 +985,9 @@ export class ColorSequence implements ICopyable
     }
 }
 
+/**
+ * A keypoint in a color sequence.
+ */
 export class ColorSequenceKeypoint implements ICopyable
 {
     public Time: number;
@@ -931,6 +1010,9 @@ export class ColorSequenceKeypoint implements ICopyable
     }
 }
 
+/**
+ * Defines a range of numbers.
+ */
 export class NumberRange implements ICopyable
 {
     public Min: number;
@@ -953,6 +1035,9 @@ export class NumberRange implements ICopyable
     }
 }
 
+/**
+ * Defines dimensions of a GUI object.
+ */
 export class Rect implements ICopyable
 {
     public Min: Vector2;
@@ -975,6 +1060,9 @@ export class Rect implements ICopyable
     }
 }
 
+/**
+ * Represents the physical properties of a part.
+ */
 export class PhysicalProperties implements ICopyable
 {
     public Density: number;
@@ -1003,6 +1091,9 @@ export class PhysicalProperties implements ICopyable
     }
 }
 
+/**
+ * Represents an index in the shared string array of the .rbxm, which corresponds to a string.
+ */
 export class SharedStringValue implements ICopyable
 {
     public Index: number;
@@ -1023,6 +1114,9 @@ export class SharedStringValue implements ICopyable
     }
 }
 
+/**
+ * Represents a Unique ID used to refer to an instance.
+ */
 export class UniqueId implements ICopyable
 {
     public Index: number;
@@ -1048,6 +1142,9 @@ export class UniqueId implements ICopyable
     }
 }
 
+/**
+ * Represents an instance of a Roblox Font as it is stored in .rbxm format.
+ */
 export class RBXMFont implements ICopyable
 {
     public Family: string;
@@ -1074,6 +1171,9 @@ export class RBXMFont implements ICopyable
     }
 }
 
+/**
+ * Represents an Enum with a name and value.
+ */
 export class EnumItem {
     protected readonly _name: string;
     protected readonly _value: number;

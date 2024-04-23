@@ -2,7 +2,7 @@
 * @author https://github.com/fiveman1
 * @file generated_types.ts
 * Contains generated types for Roblox classes and enums.
-* Generated on 4/22/2024, 9:13:29 PM
+* Generated on 4/23/2024, 12:29:24 AM
 */
 
 import { DataType, CoreInstance, EnumItem } from "../lib/roblox_types";
@@ -3809,8 +3809,8 @@ export abstract class BasePart extends PVInstance {
     public get CollisionGroupId() {return this.GetProp("CollisionGroupId", DataType.Int32);}
     /**@deprecated Deprecated by Roblox*/
     public set CollisionGroupId(value) {this.SetProp("CollisionGroupId", DataType.Int32, value);}
-    public get Color3uint8() {return this.GetProp("Color3uint8", DataType.Color3uint8);}
-    public set Color3uint8(value) {this.SetProp("Color3uint8", DataType.Color3uint8, value);}
+    public get Color3uint8() {return this.GetProp("Color3uint8", DataType.Color3);}
+    public set Color3uint8(value) {this.SetProp("Color3uint8", DataType.Color3, value);}
     public get CustomPhysicalProperties() {return this.GetProp("CustomPhysicalProperties", DataType.PhysicalProperties);}
     public set CustomPhysicalProperties(value) {this.SetProp("CustomPhysicalProperties", DataType.PhysicalProperties, value);}
     /**@deprecated Deprecated by Roblox*/

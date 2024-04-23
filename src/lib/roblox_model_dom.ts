@@ -6,7 +6,7 @@
 
 import { RobloxModel } from "./roblox_model";
 import { DataType, RobloxValue, CoreInstance, UDim, UDim2, Vector3, Ray, Faces, RBXMFace, Axes, RBXMAxis, Color3, Vector2, CFrame, 
-    Color3uint8, SharedStringValue, NumberSequenceKeypoint, NumberSequence, ColorSequence, ColorSequenceKeypoint, NumberRange, 
+    SharedStringValue, NumberSequenceKeypoint, NumberSequence, ColorSequence, ColorSequenceKeypoint, NumberRange, 
     Rect, PhysicalProperties, EnumItem, UniqueId, RBXMFont } from "./roblox_types";
 import { RobloxModelByteReader } from "./roblox_model_reader";
 import { EnumFactory, NormalId } from "../generated/generated_types";
@@ -400,7 +400,7 @@ export class Color3uint8Parser extends DataTypeParser
 
         for (let i = 0; i < numInstances; ++i)
         {
-            outValues.push({ type: DataType.Color3uint8, value: new Color3uint8(rVals[i], gVals[i], bVals[i]) });
+            outValues.push({ type: DataType.Color3uint8, value: Color3.FromRGB(rVals[i], gVals[i], bVals[i]) });
         }
     }
 }

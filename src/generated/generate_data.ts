@@ -1,11 +1,11 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 /**
  * @author https://github.com/fiveman1
  * @file generate_data.ts
  * Generates Typescript typings for Roblox classes and enums.
  * A good portion of this is based on https://github.com/MaximumADHD/Roblox-File-Format/blob/main/Plugins/GenerateApiDump/init.server.lua
  */
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 import fs from "fs";
 import { DataType } from "../lib/roblox_types";
@@ -76,7 +76,11 @@ class Tags {
 
     public constructor(tags?: string[])
     {
-        if (!tags) return;
+        if (!tags) 
+        {
+            return;
+        }
+
         for (const tag of tags)
         {
             switch (tag)
@@ -101,7 +105,15 @@ class Tags {
     }
 }
 
-const dataTypes: DataType[] = [
+const DataTypeInfo = new Map<string, string>([
+    ["Content", "String"],
+    ["BinaryString", "String"],
+    ["ProtectedString", "String"],
+    ["OptionalCoordinateFrame", "OptionalCFrame"],
+    ["Color3uint8", "Color3"]
+]);
+
+[
     DataType.CFrame,
     DataType.Color3,
     DataType.NumberRange,
@@ -117,22 +129,13 @@ const dataTypes: DataType[] = [
     DataType.Axes,
     DataType.Faces,
     DataType.PhysicalProperties,
-    DataType.Color3uint8,
     DataType.UDim,
     DataType.Ray,
     DataType.UniqueId,
     DataType.Vector3int16,
     DataType.SecurityCapabilities
-];
-
-const DataTypeInfo = new Map<string, string>([
-    ["Content", "String"],
-    ["BinaryString", "String"],
-    ["ProtectedString", "String"],
-    ["OptionalCoordinateFrame", "OptionalCFrame"]
-]);
-
-dataTypes.forEach((type) => DataTypeInfo.set(DataType[type], DataType[type]));
+]
+.forEach((type) => DataTypeInfo.set(DataType[type], DataType[type]));
 
 const PrimitiveInfo = new Map<string, string>([
     ["int", "Int32"],
@@ -158,12 +161,6 @@ function toPascalCase(str: string)
         /([a-z\d])([a-z\d]*)/gi,
         (g0, g1, g2) => g1.toUpperCase() + g2.toLowerCase()
     ).replace(/[^a-z\d]/gi, '');
-}
-
-type RedirectInfo = {
-    Get: string
-    Set: string
-    DocString: string
 }
 
 // The core of the generation
@@ -265,22 +262,12 @@ import { DataType, CoreInstance, EnumItem } from "../lib/roblox_types";
             !(info.Serialization.CanSave || tags.Deprecated);
     }
 
-    protected writeOneProp(info: PropertyMember, redirect: RedirectInfo | undefined, className: string)
+    protected writeOneProp(info: PropertyMember)
     {
-        if (redirect)
-        {
-            if (redirect.DocString) this.stream.write(`    ${redirect.DocString}\n`);
-            this.stream.write(`    ${redirect.Get}\n`);
-            if (redirect.DocString) this.stream.write(`    ${redirect.DocString}\n`);
-            this.stream.write(`    ${redirect.Set}\n`);
-            return;
-        }
-
         const typeInfo = GenerateData.getTypeInfo(info);
 
         if (!typeInfo.DataType)
         {
-            console.log(className);
             console.log("INVALID MEMBER DATATYPE: " + info.ValueType.Name);
             console.log(info);
             return;
@@ -332,20 +319,6 @@ import { DataType, CoreInstance, EnumItem } from "../lib/roblox_types";
     protected static createPropSetString(propName: string, propDataName: string, dataType: string)
     {
         return `public set ${propName}(value) {this.SetProp("${propDataName}", DataType.${dataType}, value);}`;
-    }
-
-    protected static findDuplicateMemberName(name: string, validMembers: Map<string, PropertyMember>)
-    {
-        if (isPascalCase(name)) return undefined;
-        const member = validMembers.get(name.toLowerCase());
-        if (member) return member.Name;
-        return undefined;
-    }
-
-    protected static createRedirect(info: PropertyMember, className: string): RedirectInfo | undefined
-    {
-        // TODO: Create any necessary overrides
-        return undefined;
     }
 
     protected static isDuplicateName(info: PropertyMember, memberNames: Map<string, string[]>)
@@ -453,7 +426,10 @@ function getEnumMap() {
 
     protected static setInheritance(info: ClassInfo | undefined, allClasses: Map<string, ClassInfo>)
     {
-        if (!info) return;
+        if (!info) 
+        {
+            return;
+        }
         info.Inherited = true;
         GenerateData.setInheritance(allClasses.get(info.Superclass), allClasses);
     }
@@ -462,9 +438,10 @@ function getEnumMap() {
     {
         const res = await axios.get("https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/roblox/Mini-API-Dump.json");
         const data = res.data as JsonData;
-        //const data = JSON.parse(fs.readFileSync("./input_files/Mini-API-Dump.json", "utf-8")) as JsonData;
+
         this.startFile();
 
+        // Classes
         const allClasses = new Map<string, ClassInfo>();
 
         for (const info of data.Classes)
@@ -478,7 +455,10 @@ function getEnumMap() {
 
         for (const info of data.Classes)
         {
-            if (!this.filterClass(info)) GenerateData.setInheritance(allClasses.get(info.Superclass), allClasses);
+            if (!this.filterClass(info)) 
+            {
+                GenerateData.setInheritance(allClasses.get(info.Superclass), allClasses);
+            }
         }
 
         const instantiableClasses = new Set<string>();
@@ -489,9 +469,16 @@ function getEnumMap() {
 
         for (const classInfo of data.Classes)
         {
-            if (this.filterClass(classInfo)) continue;
+            if (this.filterClass(classInfo)) 
+            {
+                continue;
+            }
 
-            if (this.startClass(classInfo)) instantiableClasses.add(classInfo.Name);
+            if (this.startClass(classInfo)) 
+            {
+                instantiableClasses.add(classInfo.Name);
+            }
+
             filteredClasses.add(classInfo.Name);
 
             // All of the members that don't get filtered out due to not being readable/writeable
@@ -502,7 +489,10 @@ function getEnumMap() {
             for (const member of classInfo.Members)
             {
                 // Only allow Properties that are readable/writeable
-                if (member.MemberType !== "Property" || GenerateData.filterMember(member)) continue;
+                if (member.MemberType !== "Property" || GenerateData.filterMember(member)) 
+                {
+                    continue;
+                }
 
                 // We will need to generate this enum
                 if (member.ValueType.Category === "Enum")
@@ -530,37 +520,46 @@ function getEnumMap() {
             {
                 if (!GenerateData.isDuplicateName(member, memberNames))
                 {
-                    this.writeOneProp(member, GenerateData.createRedirect(member, classInfo.Name), classInfo.Name);
+                    this.writeOneProp(member);
                 }
             }
             
             this.endClass();
         }
 
+        // NameToClass type
         this.startNameToClass();
+
         for (const name of filteredClasses)
         {
             this.writeOneNameToClass(name);
         }
+
         this.endNameToClass();
 
+        // Class mapper
         this.startClassMap();
+
         for (const name of instantiableClasses)
         {
             this.writeOneClassMap(name);
         }
         this.endClassMap();
 
+        // Enums
         for (const info of data.Enums)
         {
             if (allEnums.has(info.Name)) this.writeOneEnum(info);
         }
 
+        // Enum mapper
         this.startEnumMap();
+
         for (const propName of propertyEnums.keys())
         {
             this.writeOneEnumMap(propName, propertyEnums.get(propName)!);
         }
+
         this.endEnumMap();
         
         this.stream.close();
