@@ -1,16 +1,32 @@
 {
-  "name": "rbxm_parser",
-  "version": "1.0.0",
-  "description": "",
-  "main": "src/main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint . --ext .ts",
-    "main": "npx ts-node ./src/main.ts",
-    "generate": "npx ts-node ./src/generated/generate_data.ts"
+  "name": "rbxm-parser",
+  "version": "1.0.2",
+  "description": "Parse Roblox model files (.rbxm)",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
   },
-  "keywords": [],
-  "author": "",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "lint": "eslint . --ext .ts",
+    "main": "npx tsx ./src/main.ts",
+    "generate": "npx tsx ./src/generated/generate_data.ts",
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "rbxm",
+    "roblox model"
+  ],
+  "author": "Carter Penterman (https://github.com/fiveman1)",
   "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^9.0.0",
@@ -21,6 +37,7 @@
     "eslint": "^8.57.0",
     "globals": "^15.0.0",
     "ts-node": "^10.9.2",
+    "tsup": "^8.0.2",
     "typescript": "^5.4.5",
     "typescript-eslint": "^7.7.0"
   },
@@ -28,5 +45,9 @@
     "axios": "^1.6.8",
     "fzstd": "^0.1.1",
     "lz4": "^0.6.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fiveman1/rbxm-parser-ts.git"
   }
 }

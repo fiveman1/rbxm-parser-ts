@@ -3,3 +3,4 @@ package-lock.json
 .vscode
 output_files
 input_files
+dist

@@ -5,12 +5,17 @@
  */
 
 import axios from "axios";
-import { ChildContainer, CoreInstance, SharedString } from "./roblox_types";
+import { ChildContainer, CoreInstance } from "./roblox_types";
 import { RobloxModelDOMReader } from "./roblox_model_reader";
 
 // Helpful resources I used:
 // https://dom.rojo.space/binary - Documentation for .rbxm format
 // https://github.com/MaximumADHD/Roblox-File-Format - C# .rbxm parser
+
+export type SharedString = {
+    Hash: string,
+    SharedString: string
+}
 
 /**
  * Represents a Roblox model/place file. Contains all the data necessary for

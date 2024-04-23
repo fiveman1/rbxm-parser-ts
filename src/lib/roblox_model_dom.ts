@@ -394,9 +394,9 @@ export class Color3uint8Parser extends DataTypeParser
 {
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
-        const rVals = bytes.getByteArray(numInstances);
-        const gVals = bytes.getByteArray(numInstances);
-        const bVals = bytes.getByteArray(numInstances);
+        const rVals = bytes.getBytes(numInstances);
+        const gVals = bytes.getBytes(numInstances);
+        const bVals = bytes.getBytes(numInstances);
 
         for (let i = 0; i < numInstances; ++i)
         {
@@ -583,7 +583,7 @@ export class UniqueIdParser extends DataTypeParser
 {
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
-        const interleavedBytes = bytes.getByteArray(numInstances * 16);
+        const interleavedBytes = bytes.getBytes(numInstances * 16);
 
         const uniqueIds = RobloxModelByteReader.convertInterleaved(interleavedBytes, numInstances, (bytes) => {
             const reader = new RobloxModelByteReader(bytes.reverse());

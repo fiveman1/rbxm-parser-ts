@@ -236,7 +236,7 @@ import { DataType, CoreInstance, EnumItem } from "../lib/roblox_types";
         {
             this.stream.write(`    protected constructor() {super(${isService && info.Superclass === "Instance" ? "true" : ""}); this.addClassName("${info.Name}");}\n`);
         }
-        if (!isAbstract) this.stream.write(`    public static new() {return new ${info.Name}();}\n`);
+        if (!isAbstract) this.stream.write(`    public static New() {return new ${info.Name}();}\n`);
         return !isAbstract;
     }
 
@@ -372,7 +372,7 @@ function getClassMap() {
 
     protected writeOneClassMap(className: string)
     {
-        this.stream.write(`    map.set("${className}", ${className}.new);\n`);
+        this.stream.write(`    map.set("${className}", ${className}.New);\n`);
     }
 
     protected endClassMap()

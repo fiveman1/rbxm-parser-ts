@@ -268,11 +268,6 @@ type PropKeyType = {
     [DataType.SecurityCapabilities]: bigint
 }
 
-export type SharedString = {
-    hash: string,
-    sharedString: string
-}
-
 export abstract class ChildContainer
 {
     protected readonly _children: Set<CoreInstance> = new Set<CoreInstance>();
@@ -409,6 +404,11 @@ export class CoreInstance extends ChildContainer
         this._isService = isService;
     }
 
+    /**
+     * Derived classes must use this to add their class name to the list of class
+     * of this instance names in order for inheritance checks to work properly.
+     * @param className the class name
+     */
     protected addClassName(className: string)
     {
         this._classNameList.push(className);
@@ -429,7 +429,7 @@ export class CoreInstance extends ChildContainer
      * @param type the DataType of the property
      * @returns The value of the property, or undefined.
      * @example
-     * const size: Vector3 | undefined = part.getProp("size", DataType.Vector3);
+     * const size: Vector3 | undefined = part.GetProp("size", DataType.Vector3);
      */
     public GetProp<T extends DataType>(propName: string, type: T): PropKeyType[T] | undefined
     {
@@ -468,7 +468,7 @@ export class CoreInstance extends ChildContainer
      * @param type: the DataType of the property
      * @param value The RobloxValue to set, or undefined to reset the property to its default value.
      * @example
-     * part.setProp("size", DataType.Vector3, new Vector3(2, 3, 4));
+     * part.SetProp("size", DataType.Vector3, new Vector3(2, 3, 4));
      */
     public SetProp<T extends DataType>(propName: string, type: T, value: PropKeyType[T] | undefined)
     {
@@ -821,6 +821,77 @@ export class Vector2 implements ICopyable
         this.Y = y;
     }
 
+    /**
+     * The magnitude of this Vector2.
+     */
+    public get Magnitude()
+    {
+        return Math.sqrt(this.Dot(this));
+    }
+
+    /**
+     * Calculates the cross product of two Vector2's.
+     * @param other the other Vector2
+     * @returns the resultant cross product
+     */
+    public Cross(other: Vector2)
+    {
+        return new Vector2(this.X * other.Y, this.Y * other.X);
+    }
+
+    /**
+     * Calculates the dot product of two Vector2's.
+     * @param other the other Vector2
+     * @returns the dot product
+     */
+    public Dot(other: Vector2)
+    {
+        const dotX = this.X * other.X;
+        const dotY = this.Y * other.Y;
+
+        return dotX + dotY;
+    }
+
+    /**
+     * Adds two Vector2's, returns a new Vector2
+     * @param other the other Vector2
+     * @returns the result of the addition as a new Vector2
+     */
+    public Add(other: Vector2)
+    {
+        return new Vector2(this.X + other.X, this.Y + other.Y);
+    }
+
+    /**
+     * Subtracts two Vector2's, returns a new Vector2
+     * @param other the other Vector2
+     * @returns the result of the subtraction as a new Vector2
+     */
+    public Subtract(other: Vector2)
+    {
+        return new Vector2(this.X - other.X, this.Y - other.Y);
+    }
+
+    /**
+     * Multiplies this Vector2 by a scalar amount.
+     * @param scalar a scalar amount
+     * @returns the result of the multiplication as a new Vector2
+     */
+    public Multiply(scalar: number)
+    {
+        return new Vector2(this.X * scalar, this.Y * scalar);
+    }
+
+    /**
+     * Divides this Vector2 by a scalar amount.
+     * @param scalar a scalar amount
+     * @returns the result of the division as a new Vector2
+     */
+    public Divide(scalar: number)
+    {
+        return new Vector2(this.X / scalar, this.Y / scalar);
+    }
+
     public toString()
     {
         return `Vector2(X: ${formatNum(this.X)}, Y: ${formatNum(this.Y)})`;
@@ -863,7 +934,15 @@ export class Vector3 implements ICopyable
     }
 
     /**
-     * Calculates the cross product of 2 Vector3's.
+     * The magnitude of this Vector3.
+     */
+    public get Magnitude()
+    {
+        return Math.sqrt(this.Dot(this));
+    }
+
+    /**
+     * Calculates the cross product of two Vector3's.
      * @param other the other Vector3
      * @returns the resultant cross product
      */
@@ -874,6 +953,60 @@ export class Vector3 implements ICopyable
         const crossZ = this.X * other.Y - other.X * this.Y;
 
         return new Vector3(crossX, crossY, crossZ);
+    }
+
+    /**
+     * Calculates the dot product of two Vector3's.
+     * @param other the other Vector3
+     * @returns the dot product
+     */
+    public Dot(other: Vector3)
+    {
+        const dotX = this.X * other.X;
+        const dotY = this.Y * other.Y;
+        const dotZ = this.Z * other.Z;
+
+        return dotX + dotY + dotZ;
+    }
+
+    /**
+     * Adds two Vector3's, returns a new Vector3
+     * @param other the other Vector3
+     * @returns the result of the addition as a new Vector3
+     */
+    public Add(other: Vector3)
+    {
+        return new Vector3(this.X + other.X, this.Y + other.Y, this.Z + other.Z);
+    }
+
+    /**
+     * Subtracts two Vector3's, returns a new Vector3
+     * @param other the other Vector3
+     * @returns the result of the subtraction as a new Vector3
+     */
+    public Subtract(other: Vector3)
+    {
+        return new Vector3(this.X - other.X, this.Y - other.Y, this.Z - other.Z);
+    }
+
+    /**
+     * Multiplies this Vector3 by a scalar amount.
+     * @param scalar a scalar amount
+     * @returns the result of the multiplication as a new Vector3
+     */
+    public Multiply(scalar: number)
+    {
+        return new Vector3(this.X * scalar, this.Y * scalar, this.Z * scalar);
+    }
+
+    /**
+     * Divides this Vector3 by a scalar amount.
+     * @param scalar a scalar amount
+     * @returns the result of the division as a new Vector3
+     */
+    public Divide(scalar: number)
+    {
+        return new Vector3(this.X / scalar, this.Y / scalar, this.Z / scalar);
     }
 
     public toString()

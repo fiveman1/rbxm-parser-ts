@@ -5,7 +5,7 @@
  */
 
 import lz4 from "lz4";
-import fzstd from "fzstd";
+import * as fzstd from "fzstd";
 import { RobloxModel } from "./roblox_model";
 import { DataType, RobloxValue, CoreInstance } from "./roblox_types";
 import { ChunkType, DataParserExtraInfo, RobloxModelDOM } from "./roblox_model_dom";
@@ -143,7 +143,7 @@ export class RobloxModelDOMReader extends RobloxModelDOM
         if (compressedLength !== 0)
         {
             // Load compressed bytes
-            const compressedBytes = this.data.getByteArray(compressedLength);
+            const compressedBytes = this.data.getBytes(compressedLength);
 
             if (compressedBytes[0] === 0x28 &&
                 compressedBytes[1] === 0xb5 &&
@@ -166,7 +166,7 @@ export class RobloxModelDOMReader extends RobloxModelDOM
         else
         {
             // Uncompressed so load bytes directly
-            byteArray = this.data.getByteArray(uncompressedLength);
+            byteArray = this.data.getBytes(uncompressedLength);
         }
 
         return new RobloxModelByteReader(byteArray);
@@ -191,7 +191,7 @@ export class RobloxModelDOMReader extends RobloxModelDOM
         {
             const hash = bytes.getBytesAsString(16);
             const sharedString = bytes.getString();
-            this.model.SharedStrings.push({ hash: hash, sharedString: sharedString });
+            this.model.SharedStrings.push({ Hash: hash, SharedString: sharedString });
         }
     }
 
@@ -417,7 +417,7 @@ export class RobloxModelByteReader {
     }
 
     public getInt16() {
-        const bytes = this.getByteArray(2);
+        const bytes = this.getBytes(2);
         return Buffer.from(bytes).readInt16LE(0);
     }
 
@@ -427,21 +427,21 @@ export class RobloxModelByteReader {
     }
 
     public getInt64() {
-        const bytes = this.getByteArray(8);
+        const bytes = this.getBytes(8);
         return Buffer.from(bytes).readBigInt64LE(0);
     }
 
     public getFloat32() {
-        const bytes = this.getByteArray(4);
+        const bytes = this.getBytes(4);
         return Buffer.from(bytes).readFloatLE(0);
     }
 
     public getFloat64() {
-        const bytes = this.getByteArray(8);
+        const bytes = this.getBytes(8);
         return Buffer.from(bytes).readDoubleLE(0);
     }
 
-    public getByteArray(numBytes: number) {
+    public getBytes(numBytes: number) {
         const bytes = new Uint8Array(numBytes);
         for (let i = 0; i < numBytes; ++i) {
             bytes[i] = this.data[this.idx];
@@ -489,14 +489,14 @@ export class RobloxModelByteReader {
     }
 
     public getInterleavedFloat32Array(length: number) {
-        const interleavedBytes = this.getByteArray(length * 4);
+        const interleavedBytes = this.getBytes(length * 4);
 
         // Convert interleaved bytes to Float32 array
         return RobloxModelByteReader.convertInterleaved(interleavedBytes, length, RobloxModelByteReader.bytesToRobloxFloat32);
     }
 
     public getInterleavedInt32Array(length: number) {
-        const interleavedBytes = this.getByteArray(length * 4);
+        const interleavedBytes = this.getBytes(length * 4);
 
         // Convert interleaved bytes to Int32 array
         const bytes = RobloxModelByteReader.convertInterleaved(interleavedBytes, length, RobloxModelByteReader.bytesToInt32);
@@ -506,14 +506,14 @@ export class RobloxModelByteReader {
     }
 
     public getInterleavedUint32Array(length: number) {
-        const interleavedBytes = this.getByteArray(length * 4);
+        const interleavedBytes = this.getBytes(length * 4);
 
         // Convert interleaved bytes to Uint32 array
         return RobloxModelByteReader.convertInterleaved(interleavedBytes, length, (bytes) => Buffer.from(bytes).readUint32BE(0));
     }
 
     public getInterleavedInt64Array(length: number) {
-        const interleavedBytes = this.getByteArray(length * 8);
+        const interleavedBytes = this.getBytes(length * 8);
 
         // Convert interleaved bytes to Uint32 array
         const bytes = RobloxModelByteReader.convertInterleaved(interleavedBytes, length, (bytes) => Buffer.from(bytes).readBigInt64BE(0));
@@ -523,7 +523,7 @@ export class RobloxModelByteReader {
     }
 
     public getInterleavedUint64Array(length: number) {
-        const interleavedBytes = this.getByteArray(length * 8);
+        const interleavedBytes = this.getBytes(length * 8);
 
         // Convert interleaved bytes to Uint32 array
         return RobloxModelByteReader.convertInterleaved(interleavedBytes, length, (bytes) => Buffer.from(bytes).readBigUint64BE(0));
