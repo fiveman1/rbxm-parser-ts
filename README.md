@@ -4,6 +4,8 @@ Parser for reading Roblox model (.rbxm) files. Written in TypeScript with strong
 
 Currently only supports reading models, but writing will be implemented in the future.
 
+Finally, this only supports .rbxm (binary format) Roblox model files. Not planning to support .rbxmx (XML format).
+
 ## How To Use
 
 ### Imports
