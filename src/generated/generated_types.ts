@@ -2,7 +2,7 @@
 * @author https://github.com/fiveman1
 * @file generated_types.ts
 * Contains generated types for Roblox classes and enums.
-* Generated on 4/23/2024, 12:29:24 AM
+* Generated on 4/23/2024, 1:02:24 AM
 */
 
 import { DataType, CoreInstance, EnumItem } from "../lib/roblox_types";
@@ -1986,14 +1986,14 @@ export class Fire extends Instance {
     public set SecondaryColor(value) {this.SetProp("SecondaryColor", DataType.Color3, value);}
     public get TimeScale() {return this.GetProp("TimeScale", DataType.Float32);}
     public set TimeScale(value) {this.SetProp("TimeScale", DataType.Float32, value);}
-    public get HeatXml() {return this.GetProp("heat_xml", DataType.Float32);}
-    public set HeatXml(value) {this.SetProp("heat_xml", DataType.Float32, value);}
+    public get Heatxml() {return this.GetProp("heat_xml", DataType.Float32);}
+    public set Heatxml(value) {this.SetProp("heat_xml", DataType.Float32, value);}
     /**@deprecated Deprecated by Roblox*/
     public get Size() {return this.GetProp("size", DataType.Float32);}
     /**@deprecated Deprecated by Roblox*/
     public set Size(value) {this.SetProp("size", DataType.Float32, value);}
-    public get SizeXml() {return this.GetProp("size_xml", DataType.Float32);}
-    public set SizeXml(value) {this.SetProp("size_xml", DataType.Float32, value);}
+    public get Sizexml() {return this.GetProp("size_xml", DataType.Float32);}
+    public set Sizexml(value) {this.SetProp("size_xml", DataType.Float32, value);}
 }
 
 export class FlagStandService extends Instance {
@@ -2954,8 +2954,8 @@ export class Humanoid extends Instance {
     public set HealthDisplayDistance(value) {this.SetProp("HealthDisplayDistance", DataType.Float32, value);}
     public get HealthDisplayType() {return this.GetProp("HealthDisplayType", DataType.Enum) as HumanoidHealthDisplayType | undefined;}
     public set HealthDisplayType(value) {this.SetProp("HealthDisplayType", DataType.Enum, value);}
-    public get HealthXml() {return this.GetProp("Health_XML", DataType.Float32);}
-    public set HealthXml(value) {this.SetProp("Health_XML", DataType.Float32, value);}
+    public get HealthXML() {return this.GetProp("Health_XML", DataType.Float32);}
+    public set HealthXML(value) {this.SetProp("Health_XML", DataType.Float32, value);}
     public get HipHeight() {return this.GetProp("HipHeight", DataType.Float32);}
     public set HipHeight(value) {this.SetProp("HipHeight", DataType.Float32, value);}
     public get InternalBodyScale() {return this.GetProp("InternalBodyScale", DataType.Vector3);}
@@ -3363,10 +3363,10 @@ export class Lighting extends Instance {
     public set Ambient(value) {this.SetProp("Ambient", DataType.Color3, value);}
     public get Brightness() {return this.GetProp("Brightness", DataType.Float32);}
     public set Brightness(value) {this.SetProp("Brightness", DataType.Float32, value);}
-    public get ColorshiftBottom() {return this.GetProp("ColorShift_Bottom", DataType.Color3);}
-    public set ColorshiftBottom(value) {this.SetProp("ColorShift_Bottom", DataType.Color3, value);}
-    public get ColorshiftTop() {return this.GetProp("ColorShift_Top", DataType.Color3);}
-    public set ColorshiftTop(value) {this.SetProp("ColorShift_Top", DataType.Color3, value);}
+    public get ColorShiftBottom() {return this.GetProp("ColorShift_Bottom", DataType.Color3);}
+    public set ColorShiftBottom(value) {this.SetProp("ColorShift_Bottom", DataType.Color3, value);}
+    public get ColorShiftTop() {return this.GetProp("ColorShift_Top", DataType.Color3);}
+    public set ColorShiftTop(value) {this.SetProp("ColorShift_Top", DataType.Color3, value);}
     public get EnvironmentDiffuseScale() {return this.GetProp("EnvironmentDiffuseScale", DataType.Float32);}
     public set EnvironmentDiffuseScale(value) {this.SetProp("EnvironmentDiffuseScale", DataType.Float32, value);}
     public get EnvironmentSpecularScale() {return this.GetProp("EnvironmentSpecularScale", DataType.Float32);}
@@ -4850,8 +4850,8 @@ export class RenderSettings extends Instance {
     public set EagerBulkExecution(value) {this.SetProp("EagerBulkExecution", DataType.Bool, value);}
     public get EditQualityLevel() {return this.GetProp("EditQualityLevel", DataType.Enum) as QualityLevel | undefined;}
     public set EditQualityLevel(value) {this.SetProp("EditQualityLevel", DataType.Enum, value);}
-    public get EnableVrMode() {return this.GetProp("Enable VR Mode", DataType.Bool);}
-    public set EnableVrMode(value) {this.SetProp("Enable VR Mode", DataType.Bool, value);}
+    public get EnableVRMode() {return this.GetProp("Enable VR Mode", DataType.Bool);}
+    public set EnableVRMode(value) {this.SetProp("Enable VR Mode", DataType.Bool, value);}
     public get ExportMergeByMaterial() {return this.GetProp("ExportMergeByMaterial", DataType.Bool);}
     public set ExportMergeByMaterial(value) {this.SetProp("ExportMergeByMaterial", DataType.Bool, value);}
     public get FrameRateManager() {return this.GetProp("FrameRateManager", DataType.Enum) as FramerateManagerMode | undefined;}
@@ -5132,12 +5132,12 @@ export class Smoke extends Instance {
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
     public get TimeScale() {return this.GetProp("TimeScale", DataType.Float32);}
     public set TimeScale(value) {this.SetProp("TimeScale", DataType.Float32, value);}
-    public get OpacityXml() {return this.GetProp("opacity_xml", DataType.Float32);}
-    public set OpacityXml(value) {this.SetProp("opacity_xml", DataType.Float32, value);}
-    public get RisevelocityXml() {return this.GetProp("riseVelocity_xml", DataType.Float32);}
-    public set RisevelocityXml(value) {this.SetProp("riseVelocity_xml", DataType.Float32, value);}
-    public get SizeXml() {return this.GetProp("size_xml", DataType.Float32);}
-    public set SizeXml(value) {this.SetProp("size_xml", DataType.Float32, value);}
+    public get Opacityxml() {return this.GetProp("opacity_xml", DataType.Float32);}
+    public set Opacityxml(value) {this.SetProp("opacity_xml", DataType.Float32, value);}
+    public get RiseVelocityxml() {return this.GetProp("riseVelocity_xml", DataType.Float32);}
+    public set RiseVelocityxml(value) {this.SetProp("riseVelocity_xml", DataType.Float32, value);}
+    public get Sizexml() {return this.GetProp("size_xml", DataType.Float32);}
+    public set Sizexml(value) {this.SetProp("size_xml", DataType.Float32, value);}
 }
 
 export class SmoothVoxelsUpgraderService extends Instance {
@@ -5195,13 +5195,13 @@ export class Sound extends Instance {
     public get Volume() {return this.GetProp("Volume", DataType.Float32);}
     public set Volume(value) {this.SetProp("Volume", DataType.Float32, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get XmlreadMaxdistance3() {return this.GetProp("xmlRead_MaxDistance_3", DataType.Float32);}
+    public get XmlReadMaxDistance3() {return this.GetProp("xmlRead_MaxDistance_3", DataType.Float32);}
     /**@deprecated Deprecated by Roblox*/
-    public set XmlreadMaxdistance3(value) {this.SetProp("xmlRead_MaxDistance_3", DataType.Float32, value);}
+    public set XmlReadMaxDistance3(value) {this.SetProp("xmlRead_MaxDistance_3", DataType.Float32, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get XmlreadMindistance3() {return this.GetProp("xmlRead_MinDistance_3", DataType.Float32);}
+    public get XmlReadMinDistance3() {return this.GetProp("xmlRead_MinDistance_3", DataType.Float32);}
     /**@deprecated Deprecated by Roblox*/
-    public set XmlreadMindistance3(value) {this.SetProp("xmlRead_MinDistance_3", DataType.Float32, value);}
+    public set XmlReadMinDistance3(value) {this.SetProp("xmlRead_MinDistance_3", DataType.Float32, value);}
 }
 
 export abstract class SoundEffect extends Instance {
@@ -5377,8 +5377,8 @@ export class StarterPlayer extends Instance {
     public set AllowCustomAnimations(value) {this.SetProp("AllowCustomAnimations", DataType.Bool, value);}
     public get AutoJumpEnabled() {return this.GetProp("AutoJumpEnabled", DataType.Bool);}
     public set AutoJumpEnabled(value) {this.SetProp("AutoJumpEnabled", DataType.Bool, value);}
-    public get AvatarjointupgradeSerialized() {return this.GetProp("AvatarJointUpgrade_Serialized", DataType.Enum) as AvatarJointUpgrade | undefined;}
-    public set AvatarjointupgradeSerialized(value) {this.SetProp("AvatarJointUpgrade_Serialized", DataType.Enum, value);}
+    public get AvatarJointUpgradeSerialized() {return this.GetProp("AvatarJointUpgrade_Serialized", DataType.Enum) as AvatarJointUpgrade | undefined;}
+    public set AvatarJointUpgradeSerialized(value) {this.SetProp("AvatarJointUpgrade_Serialized", DataType.Enum, value);}
     public get CameraMaxZoomDistance() {return this.GetProp("CameraMaxZoomDistance", DataType.Float32);}
     public set CameraMaxZoomDistance(value) {this.SetProp("CameraMaxZoomDistance", DataType.Float32, value);}
     public get CameraMinZoomDistance() {return this.GetProp("CameraMinZoomDistance", DataType.Float32);}

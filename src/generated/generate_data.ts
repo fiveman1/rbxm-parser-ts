@@ -284,7 +284,7 @@ import { DataType, CoreInstance, EnumItem } from "../lib/roblox_types";
 
     protected static sanitizePropName(propName: string)
     {
-        return propName.split(" ").join("_");
+        return propName.split(" ").join("").split("_").join("");
     }
 
     protected static getTypeInfo(info: PropertyMember)
