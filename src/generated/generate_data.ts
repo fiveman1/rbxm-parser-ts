@@ -119,8 +119,10 @@ const dataTypes: DataType[] = [
     DataType.PhysicalProperties,
     DataType.Color3uint8,
     DataType.UDim,
-    DataType.Ray
-    // Not parsing Vector3int16
+    DataType.Ray,
+    DataType.UniqueId,
+    DataType.Vector3int16,
+    DataType.SecurityCapabilities
 ];
 
 const DataTypeInfo = new Map<string, string>([
@@ -192,23 +194,23 @@ class GenerateData
 * Generated on ${new Date().toLocaleString()}
 */
 
-import { DataType, Instance, EnumItem } from "../lib/roblox_types";
+import { DataType, CoreInstance, EnumItem } from "../lib/roblox_types";
 `
         );
     }
 
     protected filterClass(info: ClassInfo)
     {
-        // Instance and Studio are special and we will not generate them
-        if (info.Name === "Instance" || info.Name === "Studio") return true;
+        // Studio is special and we will not generate it
+        if (info.Name === "Studio") return true;
         
         // If the class is inherited by another class then we need it
         if (info.Inherited) return false;
         
-        const tags = new Tags(info.Tags);
-        
         // These singleton classes are special and we should generate them
         if (this.singletons.has(info.Name)) return false;
+
+        const tags = new Tags(info.Tags);
 
         // Don't need to generate settings type classes
         if (tags.Settings) return true;
@@ -227,8 +229,16 @@ import { DataType, Instance, EnumItem } from "../lib/roblox_types";
         const isService = tags.Service;
         const isAbstract = tags.NotCreatable && info.Inherited && !this.singletons.has(info.Name);
 
+        if (tags.Deprecated) this.stream.write("\n/**@deprecated Deprecated by Roblox*/");
         this.stream.write(`\nexport ${isAbstract ? "abstract " : ""}class ${info.Name} extends ${info.Superclass} {\n`);
-        this.stream.write(`    protected constructor() {super(${isService && info.Superclass === "Instance" ? "true" : ""}); this.addClassName("${info.Name}");}\n`);
+        if (info.Name === "Instance")
+        {
+            this.stream.write(`    protected constructor(isService: boolean = false) {super(isService); this.addClassName("Instance");}\n`);
+        }
+        else
+        {
+            this.stream.write(`    protected constructor() {super(${isService && info.Superclass === "Instance" ? "true" : ""}); this.addClassName("${info.Name}");}\n`);
+        }
         if (!isAbstract) this.stream.write(`    public static new() {return new ${info.Name}();}\n`);
         return !isAbstract;
     }
@@ -255,7 +265,7 @@ import { DataType, Instance, EnumItem } from "../lib/roblox_types";
             !(info.Serialization.CanSave || tags.Deprecated);
     }
 
-    protected writeOneProp(info: PropertyMember, redirect?: RedirectInfo)
+    protected writeOneProp(info: PropertyMember, redirect: RedirectInfo | undefined, className: string)
     {
         if (redirect)
         {
@@ -270,6 +280,7 @@ import { DataType, Instance, EnumItem } from "../lib/roblox_types";
 
         if (!typeInfo.DataType)
         {
+            console.log(className);
             console.log("INVALID MEMBER DATATYPE: " + info.ValueType.Name);
             console.log(info);
             return;
@@ -331,34 +342,26 @@ import { DataType, Instance, EnumItem } from "../lib/roblox_types";
         return undefined;
     }
 
-    protected static createRedirect(info: PropertyMember, memberNames: Map<string, string[]>, className: string): RedirectInfo | undefined
+    protected static createRedirect(info: PropertyMember, className: string): RedirectInfo | undefined
     {
-        // For some reason there are a lot of duplicate properties, like size vs. Size. We will create overrides that just redirect
-        // to the PascalCase version.
+        // TODO: Create any necessary overrides
+        return undefined;
+    }
 
-        if (!isPascalCase(info.Name))
+    protected static isDuplicateName(info: PropertyMember, memberNames: Map<string, string[]>)
+    {
+        if (!isPascalCase(info.Name) && !info.Serialization.CanSave)
         {
             const names = memberNames.get(info.Name.toLowerCase());
             if (names && names.length > 1 && new Tags(info.Tags).Deprecated)
             {
-                let redirPropName;
                 for (let i = 0; i < names.length; ++i)
                 {
-                    if (isPascalCase(names[i])) redirPropName = GenerateData.sanitizePropName(names[i]);
+                    if (isPascalCase(names[i])) return true;
                 }
-                if (!redirPropName) return undefined;
-                const propName = GenerateData.sanitizePropName(info.Name);
-                console.log("Class: " + className);
-                console.log("Prop: " + propName);
-                console.log("Redir prop: " + redirPropName);
-                return {
-                    Get: `public get ${propName}() {return this.${redirPropName};}`, 
-                    Set: `public set ${propName}(value) {this.${redirPropName} = value;}`,
-                    DocString: `/**@deprecated Use ${redirPropName} instead*/`
-                };
             }
         }
-        return undefined;
+        return false;
     }
 
     protected startNameToClass()
@@ -448,6 +451,13 @@ function getEnumMap() {
 
     // Main function
 
+    protected static setInheritance(info: ClassInfo | undefined, allClasses: Map<string, ClassInfo>)
+    {
+        if (!info) return;
+        info.Inherited = true;
+        GenerateData.setInheritance(allClasses.get(info.Superclass), allClasses);
+    }
+
     protected async generate()
     {
         const res = await axios.get("https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/roblox/Mini-API-Dump.json");
@@ -459,16 +469,16 @@ function getEnumMap() {
 
         for (const info of data.Classes)
         {
+            if (info.Superclass === "<<<ROOT>>>")
+            {
+                info.Superclass = "CoreInstance";
+            }
             allClasses.set(info.Name, info);
         }
 
         for (const info of data.Classes)
         {
-            if (info.Superclass !== "Instance")
-            {
-                const superClass = allClasses.get(info.Superclass);
-                if (superClass) superClass.Inherited = true;
-            }
+            if (!this.filterClass(info)) GenerateData.setInheritance(allClasses.get(info.Superclass), allClasses);
         }
 
         const instantiableClasses = new Set<string>();
@@ -480,7 +490,7 @@ function getEnumMap() {
         for (const classInfo of data.Classes)
         {
             if (this.filterClass(classInfo)) continue;
-            
+
             if (this.startClass(classInfo)) instantiableClasses.add(classInfo.Name);
             filteredClasses.add(classInfo.Name);
 
@@ -518,21 +528,24 @@ function getEnumMap() {
 
             for (const member of validMembers.values())
             {
-                this.writeOneProp(member, GenerateData.createRedirect(member, memberNames, classInfo.Name));
+                if (!GenerateData.isDuplicateName(member, memberNames))
+                {
+                    this.writeOneProp(member, GenerateData.createRedirect(member, classInfo.Name), classInfo.Name);
+                }
             }
             
             this.endClass();
         }
 
         this.startNameToClass();
-        for (const name of filteredClasses.keys())
+        for (const name of filteredClasses)
         {
             this.writeOneNameToClass(name);
         }
         this.endNameToClass();
 
         this.startClassMap();
-        for (const name of instantiableClasses.keys())
+        for (const name of instantiableClasses)
         {
             this.writeOneClassMap(name);
         }

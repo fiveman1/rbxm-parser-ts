@@ -7,7 +7,7 @@
 import lz4 from "lz4";
 import fzstd from "fzstd";
 import { RobloxModel } from "./roblox_model";
-import { DataType, RobloxValue, Instance } from "./roblox_types";
+import { DataType, RobloxValue, CoreInstance } from "./roblox_types";
 import { ChunkType, DataParserExtraInfo, RobloxModelDOM } from "./roblox_model_dom";
 import { ClassMap, EnumMap } from "../generated/generated_types";
 
@@ -204,13 +204,13 @@ export class RobloxModelDOMReader extends RobloxModelDOM
         const numInstances = bytes.getUint32();
         const referents = bytes.getReferentArray(numInstances);
         const referentIdToIndex = new Map<number, number>();
-        const instances = new Array<Instance>();
+        const instances = new Array<CoreInstance>();
         const classFactory = this.classMap.getFactory(className);
 
         referents.forEach((referent, index) => {
             referentIdToIndex.set(referent, index);
             this.referentIdToClassId.set(referent, classId);
-            instances.push(classFactory ? classFactory() : new Instance(isService, className));
+            instances.push(classFactory ? classFactory() : new CoreInstance(isService, className));
         });
 
         this.classIdToInfo.set(classId, {
@@ -347,6 +347,10 @@ export class RobloxModelByteReader {
         return this.getUintOfSize(4);
     }
 
+    public getUint64() {
+        return this.getUintOfSize(8);
+    }
+
     public static bytesToInt32(bytes: Uint8Array) {
         return Buffer.from(bytes).readInt32BE(0);
     }
@@ -412,25 +416,29 @@ export class RobloxModelByteReader {
         return bytes;
     }
 
+    public getInt16() {
+        const bytes = this.getByteArray(2);
+        return Buffer.from(bytes).readInt16LE(0);
+    }
+
     public getInt32() {
         const bytes = this.getBytesReversed(4);
         return RobloxModelByteReader.bytesToInt32(bytes);
     }
 
     public getInt64() {
-        const bytes = this.getBytesReversed(8);
-        return Buffer.from(bytes).readBigInt64BE(0);
+        const bytes = this.getByteArray(8);
+        return Buffer.from(bytes).readBigInt64LE(0);
     }
 
     public getFloat32() {
-        const bytes = this.getBytesReversed(4);
-        return Buffer.from(bytes).readFloatBE(0);
+        const bytes = this.getByteArray(4);
+        return Buffer.from(bytes).readFloatLE(0);
     }
 
     public getFloat64() {
-        const bytes = this.getBytesReversed(8);
-        // https://dom.rojo.space/binary#float64 claims this is little-endian, but it is actually big-endian...
-        return Buffer.from(bytes).readDoubleBE(0);
+        const bytes = this.getByteArray(8);
+        return Buffer.from(bytes).readDoubleLE(0);
     }
 
     public getByteArray(numBytes: number) {
@@ -512,6 +520,13 @@ export class RobloxModelByteReader {
 
         // Have to untransform the ints
         return bytes.map(RobloxModelByteReader.untransformInt64);
+    }
+
+    public getInterleavedUint64Array(length: number) {
+        const interleavedBytes = this.getByteArray(length * 8);
+
+        // Convert interleaved bytes to Uint32 array
+        return RobloxModelByteReader.convertInterleaved(interleavedBytes, length, (bytes) => Buffer.from(bytes).readBigUint64BE(0));
     }
 
     public getFloat32Array(length: number) {

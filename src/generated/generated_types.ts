@@ -2,10 +2,32 @@
 * @author https://github.com/fiveman1
 * @file generated_types.ts
 * Contains generated types for Roblox classes and enums.
-* Generated on 4/22/2024, 2:36:32 PM
+* Generated on 4/22/2024, 9:13:29 PM
 */
 
-import { DataType, Instance, EnumItem } from "../lib/roblox_types";
+import { DataType, CoreInstance, EnumItem } from "../lib/roblox_types";
+
+export abstract class Instance extends CoreInstance {
+    protected constructor(isService: boolean = false) {super(isService); this.addClassName("Instance");}
+    public get AttributesSerialize() {return this.GetProp("AttributesSerialize", DataType.String);}
+    public set AttributesSerialize(value) {this.SetProp("AttributesSerialize", DataType.String, value);}
+    public get Capabilities() {return this.GetProp("Capabilities", DataType.SecurityCapabilities);}
+    public set Capabilities(value) {this.SetProp("Capabilities", DataType.SecurityCapabilities, value);}
+    public get DefinesCapabilities() {return this.GetProp("DefinesCapabilities", DataType.Bool);}
+    public set DefinesCapabilities(value) {this.SetProp("DefinesCapabilities", DataType.Bool, value);}
+    public get HistoryId() {return this.GetProp("HistoryId", DataType.UniqueId);}
+    public set HistoryId(value) {this.SetProp("HistoryId", DataType.UniqueId, value);}
+    public get SourceAssetId() {return this.GetProp("SourceAssetId", DataType.Int64);}
+    public set SourceAssetId(value) {this.SetProp("SourceAssetId", DataType.Int64, value);}
+    public get Tags() {return this.GetProp("Tags", DataType.String);}
+    public set Tags(value) {this.SetProp("Tags", DataType.String, value);}
+    public get UniqueId() {return this.GetProp("UniqueId", DataType.UniqueId);}
+    public set UniqueId(value) {this.SetProp("UniqueId", DataType.UniqueId, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get Archivable() {return this.GetProp("archivable", DataType.Bool);}
+    /**@deprecated Deprecated by Roblox*/
+    public set Archivable(value) {this.SetProp("archivable", DataType.Bool, value);}
+}
 
 export class AccessoryDescription extends Instance {
     protected constructor() {super(); this.addClassName("AccessoryDescription");}
@@ -43,6 +65,7 @@ export class Accessory extends Accoutrement {
     public set AccessoryType(value) {this.SetProp("AccessoryType", DataType.Enum, value);}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class Hat extends Accoutrement {
     protected constructor() {super(); this.addClassName("Hat");}
     public static new() {return new Hat();}
@@ -440,18 +463,6 @@ export class AvatarEditorService extends Instance {
     public static new() {return new AvatarEditorService();}
 }
 
-export abstract class AvatarGenerationJob extends Instance {
-    protected constructor() {super(); this.addClassName("AvatarGenerationJob");}
-    public get Error() {return this.GetProp("Error", DataType.Enum) as AvatarGenerationError | undefined;}
-    public set Error(value) {this.SetProp("Error", DataType.Enum, value);}
-    public get ErrorMessage() {return this.GetProp("ErrorMessage", DataType.String);}
-    public set ErrorMessage(value) {this.SetProp("ErrorMessage", DataType.String, value);}
-    public get Progress() {return this.GetProp("Progress", DataType.Float32);}
-    public set Progress(value) {this.SetProp("Progress", DataType.Float32, value);}
-    public get Status() {return this.GetProp("Status", DataType.Enum) as AvatarGenerationJobStatus | undefined;}
-    public set Status(value) {this.SetProp("Status", DataType.Enum, value);}
-}
-
 export class AvatarImportService extends Instance {
     protected constructor() {super(true); this.addClassName("AvatarImportService");}
     public static new() {return new AvatarImportService();}
@@ -465,14 +476,6 @@ export class Backpack extends Instance {
 export class BadgeService extends Instance {
     protected constructor() {super(true); this.addClassName("BadgeService");}
     public static new() {return new BadgeService();}
-}
-
-export abstract class BaseImportData extends Instance {
-    protected constructor() {super(); this.addClassName("BaseImportData");}
-    public get ImportName() {return this.GetProp("ImportName", DataType.String);}
-    public set ImportName(value) {this.SetProp("ImportName", DataType.String, value);}
-    public get ShouldImport() {return this.GetProp("ShouldImport", DataType.Bool);}
-    public set ShouldImport(value) {this.SetProp("ShouldImport", DataType.Bool, value);}
 }
 
 export abstract class BasePlayerGui extends Instance {
@@ -618,10 +621,12 @@ export class BindableFunction extends Instance {
     public static new() {return new BindableFunction();}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export abstract class BodyMover extends Instance {
     protected constructor() {super(); this.addClassName("BodyMover");}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class BodyAngularVelocity extends BodyMover {
     protected constructor() {super(); this.addClassName("BodyAngularVelocity");}
     public static new() {return new BodyAngularVelocity();}
@@ -631,27 +636,17 @@ export class BodyAngularVelocity extends BodyMover {
     public set MaxTorque(value) {this.SetProp("MaxTorque", DataType.Vector3, value);}
     public get P() {return this.GetProp("P", DataType.Float32);}
     public set P(value) {this.SetProp("P", DataType.Float32, value);}
-    /**@deprecated Use AngularVelocity instead*/
-    public get angularvelocity() {return this.AngularVelocity;}
-    /**@deprecated Use AngularVelocity instead*/
-    public set angularvelocity(value) {this.AngularVelocity = value;}
-    /**@deprecated Use MaxTorque instead*/
-    public get maxTorque() {return this.MaxTorque;}
-    /**@deprecated Use MaxTorque instead*/
-    public set maxTorque(value) {this.MaxTorque = value;}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class BodyForce extends BodyMover {
     protected constructor() {super(); this.addClassName("BodyForce");}
     public static new() {return new BodyForce();}
     public get Force() {return this.GetProp("Force", DataType.Vector3);}
     public set Force(value) {this.SetProp("Force", DataType.Vector3, value);}
-    /**@deprecated Use Force instead*/
-    public get force() {return this.Force;}
-    /**@deprecated Use Force instead*/
-    public set force(value) {this.Force = value;}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class BodyGyro extends BodyMover {
     protected constructor() {super(); this.addClassName("BodyGyro");}
     public static new() {return new BodyGyro();}
@@ -663,16 +658,9 @@ export class BodyGyro extends BodyMover {
     public set MaxTorque(value) {this.SetProp("MaxTorque", DataType.Vector3, value);}
     public get P() {return this.GetProp("P", DataType.Float32);}
     public set P(value) {this.SetProp("P", DataType.Float32, value);}
-    /**@deprecated Use CFrame instead*/
-    public get cframe() {return this.CFrame;}
-    /**@deprecated Use CFrame instead*/
-    public set cframe(value) {this.CFrame = value;}
-    /**@deprecated Use MaxTorque instead*/
-    public get maxTorque() {return this.MaxTorque;}
-    /**@deprecated Use MaxTorque instead*/
-    public set maxTorque(value) {this.MaxTorque = value;}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class BodyPosition extends BodyMover {
     protected constructor() {super(); this.addClassName("BodyPosition");}
     public static new() {return new BodyPosition();}
@@ -684,16 +672,9 @@ export class BodyPosition extends BodyMover {
     public set P(value) {this.SetProp("P", DataType.Float32, value);}
     public get Position() {return this.GetProp("Position", DataType.Vector3);}
     public set Position(value) {this.SetProp("Position", DataType.Vector3, value);}
-    /**@deprecated Use MaxForce instead*/
-    public get maxForce() {return this.MaxForce;}
-    /**@deprecated Use MaxForce instead*/
-    public set maxForce(value) {this.MaxForce = value;}
-    /**@deprecated Use Position instead*/
-    public get position() {return this.Position;}
-    /**@deprecated Use Position instead*/
-    public set position(value) {this.Position = value;}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class BodyThrust extends BodyMover {
     protected constructor() {super(); this.addClassName("BodyThrust");}
     public static new() {return new BodyThrust();}
@@ -701,16 +682,9 @@ export class BodyThrust extends BodyMover {
     public set Force(value) {this.SetProp("Force", DataType.Vector3, value);}
     public get Location() {return this.GetProp("Location", DataType.Vector3);}
     public set Location(value) {this.SetProp("Location", DataType.Vector3, value);}
-    /**@deprecated Use Force instead*/
-    public get force() {return this.Force;}
-    /**@deprecated Use Force instead*/
-    public set force(value) {this.Force = value;}
-    /**@deprecated Use Location instead*/
-    public get location() {return this.Location;}
-    /**@deprecated Use Location instead*/
-    public set location(value) {this.Location = value;}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class BodyVelocity extends BodyMover {
     protected constructor() {super(); this.addClassName("BodyVelocity");}
     public static new() {return new BodyVelocity();}
@@ -720,16 +694,9 @@ export class BodyVelocity extends BodyMover {
     public set P(value) {this.SetProp("P", DataType.Float32, value);}
     public get Velocity() {return this.GetProp("Velocity", DataType.Vector3);}
     public set Velocity(value) {this.SetProp("Velocity", DataType.Vector3, value);}
-    /**@deprecated Use MaxForce instead*/
-    public get maxForce() {return this.MaxForce;}
-    /**@deprecated Use MaxForce instead*/
-    public set maxForce(value) {this.MaxForce = value;}
-    /**@deprecated Use Velocity instead*/
-    public get velocity() {return this.Velocity;}
-    /**@deprecated Use Velocity instead*/
-    public set velocity(value) {this.Velocity = value;}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class RocketPropulsion extends BodyMover {
     protected constructor() {super(); this.addClassName("RocketPropulsion");}
     public static new() {return new RocketPropulsion();}
@@ -839,10 +806,6 @@ export class Camera extends Instance {
     public set HeadScale(value) {this.SetProp("HeadScale", DataType.Float32, value);}
     public get VRTiltAndRollEnabled() {return this.GetProp("VRTiltAndRollEnabled", DataType.Bool);}
     public set VRTiltAndRollEnabled(value) {this.SetProp("VRTiltAndRollEnabled", DataType.Bool, value);}
-    /**@deprecated Use Focus instead*/
-    public get focus() {return this.Focus;}
-    /**@deprecated Use Focus instead*/
-    public set focus(value) {this.Focus = value;}
 }
 
 export class CaptureService extends Instance {
@@ -918,6 +881,7 @@ export class ShirtGraphic extends CharacterAppearance {
     public set Graphic(value) {this.SetProp("Graphic", DataType.String, value);}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class Skin extends CharacterAppearance {
     protected constructor() {super(); this.addClassName("Skin");}
     public static new() {return new Skin();}
@@ -1247,6 +1211,7 @@ export class PlaneConstraint extends Constraint {
     public static new() {return new PlaneConstraint();}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class Plane extends PlaneConstraint {
     protected constructor() {super(); this.addClassName("Plane");}
     public static new() {return new Plane();}
@@ -1626,6 +1591,7 @@ export class CrossDMScriptChangeListener extends Instance {
     public static new() {return new CrossDMScriptChangeListener();}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class CustomEvent extends Instance {
     protected constructor() {super(); this.addClassName("CustomEvent");}
     public static new() {return new CustomEvent();}
@@ -1633,6 +1599,7 @@ export class CustomEvent extends Instance {
     public set PersistedCurrentValue(value) {this.SetProp("PersistedCurrentValue", DataType.Float32, value);}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class CustomEventReceiver extends Instance {
     protected constructor() {super(); this.addClassName("CustomEventReceiver");}
     public static new() {return new CustomEventReceiver();}
@@ -1650,6 +1617,7 @@ export abstract class DataModelMesh extends Instance {
     public set VertexColor(value) {this.SetProp("VertexColor", DataType.Vector3, value);}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export abstract class BevelMesh extends DataModelMesh {
     protected constructor() {super(); this.addClassName("BevelMesh");}
     public get Bevel() {return this.GetProp("Bevel", DataType.Float32);}
@@ -1665,6 +1633,7 @@ export class BlockMesh extends BevelMesh {
     public static new() {return new BlockMesh();}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class CylinderMesh extends BevelMesh {
     protected constructor() {super(); this.addClassName("CylinderMesh");}
     public static new() {return new CylinderMesh();}
@@ -1750,10 +1719,6 @@ export class Debris extends Instance {
 export class DebuggablePluginWatcher extends Instance {
     protected constructor() {super(true); this.addClassName("DebuggablePluginWatcher");}
     public static new() {return new DebuggablePluginWatcher();}
-}
-
-export abstract class DebuggerConnection extends Instance {
-    protected constructor() {super(); this.addClassName("DebuggerConnection");}
 }
 
 export class DebuggerConnectionManager extends Instance {
@@ -1998,11 +1963,13 @@ export abstract class Feature extends Instance {
     public set TopBottom(value) {this.SetProp("TopBottom", DataType.Enum, value);}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class Hole extends Feature {
     protected constructor() {super(); this.addClassName("Hole");}
     public static new() {return new Hole();}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class MotorFeature extends Feature {
     protected constructor() {super(); this.addClassName("MotorFeature");}
     public static new() {return new MotorFeature();}
@@ -2073,6 +2040,7 @@ export class FriendService extends Instance {
     public static new() {return new FriendService();}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class FunctionalTest extends Instance {
     protected constructor() {super(); this.addClassName("FunctionalTest");}
     public static new() {return new FunctionalTest();}
@@ -2115,10 +2083,6 @@ export class GetTextBoundsParams extends Instance {
     public set Text(value) {this.SetProp("Text", DataType.String, value);}
     public get Width() {return this.GetProp("Width", DataType.Float32);}
     public set Width(value) {this.SetProp("Width", DataType.Float32, value);}
-}
-
-export abstract class GlobalDataStore extends Instance {
-    protected constructor() {super(); this.addClassName("GlobalDataStore");}
 }
 
 export class GoogleAnalyticsConfiguration extends Instance {
@@ -2598,12 +2562,6 @@ export class BillboardGui extends LayerCollector {
     public set StudsOffsetWorldSpace(value) {this.SetProp("StudsOffsetWorldSpace", DataType.Vector3, value);}
 }
 
-export abstract class PluginGui extends LayerCollector {
-    protected constructor() {super(); this.addClassName("PluginGui");}
-    public get Title() {return this.GetProp("Title", DataType.String);}
-    public set Title(value) {this.SetProp("Title", DataType.String, value);}
-}
-
 export class ScreenGui extends LayerCollector {
     protected constructor() {super(); this.addClassName("ScreenGui");}
     public static new() {return new ScreenGui();}
@@ -2617,6 +2575,7 @@ export class ScreenGui extends LayerCollector {
     public set ScreenInsets(value) {this.SetProp("ScreenInsets", DataType.Enum, value);}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class GuiMain extends ScreenGui {
     protected constructor() {super(); this.addClassName("GuiMain");}
     public static new() {return new GuiMain();}
@@ -2682,6 +2641,7 @@ export abstract class GuiBase3d extends GuiBase {
     public set Visible(value) {this.SetProp("Visible", DataType.Bool, value);}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class FloorWire extends GuiBase3d {
     protected constructor() {super(); this.addClassName("FloorWire");}
     public static new() {return new FloorWire();}
@@ -2864,6 +2824,7 @@ export abstract class SelectionLasso extends GuiBase3d {
     public set Humanoid(value) {this.SetProp("Humanoid", DataType.Referent, value);}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class SelectionPartLasso extends SelectionLasso {
     protected constructor() {super(); this.addClassName("SelectionPartLasso");}
     public static new() {return new SelectionPartLasso();}
@@ -2871,6 +2832,7 @@ export class SelectionPartLasso extends SelectionLasso {
     public set Part(value) {this.SetProp("Part", DataType.Referent, value);}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class SelectionPointLasso extends SelectionLasso {
     protected constructor() {super(); this.addClassName("SelectionPointLasso");}
     public static new() {return new SelectionPointLasso();}
@@ -2949,6 +2911,7 @@ export class Highlight extends Instance {
     public set OutlineTransparency(value) {this.SetProp("OutlineTransparency", DataType.Float32, value);}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class Hopper extends Instance {
     protected constructor() {super(true); this.addClassName("Hopper");}
     public static new() {return new Hopper();}
@@ -3031,10 +2994,6 @@ export class Humanoid extends Instance {
     public set UseJumpPower(value) {this.SetProp("UseJumpPower", DataType.Bool, value);}
     public get WalkSpeed() {return this.GetProp("WalkSpeed", DataType.Float32);}
     public set WalkSpeed(value) {this.SetProp("WalkSpeed", DataType.Float32, value);}
-    /**@deprecated Use MaxHealth instead*/
-    public get maxHealth() {return this.MaxHealth;}
-    /**@deprecated Use MaxHealth instead*/
-    public set maxHealth(value) {this.MaxHealth = value;}
 }
 
 export class HumanoidDescription extends Instance {
@@ -3229,16 +3188,19 @@ export abstract class DynamicRotate extends JointInstance {
     public set BaseAngle(value) {this.SetProp("BaseAngle", DataType.Float32, value);}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class RotateP extends DynamicRotate {
     protected constructor() {super(); this.addClassName("RotateP");}
     public static new() {return new RotateP();}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class RotateV extends DynamicRotate {
     protected constructor() {super(); this.addClassName("RotateV");}
     public static new() {return new RotateV();}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class Glue extends JointInstance {
     protected constructor() {super(); this.addClassName("Glue");}
     public static new() {return new Glue();}
@@ -3252,15 +3214,18 @@ export class Glue extends JointInstance {
     public set F3(value) {this.SetProp("F3", DataType.Vector3, value);}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export abstract class ManualSurfaceJointInstance extends JointInstance {
     protected constructor() {super(); this.addClassName("ManualSurfaceJointInstance");}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class ManualGlue extends ManualSurfaceJointInstance {
     protected constructor() {super(); this.addClassName("ManualGlue");}
     public static new() {return new ManualGlue();}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class ManualWeld extends ManualSurfaceJointInstance {
     protected constructor() {super(); this.addClassName("ManualWeld");}
     public static new() {return new ManualWeld();}
@@ -3280,11 +3245,13 @@ export class Motor6D extends Motor {
     public static new() {return new Motor6D();}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class Rotate extends JointInstance {
     protected constructor() {super(); this.addClassName("Rotate");}
     public static new() {return new Rotate();}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class Snap extends JointInstance {
     protected constructor() {super(); this.addClassName("Snap");}
     public static new() {return new Snap();}
@@ -3308,6 +3275,7 @@ export class Weld extends JointInstance {
     public static new() {return new Weld();}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class JointsService extends Instance {
     protected constructor() {super(true); this.addClassName("JointsService");}
     public static new() {return new JointsService();}
@@ -3678,6 +3646,7 @@ export class MemoryStoreService extends Instance {
     public static new() {return new MemoryStoreService();}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class Message extends Instance {
     protected constructor() {super(); this.addClassName("Message");}
     public static new() {return new Message();}
@@ -3685,6 +3654,7 @@ export class Message extends Instance {
     public set Text(value) {this.SetProp("Text", DataType.String, value);}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class Hint extends Message {
     protected constructor() {super(); this.addClassName("Hint");}
     public static new() {return new Hint();}
@@ -3705,14 +3675,6 @@ export class MetaBreakpointManager extends Instance {
     public static new() {return new MetaBreakpointManager();}
 }
 
-export abstract class Mouse extends Instance {
-    protected constructor() {super(); this.addClassName("Mouse");}
-    public get Icon() {return this.GetProp("Icon", DataType.String);}
-    public set Icon(value) {this.SetProp("Icon", DataType.String, value);}
-    public get TargetFilter() {return this.GetProp("TargetFilter", DataType.Referent) as Instance | undefined;}
-    public set TargetFilter(value) {this.SetProp("TargetFilter", DataType.Referent, value);}
-}
-
 export class MouseService extends Instance {
     protected constructor() {super(true); this.addClassName("MouseService");}
     public static new() {return new MouseService();}
@@ -3730,10 +3692,6 @@ export class NetworkClient extends NetworkPeer {
 export class NetworkServer extends NetworkPeer {
     protected constructor() {super(); this.addClassName("NetworkServer");}
     public static new() {return new NetworkServer();}
-}
-
-export abstract class NetworkReplicator extends Instance {
-    protected constructor() {super(); this.addClassName("NetworkReplicator");}
 }
 
 export class NetworkSettings extends Instance {
@@ -3964,10 +3922,6 @@ export abstract class FormFactorPart extends BasePart {
     public get FormFactor() {return this.GetProp("FormFactor", DataType.Enum) as FormFactor | undefined;}
     /**@deprecated Deprecated by Roblox*/
     public set FormFactor(value) {this.SetProp("FormFactor", DataType.Enum, value);}
-    /**@deprecated Use FormFactor instead*/
-    public get formFactor() {return this.FormFactor;}
-    /**@deprecated Use FormFactor instead*/
-    public set formFactor(value) {this.FormFactor = value;}
     public get FormFactorRaw() {return this.GetProp("formFactorRaw", DataType.Enum) as FormFactor | undefined;}
     public set FormFactorRaw(value) {this.SetProp("formFactorRaw", DataType.Enum, value);}
 }
@@ -3979,6 +3933,7 @@ export class Part extends FormFactorPart {
     public set Shape(value) {this.SetProp("shape", DataType.Enum, value);}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class FlagStand extends Part {
     protected constructor() {super(); this.addClassName("FlagStand");}
     public static new() {return new FlagStand();}
@@ -3993,6 +3948,7 @@ export class Seat extends Part {
     public set Disabled(value) {this.SetProp("Disabled", DataType.Bool, value);}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class SkateboardPlatform extends Part {
     protected constructor() {super(); this.addClassName("SkateboardPlatform");}
     public static new() {return new SkateboardPlatform();}
@@ -4200,6 +4156,7 @@ export abstract class BackpackItem extends Model {
     public set TextureId(value) {this.SetProp("TextureId", DataType.String, value);}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class HopperBin extends BackpackItem {
     protected constructor() {super(); this.addClassName("HopperBin");}
     public static new() {return new HopperBin();}
@@ -4226,6 +4183,7 @@ export class Tool extends BackpackItem {
     public set ToolTip(value) {this.SetProp("ToolTip", DataType.String, value);}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class Flag extends Tool {
     protected constructor() {super(); this.addClassName("Flag");}
     public static new() {return new Flag();}
@@ -4319,14 +4277,6 @@ export class PackageService extends Instance {
 export class PackageUIService extends Instance {
     protected constructor() {super(true); this.addClassName("PackageUIService");}
     public static new() {return new PackageUIService();}
-}
-
-export abstract class Pages extends Instance {
-    protected constructor() {super(); this.addClassName("Pages");}
-}
-
-export abstract class InventoryPages extends Pages {
-    protected constructor() {super(); this.addClassName("InventoryPages");}
 }
 
 export class PartOperationAsset extends Instance {
@@ -4447,10 +4397,6 @@ export class PathfindingService extends Instance {
     public get EmptyCutoff() {return this.GetProp("EmptyCutoff", DataType.Float32);}
     /**@deprecated Deprecated by Roblox*/
     public set EmptyCutoff(value) {this.SetProp("EmptyCutoff", DataType.Float32, value);}
-}
-
-export abstract class PausedState extends Instance {
-    protected constructor() {super(); this.addClassName("PausedState");}
 }
 
 export class PermissionsService extends Instance {
@@ -4605,6 +4551,7 @@ export class PluginPolicyService extends Instance {
     public static new() {return new PluginPolicyService();}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class PointsService extends Instance {
     protected constructor() {super(true); this.addClassName("PointsService");}
     public static new() {return new PointsService();}
@@ -5022,10 +4969,6 @@ export class SafetyService extends Instance {
     public set IsCaptureModeForReport(value) {this.SetProp("IsCaptureModeForReport", DataType.Bool, value);}
 }
 
-export abstract class ScriptBuilder extends Instance {
-    protected constructor() {super(); this.addClassName("ScriptBuilder");}
-}
-
 export class ScriptChangeService extends Instance {
     protected constructor() {super(true); this.addClassName("ScriptChangeService");}
     public static new() {return new ScriptChangeService();}
@@ -5125,14 +5068,6 @@ export class ServerScriptService extends Instance {
 export class ServerStorage extends Instance {
     protected constructor() {super(true); this.addClassName("ServerStorage");}
     public static new() {return new ServerStorage();}
-}
-
-export abstract class ServiceProvider extends Instance {
-    protected constructor() {super(); this.addClassName("ServiceProvider");}
-}
-
-export abstract class GenericSettings extends ServiceProvider {
-    protected constructor() {super(); this.addClassName("GenericSettings");}
 }
 
 export class ServiceVisibilityService extends Instance {
@@ -5303,10 +5238,6 @@ export class CompressorSoundEffect extends SoundEffect {
     public set SideChain(value) {this.SetProp("SideChain", DataType.Referent, value);}
     public get Threshold() {return this.GetProp("Threshold", DataType.Float32);}
     public set Threshold(value) {this.SetProp("Threshold", DataType.Float32, value);}
-}
-
-export abstract class CustomSoundEffect extends SoundEffect {
-    protected constructor() {super(); this.addClassName("CustomSoundEffect");}
 }
 
 export class DistortionSoundEffect extends SoundEffect {
@@ -5546,10 +5477,6 @@ export class Stats extends Instance {
     public static new() {return new Stats();}
 }
 
-export abstract class StatsItem extends Instance {
-    protected constructor() {super(); this.addClassName("StatsItem");}
-}
-
 export class StopWatchReporter extends Instance {
     protected constructor() {super(true); this.addClassName("StopWatchReporter");}
     public static new() {return new StopWatchReporter();}
@@ -5595,10 +5522,6 @@ export class StudioData extends Instance {
 export class StudioDeviceEmulatorService extends Instance {
     protected constructor() {super(true); this.addClassName("StudioDeviceEmulatorService");}
     public static new() {return new StudioDeviceEmulatorService();}
-}
-
-export abstract class StudioObjectBase extends Instance {
-    protected constructor() {super(); this.addClassName("StudioObjectBase");}
 }
 
 export class StudioPublishService extends Instance {
@@ -5784,6 +5707,10 @@ export class TerrainDetail extends Instance {
 export class TerrainRegion extends Instance {
     protected constructor() {super(); this.addClassName("TerrainRegion");}
     public static new() {return new TerrainRegion();}
+    public get ExtentsMax() {return this.GetProp("ExtentsMax", DataType.Vector3int16);}
+    public set ExtentsMax(value) {this.SetProp("ExtentsMax", DataType.Vector3int16, value);}
+    public get ExtentsMin() {return this.GetProp("ExtentsMin", DataType.Vector3int16);}
+    public set ExtentsMin(value) {this.SetProp("ExtentsMin", DataType.Vector3int16, value);}
     public get SmoothGrid() {return this.GetProp("SmoothGrid", DataType.String);}
     public set SmoothGrid(value) {this.SetProp("SmoothGrid", DataType.String, value);}
 }
@@ -6328,6 +6255,7 @@ export class Color3Value extends ValueBase {
     public set Value(value) {this.SetProp("Value", DataType.Color3, value);}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class DoubleConstrainedValue extends ValueBase {
     protected constructor() {super(); this.addClassName("DoubleConstrainedValue");}
     public static new() {return new DoubleConstrainedValue();}
@@ -6339,6 +6267,7 @@ export class DoubleConstrainedValue extends ValueBase {
     public set Value(value) {this.SetProp("value", DataType.Float64, value);}
 }
 
+/**@deprecated Deprecated by Roblox*/
 export class IntConstrainedValue extends ValueBase {
     protected constructor() {super(); this.addClassName("IntConstrainedValue");}
     public static new() {return new IntConstrainedValue();}
@@ -6507,6 +6436,7 @@ export class Wire extends Instance {
 }
 
 export type NameToClass = {
+    ["Instance"]: Instance
     ["AccessoryDescription"]: AccessoryDescription
     ["AccountService"]: AccountService
     ["Accoutrement"]: Accoutrement
@@ -6555,11 +6485,9 @@ export type NameToClass = {
     ["AvatarChatService"]: AvatarChatService
     ["AvatarCreationService"]: AvatarCreationService
     ["AvatarEditorService"]: AvatarEditorService
-    ["AvatarGenerationJob"]: AvatarGenerationJob
     ["AvatarImportService"]: AvatarImportService
     ["Backpack"]: Backpack
     ["BadgeService"]: BadgeService
-    ["BaseImportData"]: BaseImportData
     ["BasePlayerGui"]: BasePlayerGui
     ["CoreGui"]: CoreGui
     ["StarterGui"]: StarterGui
@@ -6674,7 +6602,6 @@ export type NameToClass = {
     ["DataStoreSetOptions"]: DataStoreSetOptions
     ["Debris"]: Debris
     ["DebuggablePluginWatcher"]: DebuggablePluginWatcher
-    ["DebuggerConnection"]: DebuggerConnection
     ["DebuggerConnectionManager"]: DebuggerConnectionManager
     ["DebuggerManager"]: DebuggerManager
     ["DebuggerUIService"]: DebuggerUIService
@@ -6722,7 +6649,6 @@ export type NameToClass = {
     ["Geometry"]: Geometry
     ["GeometryService"]: GeometryService
     ["GetTextBoundsParams"]: GetTextBoundsParams
-    ["GlobalDataStore"]: GlobalDataStore
     ["GoogleAnalyticsConfiguration"]: GoogleAnalyticsConfiguration
     ["GroupService"]: GroupService
     ["GuiBase"]: GuiBase
@@ -6742,7 +6668,6 @@ export type NameToClass = {
     ["ViewportFrame"]: ViewportFrame
     ["LayerCollector"]: LayerCollector
     ["BillboardGui"]: BillboardGui
-    ["PluginGui"]: PluginGui
     ["ScreenGui"]: ScreenGui
     ["GuiMain"]: GuiMain
     ["SurfaceGuiBase"]: SurfaceGuiBase
@@ -6846,12 +6771,10 @@ export type NameToClass = {
     ["MessageBusService"]: MessageBusService
     ["MessagingService"]: MessagingService
     ["MetaBreakpointManager"]: MetaBreakpointManager
-    ["Mouse"]: Mouse
     ["MouseService"]: MouseService
     ["NetworkPeer"]: NetworkPeer
     ["NetworkClient"]: NetworkClient
     ["NetworkServer"]: NetworkServer
-    ["NetworkReplicator"]: NetworkReplicator
     ["NetworkSettings"]: NetworkSettings
     ["NoCollisionConstraint"]: NoCollisionConstraint
     ["Noise"]: Noise
@@ -6889,15 +6812,12 @@ export type NameToClass = {
     ["WorldModel"]: WorldModel
     ["PackageService"]: PackageService
     ["PackageUIService"]: PackageUIService
-    ["Pages"]: Pages
-    ["InventoryPages"]: InventoryPages
     ["PartOperationAsset"]: PartOperationAsset
     ["ParticleEmitter"]: ParticleEmitter
     ["PatchBundlerFileWatch"]: PatchBundlerFileWatch
     ["PathfindingLink"]: PathfindingLink
     ["PathfindingModifier"]: PathfindingModifier
     ["PathfindingService"]: PathfindingService
-    ["PausedState"]: PausedState
     ["PermissionsService"]: PermissionsService
     ["PhysicsService"]: PhysicsService
     ["PlaceStatsService"]: PlaceStatsService
@@ -6962,7 +6882,6 @@ export type NameToClass = {
     ["RunService"]: RunService
     ["RuntimeScriptService"]: RuntimeScriptService
     ["SafetyService"]: SafetyService
-    ["ScriptBuilder"]: ScriptBuilder
     ["ScriptChangeService"]: ScriptChangeService
     ["ScriptCloneWatcher"]: ScriptCloneWatcher
     ["ScriptCloneWatcherHelper"]: ScriptCloneWatcherHelper
@@ -6980,8 +6899,6 @@ export type NameToClass = {
     ["ControllerPartSensor"]: ControllerPartSensor
     ["ServerScriptService"]: ServerScriptService
     ["ServerStorage"]: ServerStorage
-    ["ServiceProvider"]: ServiceProvider
-    ["GenericSettings"]: GenericSettings
     ["ServiceVisibilityService"]: ServiceVisibilityService
     ["SessionService"]: SessionService
     ["SharedTableRegistry"]: SharedTableRegistry
@@ -6995,7 +6912,6 @@ export type NameToClass = {
     ["SoundEffect"]: SoundEffect
     ["ChorusSoundEffect"]: ChorusSoundEffect
     ["CompressorSoundEffect"]: CompressorSoundEffect
-    ["CustomSoundEffect"]: CustomSoundEffect
     ["DistortionSoundEffect"]: DistortionSoundEffect
     ["EchoSoundEffect"]: EchoSoundEffect
     ["EqualizerSoundEffect"]: EqualizerSoundEffect
@@ -7015,7 +6931,6 @@ export type NameToClass = {
     ["StarterCharacterScripts"]: StarterCharacterScripts
     ["StartupMessageService"]: StartupMessageService
     ["Stats"]: Stats
-    ["StatsItem"]: StatsItem
     ["StopWatchReporter"]: StopWatchReporter
     ["StreamingService"]: StreamingService
     ["StudioAssetService"]: StudioAssetService
@@ -7023,7 +6938,6 @@ export type NameToClass = {
     ["StudioCallout"]: StudioCallout
     ["StudioData"]: StudioData
     ["StudioDeviceEmulatorService"]: StudioDeviceEmulatorService
-    ["StudioObjectBase"]: StudioObjectBase
     ["StudioPublishService"]: StudioPublishService
     ["StudioScriptDebugEventListener"]: StudioScriptDebugEventListener
     ["StudioSdkService"]: StudioSdkService
@@ -7820,25 +7734,6 @@ export class AutomaticSize extends EnumItem {
     public static readonly XY = new AutomaticSize("XY", 3);
     public static get items() {return [AutomaticSize.None, AutomaticSize.X, AutomaticSize.Y, AutomaticSize.XY];}
     public static fromValue(value: number) {return AutomaticSize.items.find((item) => item._value === value);}
-}
-
-export class AvatarGenerationError extends EnumItem {
-    public static readonly None = new AvatarGenerationError("None", 0);
-    public static readonly Timeout = new AvatarGenerationError("Timeout", 1);
-    public static readonly DownloadFailed = new AvatarGenerationError("DownloadFailed", 2);
-    public static readonly Canceled = new AvatarGenerationError("Canceled", 3);
-    public static readonly Unknown = new AvatarGenerationError("Unknown", 4);
-    public static get items() {return [AvatarGenerationError.None, AvatarGenerationError.Timeout, AvatarGenerationError.DownloadFailed, AvatarGenerationError.Canceled, AvatarGenerationError.Unknown];}
-    public static fromValue(value: number) {return AvatarGenerationError.items.find((item) => item._value === value);}
-}
-
-export class AvatarGenerationJobStatus extends EnumItem {
-    public static readonly NotStarted = new AvatarGenerationJobStatus("NotStarted", 0);
-    public static readonly InProgress = new AvatarGenerationJobStatus("InProgress", 1);
-    public static readonly Completed = new AvatarGenerationJobStatus("Completed", 2);
-    public static readonly Failed = new AvatarGenerationJobStatus("Failed", 3);
-    public static get items() {return [AvatarGenerationJobStatus.NotStarted, AvatarGenerationJobStatus.InProgress, AvatarGenerationJobStatus.Completed, AvatarGenerationJobStatus.Failed];}
-    public static fromValue(value: number) {return AvatarGenerationJobStatus.items.find((item) => item._value === value);}
 }
 
 export class AvatarJointUpgrade extends EnumItem {
@@ -9474,8 +9369,6 @@ function getEnumMap() {
     map.set("AudioDeviceInput,AccessType", AccessModifierType.fromValue);
     map.set("AudioSearchParams,AudioSubType", AudioSubType.fromValue);
     map.set("AudioSearchParams,AudioSubtype", AudioSubType.fromValue);
-    map.set("AvatarGenerationJob,Error", AvatarGenerationError.fromValue);
-    map.set("AvatarGenerationJob,Status", AvatarGenerationJobStatus.fromValue);
     map.set("StarterGui,RtlTextSupport", RtlTextSupport.fromValue);
     map.set("StarterGui,ScreenOrientation", ScreenOrientation.fromValue);
     map.set("StarterGui,VirtualCursorMode", VirtualCursorMode.fromValue);

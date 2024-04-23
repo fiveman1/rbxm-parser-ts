@@ -27,15 +27,7 @@ export enum DataType
     CFrame = 0x10,
     Enum = 0x12,
     Referent = 0x13,
-    /**
-     * Unsupported (seems deprecated).
-     * This is the only mention I could find of it being used:
-     * https://create.roblox.com/docs/reference/engine/classes/Terrain#PasteRegion
-     */
-    //Vector3int16 = 0x14, 
-    /**
-     * 
-     */
+    Vector3int16 = 0x14,
     NumberSequence = 0x15,
     ColorSequence = 0x16,
     NumberRange = 0x17,
@@ -47,7 +39,8 @@ export enum DataType
     Bytecode = 0x1d,
     OptionalCFrame = 0x1e,
     UniqueId = 0x1f,
-    Font = 0x20
+    Font = 0x20,
+    SecurityCapabilities = 0x21
 }
 
 type RobloxString = {
@@ -132,12 +125,17 @@ type RobloxEnum = {
 
 type RobloxReferent = {
     type: DataType.Referent
-    value: Instance
+    value: CoreInstance
 }
 
 type RobloxColor3uint8 = {
     type: DataType.Color3uint8
     value: Color3uint8
+}
+
+type RobloxVector3in16 = {
+    type: DataType.Vector3int16
+    value: Vector3
 }
 
 type RobloxNumberSequence = {
@@ -182,7 +180,7 @@ type RobloxBytecode = {
 
 type RobloxOptionalCFrame = {
     type: DataType.OptionalCFrame
-    value: OptionalCFrame
+    value: CFrame
 }
 
 type RobloxUniqueId = {
@@ -193,6 +191,11 @@ type RobloxUniqueId = {
 type RobloxFont = {
     type: DataType.Font
     value: RBXMFont
+}
+
+type RobloxSecurityCapabilities = {
+    type: DataType.SecurityCapabilities
+    value: bigint
 }
 
 export type RobloxValue = 
@@ -214,6 +217,7 @@ export type RobloxValue =
     | RobloxEnum
     | RobloxReferent
     | RobloxColor3uint8
+    | RobloxVector3in16
     | RobloxNumberSequence
     | RobloxColorSequence
     | RobloxNumberRange
@@ -225,6 +229,7 @@ export type RobloxValue =
     | RobloxOptionalCFrame
     | RobloxUniqueId
     | RobloxFont
+    | RobloxSecurityCapabilities
 ;
 
 type PropKeyType = {
@@ -244,8 +249,9 @@ type PropKeyType = {
     [DataType.Vector3]: Vector3
     [DataType.CFrame]: CFrame
     [DataType.Enum]: EnumItem
-    [DataType.Referent]: Instance
+    [DataType.Referent]: CoreInstance
     [DataType.Color3uint8]: Color3uint8
+    [DataType.Vector3int16]: Vector3
     [DataType.NumberSequence]: NumberSequence
     [DataType.ColorSequence]: ColorSequence
     [DataType.NumberRange]: NumberRange
@@ -254,9 +260,10 @@ type PropKeyType = {
     [DataType.Int64]: bigint
     [DataType.SharedString]: SharedStringValue
     [DataType.Bytecode]: string
-    [DataType.OptionalCFrame]: OptionalCFrame
+    [DataType.OptionalCFrame]: CFrame
     [DataType.UniqueId]: UniqueId
     [DataType.Font]: RBXMFont
+    [DataType.SecurityCapabilities]: bigint
 }
 
 export type SharedString = {
@@ -266,14 +273,14 @@ export type SharedString = {
 
 export abstract class ChildContainer
 {
-    protected readonly _children: Set<Instance> = new Set<Instance>();
+    protected readonly _children: Set<CoreInstance> = new Set<CoreInstance>();
 
     /**
      * Finds the first child that satisfies the given predicate.
      * @param predicate this will keep searching until the predicate returns true
      * @returns the first child that met the predicate, or undefined if none were found.
      */
-    public FindFirstChild(predicate: (child: Instance) => boolean)
+    public FindFirstChild(predicate: (child: CoreInstance) => boolean)
     {
         for (const child of this._children)
         {
@@ -292,7 +299,7 @@ export abstract class ChildContainer
      * @param predicate this will keep searching until the predicate returns true
      * @returns the first descendant that met the predicate, or undefined if none were found.
      */
-    public FindFirstDescendant(predicate: (child: Instance) => boolean): Instance | undefined
+    public FindFirstDescendant(predicate: (child: CoreInstance) => boolean): CoreInstance | undefined
     {
         for (const child of this._children)
         {
@@ -313,7 +320,7 @@ export abstract class ChildContainer
      * @param predicate this will include the child if the predicate returns true
      * @returns the list of children that met the predicate. This will have a length of 0 if none were found.
      */
-    public FindChildren(predicate: (child: Instance) => boolean)
+    public FindChildren(predicate: (child: CoreInstance) => boolean)
     {
         const children = [];
         for (const child of this._children)
@@ -332,12 +339,12 @@ export abstract class ChildContainer
 /**
  * Represents a single Roblox Instance. This is the base class of every Roblox object.
  */
-export class Instance extends ChildContainer
+export class CoreInstance extends ChildContainer
 {
     protected readonly _classNameList: string[] = [];
     protected readonly _isService: boolean;
     protected readonly _props: Map<string, RobloxValue> = new Map<string, RobloxValue>();
-    protected _parent?: Instance;
+    protected _parent?: CoreInstance;
 
     /**
      * Creates a new Instance.
@@ -346,7 +353,6 @@ export class Instance extends ChildContainer
     public constructor(isService: boolean = false, className?: string)
     {
         super();
-        this.addClassName("Instance");
         if (className) 
         {
             this.addClassName(className);
@@ -363,7 +369,7 @@ export class Instance extends ChildContainer
      * The children of this Instance. This is a readonly array; you cannot change children directly.
      * You must change the parent value of child instances if you want to move them.
      */
-    public get Children(): readonly Instance[]
+    public get Children(): readonly CoreInstance[]
     {
         return Array.from(this._children.values());
     }
@@ -381,7 +387,7 @@ export class Instance extends ChildContainer
         const prop = this._props.get(propName);
         if (prop?.type === type)
         {
-            return Instance.CopyValue(prop) as PropKeyType[T];
+            return CoreInstance.CopyValue(prop) as PropKeyType[T];
         }
         return undefined;
     }
@@ -400,6 +406,7 @@ export class Instance extends ChildContainer
             case DataType.Referent:
             case DataType.Enum:
             case DataType.Bytecode:
+            case DataType.SecurityCapabilities:
                 return rbxValue.value;
             default:
                 return rbxValue.value.Copy();
@@ -421,7 +428,7 @@ export class Instance extends ChildContainer
             this._props.delete(propName);
             return;
         }
-        const valueCopy = Instance.CopyValue({ type: type, value: value } as RobloxValue) as PropKeyType[T];
+        const valueCopy = CoreInstance.CopyValue({ type: type, value: value } as RobloxValue) as PropKeyType[T];
         this._props.set(propName, { type: type, value: valueCopy } as RobloxValue);
     }
 
@@ -466,12 +473,12 @@ export class Instance extends ChildContainer
     /**
      * The parent of this instance. This is undefined if the parent is the root of the model.
      */
-    public get Parent(): Instance | undefined
+    public get Parent(): CoreInstance | undefined
     {
         return this._parent;
     }
 
-    public set Parent(newParent: Instance | undefined)
+    public set Parent(newParent: CoreInstance | undefined)
     {
         if (this._parent)
         {
@@ -1064,15 +1071,6 @@ export class RBXMFont implements ICopyable
     public Copy()
     {
         return new RBXMFont(this.Family, this.Weight, this.Style, this.CachedFaceId) as this;
-    }
-}
-
-export class OptionalCFrame implements ICopyable
-{
-
-    public Copy()
-    {
-        return new OptionalCFrame() as this;
     }
 }
 

@@ -5,7 +5,7 @@
  */
 
 import axios from "axios";
-import { ChildContainer, Instance, SharedString } from "./roblox_types";
+import { ChildContainer, CoreInstance, SharedString } from "./roblox_types";
 import { RobloxModelDOMReader } from "./roblox_model_reader";
 
 // Helpful resources I used:
@@ -25,7 +25,7 @@ export class RobloxModel extends ChildContainer
      * The root instances of this model. This is a readonly array, to add or remove an instance
      * use AddToRoots and RemoveFromRoots
      */
-    public get Roots(): readonly Instance[]
+    public get Roots(): readonly CoreInstance[]
     {
         return Array.from(this._children.values());
     }
@@ -34,7 +34,7 @@ export class RobloxModel extends ChildContainer
      * Adds the given instance as a root of this model.
      * @param instance the instance
      */
-    public AddToRoots(instance: Instance)
+    public AddToRoots(instance: CoreInstance)
     {
         this._children.add(instance);
     }
@@ -43,7 +43,7 @@ export class RobloxModel extends ChildContainer
      * Removes the given instance as a root of this model.
      * @param instance the instance
      */
-    public RemoveFromRoots(instance: Instance)
+    public RemoveFromRoots(instance: CoreInstance)
     {
         this._children.delete(instance);
     }
@@ -76,14 +76,10 @@ export class RobloxModel extends ChildContainer
         }
     
         const location = data.locations[0].location;
-        const modelDomRes = await axios.get(location, {responseEncoding: "binary"});
-        // https://stackoverflow.com/questions/62839519/how-convert-a-string-to-type-uint8array-in-nodejs
-        const domData = Uint8Array.from(Array.from(modelDomRes.data).map(letter => (letter as string).charCodeAt(0)));
-        const start = Date.now();
-        const model = new RobloxModelDOMReader().read(domData);
-        const end = Date.now();
-        console.log(`Time spent reading model: ${(end - start) / 1000}`);
-        return model;
+
+        const modelDomRes = await axios.get(location, { responseEncoding: "binary", responseType: "arraybuffer" });
+
+        return RobloxModel.ReadFromBuffer(modelDomRes.data);
     }
 
     /**

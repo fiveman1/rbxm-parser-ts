@@ -5,9 +5,9 @@
  */
 
 import { RobloxModel } from "./roblox_model";
-import { DataType, RobloxValue, Instance, UDim, UDim2, Vector3, Ray, Faces, RBXMFace, Axes, RBXMAxis, Color3, Vector2, CFrame, 
+import { DataType, RobloxValue, CoreInstance, UDim, UDim2, Vector3, Ray, Faces, RBXMFace, Axes, RBXMAxis, Color3, Vector2, CFrame, 
     Color3uint8, SharedStringValue, NumberSequenceKeypoint, NumberSequence, ColorSequence, ColorSequenceKeypoint, NumberRange, 
-    Rect, PhysicalProperties, EnumItem, UniqueId, RBXMFont} from "./roblox_types";
+    Rect, PhysicalProperties, EnumItem, UniqueId, RBXMFont } from "./roblox_types";
 import { RobloxModelByteReader } from "./roblox_model_reader";
 import { EnumFactory, NormalId } from "../generated/generated_types";
 
@@ -25,7 +25,7 @@ export enum ChunkType
 export type RobloxClass = {
     name: string
     isService: boolean
-    instances: Array<Instance>
+    instances: Array<CoreInstance>
     referentIdToIndex: Map<number, number>
 }
 
@@ -60,19 +60,23 @@ export abstract class RobloxModelDOM
         this.dataTypeParsers.set(DataType.Enum, new EnumParser());
         this.dataTypeParsers.set(DataType.Referent, new ReferentParser());
         this.dataTypeParsers.set(DataType.Color3uint8, new Color3uint8Parser());
+        this.dataTypeParsers.set(DataType.Vector3int16, new Vector3int16Parser());
         this.dataTypeParsers.set(DataType.NumberSequence, new NumberSequenceParser());
         this.dataTypeParsers.set(DataType.ColorSequence, new ColorSequenceParser());
+        this.dataTypeParsers.set(DataType.NumberRange, new NumberRangeParser());
         this.dataTypeParsers.set(DataType.Rect, new RectParser());
         this.dataTypeParsers.set(DataType.PhysicalProperties, new PhysicalPropertiesParser());
         this.dataTypeParsers.set(DataType.Int64, new Int64Parser());
         this.dataTypeParsers.set(DataType.SharedString, new SharedStringParser());
         this.dataTypeParsers.set(DataType.Bytecode, new BytecodeParser());
+        this.dataTypeParsers.set(DataType.OptionalCFrame, new OptionalCFrameParser());
         this.dataTypeParsers.set(DataType.UniqueId, new UniqueIdParser());
         this.dataTypeParsers.set(DataType.Font, new FontParser());
+        this.dataTypeParsers.set(DataType.SecurityCapabilities, new SecurityCapabilitiesParser());
     }
 }
 
-type InstanceFromReferent = (referent: number) => Instance | null;
+type InstanceFromReferent = (referent: number) => CoreInstance | null;
 
 export type DataParserExtraInfo = {
     enumFactory?: EnumFactory;
@@ -401,6 +405,20 @@ export class Color3uint8Parser extends DataTypeParser
     }
 }
 
+export class Vector3int16Parser extends DataTypeParser 
+{
+    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    {
+        for (let i = 0; i < numInstances; ++i)
+        {
+            const x = bytes.getInt16();
+            const y = bytes.getInt16();
+            const z = bytes.getInt16();
+            outValues.push({ type: DataType.Vector3int16, value: new Vector3(x, y, z) });
+        }
+    }
+}
+
 export class NumberSequenceParser extends DataTypeParser 
 {
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
@@ -537,6 +555,30 @@ export class BytecodeParser extends DataTypeParser
     }
 }
 
+export class OptionalCFrameParser extends DataTypeParser 
+{
+    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    {
+        bytes.getUint8();
+        const cFrameValues: (RobloxValue | undefined)[] = [];
+        new CFrameParser().read(bytes, numInstances, cFrameValues);
+        bytes.getUint8();
+        for (let i = 0; i < numInstances; ++i)
+        {
+            const hasValue = bytes.getBool();
+            const cFrame = cFrameValues[i];
+            if (hasValue && cFrame)
+            {
+                outValues.push({ type: DataType.OptionalCFrame, value: cFrame.value as CFrame });
+            }
+            else
+            {
+                outValues.push(undefined);
+            }
+        }
+    }
+}
+
 export class UniqueIdParser extends DataTypeParser 
 {
     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
@@ -569,6 +611,19 @@ export class FontParser extends DataTypeParser
             const style = bytes.getUint8();
             const cachedFaceId = bytes.getString();
             outValues.push({ type: DataType.Font, value: new RBXMFont(family, weight, style, cachedFaceId) });
+        }
+    }
+}
+
+export class SecurityCapabilitiesParser extends DataTypeParser 
+{
+    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    {
+        const values = bytes.getInterleavedUint64Array(numInstances);
+
+        for (let i = 0; i < numInstances; ++i)
+        {
+            outValues.push({ type: DataType.SecurityCapabilities, value: values[i] });
         }
     }
 }

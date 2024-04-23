@@ -5,11 +5,11 @@
  */
 
 import fs from "fs";
-import { Instance } from "./lib/roblox_types";
+import { CoreInstance } from "./lib/roblox_types";
 import { RobloxModel } from "./lib/roblox_model";
 import { Material } from "./generated/generated_types";
 
-function depthFirstPrint(instance: Instance, level: number)
+function depthFirstPrint(instance: CoreInstance, level: number)
 {
     let s = "";
     for (let i = 0; i < level - 1; ++i)
@@ -30,15 +30,15 @@ function depthFirstPrint(instance: Instance, level: number)
 
 async function main()
 {
-    //const name = "test";
-    //const model = RobloxModel.fromBuffer(fs.readFileSync(`input_files/${name}.rbxm`));
-    //const model = RobloxModel.fromBuffer(fs.readFileSync(`input_files/${name}.rbxl`));
+    //const name = "v16";
+    //const model = RobloxModel.ReadFromBuffer(fs.readFileSync(`input_files/${name}.rbxm`));
+    //const model = RobloxModel.ReadFromBuffer(fs.readFileSync(`input_files/${name}.rbxl`));
 
     //const assetId = 5258147910; // Map making starter kit
     //const assetId = 5227232138; // Numismatic
-    //const assetId = 17195837905; // my test model
+    const assetId = 17195837905; // my test model
 
-    const assetId = 4249137687; // Arcane
+    //const assetId = 4249137687; // Arcane
     const model = await RobloxModel.ReadFromAssetId(assetId);
 
     if (!model)
