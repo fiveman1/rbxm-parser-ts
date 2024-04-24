@@ -106,11 +106,10 @@ class Tags {
 }
 
 const DataTypeInfo = new Map<string, string>([
-    ["Content", "String"],
-    ["BinaryString", "String"],
-    ["ProtectedString", "String"],
-    ["OptionalCoordinateFrame", "OptionalCFrame"],
-    ["Color3uint8", "Color3"]
+    ["Content", DataType[DataType.String]],
+    ["BinaryString", DataType[DataType.String]],
+    ["ProtectedString", DataType[DataType.String]],
+    ["OptionalCoordinateFrame", DataType[DataType.OptionalCFrame]]
 ]);
 
 [
@@ -133,7 +132,8 @@ const DataTypeInfo = new Map<string, string>([
     DataType.Ray,
     DataType.UniqueId,
     DataType.Vector3int16,
-    DataType.SecurityCapabilities
+    DataType.SecurityCapabilities,
+    DataType.Color3uint8
 ]
 .forEach((type) => DataTypeInfo.set(DataType[type], DataType[type]));
 

@@ -70,6 +70,8 @@ async function main()
         console.log(`First part material: ${firstPart.Material}`);
         firstPart.Material = Material.Brick;
         console.log(`First part material: ${firstPart.Material}`);
+
+        console.log(firstPart.Color3uint8?.toString());
     }
 
     const mapStringValues = root.FindChildrenOfClass("StringValue", (child) => child.Name === "DisplayName" || child.Name === "Creator");

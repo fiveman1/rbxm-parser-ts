@@ -34,7 +34,7 @@ const model = await RobloxModel.ReadFromAssetId(4249137687);
 From a file:
 
 ```ts
-const model = RobloxModel.ReadFromBuffer(fs.readFileSync(`MyRobloxModel.rbxm`));
+const model = RobloxModel.ReadFromBuffer(fs.readFileSync("MyRobloxModel.rbxm"));
 ```
 
 Note: When you load a model, it can have a return type of `null` in case the provided model was invalid, or the provided asset ID was not a model.

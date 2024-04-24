@@ -2,7 +2,7 @@
 * @author https://github.com/fiveman1
 * @file generated_types.ts
 * Contains generated types for Roblox classes and enums.
-* Generated on 4/23/2024, 11:15:33 AM
+* Generated on 4/24/2024, 2:34:05 PM
 */
 
 import { DataType, CoreInstance, EnumItem } from "../lib/roblox_types";
@@ -2062,6 +2062,11 @@ export class GamepadService extends Instance {
     public set GamepadCursorEnabled(value) {this.SetProp("GamepadCursorEnabled", DataType.Bool, value);}
 }
 
+export class GenericChallengeService extends Instance {
+    protected constructor() {super(true); this.addClassName("GenericChallengeService");}
+    public static New() {return new GenericChallengeService();}
+}
+
 export class Geometry extends Instance {
     protected constructor() {super(true); this.addClassName("Geometry");}
     public static New() {return new Geometry();}
@@ -3809,8 +3814,8 @@ export abstract class BasePart extends PVInstance {
     public get CollisionGroupId() {return this.GetProp("CollisionGroupId", DataType.Int32);}
     /**@deprecated Deprecated by Roblox*/
     public set CollisionGroupId(value) {this.SetProp("CollisionGroupId", DataType.Int32, value);}
-    public get Color3uint8() {return this.GetProp("Color3uint8", DataType.Color3);}
-    public set Color3uint8(value) {this.SetProp("Color3uint8", DataType.Color3, value);}
+    public get Color3uint8() {return this.GetProp("Color3uint8", DataType.Color3uint8);}
+    public set Color3uint8(value) {this.SetProp("Color3uint8", DataType.Color3uint8, value);}
     public get CustomPhysicalProperties() {return this.GetProp("CustomPhysicalProperties", DataType.PhysicalProperties);}
     public set CustomPhysicalProperties(value) {this.SetProp("CustomPhysicalProperties", DataType.PhysicalProperties, value);}
     /**@deprecated Deprecated by Roblox*/
@@ -6646,6 +6651,7 @@ export type NameToClass = {
     ["FunctionalTest"]: FunctionalTest
     ["GamePassService"]: GamePassService
     ["GamepadService"]: GamepadService
+    ["GenericChallengeService"]: GenericChallengeService
     ["Geometry"]: Geometry
     ["GeometryService"]: GeometryService
     ["GetTextBoundsParams"]: GetTextBoundsParams
@@ -7246,6 +7252,7 @@ function getClassMap() {
     map.set("FunctionalTest", FunctionalTest.New);
     map.set("GamePassService", GamePassService.New);
     map.set("GamepadService", GamepadService.New);
+    map.set("GenericChallengeService", GenericChallengeService.New);
     map.set("Geometry", Geometry.New);
     map.set("GeometryService", GeometryService.New);
     map.set("GetTextBoundsParams", GetTextBoundsParams.New);
