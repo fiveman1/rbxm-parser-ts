@@ -57,6 +57,15 @@ if (firstPart)
     firstPart.CanCollide = !firstPart.CanCollide;
     firstPart.Material = Material.Brick; // Material is an enum that can be imported
 }
+
+const baseParts = root.FindChildrenOfClass("BasePart");
+for (const part of baseParts)
+{
+    if (part.IsA("Part")) // Use "IsA" for type safety
+    {
+        part.Shape = PartType.Cylinder; // Shape is a property of the class Part, but not BasePart
+    }
+}
 ```
 
 All of the above property gets and sets are strongly typed.

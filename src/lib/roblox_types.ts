@@ -294,7 +294,7 @@ export abstract class ChildContainer
      */
     public FindFirstChildOfClass<T extends keyof NameToClass>(className: T, predicate?: (child: NameToClass[T]) => boolean): NameToClass[T] | undefined
     {
-        return this.FindFirstChild((child) => child.IsA(className) && (!predicate || predicate(child as NameToClass[T]))) as NameToClass[T];
+        return this.FindFirstChild((child) => child.IsA(className) && (!predicate || predicate(child))) as NameToClass[T];
     }
 
     /**
@@ -321,7 +321,7 @@ export abstract class ChildContainer
      */
     public FindFirstDescendantOfClass<T extends keyof NameToClass>(className: T, predicate?: (child: NameToClass[T]) => boolean): NameToClass[T] | undefined
     {
-        return this.FindFirstDescendant((child) => child.IsA(className) && (!predicate || predicate(child as NameToClass[T]))) as NameToClass[T];
+        return this.FindFirstDescendant((child) => child.IsA(className) && (!predicate || predicate(child))) as NameToClass[T];
     }
 
     /**
@@ -346,7 +346,7 @@ export abstract class ChildContainer
      */
     public FindChildrenOfClass<T extends keyof NameToClass>(className: T, predicate?: (child: NameToClass[T]) => boolean): NameToClass[T][]
     {
-        return this.FindChildren((child) => child.IsA(className) && (!predicate || predicate(child as NameToClass[T]))) as NameToClass[T][];
+        return this.FindChildren((child) => child.IsA(className) && (!predicate || predicate(child))) as NameToClass[T][];
     }
 
     /**
@@ -376,7 +376,7 @@ export abstract class ChildContainer
      */
     public FindDescendantsOfClass<T extends keyof NameToClass>(className: T, predicate?: (child: NameToClass[T]) => boolean): NameToClass[T][]
     {
-        return this.FindDescendants((child) => child.IsA(className) && (!predicate || predicate(child as NameToClass[T]))) as NameToClass[T][];
+        return this.FindDescendants((child) => child.IsA(className) && (!predicate || predicate(child))) as NameToClass[T][];
     }
 }
 
@@ -544,7 +544,17 @@ export class CoreInstance extends ChildContainer
      * @param className the class name
      * @returns whether or not this is an instance of the given class name.
      */
-    public IsA(className: string)
+    public IsA<T extends keyof NameToClass>(className: T): this is NameToClass[T]
+    {
+        return this._classNameList.includes(className);
+    }
+
+    /**
+     * This is like IsA but allows any string to be used. Does not provide strong typing unlike IsA.
+     * @param className the class name
+     * @returns whether or not this is an instance of the given class name.
+     */
+    public IsARaw(className: string)
     {
         return this._classNameList.includes(className);
     }
