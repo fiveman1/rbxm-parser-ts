@@ -10,6 +10,7 @@ import { RobloxModel } from "./roblox_model";
 import { DataType, RobloxValue, CoreInstance } from "./roblox_types";
 import { ChunkType, DataParserExtraInfo, RobloxModelDOM } from "./roblox_model_dom";
 import { ClassMap, EnumMap } from "../generated/generated_types";
+import { bytesToBitArray } from "./util";
 
 /**
  * This class can read .rbxm bytes to create a RobloxModel.
@@ -139,11 +140,12 @@ export class RobloxModelDOMReader extends RobloxModelDOM
 
     protected readChunkContentBytes(compressedLength: number, uncompressedLength: number)
     {
-        let byteArray : Uint8Array;
+        let byteArray;
         if (compressedLength !== 0)
         {
             // Load compressed bytes
             const compressedBytes = this.data.getBytes(compressedLength);
+            byteArray = Buffer.allocUnsafe(uncompressedLength);
 
             if (compressedBytes[0] === 0x28 &&
                 compressedBytes[1] === 0xb5 &&
@@ -151,16 +153,12 @@ export class RobloxModelDOMReader extends RobloxModelDOM
                 compressedBytes[3] === 0xfd)
             {
                 // Use zstd to decompress
-                byteArray = new Uint8Array(uncompressedLength);
                 fzstd.decompress(compressedBytes, byteArray);
             }
             else
             {
                 // Use lz4 to decompress
-                // lz4 requires a buffer object instead of a Uint8array
-                const decompressedBuffer = Buffer.alloc(uncompressedLength);
-                lz4.decodeBlock(Buffer.from(compressedBytes), decompressedBuffer);
-                byteArray = Uint8Array.from(decompressedBuffer);
+                lz4.decodeBlock(Buffer.from(compressedBytes), byteArray);
             }
         }
         else
@@ -313,25 +311,30 @@ export class RobloxModelDOMReader extends RobloxModelDOM
     }
 }
 
-export class RobloxModelByteReader {
+export class RobloxModelByteReader 
+{
     protected readonly data: Uint8Array;
     protected idx: number = 0;
 
-    public constructor(data: Uint8Array = new Uint8Array()) {
+    public constructor(data: Uint8Array = new Uint8Array()) 
+    {
         this.data = data;
     }
 
-    public get length() {
+    public get length() 
+    {
         return this.data.length;
     }
 
-    public getUint8() {
+    public getUint8() 
+    {
         const val = this.data[this.idx];
         ++this.idx;
         return val;
     }
 
-    protected getUintOfSize(numBytes: number) {
+    protected getUintOfSize(numBytes: number) 
+    {
         let val = 0;
         for (let i = 0; i < numBytes; ++i) {
             val += this.getUint8() << (i * 8);
@@ -339,53 +342,38 @@ export class RobloxModelByteReader {
         return val;
     }
 
-    public getUint16() {
+    public getUint16() 
+    {
         return this.getUintOfSize(2);
     }
 
-    public getUint32() {
+    public getUint32() 
+    {
         return this.getUintOfSize(4);
     }
 
-    public getUint64() {
-        return this.getUintOfSize(8);
-    }
-
-    public static bytesToInt32(bytes: Uint8Array) {
+    public static bytesToInt32(bytes: Uint8Array) 
+    {
         return Buffer.from(bytes).readInt32BE(0);
     }
 
-    public static untransformInt32(int32: number) {
+    public static untransformInt32(int32: number) 
+    {
         return (int32 >> 1) ^ -(int32 & 1);
     }
 
-    public static untransformInt64(int64: bigint) {
+    public static untransformInt64(int64: bigint) 
+    {
         return (int64 >> BigInt(1)) ^ -(int64 & BigInt(1));
     }
 
-    public static bytesToBitArray(bytes: Uint8Array) {
-        const output = new Uint8Array(bytes.length * 8);
-
-        for (let i = 0; i < bytes.length; i++) {
-            const val = bytes[i];
-            const offset = i * 8;
-            // Read 1 byte at a time
-            for (let j = 0; j < 8; ++j) {
-                const bit = (val >> j) & 1;
-                // The bits are being read in reverse order
-                output[7 - j + offset] = bit;
-            }
-        }
-
-        return output;
-    }
-
-    public static bytesToRobloxFloat32(bytes: Uint8Array) {
+    public static bytesToRobloxFloat32(bytes: Uint8Array) 
+    {
         // https://dom.rojo.space/binary#roblox-float-format
         // Standard format: seeeeeee emmmmmmm mmmmmmmm mmmmmmmm
         // Roblox format:   eeeeeeee mmmmmmmm mmmmmmmm mmmmmmms
         // We will swap the sign bit by interpreting the data as bits and swapping the sign bit from the back to the front.
-        const robloxBitArray = RobloxModelByteReader.bytesToBitArray(bytes);
+        const robloxBitArray = bytesToBitArray(bytes);
         const standardBitArray = new Uint8Array(32);
         for (let i = 0; i < 31; ++i) {
             standardBitArray[i + 1] = robloxBitArray[i];
@@ -408,7 +396,8 @@ export class RobloxModelByteReader {
         return Buffer.from(outBytes).readFloatBE(0);
     }
 
-    protected getBytesReversed(numBytes: number) {
+    protected getBytesReversed(numBytes: number) 
+    {
         const bytes = new Uint8Array(numBytes);
         for (let i = numBytes - 1; i >= 0; --i) {
             bytes[i] = this.getUint8();
@@ -416,32 +405,38 @@ export class RobloxModelByteReader {
         return bytes;
     }
 
-    public getInt16() {
+    public getInt16() 
+    {
         const bytes = this.getBytes(2);
         return Buffer.from(bytes).readInt16LE(0);
     }
 
-    public getInt32() {
+    public getInt32() 
+    {
         const bytes = this.getBytesReversed(4);
         return RobloxModelByteReader.bytesToInt32(bytes);
     }
 
-    public getInt64() {
+    public getInt64() 
+    {
         const bytes = this.getBytes(8);
         return Buffer.from(bytes).readBigInt64LE(0);
     }
 
-    public getFloat32() {
+    public getFloat32() 
+    {
         const bytes = this.getBytes(4);
         return Buffer.from(bytes).readFloatLE(0);
     }
 
-    public getFloat64() {
+    public getFloat64() 
+    {
         const bytes = this.getBytes(8);
         return Buffer.from(bytes).readDoubleLE(0);
     }
 
-    public getBytes(numBytes: number) {
+    public getBytes(numBytes: number) 
+    {
         const bytes = new Uint8Array(numBytes);
         for (let i = 0; i < numBytes; ++i) {
             bytes[i] = this.data[this.idx];
@@ -450,7 +445,8 @@ export class RobloxModelByteReader {
         return bytes;
     }
 
-    public getBytesAsString(numBytes: number) {
+    public getBytesAsString(numBytes: number) 
+    {
         let s = "";
         for (let i = 0; i < numBytes; ++i) {
             s += String.fromCharCode(this.data[this.idx]);
@@ -459,20 +455,24 @@ export class RobloxModelByteReader {
         return s;
     }
 
-    public skipBytes(numBytes: number) {
+    public skipBytes(numBytes: number) 
+    {
         this.idx += numBytes;
     }
 
-    public getString() {
+    public getString() 
+    {
         const length = this.getUint32();
         return this.getBytesAsString(length);
     }
 
-    public getBool() {
+    public getBool() 
+    {
         return this.getUint8() !== 0;
     }
 
-    public static convertInterleaved<T>(bytes: Uint8Array, length: number, converter: (bytes: Uint8Array) => T) {
+    public static convertInterleaved<T>(bytes: Uint8Array, length: number, converter: (bytes: Uint8Array) => T) 
+    {
         const byteSize = bytes.length / length;
         const rotatedBytes = new Array<T>(length);
 
@@ -488,14 +488,16 @@ export class RobloxModelByteReader {
         return rotatedBytes;
     }
 
-    public getInterleavedFloat32Array(length: number) {
+    public getInterleavedFloat32Array(length: number) 
+    {
         const interleavedBytes = this.getBytes(length * 4);
 
         // Convert interleaved bytes to Float32 array
         return RobloxModelByteReader.convertInterleaved(interleavedBytes, length, RobloxModelByteReader.bytesToRobloxFloat32);
     }
 
-    public getInterleavedInt32Array(length: number) {
+    public getInterleavedInt32Array(length: number) 
+    {
         const interleavedBytes = this.getBytes(length * 4);
 
         // Convert interleaved bytes to Int32 array
@@ -505,14 +507,16 @@ export class RobloxModelByteReader {
         return bytes.map(RobloxModelByteReader.untransformInt32);
     }
 
-    public getInterleavedUint32Array(length: number) {
+    public getInterleavedUint32Array(length: number) 
+    {
         const interleavedBytes = this.getBytes(length * 4);
 
         // Convert interleaved bytes to Uint32 array
         return RobloxModelByteReader.convertInterleaved(interleavedBytes, length, (bytes) => Buffer.from(bytes).readUint32BE(0));
     }
 
-    public getInterleavedInt64Array(length: number) {
+    public getInterleavedInt64Array(length: number) 
+    {
         const interleavedBytes = this.getBytes(length * 8);
 
         // Convert interleaved bytes to Uint32 array
@@ -522,14 +526,16 @@ export class RobloxModelByteReader {
         return bytes.map(RobloxModelByteReader.untransformInt64);
     }
 
-    public getInterleavedUint64Array(length: number) {
+    public getInterleavedUint64Array(length: number) 
+    {
         const interleavedBytes = this.getBytes(length * 8);
 
         // Convert interleaved bytes to Uint32 array
         return RobloxModelByteReader.convertInterleaved(interleavedBytes, length, (bytes) => Buffer.from(bytes).readBigUint64BE(0));
     }
 
-    public getFloat32Array(length: number) {
+    public getFloat32Array(length: number) 
+    {
         const bytes = new Array<number>(length);
         for (let i = 0; i < length; ++i) {
             bytes[i] = this.getFloat32();
@@ -537,7 +543,8 @@ export class RobloxModelByteReader {
         return bytes;
     }
 
-    public getFloat64Array(length: number) {
+    public getFloat64Array(length: number) 
+    {
         const bytes = new Array<number>(length);
         for (let i = 0; i < length; ++i) {
             bytes[i] = this.getFloat64();
@@ -545,7 +552,8 @@ export class RobloxModelByteReader {
         return bytes;
     }
 
-    public getReferentArray(length: number) {
+    public getReferentArray(length: number) 
+    {
         const referents = this.getInterleavedInt32Array(length);
 
         // Referent values are "accumulated"

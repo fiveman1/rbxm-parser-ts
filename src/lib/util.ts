@@ -44,3 +44,21 @@ export function narrowCopyArray<T>(arr: T[])
     }
     return copyArr;
 }
+
+export function bytesToBitArray(bytes: Uint8Array) 
+{
+    const output = new Uint8Array(bytes.length * 8);
+
+    for (let i = 0; i < bytes.length; i++) {
+        const val = bytes[i];
+        const offset = i * 8;
+        // Read 1 byte at a time
+        for (let j = 0; j < 8; ++j) {
+            const bit = (val >> j) & 1;
+            // The bits are being read in reverse order
+            output[7 - j + offset] = bit;
+        }
+    }
+
+    return output;
+}
