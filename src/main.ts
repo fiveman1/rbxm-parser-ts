@@ -7,7 +7,7 @@
 import fs from "fs";
 import { CoreInstance } from "./lib/roblox_types";
 import { RobloxModel } from "./lib/roblox_model";
-import { Material, PartType } from "./generated/generated_types";
+import { Material } from "./generated/generated_types";
 
 function depthFirstPrint(instance: CoreInstance, level: number)
 {
@@ -77,12 +77,13 @@ async function main()
     const mapStringValues = root.FindChildrenOfClass("StringValue", (child) => child.Name === "DisplayName" || child.Name === "Creator");
     console.log("\n" + mapStringValues.join("\n"));
 
-    const baseParts = root.FindChildrenOfClass("BasePart");
+    const baseParts = root.FindDescendantsOfClass("BasePart");
     for (const part of baseParts)
     {
         if (part.IsA("Part"))
         {
-            part.Shape = PartType.Cylinder;
+            console.log(part.Shape?.toString());
+            break;
         }
     }
 
