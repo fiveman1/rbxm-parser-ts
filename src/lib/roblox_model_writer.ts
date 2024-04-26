@@ -11,17 +11,261 @@ import lz4 from "lz4";
 import * as fzstd from "fzstd";
 import { RobloxModel } from "./roblox_model";
 import { DataType, RobloxValue, CoreInstance } from "./roblox_types";
-import { ChunkType, DataParserExtraInfo, RobloxModelDOM } from "./roblox_model_dom";
+import { ChunkType, DataParserExtraInfo, RobloxClass, RobloxModelDOM } from "./roblox_model_dom";
 import { bytesToBitArray } from "./util";
 
 export class RobloxModelDOMWriter extends RobloxModelDOM
 {
-    protected readonly stream: fs.WriteStream;
+    protected stream: fs.WriteStream;
+    protected model: RobloxModel;
+    protected instToRefId: Map<CoreInstance, number> = new Map<CoreInstance, number>();
+    protected instToClassId: Map<CoreInstance, number> = new Map<CoreInstance, number>();
+    protected numInstances = 0;
+    protected numClasses = 0;
 
-    public constructor(fname: string)
+    public constructor(fname: string, model: RobloxModel)
     {
         super();
         this.stream = fs.createWriteStream(fname, { encoding: "binary", flags: "w+" });
+        this.model = model;
+        this.instToRefId = model.ReferentMap;
+    }
+
+    public write()
+    {
+        this.setup();
+
+        this.writeHeader();
+
+        this.writeMetaChunk();
+
+        for (const [classId, info] of this.classIdToInfo)
+        {
+            this.writeInstChunk(classId, info);
+        }
+
+        for (const [classId, info] of this.classIdToInfo)
+        {
+            const props = this.collectProperties(info.instances);
+            for (const [name, type] of props)
+            {
+                this.writePropChunk(classId, info.instances, name, type);
+            }
+        }
+
+        this.writeSstrChunk();
+
+        this.writePrntChunk();
+
+        this.writeEndChunk();
+
+        this.stream.end();
+        this.stream.close();
+    }
+
+    protected collectProperties(instances: CoreInstance[])
+    {
+        const props = new Map<string, DataType>();
+        for (const inst of instances)
+        {
+            for (const [name, value] of inst.Props)
+            {
+                if (!props.has(name))
+                {
+                    props.set(name, value.type);
+                }
+                else if (props.get(name) !== value.type)
+                {
+                    throw new Error(`Found instances with non-unique property types (class ${inst.ClassName}, property: ${name}, types: ${DataType[props.get(name)!]} and ${DataType[value.type]})`);
+                }
+            }
+        }
+        return props;
+    }
+
+    protected setup()
+    {
+        let lastReferent = -1;
+        for (const referent of this.instToRefId.values())
+        {
+            if (referent > lastReferent)
+            {
+                lastReferent = referent;
+            }
+        }
+
+        const instances = this.model.GetAllDescendants();
+        this.numInstances = instances.length;
+
+        const classNameToId = new Map<string, number>();
+        let lastClassId = -1;
+        for (const instance of instances)
+        {
+            let refId: number;
+            if (!this.instToRefId.has(instance))
+            {
+                ++lastReferent;
+                this.instToRefId.set(instance, lastReferent);
+                refId = lastReferent;
+            }
+            else
+            {
+                refId = this.instToRefId.get(instance)!;
+            }
+            if (!classNameToId.has(instance.ClassName))
+            {
+                ++lastClassId;
+                classNameToId.set(instance.ClassName, lastClassId);
+                this.classIdToInfo.set(lastClassId, {
+                    name: instance.ClassName,
+                    isService: instance.IsService,
+                    instances: [instance],
+                    referentIdToIndex: new Map<number, number>([[refId, 0]])
+                });
+            }
+            else
+            {
+                const classId = classNameToId.get(instance.ClassName)!;
+                const info = this.classIdToInfo.get(classId)!;
+                info.instances.push(instance);
+                info.referentIdToIndex.set(refId, info.instances.length - 1);
+            }
+            
+        }
+
+        this.numClasses = this.classIdToInfo.size;
+    }
+
+    protected writeHeader()
+    {
+        const writer = new RobloxModelByteWriter();
+        writer.putStringAsBytes(this.MAGIC_HEADER);
+        writer.putUint16(0); // Version
+        writer.putInt32(this.numClasses);
+        writer.putInt32(this.numInstances);
+        writer.putBytes(new Uint8Array(8)); // 8 empty bytes
+        this.stream.write(writer.bytes);
+        console.log(writer.bytes);
+    }
+
+    protected writeChunk(type: ChunkType, data: Uint8Array)
+    {
+        const writer = new RobloxModelByteWriter();
+        const { compressedLength, uncompressedLength, bytes } = this.compressData(type, data);
+        writer.putStringAsBytes(type);
+        writer.putUint32(compressedLength);
+        writer.putUint32(uncompressedLength);
+        writer.putBytes(new Uint8Array(4)); // 4 empty bytes
+        this.stream.write(writer.bytes);
+        this.stream.write(bytes);
+    }
+
+    protected compressData(type: ChunkType, data: Uint8Array)
+    {
+        if (type === ChunkType.END)
+        {
+            // Don't compress the end chunk
+            return {
+                compressedLength: data.length,
+                uncompressedLength: data.length,
+                bytes: data
+            };
+        }
+
+        const bytes = lz4.encode(Buffer.from(data), { streamChecksum: false });
+
+        return {
+            compressedLength: bytes.length,
+            uncompressedLength: data.length,
+            bytes: bytes
+        };
+    }
+
+    protected writeMetaChunk()
+    {
+        const writer = new RobloxModelByteWriter();
+
+        writer.putUint32(this.model.Metadata.size);
+
+        for (const [key, value] of this.model.Metadata)
+        {
+            writer.putString(key);
+            writer.putString(value);
+        }
+
+        this.writeChunk(ChunkType.META, writer.bytes);
+    }
+
+    protected writeSstrChunk()
+    {
+        const writer = new RobloxModelByteWriter();
+
+        writer.putUint32(0); // Version
+        writer.putUint32(this.model.SharedStrings.length);
+
+        for (const sharedString of this.model.SharedStrings)
+        {
+            writer.putStringAsBytes(sharedString.Hash);
+            writer.putString(sharedString.SharedString);
+        }
+
+        this.writeChunk(ChunkType.SSTR, writer.bytes);
+    }
+
+    protected writeInstChunk(classId: number, info: RobloxClass)
+    {
+        const writer = new RobloxModelByteWriter();
+
+        writer.putUint32(classId);
+        writer.putString(info.name);
+        writer.putBool(info.isService);
+        writer.putUint32(info.instances.length);
+
+        const refs: number[] = [];
+        for (const inst of info.instances)
+        {
+            refs.push(this.instToRefId.get(inst)!);
+        }
+
+        writer.putReferentArray(refs);
+
+        this.writeChunk(ChunkType.INST, writer.bytes);
+    }
+
+    protected writePropChunk(classId: number, instances: CoreInstance[], propName: string, type: DataType)
+    {
+
+    }
+
+    protected writePrntChunk()
+    {
+        const writer = new RobloxModelByteWriter();
+
+        writer.putUint8(0);
+        writer.putUint32(this.numInstances);
+
+        const childRefs: number[] = [];
+        const parentRefs: number[] = [];
+        for (const [inst, ref] of this.instToRefId)
+        {
+            childRefs.push(ref);
+            const parentRef = inst.Parent ? this.instToRefId.get(inst.Parent)! : -1;
+            parentRefs.push(parentRef);
+        }
+
+        writer.putReferentArray(childRefs);
+        writer.putReferentArray(parentRefs);
+
+        this.writeChunk(ChunkType.PRNT, writer.bytes);
+    }
+
+    protected writeEndChunk()
+    {
+        const writer = new RobloxModelByteWriter();
+
+        writer.putStringAsBytes(this.MAGIC_END);
+
+        this.writeChunk(ChunkType.END, writer.bytes);
     }
 }
 
@@ -41,19 +285,25 @@ export class RobloxModelByteWriter
 
     protected putUintOfSize(uint: number, numBytes: number) 
     {
-        for (let i = 0; i < numBytes; ++i) {
-            this.putUint8((uint >> (i * 8)) & 0xff);
+        for (let i = 0; i < numBytes; ++i) 
+        {
+            this.putUint8((uint << (i * 8)) & 0xff);
         }
     }
 
     public putUint16(uint16: number) 
     {
-        return this.putUintOfSize(uint16, 2);
+        const buf = Buffer.alloc(2);
+        buf.writeUInt16BE(uint16);
+        this.putBytes(buf);
     }
 
     public putUint32(uint32: number) 
     {
-        return this.putUintOfSize(uint32, 4);
+        const buf = Buffer.alloc(4);
+        buf.writeUInt32BE(uint32);
+        this.putBytes(buf);
+        //return this.putUintOfSize(uint32, 4);
     }
 
     public static int32ToBytes(int32: number) 
@@ -84,7 +334,8 @@ export class RobloxModelByteWriter
 
         const sharedBitArray = bytesToBitArray(bytes);
         const robloxBitArray = new Uint8Array(32);
-        for (let i = 0; i < 31; ++i) {
+        for (let i = 0; i < 31; ++i) 
+        {
             robloxBitArray[i + 1] = sharedBitArray[i];
         }
         robloxBitArray[0] = sharedBitArray[31]; // Swap the sign bit!
@@ -92,10 +343,12 @@ export class RobloxModelByteWriter
 
         // Convert back to a byte array
         const outBytes = new Uint8Array(4);
-        for (let i = 0; i < 4; ++i) {
+        for (let i = 0; i < 4; ++i) 
+        {
             let val = 0;
             const offset = i * 8;
-            for (let j = 0; j < 8; ++j) {
+            for (let j = 0; j < 8; ++j) 
+            {
                 val |= robloxBitArray[j + offset] << (7 - j);
             }
             outBytes[i] = val;
@@ -104,23 +357,26 @@ export class RobloxModelByteWriter
         return robloxBitArray;
     }
 
-    protected putBytesReversed(uint: number, numBytes: number) 
+    protected putBytesReversed(bytes: Uint8Array) 
     {
-        for (let i = numBytes - 1; i >= 0; --i) {
-            this.putUint8((uint >> (i * 8)) & 0xff);
+        for (let i = bytes.length - 1; i >= 0; --i) 
+        {
+            this.putUint8(bytes[i]);
         }
     }
 
     public putInt16(int16: number) 
     {
         const buf = Buffer.alloc(2);
-        buf.writeInt16BE(int16);
+        buf.writeInt16LE(int16);
         this.putBytes(buf);
     }
 
     public putInt32(int32: number) 
     {
-        this.putBytes(RobloxModelByteWriter.int32ToBytes(int32));
+        console.log(int32);
+        console.log(RobloxModelByteWriter.int32ToBytes(int32));
+        this.putBytesReversed(RobloxModelByteWriter.int32ToBytes(int32));
     }
 
     public putInt64(int64: bigint) 
@@ -146,14 +402,16 @@ export class RobloxModelByteWriter
 
     public putBytes(bytes: Uint8Array) 
     {
-        for (const byte of bytes) {
+        for (const byte of bytes) 
+        {
             this.putUint8(byte);
         }
     }
 
     public putStringAsBytes(str: string) 
     {
-        for (let i = 0; i < str.length; ++i) {
+        for (let i = 0; i < str.length; ++i) 
+        {
             this.putUint8(str.charCodeAt(i));
         }
     }
@@ -169,14 +427,16 @@ export class RobloxModelByteWriter
         this.putUint8(bool ? 1 : 0);
     }
 
-    public writeInterleavedBytes(bytes: Uint8Array, length: number) 
+    public putBytesInterleaved(bytes: Uint8Array, length: number) 
     {
         const byteSize = bytes.length / length;
         const rotatedBytes = new Uint8Array(length);
 
         // Byte interleaving, this really just means transposing the bytes like they're in a matrix
-        for (let i = 0; i < length; ++i) {
-            for (let j = byteSize - 1; j >= 0; --j) {
+        for (let i = 0; i < length; ++i) 
+        {
+            for (let j = byteSize - 1; j >= 0; --j) 
+            {
                 rotatedBytes[i * length + j] = bytes[i + j * length];
             }
         }
@@ -184,85 +444,112 @@ export class RobloxModelByteWriter
         this.putBytes(rotatedBytes);
     }
 
-    public putInterleavedFloat32Array(f32array: number[]) 
+    public putInterleavedFloat32Array(nums: number[]) 
     {
-        const bytes = new Uint8Array(f32array.length * 4);
-        for (let i = 0; i < f32array.length; ++i) {
-            const rbxF32bytes = RobloxModelByteWriter.f32ToRobloxF32Bytes(f32array[i]);
-            for (let j = 0; j < 4; ++j) {
+        const bytes = new Uint8Array(nums.length * 4);
+        for (let i = 0; i < nums.length; ++i) 
+        {
+            const rbxF32bytes = RobloxModelByteWriter.f32ToRobloxF32Bytes(nums[i]);
+            for (let j = 0; j < 4; ++j) 
+            {
                 bytes[(i * 4) + j] = rbxF32bytes[j];
             }
         }
-        this.writeInterleavedBytes(bytes, f32array.length);
+        this.putBytesInterleaved(bytes, nums.length);
     }
 
-    public putInterleavedInt32Array(int32array: number[]) 
+    public putInterleavedInt32Array(nums: number[]) 
     {
-        const bytes = new Uint8Array(int32array.length * 4);
-        for (let i = 0; i < int32array.length; ++i) {
+        const bytes = new Uint8Array(nums.length * 4);
+        for (let i = 0; i < nums.length; ++i) 
+        {
             const buf = Buffer.alloc(4);
-            buf.writeInt32BE(RobloxModelByteWriter.transformInt32(int32array[i]));
-            for (let j = 0; j < 4; ++j) {
+            buf.writeInt32BE(RobloxModelByteWriter.transformInt32(nums[i]));
+            for (let j = 0; j < 4; ++j) 
+            {
                 bytes[(i * 4) + j] = buf[j];
             }
         }
-        this.writeInterleavedBytes(bytes, int32array.length);
+        this.putBytesInterleaved(bytes, nums.length);
     }
 
-    public putInterleavedUint32Array(length: number) 
+    public putInterleavedUint32Array(nums: number[]) 
     {
-        const interleavedBytes = this.putBytes(length * 4);
-
-        // Convert interleaved bytes to Uint32 array
-        return RobloxModelByteWriter.convertInterleaved(interleavedBytes, length, (bytes) => Buffer.from(bytes).readUint32BE(0));
-    }
-
-    public putInterleavedInt64Array(length: number) 
-    {
-        const interleavedBytes = this.putBytes(length * 8);
-
-        // Convert interleaved bytes to Uint32 array
-        const bytes = RobloxModelByteWriter.convertInterleaved(interleavedBytes, length, (bytes) => Buffer.from(bytes).readBigInt64BE(0));
-
-        // Have to untransform the ints
-        return bytes.map(RobloxModelByteWriter.untransformInt64);
-    }
-
-    public putInterleavedUint64Array(length: number) 
-    {
-        const interleavedBytes = this.putBytes(length * 8);
-
-        // Convert interleaved bytes to Uint32 array
-        return RobloxModelByteWriter.convertInterleaved(interleavedBytes, length, (bytes) => Buffer.from(bytes).readBigUint64BE(0));
-    }
-
-    public putFloat32Array(length: number) 
-    {
-        const bytes = new Array<number>(length);
-        for (let i = 0; i < length; ++i) {
-            bytes[i] = this.putFloat32();
+        const bytes = new Uint8Array(nums.length * 4);
+        for (let i = 0; i < nums.length; ++i) 
+        {
+            const buf = Buffer.alloc(4);
+            buf.writeUint32BE(nums[i]);
+            for (let j = 0; j < 4; ++j) 
+            {
+                bytes[(i * 4) + j] = buf[j];
+            }
         }
-        return bytes;
+        this.putBytesInterleaved(bytes, nums.length);
     }
 
-    public putFloat64Array(length: number) 
+    public putInterleavedInt64Array(nums: bigint[]) 
     {
-        const bytes = new Array<number>(length);
-        for (let i = 0; i < length; ++i) {
-            bytes[i] = this.putFloat64();
+        const bytes = new Uint8Array(nums.length * 8);
+        for (let i = 0; i < nums.length; ++i) 
+        {
+            const buf = Buffer.alloc(8);
+            buf.writeBigInt64BE(RobloxModelByteWriter.transformInt64(nums[i]));
+            for (let j = 0; j < 4; ++j) 
+            {
+                bytes[(i * 8) + j] = buf[j];
+            }
         }
-        return bytes;
+        this.putBytesInterleaved(bytes, nums.length);
     }
 
-    public putReferentArray(length: number) 
+    public putInterleavedUint64Array(nums: bigint[]) 
     {
-        const referents = this.putInterleavedInt32Array(length);
+        const bytes = new Uint8Array(nums.length * 8);
+        for (let i = 0; i < nums.length; ++i) 
+        {
+            const buf = Buffer.alloc(8);
+            buf.writeBigUint64BE(nums[i]);
+            for (let j = 0; j < 4; ++j) 
+            {
+                bytes[(i * 8) + j] = buf[j];
+            }
+        }
+        this.putBytesInterleaved(bytes, nums.length);
+    }
 
-        // Referent values are "accumulated"
-        for (let i = 1; i < length; ++i) {
-            referents[i] = referents[i - 1] + referents[i];
+    public putFloat32Array(nums: number[]) 
+    {
+        for (const num of nums) 
+            {
+            this.putFloat32(num);
+        }
+    }
+
+    public putFloat64Array(nums: number[]) 
+    {
+        for (const num of nums) 
+            {
+            this.putFloat64(num);
+        }
+    }
+
+    public putReferentArray(referents: number[]) 
+    {
+        if (referents.length < 1)
+        {
+            return;
         }
 
-        return referents;
+        let prevReferent = referents[0];
+        const accumlated = [prevReferent];
+        for (let i = 1; i < referents.length; ++i) 
+        {
+            const curReferent = referents[i];
+            accumlated.push(curReferent - prevReferent);
+            prevReferent = curReferent;
+        }
+
+        this.putInterleavedInt32Array(accumlated);
     }
 }

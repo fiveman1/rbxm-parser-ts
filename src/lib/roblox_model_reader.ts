@@ -74,15 +74,15 @@ export class RobloxModelDOMReader extends RobloxModelDOM
             return false;
         }
 
-        const MAGIC_HEADER = "<roblox!\x89\xff\x0d\x0a\x1a\x0a";
-        const magicBytes = this.data.getBytesAsString(MAGIC_HEADER.length);
-        if (magicBytes !== MAGIC_HEADER)
+        const magicBytes = this.data.getBytesAsString(this.MAGIC_HEADER.length);
+        if (magicBytes !== this.MAGIC_HEADER)
         {
             return false;
         }
 
-        this.data.getUint16(); // Model version
-        this.data.getInt32(); // The number of classes in the model
+        console.log(this.data.getUint16()); // Model version
+        console.log(this.data.dataArray.slice(this.data.index, this.data.index + 4));
+        console.log(this.data.getInt32()); // The number of classes in the model
         this.data.getInt32(); // The number of instances in the model
 
         this.data.skipBytes(8); // 8 reserved bytes
@@ -173,6 +173,7 @@ export class RobloxModelDOMReader extends RobloxModelDOM
     protected readMetaChunk(bytes: RobloxModelByteReader)
     {
         const entries = bytes.getUint32();
+        console.log(entries);
         for (let i = 0; i < entries; ++i)
         {
             const key = bytes.getString();
@@ -198,17 +199,24 @@ export class RobloxModelDOMReader extends RobloxModelDOM
         const classId = bytes.getUint32();
         const className = bytes.getString();
         const isService = bytes.getBool();
-
         const numInstances = bytes.getUint32();
+
+        console.log(className);
+        console.log(numInstances);
+
         const referents = bytes.getReferentArray(numInstances);
         const referentIdToIndex = new Map<number, number>();
         const instances = new Array<CoreInstance>();
         const classFactory = this.classMap.getFactory(className);
 
+        
+
         referents.forEach((referent, index) => {
             referentIdToIndex.set(referent, index);
             this.referentIdToClassId.set(referent, classId);
-            instances.push(classFactory ? classFactory() : new CoreInstance(isService, className));
+            const instance = classFactory ? classFactory() : new CoreInstance(isService, className);
+            instances.push(instance);
+            this.model.ReferentMap.set(instance, referent);
         });
 
         this.classIdToInfo.set(classId, {
@@ -326,6 +334,16 @@ export class RobloxModelByteReader
         return this.data.length;
     }
 
+    public get index()
+    {
+        return this.idx;
+    }
+
+    public get dataArray()
+    {
+        return this.data;
+    }
+
     public getUint8() 
     {
         const val = this.data[this.idx];
@@ -336,7 +354,8 @@ export class RobloxModelByteReader
     protected getUintOfSize(numBytes: number) 
     {
         let val = 0;
-        for (let i = 0; i < numBytes; ++i) {
+        for (let i = 0; i < numBytes; ++i) 
+        {
             val += this.getUint8() << (i * 8);
         }
         return val;
@@ -375,7 +394,8 @@ export class RobloxModelByteReader
         // We will swap the sign bit by interpreting the data as bits and swapping the sign bit from the back to the front.
         const robloxBitArray = bytesToBitArray(bytes);
         const standardBitArray = new Uint8Array(32);
-        for (let i = 0; i < 31; ++i) {
+        for (let i = 0; i < 31; ++i) 
+        {
             standardBitArray[i + 1] = robloxBitArray[i];
         }
         standardBitArray[0] = robloxBitArray[31]; // Swap the sign bit!
@@ -383,10 +403,12 @@ export class RobloxModelByteReader
 
         // Convert back to a byte array
         const outBytes = new Uint8Array(4);
-        for (let i = 0; i < 4; ++i) {
+        for (let i = 0; i < 4; ++i) 
+        {
             let val = 0;
             const offset = i * 8;
-            for (let j = 0; j < 8; ++j) {
+            for (let j = 0; j < 8; ++j) 
+            {
                 val |= standardBitArray[j + offset] << (7 - j);
             }
             outBytes[i] = val;
@@ -399,7 +421,8 @@ export class RobloxModelByteReader
     protected getBytesReversed(numBytes: number) 
     {
         const bytes = new Uint8Array(numBytes);
-        for (let i = numBytes - 1; i >= 0; --i) {
+        for (let i = numBytes - 1; i >= 0; --i) 
+        {
             bytes[i] = this.getUint8();
         }
         return bytes;
@@ -438,7 +461,8 @@ export class RobloxModelByteReader
     public getBytes(numBytes: number) 
     {
         const bytes = new Uint8Array(numBytes);
-        for (let i = 0; i < numBytes; ++i) {
+        for (let i = 0; i < numBytes; ++i) 
+        {
             bytes[i] = this.data[this.idx];
             ++this.idx;
         }
@@ -448,7 +472,8 @@ export class RobloxModelByteReader
     public getBytesAsString(numBytes: number) 
     {
         let s = "";
-        for (let i = 0; i < numBytes; ++i) {
+        for (let i = 0; i < numBytes; ++i) 
+        {
             s += String.fromCharCode(this.data[this.idx]);
             ++this.idx;
         }
@@ -477,9 +502,11 @@ export class RobloxModelByteReader
         const rotatedBytes = new Array<T>(length);
 
         // Byte interleaving, imagine the bytes as a matrix that has been transposed. We will rotate it back.
-        for (let i = 0; i < length; ++i) {
+        for (let i = 0; i < length; ++i) 
+        {
             const transform = new Uint8Array(byteSize);
-            for (let j = byteSize - 1; j >= 0; --j) {
+            for (let j = byteSize - 1; j >= 0; --j) 
+            {
                 transform[j] = bytes[i + j * length];
             }
             rotatedBytes[i] = converter(transform);
@@ -537,7 +564,8 @@ export class RobloxModelByteReader
     public getFloat32Array(length: number) 
     {
         const bytes = new Array<number>(length);
-        for (let i = 0; i < length; ++i) {
+        for (let i = 0; i < length; ++i) 
+        {
             bytes[i] = this.getFloat32();
         }
         return bytes;
@@ -546,7 +574,8 @@ export class RobloxModelByteReader
     public getFloat64Array(length: number) 
     {
         const bytes = new Array<number>(length);
-        for (let i = 0; i < length; ++i) {
+        for (let i = 0; i < length; ++i) 
+        {
             bytes[i] = this.getFloat64();
         }
         return bytes;
@@ -557,7 +586,8 @@ export class RobloxModelByteReader
         const referents = this.getInterleavedInt32Array(length);
 
         // Referent values are "accumulated"
-        for (let i = 1; i < length; ++i) {
+        for (let i = 1; i < length; ++i) 
+        {
             referents[i] = referents[i - 1] + referents[i];
         }
 

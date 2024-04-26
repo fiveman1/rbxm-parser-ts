@@ -562,6 +562,7 @@ function getEnumMap() {
 
         this.endEnumMap();
         
+        this.stream.end();
         this.stream.close();
     }
 

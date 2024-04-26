@@ -34,6 +34,8 @@ export type RobloxClass = {
  */
 export abstract class RobloxModelDOM 
 {
+    protected readonly MAGIC_HEADER = "<roblox!\x89\xff\x0d\x0a\x1a\x0a";
+    protected readonly MAGIC_END = "</roblox>";
     protected model: RobloxModel = new RobloxModel();
     protected dataTypeParsers: Map<DataType, DataTypeParser> = new Map<DataType, DataTypeParser>();
     protected classIdToInfo: Map<number, RobloxClass> = new Map<number, RobloxClass>();

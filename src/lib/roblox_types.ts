@@ -369,6 +369,22 @@ export abstract class ChildContainer
         return descendants;
     }
 
+    public GetAllDescendants(): CoreInstance[]
+    {
+        const descendants: CoreInstance[] = [];
+        this.GetAllDescendantsHelper(descendants);
+        return descendants;
+    }
+
+    protected GetAllDescendantsHelper(descendants: CoreInstance[])
+    {
+        for (const child of this._children)
+        {
+            descendants.push(child);
+            child.GetAllDescendantsHelper(descendants);
+        }
+    }
+
      /**
      * Gathers a list of descendants that are of the given class.
      * @param predicate this will include the descendant if the predicate returns true
@@ -421,6 +437,11 @@ export class CoreInstance extends ChildContainer
     public get Children(): readonly CoreInstance[]
     {
         return Array.from(this._children.values());
+    }
+
+    public get Props(): ReadonlyMap<string, RobloxValue>
+    {
+        return this._props;
     }
 
     /**

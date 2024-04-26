@@ -7,6 +7,7 @@
 import axios from "axios";
 import { ChildContainer, CoreInstance } from "./roblox_types";
 import { RobloxModelDOMReader } from "./roblox_model_reader";
+import { RobloxModelDOMWriter } from "./roblox_model_writer";
 
 // Helpful resources I used:
 // https://dom.rojo.space/binary - Documentation for .rbxm format
@@ -25,6 +26,11 @@ export class RobloxModel extends ChildContainer
 {
     public readonly Metadata: Map<string, string> = new Map<string, string>();
     public readonly SharedStrings: SharedString[] = [];
+    /**
+     * This is used when loading and then saving a model to keep the references to instances consistent.
+     * You probably shouldn't mess with this.
+     */
+    public readonly ReferentMap: Map<CoreInstance, number> = new Map<CoreInstance, number>();
 
     /**
      * The root instances of this model. This is a readonly array, to add or remove an instance
@@ -51,6 +57,11 @@ export class RobloxModel extends ChildContainer
     public RemoveFromRoots(instance: CoreInstance)
     {
         this._children.delete(instance);
+    }
+
+    public WriteToFile(fname: string)
+    {
+        new RobloxModelDOMWriter(fname, this).write();
     }
 
     /**
