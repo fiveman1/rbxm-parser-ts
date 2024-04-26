@@ -92,32 +92,40 @@ async function main()
     // const numberValues = root.FindDescendantsOfClass("NumberValue");
     // console.log("\n" + numberValues.join("\n"));
     
-    // let str = "";
-    // for (const root of model.Roots)
-    // {
-    //     str += depthFirstPrint(root, 0);
-    // }
+    let str = "";
+    for (const root of model.Roots)
+    {
+        str += depthFirstPrint(root, 0);
+    }
 
     const name = assetId;
     if (!fs.existsSync("output_files"))
     {
         fs.mkdirSync("output_files");
     }
-    //fs.writeFileSync(`output_files/${name}.txt`, str);
+    fs.writeFileSync(`output_files/${name}.txt`, str);
 
-    model.WriteToFile(`output_files/${name}.rbxm`);
+    console.log("writing");
+    fs.writeFileSync(`output_files/${name}.rbxm`, model.WriteToBuffer());
+    console.log("reading");
     const copyModel = RobloxModel.ReadFromBuffer(fs.readFileSync(`output_files/${name}.rbxm`));
     if (!copyModel) 
     {
         console.log("The written model was invalid..."); 
         return;
     }
-    let str = "";
+    
+    let copyStr = "";
     for (const root of copyModel.Roots)
     {
-        str += depthFirstPrint(root, 0);
+        copyStr += depthFirstPrint(root, 0);
     }
-    fs.writeFileSync(`output_files/${name}_copy.txt`, str);
+    fs.writeFileSync(`output_files/${name}_copy.txt`, copyStr);
+
+    if (str !== copyStr)
+    {
+        console.log("they dont match :(");
+    }
 }
 
 main();

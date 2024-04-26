@@ -6,27 +6,27 @@
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import fs from "fs";
 import lz4 from "lz4";
-import * as fzstd from "fzstd";
 import { RobloxModel } from "./roblox_model";
 import { DataType, RobloxValue, CoreInstance } from "./roblox_types";
 import { ChunkType, DataParserExtraInfo, RobloxClass, RobloxModelDOM } from "./roblox_model_dom";
-import { bytesToBitArray } from "./util";
+import { bitsToByteArray, bytesToBitArray } from "./util";
+import { buffer } from "stream/consumers";
 
 export class RobloxModelDOMWriter extends RobloxModelDOM
 {
-    protected stream: fs.WriteStream;
     protected model: RobloxModel;
+    protected bytesArray: Uint8Array[] = [];
+    protected numBytes = 0;
     protected instToRefId: Map<CoreInstance, number> = new Map<CoreInstance, number>();
     protected instToClassId: Map<CoreInstance, number> = new Map<CoreInstance, number>();
+    protected sortedClassIds: number[] = [];
     protected numInstances = 0;
     protected numClasses = 0;
 
-    public constructor(fname: string, model: RobloxModel)
+    public constructor(model: RobloxModel)
     {
         super();
-        this.stream = fs.createWriteStream(fname, { encoding: "binary", flags: "w+" });
         this.model = model;
         this.instToRefId = model.ReferentMap;
     }
@@ -39,13 +39,14 @@ export class RobloxModelDOMWriter extends RobloxModelDOM
 
         this.writeMetaChunk();
 
-        for (const [classId, info] of this.classIdToInfo)
+        for (const classId of this.sortedClassIds)
         {
-            this.writeInstChunk(classId, info);
+            this.writeInstChunk(classId, this.classIdToInfo.get(classId)!);
         }
 
-        for (const [classId, info] of this.classIdToInfo)
+        for (const classId of this.sortedClassIds)
         {
+            const info = this.classIdToInfo.get(classId)!;
             const props = this.collectProperties(info.instances);
             for (const [name, type] of props)
             {
@@ -59,8 +60,17 @@ export class RobloxModelDOMWriter extends RobloxModelDOM
 
         this.writeEndChunk();
 
-        this.stream.end();
-        this.stream.close();
+        const buf = Buffer.allocUnsafe(this.numBytes);
+        let i = 0;
+        for (const bytes of this.bytesArray)
+        {
+            for (const byte of bytes)
+            {
+                buf[i] = byte;
+                ++i;
+            }
+        }
+        return buf;
     }
 
     protected collectProperties(instances: CoreInstance[])
@@ -122,6 +132,7 @@ export class RobloxModelDOMWriter extends RobloxModelDOM
                     instances: [instance],
                     referentIdToIndex: new Map<number, number>([[refId, 0]])
                 });
+                this.sortedClassIds.push(lastClassId);
             }
             else
             {
@@ -134,6 +145,13 @@ export class RobloxModelDOMWriter extends RobloxModelDOM
         }
 
         this.numClasses = this.classIdToInfo.size;
+        this.sortedClassIds.sort((id1, id2) => this.classIdToInfo.get(id1)!.name > this.classIdToInfo.get(id2)!.name ? 1 : -1);
+    }
+
+    protected writeBytes(bytes: Uint8Array)
+    {
+        this.numBytes += bytes.length;
+        this.bytesArray.push(bytes);
     }
 
     protected writeHeader()
@@ -144,8 +162,7 @@ export class RobloxModelDOMWriter extends RobloxModelDOM
         writer.putInt32(this.numClasses);
         writer.putInt32(this.numInstances);
         writer.putBytes(new Uint8Array(8)); // 8 empty bytes
-        this.stream.write(writer.bytes);
-        console.log(writer.bytes);
+        this.writeBytes(writer.bytes);
     }
 
     protected writeChunk(type: ChunkType, data: Uint8Array)
@@ -156,8 +173,8 @@ export class RobloxModelDOMWriter extends RobloxModelDOM
         writer.putUint32(compressedLength);
         writer.putUint32(uncompressedLength);
         writer.putBytes(new Uint8Array(4)); // 4 empty bytes
-        this.stream.write(writer.bytes);
-        this.stream.write(bytes);
+        this.writeBytes(writer.bytes);
+        this.writeBytes(bytes);
     }
 
     protected compressData(type: ChunkType, data: Uint8Array)
@@ -172,12 +189,13 @@ export class RobloxModelDOMWriter extends RobloxModelDOM
             };
         }
 
-        const bytes = lz4.encode(Buffer.from(data), { streamChecksum: false });
+        const bytes = Buffer.alloc(lz4.encodeBound(data.length));
+        const size = lz4.encodeBlock(Buffer.from(data), bytes);
 
         return {
-            compressedLength: bytes.length,
+            compressedLength: size,
             uncompressedLength: data.length,
-            bytes: bytes
+            bytes: bytes.subarray(0, size)
         };
     }
 
@@ -226,7 +244,7 @@ export class RobloxModelDOMWriter extends RobloxModelDOM
         {
             refs.push(this.instToRefId.get(inst)!);
         }
-
+        
         writer.putReferentArray(refs);
 
         this.writeChunk(ChunkType.INST, writer.bytes);
@@ -234,7 +252,17 @@ export class RobloxModelDOMWriter extends RobloxModelDOM
 
     protected writePropChunk(classId: number, instances: CoreInstance[], propName: string, type: DataType)
     {
+        const parser = this.dataTypeParsers.get(type);
+        if (!parser) return;
 
+        const writer = new RobloxModelByteWriter();
+
+        writer.putUint32(classId);
+        writer.putString(propName);
+        writer.putUint8(type);
+        parser.write(writer, instances, propName);
+
+        this.writeChunk(ChunkType.PROP, writer.bytes);
     }
 
     protected writePrntChunk()
@@ -244,10 +272,14 @@ export class RobloxModelDOMWriter extends RobloxModelDOM
         writer.putUint8(0);
         writer.putUint32(this.numInstances);
 
+        const sortedInsts = Array.from(this.instToRefId.keys());
+        sortedInsts.sort((inst1, inst2) => this.instToRefId.get(inst1)! - this.instToRefId.get(inst2)!);
+
         const childRefs: number[] = [];
         const parentRefs: number[] = [];
-        for (const [inst, ref] of this.instToRefId)
-        {
+        for (const inst of sortedInsts)
+        {   
+            const ref = this.instToRefId.get(inst)!;
             childRefs.push(ref);
             const parentRef = inst.Parent ? this.instToRefId.get(inst.Parent)! : -1;
             parentRefs.push(parentRef);
@@ -283,27 +315,18 @@ export class RobloxModelByteWriter
         this.data.push(uint8);
     }
 
-    protected putUintOfSize(uint: number, numBytes: number) 
-    {
-        for (let i = 0; i < numBytes; ++i) 
-        {
-            this.putUint8((uint << (i * 8)) & 0xff);
-        }
-    }
-
     public putUint16(uint16: number) 
     {
         const buf = Buffer.alloc(2);
-        buf.writeUInt16BE(uint16);
+        buf.writeUInt16LE(uint16);
         this.putBytes(buf);
     }
 
     public putUint32(uint32: number) 
     {
         const buf = Buffer.alloc(4);
-        buf.writeUInt32BE(uint32);
+        buf.writeUInt32LE(uint32);
         this.putBytes(buf);
-        //return this.putUintOfSize(uint32, 4);
     }
 
     public static int32ToBytes(int32: number) 
@@ -332,29 +355,17 @@ export class RobloxModelByteWriter
         const bytes = Buffer.alloc(4);
         bytes.writeFloatBE(f32);
 
-        const sharedBitArray = bytesToBitArray(bytes);
+        const origBitArray = bytesToBitArray(bytes);
         const robloxBitArray = new Uint8Array(32);
         for (let i = 0; i < 31; ++i) 
         {
-            robloxBitArray[i + 1] = sharedBitArray[i];
+            robloxBitArray[i] = origBitArray[i + 1];
         }
-        robloxBitArray[0] = sharedBitArray[31]; // Swap the sign bit!
+        robloxBitArray[31] = origBitArray[0]; // Swap the sign bit!
 
 
         // Convert back to a byte array
-        const outBytes = new Uint8Array(4);
-        for (let i = 0; i < 4; ++i) 
-        {
-            let val = 0;
-            const offset = i * 8;
-            for (let j = 0; j < 8; ++j) 
-            {
-                val |= robloxBitArray[j + offset] << (7 - j);
-            }
-            outBytes[i] = val;
-        }
-
-        return robloxBitArray;
+        return bitsToByteArray(robloxBitArray);
     }
 
     protected putBytesReversed(bytes: Uint8Array) 
@@ -374,8 +385,6 @@ export class RobloxModelByteWriter
 
     public putInt32(int32: number) 
     {
-        console.log(int32);
-        console.log(RobloxModelByteWriter.int32ToBytes(int32));
         this.putBytesReversed(RobloxModelByteWriter.int32ToBytes(int32));
     }
 
@@ -430,14 +439,14 @@ export class RobloxModelByteWriter
     public putBytesInterleaved(bytes: Uint8Array, length: number) 
     {
         const byteSize = bytes.length / length;
-        const rotatedBytes = new Uint8Array(length);
+        const rotatedBytes = new Uint8Array(bytes.length);
 
         // Byte interleaving, this really just means transposing the bytes like they're in a matrix
         for (let i = 0; i < length; ++i) 
         {
-            for (let j = byteSize - 1; j >= 0; --j) 
+            for (let j = 0; j < byteSize; ++j) 
             {
-                rotatedBytes[i * length + j] = bytes[i + j * length];
+                rotatedBytes[j * length + i] = bytes[i * byteSize + j];
             }
         }
 
@@ -521,7 +530,7 @@ export class RobloxModelByteWriter
     public putFloat32Array(nums: number[]) 
     {
         for (const num of nums) 
-            {
+        {
             this.putFloat32(num);
         }
     }
@@ -529,7 +538,7 @@ export class RobloxModelByteWriter
     public putFloat64Array(nums: number[]) 
     {
         for (const num of nums) 
-            {
+        {
             this.putFloat64(num);
         }
     }

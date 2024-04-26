@@ -10,7 +10,7 @@ import { RobloxModel } from "./roblox_model";
 import { DataType, RobloxValue, CoreInstance } from "./roblox_types";
 import { ChunkType, DataParserExtraInfo, RobloxModelDOM } from "./roblox_model_dom";
 import { ClassMap, EnumMap } from "../generated/generated_types";
-import { bytesToBitArray } from "./util";
+import { bitsToByteArray, bytesToBitArray } from "./util";
 
 /**
  * This class can read .rbxm bytes to create a RobloxModel.
@@ -80,9 +80,8 @@ export class RobloxModelDOMReader extends RobloxModelDOM
             return false;
         }
 
-        console.log(this.data.getUint16()); // Model version
-        console.log(this.data.dataArray.slice(this.data.index, this.data.index + 4));
-        console.log(this.data.getInt32()); // The number of classes in the model
+        this.data.getUint16(); // Model version
+        this.data.getInt32(); // The number of classes in the model
         this.data.getInt32(); // The number of instances in the model
 
         this.data.skipBytes(8); // 8 reserved bytes
@@ -173,7 +172,6 @@ export class RobloxModelDOMReader extends RobloxModelDOM
     protected readMetaChunk(bytes: RobloxModelByteReader)
     {
         const entries = bytes.getUint32();
-        console.log(entries);
         for (let i = 0; i < entries; ++i)
         {
             const key = bytes.getString();
@@ -201,15 +199,10 @@ export class RobloxModelDOMReader extends RobloxModelDOM
         const isService = bytes.getBool();
         const numInstances = bytes.getUint32();
 
-        console.log(className);
-        console.log(numInstances);
-
         const referents = bytes.getReferentArray(numInstances);
         const referentIdToIndex = new Map<number, number>();
         const instances = new Array<CoreInstance>();
         const classFactory = this.classMap.getFactory(className);
-
-        
 
         referents.forEach((referent, index) => {
             referentIdToIndex.set(referent, index);
@@ -402,17 +395,7 @@ export class RobloxModelByteReader
 
 
         // Convert back to a byte array
-        const outBytes = new Uint8Array(4);
-        for (let i = 0; i < 4; ++i) 
-        {
-            let val = 0;
-            const offset = i * 8;
-            for (let j = 0; j < 8; ++j) 
-            {
-                val |= standardBitArray[j + offset] << (7 - j);
-            }
-            outBytes[i] = val;
-        }
+        const outBytes = bitsToByteArray(standardBitArray);
 
         // Use Buffer to convert to a float
         return Buffer.from(outBytes).readFloatBE(0);

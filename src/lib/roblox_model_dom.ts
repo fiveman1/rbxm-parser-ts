@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /**
  * @author https://github.com/fiveman1
  * @file roblox_model_dom.ts
@@ -10,6 +11,7 @@ import { DataType, RobloxValue, CoreInstance, UDim, UDim2, Vector3, Ray, Faces, 
     Rect, PhysicalProperties, EnumItem, UniqueId, RBXMFont } from "./roblox_types";
 import { RobloxModelByteReader } from "./roblox_model_reader";
 import { EnumFactory, NormalId } from "../generated/generated_types";
+import { RobloxModelByteWriter } from "./roblox_model_writer";
 
 // https://dom.rojo.space/binary#chunks
 export enum ChunkType
@@ -56,25 +58,25 @@ export abstract class RobloxModelDOM
         this.dataTypeParsers.set(DataType.Axes, new AxesParser());
         this.dataTypeParsers.set(DataType.BrickColor, new BrickColorParser());
         this.dataTypeParsers.set(DataType.Color3, new Color3Parser());
-        this.dataTypeParsers.set(DataType.Vector2, new Vector2Parser());
-        this.dataTypeParsers.set(DataType.Vector3, new Vector3Parser());
-        this.dataTypeParsers.set(DataType.CFrame, new CFrameParser());
-        this.dataTypeParsers.set(DataType.Enum, new EnumParser());
-        this.dataTypeParsers.set(DataType.Referent, new ReferentParser());
-        this.dataTypeParsers.set(DataType.Color3uint8, new Color3uint8Parser());
-        this.dataTypeParsers.set(DataType.Vector3int16, new Vector3int16Parser());
-        this.dataTypeParsers.set(DataType.NumberSequence, new NumberSequenceParser());
-        this.dataTypeParsers.set(DataType.ColorSequence, new ColorSequenceParser());
-        this.dataTypeParsers.set(DataType.NumberRange, new NumberRangeParser());
-        this.dataTypeParsers.set(DataType.Rect, new RectParser());
-        this.dataTypeParsers.set(DataType.PhysicalProperties, new PhysicalPropertiesParser());
-        this.dataTypeParsers.set(DataType.Int64, new Int64Parser());
-        this.dataTypeParsers.set(DataType.SharedString, new SharedStringParser());
-        this.dataTypeParsers.set(DataType.Bytecode, new BytecodeParser());
-        this.dataTypeParsers.set(DataType.OptionalCFrame, new OptionalCFrameParser());
-        this.dataTypeParsers.set(DataType.UniqueId, new UniqueIdParser());
-        this.dataTypeParsers.set(DataType.Font, new FontParser());
-        this.dataTypeParsers.set(DataType.SecurityCapabilities, new SecurityCapabilitiesParser());
+        // this.dataTypeParsers.set(DataType.Vector2, new Vector2Parser());
+        // this.dataTypeParsers.set(DataType.Vector3, new Vector3Parser());
+        // this.dataTypeParsers.set(DataType.CFrame, new CFrameParser());
+        // this.dataTypeParsers.set(DataType.Enum, new EnumParser());
+        // this.dataTypeParsers.set(DataType.Referent, new ReferentParser());
+        // this.dataTypeParsers.set(DataType.Color3uint8, new Color3uint8Parser());
+        // this.dataTypeParsers.set(DataType.Vector3int16, new Vector3int16Parser());
+        // this.dataTypeParsers.set(DataType.NumberSequence, new NumberSequenceParser());
+        // this.dataTypeParsers.set(DataType.ColorSequence, new ColorSequenceParser());
+        // this.dataTypeParsers.set(DataType.NumberRange, new NumberRangeParser());
+        // this.dataTypeParsers.set(DataType.Rect, new RectParser());
+        // this.dataTypeParsers.set(DataType.PhysicalProperties, new PhysicalPropertiesParser());
+        // this.dataTypeParsers.set(DataType.Int64, new Int64Parser());
+        // this.dataTypeParsers.set(DataType.SharedString, new SharedStringParser());
+        // this.dataTypeParsers.set(DataType.Bytecode, new BytecodeParser());
+        // this.dataTypeParsers.set(DataType.OptionalCFrame, new OptionalCFrameParser());
+        // this.dataTypeParsers.set(DataType.UniqueId, new UniqueIdParser());
+        // this.dataTypeParsers.set(DataType.Font, new FontParser());
+        // this.dataTypeParsers.set(DataType.SecurityCapabilities, new SecurityCapabilitiesParser());
     }
 }
 
@@ -103,6 +105,7 @@ export abstract class DataTypeParser
      */
     public abstract read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>, extraInfo?: DataParserExtraInfo): void
     // there will be a write method eventually...
+    public abstract write(writer: RobloxModelByteWriter, instances: CoreInstance[], propName: string): void
 }
 
 export class StringParser extends DataTypeParser 
@@ -115,6 +118,22 @@ export class StringParser extends DataTypeParser
             outValues.push(str ? { type: DataType.String, value: str } : undefined);
         }
     }
+
+    public override write(writer: RobloxModelByteWriter, instances: CoreInstance[], propName: string)
+    {
+        for (const instance of instances)
+        {
+            const value = instance.Props.get(propName);
+            if (value?.type === DataType.String)
+            {
+                writer.putString(value.value);
+            }
+            else
+            {
+                writer.putString("");
+            }
+        }
+    }
 }
 
 export class BoolParser extends DataTypeParser 
@@ -125,6 +144,22 @@ export class BoolParser extends DataTypeParser
         {
             const bool = bytes.getBool();
             outValues.push({ type: DataType.Bool, value: bool });
+        }
+    }
+
+    public override write(writer: RobloxModelByteWriter, instances: CoreInstance[], propName: string)
+    {
+        for (const instance of instances)
+        {
+            const value = instance.Props.get(propName);
+            if (value?.type === DataType.Bool)
+            {
+                writer.putBool(value.value);
+            }
+            else
+            {
+                writer.putBool(false);
+            }
         }
     }
 }
@@ -140,6 +175,25 @@ export class Int32Parser extends DataTypeParser
             outValues.push({ type: DataType.Int32, value: ints[i] });
         }
     }
+
+    public override write(writer: RobloxModelByteWriter, instances: CoreInstance[], propName: string)
+    {
+        const nums: number[] = [];
+        for (const instance of instances)
+        {
+            const value = instance.Props.get(propName);
+            if (value?.type === DataType.Int32)
+            {
+                nums.push(value.value);
+            }
+            else
+            {
+                nums.push(0);
+            }
+        }
+
+        writer.putInterleavedInt32Array(nums);
+    }
 }
 
 export class Float32Parser extends DataTypeParser 
@@ -152,6 +206,25 @@ export class Float32Parser extends DataTypeParser
         {
             outValues.push({ type: DataType.Float32, value: floats[i] });
         }
+    }
+
+    public override write(writer: RobloxModelByteWriter, instances: CoreInstance[], propName: string)
+    {
+        const nums: number[] = [];
+        for (const instance of instances)
+        {
+            const value = instance.Props.get(propName);
+            if (value?.type === DataType.Float32)
+            {
+                nums.push(value.value);
+            }
+            else
+            {
+                nums.push(0);
+            }
+        }
+
+        writer.putInterleavedFloat32Array(nums);
     }
 }
 
@@ -166,6 +239,25 @@ export class Float64Parser extends DataTypeParser
             outValues.push({ type: DataType.Float64, value: floats[i] });
         }
     }
+
+    public override write(writer: RobloxModelByteWriter, instances: CoreInstance[], propName: string)
+    {
+        const nums: number[] = [];
+        for (const instance of instances)
+        {
+            const value = instance.Props.get(propName);
+            if (value?.type === DataType.Float64)
+            {
+                nums.push(value.value);
+            }
+            else
+            {
+                nums.push(0);
+            }
+        }
+
+        writer.putFloat64Array(nums);
+    }
 }
 
 export class UDimParser extends DataTypeParser 
@@ -179,6 +271,30 @@ export class UDimParser extends DataTypeParser
         {
             outValues.push({ type: DataType.UDim, value: new UDim(scales[i], offsets[i]) });
         }
+    }
+
+    public override write(writer: RobloxModelByteWriter, instances: CoreInstance[], propName: string)
+    {
+        const scales: number[] = [];
+        const offsets: number[] = [];
+
+        for (const instance of instances)
+        {
+            const value = instance.Props.get(propName);
+            if (value?.type === DataType.UDim)
+            {
+                scales.push(value.value.Scale);
+                offsets.push(value.value.Offset);
+            }
+            else
+            {
+                scales.push(0);
+                offsets.push(0);
+            }
+        }
+
+        writer.putInterleavedFloat32Array(scales);
+        writer.putInterleavedInt32Array(offsets);
     }
 }
 
@@ -198,6 +314,40 @@ export class UDim2Parser extends DataTypeParser
             outValues.push({ type: DataType.UDim2, value: new UDim2(x, y) });
         }
     }
+
+    public override write(writer: RobloxModelByteWriter, instances: CoreInstance[], propName: string)
+    {
+        const scalesX: number[] = [];
+        const scalesY: number[] = [];
+        const offsetsX: number[] = [];
+        const offsetsY: number[] = [];
+
+        for (const instance of instances)
+        {
+            const value = instance.Props.get(propName);
+            if (value?.type === DataType.UDim2)
+            {
+                const x = value.value.X;
+                const y = value.value.Y;
+                scalesX.push(x.Scale);
+                scalesY.push(y.Scale);
+                offsetsX.push(x.Offset);
+                offsetsY.push(y.Offset);
+            }
+            else
+            {
+                scalesX.push(0);
+                scalesY.push(0);
+                offsetsX.push(0);
+                offsetsY.push(0);
+            }
+        }
+
+        writer.putInterleavedFloat32Array(scalesX);
+        writer.putInterleavedFloat32Array(scalesY);
+        writer.putInterleavedInt32Array(offsetsX);
+        writer.putInterleavedInt32Array(offsetsY);
+    }
 }
 
 export class RayParser extends DataTypeParser 
@@ -210,6 +360,33 @@ export class RayParser extends DataTypeParser
         for (let i = 0; i < numInstances; ++i)
         {
             outValues.push({ type: DataType.Ray, value: new Ray(origin, direction) });
+        }
+    }
+
+    public override write(writer: RobloxModelByteWriter, instances: CoreInstance[], propName: string)
+    {
+        for (const instance of instances)
+        {
+            const value = instance.Props.get(propName);
+            if (value?.type === DataType.Ray)
+            {
+                const ray = value.value;
+                writer.putFloat32(ray.Origin.X);
+                writer.putFloat32(ray.Origin.Y);
+                writer.putFloat32(ray.Origin.Z);
+                writer.putFloat32(ray.Direction.X);
+                writer.putFloat32(ray.Direction.Y);
+                writer.putFloat32(ray.Direction.Z);
+            }
+            else
+            {
+                writer.putFloat32(0);
+                writer.putFloat32(0);
+                writer.putFloat32(0);
+                writer.putFloat32(0);
+                writer.putFloat32(0);
+                writer.putFloat32(0);
+            }
         }
     }
 }
@@ -233,6 +410,27 @@ export class FacesParser extends DataTypeParser
             outValues.push({ type: DataType.Faces, value: new Faces(faces) });
         }
     }
+
+    public override write(writer: RobloxModelByteWriter, instances: CoreInstance[], propName: string)
+    {
+        for (const instance of instances)
+        {
+            const value = instance.Props.get(propName);
+            if (value?.type === DataType.Faces)
+            {
+                let bitMask = 0;
+                for (const face of value.value.Faces)
+                {
+                    bitMask |= face;
+                }
+                writer.putUint8(bitMask);
+            }
+            else
+            {
+                writer.putUint8(0);
+            }
+        }
+    }
 }
 
 export class AxesParser extends DataTypeParser 
@@ -254,6 +452,27 @@ export class AxesParser extends DataTypeParser
             outValues.push({ type: DataType.Axes, value: new Axes(axes) });
         }
     }
+
+    public override write(writer: RobloxModelByteWriter, instances: CoreInstance[], propName: string)
+    {
+        for (const instance of instances)
+        {
+            const value = instance.Props.get(propName);
+            if (value?.type === DataType.Axes)
+            {
+                let bitMask = 0;
+                for (const axis of value.value.Axes)
+                {
+                    bitMask |= axis;
+                }
+                writer.putUint8(bitMask);
+            }
+            else
+            {
+                writer.putUint8(0);
+            }
+        }
+    }
 }
 
 export class BrickColorParser extends DataTypeParser 
@@ -266,6 +485,26 @@ export class BrickColorParser extends DataTypeParser
         {
             outValues.push({ type: DataType.BrickColor, value: brickColors[i] });
         }
+    }
+
+    public override write(writer: RobloxModelByteWriter, instances: CoreInstance[], propName: string)
+    {
+        const brickColors: number[] = [];
+
+        for (const instance of instances)
+        {
+            const value = instance.Props.get(propName);
+            if (value?.type === DataType.BrickColor)
+            {
+                brickColors.push(value.value);
+            }
+            else
+            {
+                brickColors.push(0);
+            }
+        }
+
+        writer.putInterleavedUint32Array(brickColors);
     }
 }
 
@@ -282,350 +521,379 @@ export class Color3Parser extends DataTypeParser
             outValues.push({ type: DataType.Color3, value: new Color3(rVals[i], gVals[i], bVals[i]) });
         }
     }
-}
 
-export class Vector2Parser extends DataTypeParser 
-{
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxModelByteWriter, instances: CoreInstance[], propName: string)
     {
-        const xVals = bytes.getInterleavedFloat32Array(numInstances);
-        const yVals = bytes.getInterleavedFloat32Array(numInstances);
+        const r: number[] = [];
+        const g: number[] = [];
+        const b: number[] = [];
 
-        for (let i = 0; i < numInstances; ++i)
+        for (const instance of instances)
         {
-            outValues.push({ type: DataType.Vector2, value: new Vector2(xVals[i], yVals[i]) });
-        }
-    }
-}
-
-export class Vector3Parser extends DataTypeParser 
-{
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
-    {
-        const xVals = bytes.getInterleavedFloat32Array(numInstances);
-        const yVals = bytes.getInterleavedFloat32Array(numInstances);
-        const zVals = bytes.getInterleavedFloat32Array(numInstances);
-
-        for (let i = 0; i < numInstances; ++i)
-        {
-            outValues.push({ type: DataType.Vector3, value: new Vector3(xVals[i], yVals[i], zVals[i]) });
-        }
-    }
-}
-
-export class CFrameParser extends DataTypeParser 
-{
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
-    {
-        const orientations: number[][] = [];
-        for (let i = 0; i < numInstances; ++i)
-        {
-            const orientId = bytes.getUint8();
-            if (orientId > 0)
+            const value = instance.Props.get(propName);
+            if (value?.type === DataType.Color3)
             {
-                // Stolen from https://github.com/MaximumADHD/Roblox-File-Format/blob/main/DataTypes/CFrame FromOrientId
-                const r0 = Vector3.FromNormalId(NormalId.fromValue(Math.floor(orientId / 6))!);
-                const r1 = Vector3.FromNormalId(NormalId.fromValue(orientId % 6)!);
-                const r2 = r0.Cross(r1);
-                orientations.push([
-                    r0.X, r0.Y, r0.Z,
-                    r1.X, r1.Y, r1.Z,
-                    r2.X, r2.Y, r2.Z
-                ]);
+                const color = value.value;
+                r.push(color.R);
+                g.push(color.G);
+                b.push(color.B);
             }
             else
             {
-                orientations.push(bytes.getFloat32Array(9));
+                r.push(0);
+                g.push(0);
+                b.push(0);
             }
         }
+
+        writer.putInterleavedFloat32Array(r);
+        writer.putInterleavedFloat32Array(g);
+        writer.putInterleavedFloat32Array(b);
+    }
+}
+
+// export class Vector2Parser extends DataTypeParser 
+// {
+//     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+//     {
+//         const xVals = bytes.getInterleavedFloat32Array(numInstances);
+//         const yVals = bytes.getInterleavedFloat32Array(numInstances);
+
+//         for (let i = 0; i < numInstances; ++i)
+//         {
+//             outValues.push({ type: DataType.Vector2, value: new Vector2(xVals[i], yVals[i]) });
+//         }
+//     }
+// }
+
+// export class Vector3Parser extends DataTypeParser 
+// {
+//     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+//     {
+//         const xVals = bytes.getInterleavedFloat32Array(numInstances);
+//         const yVals = bytes.getInterleavedFloat32Array(numInstances);
+//         const zVals = bytes.getInterleavedFloat32Array(numInstances);
+
+//         for (let i = 0; i < numInstances; ++i)
+//         {
+//             outValues.push({ type: DataType.Vector3, value: new Vector3(xVals[i], yVals[i], zVals[i]) });
+//         }
+//     }
+// }
+
+// export class CFrameParser extends DataTypeParser 
+// {
+//     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+//     {
+//         const orientations: number[][] = [];
+//         for (let i = 0; i < numInstances; ++i)
+//         {
+//             const orientId = bytes.getUint8();
+//             if (orientId > 0)
+//             {
+//                 // Stolen from https://github.com/MaximumADHD/Roblox-File-Format/blob/main/DataTypes/CFrame FromOrientId
+//                 const r0 = Vector3.FromNormalId(NormalId.fromValue(Math.floor(orientId / 6))!);
+//                 const r1 = Vector3.FromNormalId(NormalId.fromValue(orientId % 6)!);
+//                 const r2 = r0.Cross(r1);
+//                 orientations.push([
+//                     r0.X, r0.Y, r0.Z,
+//                     r1.X, r1.Y, r1.Z,
+//                     r2.X, r2.Y, r2.Z
+//                 ]);
+//             }
+//             else
+//             {
+//                 orientations.push(bytes.getFloat32Array(9));
+//             }
+//         }
         
-        const xVals = bytes.getInterleavedFloat32Array(numInstances);
-        const yVals = bytes.getInterleavedFloat32Array(numInstances);
-        const zVals = bytes.getInterleavedFloat32Array(numInstances);
+//         const xVals = bytes.getInterleavedFloat32Array(numInstances);
+//         const yVals = bytes.getInterleavedFloat32Array(numInstances);
+//         const zVals = bytes.getInterleavedFloat32Array(numInstances);
 
-        for (let i = 0; i < numInstances; ++i)
-        {
-            const position = new Vector3(xVals[i], yVals[i], zVals[i]);
-            const orientation = orientations[i];
-            outValues.push({ type: DataType.CFrame, value: new CFrame(position, orientation) });
-        }
-    }
-}
+//         for (let i = 0; i < numInstances; ++i)
+//         {
+//             const position = new Vector3(xVals[i], yVals[i], zVals[i]);
+//             const orientation = orientations[i];
+//             outValues.push({ type: DataType.CFrame, value: new CFrame(position, orientation) });
+//         }
+//     }
+// }
 
-export class EnumParser extends DataTypeParser 
-{
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>, extraInfo?: DataParserExtraInfo)
-    {
-        const enumValues = bytes.getInterleavedUint32Array(numInstances);
-        const enumFactory = extraInfo?.enumFactory;
+// export class EnumParser extends DataTypeParser 
+// {
+//     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>, extraInfo?: DataParserExtraInfo)
+//     {
+//         const enumValues = bytes.getInterleavedUint32Array(numInstances);
+//         const enumFactory = extraInfo?.enumFactory;
 
-        for (let i = 0; i < numInstances; ++i)
-        {
-            outValues.push({ type: DataType.Enum, value: this.createEnumValue(enumValues[i], enumFactory) });
-        }
-    }
+//         for (let i = 0; i < numInstances; ++i)
+//         {
+//             outValues.push({ type: DataType.Enum, value: this.createEnumValue(enumValues[i], enumFactory) });
+//         }
+//     }
 
-    protected createEnumValue(value: number, enumFactory?: EnumFactory)
-    {
-        if (enumFactory)
-        {
-            const enumValue = enumFactory(value);
-            return enumValue ?? EnumItem.MakeUnknownEnum(value);
-        }
-        return EnumItem.MakeUnknownEnum(value);
-    }
-}
+//     protected createEnumValue(value: number, enumFactory?: EnumFactory)
+//     {
+//         if (enumFactory)
+//         {
+//             const enumValue = enumFactory(value);
+//             return enumValue ?? EnumItem.MakeUnknownEnum(value);
+//         }
+//         return EnumItem.MakeUnknownEnum(value);
+//     }
+// }
 
-export class ReferentParser extends DataTypeParser 
-{
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>, extraInfo?: DataParserExtraInfo)
-    {
-        const referents = bytes.getReferentArray(numInstances);
-        const getInstance = extraInfo?.getInstanceFromReferent;
+// export class ReferentParser extends DataTypeParser 
+// {
+//     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>, extraInfo?: DataParserExtraInfo)
+//     {
+//         const referents = bytes.getReferentArray(numInstances);
+//         const getInstance = extraInfo?.getInstanceFromReferent;
 
-        for (let i = 0; i < numInstances; ++i)
-        {
-            const referent = referents[i]; 
-            const instance = getInstance ? getInstance(referent) : null;
-            outValues.push(instance ? { type: DataType.Referent, value: instance } : undefined);
-        }
-    }
-}
+//         for (let i = 0; i < numInstances; ++i)
+//         {
+//             const referent = referents[i]; 
+//             const instance = getInstance ? getInstance(referent) : null;
+//             outValues.push(instance ? { type: DataType.Referent, value: instance } : undefined);
+//         }
+//     }
+// }
 
-export class Color3uint8Parser extends DataTypeParser 
-{
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
-    {
-        const rVals = bytes.getBytes(numInstances);
-        const gVals = bytes.getBytes(numInstances);
-        const bVals = bytes.getBytes(numInstances);
+// export class Color3uint8Parser extends DataTypeParser 
+// {
+//     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+//     {
+//         const rVals = bytes.getBytes(numInstances);
+//         const gVals = bytes.getBytes(numInstances);
+//         const bVals = bytes.getBytes(numInstances);
 
-        for (let i = 0; i < numInstances; ++i)
-        {
-            outValues.push({ type: DataType.Color3uint8, value: Color3.FromRGB(rVals[i], gVals[i], bVals[i]) });
-        }
-    }
-}
+//         for (let i = 0; i < numInstances; ++i)
+//         {
+//             outValues.push({ type: DataType.Color3uint8, value: Color3.FromRGB(rVals[i], gVals[i], bVals[i]) });
+//         }
+//     }
+// }
 
-export class Vector3int16Parser extends DataTypeParser 
-{
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
-    {
-        for (let i = 0; i < numInstances; ++i)
-        {
-            const x = bytes.getInt16();
-            const y = bytes.getInt16();
-            const z = bytes.getInt16();
-            outValues.push({ type: DataType.Vector3int16, value: new Vector3(x, y, z) });
-        }
-    }
-}
+// export class Vector3int16Parser extends DataTypeParser 
+// {
+//     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+//     {
+//         for (let i = 0; i < numInstances; ++i)
+//         {
+//             const x = bytes.getInt16();
+//             const y = bytes.getInt16();
+//             const z = bytes.getInt16();
+//             outValues.push({ type: DataType.Vector3int16, value: new Vector3(x, y, z) });
+//         }
+//     }
+// }
 
-export class NumberSequenceParser extends DataTypeParser 
-{
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
-    {
-        for (let i = 0; i < numInstances; ++i)
-        {
-            const keypoints = [];
-            const numKeypoints = bytes.getUint32();
-            for (let j = 0; j < numKeypoints; ++j)
-            {
-                const time = bytes.getFloat32();
-                const value = bytes.getFloat32();
-                const envelope = bytes.getFloat32();
-                keypoints.push(new NumberSequenceKeypoint(time, value, envelope));
-            }
+// export class NumberSequenceParser extends DataTypeParser 
+// {
+//     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+//     {
+//         for (let i = 0; i < numInstances; ++i)
+//         {
+//             const keypoints = [];
+//             const numKeypoints = bytes.getUint32();
+//             for (let j = 0; j < numKeypoints; ++j)
+//             {
+//                 const time = bytes.getFloat32();
+//                 const value = bytes.getFloat32();
+//                 const envelope = bytes.getFloat32();
+//                 keypoints.push(new NumberSequenceKeypoint(time, value, envelope));
+//             }
             
-            outValues.push({ type: DataType.NumberSequence, value: new NumberSequence(keypoints) });
-        }
-    }
-}
+//             outValues.push({ type: DataType.NumberSequence, value: new NumberSequence(keypoints) });
+//         }
+//     }
+// }
 
-export class ColorSequenceParser extends DataTypeParser 
-{
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
-    {
-        for (let i = 0; i < numInstances; ++i)
-        {
-            const keypoints = [];
-            const numKeypoints = bytes.getUint32();
-            for (let j = 0; j < numKeypoints; ++j)
-            {
-                const time = bytes.getFloat32();
-                const r = bytes.getFloat32();
-                const g = bytes.getFloat32();
-                const b = bytes.getFloat32();
-                bytes.getFloat32(); // Envelope, unused
-                keypoints.push(new ColorSequenceKeypoint(time, new Color3(r, g, b)));
-            }
+// export class ColorSequenceParser extends DataTypeParser 
+// {
+//     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+//     {
+//         for (let i = 0; i < numInstances; ++i)
+//         {
+//             const keypoints = [];
+//             const numKeypoints = bytes.getUint32();
+//             for (let j = 0; j < numKeypoints; ++j)
+//             {
+//                 const time = bytes.getFloat32();
+//                 const r = bytes.getFloat32();
+//                 const g = bytes.getFloat32();
+//                 const b = bytes.getFloat32();
+//                 bytes.getFloat32(); // Envelope, unused
+//                 keypoints.push(new ColorSequenceKeypoint(time, new Color3(r, g, b)));
+//             }
             
-            outValues.push({ type: DataType.ColorSequence, value: new ColorSequence(keypoints) });
-        }
-    }
-}
+//             outValues.push({ type: DataType.ColorSequence, value: new ColorSequence(keypoints) });
+//         }
+//     }
+// }
 
-export class NumberRangeParser extends DataTypeParser 
-{
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
-    {
-        for (let i = 0; i < numInstances; ++i)
-        {
-            const min = bytes.getFloat32();
-            const max = bytes.getFloat32();
+// export class NumberRangeParser extends DataTypeParser 
+// {
+//     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+//     {
+//         for (let i = 0; i < numInstances; ++i)
+//         {
+//             const min = bytes.getFloat32();
+//             const max = bytes.getFloat32();
             
-            outValues.push({ type: DataType.NumberRange, value: new NumberRange(min, max) });
-        }
-    }
-}
+//             outValues.push({ type: DataType.NumberRange, value: new NumberRange(min, max) });
+//         }
+//     }
+// }
 
-export class RectParser extends DataTypeParser 
-{
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
-    {
-        const minXs = bytes.getInterleavedFloat32Array(numInstances);
-        const minYs = bytes.getInterleavedFloat32Array(numInstances);
-        const maxXs = bytes.getInterleavedFloat32Array(numInstances);
-        const maxYs = bytes.getInterleavedFloat32Array(numInstances);
+// export class RectParser extends DataTypeParser 
+// {
+//     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+//     {
+//         const minXs = bytes.getInterleavedFloat32Array(numInstances);
+//         const minYs = bytes.getInterleavedFloat32Array(numInstances);
+//         const maxXs = bytes.getInterleavedFloat32Array(numInstances);
+//         const maxYs = bytes.getInterleavedFloat32Array(numInstances);
 
-        for (let i = 0; i < numInstances; ++i)
-        {
-            const min = new Vector2(minXs[i], minYs[i]);
-            const max = new Vector2(maxXs[i], maxYs[i]);
-            outValues.push({ type: DataType.Rect, value: new Rect(min, max) });
-        }
-    }
-}
+//         for (let i = 0; i < numInstances; ++i)
+//         {
+//             const min = new Vector2(minXs[i], minYs[i]);
+//             const max = new Vector2(maxXs[i], maxYs[i]);
+//             outValues.push({ type: DataType.Rect, value: new Rect(min, max) });
+//         }
+//     }
+// }
 
-export class PhysicalPropertiesParser extends DataTypeParser 
-{
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
-    {
-        for (let i = 0; i < numInstances; ++i)
-        {
-            if (!bytes.getBool())
-            {
-                outValues.push(undefined);
-                continue;
-            }
+// export class PhysicalPropertiesParser extends DataTypeParser 
+// {
+//     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+//     {
+//         for (let i = 0; i < numInstances; ++i)
+//         {
+//             if (!bytes.getBool())
+//             {
+//                 outValues.push(undefined);
+//                 continue;
+//             }
 
-            const density = bytes.getFloat32();
-            const friction = bytes.getFloat32();
-            const elasticity = bytes.getFloat32();
-            const frictionWeight = bytes.getFloat32();
-            const elasticityWeight = bytes.getFloat32();
+//             const density = bytes.getFloat32();
+//             const friction = bytes.getFloat32();
+//             const elasticity = bytes.getFloat32();
+//             const frictionWeight = bytes.getFloat32();
+//             const elasticityWeight = bytes.getFloat32();
             
-            outValues.push({ type: DataType.PhysicalProperties, value: new PhysicalProperties(density, friction, elasticity, frictionWeight, elasticityWeight) });
-        }
-    }
-}
+//             outValues.push({ type: DataType.PhysicalProperties, value: new PhysicalProperties(density, friction, elasticity, frictionWeight, elasticityWeight) });
+//         }
+//     }
+// }
 
-export class Int64Parser extends DataTypeParser 
-{
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
-    {
-        const int64s = bytes.getInterleavedInt64Array(numInstances);
-        for (let i = 0; i < numInstances; ++i)
-        {
-            outValues.push({ type: DataType.Int64, value: int64s[i] });
-        }
-    }
-}
+// export class Int64Parser extends DataTypeParser 
+// {
+//     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+//     {
+//         const int64s = bytes.getInterleavedInt64Array(numInstances);
+//         for (let i = 0; i < numInstances; ++i)
+//         {
+//             outValues.push({ type: DataType.Int64, value: int64s[i] });
+//         }
+//     }
+// }
 
-export class SharedStringParser extends DataTypeParser 
-{
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
-    {
-        const indices = bytes.getInterleavedUint32Array(numInstances);
+// export class SharedStringParser extends DataTypeParser 
+// {
+//     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+//     {
+//         const indices = bytes.getInterleavedUint32Array(numInstances);
 
-        for (let i = 0; i < numInstances; ++i)
-        {
-            outValues.push({ type: DataType.SharedString, value: new SharedStringValue(indices[i]) });
-        }
-    }
-}
+//         for (let i = 0; i < numInstances; ++i)
+//         {
+//             outValues.push({ type: DataType.SharedString, value: new SharedStringValue(indices[i]) });
+//         }
+//     }
+// }
 
-export class BytecodeParser extends DataTypeParser 
-{
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
-    {
-        for (let i = 0; i < numInstances; ++i)
-        {
-            const byteCode = bytes.getString();
-            outValues.push(byteCode ? { type: DataType.Bytecode, value: byteCode } : undefined);
-        }
-    }
-}
+// export class BytecodeParser extends DataTypeParser 
+// {
+//     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+//     {
+//         for (let i = 0; i < numInstances; ++i)
+//         {
+//             const byteCode = bytes.getString();
+//             outValues.push(byteCode ? { type: DataType.Bytecode, value: byteCode } : undefined);
+//         }
+//     }
+// }
 
-export class OptionalCFrameParser extends DataTypeParser 
-{
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
-    {
-        bytes.getUint8();
-        const cFrameValues: (RobloxValue | undefined)[] = [];
-        new CFrameParser().read(bytes, numInstances, cFrameValues);
-        bytes.getUint8();
-        for (let i = 0; i < numInstances; ++i)
-        {
-            const hasValue = bytes.getBool();
-            const cFrame = cFrameValues[i];
-            if (hasValue && cFrame)
-            {
-                outValues.push({ type: DataType.OptionalCFrame, value: cFrame.value as CFrame });
-            }
-            else
-            {
-                outValues.push(undefined);
-            }
-        }
-    }
-}
+// export class OptionalCFrameParser extends DataTypeParser 
+// {
+//     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+//     {
+//         bytes.getUint8();
+//         const cFrameValues: (RobloxValue | undefined)[] = [];
+//         new CFrameParser().read(bytes, numInstances, cFrameValues);
+//         bytes.getUint8();
+//         for (let i = 0; i < numInstances; ++i)
+//         {
+//             const hasValue = bytes.getBool();
+//             const cFrame = cFrameValues[i];
+//             if (hasValue && cFrame)
+//             {
+//                 outValues.push({ type: DataType.OptionalCFrame, value: cFrame.value as CFrame });
+//             }
+//             else
+//             {
+//                 outValues.push(undefined);
+//             }
+//         }
+//     }
+// }
 
-export class UniqueIdParser extends DataTypeParser 
-{
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
-    {
-        const interleavedBytes = bytes.getBytes(numInstances * 16);
+// export class UniqueIdParser extends DataTypeParser 
+// {
+//     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+//     {
+//         const interleavedBytes = bytes.getBytes(numInstances * 16);
 
-        const uniqueIds = RobloxModelByteReader.convertInterleaved(interleavedBytes, numInstances, (bytes) => {
-            const reader = new RobloxModelByteReader(bytes.reverse());
-            const random = RobloxModelByteReader.untransformInt64(reader.getInt64());
-            const time = reader.getUint32();
-            const index = reader.getUint32();
-            return new UniqueId(index, time, random);
-        });
+//         const uniqueIds = RobloxModelByteReader.convertInterleaved(interleavedBytes, numInstances, (bytes) => {
+//             const reader = new RobloxModelByteReader(bytes.reverse());
+//             const random = RobloxModelByteReader.untransformInt64(reader.getInt64());
+//             const time = reader.getUint32();
+//             const index = reader.getUint32();
+//             return new UniqueId(index, time, random);
+//         });
 
-        for (let i = 0; i < numInstances; ++i)
-        {
-            outValues.push({ type: DataType.UniqueId, value: uniqueIds[i] });
-        }
-    }
-}
+//         for (let i = 0; i < numInstances; ++i)
+//         {
+//             outValues.push({ type: DataType.UniqueId, value: uniqueIds[i] });
+//         }
+//     }
+// }
 
-export class FontParser extends DataTypeParser 
-{
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
-    {
-        for (let i = 0; i < numInstances; ++i)
-        {
-            const family = bytes.getString();
-            const weight = bytes.getUint16();
-            const style = bytes.getUint8();
-            const cachedFaceId = bytes.getString();
-            outValues.push({ type: DataType.Font, value: new RBXMFont(family, weight, style, cachedFaceId) });
-        }
-    }
-}
+// export class FontParser extends DataTypeParser 
+// {
+//     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+//     {
+//         for (let i = 0; i < numInstances; ++i)
+//         {
+//             const family = bytes.getString();
+//             const weight = bytes.getUint16();
+//             const style = bytes.getUint8();
+//             const cachedFaceId = bytes.getString();
+//             outValues.push({ type: DataType.Font, value: new RBXMFont(family, weight, style, cachedFaceId) });
+//         }
+//     }
+// }
 
-export class SecurityCapabilitiesParser extends DataTypeParser 
-{
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
-    {
-        const values = bytes.getInterleavedUint64Array(numInstances);
+// export class SecurityCapabilitiesParser extends DataTypeParser 
+// {
+//     public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+//     {
+//         const values = bytes.getInterleavedUint64Array(numInstances);
 
-        for (let i = 0; i < numInstances; ++i)
-        {
-            outValues.push({ type: DataType.SecurityCapabilities, value: values[i] });
-        }
-    }
-}
+//         for (let i = 0; i < numInstances; ++i)
+//         {
+//             outValues.push({ type: DataType.SecurityCapabilities, value: values[i] });
+//         }
+//     }
+// }

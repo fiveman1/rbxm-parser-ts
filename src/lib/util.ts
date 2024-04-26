@@ -62,3 +62,19 @@ export function bytesToBitArray(bytes: Uint8Array)
 
     return output;
 }
+
+export function bitsToByteArray(bits: Uint8Array)
+{
+    const outBytes = new Uint8Array(bits.length / 8);
+    for (let i = 0; i < 4; ++i) 
+    {
+        let val = 0;
+        const offset = i * 8;
+        for (let j = 0; j < 8; ++j) 
+        {
+            val |= bits[j + offset] << (7 - j);
+        }
+        outBytes[i] = val;
+    }
+    return outBytes;
+}

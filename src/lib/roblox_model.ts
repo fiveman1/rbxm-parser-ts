@@ -59,9 +59,9 @@ export class RobloxModel extends ChildContainer
         this._children.delete(instance);
     }
 
-    public WriteToFile(fname: string)
+    public WriteToBuffer()
     {
-        new RobloxModelDOMWriter(fname, this).write();
+        return new RobloxModelDOMWriter(this).write();
     }
 
     /**
