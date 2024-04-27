@@ -388,8 +388,8 @@ function getClassMap() {
         {
             this.stream.write(`    public static readonly ${item.Name} = new ${info.Name}("${item.Name}", ${item.Value});\n`);
         }
-        this.stream.write(`    public static get items() {return [${info.Items.map((item) => info.Name + "." + item.Name).join(", ")}];}\n`);
-        this.stream.write(`    public static fromValue(value: number) {return ${info.Name}.items.find((item) => item._value === value);}\n`);
+        this.stream.write(`    public static get Items() {return [${info.Items.map((item) => info.Name + "." + item.Name).join(", ")}];}\n`);
+        this.stream.write(`    public static FromValue(value: number) {return ${info.Name}.Items.find((item) => item._value === value);}\n`);
         this.stream.write("}\n");
     }
 
@@ -413,7 +413,7 @@ function getEnumMap() {
 
     protected writeOneEnumMap(keyName: string, enumName: string)
     {
-        this.stream.write(`    map.set("${keyName}", ${enumName}.fromValue);\n`);
+        this.stream.write(`    map.set("${keyName}", ${enumName}.FromValue);\n`);
     }
 
     protected endEnumMap()

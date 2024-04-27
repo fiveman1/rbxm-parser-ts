@@ -4,8 +4,8 @@
  * Contains some Roblox related types/enums.
  */
 
-import { NameToClass, NormalId } from "../generated/generated_types";
-import { narrowCopyArray, formatNum } from "./util";
+import { NameToClass } from "../generated/generated_types";
+import { narrowCopyArray, formatNum, floatsEqual } from "./util";
 
 /**
  * See https://dom.rojo.space/binary#data-types
@@ -950,16 +950,20 @@ export class Vector3 implements ICopyable
         this.Z = z;
     }
 
+    public static get XAxis() { return new Vector3(1, 0, 0); }
+    public static get YAxis() { return new Vector3(0, 1, 0); }
+    public static get ZAxis() { return new Vector3(0, 0, 1); }
+
     /**
      * Creates a Vector3 from a given Normal direction.
      * @param normalId the normal direction
      * @returns the Vector3 with a magnitude of 1 that faces in the normal direction
      */
-    public static FromNormalId(normalId: NormalId)
+    public static FromNormalId(normalId: number)
     {
         // See FromNormalId https://github.com/MaximumADHD/Roblox-File-Format/blob/main/DataTypes/Vector3.cs
         const coords = [0, 0, 0];
-        coords[normalId.Value % 3] = (normalId.Value > 2 ? -1 : 1);
+        coords[normalId % 3] = (normalId > 2 ? -1 : 1);
 
         return new Vector3(coords[0], coords[1], coords[2]);
     }
@@ -1040,6 +1044,23 @@ export class Vector3 implements ICopyable
         return new Vector3(this.X / scalar, this.Y / scalar, this.Z / scalar);
     }
 
+    /**
+     * @returns which NormalId this vector corresponds to, or -1 if not applicable
+     */
+    public ToNormalId()
+    {
+        for (let i = 0; i < 6; ++i)
+        {
+            const normal = Vector3.FromNormalId(i);
+            if (floatsEqual(normal.X, this.X) && floatsEqual(normal.Y, this.Y) && floatsEqual(normal.Z, this.Z))
+            {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
     public toString()
     {
         return `Vector3(X: ${formatNum(this.X)}, Y: ${formatNum(this.Y)}, Z: ${formatNum(this.Z)})`;
@@ -1050,6 +1071,8 @@ export class Vector3 implements ICopyable
         return new Vector3(this.X, this.Y, this.Z) as this;
     }
 }
+
+// Shoutout to https://github.com/MaximumADHD/Roblox-File-Format/blob/main/DataTypes/CFrame.cs
 
 /**
  * A coordinate frame.
@@ -1063,6 +1086,85 @@ export class CFrame implements ICopyable
     {
         this.Position = position;
         this.Orientation = orientation;
+    }
+
+    public static get Identity() { return new CFrame(new Vector3(0, 0, 0), [1, 0, 0, 0, 1, 0, 0, 0, 1]); }
+
+    public get ColumnX() { return new Vector3(this.Orientation[0], this.Orientation[3], this.Orientation[6]); }
+
+    public get ColumnY() { return new Vector3(this.Orientation[1], this.Orientation[4], this.Orientation[7]); }
+
+    public get ColumnZ() { return new Vector3(this.Orientation[2], this.Orientation[5], this.Orientation[8]); }
+
+    public get XVector() { return new Vector3(this.Orientation[0], this.Orientation[1], this.Orientation[2]); }
+
+    public get YVector() { return new Vector3(this.Orientation[3], this.Orientation[4], this.Orientation[5]); }
+
+    public get ZVector() { return new Vector3(this.Orientation[6], this.Orientation[7], this.Orientation[8]); }
+
+    /**
+     * @returns whether this is axis aligned or not
+     */
+    public IsAxisAligned()
+    {
+        const tests = [
+            this.XVector.Dot(Vector3.XAxis),
+            this.YVector.Dot(Vector3.YAxis),
+            this.ZVector.Dot(Vector3.ZAxis)
+        ];
+
+        for (const test of tests)
+        {
+            const dot = Math.abs(test);
+
+            if (!floatsEqual(dot, 0) && !floatsEqual(dot, 1))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Get the orient ID that this CFrame corresponds to, or -1 if not applicable.
+     * This is intended for internal use.
+     * @returns the orient ID or -1
+     */
+    public GetOrientId()
+    {
+        if (!this.IsAxisAligned())
+        {
+            return -1;
+        }
+
+        const xNormal = this.ColumnX.ToNormalId();
+        if (xNormal === -1)
+        {
+            return -1;
+        }
+
+        const yNormal = this.ColumnY.ToNormalId();
+        if (yNormal === -1)
+        {
+            return -1;
+        }
+
+        const orientId = (xNormal * 6) + yNormal;
+        if (!CFrame.IsLegalOrientId(orientId))
+        {
+            return -1;
+        }
+
+        return orientId;
+    }
+
+    protected static IsLegalOrientId(orientId: number)
+    {
+        const xOrientId = (orientId / 6) % 3;
+        const yOrientId = orientId % 3;
+
+        return xOrientId !== yOrientId;
     }
 
     public toString()

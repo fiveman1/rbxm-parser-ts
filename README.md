@@ -1,10 +1,8 @@
 # rbxm-parser
 
-Parser for reading Roblox model (.rbxm) files. Written in TypeScript with strong typing automatically generated from Roblox.
+Parser for reading and writing Roblox model (.rbxm) files. Written in TypeScript with strong typing automatically generated from Roblox.
 
-Currently only supports reading models, but writing will be implemented in the future.
-
-Finally, this only supports .rbxm (binary format) Roblox model files. Not planning to support .rbxmx (XML format).
+This only supports .rbxm (binary format) Roblox model files. Not planning to support .rbxmx (XML format).
 
 ## How To Use
 
@@ -19,8 +17,7 @@ import { RobloxModel, ... } from "rbxm-parser";
 Import (CJS):
 
 ```js
-const RBXM = require("rbxm-parser");
-const RobloxModel = RBXM.RoboxModel;
+const { RobloxModel, ... } = require("rbxm-parser");
 ```
 
 ### Loading models
@@ -77,3 +74,11 @@ All of the above property gets and sets are strongly typed.
 `npm run generate`: Auto generate the Roblox types in `generated/generated_types.ts`
 
 `npm run main`: Runs `main.ts`
+
+## References
+
+I used the following resources extensively to help build this. Huge thanks to MaximumADHD and the Rojo team for providing these open source resources.
+
+[Roblox-File-Format](https://github.com/MaximumADHD/Roblox-File-Format): a C# library by MaximumADHD for doing basically the same thing that this does.
+
+[Roblox Binary Model Format](https://dom.rojo.space/binary): Unofficial documentation for the .rbxm binary format created by the Rojo team.

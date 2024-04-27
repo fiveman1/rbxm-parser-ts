@@ -27,7 +27,8 @@ export function bytesToHex(bytes: Uint8Array)
 export function formatNum(num: number)
 {
     // Some silly formatting tricks since JS numbers are not very accurate...
-    return Number(num.toPrecision(6)).toString();
+    if (Math.abs(num) < 0.0001) return "0";
+    return Number(num.toPrecision(5)).toString();
 }
 
 /**
@@ -77,4 +78,9 @@ export function bitsToByteArray(bits: Uint8Array)
         outBytes[i] = val;
     }
     return outBytes;
+}
+
+export function floatsEqual(num1: number, num2: number, eps: number = 0.00000001)
+{
+    return Math.abs(num1 - num2) < eps;
 }

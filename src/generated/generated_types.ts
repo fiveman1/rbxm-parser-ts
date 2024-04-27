@@ -2,7 +2,7 @@
 * @author https://github.com/fiveman1
 * @file generated_types.ts
 * Contains generated types for Roblox classes and enums.
-* Generated on 4/24/2024, 2:34:05 PM
+* Generated on 4/26/2024, 6:24:42 PM
 */
 
 import { DataType, CoreInstance, EnumItem } from "../lib/roblox_types";
@@ -7609,8 +7609,8 @@ function getClassMap() {
 export class AccessModifierType extends EnumItem {
     public static readonly Allow = new AccessModifierType("Allow", 0);
     public static readonly Deny = new AccessModifierType("Deny", 1);
-    public static get items() {return [AccessModifierType.Allow, AccessModifierType.Deny];}
-    public static fromValue(value: number) {return AccessModifierType.items.find((item) => item._value === value);}
+    public static get Items() {return [AccessModifierType.Allow, AccessModifierType.Deny];}
+    public static FromValue(value: number) {return AccessModifierType.Items.find((item) => item._value === value);}
 }
 
 export class AccessoryType extends EnumItem {
@@ -7634,37 +7634,37 @@ export class AccessoryType extends EnumItem {
     public static readonly DressSkirt = new AccessoryType("DressSkirt", 17);
     public static readonly Eyebrow = new AccessoryType("Eyebrow", 18);
     public static readonly Eyelash = new AccessoryType("Eyelash", 19);
-    public static get items() {return [AccessoryType.Unknown, AccessoryType.Hat, AccessoryType.Hair, AccessoryType.Face, AccessoryType.Neck, AccessoryType.Shoulder, AccessoryType.Front, AccessoryType.Back, AccessoryType.Waist, AccessoryType.TShirt, AccessoryType.Shirt, AccessoryType.Pants, AccessoryType.Jacket, AccessoryType.Sweater, AccessoryType.Shorts, AccessoryType.LeftShoe, AccessoryType.RightShoe, AccessoryType.DressSkirt, AccessoryType.Eyebrow, AccessoryType.Eyelash];}
-    public static fromValue(value: number) {return AccessoryType.items.find((item) => item._value === value);}
+    public static get Items() {return [AccessoryType.Unknown, AccessoryType.Hat, AccessoryType.Hair, AccessoryType.Face, AccessoryType.Neck, AccessoryType.Shoulder, AccessoryType.Front, AccessoryType.Back, AccessoryType.Waist, AccessoryType.TShirt, AccessoryType.Shirt, AccessoryType.Pants, AccessoryType.Jacket, AccessoryType.Sweater, AccessoryType.Shorts, AccessoryType.LeftShoe, AccessoryType.RightShoe, AccessoryType.DressSkirt, AccessoryType.Eyebrow, AccessoryType.Eyelash];}
+    public static FromValue(value: number) {return AccessoryType.Items.find((item) => item._value === value);}
 }
 
 export class ActuatorRelativeTo extends EnumItem {
     public static readonly Attachment0 = new ActuatorRelativeTo("Attachment0", 0);
     public static readonly Attachment1 = new ActuatorRelativeTo("Attachment1", 1);
     public static readonly World = new ActuatorRelativeTo("World", 2);
-    public static get items() {return [ActuatorRelativeTo.Attachment0, ActuatorRelativeTo.Attachment1, ActuatorRelativeTo.World];}
-    public static fromValue(value: number) {return ActuatorRelativeTo.items.find((item) => item._value === value);}
+    public static get Items() {return [ActuatorRelativeTo.Attachment0, ActuatorRelativeTo.Attachment1, ActuatorRelativeTo.World];}
+    public static FromValue(value: number) {return ActuatorRelativeTo.Items.find((item) => item._value === value);}
 }
 
 export class ActuatorType extends EnumItem {
     public static readonly None = new ActuatorType("None", 0);
     public static readonly Motor = new ActuatorType("Motor", 1);
     public static readonly Servo = new ActuatorType("Servo", 2);
-    public static get items() {return [ActuatorType.None, ActuatorType.Motor, ActuatorType.Servo];}
-    public static fromValue(value: number) {return ActuatorType.items.find((item) => item._value === value);}
+    public static get Items() {return [ActuatorType.None, ActuatorType.Motor, ActuatorType.Servo];}
+    public static FromValue(value: number) {return ActuatorType.Items.find((item) => item._value === value);}
 }
 
 export class AdShape extends EnumItem {
     public static readonly HorizontalRectangle = new AdShape("HorizontalRectangle", 1);
-    public static get items() {return [AdShape.HorizontalRectangle];}
-    public static fromValue(value: number) {return AdShape.items.find((item) => item._value === value);}
+    public static get Items() {return [AdShape.HorizontalRectangle];}
+    public static FromValue(value: number) {return AdShape.Items.find((item) => item._value === value);}
 }
 
 export class AdornCullingMode extends EnumItem {
     public static readonly Automatic = new AdornCullingMode("Automatic", 0);
     public static readonly Never = new AdornCullingMode("Never", 1);
-    public static get items() {return [AdornCullingMode.Automatic, AdornCullingMode.Never];}
-    public static fromValue(value: number) {return AdornCullingMode.items.find((item) => item._value === value);}
+    public static get Items() {return [AdornCullingMode.Automatic, AdornCullingMode.Never];}
+    public static FromValue(value: number) {return AdornCullingMode.Items.find((item) => item._value === value);}
 }
 
 export class AlignType extends EnumItem {
@@ -7674,15 +7674,15 @@ export class AlignType extends EnumItem {
     public static readonly AllAxes = new AlignType("AllAxes", 5);
     public static readonly Parallel = new AlignType("Parallel", 0);
     public static readonly Perpendicular = new AlignType("Perpendicular", 1);
-    public static get items() {return [AlignType.PrimaryAxisParallel, AlignType.PrimaryAxisPerpendicular, AlignType.PrimaryAxisLookAt, AlignType.AllAxes, AlignType.Parallel, AlignType.Perpendicular];}
-    public static fromValue(value: number) {return AlignType.items.find((item) => item._value === value);}
+    public static get Items() {return [AlignType.PrimaryAxisParallel, AlignType.PrimaryAxisPerpendicular, AlignType.PrimaryAxisLookAt, AlignType.AllAxes, AlignType.Parallel, AlignType.Perpendicular];}
+    public static FromValue(value: number) {return AlignType.Items.find((item) => item._value === value);}
 }
 
 export class AlphaMode extends EnumItem {
     public static readonly Overlay = new AlphaMode("Overlay", 0);
     public static readonly Transparency = new AlphaMode("Transparency", 1);
-    public static get items() {return [AlphaMode.Overlay, AlphaMode.Transparency];}
-    public static fromValue(value: number) {return AlphaMode.items.find((item) => item._value === value);}
+    public static get Items() {return [AlphaMode.Overlay, AlphaMode.Transparency];}
+    public static FromValue(value: number) {return AlphaMode.Items.find((item) => item._value === value);}
 }
 
 export class AnimationPriority extends EnumItem {
@@ -7693,45 +7693,45 @@ export class AnimationPriority extends EnumItem {
     public static readonly Action2 = new AnimationPriority("Action2", 3);
     public static readonly Action3 = new AnimationPriority("Action3", 4);
     public static readonly Action4 = new AnimationPriority("Action4", 5);
-    public static get items() {return [AnimationPriority.Core, AnimationPriority.Idle, AnimationPriority.Movement, AnimationPriority.Action, AnimationPriority.Action2, AnimationPriority.Action3, AnimationPriority.Action4];}
-    public static fromValue(value: number) {return AnimationPriority.items.find((item) => item._value === value);}
+    public static get Items() {return [AnimationPriority.Core, AnimationPriority.Idle, AnimationPriority.Movement, AnimationPriority.Action, AnimationPriority.Action2, AnimationPriority.Action3, AnimationPriority.Action4];}
+    public static FromValue(value: number) {return AnimationPriority.Items.find((item) => item._value === value);}
 }
 
 export class AnimatorRetargetingMode extends EnumItem {
     public static readonly Default = new AnimatorRetargetingMode("Default", 0);
     public static readonly Disabled = new AnimatorRetargetingMode("Disabled", 1);
     public static readonly Enabled = new AnimatorRetargetingMode("Enabled", 2);
-    public static get items() {return [AnimatorRetargetingMode.Default, AnimatorRetargetingMode.Disabled, AnimatorRetargetingMode.Enabled];}
-    public static fromValue(value: number) {return AnimatorRetargetingMode.items.find((item) => item._value === value);}
+    public static get Items() {return [AnimatorRetargetingMode.Default, AnimatorRetargetingMode.Disabled, AnimatorRetargetingMode.Enabled];}
+    public static FromValue(value: number) {return AnimatorRetargetingMode.Items.find((item) => item._value === value);}
 }
 
 export class ApplyStrokeMode extends EnumItem {
     public static readonly Contextual = new ApplyStrokeMode("Contextual", 0);
     public static readonly Border = new ApplyStrokeMode("Border", 1);
-    public static get items() {return [ApplyStrokeMode.Contextual, ApplyStrokeMode.Border];}
-    public static fromValue(value: number) {return ApplyStrokeMode.items.find((item) => item._value === value);}
+    public static get Items() {return [ApplyStrokeMode.Contextual, ApplyStrokeMode.Border];}
+    public static FromValue(value: number) {return ApplyStrokeMode.Items.find((item) => item._value === value);}
 }
 
 export class AspectType extends EnumItem {
     public static readonly FitWithinMaxSize = new AspectType("FitWithinMaxSize", 0);
     public static readonly ScaleWithParentSize = new AspectType("ScaleWithParentSize", 1);
-    public static get items() {return [AspectType.FitWithinMaxSize, AspectType.ScaleWithParentSize];}
-    public static fromValue(value: number) {return AspectType.items.find((item) => item._value === value);}
+    public static get Items() {return [AspectType.FitWithinMaxSize, AspectType.ScaleWithParentSize];}
+    public static FromValue(value: number) {return AspectType.Items.find((item) => item._value === value);}
 }
 
 export class AudioApiRollout extends EnumItem {
     public static readonly Disabled = new AudioApiRollout("Disabled", 0);
     public static readonly Automatic = new AudioApiRollout("Automatic", 1);
     public static readonly Enabled = new AudioApiRollout("Enabled", 2);
-    public static get items() {return [AudioApiRollout.Disabled, AudioApiRollout.Automatic, AudioApiRollout.Enabled];}
-    public static fromValue(value: number) {return AudioApiRollout.items.find((item) => item._value === value);}
+    public static get Items() {return [AudioApiRollout.Disabled, AudioApiRollout.Automatic, AudioApiRollout.Enabled];}
+    public static FromValue(value: number) {return AudioApiRollout.Items.find((item) => item._value === value);}
 }
 
 export class AudioSubType extends EnumItem {
     public static readonly Music = new AudioSubType("Music", 1);
     public static readonly SoundEffect = new AudioSubType("SoundEffect", 2);
-    public static get items() {return [AudioSubType.Music, AudioSubType.SoundEffect];}
-    public static fromValue(value: number) {return AudioSubType.items.find((item) => item._value === value);}
+    public static get Items() {return [AudioSubType.Music, AudioSubType.SoundEffect];}
+    public static FromValue(value: number) {return AudioSubType.Items.find((item) => item._value === value);}
 }
 
 export class AutomaticSize extends EnumItem {
@@ -7739,24 +7739,24 @@ export class AutomaticSize extends EnumItem {
     public static readonly X = new AutomaticSize("X", 1);
     public static readonly Y = new AutomaticSize("Y", 2);
     public static readonly XY = new AutomaticSize("XY", 3);
-    public static get items() {return [AutomaticSize.None, AutomaticSize.X, AutomaticSize.Y, AutomaticSize.XY];}
-    public static fromValue(value: number) {return AutomaticSize.items.find((item) => item._value === value);}
+    public static get Items() {return [AutomaticSize.None, AutomaticSize.X, AutomaticSize.Y, AutomaticSize.XY];}
+    public static FromValue(value: number) {return AutomaticSize.Items.find((item) => item._value === value);}
 }
 
 export class AvatarJointUpgrade extends EnumItem {
     public static readonly Default = new AvatarJointUpgrade("Default", 0);
     public static readonly Enabled = new AvatarJointUpgrade("Enabled", 1);
     public static readonly Disabled = new AvatarJointUpgrade("Disabled", 2);
-    public static get items() {return [AvatarJointUpgrade.Default, AvatarJointUpgrade.Enabled, AvatarJointUpgrade.Disabled];}
-    public static fromValue(value: number) {return AvatarJointUpgrade.items.find((item) => item._value === value);}
+    public static get Items() {return [AvatarJointUpgrade.Default, AvatarJointUpgrade.Enabled, AvatarJointUpgrade.Disabled];}
+    public static FromValue(value: number) {return AvatarJointUpgrade.Items.find((item) => item._value === value);}
 }
 
 export class AvatarUnificationMode extends EnumItem {
     public static readonly Default = new AvatarUnificationMode("Default", 0);
     public static readonly Disabled = new AvatarUnificationMode("Disabled", 1);
     public static readonly Enabled = new AvatarUnificationMode("Enabled", 2);
-    public static get items() {return [AvatarUnificationMode.Default, AvatarUnificationMode.Disabled, AvatarUnificationMode.Enabled];}
-    public static fromValue(value: number) {return AvatarUnificationMode.items.find((item) => item._value === value);}
+    public static get Items() {return [AvatarUnificationMode.Default, AvatarUnificationMode.Disabled, AvatarUnificationMode.Enabled];}
+    public static FromValue(value: number) {return AvatarUnificationMode.Items.find((item) => item._value === value);}
 }
 
 export class BinType extends EnumItem {
@@ -7765,8 +7765,8 @@ export class BinType extends EnumItem {
     public static readonly Grab = new BinType("Grab", 2);
     public static readonly Clone = new BinType("Clone", 3);
     public static readonly Hammer = new BinType("Hammer", 4);
-    public static get items() {return [BinType.Script, BinType.GameTool, BinType.Grab, BinType.Clone, BinType.Hammer];}
-    public static fromValue(value: number) {return BinType.items.find((item) => item._value === value);}
+    public static get Items() {return [BinType.Script, BinType.GameTool, BinType.Grab, BinType.Clone, BinType.Hammer];}
+    public static FromValue(value: number) {return BinType.Items.find((item) => item._value === value);}
 }
 
 export class BodyPart extends EnumItem {
@@ -7776,16 +7776,16 @@ export class BodyPart extends EnumItem {
     public static readonly RightArm = new BodyPart("RightArm", 3);
     public static readonly LeftLeg = new BodyPart("LeftLeg", 4);
     public static readonly RightLeg = new BodyPart("RightLeg", 5);
-    public static get items() {return [BodyPart.Head, BodyPart.Torso, BodyPart.LeftArm, BodyPart.RightArm, BodyPart.LeftLeg, BodyPart.RightLeg];}
-    public static fromValue(value: number) {return BodyPart.items.find((item) => item._value === value);}
+    public static get Items() {return [BodyPart.Head, BodyPart.Torso, BodyPart.LeftArm, BodyPart.RightArm, BodyPart.LeftLeg, BodyPart.RightLeg];}
+    public static FromValue(value: number) {return BodyPart.Items.find((item) => item._value === value);}
 }
 
 export class BorderMode extends EnumItem {
     public static readonly Outline = new BorderMode("Outline", 0);
     public static readonly Middle = new BorderMode("Middle", 1);
     public static readonly Inset = new BorderMode("Inset", 2);
-    public static get items() {return [BorderMode.Outline, BorderMode.Middle, BorderMode.Inset];}
-    public static fromValue(value: number) {return BorderMode.items.find((item) => item._value === value);}
+    public static get Items() {return [BorderMode.Outline, BorderMode.Middle, BorderMode.Inset];}
+    public static FromValue(value: number) {return BorderMode.Items.find((item) => item._value === value);}
 }
 
 export class ButtonStyle extends EnumItem {
@@ -7795,23 +7795,23 @@ export class ButtonStyle extends EnumItem {
     public static readonly RobloxRoundButton = new ButtonStyle("RobloxRoundButton", 3);
     public static readonly RobloxRoundDefaultButton = new ButtonStyle("RobloxRoundDefaultButton", 4);
     public static readonly RobloxRoundDropdownButton = new ButtonStyle("RobloxRoundDropdownButton", 5);
-    public static get items() {return [ButtonStyle.Custom, ButtonStyle.RobloxButtonDefault, ButtonStyle.RobloxButton, ButtonStyle.RobloxRoundButton, ButtonStyle.RobloxRoundDefaultButton, ButtonStyle.RobloxRoundDropdownButton];}
-    public static fromValue(value: number) {return ButtonStyle.items.find((item) => item._value === value);}
+    public static get Items() {return [ButtonStyle.Custom, ButtonStyle.RobloxButtonDefault, ButtonStyle.RobloxButton, ButtonStyle.RobloxRoundButton, ButtonStyle.RobloxRoundDefaultButton, ButtonStyle.RobloxRoundDropdownButton];}
+    public static FromValue(value: number) {return ButtonStyle.Items.find((item) => item._value === value);}
 }
 
 export class CSGAsyncDynamicCollision extends EnumItem {
     public static readonly Default = new CSGAsyncDynamicCollision("Default", 0);
     public static readonly Disabled = new CSGAsyncDynamicCollision("Disabled", 1);
     public static readonly Experimental = new CSGAsyncDynamicCollision("Experimental", 2);
-    public static get items() {return [CSGAsyncDynamicCollision.Default, CSGAsyncDynamicCollision.Disabled, CSGAsyncDynamicCollision.Experimental];}
-    public static fromValue(value: number) {return CSGAsyncDynamicCollision.items.find((item) => item._value === value);}
+    public static get Items() {return [CSGAsyncDynamicCollision.Default, CSGAsyncDynamicCollision.Disabled, CSGAsyncDynamicCollision.Experimental];}
+    public static FromValue(value: number) {return CSGAsyncDynamicCollision.Items.find((item) => item._value === value);}
 }
 
 export class CameraMode extends EnumItem {
     public static readonly Classic = new CameraMode("Classic", 0);
     public static readonly LockFirstPerson = new CameraMode("LockFirstPerson", 1);
-    public static get items() {return [CameraMode.Classic, CameraMode.LockFirstPerson];}
-    public static fromValue(value: number) {return CameraMode.items.find((item) => item._value === value);}
+    public static get Items() {return [CameraMode.Classic, CameraMode.LockFirstPerson];}
+    public static FromValue(value: number) {return CameraMode.Items.find((item) => item._value === value);}
 }
 
 export class CameraType extends EnumItem {
@@ -7823,8 +7823,8 @@ export class CameraType extends EnumItem {
     public static readonly Custom = new CameraType("Custom", 5);
     public static readonly Scriptable = new CameraType("Scriptable", 6);
     public static readonly Orbital = new CameraType("Orbital", 7);
-    public static get items() {return [CameraType.Fixed, CameraType.Attach, CameraType.Watch, CameraType.Track, CameraType.Follow, CameraType.Custom, CameraType.Scriptable, CameraType.Orbital];}
-    public static fromValue(value: number) {return CameraType.items.find((item) => item._value === value);}
+    public static get Items() {return [CameraType.Fixed, CameraType.Attach, CameraType.Watch, CameraType.Track, CameraType.Follow, CameraType.Custom, CameraType.Scriptable, CameraType.Orbital];}
+    public static FromValue(value: number) {return CameraType.Items.find((item) => item._value === value);}
 }
 
 export class CharacterControlMode extends EnumItem {
@@ -7832,38 +7832,38 @@ export class CharacterControlMode extends EnumItem {
     public static readonly Legacy = new CharacterControlMode("Legacy", 1);
     public static readonly NoCharacterController = new CharacterControlMode("NoCharacterController", 2);
     public static readonly LuaCharacterController = new CharacterControlMode("LuaCharacterController", 3);
-    public static get items() {return [CharacterControlMode.Default, CharacterControlMode.Legacy, CharacterControlMode.NoCharacterController, CharacterControlMode.LuaCharacterController];}
-    public static fromValue(value: number) {return CharacterControlMode.items.find((item) => item._value === value);}
+    public static get Items() {return [CharacterControlMode.Default, CharacterControlMode.Legacy, CharacterControlMode.NoCharacterController, CharacterControlMode.LuaCharacterController];}
+    public static FromValue(value: number) {return CharacterControlMode.Items.find((item) => item._value === value);}
 }
 
 export class ChatVersion extends EnumItem {
     public static readonly LegacyChatService = new ChatVersion("LegacyChatService", 0);
     public static readonly TextChatService = new ChatVersion("TextChatService", 1);
-    public static get items() {return [ChatVersion.LegacyChatService, ChatVersion.TextChatService];}
-    public static fromValue(value: number) {return ChatVersion.items.find((item) => item._value === value);}
+    public static get Items() {return [ChatVersion.LegacyChatService, ChatVersion.TextChatService];}
+    public static FromValue(value: number) {return ChatVersion.Items.find((item) => item._value === value);}
 }
 
 export class ClientAnimatorThrottlingMode extends EnumItem {
     public static readonly Default = new ClientAnimatorThrottlingMode("Default", 0);
     public static readonly Disabled = new ClientAnimatorThrottlingMode("Disabled", 1);
     public static readonly Enabled = new ClientAnimatorThrottlingMode("Enabled", 2);
-    public static get items() {return [ClientAnimatorThrottlingMode.Default, ClientAnimatorThrottlingMode.Disabled, ClientAnimatorThrottlingMode.Enabled];}
-    public static fromValue(value: number) {return ClientAnimatorThrottlingMode.items.find((item) => item._value === value);}
+    public static get Items() {return [ClientAnimatorThrottlingMode.Default, ClientAnimatorThrottlingMode.Disabled, ClientAnimatorThrottlingMode.Enabled];}
+    public static FromValue(value: number) {return ClientAnimatorThrottlingMode.Items.find((item) => item._value === value);}
 }
 
 export class DecreaseMinimumPartDensityMode extends EnumItem {
     public static readonly Default = new DecreaseMinimumPartDensityMode("Default", 0);
     public static readonly Disabled = new DecreaseMinimumPartDensityMode("Disabled", 1);
     public static readonly Enabled = new DecreaseMinimumPartDensityMode("Enabled", 2);
-    public static get items() {return [DecreaseMinimumPartDensityMode.Default, DecreaseMinimumPartDensityMode.Disabled, DecreaseMinimumPartDensityMode.Enabled];}
-    public static fromValue(value: number) {return DecreaseMinimumPartDensityMode.items.find((item) => item._value === value);}
+    public static get Items() {return [DecreaseMinimumPartDensityMode.Default, DecreaseMinimumPartDensityMode.Disabled, DecreaseMinimumPartDensityMode.Enabled];}
+    public static FromValue(value: number) {return DecreaseMinimumPartDensityMode.Items.find((item) => item._value === value);}
 }
 
 export class DevCameraOcclusionMode extends EnumItem {
     public static readonly Zoom = new DevCameraOcclusionMode("Zoom", 0);
     public static readonly Invisicam = new DevCameraOcclusionMode("Invisicam", 1);
-    public static get items() {return [DevCameraOcclusionMode.Zoom, DevCameraOcclusionMode.Invisicam];}
-    public static fromValue(value: number) {return DevCameraOcclusionMode.items.find((item) => item._value === value);}
+    public static get Items() {return [DevCameraOcclusionMode.Zoom, DevCameraOcclusionMode.Invisicam];}
+    public static FromValue(value: number) {return DevCameraOcclusionMode.Items.find((item) => item._value === value);}
 }
 
 export class DevComputerCameraMovementMode extends EnumItem {
@@ -7872,8 +7872,8 @@ export class DevComputerCameraMovementMode extends EnumItem {
     public static readonly Follow = new DevComputerCameraMovementMode("Follow", 2);
     public static readonly Orbital = new DevComputerCameraMovementMode("Orbital", 3);
     public static readonly CameraToggle = new DevComputerCameraMovementMode("CameraToggle", 4);
-    public static get items() {return [DevComputerCameraMovementMode.UserChoice, DevComputerCameraMovementMode.Classic, DevComputerCameraMovementMode.Follow, DevComputerCameraMovementMode.Orbital, DevComputerCameraMovementMode.CameraToggle];}
-    public static fromValue(value: number) {return DevComputerCameraMovementMode.items.find((item) => item._value === value);}
+    public static get Items() {return [DevComputerCameraMovementMode.UserChoice, DevComputerCameraMovementMode.Classic, DevComputerCameraMovementMode.Follow, DevComputerCameraMovementMode.Orbital, DevComputerCameraMovementMode.CameraToggle];}
+    public static FromValue(value: number) {return DevComputerCameraMovementMode.Items.find((item) => item._value === value);}
 }
 
 export class DevComputerMovementMode extends EnumItem {
@@ -7881,8 +7881,8 @@ export class DevComputerMovementMode extends EnumItem {
     public static readonly KeyboardMouse = new DevComputerMovementMode("KeyboardMouse", 1);
     public static readonly ClickToMove = new DevComputerMovementMode("ClickToMove", 2);
     public static readonly Scriptable = new DevComputerMovementMode("Scriptable", 3);
-    public static get items() {return [DevComputerMovementMode.UserChoice, DevComputerMovementMode.KeyboardMouse, DevComputerMovementMode.ClickToMove, DevComputerMovementMode.Scriptable];}
-    public static fromValue(value: number) {return DevComputerMovementMode.items.find((item) => item._value === value);}
+    public static get Items() {return [DevComputerMovementMode.UserChoice, DevComputerMovementMode.KeyboardMouse, DevComputerMovementMode.ClickToMove, DevComputerMovementMode.Scriptable];}
+    public static FromValue(value: number) {return DevComputerMovementMode.Items.find((item) => item._value === value);}
 }
 
 export class DevTouchCameraMovementMode extends EnumItem {
@@ -7890,8 +7890,8 @@ export class DevTouchCameraMovementMode extends EnumItem {
     public static readonly Classic = new DevTouchCameraMovementMode("Classic", 1);
     public static readonly Follow = new DevTouchCameraMovementMode("Follow", 2);
     public static readonly Orbital = new DevTouchCameraMovementMode("Orbital", 3);
-    public static get items() {return [DevTouchCameraMovementMode.UserChoice, DevTouchCameraMovementMode.Classic, DevTouchCameraMovementMode.Follow, DevTouchCameraMovementMode.Orbital];}
-    public static fromValue(value: number) {return DevTouchCameraMovementMode.items.find((item) => item._value === value);}
+    public static get Items() {return [DevTouchCameraMovementMode.UserChoice, DevTouchCameraMovementMode.Classic, DevTouchCameraMovementMode.Follow, DevTouchCameraMovementMode.Orbital];}
+    public static FromValue(value: number) {return DevTouchCameraMovementMode.Items.find((item) => item._value === value);}
 }
 
 export class DevTouchMovementMode extends EnumItem {
@@ -7902,38 +7902,38 @@ export class DevTouchMovementMode extends EnumItem {
     public static readonly ClickToMove = new DevTouchMovementMode("ClickToMove", 4);
     public static readonly Scriptable = new DevTouchMovementMode("Scriptable", 5);
     public static readonly DynamicThumbstick = new DevTouchMovementMode("DynamicThumbstick", 6);
-    public static get items() {return [DevTouchMovementMode.UserChoice, DevTouchMovementMode.Thumbstick, DevTouchMovementMode.DPad, DevTouchMovementMode.Thumbpad, DevTouchMovementMode.ClickToMove, DevTouchMovementMode.Scriptable, DevTouchMovementMode.DynamicThumbstick];}
-    public static fromValue(value: number) {return DevTouchMovementMode.items.find((item) => item._value === value);}
+    public static get Items() {return [DevTouchMovementMode.UserChoice, DevTouchMovementMode.Thumbstick, DevTouchMovementMode.DPad, DevTouchMovementMode.Thumbpad, DevTouchMovementMode.ClickToMove, DevTouchMovementMode.Scriptable, DevTouchMovementMode.DynamicThumbstick];}
+    public static FromValue(value: number) {return DevTouchMovementMode.Items.find((item) => item._value === value);}
 }
 
 export class DialogBehaviorType extends EnumItem {
     public static readonly SinglePlayer = new DialogBehaviorType("SinglePlayer", 0);
     public static readonly MultiplePlayers = new DialogBehaviorType("MultiplePlayers", 1);
-    public static get items() {return [DialogBehaviorType.SinglePlayer, DialogBehaviorType.MultiplePlayers];}
-    public static fromValue(value: number) {return DialogBehaviorType.items.find((item) => item._value === value);}
+    public static get Items() {return [DialogBehaviorType.SinglePlayer, DialogBehaviorType.MultiplePlayers];}
+    public static FromValue(value: number) {return DialogBehaviorType.Items.find((item) => item._value === value);}
 }
 
 export class DialogPurpose extends EnumItem {
     public static readonly Quest = new DialogPurpose("Quest", 0);
     public static readonly Help = new DialogPurpose("Help", 1);
     public static readonly Shop = new DialogPurpose("Shop", 2);
-    public static get items() {return [DialogPurpose.Quest, DialogPurpose.Help, DialogPurpose.Shop];}
-    public static fromValue(value: number) {return DialogPurpose.items.find((item) => item._value === value);}
+    public static get Items() {return [DialogPurpose.Quest, DialogPurpose.Help, DialogPurpose.Shop];}
+    public static FromValue(value: number) {return DialogPurpose.Items.find((item) => item._value === value);}
 }
 
 export class DialogTone extends EnumItem {
     public static readonly Neutral = new DialogTone("Neutral", 0);
     public static readonly Friendly = new DialogTone("Friendly", 1);
     public static readonly Enemy = new DialogTone("Enemy", 2);
-    public static get items() {return [DialogTone.Neutral, DialogTone.Friendly, DialogTone.Enemy];}
-    public static fromValue(value: number) {return DialogTone.items.find((item) => item._value === value);}
+    public static get Items() {return [DialogTone.Neutral, DialogTone.Friendly, DialogTone.Enemy];}
+    public static FromValue(value: number) {return DialogTone.Items.find((item) => item._value === value);}
 }
 
 export class DominantAxis extends EnumItem {
     public static readonly Width = new DominantAxis("Width", 0);
     public static readonly Height = new DominantAxis("Height", 1);
-    public static get items() {return [DominantAxis.Width, DominantAxis.Height];}
-    public static fromValue(value: number) {return DominantAxis.items.find((item) => item._value === value);}
+    public static get Items() {return [DominantAxis.Width, DominantAxis.Height];}
+    public static FromValue(value: number) {return DominantAxis.Items.find((item) => item._value === value);}
 }
 
 export class DragDetectorDragStyle extends EnumItem {
@@ -7946,32 +7946,32 @@ export class DragDetectorDragStyle extends EnumItem {
     public static readonly RotateTrackball = new DragDetectorDragStyle("RotateTrackball", 6);
     public static readonly Scriptable = new DragDetectorDragStyle("Scriptable", 7);
     public static readonly BestForDevice = new DragDetectorDragStyle("BestForDevice", 8);
-    public static get items() {return [DragDetectorDragStyle.TranslateLine, DragDetectorDragStyle.TranslatePlane, DragDetectorDragStyle.TranslatePlaneOrLine, DragDetectorDragStyle.TranslateLineOrPlane, DragDetectorDragStyle.TranslateViewPlane, DragDetectorDragStyle.RotateAxis, DragDetectorDragStyle.RotateTrackball, DragDetectorDragStyle.Scriptable, DragDetectorDragStyle.BestForDevice];}
-    public static fromValue(value: number) {return DragDetectorDragStyle.items.find((item) => item._value === value);}
+    public static get Items() {return [DragDetectorDragStyle.TranslateLine, DragDetectorDragStyle.TranslatePlane, DragDetectorDragStyle.TranslatePlaneOrLine, DragDetectorDragStyle.TranslateLineOrPlane, DragDetectorDragStyle.TranslateViewPlane, DragDetectorDragStyle.RotateAxis, DragDetectorDragStyle.RotateTrackball, DragDetectorDragStyle.Scriptable, DragDetectorDragStyle.BestForDevice];}
+    public static FromValue(value: number) {return DragDetectorDragStyle.Items.find((item) => item._value === value);}
 }
 
 export class DragDetectorPermissionPolicy extends EnumItem {
     public static readonly Nobody = new DragDetectorPermissionPolicy("Nobody", 0);
     public static readonly Everybody = new DragDetectorPermissionPolicy("Everybody", 1);
     public static readonly Scriptable = new DragDetectorPermissionPolicy("Scriptable", 2);
-    public static get items() {return [DragDetectorPermissionPolicy.Nobody, DragDetectorPermissionPolicy.Everybody, DragDetectorPermissionPolicy.Scriptable];}
-    public static fromValue(value: number) {return DragDetectorPermissionPolicy.items.find((item) => item._value === value);}
+    public static get Items() {return [DragDetectorPermissionPolicy.Nobody, DragDetectorPermissionPolicy.Everybody, DragDetectorPermissionPolicy.Scriptable];}
+    public static FromValue(value: number) {return DragDetectorPermissionPolicy.Items.find((item) => item._value === value);}
 }
 
 export class DragDetectorResponseStyle extends EnumItem {
     public static readonly Geometric = new DragDetectorResponseStyle("Geometric", 0);
     public static readonly Physical = new DragDetectorResponseStyle("Physical", 1);
     public static readonly Custom = new DragDetectorResponseStyle("Custom", 2);
-    public static get items() {return [DragDetectorResponseStyle.Geometric, DragDetectorResponseStyle.Physical, DragDetectorResponseStyle.Custom];}
-    public static fromValue(value: number) {return DragDetectorResponseStyle.items.find((item) => item._value === value);}
+    public static get Items() {return [DragDetectorResponseStyle.Geometric, DragDetectorResponseStyle.Physical, DragDetectorResponseStyle.Custom];}
+    public static FromValue(value: number) {return DragDetectorResponseStyle.Items.find((item) => item._value === value);}
 }
 
 export class EasingDirection extends EnumItem {
     public static readonly In = new EasingDirection("In", 0);
     public static readonly Out = new EasingDirection("Out", 1);
     public static readonly InOut = new EasingDirection("InOut", 2);
-    public static get items() {return [EasingDirection.In, EasingDirection.Out, EasingDirection.InOut];}
-    public static fromValue(value: number) {return EasingDirection.items.find((item) => item._value === value);}
+    public static get Items() {return [EasingDirection.In, EasingDirection.Out, EasingDirection.InOut];}
+    public static FromValue(value: number) {return EasingDirection.Items.find((item) => item._value === value);}
 }
 
 export class EasingStyle extends EnumItem {
@@ -7986,61 +7986,61 @@ export class EasingStyle extends EnumItem {
     public static readonly Exponential = new EasingStyle("Exponential", 8);
     public static readonly Circular = new EasingStyle("Circular", 9);
     public static readonly Cubic = new EasingStyle("Cubic", 10);
-    public static get items() {return [EasingStyle.Linear, EasingStyle.Sine, EasingStyle.Back, EasingStyle.Quad, EasingStyle.Quart, EasingStyle.Quint, EasingStyle.Bounce, EasingStyle.Elastic, EasingStyle.Exponential, EasingStyle.Circular, EasingStyle.Cubic];}
-    public static fromValue(value: number) {return EasingStyle.items.find((item) => item._value === value);}
+    public static get Items() {return [EasingStyle.Linear, EasingStyle.Sine, EasingStyle.Back, EasingStyle.Quad, EasingStyle.Quart, EasingStyle.Quint, EasingStyle.Bounce, EasingStyle.Elastic, EasingStyle.Exponential, EasingStyle.Circular, EasingStyle.Cubic];}
+    public static FromValue(value: number) {return EasingStyle.Items.find((item) => item._value === value);}
 }
 
 export class EditorLiveScripting extends EnumItem {
     public static readonly Default = new EditorLiveScripting("Default", 0);
     public static readonly Disabled = new EditorLiveScripting("Disabled", 1);
     public static readonly Enabled = new EditorLiveScripting("Enabled", 2);
-    public static get items() {return [EditorLiveScripting.Default, EditorLiveScripting.Disabled, EditorLiveScripting.Enabled];}
-    public static fromValue(value: number) {return EditorLiveScripting.items.find((item) => item._value === value);}
+    public static get Items() {return [EditorLiveScripting.Default, EditorLiveScripting.Disabled, EditorLiveScripting.Enabled];}
+    public static FromValue(value: number) {return EditorLiveScripting.Items.find((item) => item._value === value);}
 }
 
 export class ElasticBehavior extends EnumItem {
     public static readonly WhenScrollable = new ElasticBehavior("WhenScrollable", 0);
     public static readonly Always = new ElasticBehavior("Always", 1);
     public static readonly Never = new ElasticBehavior("Never", 2);
-    public static get items() {return [ElasticBehavior.WhenScrollable, ElasticBehavior.Always, ElasticBehavior.Never];}
-    public static fromValue(value: number) {return ElasticBehavior.items.find((item) => item._value === value);}
+    public static get Items() {return [ElasticBehavior.WhenScrollable, ElasticBehavior.Always, ElasticBehavior.Never];}
+    public static FromValue(value: number) {return ElasticBehavior.Items.find((item) => item._value === value);}
 }
 
 export class ExplosionType extends EnumItem {
     public static readonly NoCraters = new ExplosionType("NoCraters", 0);
     public static readonly Craters = new ExplosionType("Craters", 1);
-    public static get items() {return [ExplosionType.NoCraters, ExplosionType.Craters];}
-    public static fromValue(value: number) {return ExplosionType.items.find((item) => item._value === value);}
+    public static get Items() {return [ExplosionType.NoCraters, ExplosionType.Craters];}
+    public static FromValue(value: number) {return ExplosionType.Items.find((item) => item._value === value);}
 }
 
 export class FieldOfViewMode extends EnumItem {
     public static readonly Vertical = new FieldOfViewMode("Vertical", 0);
     public static readonly Diagonal = new FieldOfViewMode("Diagonal", 1);
     public static readonly MaxAxis = new FieldOfViewMode("MaxAxis", 2);
-    public static get items() {return [FieldOfViewMode.Vertical, FieldOfViewMode.Diagonal, FieldOfViewMode.MaxAxis];}
-    public static fromValue(value: number) {return FieldOfViewMode.items.find((item) => item._value === value);}
+    public static get Items() {return [FieldOfViewMode.Vertical, FieldOfViewMode.Diagonal, FieldOfViewMode.MaxAxis];}
+    public static FromValue(value: number) {return FieldOfViewMode.Items.find((item) => item._value === value);}
 }
 
 export class FillDirection extends EnumItem {
     public static readonly Horizontal = new FillDirection("Horizontal", 0);
     public static readonly Vertical = new FillDirection("Vertical", 1);
-    public static get items() {return [FillDirection.Horizontal, FillDirection.Vertical];}
-    public static fromValue(value: number) {return FillDirection.items.find((item) => item._value === value);}
+    public static get Items() {return [FillDirection.Horizontal, FillDirection.Vertical];}
+    public static FromValue(value: number) {return FillDirection.Items.find((item) => item._value === value);}
 }
 
 export class FluidFidelity extends EnumItem {
     public static readonly Automatic = new FluidFidelity("Automatic", 0);
     public static readonly UseCollisionGeometry = new FluidFidelity("UseCollisionGeometry", 1);
     public static readonly UsePreciseGeometry = new FluidFidelity("UsePreciseGeometry", 2);
-    public static get items() {return [FluidFidelity.Automatic, FluidFidelity.UseCollisionGeometry, FluidFidelity.UsePreciseGeometry];}
-    public static fromValue(value: number) {return FluidFidelity.items.find((item) => item._value === value);}
+    public static get Items() {return [FluidFidelity.Automatic, FluidFidelity.UseCollisionGeometry, FluidFidelity.UsePreciseGeometry];}
+    public static FromValue(value: number) {return FluidFidelity.Items.find((item) => item._value === value);}
 }
 
 export class FluidForces extends EnumItem {
     public static readonly Default = new FluidForces("Default", 0);
     public static readonly Experimental = new FluidForces("Experimental", 1);
-    public static get items() {return [FluidForces.Default, FluidForces.Experimental];}
-    public static fromValue(value: number) {return FluidForces.items.find((item) => item._value === value);}
+    public static get Items() {return [FluidForces.Default, FluidForces.Experimental];}
+    public static FromValue(value: number) {return FluidForces.Items.find((item) => item._value === value);}
 }
 
 export class Font extends EnumItem {
@@ -8097,8 +8097,8 @@ export class Font extends EnumItem {
     public static readonly Arimo = new Font("Arimo", 50);
     public static readonly ArimoBold = new Font("ArimoBold", 51);
     public static readonly Unknown = new Font("Unknown", 100);
-    public static get items() {return [Font.Legacy, Font.Arial, Font.ArialBold, Font.SourceSans, Font.SourceSansBold, Font.SourceSansLight, Font.SourceSansItalic, Font.Bodoni, Font.Garamond, Font.Cartoon, Font.Code, Font.Highway, Font.SciFi, Font.Arcade, Font.Fantasy, Font.Antique, Font.SourceSansSemibold, Font.Gotham, Font.GothamMedium, Font.GothamBold, Font.GothamBlack, Font.AmaticSC, Font.Bangers, Font.Creepster, Font.DenkOne, Font.Fondamento, Font.FredokaOne, Font.GrenzeGotisch, Font.IndieFlower, Font.JosefinSans, Font.Jura, Font.Kalam, Font.LuckiestGuy, Font.Merriweather, Font.Michroma, Font.Nunito, Font.Oswald, Font.PatrickHand, Font.PermanentMarker, Font.Roboto, Font.RobotoCondensed, Font.RobotoMono, Font.Sarpanch, Font.SpecialElite, Font.TitilliumWeb, Font.Ubuntu, Font.BuilderSans, Font.BuilderSansMedium, Font.BuilderSansBold, Font.BuilderSansExtraBold, Font.Arimo, Font.ArimoBold, Font.Unknown];}
-    public static fromValue(value: number) {return Font.items.find((item) => item._value === value);}
+    public static get Items() {return [Font.Legacy, Font.Arial, Font.ArialBold, Font.SourceSans, Font.SourceSansBold, Font.SourceSansLight, Font.SourceSansItalic, Font.Bodoni, Font.Garamond, Font.Cartoon, Font.Code, Font.Highway, Font.SciFi, Font.Arcade, Font.Fantasy, Font.Antique, Font.SourceSansSemibold, Font.Gotham, Font.GothamMedium, Font.GothamBold, Font.GothamBlack, Font.AmaticSC, Font.Bangers, Font.Creepster, Font.DenkOne, Font.Fondamento, Font.FredokaOne, Font.GrenzeGotisch, Font.IndieFlower, Font.JosefinSans, Font.Jura, Font.Kalam, Font.LuckiestGuy, Font.Merriweather, Font.Michroma, Font.Nunito, Font.Oswald, Font.PatrickHand, Font.PermanentMarker, Font.Roboto, Font.RobotoCondensed, Font.RobotoMono, Font.Sarpanch, Font.SpecialElite, Font.TitilliumWeb, Font.Ubuntu, Font.BuilderSans, Font.BuilderSansMedium, Font.BuilderSansBold, Font.BuilderSansExtraBold, Font.Arimo, Font.ArimoBold, Font.Unknown];}
+    public static FromValue(value: number) {return Font.Items.find((item) => item._value === value);}
 }
 
 export class FontSize extends EnumItem {
@@ -8117,15 +8117,15 @@ export class FontSize extends EnumItem {
     public static readonly Size42 = new FontSize("Size42", 12);
     public static readonly Size60 = new FontSize("Size60", 13);
     public static readonly Size96 = new FontSize("Size96", 14);
-    public static get items() {return [FontSize.Size8, FontSize.Size9, FontSize.Size10, FontSize.Size11, FontSize.Size12, FontSize.Size14, FontSize.Size18, FontSize.Size24, FontSize.Size36, FontSize.Size48, FontSize.Size28, FontSize.Size32, FontSize.Size42, FontSize.Size60, FontSize.Size96];}
-    public static fromValue(value: number) {return FontSize.items.find((item) => item._value === value);}
+    public static get Items() {return [FontSize.Size8, FontSize.Size9, FontSize.Size10, FontSize.Size11, FontSize.Size12, FontSize.Size14, FontSize.Size18, FontSize.Size24, FontSize.Size36, FontSize.Size48, FontSize.Size28, FontSize.Size32, FontSize.Size42, FontSize.Size60, FontSize.Size96];}
+    public static FromValue(value: number) {return FontSize.Items.find((item) => item._value === value);}
 }
 
 export class ForceLimitMode extends EnumItem {
     public static readonly Magnitude = new ForceLimitMode("Magnitude", 0);
     public static readonly PerAxis = new ForceLimitMode("PerAxis", 1);
-    public static get items() {return [ForceLimitMode.Magnitude, ForceLimitMode.PerAxis];}
-    public static fromValue(value: number) {return ForceLimitMode.items.find((item) => item._value === value);}
+    public static get Items() {return [ForceLimitMode.Magnitude, ForceLimitMode.PerAxis];}
+    public static FromValue(value: number) {return ForceLimitMode.Items.find((item) => item._value === value);}
 }
 
 export class FormFactor extends EnumItem {
@@ -8133,8 +8133,8 @@ export class FormFactor extends EnumItem {
     public static readonly Brick = new FormFactor("Brick", 1);
     public static readonly Plate = new FormFactor("Plate", 2);
     public static readonly Custom = new FormFactor("Custom", 3);
-    public static get items() {return [FormFactor.Symmetric, FormFactor.Brick, FormFactor.Plate, FormFactor.Custom];}
-    public static fromValue(value: number) {return FormFactor.items.find((item) => item._value === value);}
+    public static get Items() {return [FormFactor.Symmetric, FormFactor.Brick, FormFactor.Plate, FormFactor.Custom];}
+    public static FromValue(value: number) {return FormFactor.Items.find((item) => item._value === value);}
 }
 
 export class FrameStyle extends EnumItem {
@@ -8145,24 +8145,24 @@ export class FrameStyle extends EnumItem {
     public static readonly ChatGreen = new FrameStyle("ChatGreen", 4);
     public static readonly ChatRed = new FrameStyle("ChatRed", 5);
     public static readonly DropShadow = new FrameStyle("DropShadow", 6);
-    public static get items() {return [FrameStyle.Custom, FrameStyle.ChatBlue, FrameStyle.RobloxSquare, FrameStyle.RobloxRound, FrameStyle.ChatGreen, FrameStyle.ChatRed, FrameStyle.DropShadow];}
-    public static fromValue(value: number) {return FrameStyle.items.find((item) => item._value === value);}
+    public static get Items() {return [FrameStyle.Custom, FrameStyle.ChatBlue, FrameStyle.RobloxSquare, FrameStyle.RobloxRound, FrameStyle.ChatGreen, FrameStyle.ChatRed, FrameStyle.DropShadow];}
+    public static FromValue(value: number) {return FrameStyle.Items.find((item) => item._value === value);}
 }
 
 export class FramerateManagerMode extends EnumItem {
     public static readonly Automatic = new FramerateManagerMode("Automatic", 0);
     public static readonly On = new FramerateManagerMode("On", 1);
     public static readonly Off = new FramerateManagerMode("Off", 2);
-    public static get items() {return [FramerateManagerMode.Automatic, FramerateManagerMode.On, FramerateManagerMode.Off];}
-    public static fromValue(value: number) {return FramerateManagerMode.items.find((item) => item._value === value);}
+    public static get Items() {return [FramerateManagerMode.Automatic, FramerateManagerMode.On, FramerateManagerMode.Off];}
+    public static FromValue(value: number) {return FramerateManagerMode.Items.find((item) => item._value === value);}
 }
 
 export class GameAvatarType extends EnumItem {
     public static readonly R6 = new GameAvatarType("R6", 0);
     public static readonly R15 = new GameAvatarType("R15", 1);
     public static readonly PlayerChoice = new GameAvatarType("PlayerChoice", 2);
-    public static get items() {return [GameAvatarType.R6, GameAvatarType.R15, GameAvatarType.PlayerChoice];}
-    public static fromValue(value: number) {return GameAvatarType.items.find((item) => item._value === value);}
+    public static get Items() {return [GameAvatarType.R6, GameAvatarType.R15, GameAvatarType.PlayerChoice];}
+    public static FromValue(value: number) {return GameAvatarType.Items.find((item) => item._value === value);}
 }
 
 export class GraphicsMode extends EnumItem {
@@ -8172,68 +8172,68 @@ export class GraphicsMode extends EnumItem {
     public static readonly Metal = new GraphicsMode("Metal", 5);
     public static readonly Vulkan = new GraphicsMode("Vulkan", 6);
     public static readonly NoGraphics = new GraphicsMode("NoGraphics", 9);
-    public static get items() {return [GraphicsMode.Automatic, GraphicsMode.Direct3D11, GraphicsMode.OpenGL, GraphicsMode.Metal, GraphicsMode.Vulkan, GraphicsMode.NoGraphics];}
-    public static fromValue(value: number) {return GraphicsMode.items.find((item) => item._value === value);}
+    public static get Items() {return [GraphicsMode.Automatic, GraphicsMode.Direct3D11, GraphicsMode.OpenGL, GraphicsMode.Metal, GraphicsMode.Vulkan, GraphicsMode.NoGraphics];}
+    public static FromValue(value: number) {return GraphicsMode.Items.find((item) => item._value === value);}
 }
 
 export class HandlesStyle extends EnumItem {
     public static readonly Resize = new HandlesStyle("Resize", 0);
     public static readonly Movement = new HandlesStyle("Movement", 1);
-    public static get items() {return [HandlesStyle.Resize, HandlesStyle.Movement];}
-    public static fromValue(value: number) {return HandlesStyle.items.find((item) => item._value === value);}
+    public static get Items() {return [HandlesStyle.Resize, HandlesStyle.Movement];}
+    public static FromValue(value: number) {return HandlesStyle.Items.find((item) => item._value === value);}
 }
 
 export class HighlightDepthMode extends EnumItem {
     public static readonly AlwaysOnTop = new HighlightDepthMode("AlwaysOnTop", 0);
     public static readonly Occluded = new HighlightDepthMode("Occluded", 1);
-    public static get items() {return [HighlightDepthMode.AlwaysOnTop, HighlightDepthMode.Occluded];}
-    public static fromValue(value: number) {return HighlightDepthMode.items.find((item) => item._value === value);}
+    public static get Items() {return [HighlightDepthMode.AlwaysOnTop, HighlightDepthMode.Occluded];}
+    public static FromValue(value: number) {return HighlightDepthMode.Items.find((item) => item._value === value);}
 }
 
 export class HorizontalAlignment extends EnumItem {
     public static readonly Center = new HorizontalAlignment("Center", 0);
     public static readonly Left = new HorizontalAlignment("Left", 1);
     public static readonly Right = new HorizontalAlignment("Right", 2);
-    public static get items() {return [HorizontalAlignment.Center, HorizontalAlignment.Left, HorizontalAlignment.Right];}
-    public static fromValue(value: number) {return HorizontalAlignment.items.find((item) => item._value === value);}
+    public static get Items() {return [HorizontalAlignment.Center, HorizontalAlignment.Left, HorizontalAlignment.Right];}
+    public static FromValue(value: number) {return HorizontalAlignment.Items.find((item) => item._value === value);}
 }
 
 export class HumanoidCollisionType extends EnumItem {
     public static readonly OuterBox = new HumanoidCollisionType("OuterBox", 0);
     public static readonly InnerBox = new HumanoidCollisionType("InnerBox", 1);
-    public static get items() {return [HumanoidCollisionType.OuterBox, HumanoidCollisionType.InnerBox];}
-    public static fromValue(value: number) {return HumanoidCollisionType.items.find((item) => item._value === value);}
+    public static get Items() {return [HumanoidCollisionType.OuterBox, HumanoidCollisionType.InnerBox];}
+    public static FromValue(value: number) {return HumanoidCollisionType.Items.find((item) => item._value === value);}
 }
 
 export class HumanoidDisplayDistanceType extends EnumItem {
     public static readonly Viewer = new HumanoidDisplayDistanceType("Viewer", 0);
     public static readonly Subject = new HumanoidDisplayDistanceType("Subject", 1);
     public static readonly None = new HumanoidDisplayDistanceType("None", 2);
-    public static get items() {return [HumanoidDisplayDistanceType.Viewer, HumanoidDisplayDistanceType.Subject, HumanoidDisplayDistanceType.None];}
-    public static fromValue(value: number) {return HumanoidDisplayDistanceType.items.find((item) => item._value === value);}
+    public static get Items() {return [HumanoidDisplayDistanceType.Viewer, HumanoidDisplayDistanceType.Subject, HumanoidDisplayDistanceType.None];}
+    public static FromValue(value: number) {return HumanoidDisplayDistanceType.Items.find((item) => item._value === value);}
 }
 
 export class HumanoidHealthDisplayType extends EnumItem {
     public static readonly DisplayWhenDamaged = new HumanoidHealthDisplayType("DisplayWhenDamaged", 0);
     public static readonly AlwaysOn = new HumanoidHealthDisplayType("AlwaysOn", 1);
     public static readonly AlwaysOff = new HumanoidHealthDisplayType("AlwaysOff", 2);
-    public static get items() {return [HumanoidHealthDisplayType.DisplayWhenDamaged, HumanoidHealthDisplayType.AlwaysOn, HumanoidHealthDisplayType.AlwaysOff];}
-    public static fromValue(value: number) {return HumanoidHealthDisplayType.items.find((item) => item._value === value);}
+    public static get Items() {return [HumanoidHealthDisplayType.DisplayWhenDamaged, HumanoidHealthDisplayType.AlwaysOn, HumanoidHealthDisplayType.AlwaysOff];}
+    public static FromValue(value: number) {return HumanoidHealthDisplayType.Items.find((item) => item._value === value);}
 }
 
 export class HumanoidRigType extends EnumItem {
     public static readonly R6 = new HumanoidRigType("R6", 0);
     public static readonly R15 = new HumanoidRigType("R15", 1);
-    public static get items() {return [HumanoidRigType.R6, HumanoidRigType.R15];}
-    public static fromValue(value: number) {return HumanoidRigType.items.find((item) => item._value === value);}
+    public static get Items() {return [HumanoidRigType.R6, HumanoidRigType.R15];}
+    public static FromValue(value: number) {return HumanoidRigType.Items.find((item) => item._value === value);}
 }
 
 export class IKControlConstraintSupport extends EnumItem {
     public static readonly Default = new IKControlConstraintSupport("Default", 0);
     public static readonly Disabled = new IKControlConstraintSupport("Disabled", 1);
     public static readonly Enabled = new IKControlConstraintSupport("Enabled", 2);
-    public static get items() {return [IKControlConstraintSupport.Default, IKControlConstraintSupport.Disabled, IKControlConstraintSupport.Enabled];}
-    public static fromValue(value: number) {return IKControlConstraintSupport.items.find((item) => item._value === value);}
+    public static get Items() {return [IKControlConstraintSupport.Default, IKControlConstraintSupport.Disabled, IKControlConstraintSupport.Enabled];}
+    public static FromValue(value: number) {return IKControlConstraintSupport.Items.find((item) => item._value === value);}
 }
 
 export class IKControlType extends EnumItem {
@@ -8241,24 +8241,24 @@ export class IKControlType extends EnumItem {
     public static readonly Position = new IKControlType("Position", 1);
     public static readonly Rotation = new IKControlType("Rotation", 2);
     public static readonly LookAt = new IKControlType("LookAt", 3);
-    public static get items() {return [IKControlType.Transform, IKControlType.Position, IKControlType.Rotation, IKControlType.LookAt];}
-    public static fromValue(value: number) {return IKControlType.items.find((item) => item._value === value);}
+    public static get Items() {return [IKControlType.Transform, IKControlType.Position, IKControlType.Rotation, IKControlType.LookAt];}
+    public static FromValue(value: number) {return IKControlType.Items.find((item) => item._value === value);}
 }
 
 export class InOut extends EnumItem {
     public static readonly Edge = new InOut("Edge", 0);
     public static readonly Inset = new InOut("Inset", 1);
     public static readonly Center = new InOut("Center", 2);
-    public static get items() {return [InOut.Edge, InOut.Inset, InOut.Center];}
-    public static fromValue(value: number) {return InOut.items.find((item) => item._value === value);}
+    public static get Items() {return [InOut.Edge, InOut.Inset, InOut.Center];}
+    public static FromValue(value: number) {return InOut.Items.find((item) => item._value === value);}
 }
 
 export class InputType extends EnumItem {
     public static readonly NoInput = new InputType("NoInput", 0);
     public static readonly Constant = new InputType("Constant", 12);
     public static readonly Sin = new InputType("Sin", 13);
-    public static get items() {return [InputType.NoInput, InputType.Constant, InputType.Sin];}
-    public static fromValue(value: number) {return InputType.items.find((item) => item._value === value);}
+    public static get Items() {return [InputType.NoInput, InputType.Constant, InputType.Sin];}
+    public static FromValue(value: number) {return InputType.Items.find((item) => item._value === value);}
 }
 
 export class ItemLineAlignment extends EnumItem {
@@ -8267,8 +8267,8 @@ export class ItemLineAlignment extends EnumItem {
     public static readonly Center = new ItemLineAlignment("Center", 2);
     public static readonly End = new ItemLineAlignment("End", 3);
     public static readonly Stretch = new ItemLineAlignment("Stretch", 4);
-    public static get items() {return [ItemLineAlignment.Automatic, ItemLineAlignment.Start, ItemLineAlignment.Center, ItemLineAlignment.End, ItemLineAlignment.Stretch];}
-    public static fromValue(value: number) {return ItemLineAlignment.items.find((item) => item._value === value);}
+    public static get Items() {return [ItemLineAlignment.Automatic, ItemLineAlignment.Start, ItemLineAlignment.Center, ItemLineAlignment.End, ItemLineAlignment.Stretch];}
+    public static FromValue(value: number) {return ItemLineAlignment.Items.find((item) => item._value === value);}
 }
 
 export class KeyCode extends EnumItem {
@@ -8526,40 +8526,40 @@ export class KeyCode extends EnumItem {
     public static readonly DPadDown = new KeyCode("DPadDown", 1015);
     public static readonly Thumbstick1 = new KeyCode("Thumbstick1", 1016);
     public static readonly Thumbstick2 = new KeyCode("Thumbstick2", 1017);
-    public static get items() {return [KeyCode.Unknown, KeyCode.Backspace, KeyCode.Tab, KeyCode.Clear, KeyCode.Return, KeyCode.Pause, KeyCode.Escape, KeyCode.Space, KeyCode.QuotedDouble, KeyCode.Hash, KeyCode.Dollar, KeyCode.Percent, KeyCode.Ampersand, KeyCode.Quote, KeyCode.LeftParenthesis, KeyCode.RightParenthesis, KeyCode.Asterisk, KeyCode.Plus, KeyCode.Comma, KeyCode.Minus, KeyCode.Period, KeyCode.Slash, KeyCode.Zero, KeyCode.One, KeyCode.Two, KeyCode.Three, KeyCode.Four, KeyCode.Five, KeyCode.Six, KeyCode.Seven, KeyCode.Eight, KeyCode.Nine, KeyCode.Colon, KeyCode.Semicolon, KeyCode.LessThan, KeyCode.Equals, KeyCode.GreaterThan, KeyCode.Question, KeyCode.At, KeyCode.LeftBracket, KeyCode.BackSlash, KeyCode.RightBracket, KeyCode.Caret, KeyCode.Underscore, KeyCode.Backquote, KeyCode.A, KeyCode.B, KeyCode.C, KeyCode.D, KeyCode.E, KeyCode.F, KeyCode.G, KeyCode.H, KeyCode.I, KeyCode.J, KeyCode.K, KeyCode.L, KeyCode.M, KeyCode.N, KeyCode.O, KeyCode.P, KeyCode.Q, KeyCode.R, KeyCode.S, KeyCode.T, KeyCode.U, KeyCode.V, KeyCode.W, KeyCode.X, KeyCode.Y, KeyCode.Z, KeyCode.LeftCurly, KeyCode.Pipe, KeyCode.RightCurly, KeyCode.Tilde, KeyCode.Delete, KeyCode.World0, KeyCode.World1, KeyCode.World2, KeyCode.World3, KeyCode.World4, KeyCode.World5, KeyCode.World6, KeyCode.World7, KeyCode.World8, KeyCode.World9, KeyCode.World10, KeyCode.World11, KeyCode.World12, KeyCode.World13, KeyCode.World14, KeyCode.World15, KeyCode.World16, KeyCode.World17, KeyCode.World18, KeyCode.World19, KeyCode.World20, KeyCode.World21, KeyCode.World22, KeyCode.World23, KeyCode.World24, KeyCode.World25, KeyCode.World26, KeyCode.World27, KeyCode.World28, KeyCode.World29, KeyCode.World30, KeyCode.World31, KeyCode.World32, KeyCode.World33, KeyCode.World34, KeyCode.World35, KeyCode.World36, KeyCode.World37, KeyCode.World38, KeyCode.World39, KeyCode.World40, KeyCode.World41, KeyCode.World42, KeyCode.World43, KeyCode.World44, KeyCode.World45, KeyCode.World46, KeyCode.World47, KeyCode.World48, KeyCode.World49, KeyCode.World50, KeyCode.World51, KeyCode.World52, KeyCode.World53, KeyCode.World54, KeyCode.World55, KeyCode.World56, KeyCode.World57, KeyCode.World58, KeyCode.World59, KeyCode.World60, KeyCode.World61, KeyCode.World62, KeyCode.World63, KeyCode.World64, KeyCode.World65, KeyCode.World66, KeyCode.World67, KeyCode.World68, KeyCode.World69, KeyCode.World70, KeyCode.World71, KeyCode.World72, KeyCode.World73, KeyCode.World74, KeyCode.World75, KeyCode.World76, KeyCode.World77, KeyCode.World78, KeyCode.World79, KeyCode.World80, KeyCode.World81, KeyCode.World82, KeyCode.World83, KeyCode.World84, KeyCode.World85, KeyCode.World86, KeyCode.World87, KeyCode.World88, KeyCode.World89, KeyCode.World90, KeyCode.World91, KeyCode.World92, KeyCode.World93, KeyCode.World94, KeyCode.World95, KeyCode.KeypadZero, KeyCode.KeypadOne, KeyCode.KeypadTwo, KeyCode.KeypadThree, KeyCode.KeypadFour, KeyCode.KeypadFive, KeyCode.KeypadSix, KeyCode.KeypadSeven, KeyCode.KeypadEight, KeyCode.KeypadNine, KeyCode.KeypadPeriod, KeyCode.KeypadDivide, KeyCode.KeypadMultiply, KeyCode.KeypadMinus, KeyCode.KeypadPlus, KeyCode.KeypadEnter, KeyCode.KeypadEquals, KeyCode.Up, KeyCode.Down, KeyCode.Right, KeyCode.Left, KeyCode.Insert, KeyCode.Home, KeyCode.End, KeyCode.PageUp, KeyCode.PageDown, KeyCode.F1, KeyCode.F2, KeyCode.F3, KeyCode.F4, KeyCode.F5, KeyCode.F6, KeyCode.F7, KeyCode.F8, KeyCode.F9, KeyCode.F10, KeyCode.F11, KeyCode.F12, KeyCode.F13, KeyCode.F14, KeyCode.F15, KeyCode.NumLock, KeyCode.CapsLock, KeyCode.ScrollLock, KeyCode.RightShift, KeyCode.LeftShift, KeyCode.RightControl, KeyCode.LeftControl, KeyCode.RightAlt, KeyCode.LeftAlt, KeyCode.RightMeta, KeyCode.LeftMeta, KeyCode.LeftSuper, KeyCode.RightSuper, KeyCode.Mode, KeyCode.Compose, KeyCode.Help, KeyCode.Print, KeyCode.SysReq, KeyCode.Break, KeyCode.Menu, KeyCode.Power, KeyCode.Euro, KeyCode.Undo, KeyCode.ButtonX, KeyCode.ButtonY, KeyCode.ButtonA, KeyCode.ButtonB, KeyCode.ButtonR1, KeyCode.ButtonL1, KeyCode.ButtonR2, KeyCode.ButtonL2, KeyCode.ButtonR3, KeyCode.ButtonL3, KeyCode.ButtonStart, KeyCode.ButtonSelect, KeyCode.DPadLeft, KeyCode.DPadRight, KeyCode.DPadUp, KeyCode.DPadDown, KeyCode.Thumbstick1, KeyCode.Thumbstick2];}
-    public static fromValue(value: number) {return KeyCode.items.find((item) => item._value === value);}
+    public static get Items() {return [KeyCode.Unknown, KeyCode.Backspace, KeyCode.Tab, KeyCode.Clear, KeyCode.Return, KeyCode.Pause, KeyCode.Escape, KeyCode.Space, KeyCode.QuotedDouble, KeyCode.Hash, KeyCode.Dollar, KeyCode.Percent, KeyCode.Ampersand, KeyCode.Quote, KeyCode.LeftParenthesis, KeyCode.RightParenthesis, KeyCode.Asterisk, KeyCode.Plus, KeyCode.Comma, KeyCode.Minus, KeyCode.Period, KeyCode.Slash, KeyCode.Zero, KeyCode.One, KeyCode.Two, KeyCode.Three, KeyCode.Four, KeyCode.Five, KeyCode.Six, KeyCode.Seven, KeyCode.Eight, KeyCode.Nine, KeyCode.Colon, KeyCode.Semicolon, KeyCode.LessThan, KeyCode.Equals, KeyCode.GreaterThan, KeyCode.Question, KeyCode.At, KeyCode.LeftBracket, KeyCode.BackSlash, KeyCode.RightBracket, KeyCode.Caret, KeyCode.Underscore, KeyCode.Backquote, KeyCode.A, KeyCode.B, KeyCode.C, KeyCode.D, KeyCode.E, KeyCode.F, KeyCode.G, KeyCode.H, KeyCode.I, KeyCode.J, KeyCode.K, KeyCode.L, KeyCode.M, KeyCode.N, KeyCode.O, KeyCode.P, KeyCode.Q, KeyCode.R, KeyCode.S, KeyCode.T, KeyCode.U, KeyCode.V, KeyCode.W, KeyCode.X, KeyCode.Y, KeyCode.Z, KeyCode.LeftCurly, KeyCode.Pipe, KeyCode.RightCurly, KeyCode.Tilde, KeyCode.Delete, KeyCode.World0, KeyCode.World1, KeyCode.World2, KeyCode.World3, KeyCode.World4, KeyCode.World5, KeyCode.World6, KeyCode.World7, KeyCode.World8, KeyCode.World9, KeyCode.World10, KeyCode.World11, KeyCode.World12, KeyCode.World13, KeyCode.World14, KeyCode.World15, KeyCode.World16, KeyCode.World17, KeyCode.World18, KeyCode.World19, KeyCode.World20, KeyCode.World21, KeyCode.World22, KeyCode.World23, KeyCode.World24, KeyCode.World25, KeyCode.World26, KeyCode.World27, KeyCode.World28, KeyCode.World29, KeyCode.World30, KeyCode.World31, KeyCode.World32, KeyCode.World33, KeyCode.World34, KeyCode.World35, KeyCode.World36, KeyCode.World37, KeyCode.World38, KeyCode.World39, KeyCode.World40, KeyCode.World41, KeyCode.World42, KeyCode.World43, KeyCode.World44, KeyCode.World45, KeyCode.World46, KeyCode.World47, KeyCode.World48, KeyCode.World49, KeyCode.World50, KeyCode.World51, KeyCode.World52, KeyCode.World53, KeyCode.World54, KeyCode.World55, KeyCode.World56, KeyCode.World57, KeyCode.World58, KeyCode.World59, KeyCode.World60, KeyCode.World61, KeyCode.World62, KeyCode.World63, KeyCode.World64, KeyCode.World65, KeyCode.World66, KeyCode.World67, KeyCode.World68, KeyCode.World69, KeyCode.World70, KeyCode.World71, KeyCode.World72, KeyCode.World73, KeyCode.World74, KeyCode.World75, KeyCode.World76, KeyCode.World77, KeyCode.World78, KeyCode.World79, KeyCode.World80, KeyCode.World81, KeyCode.World82, KeyCode.World83, KeyCode.World84, KeyCode.World85, KeyCode.World86, KeyCode.World87, KeyCode.World88, KeyCode.World89, KeyCode.World90, KeyCode.World91, KeyCode.World92, KeyCode.World93, KeyCode.World94, KeyCode.World95, KeyCode.KeypadZero, KeyCode.KeypadOne, KeyCode.KeypadTwo, KeyCode.KeypadThree, KeyCode.KeypadFour, KeyCode.KeypadFive, KeyCode.KeypadSix, KeyCode.KeypadSeven, KeyCode.KeypadEight, KeyCode.KeypadNine, KeyCode.KeypadPeriod, KeyCode.KeypadDivide, KeyCode.KeypadMultiply, KeyCode.KeypadMinus, KeyCode.KeypadPlus, KeyCode.KeypadEnter, KeyCode.KeypadEquals, KeyCode.Up, KeyCode.Down, KeyCode.Right, KeyCode.Left, KeyCode.Insert, KeyCode.Home, KeyCode.End, KeyCode.PageUp, KeyCode.PageDown, KeyCode.F1, KeyCode.F2, KeyCode.F3, KeyCode.F4, KeyCode.F5, KeyCode.F6, KeyCode.F7, KeyCode.F8, KeyCode.F9, KeyCode.F10, KeyCode.F11, KeyCode.F12, KeyCode.F13, KeyCode.F14, KeyCode.F15, KeyCode.NumLock, KeyCode.CapsLock, KeyCode.ScrollLock, KeyCode.RightShift, KeyCode.LeftShift, KeyCode.RightControl, KeyCode.LeftControl, KeyCode.RightAlt, KeyCode.LeftAlt, KeyCode.RightMeta, KeyCode.LeftMeta, KeyCode.LeftSuper, KeyCode.RightSuper, KeyCode.Mode, KeyCode.Compose, KeyCode.Help, KeyCode.Print, KeyCode.SysReq, KeyCode.Break, KeyCode.Menu, KeyCode.Power, KeyCode.Euro, KeyCode.Undo, KeyCode.ButtonX, KeyCode.ButtonY, KeyCode.ButtonA, KeyCode.ButtonB, KeyCode.ButtonR1, KeyCode.ButtonL1, KeyCode.ButtonR2, KeyCode.ButtonL2, KeyCode.ButtonR3, KeyCode.ButtonL3, KeyCode.ButtonStart, KeyCode.ButtonSelect, KeyCode.DPadLeft, KeyCode.DPadRight, KeyCode.DPadUp, KeyCode.DPadDown, KeyCode.Thumbstick1, KeyCode.Thumbstick2];}
+    public static FromValue(value: number) {return KeyCode.Items.find((item) => item._value === value);}
 }
 
 export class LeftRight extends EnumItem {
     public static readonly Left = new LeftRight("Left", 0);
     public static readonly Center = new LeftRight("Center", 1);
     public static readonly Right = new LeftRight("Right", 2);
-    public static get items() {return [LeftRight.Left, LeftRight.Center, LeftRight.Right];}
-    public static fromValue(value: number) {return LeftRight.items.find((item) => item._value === value);}
+    public static get Items() {return [LeftRight.Left, LeftRight.Center, LeftRight.Right];}
+    public static FromValue(value: number) {return LeftRight.Items.find((item) => item._value === value);}
 }
 
 export class LineJoinMode extends EnumItem {
     public static readonly Round = new LineJoinMode("Round", 0);
     public static readonly Bevel = new LineJoinMode("Bevel", 1);
     public static readonly Miter = new LineJoinMode("Miter", 2);
-    public static get items() {return [LineJoinMode.Round, LineJoinMode.Bevel, LineJoinMode.Miter];}
-    public static fromValue(value: number) {return LineJoinMode.items.find((item) => item._value === value);}
+    public static get Items() {return [LineJoinMode.Round, LineJoinMode.Bevel, LineJoinMode.Miter];}
+    public static FromValue(value: number) {return LineJoinMode.Items.find((item) => item._value === value);}
 }
 
 export class LoadCharacterLayeredClothing extends EnumItem {
     public static readonly Default = new LoadCharacterLayeredClothing("Default", 0);
     public static readonly Disabled = new LoadCharacterLayeredClothing("Disabled", 1);
     public static readonly Enabled = new LoadCharacterLayeredClothing("Enabled", 2);
-    public static get items() {return [LoadCharacterLayeredClothing.Default, LoadCharacterLayeredClothing.Disabled, LoadCharacterLayeredClothing.Enabled];}
-    public static fromValue(value: number) {return LoadCharacterLayeredClothing.items.find((item) => item._value === value);}
+    public static get Items() {return [LoadCharacterLayeredClothing.Default, LoadCharacterLayeredClothing.Disabled, LoadCharacterLayeredClothing.Enabled];}
+    public static FromValue(value: number) {return LoadCharacterLayeredClothing.Items.find((item) => item._value === value);}
 }
 
 export class LoadDynamicHeads extends EnumItem {
     public static readonly Default = new LoadDynamicHeads("Default", 0);
     public static readonly Disabled = new LoadDynamicHeads("Disabled", 1);
     public static readonly Enabled = new LoadDynamicHeads("Enabled", 2);
-    public static get items() {return [LoadDynamicHeads.Default, LoadDynamicHeads.Disabled, LoadDynamicHeads.Enabled];}
-    public static fromValue(value: number) {return LoadDynamicHeads.items.find((item) => item._value === value);}
+    public static get Items() {return [LoadDynamicHeads.Default, LoadDynamicHeads.Disabled, LoadDynamicHeads.Enabled];}
+    public static FromValue(value: number) {return LoadDynamicHeads.Items.find((item) => item._value === value);}
 }
 
 export class Material extends EnumItem {
@@ -8608,15 +8608,15 @@ export class Material extends EnumItem {
     public static readonly Leather = new Material("Leather", 2309);
     public static readonly Plaster = new Material("Plaster", 2310);
     public static readonly Rubber = new Material("Rubber", 2311);
-    public static get items() {return [Material.Plastic, Material.SmoothPlastic, Material.Neon, Material.Wood, Material.WoodPlanks, Material.Marble, Material.Slate, Material.Concrete, Material.Granite, Material.Brick, Material.Pebble, Material.Cobblestone, Material.Rock, Material.Sandstone, Material.Basalt, Material.CrackedLava, Material.Limestone, Material.Pavement, Material.CorrodedMetal, Material.DiamondPlate, Material.Foil, Material.Metal, Material.Grass, Material.LeafyGrass, Material.Sand, Material.Fabric, Material.Snow, Material.Mud, Material.Ground, Material.Asphalt, Material.Salt, Material.Ice, Material.Glacier, Material.Glass, Material.ForceField, Material.Air, Material.Water, Material.Cardboard, Material.Carpet, Material.CeramicTiles, Material.ClayRoofTiles, Material.RoofShingles, Material.Leather, Material.Plaster, Material.Rubber];}
-    public static fromValue(value: number) {return Material.items.find((item) => item._value === value);}
+    public static get Items() {return [Material.Plastic, Material.SmoothPlastic, Material.Neon, Material.Wood, Material.WoodPlanks, Material.Marble, Material.Slate, Material.Concrete, Material.Granite, Material.Brick, Material.Pebble, Material.Cobblestone, Material.Rock, Material.Sandstone, Material.Basalt, Material.CrackedLava, Material.Limestone, Material.Pavement, Material.CorrodedMetal, Material.DiamondPlate, Material.Foil, Material.Metal, Material.Grass, Material.LeafyGrass, Material.Sand, Material.Fabric, Material.Snow, Material.Mud, Material.Ground, Material.Asphalt, Material.Salt, Material.Ice, Material.Glacier, Material.Glass, Material.ForceField, Material.Air, Material.Water, Material.Cardboard, Material.Carpet, Material.CeramicTiles, Material.ClayRoofTiles, Material.RoofShingles, Material.Leather, Material.Plaster, Material.Rubber];}
+    public static FromValue(value: number) {return Material.Items.find((item) => item._value === value);}
 }
 
 export class MaterialPattern extends EnumItem {
     public static readonly Regular = new MaterialPattern("Regular", 0);
     public static readonly Organic = new MaterialPattern("Organic", 1);
-    public static get items() {return [MaterialPattern.Regular, MaterialPattern.Organic];}
-    public static fromValue(value: number) {return MaterialPattern.items.find((item) => item._value === value);}
+    public static get Items() {return [MaterialPattern.Regular, MaterialPattern.Organic];}
+    public static FromValue(value: number) {return MaterialPattern.Items.find((item) => item._value === value);}
 }
 
 export class MeshPartDetailLevel extends EnumItem {
@@ -8626,16 +8626,16 @@ export class MeshPartDetailLevel extends EnumItem {
     public static readonly Level02 = new MeshPartDetailLevel("Level02", 3);
     public static readonly Level03 = new MeshPartDetailLevel("Level03", 4);
     public static readonly Level04 = new MeshPartDetailLevel("Level04", 5);
-    public static get items() {return [MeshPartDetailLevel.DistanceBased, MeshPartDetailLevel.Level00, MeshPartDetailLevel.Level01, MeshPartDetailLevel.Level02, MeshPartDetailLevel.Level03, MeshPartDetailLevel.Level04];}
-    public static fromValue(value: number) {return MeshPartDetailLevel.items.find((item) => item._value === value);}
+    public static get Items() {return [MeshPartDetailLevel.DistanceBased, MeshPartDetailLevel.Level00, MeshPartDetailLevel.Level01, MeshPartDetailLevel.Level02, MeshPartDetailLevel.Level03, MeshPartDetailLevel.Level04];}
+    public static FromValue(value: number) {return MeshPartDetailLevel.Items.find((item) => item._value === value);}
 }
 
 export class MeshPartHeadsAndAccessories extends EnumItem {
     public static readonly Default = new MeshPartHeadsAndAccessories("Default", 0);
     public static readonly Disabled = new MeshPartHeadsAndAccessories("Disabled", 1);
     public static readonly Enabled = new MeshPartHeadsAndAccessories("Enabled", 2);
-    public static get items() {return [MeshPartHeadsAndAccessories.Default, MeshPartHeadsAndAccessories.Disabled, MeshPartHeadsAndAccessories.Enabled];}
-    public static fromValue(value: number) {return MeshPartHeadsAndAccessories.items.find((item) => item._value === value);}
+    public static get Items() {return [MeshPartHeadsAndAccessories.Default, MeshPartHeadsAndAccessories.Disabled, MeshPartHeadsAndAccessories.Enabled];}
+    public static FromValue(value: number) {return MeshPartHeadsAndAccessories.Items.find((item) => item._value === value);}
 }
 
 export class MeshType extends EnumItem {
@@ -8651,24 +8651,24 @@ export class MeshType extends EnumItem {
     public static readonly ParallelRamp = new MeshType("ParallelRamp", 9);
     public static readonly RightAngleRamp = new MeshType("RightAngleRamp", 10);
     public static readonly CornerWedge = new MeshType("CornerWedge", 11);
-    public static get items() {return [MeshType.Head, MeshType.Torso, MeshType.Wedge, MeshType.Sphere, MeshType.Cylinder, MeshType.FileMesh, MeshType.Brick, MeshType.Prism, MeshType.Pyramid, MeshType.ParallelRamp, MeshType.RightAngleRamp, MeshType.CornerWedge];}
-    public static fromValue(value: number) {return MeshType.items.find((item) => item._value === value);}
+    public static get Items() {return [MeshType.Head, MeshType.Torso, MeshType.Wedge, MeshType.Sphere, MeshType.Cylinder, MeshType.FileMesh, MeshType.Brick, MeshType.Prism, MeshType.Pyramid, MeshType.ParallelRamp, MeshType.RightAngleRamp, MeshType.CornerWedge];}
+    public static FromValue(value: number) {return MeshType.Items.find((item) => item._value === value);}
 }
 
 export class ModelLevelOfDetail extends EnumItem {
     public static readonly Automatic = new ModelLevelOfDetail("Automatic", 0);
     public static readonly StreamingMesh = new ModelLevelOfDetail("StreamingMesh", 1);
     public static readonly Disabled = new ModelLevelOfDetail("Disabled", 2);
-    public static get items() {return [ModelLevelOfDetail.Automatic, ModelLevelOfDetail.StreamingMesh, ModelLevelOfDetail.Disabled];}
-    public static fromValue(value: number) {return ModelLevelOfDetail.items.find((item) => item._value === value);}
+    public static get Items() {return [ModelLevelOfDetail.Automatic, ModelLevelOfDetail.StreamingMesh, ModelLevelOfDetail.Disabled];}
+    public static FromValue(value: number) {return ModelLevelOfDetail.Items.find((item) => item._value === value);}
 }
 
 export class ModelStreamingBehavior extends EnumItem {
     public static readonly Default = new ModelStreamingBehavior("Default", 0);
     public static readonly Legacy = new ModelStreamingBehavior("Legacy", 1);
     public static readonly Improved = new ModelStreamingBehavior("Improved", 2);
-    public static get items() {return [ModelStreamingBehavior.Default, ModelStreamingBehavior.Legacy, ModelStreamingBehavior.Improved];}
-    public static fromValue(value: number) {return ModelStreamingBehavior.items.find((item) => item._value === value);}
+    public static get Items() {return [ModelStreamingBehavior.Default, ModelStreamingBehavior.Legacy, ModelStreamingBehavior.Improved];}
+    public static FromValue(value: number) {return ModelStreamingBehavior.Items.find((item) => item._value === value);}
 }
 
 export class ModelStreamingMode extends EnumItem {
@@ -8677,30 +8677,30 @@ export class ModelStreamingMode extends EnumItem {
     public static readonly Persistent = new ModelStreamingMode("Persistent", 2);
     public static readonly PersistentPerPlayer = new ModelStreamingMode("PersistentPerPlayer", 3);
     public static readonly Nonatomic = new ModelStreamingMode("Nonatomic", 4);
-    public static get items() {return [ModelStreamingMode.Default, ModelStreamingMode.Atomic, ModelStreamingMode.Persistent, ModelStreamingMode.PersistentPerPlayer, ModelStreamingMode.Nonatomic];}
-    public static fromValue(value: number) {return ModelStreamingMode.items.find((item) => item._value === value);}
+    public static get Items() {return [ModelStreamingMode.Default, ModelStreamingMode.Atomic, ModelStreamingMode.Persistent, ModelStreamingMode.PersistentPerPlayer, ModelStreamingMode.Nonatomic];}
+    public static FromValue(value: number) {return ModelStreamingMode.Items.find((item) => item._value === value);}
 }
 
 export class MouseBehavior extends EnumItem {
     public static readonly Default = new MouseBehavior("Default", 0);
     public static readonly LockCenter = new MouseBehavior("LockCenter", 1);
     public static readonly LockCurrentPosition = new MouseBehavior("LockCurrentPosition", 2);
-    public static get items() {return [MouseBehavior.Default, MouseBehavior.LockCenter, MouseBehavior.LockCurrentPosition];}
-    public static fromValue(value: number) {return MouseBehavior.items.find((item) => item._value === value);}
+    public static get Items() {return [MouseBehavior.Default, MouseBehavior.LockCenter, MouseBehavior.LockCurrentPosition];}
+    public static FromValue(value: number) {return MouseBehavior.Items.find((item) => item._value === value);}
 }
 
 export class NameOcclusion extends EnumItem {
     public static readonly NoOcclusion = new NameOcclusion("NoOcclusion", 0);
     public static readonly EnemyOcclusion = new NameOcclusion("EnemyOcclusion", 1);
     public static readonly OccludeAll = new NameOcclusion("OccludeAll", 2);
-    public static get items() {return [NameOcclusion.NoOcclusion, NameOcclusion.EnemyOcclusion, NameOcclusion.OccludeAll];}
-    public static fromValue(value: number) {return NameOcclusion.items.find((item) => item._value === value);}
+    public static get Items() {return [NameOcclusion.NoOcclusion, NameOcclusion.EnemyOcclusion, NameOcclusion.OccludeAll];}
+    public static FromValue(value: number) {return NameOcclusion.Items.find((item) => item._value === value);}
 }
 
 export class NoiseType extends EnumItem {
     public static readonly SimplexGabor = new NoiseType("SimplexGabor", 0);
-    public static get items() {return [NoiseType.SimplexGabor];}
-    public static fromValue(value: number) {return NoiseType.items.find((item) => item._value === value);}
+    public static get Items() {return [NoiseType.SimplexGabor];}
+    public static FromValue(value: number) {return NoiseType.Items.find((item) => item._value === value);}
 }
 
 export class NormalId extends EnumItem {
@@ -8710,15 +8710,15 @@ export class NormalId extends EnumItem {
     public static readonly Left = new NormalId("Left", 3);
     public static readonly Bottom = new NormalId("Bottom", 4);
     public static readonly Front = new NormalId("Front", 5);
-    public static get items() {return [NormalId.Right, NormalId.Top, NormalId.Back, NormalId.Left, NormalId.Bottom, NormalId.Front];}
-    public static fromValue(value: number) {return NormalId.items.find((item) => item._value === value);}
+    public static get Items() {return [NormalId.Right, NormalId.Top, NormalId.Back, NormalId.Left, NormalId.Bottom, NormalId.Front];}
+    public static FromValue(value: number) {return NormalId.Items.find((item) => item._value === value);}
 }
 
 export class OrientationAlignmentMode extends EnumItem {
     public static readonly OneAttachment = new OrientationAlignmentMode("OneAttachment", 0);
     public static readonly TwoAttachment = new OrientationAlignmentMode("TwoAttachment", 1);
-    public static get items() {return [OrientationAlignmentMode.OneAttachment, OrientationAlignmentMode.TwoAttachment];}
-    public static fromValue(value: number) {return OrientationAlignmentMode.items.find((item) => item._value === value);}
+    public static get Items() {return [OrientationAlignmentMode.OneAttachment, OrientationAlignmentMode.TwoAttachment];}
+    public static FromValue(value: number) {return OrientationAlignmentMode.Items.find((item) => item._value === value);}
 }
 
 export class PartType extends EnumItem {
@@ -8727,8 +8727,8 @@ export class PartType extends EnumItem {
     public static readonly Cylinder = new PartType("Cylinder", 2);
     public static readonly Wedge = new PartType("Wedge", 3);
     public static readonly CornerWedge = new PartType("CornerWedge", 4);
-    public static get items() {return [PartType.Ball, PartType.Block, PartType.Cylinder, PartType.Wedge, PartType.CornerWedge];}
-    public static fromValue(value: number) {return PartType.items.find((item) => item._value === value);}
+    public static get Items() {return [PartType.Ball, PartType.Block, PartType.Cylinder, PartType.Wedge, PartType.CornerWedge];}
+    public static FromValue(value: number) {return PartType.Items.find((item) => item._value === value);}
 }
 
 export class ParticleEmitterShape extends EnumItem {
@@ -8736,23 +8736,23 @@ export class ParticleEmitterShape extends EnumItem {
     public static readonly Sphere = new ParticleEmitterShape("Sphere", 1);
     public static readonly Cylinder = new ParticleEmitterShape("Cylinder", 2);
     public static readonly Disc = new ParticleEmitterShape("Disc", 3);
-    public static get items() {return [ParticleEmitterShape.Box, ParticleEmitterShape.Sphere, ParticleEmitterShape.Cylinder, ParticleEmitterShape.Disc];}
-    public static fromValue(value: number) {return ParticleEmitterShape.items.find((item) => item._value === value);}
+    public static get Items() {return [ParticleEmitterShape.Box, ParticleEmitterShape.Sphere, ParticleEmitterShape.Cylinder, ParticleEmitterShape.Disc];}
+    public static FromValue(value: number) {return ParticleEmitterShape.Items.find((item) => item._value === value);}
 }
 
 export class ParticleEmitterShapeInOut extends EnumItem {
     public static readonly Outward = new ParticleEmitterShapeInOut("Outward", 0);
     public static readonly Inward = new ParticleEmitterShapeInOut("Inward", 1);
     public static readonly InAndOut = new ParticleEmitterShapeInOut("InAndOut", 2);
-    public static get items() {return [ParticleEmitterShapeInOut.Outward, ParticleEmitterShapeInOut.Inward, ParticleEmitterShapeInOut.InAndOut];}
-    public static fromValue(value: number) {return ParticleEmitterShapeInOut.items.find((item) => item._value === value);}
+    public static get Items() {return [ParticleEmitterShapeInOut.Outward, ParticleEmitterShapeInOut.Inward, ParticleEmitterShapeInOut.InAndOut];}
+    public static FromValue(value: number) {return ParticleEmitterShapeInOut.Items.find((item) => item._value === value);}
 }
 
 export class ParticleEmitterShapeStyle extends EnumItem {
     public static readonly Volume = new ParticleEmitterShapeStyle("Volume", 0);
     public static readonly Surface = new ParticleEmitterShapeStyle("Surface", 1);
-    public static get items() {return [ParticleEmitterShapeStyle.Volume, ParticleEmitterShapeStyle.Surface];}
-    public static fromValue(value: number) {return ParticleEmitterShapeStyle.items.find((item) => item._value === value);}
+    public static get Items() {return [ParticleEmitterShapeStyle.Volume, ParticleEmitterShapeStyle.Surface];}
+    public static FromValue(value: number) {return ParticleEmitterShapeStyle.Items.find((item) => item._value === value);}
 }
 
 export class ParticleFlipbookLayout extends EnumItem {
@@ -8760,8 +8760,8 @@ export class ParticleFlipbookLayout extends EnumItem {
     public static readonly Grid2x2 = new ParticleFlipbookLayout("Grid2x2", 1);
     public static readonly Grid4x4 = new ParticleFlipbookLayout("Grid4x4", 2);
     public static readonly Grid8x8 = new ParticleFlipbookLayout("Grid8x8", 3);
-    public static get items() {return [ParticleFlipbookLayout.None, ParticleFlipbookLayout.Grid2x2, ParticleFlipbookLayout.Grid4x4, ParticleFlipbookLayout.Grid8x8];}
-    public static fromValue(value: number) {return ParticleFlipbookLayout.items.find((item) => item._value === value);}
+    public static get Items() {return [ParticleFlipbookLayout.None, ParticleFlipbookLayout.Grid2x2, ParticleFlipbookLayout.Grid4x4, ParticleFlipbookLayout.Grid8x8];}
+    public static FromValue(value: number) {return ParticleFlipbookLayout.Items.find((item) => item._value === value);}
 }
 
 export class ParticleFlipbookMode extends EnumItem {
@@ -8769,8 +8769,8 @@ export class ParticleFlipbookMode extends EnumItem {
     public static readonly OneShot = new ParticleFlipbookMode("OneShot", 1);
     public static readonly PingPong = new ParticleFlipbookMode("PingPong", 2);
     public static readonly Random = new ParticleFlipbookMode("Random", 3);
-    public static get items() {return [ParticleFlipbookMode.Loop, ParticleFlipbookMode.OneShot, ParticleFlipbookMode.PingPong, ParticleFlipbookMode.Random];}
-    public static fromValue(value: number) {return ParticleFlipbookMode.items.find((item) => item._value === value);}
+    public static get Items() {return [ParticleFlipbookMode.Loop, ParticleFlipbookMode.OneShot, ParticleFlipbookMode.PingPong, ParticleFlipbookMode.Random];}
+    public static FromValue(value: number) {return ParticleFlipbookMode.Items.find((item) => item._value === value);}
 }
 
 export class ParticleOrientation extends EnumItem {
@@ -8778,32 +8778,32 @@ export class ParticleOrientation extends EnumItem {
     public static readonly FacingCameraWorldUp = new ParticleOrientation("FacingCameraWorldUp", 1);
     public static readonly VelocityParallel = new ParticleOrientation("VelocityParallel", 2);
     public static readonly VelocityPerpendicular = new ParticleOrientation("VelocityPerpendicular", 3);
-    public static get items() {return [ParticleOrientation.FacingCamera, ParticleOrientation.FacingCameraWorldUp, ParticleOrientation.VelocityParallel, ParticleOrientation.VelocityPerpendicular];}
-    public static fromValue(value: number) {return ParticleOrientation.items.find((item) => item._value === value);}
+    public static get Items() {return [ParticleOrientation.FacingCamera, ParticleOrientation.FacingCameraWorldUp, ParticleOrientation.VelocityParallel, ParticleOrientation.VelocityPerpendicular];}
+    public static FromValue(value: number) {return ParticleOrientation.Items.find((item) => item._value === value);}
 }
 
 export class PhysicsSteppingMethod extends EnumItem {
     public static readonly Default = new PhysicsSteppingMethod("Default", 0);
     public static readonly Fixed = new PhysicsSteppingMethod("Fixed", 1);
     public static readonly Adaptive = new PhysicsSteppingMethod("Adaptive", 2);
-    public static get items() {return [PhysicsSteppingMethod.Default, PhysicsSteppingMethod.Fixed, PhysicsSteppingMethod.Adaptive];}
-    public static fromValue(value: number) {return PhysicsSteppingMethod.items.find((item) => item._value === value);}
+    public static get Items() {return [PhysicsSteppingMethod.Default, PhysicsSteppingMethod.Fixed, PhysicsSteppingMethod.Adaptive];}
+    public static FromValue(value: number) {return PhysicsSteppingMethod.Items.find((item) => item._value === value);}
 }
 
 export class PlayerCharacterDestroyBehavior extends EnumItem {
     public static readonly Default = new PlayerCharacterDestroyBehavior("Default", 0);
     public static readonly Disabled = new PlayerCharacterDestroyBehavior("Disabled", 1);
     public static readonly Enabled = new PlayerCharacterDestroyBehavior("Enabled", 2);
-    public static get items() {return [PlayerCharacterDestroyBehavior.Default, PlayerCharacterDestroyBehavior.Disabled, PlayerCharacterDestroyBehavior.Enabled];}
-    public static fromValue(value: number) {return PlayerCharacterDestroyBehavior.items.find((item) => item._value === value);}
+    public static get Items() {return [PlayerCharacterDestroyBehavior.Default, PlayerCharacterDestroyBehavior.Disabled, PlayerCharacterDestroyBehavior.Enabled];}
+    public static FromValue(value: number) {return PlayerCharacterDestroyBehavior.Items.find((item) => item._value === value);}
 }
 
 export class PoseEasingDirection extends EnumItem {
     public static readonly In = new PoseEasingDirection("In", 0);
     public static readonly Out = new PoseEasingDirection("Out", 1);
     public static readonly InOut = new PoseEasingDirection("InOut", 2);
-    public static get items() {return [PoseEasingDirection.In, PoseEasingDirection.Out, PoseEasingDirection.InOut];}
-    public static fromValue(value: number) {return PoseEasingDirection.items.find((item) => item._value === value);}
+    public static get Items() {return [PoseEasingDirection.In, PoseEasingDirection.Out, PoseEasingDirection.InOut];}
+    public static FromValue(value: number) {return PoseEasingDirection.Items.find((item) => item._value === value);}
 }
 
 export class PoseEasingStyle extends EnumItem {
@@ -8812,38 +8812,38 @@ export class PoseEasingStyle extends EnumItem {
     public static readonly Elastic = new PoseEasingStyle("Elastic", 2);
     public static readonly Cubic = new PoseEasingStyle("Cubic", 3);
     public static readonly Bounce = new PoseEasingStyle("Bounce", 4);
-    public static get items() {return [PoseEasingStyle.Linear, PoseEasingStyle.Constant, PoseEasingStyle.Elastic, PoseEasingStyle.Cubic, PoseEasingStyle.Bounce];}
-    public static fromValue(value: number) {return PoseEasingStyle.items.find((item) => item._value === value);}
+    public static get Items() {return [PoseEasingStyle.Linear, PoseEasingStyle.Constant, PoseEasingStyle.Elastic, PoseEasingStyle.Cubic, PoseEasingStyle.Bounce];}
+    public static FromValue(value: number) {return PoseEasingStyle.Items.find((item) => item._value === value);}
 }
 
 export class PositionAlignmentMode extends EnumItem {
     public static readonly OneAttachment = new PositionAlignmentMode("OneAttachment", 0);
     public static readonly TwoAttachment = new PositionAlignmentMode("TwoAttachment", 1);
-    public static get items() {return [PositionAlignmentMode.OneAttachment, PositionAlignmentMode.TwoAttachment];}
-    public static fromValue(value: number) {return PositionAlignmentMode.items.find((item) => item._value === value);}
+    public static get Items() {return [PositionAlignmentMode.OneAttachment, PositionAlignmentMode.TwoAttachment];}
+    public static FromValue(value: number) {return PositionAlignmentMode.Items.find((item) => item._value === value);}
 }
 
 export class PrimalPhysicsSolver extends EnumItem {
     public static readonly Default = new PrimalPhysicsSolver("Default", 0);
     public static readonly Experimental = new PrimalPhysicsSolver("Experimental", 1);
     public static readonly Disabled = new PrimalPhysicsSolver("Disabled", 2);
-    public static get items() {return [PrimalPhysicsSolver.Default, PrimalPhysicsSolver.Experimental, PrimalPhysicsSolver.Disabled];}
-    public static fromValue(value: number) {return PrimalPhysicsSolver.items.find((item) => item._value === value);}
+    public static get Items() {return [PrimalPhysicsSolver.Default, PrimalPhysicsSolver.Experimental, PrimalPhysicsSolver.Disabled];}
+    public static FromValue(value: number) {return PrimalPhysicsSolver.Items.find((item) => item._value === value);}
 }
 
 export class ProximityPromptExclusivity extends EnumItem {
     public static readonly OnePerButton = new ProximityPromptExclusivity("OnePerButton", 0);
     public static readonly OneGlobally = new ProximityPromptExclusivity("OneGlobally", 1);
     public static readonly AlwaysShow = new ProximityPromptExclusivity("AlwaysShow", 2);
-    public static get items() {return [ProximityPromptExclusivity.OnePerButton, ProximityPromptExclusivity.OneGlobally, ProximityPromptExclusivity.AlwaysShow];}
-    public static fromValue(value: number) {return ProximityPromptExclusivity.items.find((item) => item._value === value);}
+    public static get Items() {return [ProximityPromptExclusivity.OnePerButton, ProximityPromptExclusivity.OneGlobally, ProximityPromptExclusivity.AlwaysShow];}
+    public static FromValue(value: number) {return ProximityPromptExclusivity.Items.find((item) => item._value === value);}
 }
 
 export class ProximityPromptStyle extends EnumItem {
     public static readonly Default = new ProximityPromptStyle("Default", 0);
     public static readonly Custom = new ProximityPromptStyle("Custom", 1);
-    public static get items() {return [ProximityPromptStyle.Default, ProximityPromptStyle.Custom];}
-    public static fromValue(value: number) {return ProximityPromptStyle.items.find((item) => item._value === value);}
+    public static get Items() {return [ProximityPromptStyle.Default, ProximityPromptStyle.Custom];}
+    public static FromValue(value: number) {return ProximityPromptStyle.Items.find((item) => item._value === value);}
 }
 
 export class QualityLevel extends EnumItem {
@@ -8869,53 +8869,53 @@ export class QualityLevel extends EnumItem {
     public static readonly Level19 = new QualityLevel("Level19", 19);
     public static readonly Level20 = new QualityLevel("Level20", 20);
     public static readonly Level21 = new QualityLevel("Level21", 21);
-    public static get items() {return [QualityLevel.Automatic, QualityLevel.Level01, QualityLevel.Level02, QualityLevel.Level03, QualityLevel.Level04, QualityLevel.Level05, QualityLevel.Level06, QualityLevel.Level07, QualityLevel.Level08, QualityLevel.Level09, QualityLevel.Level10, QualityLevel.Level11, QualityLevel.Level12, QualityLevel.Level13, QualityLevel.Level14, QualityLevel.Level15, QualityLevel.Level16, QualityLevel.Level17, QualityLevel.Level18, QualityLevel.Level19, QualityLevel.Level20, QualityLevel.Level21];}
-    public static fromValue(value: number) {return QualityLevel.items.find((item) => item._value === value);}
+    public static get Items() {return [QualityLevel.Automatic, QualityLevel.Level01, QualityLevel.Level02, QualityLevel.Level03, QualityLevel.Level04, QualityLevel.Level05, QualityLevel.Level06, QualityLevel.Level07, QualityLevel.Level08, QualityLevel.Level09, QualityLevel.Level10, QualityLevel.Level11, QualityLevel.Level12, QualityLevel.Level13, QualityLevel.Level14, QualityLevel.Level15, QualityLevel.Level16, QualityLevel.Level17, QualityLevel.Level18, QualityLevel.Level19, QualityLevel.Level20, QualityLevel.Level21];}
+    public static FromValue(value: number) {return QualityLevel.Items.find((item) => item._value === value);}
 }
 
 export class R15CollisionType extends EnumItem {
     public static readonly OuterBox = new R15CollisionType("OuterBox", 0);
     public static readonly InnerBox = new R15CollisionType("InnerBox", 1);
-    public static get items() {return [R15CollisionType.OuterBox, R15CollisionType.InnerBox];}
-    public static fromValue(value: number) {return R15CollisionType.items.find((item) => item._value === value);}
+    public static get Items() {return [R15CollisionType.OuterBox, R15CollisionType.InnerBox];}
+    public static FromValue(value: number) {return R15CollisionType.Items.find((item) => item._value === value);}
 }
 
 export class RejectCharacterDeletions extends EnumItem {
     public static readonly Default = new RejectCharacterDeletions("Default", 0);
     public static readonly Disabled = new RejectCharacterDeletions("Disabled", 1);
     public static readonly Enabled = new RejectCharacterDeletions("Enabled", 2);
-    public static get items() {return [RejectCharacterDeletions.Default, RejectCharacterDeletions.Disabled, RejectCharacterDeletions.Enabled];}
-    public static fromValue(value: number) {return RejectCharacterDeletions.items.find((item) => item._value === value);}
+    public static get Items() {return [RejectCharacterDeletions.Default, RejectCharacterDeletions.Disabled, RejectCharacterDeletions.Enabled];}
+    public static FromValue(value: number) {return RejectCharacterDeletions.Items.find((item) => item._value === value);}
 }
 
 export class RenderFidelity extends EnumItem {
     public static readonly Automatic = new RenderFidelity("Automatic", 0);
     public static readonly Precise = new RenderFidelity("Precise", 1);
     public static readonly Performance = new RenderFidelity("Performance", 2);
-    public static get items() {return [RenderFidelity.Automatic, RenderFidelity.Precise, RenderFidelity.Performance];}
-    public static fromValue(value: number) {return RenderFidelity.items.find((item) => item._value === value);}
+    public static get Items() {return [RenderFidelity.Automatic, RenderFidelity.Precise, RenderFidelity.Performance];}
+    public static FromValue(value: number) {return RenderFidelity.Items.find((item) => item._value === value);}
 }
 
 export class RenderingTestComparisonMethod extends EnumItem {
     public static readonly psnr = new RenderingTestComparisonMethod("psnr", 0);
     public static readonly diff = new RenderingTestComparisonMethod("diff", 1);
-    public static get items() {return [RenderingTestComparisonMethod.psnr, RenderingTestComparisonMethod.diff];}
-    public static fromValue(value: number) {return RenderingTestComparisonMethod.items.find((item) => item._value === value);}
+    public static get Items() {return [RenderingTestComparisonMethod.psnr, RenderingTestComparisonMethod.diff];}
+    public static FromValue(value: number) {return RenderingTestComparisonMethod.Items.find((item) => item._value === value);}
 }
 
 export class ReplicateInstanceDestroySetting extends EnumItem {
     public static readonly Default = new ReplicateInstanceDestroySetting("Default", 0);
     public static readonly Disabled = new ReplicateInstanceDestroySetting("Disabled", 1);
     public static readonly Enabled = new ReplicateInstanceDestroySetting("Enabled", 2);
-    public static get items() {return [ReplicateInstanceDestroySetting.Default, ReplicateInstanceDestroySetting.Disabled, ReplicateInstanceDestroySetting.Enabled];}
-    public static fromValue(value: number) {return ReplicateInstanceDestroySetting.items.find((item) => item._value === value);}
+    public static get Items() {return [ReplicateInstanceDestroySetting.Default, ReplicateInstanceDestroySetting.Disabled, ReplicateInstanceDestroySetting.Enabled];}
+    public static FromValue(value: number) {return ReplicateInstanceDestroySetting.Items.find((item) => item._value === value);}
 }
 
 export class ResamplerMode extends EnumItem {
     public static readonly Default = new ResamplerMode("Default", 0);
     public static readonly Pixelated = new ResamplerMode("Pixelated", 1);
-    public static get items() {return [ResamplerMode.Default, ResamplerMode.Pixelated];}
-    public static fromValue(value: number) {return ResamplerMode.items.find((item) => item._value === value);}
+    public static get Items() {return [ResamplerMode.Default, ResamplerMode.Pixelated];}
+    public static FromValue(value: number) {return ResamplerMode.Items.find((item) => item._value === value);}
 }
 
 export class ReverbType extends EnumItem {
@@ -8943,8 +8943,8 @@ export class ReverbType extends EnumItem {
     public static readonly ParkingLot = new ReverbType("ParkingLot", 21);
     public static readonly SewerPipe = new ReverbType("SewerPipe", 22);
     public static readonly UnderWater = new ReverbType("UnderWater", 23);
-    public static get items() {return [ReverbType.NoReverb, ReverbType.GenericReverb, ReverbType.PaddedCell, ReverbType.Room, ReverbType.Bathroom, ReverbType.LivingRoom, ReverbType.StoneRoom, ReverbType.Auditorium, ReverbType.ConcertHall, ReverbType.Cave, ReverbType.Arena, ReverbType.Hangar, ReverbType.CarpettedHallway, ReverbType.Hallway, ReverbType.StoneCorridor, ReverbType.Alley, ReverbType.Forest, ReverbType.City, ReverbType.Mountains, ReverbType.Quarry, ReverbType.Plain, ReverbType.ParkingLot, ReverbType.SewerPipe, ReverbType.UnderWater];}
-    public static fromValue(value: number) {return ReverbType.items.find((item) => item._value === value);}
+    public static get Items() {return [ReverbType.NoReverb, ReverbType.GenericReverb, ReverbType.PaddedCell, ReverbType.Room, ReverbType.Bathroom, ReverbType.LivingRoom, ReverbType.StoneRoom, ReverbType.Auditorium, ReverbType.ConcertHall, ReverbType.Cave, ReverbType.Arena, ReverbType.Hangar, ReverbType.CarpettedHallway, ReverbType.Hallway, ReverbType.StoneCorridor, ReverbType.Alley, ReverbType.Forest, ReverbType.City, ReverbType.Mountains, ReverbType.Quarry, ReverbType.Plain, ReverbType.ParkingLot, ReverbType.SewerPipe, ReverbType.UnderWater];}
+    public static FromValue(value: number) {return ReverbType.Items.find((item) => item._value === value);}
 }
 
 export class RollOffMode extends EnumItem {
@@ -8952,8 +8952,8 @@ export class RollOffMode extends EnumItem {
     public static readonly Linear = new RollOffMode("Linear", 1);
     public static readonly LinearSquare = new RollOffMode("LinearSquare", 2);
     public static readonly InverseTapered = new RollOffMode("InverseTapered", 3);
-    public static get items() {return [RollOffMode.Inverse, RollOffMode.Linear, RollOffMode.LinearSquare, RollOffMode.InverseTapered];}
-    public static fromValue(value: number) {return RollOffMode.items.find((item) => item._value === value);}
+    public static get Items() {return [RollOffMode.Inverse, RollOffMode.Linear, RollOffMode.LinearSquare, RollOffMode.InverseTapered];}
+    public static FromValue(value: number) {return RollOffMode.Items.find((item) => item._value === value);}
 }
 
 export class RotationOrder extends EnumItem {
@@ -8963,16 +8963,16 @@ export class RotationOrder extends EnumItem {
     public static readonly YXZ = new RotationOrder("YXZ", 3);
     public static readonly ZXY = new RotationOrder("ZXY", 4);
     public static readonly ZYX = new RotationOrder("ZYX", 5);
-    public static get items() {return [RotationOrder.XYZ, RotationOrder.XZY, RotationOrder.YZX, RotationOrder.YXZ, RotationOrder.ZXY, RotationOrder.ZYX];}
-    public static fromValue(value: number) {return RotationOrder.items.find((item) => item._value === value);}
+    public static get Items() {return [RotationOrder.XYZ, RotationOrder.XZY, RotationOrder.YZX, RotationOrder.YXZ, RotationOrder.ZXY, RotationOrder.ZYX];}
+    public static FromValue(value: number) {return RotationOrder.Items.find((item) => item._value === value);}
 }
 
 export class RtlTextSupport extends EnumItem {
     public static readonly Default = new RtlTextSupport("Default", 0);
     public static readonly Disabled = new RtlTextSupport("Disabled", 1);
     public static readonly Enabled = new RtlTextSupport("Enabled", 2);
-    public static get items() {return [RtlTextSupport.Default, RtlTextSupport.Disabled, RtlTextSupport.Enabled];}
-    public static fromValue(value: number) {return RtlTextSupport.items.find((item) => item._value === value);}
+    public static get Items() {return [RtlTextSupport.Default, RtlTextSupport.Disabled, RtlTextSupport.Enabled];}
+    public static FromValue(value: number) {return RtlTextSupport.Items.find((item) => item._value === value);}
 }
 
 export class RunContext extends EnumItem {
@@ -8980,15 +8980,15 @@ export class RunContext extends EnumItem {
     public static readonly Server = new RunContext("Server", 1);
     public static readonly Client = new RunContext("Client", 2);
     public static readonly Plugin = new RunContext("Plugin", 3);
-    public static get items() {return [RunContext.Legacy, RunContext.Server, RunContext.Client, RunContext.Plugin];}
-    public static fromValue(value: number) {return RunContext.items.find((item) => item._value === value);}
+    public static get Items() {return [RunContext.Legacy, RunContext.Server, RunContext.Client, RunContext.Plugin];}
+    public static FromValue(value: number) {return RunContext.Items.find((item) => item._value === value);}
 }
 
 export class SafeAreaCompatibility extends EnumItem {
     public static readonly None = new SafeAreaCompatibility("None", 0);
     public static readonly FullscreenExtension = new SafeAreaCompatibility("FullscreenExtension", 1);
-    public static get items() {return [SafeAreaCompatibility.None, SafeAreaCompatibility.FullscreenExtension];}
-    public static fromValue(value: number) {return SafeAreaCompatibility.items.find((item) => item._value === value);}
+    public static get Items() {return [SafeAreaCompatibility.None, SafeAreaCompatibility.FullscreenExtension];}
+    public static FromValue(value: number) {return SafeAreaCompatibility.Items.find((item) => item._value === value);}
 }
 
 export class ScaleType extends EnumItem {
@@ -8997,8 +8997,8 @@ export class ScaleType extends EnumItem {
     public static readonly Tile = new ScaleType("Tile", 2);
     public static readonly Fit = new ScaleType("Fit", 3);
     public static readonly Crop = new ScaleType("Crop", 4);
-    public static get items() {return [ScaleType.Stretch, ScaleType.Slice, ScaleType.Tile, ScaleType.Fit, ScaleType.Crop];}
-    public static fromValue(value: number) {return ScaleType.items.find((item) => item._value === value);}
+    public static get Items() {return [ScaleType.Stretch, ScaleType.Slice, ScaleType.Tile, ScaleType.Fit, ScaleType.Crop];}
+    public static FromValue(value: number) {return ScaleType.Items.find((item) => item._value === value);}
 }
 
 export class ScreenInsets extends EnumItem {
@@ -9006,8 +9006,8 @@ export class ScreenInsets extends EnumItem {
     public static readonly DeviceSafeInsets = new ScreenInsets("DeviceSafeInsets", 1);
     public static readonly CoreUISafeInsets = new ScreenInsets("CoreUISafeInsets", 2);
     public static readonly TopbarSafeInsets = new ScreenInsets("TopbarSafeInsets", 3);
-    public static get items() {return [ScreenInsets.None, ScreenInsets.DeviceSafeInsets, ScreenInsets.CoreUISafeInsets, ScreenInsets.TopbarSafeInsets];}
-    public static fromValue(value: number) {return ScreenInsets.items.find((item) => item._value === value);}
+    public static get Items() {return [ScreenInsets.None, ScreenInsets.DeviceSafeInsets, ScreenInsets.CoreUISafeInsets, ScreenInsets.TopbarSafeInsets];}
+    public static FromValue(value: number) {return ScreenInsets.Items.find((item) => item._value === value);}
 }
 
 export class ScreenOrientation extends EnumItem {
@@ -9016,53 +9016,53 @@ export class ScreenOrientation extends EnumItem {
     public static readonly LandscapeSensor = new ScreenOrientation("LandscapeSensor", 2);
     public static readonly Portrait = new ScreenOrientation("Portrait", 3);
     public static readonly Sensor = new ScreenOrientation("Sensor", 4);
-    public static get items() {return [ScreenOrientation.LandscapeLeft, ScreenOrientation.LandscapeRight, ScreenOrientation.LandscapeSensor, ScreenOrientation.Portrait, ScreenOrientation.Sensor];}
-    public static fromValue(value: number) {return ScreenOrientation.items.find((item) => item._value === value);}
+    public static get Items() {return [ScreenOrientation.LandscapeLeft, ScreenOrientation.LandscapeRight, ScreenOrientation.LandscapeSensor, ScreenOrientation.Portrait, ScreenOrientation.Sensor];}
+    public static FromValue(value: number) {return ScreenOrientation.Items.find((item) => item._value === value);}
 }
 
 export class ScrollBarInset extends EnumItem {
     public static readonly None = new ScrollBarInset("None", 0);
     public static readonly ScrollBar = new ScrollBarInset("ScrollBar", 1);
     public static readonly Always = new ScrollBarInset("Always", 2);
-    public static get items() {return [ScrollBarInset.None, ScrollBarInset.ScrollBar, ScrollBarInset.Always];}
-    public static fromValue(value: number) {return ScrollBarInset.items.find((item) => item._value === value);}
+    public static get Items() {return [ScrollBarInset.None, ScrollBarInset.ScrollBar, ScrollBarInset.Always];}
+    public static FromValue(value: number) {return ScrollBarInset.Items.find((item) => item._value === value);}
 }
 
 export class ScrollingDirection extends EnumItem {
     public static readonly X = new ScrollingDirection("X", 1);
     public static readonly Y = new ScrollingDirection("Y", 2);
     public static readonly XY = new ScrollingDirection("XY", 4);
-    public static get items() {return [ScrollingDirection.X, ScrollingDirection.Y, ScrollingDirection.XY];}
-    public static fromValue(value: number) {return ScrollingDirection.items.find((item) => item._value === value);}
+    public static get Items() {return [ScrollingDirection.X, ScrollingDirection.Y, ScrollingDirection.XY];}
+    public static FromValue(value: number) {return ScrollingDirection.Items.find((item) => item._value === value);}
 }
 
 export class SelectionBehavior extends EnumItem {
     public static readonly Escape = new SelectionBehavior("Escape", 0);
     public static readonly Stop = new SelectionBehavior("Stop", 1);
-    public static get items() {return [SelectionBehavior.Escape, SelectionBehavior.Stop];}
-    public static fromValue(value: number) {return SelectionBehavior.items.find((item) => item._value === value);}
+    public static get Items() {return [SelectionBehavior.Escape, SelectionBehavior.Stop];}
+    public static FromValue(value: number) {return SelectionBehavior.Items.find((item) => item._value === value);}
 }
 
 export class SensorMode extends EnumItem {
     public static readonly Floor = new SensorMode("Floor", 0);
     public static readonly Ladder = new SensorMode("Ladder", 1);
-    public static get items() {return [SensorMode.Floor, SensorMode.Ladder];}
-    public static fromValue(value: number) {return SensorMode.items.find((item) => item._value === value);}
+    public static get Items() {return [SensorMode.Floor, SensorMode.Ladder];}
+    public static FromValue(value: number) {return SensorMode.Items.find((item) => item._value === value);}
 }
 
 export class SensorUpdateType extends EnumItem {
     public static readonly OnRead = new SensorUpdateType("OnRead", 0);
     public static readonly Manual = new SensorUpdateType("Manual", 1);
-    public static get items() {return [SensorUpdateType.OnRead, SensorUpdateType.Manual];}
-    public static fromValue(value: number) {return SensorUpdateType.items.find((item) => item._value === value);}
+    public static get Items() {return [SensorUpdateType.OnRead, SensorUpdateType.Manual];}
+    public static FromValue(value: number) {return SensorUpdateType.Items.find((item) => item._value === value);}
 }
 
 export class ServiceVisibility extends EnumItem {
     public static readonly Always = new ServiceVisibility("Always", 0);
     public static readonly Off = new ServiceVisibility("Off", 1);
     public static readonly WithChildren = new ServiceVisibility("WithChildren", 2);
-    public static get items() {return [ServiceVisibility.Always, ServiceVisibility.Off, ServiceVisibility.WithChildren];}
-    public static fromValue(value: number) {return ServiceVisibility.items.find((item) => item._value === value);}
+    public static get Items() {return [ServiceVisibility.Always, ServiceVisibility.Off, ServiceVisibility.WithChildren];}
+    public static FromValue(value: number) {return ServiceVisibility.Items.find((item) => item._value === value);}
 }
 
 export class SignalBehavior extends EnumItem {
@@ -9070,24 +9070,24 @@ export class SignalBehavior extends EnumItem {
     public static readonly Immediate = new SignalBehavior("Immediate", 1);
     public static readonly Deferred = new SignalBehavior("Deferred", 2);
     public static readonly AncestryDeferred = new SignalBehavior("AncestryDeferred", 3);
-    public static get items() {return [SignalBehavior.Default, SignalBehavior.Immediate, SignalBehavior.Deferred, SignalBehavior.AncestryDeferred];}
-    public static fromValue(value: number) {return SignalBehavior.items.find((item) => item._value === value);}
+    public static get Items() {return [SignalBehavior.Default, SignalBehavior.Immediate, SignalBehavior.Deferred, SignalBehavior.AncestryDeferred];}
+    public static FromValue(value: number) {return SignalBehavior.Items.find((item) => item._value === value);}
 }
 
 export class SizeConstraint extends EnumItem {
     public static readonly RelativeXY = new SizeConstraint("RelativeXY", 0);
     public static readonly RelativeXX = new SizeConstraint("RelativeXX", 1);
     public static readonly RelativeYY = new SizeConstraint("RelativeYY", 2);
-    public static get items() {return [SizeConstraint.RelativeXY, SizeConstraint.RelativeXX, SizeConstraint.RelativeYY];}
-    public static fromValue(value: number) {return SizeConstraint.items.find((item) => item._value === value);}
+    public static get Items() {return [SizeConstraint.RelativeXY, SizeConstraint.RelativeXX, SizeConstraint.RelativeYY];}
+    public static FromValue(value: number) {return SizeConstraint.Items.find((item) => item._value === value);}
 }
 
 export class SortOrder extends EnumItem {
     public static readonly Name = new SortOrder("Name", 0);
     public static readonly Custom = new SortOrder("Custom", 1);
     public static readonly LayoutOrder = new SortOrder("LayoutOrder", 2);
-    public static get items() {return [SortOrder.Name, SortOrder.Custom, SortOrder.LayoutOrder];}
-    public static fromValue(value: number) {return SortOrder.items.find((item) => item._value === value);}
+    public static get Items() {return [SortOrder.Name, SortOrder.Custom, SortOrder.LayoutOrder];}
+    public static FromValue(value: number) {return SortOrder.Items.find((item) => item._value === value);}
 }
 
 export class StartCorner extends EnumItem {
@@ -9095,16 +9095,16 @@ export class StartCorner extends EnumItem {
     public static readonly TopRight = new StartCorner("TopRight", 1);
     public static readonly BottomLeft = new StartCorner("BottomLeft", 2);
     public static readonly BottomRight = new StartCorner("BottomRight", 3);
-    public static get items() {return [StartCorner.TopLeft, StartCorner.TopRight, StartCorner.BottomLeft, StartCorner.BottomRight];}
-    public static fromValue(value: number) {return StartCorner.items.find((item) => item._value === value);}
+    public static get Items() {return [StartCorner.TopLeft, StartCorner.TopRight, StartCorner.BottomLeft, StartCorner.BottomRight];}
+    public static FromValue(value: number) {return StartCorner.Items.find((item) => item._value === value);}
 }
 
 export class StreamOutBehavior extends EnumItem {
     public static readonly Default = new StreamOutBehavior("Default", 0);
     public static readonly LowMemory = new StreamOutBehavior("LowMemory", 1);
     public static readonly Opportunistic = new StreamOutBehavior("Opportunistic", 2);
-    public static get items() {return [StreamOutBehavior.Default, StreamOutBehavior.LowMemory, StreamOutBehavior.Opportunistic];}
-    public static fromValue(value: number) {return StreamOutBehavior.items.find((item) => item._value === value);}
+    public static get Items() {return [StreamOutBehavior.Default, StreamOutBehavior.LowMemory, StreamOutBehavior.Opportunistic];}
+    public static FromValue(value: number) {return StreamOutBehavior.Items.find((item) => item._value === value);}
 }
 
 export class StreamingIntegrityMode extends EnumItem {
@@ -9112,23 +9112,23 @@ export class StreamingIntegrityMode extends EnumItem {
     public static readonly Disabled = new StreamingIntegrityMode("Disabled", 1);
     public static readonly MinimumRadiusPause = new StreamingIntegrityMode("MinimumRadiusPause", 2);
     public static readonly PauseOutsideLoadedArea = new StreamingIntegrityMode("PauseOutsideLoadedArea", 3);
-    public static get items() {return [StreamingIntegrityMode.Default, StreamingIntegrityMode.Disabled, StreamingIntegrityMode.MinimumRadiusPause, StreamingIntegrityMode.PauseOutsideLoadedArea];}
-    public static fromValue(value: number) {return StreamingIntegrityMode.items.find((item) => item._value === value);}
+    public static get Items() {return [StreamingIntegrityMode.Default, StreamingIntegrityMode.Disabled, StreamingIntegrityMode.MinimumRadiusPause, StreamingIntegrityMode.PauseOutsideLoadedArea];}
+    public static FromValue(value: number) {return StreamingIntegrityMode.Items.find((item) => item._value === value);}
 }
 
 export class Style extends EnumItem {
     public static readonly AlternatingSupports = new Style("AlternatingSupports", 0);
     public static readonly BridgeStyleSupports = new Style("BridgeStyleSupports", 1);
     public static readonly NoSupports = new Style("NoSupports", 2);
-    public static get items() {return [Style.AlternatingSupports, Style.BridgeStyleSupports, Style.NoSupports];}
-    public static fromValue(value: number) {return Style.items.find((item) => item._value === value);}
+    public static get Items() {return [Style.AlternatingSupports, Style.BridgeStyleSupports, Style.NoSupports];}
+    public static FromValue(value: number) {return Style.Items.find((item) => item._value === value);}
 }
 
 export class SurfaceGuiSizingMode extends EnumItem {
     public static readonly FixedSize = new SurfaceGuiSizingMode("FixedSize", 0);
     public static readonly PixelsPerStud = new SurfaceGuiSizingMode("PixelsPerStud", 1);
-    public static get items() {return [SurfaceGuiSizingMode.FixedSize, SurfaceGuiSizingMode.PixelsPerStud];}
-    public static fromValue(value: number) {return SurfaceGuiSizingMode.items.find((item) => item._value === value);}
+    public static get Items() {return [SurfaceGuiSizingMode.FixedSize, SurfaceGuiSizingMode.PixelsPerStud];}
+    public static FromValue(value: number) {return SurfaceGuiSizingMode.Items.find((item) => item._value === value);}
 }
 
 export class SurfaceType extends EnumItem {
@@ -9142,15 +9142,15 @@ export class SurfaceType extends EnumItem {
     public static readonly Motor = new SurfaceType("Motor", 7);
     public static readonly SteppingMotor = new SurfaceType("SteppingMotor", 8);
     public static readonly SmoothNoOutlines = new SurfaceType("SmoothNoOutlines", 10);
-    public static get items() {return [SurfaceType.Smooth, SurfaceType.Glue, SurfaceType.Weld, SurfaceType.Studs, SurfaceType.Inlet, SurfaceType.Universal, SurfaceType.Hinge, SurfaceType.Motor, SurfaceType.SteppingMotor, SurfaceType.SmoothNoOutlines];}
-    public static fromValue(value: number) {return SurfaceType.items.find((item) => item._value === value);}
+    public static get Items() {return [SurfaceType.Smooth, SurfaceType.Glue, SurfaceType.Weld, SurfaceType.Studs, SurfaceType.Inlet, SurfaceType.Universal, SurfaceType.Hinge, SurfaceType.Motor, SurfaceType.SteppingMotor, SurfaceType.SmoothNoOutlines];}
+    public static FromValue(value: number) {return SurfaceType.Items.find((item) => item._value === value);}
 }
 
 export class TableMajorAxis extends EnumItem {
     public static readonly RowMajor = new TableMajorAxis("RowMajor", 0);
     public static readonly ColumnMajor = new TableMajorAxis("ColumnMajor", 1);
-    public static get items() {return [TableMajorAxis.RowMajor, TableMajorAxis.ColumnMajor];}
-    public static fromValue(value: number) {return TableMajorAxis.items.find((item) => item._value === value);}
+    public static get Items() {return [TableMajorAxis.RowMajor, TableMajorAxis.ColumnMajor];}
+    public static FromValue(value: number) {return TableMajorAxis.Items.find((item) => item._value === value);}
 }
 
 export class Technology extends EnumItem {
@@ -9159,8 +9159,8 @@ export class Technology extends EnumItem {
     public static readonly ShadowMap = new Technology("ShadowMap", 3);
     public static readonly Future = new Technology("Future", 4);
     public static readonly Legacy = new Technology("Legacy", 0);
-    public static get items() {return [Technology.Voxel, Technology.Compatibility, Technology.ShadowMap, Technology.Future, Technology.Legacy];}
-    public static fromValue(value: number) {return Technology.items.find((item) => item._value === value);}
+    public static get Items() {return [Technology.Voxel, Technology.Compatibility, Technology.ShadowMap, Technology.Future, Technology.Legacy];}
+    public static FromValue(value: number) {return Technology.Items.find((item) => item._value === value);}
 }
 
 export class TerrainAcquisitionMethod extends EnumItem {
@@ -9176,56 +9176,56 @@ export class TerrainAcquisitionMethod extends EnumItem {
     public static readonly RegionFillTool = new TerrainAcquisitionMethod("RegionFillTool", 9);
     public static readonly RegionPasteTool = new TerrainAcquisitionMethod("RegionPasteTool", 10);
     public static readonly Other = new TerrainAcquisitionMethod("Other", 11);
-    public static get items() {return [TerrainAcquisitionMethod.None, TerrainAcquisitionMethod.Legacy, TerrainAcquisitionMethod.Template, TerrainAcquisitionMethod.Generate, TerrainAcquisitionMethod.Import, TerrainAcquisitionMethod.Convert, TerrainAcquisitionMethod.EditAddTool, TerrainAcquisitionMethod.EditSeaLevelTool, TerrainAcquisitionMethod.EditReplaceTool, TerrainAcquisitionMethod.RegionFillTool, TerrainAcquisitionMethod.RegionPasteTool, TerrainAcquisitionMethod.Other];}
-    public static fromValue(value: number) {return TerrainAcquisitionMethod.items.find((item) => item._value === value);}
+    public static get Items() {return [TerrainAcquisitionMethod.None, TerrainAcquisitionMethod.Legacy, TerrainAcquisitionMethod.Template, TerrainAcquisitionMethod.Generate, TerrainAcquisitionMethod.Import, TerrainAcquisitionMethod.Convert, TerrainAcquisitionMethod.EditAddTool, TerrainAcquisitionMethod.EditSeaLevelTool, TerrainAcquisitionMethod.EditReplaceTool, TerrainAcquisitionMethod.RegionFillTool, TerrainAcquisitionMethod.RegionPasteTool, TerrainAcquisitionMethod.Other];}
+    public static FromValue(value: number) {return TerrainAcquisitionMethod.Items.find((item) => item._value === value);}
 }
 
 export class TerrainFace extends EnumItem {
     public static readonly Top = new TerrainFace("Top", 0);
     public static readonly Side = new TerrainFace("Side", 1);
     public static readonly Bottom = new TerrainFace("Bottom", 2);
-    public static get items() {return [TerrainFace.Top, TerrainFace.Side, TerrainFace.Bottom];}
-    public static fromValue(value: number) {return TerrainFace.items.find((item) => item._value === value);}
+    public static get Items() {return [TerrainFace.Top, TerrainFace.Side, TerrainFace.Bottom];}
+    public static FromValue(value: number) {return TerrainFace.Items.find((item) => item._value === value);}
 }
 
 export class TextDirection extends EnumItem {
     public static readonly Auto = new TextDirection("Auto", 0);
     public static readonly LeftToRight = new TextDirection("LeftToRight", 1);
     public static readonly RightToLeft = new TextDirection("RightToLeft", 2);
-    public static get items() {return [TextDirection.Auto, TextDirection.LeftToRight, TextDirection.RightToLeft];}
-    public static fromValue(value: number) {return TextDirection.items.find((item) => item._value === value);}
+    public static get Items() {return [TextDirection.Auto, TextDirection.LeftToRight, TextDirection.RightToLeft];}
+    public static FromValue(value: number) {return TextDirection.Items.find((item) => item._value === value);}
 }
 
 export class TextTruncate extends EnumItem {
     public static readonly None = new TextTruncate("None", 0);
     public static readonly AtEnd = new TextTruncate("AtEnd", 1);
     public static readonly SplitWord = new TextTruncate("SplitWord", 2);
-    public static get items() {return [TextTruncate.None, TextTruncate.AtEnd, TextTruncate.SplitWord];}
-    public static fromValue(value: number) {return TextTruncate.items.find((item) => item._value === value);}
+    public static get Items() {return [TextTruncate.None, TextTruncate.AtEnd, TextTruncate.SplitWord];}
+    public static FromValue(value: number) {return TextTruncate.Items.find((item) => item._value === value);}
 }
 
 export class TextXAlignment extends EnumItem {
     public static readonly Left = new TextXAlignment("Left", 0);
     public static readonly Right = new TextXAlignment("Right", 1);
     public static readonly Center = new TextXAlignment("Center", 2);
-    public static get items() {return [TextXAlignment.Left, TextXAlignment.Right, TextXAlignment.Center];}
-    public static fromValue(value: number) {return TextXAlignment.items.find((item) => item._value === value);}
+    public static get Items() {return [TextXAlignment.Left, TextXAlignment.Right, TextXAlignment.Center];}
+    public static FromValue(value: number) {return TextXAlignment.Items.find((item) => item._value === value);}
 }
 
 export class TextYAlignment extends EnumItem {
     public static readonly Top = new TextYAlignment("Top", 0);
     public static readonly Center = new TextYAlignment("Center", 1);
     public static readonly Bottom = new TextYAlignment("Bottom", 2);
-    public static get items() {return [TextYAlignment.Top, TextYAlignment.Center, TextYAlignment.Bottom];}
-    public static fromValue(value: number) {return TextYAlignment.items.find((item) => item._value === value);}
+    public static get Items() {return [TextYAlignment.Top, TextYAlignment.Center, TextYAlignment.Bottom];}
+    public static FromValue(value: number) {return TextYAlignment.Items.find((item) => item._value === value);}
 }
 
 export class TextureMode extends EnumItem {
     public static readonly Stretch = new TextureMode("Stretch", 0);
     public static readonly Wrap = new TextureMode("Wrap", 1);
     public static readonly Static = new TextureMode("Static", 2);
-    public static get items() {return [TextureMode.Stretch, TextureMode.Wrap, TextureMode.Static];}
-    public static fromValue(value: number) {return TextureMode.items.find((item) => item._value === value);}
+    public static get Items() {return [TextureMode.Stretch, TextureMode.Wrap, TextureMode.Static];}
+    public static FromValue(value: number) {return TextureMode.Items.find((item) => item._value === value);}
 }
 
 export class ThreadPoolConfig extends EnumItem {
@@ -9240,24 +9240,24 @@ export class ThreadPoolConfig extends EnumItem {
     public static readonly Threads4 = new ThreadPoolConfig("Threads4", 4);
     public static readonly Threads8 = new ThreadPoolConfig("Threads8", 8);
     public static readonly Threads16 = new ThreadPoolConfig("Threads16", 16);
-    public static get items() {return [ThreadPoolConfig.PerCore4, ThreadPoolConfig.PerCore3, ThreadPoolConfig.PerCore2, ThreadPoolConfig.PerCore1, ThreadPoolConfig.Auto, ThreadPoolConfig.Threads1, ThreadPoolConfig.Threads2, ThreadPoolConfig.Threads3, ThreadPoolConfig.Threads4, ThreadPoolConfig.Threads8, ThreadPoolConfig.Threads16];}
-    public static fromValue(value: number) {return ThreadPoolConfig.items.find((item) => item._value === value);}
+    public static get Items() {return [ThreadPoolConfig.PerCore4, ThreadPoolConfig.PerCore3, ThreadPoolConfig.PerCore2, ThreadPoolConfig.PerCore1, ThreadPoolConfig.Auto, ThreadPoolConfig.Threads1, ThreadPoolConfig.Threads2, ThreadPoolConfig.Threads3, ThreadPoolConfig.Threads4, ThreadPoolConfig.Threads8, ThreadPoolConfig.Threads16];}
+    public static FromValue(value: number) {return ThreadPoolConfig.Items.find((item) => item._value === value);}
 }
 
 export class TopBottom extends EnumItem {
     public static readonly Top = new TopBottom("Top", 0);
     public static readonly Center = new TopBottom("Center", 1);
     public static readonly Bottom = new TopBottom("Bottom", 2);
-    public static get items() {return [TopBottom.Top, TopBottom.Center, TopBottom.Bottom];}
-    public static fromValue(value: number) {return TopBottom.items.find((item) => item._value === value);}
+    public static get Items() {return [TopBottom.Top, TopBottom.Center, TopBottom.Bottom];}
+    public static FromValue(value: number) {return TopBottom.Items.find((item) => item._value === value);}
 }
 
 export class TriStateBoolean extends EnumItem {
     public static readonly False = new TriStateBoolean("False", 2);
     public static readonly True = new TriStateBoolean("True", 1);
     public static readonly Unknown = new TriStateBoolean("Unknown", 0);
-    public static get items() {return [TriStateBoolean.False, TriStateBoolean.True, TriStateBoolean.Unknown];}
-    public static fromValue(value: number) {return TriStateBoolean.items.find((item) => item._value === value);}
+    public static get Items() {return [TriStateBoolean.False, TriStateBoolean.True, TriStateBoolean.Unknown];}
+    public static FromValue(value: number) {return TriStateBoolean.Items.find((item) => item._value === value);}
 }
 
 export class UIFlexAlignment extends EnumItem {
@@ -9266,8 +9266,8 @@ export class UIFlexAlignment extends EnumItem {
     public static readonly SpaceAround = new UIFlexAlignment("SpaceAround", 2);
     public static readonly SpaceBetween = new UIFlexAlignment("SpaceBetween", 3);
     public static readonly SpaceEvenly = new UIFlexAlignment("SpaceEvenly", 4);
-    public static get items() {return [UIFlexAlignment.None, UIFlexAlignment.Fill, UIFlexAlignment.SpaceAround, UIFlexAlignment.SpaceBetween, UIFlexAlignment.SpaceEvenly];}
-    public static fromValue(value: number) {return UIFlexAlignment.items.find((item) => item._value === value);}
+    public static get Items() {return [UIFlexAlignment.None, UIFlexAlignment.Fill, UIFlexAlignment.SpaceAround, UIFlexAlignment.SpaceBetween, UIFlexAlignment.SpaceEvenly];}
+    public static FromValue(value: number) {return UIFlexAlignment.Items.find((item) => item._value === value);}
 }
 
 export class UIFlexMode extends EnumItem {
@@ -9276,38 +9276,38 @@ export class UIFlexMode extends EnumItem {
     public static readonly Shrink = new UIFlexMode("Shrink", 2);
     public static readonly Fill = new UIFlexMode("Fill", 3);
     public static readonly Custom = new UIFlexMode("Custom", 4);
-    public static get items() {return [UIFlexMode.None, UIFlexMode.Grow, UIFlexMode.Shrink, UIFlexMode.Fill, UIFlexMode.Custom];}
-    public static fromValue(value: number) {return UIFlexMode.items.find((item) => item._value === value);}
+    public static get Items() {return [UIFlexMode.None, UIFlexMode.Grow, UIFlexMode.Shrink, UIFlexMode.Fill, UIFlexMode.Custom];}
+    public static FromValue(value: number) {return UIFlexMode.Items.find((item) => item._value === value);}
 }
 
 export class VRScaling extends EnumItem {
     public static readonly World = new VRScaling("World", 0);
     public static readonly Off = new VRScaling("Off", 1);
-    public static get items() {return [VRScaling.World, VRScaling.Off];}
-    public static fromValue(value: number) {return VRScaling.items.find((item) => item._value === value);}
+    public static get Items() {return [VRScaling.World, VRScaling.Off];}
+    public static FromValue(value: number) {return VRScaling.Items.find((item) => item._value === value);}
 }
 
 export class VelocityConstraintMode extends EnumItem {
     public static readonly Line = new VelocityConstraintMode("Line", 0);
     public static readonly Plane = new VelocityConstraintMode("Plane", 1);
     public static readonly Vector = new VelocityConstraintMode("Vector", 2);
-    public static get items() {return [VelocityConstraintMode.Line, VelocityConstraintMode.Plane, VelocityConstraintMode.Vector];}
-    public static fromValue(value: number) {return VelocityConstraintMode.items.find((item) => item._value === value);}
+    public static get Items() {return [VelocityConstraintMode.Line, VelocityConstraintMode.Plane, VelocityConstraintMode.Vector];}
+    public static FromValue(value: number) {return VelocityConstraintMode.Items.find((item) => item._value === value);}
 }
 
 export class VerticalAlignment extends EnumItem {
     public static readonly Center = new VerticalAlignment("Center", 0);
     public static readonly Top = new VerticalAlignment("Top", 1);
     public static readonly Bottom = new VerticalAlignment("Bottom", 2);
-    public static get items() {return [VerticalAlignment.Center, VerticalAlignment.Top, VerticalAlignment.Bottom];}
-    public static fromValue(value: number) {return VerticalAlignment.items.find((item) => item._value === value);}
+    public static get Items() {return [VerticalAlignment.Center, VerticalAlignment.Top, VerticalAlignment.Bottom];}
+    public static FromValue(value: number) {return VerticalAlignment.Items.find((item) => item._value === value);}
 }
 
 export class VerticalScrollBarPosition extends EnumItem {
     public static readonly Right = new VerticalScrollBarPosition("Right", 0);
     public static readonly Left = new VerticalScrollBarPosition("Left", 1);
-    public static get items() {return [VerticalScrollBarPosition.Right, VerticalScrollBarPosition.Left];}
-    public static fromValue(value: number) {return VerticalScrollBarPosition.items.find((item) => item._value === value);}
+    public static get Items() {return [VerticalScrollBarPosition.Right, VerticalScrollBarPosition.Left];}
+    public static FromValue(value: number) {return VerticalScrollBarPosition.Items.find((item) => item._value === value);}
 }
 
 export class VideoDeviceCaptureQuality extends EnumItem {
@@ -9315,8 +9315,8 @@ export class VideoDeviceCaptureQuality extends EnumItem {
     public static readonly Low = new VideoDeviceCaptureQuality("Low", 1);
     public static readonly Medium = new VideoDeviceCaptureQuality("Medium", 2);
     public static readonly High = new VideoDeviceCaptureQuality("High", 3);
-    public static get items() {return [VideoDeviceCaptureQuality.Default, VideoDeviceCaptureQuality.Low, VideoDeviceCaptureQuality.Medium, VideoDeviceCaptureQuality.High];}
-    public static fromValue(value: number) {return VideoDeviceCaptureQuality.items.find((item) => item._value === value);}
+    public static get Items() {return [VideoDeviceCaptureQuality.Default, VideoDeviceCaptureQuality.Low, VideoDeviceCaptureQuality.Medium, VideoDeviceCaptureQuality.High];}
+    public static FromValue(value: number) {return VideoDeviceCaptureQuality.Items.find((item) => item._value === value);}
 }
 
 export class ViewMode extends EnumItem {
@@ -9324,39 +9324,39 @@ export class ViewMode extends EnumItem {
     public static readonly GeometryComplexity = new ViewMode("GeometryComplexity", 1);
     public static readonly Transparent = new ViewMode("Transparent", 2);
     public static readonly Decal = new ViewMode("Decal", 3);
-    public static get items() {return [ViewMode.None, ViewMode.GeometryComplexity, ViewMode.Transparent, ViewMode.Decal];}
-    public static fromValue(value: number) {return ViewMode.items.find((item) => item._value === value);}
+    public static get Items() {return [ViewMode.None, ViewMode.GeometryComplexity, ViewMode.Transparent, ViewMode.Decal];}
+    public static FromValue(value: number) {return ViewMode.Items.find((item) => item._value === value);}
 }
 
 export class VirtualCursorMode extends EnumItem {
     public static readonly Default = new VirtualCursorMode("Default", 0);
     public static readonly Disabled = new VirtualCursorMode("Disabled", 1);
     public static readonly Enabled = new VirtualCursorMode("Enabled", 2);
-    public static get items() {return [VirtualCursorMode.Default, VirtualCursorMode.Disabled, VirtualCursorMode.Enabled];}
-    public static fromValue(value: number) {return VirtualCursorMode.items.find((item) => item._value === value);}
+    public static get Items() {return [VirtualCursorMode.Default, VirtualCursorMode.Disabled, VirtualCursorMode.Enabled];}
+    public static FromValue(value: number) {return VirtualCursorMode.Items.find((item) => item._value === value);}
 }
 
 export class VolumetricAudio extends EnumItem {
     public static readonly Disabled = new VolumetricAudio("Disabled", 0);
     public static readonly Automatic = new VolumetricAudio("Automatic", 1);
     public static readonly Enabled = new VolumetricAudio("Enabled", 2);
-    public static get items() {return [VolumetricAudio.Disabled, VolumetricAudio.Automatic, VolumetricAudio.Enabled];}
-    public static fromValue(value: number) {return VolumetricAudio.items.find((item) => item._value === value);}
+    public static get Items() {return [VolumetricAudio.Disabled, VolumetricAudio.Automatic, VolumetricAudio.Enabled];}
+    public static FromValue(value: number) {return VolumetricAudio.Items.find((item) => item._value === value);}
 }
 
 export class WrapLayerAutoSkin extends EnumItem {
     public static readonly Disabled = new WrapLayerAutoSkin("Disabled", 0);
     public static readonly EnabledPreserve = new WrapLayerAutoSkin("EnabledPreserve", 1);
     public static readonly EnabledOverride = new WrapLayerAutoSkin("EnabledOverride", 2);
-    public static get items() {return [WrapLayerAutoSkin.Disabled, WrapLayerAutoSkin.EnabledPreserve, WrapLayerAutoSkin.EnabledOverride];}
-    public static fromValue(value: number) {return WrapLayerAutoSkin.items.find((item) => item._value === value);}
+    public static get Items() {return [WrapLayerAutoSkin.Disabled, WrapLayerAutoSkin.EnabledPreserve, WrapLayerAutoSkin.EnabledOverride];}
+    public static FromValue(value: number) {return WrapLayerAutoSkin.Items.find((item) => item._value === value);}
 }
 
 export class ZIndexBehavior extends EnumItem {
     public static readonly Global = new ZIndexBehavior("Global", 0);
     public static readonly Sibling = new ZIndexBehavior("Sibling", 1);
-    public static get items() {return [ZIndexBehavior.Global, ZIndexBehavior.Sibling];}
-    public static fromValue(value: number) {return ZIndexBehavior.items.find((item) => item._value === value);}
+    public static get Items() {return [ZIndexBehavior.Global, ZIndexBehavior.Sibling];}
+    public static FromValue(value: number) {return ZIndexBehavior.Items.find((item) => item._value === value);}
 }
 
 export type EnumFactory = (value: number) => EnumItem | undefined
@@ -9370,229 +9370,229 @@ export class EnumMap {
 
 function getEnumMap() {
     const map = new Map<string, EnumFactory>();
-    map.set("AccessoryDescription,AccessoryType", AccessoryType.fromValue);
-    map.set("Accessory,AccessoryType", AccessoryType.fromValue);
-    map.set("AnimationClip,Priority", AnimationPriority.fromValue);
-    map.set("AudioDeviceInput,AccessType", AccessModifierType.fromValue);
-    map.set("AudioSearchParams,AudioSubType", AudioSubType.fromValue);
-    map.set("AudioSearchParams,AudioSubtype", AudioSubType.fromValue);
-    map.set("StarterGui,RtlTextSupport", RtlTextSupport.fromValue);
-    map.set("StarterGui,ScreenOrientation", ScreenOrientation.fromValue);
-    map.set("StarterGui,VirtualCursorMode", VirtualCursorMode.fromValue);
-    map.set("WrapLayer,AutoSkin", WrapLayerAutoSkin.fromValue);
-    map.set("Beam,TextureMode", TextureMode.fromValue);
-    map.set("BodyPartDescription,BodyPart", BodyPart.fromValue);
-    map.set("Camera,CameraType", CameraType.fromValue);
-    map.set("Camera,FieldOfViewMode", FieldOfViewMode.fromValue);
-    map.set("CharacterMesh,BodyPart", BodyPart.fromValue);
-    map.set("DragDetector,DragStyle", DragDetectorDragStyle.fromValue);
-    map.set("DragDetector,GamepadModeSwitchKeyCode", KeyCode.fromValue);
-    map.set("DragDetector,KeyboardModeSwitchKeyCode", KeyCode.fromValue);
-    map.set("DragDetector,PermissionPolicy", DragDetectorPermissionPolicy.fromValue);
-    map.set("DragDetector,ResponseStyle", DragDetectorResponseStyle.fromValue);
-    map.set("DragDetector,VRSwitchKeyCode", KeyCode.fromValue);
-    map.set("AlignOrientation,AlignType", AlignType.fromValue);
-    map.set("AlignOrientation,Mode", OrientationAlignmentMode.fromValue);
-    map.set("AlignPosition,ForceLimitMode", ForceLimitMode.fromValue);
-    map.set("AlignPosition,ForceRelativeTo", ActuatorRelativeTo.fromValue);
-    map.set("AlignPosition,Mode", PositionAlignmentMode.fromValue);
-    map.set("AngularVelocity,RelativeTo", ActuatorRelativeTo.fromValue);
-    map.set("HingeConstraint,ActuatorType", ActuatorType.fromValue);
-    map.set("LinearVelocity,ForceLimitMode", ForceLimitMode.fromValue);
-    map.set("LinearVelocity,RelativeTo", ActuatorRelativeTo.fromValue);
-    map.set("LinearVelocity,VelocityConstraintMode", VelocityConstraintMode.fromValue);
-    map.set("SlidingBallConstraint,ActuatorType", ActuatorType.fromValue);
-    map.set("CylindricalConstraint,AngularActuatorType", ActuatorType.fromValue);
-    map.set("Torque,RelativeTo", ActuatorRelativeTo.fromValue);
-    map.set("VectorForce,RelativeTo", ActuatorRelativeTo.fromValue);
-    map.set("SpecialMesh,MeshType", MeshType.fromValue);
-    map.set("Dialog,BehaviorType", DialogBehaviorType.fromValue);
-    map.set("Dialog,Purpose", DialogPurpose.fromValue);
-    map.set("Dialog,Tone", DialogTone.fromValue);
-    map.set("EulerRotationCurve,RotationOrder", RotationOrder.fromValue);
-    map.set("Explosion,ExplosionType", ExplosionType.fromValue);
-    map.set("FaceInstance,Face", NormalId.fromValue);
-    map.set("Feature,FaceId", NormalId.fromValue);
-    map.set("Feature,InOut", InOut.fromValue);
-    map.set("Feature,LeftRight", LeftRight.fromValue);
-    map.set("Feature,TopBottom", TopBottom.fromValue);
-    map.set("GuiBase2d,SelectionBehaviorDown", SelectionBehavior.fromValue);
-    map.set("GuiBase2d,SelectionBehaviorLeft", SelectionBehavior.fromValue);
-    map.set("GuiBase2d,SelectionBehaviorRight", SelectionBehavior.fromValue);
-    map.set("GuiBase2d,SelectionBehaviorUp", SelectionBehavior.fromValue);
-    map.set("GuiObject,AutomaticSize", AutomaticSize.fromValue);
-    map.set("GuiObject,BorderMode", BorderMode.fromValue);
-    map.set("GuiObject,SizeConstraint", SizeConstraint.fromValue);
-    map.set("Frame,Style", FrameStyle.fromValue);
-    map.set("GuiButton,Style", ButtonStyle.fromValue);
-    map.set("ImageButton,ResampleMode", ResamplerMode.fromValue);
-    map.set("ImageButton,ScaleType", ScaleType.fromValue);
-    map.set("TextButton,FontSize", FontSize.fromValue);
-    map.set("TextButton,TextDirection", TextDirection.fromValue);
-    map.set("TextButton,TextTruncate", TextTruncate.fromValue);
-    map.set("TextButton,TextXAlignment", TextXAlignment.fromValue);
-    map.set("TextButton,TextYAlignment", TextYAlignment.fromValue);
-    map.set("ImageLabel,ResampleMode", ResamplerMode.fromValue);
-    map.set("ImageLabel,ScaleType", ScaleType.fromValue);
-    map.set("TextLabel,FontSize", FontSize.fromValue);
-    map.set("TextLabel,TextDirection", TextDirection.fromValue);
-    map.set("TextLabel,TextTruncate", TextTruncate.fromValue);
-    map.set("TextLabel,TextXAlignment", TextXAlignment.fromValue);
-    map.set("TextLabel,TextYAlignment", TextYAlignment.fromValue);
-    map.set("ScrollingFrame,AutomaticCanvasSize", AutomaticSize.fromValue);
-    map.set("ScrollingFrame,ElasticBehavior", ElasticBehavior.fromValue);
-    map.set("ScrollingFrame,HorizontalScrollBarInset", ScrollBarInset.fromValue);
-    map.set("ScrollingFrame,ScrollingDirection", ScrollingDirection.fromValue);
-    map.set("ScrollingFrame,VerticalScrollBarInset", ScrollBarInset.fromValue);
-    map.set("ScrollingFrame,VerticalScrollBarPosition", VerticalScrollBarPosition.fromValue);
-    map.set("TextBox,FontSize", FontSize.fromValue);
-    map.set("TextBox,TextDirection", TextDirection.fromValue);
-    map.set("TextBox,TextTruncate", TextTruncate.fromValue);
-    map.set("TextBox,TextXAlignment", TextXAlignment.fromValue);
-    map.set("TextBox,TextYAlignment", TextYAlignment.fromValue);
-    map.set("LayerCollector,ZIndexBehavior", ZIndexBehavior.fromValue);
-    map.set("ScreenGui,SafeAreaCompatibility", SafeAreaCompatibility.fromValue);
-    map.set("ScreenGui,ScreenInsets", ScreenInsets.fromValue);
-    map.set("SurfaceGuiBase,Face", NormalId.fromValue);
-    map.set("AdGui,AdShape", AdShape.fromValue);
-    map.set("SurfaceGui,SizingMode", SurfaceGuiSizingMode.fromValue);
-    map.set("HandleAdornment,AdornCullingMode", AdornCullingMode.fromValue);
-    map.set("Handles,Style", HandlesStyle.fromValue);
-    map.set("SurfaceSelection,TargetSurface", NormalId.fromValue);
-    map.set("Highlight,DepthMode", HighlightDepthMode.fromValue);
-    map.set("Humanoid,CollisionType", HumanoidCollisionType.fromValue);
-    map.set("Humanoid,DisplayDistanceType", HumanoidDisplayDistanceType.fromValue);
-    map.set("Humanoid,HealthDisplayType", HumanoidHealthDisplayType.fromValue);
-    map.set("Humanoid,NameOcclusion", NameOcclusion.fromValue);
-    map.set("Humanoid,RigType", HumanoidRigType.fromValue);
-    map.set("IKControl,Type", IKControlType.fromValue);
-    map.set("SpotLight,Face", NormalId.fromValue);
-    map.set("SurfaceLight,Face", NormalId.fromValue);
-    map.set("Lighting,Technology", Technology.fromValue);
-    map.set("BaseScript,RunContext", RunContext.fromValue);
-    map.set("MaterialVariant,BaseMaterial", Material.fromValue);
-    map.set("MaterialVariant,MaterialPattern", MaterialPattern.fromValue);
-    map.set("Noise,NoiseType", NoiseType.fromValue);
-    map.set("BasePart,BackSurface", SurfaceType.fromValue);
-    map.set("BasePart,BackSurfaceInput", InputType.fromValue);
-    map.set("BasePart,BottomSurface", SurfaceType.fromValue);
-    map.set("BasePart,BottomSurfaceInput", InputType.fromValue);
-    map.set("BasePart,FrontSurface", SurfaceType.fromValue);
-    map.set("BasePart,FrontSurfaceInput", InputType.fromValue);
-    map.set("BasePart,LeftSurface", SurfaceType.fromValue);
-    map.set("BasePart,LeftSurfaceInput", InputType.fromValue);
-    map.set("BasePart,Material", Material.fromValue);
-    map.set("BasePart,RightSurface", SurfaceType.fromValue);
-    map.set("BasePart,RightSurfaceInput", InputType.fromValue);
-    map.set("BasePart,TopSurface", SurfaceType.fromValue);
-    map.set("BasePart,TopSurfaceInput", InputType.fromValue);
-    map.set("FormFactorPart,FormFactor", FormFactor.fromValue);
-    map.set("FormFactorPart,formFactor", FormFactor.fromValue);
-    map.set("FormFactorPart,formFactorRaw", FormFactor.fromValue);
-    map.set("Part,shape", PartType.fromValue);
-    map.set("Terrain,AcquisitionMethod", TerrainAcquisitionMethod.fromValue);
-    map.set("TriangleMeshPart,FluidFidelityInternal", FluidFidelity.fromValue);
-    map.set("MeshPart,RenderFidelity", RenderFidelity.fromValue);
-    map.set("PartOperation,FormFactor", FormFactor.fromValue);
-    map.set("PartOperation,RenderFidelity", RenderFidelity.fromValue);
-    map.set("TrussPart,style", Style.fromValue);
-    map.set("Model,LevelOfDetail", ModelLevelOfDetail.fromValue);
-    map.set("Model,ModelStreamingMode", ModelStreamingMode.fromValue);
-    map.set("HopperBin,BinType", BinType.fromValue);
-    map.set("Workspace,AvatarUnificationMode", AvatarUnificationMode.fromValue);
-    map.set("Workspace,CSGAsyncDynamicCollision", CSGAsyncDynamicCollision.fromValue);
-    map.set("Workspace,ClientAnimatorThrottling", ClientAnimatorThrottlingMode.fromValue);
-    map.set("Workspace,DecreaseMinimumPartDensityMode", DecreaseMinimumPartDensityMode.fromValue);
-    map.set("Workspace,EditorLiveScripting", EditorLiveScripting.fromValue);
-    map.set("Workspace,FluidForces", FluidForces.fromValue);
-    map.set("Workspace,IKControlConstraintSupport", IKControlConstraintSupport.fromValue);
-    map.set("Workspace,MeshPartHeadsAndAccessories", MeshPartHeadsAndAccessories.fromValue);
-    map.set("Workspace,ModelStreamingBehavior", ModelStreamingBehavior.fromValue);
-    map.set("Workspace,PhysicsSteppingMethod", PhysicsSteppingMethod.fromValue);
-    map.set("Workspace,PlayerCharacterDestroyBehavior", PlayerCharacterDestroyBehavior.fromValue);
-    map.set("Workspace,PrimalPhysicsSolver", PrimalPhysicsSolver.fromValue);
-    map.set("Workspace,RejectCharacterDeletions", RejectCharacterDeletions.fromValue);
-    map.set("Workspace,ReplicateInstanceDestroySetting", ReplicateInstanceDestroySetting.fromValue);
-    map.set("Workspace,Retargeting", AnimatorRetargetingMode.fromValue);
-    map.set("Workspace,SignalBehavior2", SignalBehavior.fromValue);
-    map.set("Workspace,StreamOutBehavior", StreamOutBehavior.fromValue);
-    map.set("Workspace,StreamingIntegrityMode", StreamingIntegrityMode.fromValue);
-    map.set("ParticleEmitter,EmissionDirection", NormalId.fromValue);
-    map.set("ParticleEmitter,FlipbookLayout", ParticleFlipbookLayout.fromValue);
-    map.set("ParticleEmitter,FlipbookMode", ParticleFlipbookMode.fromValue);
-    map.set("ParticleEmitter,Orientation", ParticleOrientation.fromValue);
-    map.set("ParticleEmitter,Shape", ParticleEmitterShape.fromValue);
-    map.set("ParticleEmitter,ShapeInOut", ParticleEmitterShapeInOut.fromValue);
-    map.set("ParticleEmitter,ShapeStyle", ParticleEmitterShapeStyle.fromValue);
-    map.set("Player,CameraMode", CameraMode.fromValue);
-    map.set("Player,DevCameraOcclusionMode", DevCameraOcclusionMode.fromValue);
-    map.set("Player,DevComputerCameraMode", DevComputerCameraMovementMode.fromValue);
-    map.set("Player,DevComputerMovementMode", DevComputerMovementMode.fromValue);
-    map.set("Player,DevTouchCameraMode", DevTouchCameraMovementMode.fromValue);
-    map.set("Player,DevTouchMovementMode", DevTouchMovementMode.fromValue);
-    map.set("PolicyService,IsLuobuServer", TriStateBoolean.fromValue);
-    map.set("PolicyService,LuobuWhitelisted", TriStateBoolean.fromValue);
-    map.set("PoseBase,EasingDirection", PoseEasingDirection.fromValue);
-    map.set("PoseBase,EasingStyle", PoseEasingStyle.fromValue);
-    map.set("ProximityPrompt,Exclusivity", ProximityPromptExclusivity.fromValue);
-    map.set("ProximityPrompt,GamepadKeyCode", KeyCode.fromValue);
-    map.set("ProximityPrompt,KeyboardKeyCode", KeyCode.fromValue);
-    map.set("ProximityPrompt,Style", ProximityPromptStyle.fromValue);
-    map.set("ReflectionMetadataClass,ServiceVisibility", ServiceVisibility.fromValue);
-    map.set("RenderSettings,EditQualityLevel", QualityLevel.fromValue);
-    map.set("RenderSettings,FrameRateManager", FramerateManagerMode.fromValue);
-    map.set("RenderSettings,GraphicsMode", GraphicsMode.fromValue);
-    map.set("RenderSettings,MeshPartDetailLevel", MeshPartDetailLevel.fromValue);
-    map.set("RenderSettings,QualityLevel", QualityLevel.fromValue);
-    map.set("RenderSettings,ViewMode", ViewMode.fromValue);
-    map.set("RenderingTest,ComparisonMethod", RenderingTestComparisonMethod.fromValue);
-    map.set("SensorBase,UpdateType", SensorUpdateType.fromValue);
-    map.set("ControllerPartSensor,SensorMode", SensorMode.fromValue);
-    map.set("Sound,RollOffMode", RollOffMode.fromValue);
-    map.set("SoundService,AmbientReverb", ReverbType.fromValue);
-    map.set("SoundService,VolumetricAudio", VolumetricAudio.fromValue);
-    map.set("StarterPlayer,AvatarJointUpgrade_Serialized", AvatarJointUpgrade.fromValue);
-    map.set("StarterPlayer,CameraMode", CameraMode.fromValue);
-    map.set("StarterPlayer,DevCameraOcclusionMode", DevCameraOcclusionMode.fromValue);
-    map.set("StarterPlayer,DevComputerCameraMovementMode", DevComputerCameraMovementMode.fromValue);
-    map.set("StarterPlayer,DevComputerMovementMode", DevComputerMovementMode.fromValue);
-    map.set("StarterPlayer,DevTouchCameraMovementMode", DevTouchCameraMovementMode.fromValue);
-    map.set("StarterPlayer,DevTouchMovementMode", DevTouchMovementMode.fromValue);
-    map.set("StarterPlayer,EnableDynamicHeads", LoadDynamicHeads.fromValue);
-    map.set("StarterPlayer,GameSettingsAvatar", GameAvatarType.fromValue);
-    map.set("StarterPlayer,GameSettingsR15Collision", R15CollisionType.fromValue);
-    map.set("StarterPlayer,LoadCharacterLayeredClothing", LoadCharacterLayeredClothing.fromValue);
-    map.set("StarterPlayer,LuaCharacterController", CharacterControlMode.fromValue);
-    map.set("SurfaceAppearance,AlphaMode", AlphaMode.fromValue);
-    map.set("TaskScheduler,ThreadPoolConfig", ThreadPoolConfig.fromValue);
-    map.set("TerrainDetail,Face", TerrainFace.fromValue);
-    map.set("TerrainDetail,MaterialPattern", MaterialPattern.fromValue);
-    map.set("BubbleChatConfiguration,Font", Font.fromValue);
-    map.set("ChatInputBarConfiguration,KeyboardKeyCode", KeyCode.fromValue);
-    map.set("ChatWindowConfiguration,HorizontalAlignment", HorizontalAlignment.fromValue);
-    map.set("ChatWindowConfiguration,VerticalAlignment", VerticalAlignment.fromValue);
-    map.set("TextChatService,ChatVersion", ChatVersion.fromValue);
-    map.set("Trail,TextureMode", TextureMode.fromValue);
-    map.set("UIAspectRatioConstraint,AspectType", AspectType.fromValue);
-    map.set("UIAspectRatioConstraint,DominantAxis", DominantAxis.fromValue);
-    map.set("UIFlexItem,FlexMode", UIFlexMode.fromValue);
-    map.set("UIFlexItem,ItemLineAlignment", ItemLineAlignment.fromValue);
-    map.set("UIGridStyleLayout,FillDirection", FillDirection.fromValue);
-    map.set("UIGridStyleLayout,HorizontalAlignment", HorizontalAlignment.fromValue);
-    map.set("UIGridStyleLayout,SortOrder", SortOrder.fromValue);
-    map.set("UIGridStyleLayout,VerticalAlignment", VerticalAlignment.fromValue);
-    map.set("UIGridLayout,StartCorner", StartCorner.fromValue);
-    map.set("UIListLayout,HorizontalFlex", UIFlexAlignment.fromValue);
-    map.set("UIListLayout,ItemLineAlignment", ItemLineAlignment.fromValue);
-    map.set("UIListLayout,VerticalFlex", UIFlexAlignment.fromValue);
-    map.set("UIPageLayout,EasingDirection", EasingDirection.fromValue);
-    map.set("UIPageLayout,EasingStyle", EasingStyle.fromValue);
-    map.set("UITableLayout,MajorAxis", TableMajorAxis.fromValue);
-    map.set("UIStroke,ApplyStrokeMode", ApplyStrokeMode.fromValue);
-    map.set("UIStroke,LineJoinMode", LineJoinMode.fromValue);
-    map.set("UserInputService,MouseBehavior", MouseBehavior.fromValue);
-    map.set("VRService,AutomaticScaling", VRScaling.fromValue);
-    map.set("VideoDeviceInput,CaptureQuality", VideoDeviceCaptureQuality.fromValue);
-    map.set("VoiceChatService,UseAudioApi", AudioApiRollout.fromValue);
+    map.set("AccessoryDescription,AccessoryType", AccessoryType.FromValue);
+    map.set("Accessory,AccessoryType", AccessoryType.FromValue);
+    map.set("AnimationClip,Priority", AnimationPriority.FromValue);
+    map.set("AudioDeviceInput,AccessType", AccessModifierType.FromValue);
+    map.set("AudioSearchParams,AudioSubType", AudioSubType.FromValue);
+    map.set("AudioSearchParams,AudioSubtype", AudioSubType.FromValue);
+    map.set("StarterGui,RtlTextSupport", RtlTextSupport.FromValue);
+    map.set("StarterGui,ScreenOrientation", ScreenOrientation.FromValue);
+    map.set("StarterGui,VirtualCursorMode", VirtualCursorMode.FromValue);
+    map.set("WrapLayer,AutoSkin", WrapLayerAutoSkin.FromValue);
+    map.set("Beam,TextureMode", TextureMode.FromValue);
+    map.set("BodyPartDescription,BodyPart", BodyPart.FromValue);
+    map.set("Camera,CameraType", CameraType.FromValue);
+    map.set("Camera,FieldOfViewMode", FieldOfViewMode.FromValue);
+    map.set("CharacterMesh,BodyPart", BodyPart.FromValue);
+    map.set("DragDetector,DragStyle", DragDetectorDragStyle.FromValue);
+    map.set("DragDetector,GamepadModeSwitchKeyCode", KeyCode.FromValue);
+    map.set("DragDetector,KeyboardModeSwitchKeyCode", KeyCode.FromValue);
+    map.set("DragDetector,PermissionPolicy", DragDetectorPermissionPolicy.FromValue);
+    map.set("DragDetector,ResponseStyle", DragDetectorResponseStyle.FromValue);
+    map.set("DragDetector,VRSwitchKeyCode", KeyCode.FromValue);
+    map.set("AlignOrientation,AlignType", AlignType.FromValue);
+    map.set("AlignOrientation,Mode", OrientationAlignmentMode.FromValue);
+    map.set("AlignPosition,ForceLimitMode", ForceLimitMode.FromValue);
+    map.set("AlignPosition,ForceRelativeTo", ActuatorRelativeTo.FromValue);
+    map.set("AlignPosition,Mode", PositionAlignmentMode.FromValue);
+    map.set("AngularVelocity,RelativeTo", ActuatorRelativeTo.FromValue);
+    map.set("HingeConstraint,ActuatorType", ActuatorType.FromValue);
+    map.set("LinearVelocity,ForceLimitMode", ForceLimitMode.FromValue);
+    map.set("LinearVelocity,RelativeTo", ActuatorRelativeTo.FromValue);
+    map.set("LinearVelocity,VelocityConstraintMode", VelocityConstraintMode.FromValue);
+    map.set("SlidingBallConstraint,ActuatorType", ActuatorType.FromValue);
+    map.set("CylindricalConstraint,AngularActuatorType", ActuatorType.FromValue);
+    map.set("Torque,RelativeTo", ActuatorRelativeTo.FromValue);
+    map.set("VectorForce,RelativeTo", ActuatorRelativeTo.FromValue);
+    map.set("SpecialMesh,MeshType", MeshType.FromValue);
+    map.set("Dialog,BehaviorType", DialogBehaviorType.FromValue);
+    map.set("Dialog,Purpose", DialogPurpose.FromValue);
+    map.set("Dialog,Tone", DialogTone.FromValue);
+    map.set("EulerRotationCurve,RotationOrder", RotationOrder.FromValue);
+    map.set("Explosion,ExplosionType", ExplosionType.FromValue);
+    map.set("FaceInstance,Face", NormalId.FromValue);
+    map.set("Feature,FaceId", NormalId.FromValue);
+    map.set("Feature,InOut", InOut.FromValue);
+    map.set("Feature,LeftRight", LeftRight.FromValue);
+    map.set("Feature,TopBottom", TopBottom.FromValue);
+    map.set("GuiBase2d,SelectionBehaviorDown", SelectionBehavior.FromValue);
+    map.set("GuiBase2d,SelectionBehaviorLeft", SelectionBehavior.FromValue);
+    map.set("GuiBase2d,SelectionBehaviorRight", SelectionBehavior.FromValue);
+    map.set("GuiBase2d,SelectionBehaviorUp", SelectionBehavior.FromValue);
+    map.set("GuiObject,AutomaticSize", AutomaticSize.FromValue);
+    map.set("GuiObject,BorderMode", BorderMode.FromValue);
+    map.set("GuiObject,SizeConstraint", SizeConstraint.FromValue);
+    map.set("Frame,Style", FrameStyle.FromValue);
+    map.set("GuiButton,Style", ButtonStyle.FromValue);
+    map.set("ImageButton,ResampleMode", ResamplerMode.FromValue);
+    map.set("ImageButton,ScaleType", ScaleType.FromValue);
+    map.set("TextButton,FontSize", FontSize.FromValue);
+    map.set("TextButton,TextDirection", TextDirection.FromValue);
+    map.set("TextButton,TextTruncate", TextTruncate.FromValue);
+    map.set("TextButton,TextXAlignment", TextXAlignment.FromValue);
+    map.set("TextButton,TextYAlignment", TextYAlignment.FromValue);
+    map.set("ImageLabel,ResampleMode", ResamplerMode.FromValue);
+    map.set("ImageLabel,ScaleType", ScaleType.FromValue);
+    map.set("TextLabel,FontSize", FontSize.FromValue);
+    map.set("TextLabel,TextDirection", TextDirection.FromValue);
+    map.set("TextLabel,TextTruncate", TextTruncate.FromValue);
+    map.set("TextLabel,TextXAlignment", TextXAlignment.FromValue);
+    map.set("TextLabel,TextYAlignment", TextYAlignment.FromValue);
+    map.set("ScrollingFrame,AutomaticCanvasSize", AutomaticSize.FromValue);
+    map.set("ScrollingFrame,ElasticBehavior", ElasticBehavior.FromValue);
+    map.set("ScrollingFrame,HorizontalScrollBarInset", ScrollBarInset.FromValue);
+    map.set("ScrollingFrame,ScrollingDirection", ScrollingDirection.FromValue);
+    map.set("ScrollingFrame,VerticalScrollBarInset", ScrollBarInset.FromValue);
+    map.set("ScrollingFrame,VerticalScrollBarPosition", VerticalScrollBarPosition.FromValue);
+    map.set("TextBox,FontSize", FontSize.FromValue);
+    map.set("TextBox,TextDirection", TextDirection.FromValue);
+    map.set("TextBox,TextTruncate", TextTruncate.FromValue);
+    map.set("TextBox,TextXAlignment", TextXAlignment.FromValue);
+    map.set("TextBox,TextYAlignment", TextYAlignment.FromValue);
+    map.set("LayerCollector,ZIndexBehavior", ZIndexBehavior.FromValue);
+    map.set("ScreenGui,SafeAreaCompatibility", SafeAreaCompatibility.FromValue);
+    map.set("ScreenGui,ScreenInsets", ScreenInsets.FromValue);
+    map.set("SurfaceGuiBase,Face", NormalId.FromValue);
+    map.set("AdGui,AdShape", AdShape.FromValue);
+    map.set("SurfaceGui,SizingMode", SurfaceGuiSizingMode.FromValue);
+    map.set("HandleAdornment,AdornCullingMode", AdornCullingMode.FromValue);
+    map.set("Handles,Style", HandlesStyle.FromValue);
+    map.set("SurfaceSelection,TargetSurface", NormalId.FromValue);
+    map.set("Highlight,DepthMode", HighlightDepthMode.FromValue);
+    map.set("Humanoid,CollisionType", HumanoidCollisionType.FromValue);
+    map.set("Humanoid,DisplayDistanceType", HumanoidDisplayDistanceType.FromValue);
+    map.set("Humanoid,HealthDisplayType", HumanoidHealthDisplayType.FromValue);
+    map.set("Humanoid,NameOcclusion", NameOcclusion.FromValue);
+    map.set("Humanoid,RigType", HumanoidRigType.FromValue);
+    map.set("IKControl,Type", IKControlType.FromValue);
+    map.set("SpotLight,Face", NormalId.FromValue);
+    map.set("SurfaceLight,Face", NormalId.FromValue);
+    map.set("Lighting,Technology", Technology.FromValue);
+    map.set("BaseScript,RunContext", RunContext.FromValue);
+    map.set("MaterialVariant,BaseMaterial", Material.FromValue);
+    map.set("MaterialVariant,MaterialPattern", MaterialPattern.FromValue);
+    map.set("Noise,NoiseType", NoiseType.FromValue);
+    map.set("BasePart,BackSurface", SurfaceType.FromValue);
+    map.set("BasePart,BackSurfaceInput", InputType.FromValue);
+    map.set("BasePart,BottomSurface", SurfaceType.FromValue);
+    map.set("BasePart,BottomSurfaceInput", InputType.FromValue);
+    map.set("BasePart,FrontSurface", SurfaceType.FromValue);
+    map.set("BasePart,FrontSurfaceInput", InputType.FromValue);
+    map.set("BasePart,LeftSurface", SurfaceType.FromValue);
+    map.set("BasePart,LeftSurfaceInput", InputType.FromValue);
+    map.set("BasePart,Material", Material.FromValue);
+    map.set("BasePart,RightSurface", SurfaceType.FromValue);
+    map.set("BasePart,RightSurfaceInput", InputType.FromValue);
+    map.set("BasePart,TopSurface", SurfaceType.FromValue);
+    map.set("BasePart,TopSurfaceInput", InputType.FromValue);
+    map.set("FormFactorPart,FormFactor", FormFactor.FromValue);
+    map.set("FormFactorPart,formFactor", FormFactor.FromValue);
+    map.set("FormFactorPart,formFactorRaw", FormFactor.FromValue);
+    map.set("Part,shape", PartType.FromValue);
+    map.set("Terrain,AcquisitionMethod", TerrainAcquisitionMethod.FromValue);
+    map.set("TriangleMeshPart,FluidFidelityInternal", FluidFidelity.FromValue);
+    map.set("MeshPart,RenderFidelity", RenderFidelity.FromValue);
+    map.set("PartOperation,FormFactor", FormFactor.FromValue);
+    map.set("PartOperation,RenderFidelity", RenderFidelity.FromValue);
+    map.set("TrussPart,style", Style.FromValue);
+    map.set("Model,LevelOfDetail", ModelLevelOfDetail.FromValue);
+    map.set("Model,ModelStreamingMode", ModelStreamingMode.FromValue);
+    map.set("HopperBin,BinType", BinType.FromValue);
+    map.set("Workspace,AvatarUnificationMode", AvatarUnificationMode.FromValue);
+    map.set("Workspace,CSGAsyncDynamicCollision", CSGAsyncDynamicCollision.FromValue);
+    map.set("Workspace,ClientAnimatorThrottling", ClientAnimatorThrottlingMode.FromValue);
+    map.set("Workspace,DecreaseMinimumPartDensityMode", DecreaseMinimumPartDensityMode.FromValue);
+    map.set("Workspace,EditorLiveScripting", EditorLiveScripting.FromValue);
+    map.set("Workspace,FluidForces", FluidForces.FromValue);
+    map.set("Workspace,IKControlConstraintSupport", IKControlConstraintSupport.FromValue);
+    map.set("Workspace,MeshPartHeadsAndAccessories", MeshPartHeadsAndAccessories.FromValue);
+    map.set("Workspace,ModelStreamingBehavior", ModelStreamingBehavior.FromValue);
+    map.set("Workspace,PhysicsSteppingMethod", PhysicsSteppingMethod.FromValue);
+    map.set("Workspace,PlayerCharacterDestroyBehavior", PlayerCharacterDestroyBehavior.FromValue);
+    map.set("Workspace,PrimalPhysicsSolver", PrimalPhysicsSolver.FromValue);
+    map.set("Workspace,RejectCharacterDeletions", RejectCharacterDeletions.FromValue);
+    map.set("Workspace,ReplicateInstanceDestroySetting", ReplicateInstanceDestroySetting.FromValue);
+    map.set("Workspace,Retargeting", AnimatorRetargetingMode.FromValue);
+    map.set("Workspace,SignalBehavior2", SignalBehavior.FromValue);
+    map.set("Workspace,StreamOutBehavior", StreamOutBehavior.FromValue);
+    map.set("Workspace,StreamingIntegrityMode", StreamingIntegrityMode.FromValue);
+    map.set("ParticleEmitter,EmissionDirection", NormalId.FromValue);
+    map.set("ParticleEmitter,FlipbookLayout", ParticleFlipbookLayout.FromValue);
+    map.set("ParticleEmitter,FlipbookMode", ParticleFlipbookMode.FromValue);
+    map.set("ParticleEmitter,Orientation", ParticleOrientation.FromValue);
+    map.set("ParticleEmitter,Shape", ParticleEmitterShape.FromValue);
+    map.set("ParticleEmitter,ShapeInOut", ParticleEmitterShapeInOut.FromValue);
+    map.set("ParticleEmitter,ShapeStyle", ParticleEmitterShapeStyle.FromValue);
+    map.set("Player,CameraMode", CameraMode.FromValue);
+    map.set("Player,DevCameraOcclusionMode", DevCameraOcclusionMode.FromValue);
+    map.set("Player,DevComputerCameraMode", DevComputerCameraMovementMode.FromValue);
+    map.set("Player,DevComputerMovementMode", DevComputerMovementMode.FromValue);
+    map.set("Player,DevTouchCameraMode", DevTouchCameraMovementMode.FromValue);
+    map.set("Player,DevTouchMovementMode", DevTouchMovementMode.FromValue);
+    map.set("PolicyService,IsLuobuServer", TriStateBoolean.FromValue);
+    map.set("PolicyService,LuobuWhitelisted", TriStateBoolean.FromValue);
+    map.set("PoseBase,EasingDirection", PoseEasingDirection.FromValue);
+    map.set("PoseBase,EasingStyle", PoseEasingStyle.FromValue);
+    map.set("ProximityPrompt,Exclusivity", ProximityPromptExclusivity.FromValue);
+    map.set("ProximityPrompt,GamepadKeyCode", KeyCode.FromValue);
+    map.set("ProximityPrompt,KeyboardKeyCode", KeyCode.FromValue);
+    map.set("ProximityPrompt,Style", ProximityPromptStyle.FromValue);
+    map.set("ReflectionMetadataClass,ServiceVisibility", ServiceVisibility.FromValue);
+    map.set("RenderSettings,EditQualityLevel", QualityLevel.FromValue);
+    map.set("RenderSettings,FrameRateManager", FramerateManagerMode.FromValue);
+    map.set("RenderSettings,GraphicsMode", GraphicsMode.FromValue);
+    map.set("RenderSettings,MeshPartDetailLevel", MeshPartDetailLevel.FromValue);
+    map.set("RenderSettings,QualityLevel", QualityLevel.FromValue);
+    map.set("RenderSettings,ViewMode", ViewMode.FromValue);
+    map.set("RenderingTest,ComparisonMethod", RenderingTestComparisonMethod.FromValue);
+    map.set("SensorBase,UpdateType", SensorUpdateType.FromValue);
+    map.set("ControllerPartSensor,SensorMode", SensorMode.FromValue);
+    map.set("Sound,RollOffMode", RollOffMode.FromValue);
+    map.set("SoundService,AmbientReverb", ReverbType.FromValue);
+    map.set("SoundService,VolumetricAudio", VolumetricAudio.FromValue);
+    map.set("StarterPlayer,AvatarJointUpgrade_Serialized", AvatarJointUpgrade.FromValue);
+    map.set("StarterPlayer,CameraMode", CameraMode.FromValue);
+    map.set("StarterPlayer,DevCameraOcclusionMode", DevCameraOcclusionMode.FromValue);
+    map.set("StarterPlayer,DevComputerCameraMovementMode", DevComputerCameraMovementMode.FromValue);
+    map.set("StarterPlayer,DevComputerMovementMode", DevComputerMovementMode.FromValue);
+    map.set("StarterPlayer,DevTouchCameraMovementMode", DevTouchCameraMovementMode.FromValue);
+    map.set("StarterPlayer,DevTouchMovementMode", DevTouchMovementMode.FromValue);
+    map.set("StarterPlayer,EnableDynamicHeads", LoadDynamicHeads.FromValue);
+    map.set("StarterPlayer,GameSettingsAvatar", GameAvatarType.FromValue);
+    map.set("StarterPlayer,GameSettingsR15Collision", R15CollisionType.FromValue);
+    map.set("StarterPlayer,LoadCharacterLayeredClothing", LoadCharacterLayeredClothing.FromValue);
+    map.set("StarterPlayer,LuaCharacterController", CharacterControlMode.FromValue);
+    map.set("SurfaceAppearance,AlphaMode", AlphaMode.FromValue);
+    map.set("TaskScheduler,ThreadPoolConfig", ThreadPoolConfig.FromValue);
+    map.set("TerrainDetail,Face", TerrainFace.FromValue);
+    map.set("TerrainDetail,MaterialPattern", MaterialPattern.FromValue);
+    map.set("BubbleChatConfiguration,Font", Font.FromValue);
+    map.set("ChatInputBarConfiguration,KeyboardKeyCode", KeyCode.FromValue);
+    map.set("ChatWindowConfiguration,HorizontalAlignment", HorizontalAlignment.FromValue);
+    map.set("ChatWindowConfiguration,VerticalAlignment", VerticalAlignment.FromValue);
+    map.set("TextChatService,ChatVersion", ChatVersion.FromValue);
+    map.set("Trail,TextureMode", TextureMode.FromValue);
+    map.set("UIAspectRatioConstraint,AspectType", AspectType.FromValue);
+    map.set("UIAspectRatioConstraint,DominantAxis", DominantAxis.FromValue);
+    map.set("UIFlexItem,FlexMode", UIFlexMode.FromValue);
+    map.set("UIFlexItem,ItemLineAlignment", ItemLineAlignment.FromValue);
+    map.set("UIGridStyleLayout,FillDirection", FillDirection.FromValue);
+    map.set("UIGridStyleLayout,HorizontalAlignment", HorizontalAlignment.FromValue);
+    map.set("UIGridStyleLayout,SortOrder", SortOrder.FromValue);
+    map.set("UIGridStyleLayout,VerticalAlignment", VerticalAlignment.FromValue);
+    map.set("UIGridLayout,StartCorner", StartCorner.FromValue);
+    map.set("UIListLayout,HorizontalFlex", UIFlexAlignment.FromValue);
+    map.set("UIListLayout,ItemLineAlignment", ItemLineAlignment.FromValue);
+    map.set("UIListLayout,VerticalFlex", UIFlexAlignment.FromValue);
+    map.set("UIPageLayout,EasingDirection", EasingDirection.FromValue);
+    map.set("UIPageLayout,EasingStyle", EasingStyle.FromValue);
+    map.set("UITableLayout,MajorAxis", TableMajorAxis.FromValue);
+    map.set("UIStroke,ApplyStrokeMode", ApplyStrokeMode.FromValue);
+    map.set("UIStroke,LineJoinMode", LineJoinMode.FromValue);
+    map.set("UserInputService,MouseBehavior", MouseBehavior.FromValue);
+    map.set("VRService,AutomaticScaling", VRScaling.FromValue);
+    map.set("VideoDeviceInput,CaptureQuality", VideoDeviceCaptureQuality.FromValue);
+    map.set("VoiceChatService,UseAudioApi", AudioApiRollout.FromValue);
     return map;
 }

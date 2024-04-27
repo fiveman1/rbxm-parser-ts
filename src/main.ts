@@ -7,7 +7,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import fs from "fs";
-import { CoreInstance } from "./lib/roblox_types";
+import { CFrame, CoreInstance, Vector3 } from "./lib/roblox_types";
 import { RobloxModel } from "./lib/roblox_model";
 import { Material } from "./generated/generated_types";
 
@@ -39,8 +39,10 @@ async function main()
     //const assetId = 5258147910; // Map making starter kit
     //const assetId = 5227232138; // Numismatic
     const assetId = 17195837905; // my test model
+    //const assetId = 17296983974;
 
     //const assetId = 4249137687; // Arcane
+    console.log("first read");
     const model = await RobloxModel.ReadFromAssetId(assetId);
 
     if (!model)
