@@ -59,6 +59,7 @@ type CallbackMember = ClassMember & {
 type PropertyMember = ClassMember & {
     MemberType: "Property"
     ValueType: {Category: "Enum" | "Primitive" | "DataType" | "Class", Name: string}
+    Default: string
     Serialization: {
         CanLoad: boolean
         CanSave: boolean
@@ -146,6 +147,64 @@ const PrimitiveInfo = new Map<string, string>([
     ["bool", "Bool"]
 ]);
 
+function formatNum(num: string)
+{
+    const fixed = Number(num).toFixed(5);
+    const array = fixed.split(".");
+    const decimal = array[1];
+    let lastIndex = -1;
+    for (let i = 0; i < decimal.length; ++i)
+    {
+        if (decimal[i] !== "0") lastIndex = i;
+    }
+    if (lastIndex === -1) return array[0];
+    return array[0] + "." + decimal.slice(0, lastIndex + 1);
+}
+
+function replaceUnicode(str: string)
+{
+    let output = "";
+    for (const char of str)
+    {
+        const ascii = char.charCodeAt(0);
+        if (ascii <= 0x19 || ascii >= 0x7F)
+        {
+            const hex = ascii.toString(16).padStart(2, "0");
+            output += `\\u00${hex}`;
+        }
+        else
+        {
+            output += char;
+        }
+    }
+    return output;
+}
+
+function formatString(str: string)
+{
+    if (!str) return "\"\"";
+    return `"${replaceUnicode(str).replace(/"/g, "\\\"")}"`; // Replace all quotation marks (") with an escaped version (\")
+}
+
+function formatDefault(value: string, dtype: string)
+{
+    switch (dtype)
+    {
+        case "Int32":
+        case "Float32":
+        case "Float64":
+            return value === "INF" ? "Infinity" : formatNum(value);
+        case "Bool":
+            return value;
+        case "Int64":
+            return `BigInt(${value})`;
+        case "String":
+            return formatString(value);
+        default:
+            return "";
+    }
+}
+
 function isPascalCase(str: string)
 {
     return str === toPascalCase(str);
@@ -162,6 +221,13 @@ function toPascalCase(str: string)
         (g0, g1, g2) => g1.toUpperCase() + g2.toLowerCase()
     ).replace(/[^a-z\d]/gi, '');
 }
+
+const ignoreDefaults = new Set<string>([
+    "__api_dump_skipped_class__",
+    "__api_dump_no_string_value__",
+    "__api_dump_class_not_creatable__",
+    "__api_dump_write_only_property__"
+]);
 
 // The core of the generation
 
@@ -219,7 +285,23 @@ import { DataType, CoreInstance, EnumItem } from "../lib/roblox_types";
         return tags.NotCreatable;
     }
 
-    protected startClass(info: ClassInfo)
+    protected writeDefaults(members: PropertyMember[])
+    {
+        for (const member of members)
+        {
+            if (ignoreDefaults.has(member.Default)) continue;
+            const typeInfo = GenerateData.getTypeInfo(member);
+            if (!typeInfo.DataType) continue;
+            const defStr = formatDefault(member.Default, typeInfo.DataType);
+            if (defStr)
+            {
+                const propName = toPascalCase(GenerateData.sanitizePropName(member.Name));
+                this.stream.write(`        this.${propName} = ${defStr};\n`);
+            }
+        }
+    }
+
+    protected startClass(info: ClassInfo, members: PropertyMember[])
     {
         const tags = new Tags(info.Tags);
             
@@ -227,14 +309,26 @@ import { DataType, CoreInstance, EnumItem } from "../lib/roblox_types";
         const isAbstract = tags.NotCreatable && info.Inherited && !this.singletons.has(info.Name);
 
         if (tags.Deprecated) this.stream.write("\n/**@deprecated Deprecated by Roblox*/");
+
         this.stream.write(`\nexport ${isAbstract ? "abstract " : ""}class ${info.Name} extends ${info.Superclass} {\n`);
+
         if (info.Name === "Instance")
         {
-            this.stream.write(`    protected constructor(isService: boolean = false) {super(isService); this.addClassName("Instance");}\n`);
+            this.stream.write(`    protected constructor(isService: boolean = false)\n`);
+            this.stream.write(`    {\n`);
+            this.stream.write(`        super(isService);\n`);
+            this.stream.write(`        this.addClassName("Instance");\n`);
+            this.writeDefaults(members);
+            this.stream.write(`    }\n`);
         }
         else
         {
-            this.stream.write(`    protected constructor() {super(${isService && info.Superclass === "Instance" ? "true" : ""}); this.addClassName("${info.Name}");}\n`);
+            this.stream.write(`    protected constructor()\n`);
+            this.stream.write(`    {\n`);
+            this.stream.write(`        super(${isService && info.Superclass === "Instance" ? "true" : ""});\n`);
+            this.stream.write(`        this.addClassName("${info.Name}");\n`);
+            this.writeDefaults(members);
+            this.stream.write(`    }\n`);
         }
         if (!isAbstract) this.stream.write(`    public static New() {return new ${info.Name}();}\n`);
         return !isAbstract;
@@ -275,9 +369,11 @@ import { DataType, CoreInstance, EnumItem } from "../lib/roblox_types";
 
         const isDeprecated = new Tags(info.Tags).Deprecated;
         const propName = toPascalCase(GenerateData.sanitizePropName(info.Name));
+        const hasDefault = !ignoreDefaults.has(info.Default) && formatDefault(info.Default, typeInfo.DataType) !== "";
+        if (typeInfo.CastString && !hasDefault) typeInfo.CastString += " | undefined";
 
         if (isDeprecated) this.stream.write("    /**@deprecated Deprecated by Roblox*/\n");
-        this.stream.write(`    ${GenerateData.createPropGetString(propName, info.Name, typeInfo.DataType, typeInfo.CastString)}\n`);
+        this.stream.write(`    ${GenerateData.createPropGetString(propName, info.Name, typeInfo.DataType, hasDefault, typeInfo.CastString)}\n`);
         if (isDeprecated) this.stream.write("    /**@deprecated Deprecated by Roblox*/\n");
         this.stream.write(`    ${GenerateData.createPropSetString(propName, info.Name, typeInfo.DataType)}\n`);
     }
@@ -289,13 +385,13 @@ import { DataType, CoreInstance, EnumItem } from "../lib/roblox_types";
 
     protected static getTypeInfo(info: PropertyMember)
     {
-        let dataType;
+        let dataType: string | undefined;
         let castStr = "";
         switch (info.ValueType.Category)
         {
             case "Enum":
                 dataType = "Enum";
-                castStr = ` as ${info.ValueType.Name} | undefined`;
+                castStr = ` as ${info.ValueType.Name}`;
                 break;
             case "Primitive":
                 dataType = PrimitiveInfo.get(info.ValueType.Name);
@@ -305,15 +401,15 @@ import { DataType, CoreInstance, EnumItem } from "../lib/roblox_types";
                 break;
             case "Class":
                 dataType = "Referent";
-                castStr = ` as ${info.ValueType.Name} | undefined`;
+                castStr = ` as ${info.ValueType.Name}`;
                 break;
         }
         return {DataType: dataType, CastString: castStr};
     }
 
-    protected static createPropGetString(propName: string, propDataName: string, dataType: string, castStr: string = "")
+    protected static createPropGetString(propName: string, propDataName: string, dataType: string, hasDefault: boolean, castStr: string = "")
     {
-        return `public get ${propName}() {return this.GetProp("${propDataName}", DataType.${dataType})${castStr};}`;
+        return `public get ${propName}() {return this.GetProp("${propDataName}", DataType.${dataType})${hasDefault ? "!" : ""}${castStr};}`;
     }
 
     protected static createPropSetString(propName: string, propDataName: string, dataType: string)
@@ -474,11 +570,6 @@ function getEnumMap() {
                 continue;
             }
 
-            if (this.startClass(classInfo)) 
-            {
-                instantiableClasses.add(classInfo.Name);
-            }
-
             filteredClasses.add(classInfo.Name);
 
             // All of the members that don't get filtered out due to not being readable/writeable
@@ -514,6 +605,11 @@ function getEnumMap() {
 
                 // Add to the list of valid members
                 validMembers.set(member.Name, member);
+            }
+
+            if (this.startClass(classInfo, Array.from(validMembers.values()))) 
+            {
+                instantiableClasses.add(classInfo.Name);
             }
 
             for (const member of validMembers.values())
