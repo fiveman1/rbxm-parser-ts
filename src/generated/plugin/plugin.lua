@@ -66,7 +66,6 @@ local function oneClass(class, obj, props)
 	for _, prop in props do
 		local value = tryGet(obj, prop)
 		if value ~= nil then
-			if prop == "Anchored" then print("IT WORKED YAY") end
 			found = true
 			writeClass("            { \"Name\": \"")
 			writeClass(prop)
