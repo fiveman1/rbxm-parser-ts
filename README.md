@@ -77,8 +77,10 @@ All of the above property gets and sets are strongly typed.
 
 ## References
 
-I used the following resources extensively to help build this. Huge thanks to MaximumADHD and the Rojo team for providing these open source resources.
+I used the following resources extensively to help build this. Huge thanks to MaximumADHD and the Rojo team for providing these open source resources:
 
-[Roblox-File-Format](https://github.com/MaximumADHD/Roblox-File-Format): a C# library by MaximumADHD for doing basically the same thing that this does.
+[Roblox File Format](https://github.com/MaximumADHD/Roblox-File-Format): A C# library by MaximumADHD for doing basically the same thing that this does.
+
+[Roblox Client Tracker](https://github.com/MaximumADHD/Roblox-Client-Tracker/): Another tool by MaximumADHD which provides .json dumps of the Roblox classes and enums which is used to generate the typings provided by this library.
 
 [Roblox Binary Model Format](https://dom.rojo.space/binary): Unofficial documentation for the .rbxm binary format created by the Rojo team.

@@ -1,0 +1,2187 @@
+[
+    {
+        "Name": "GuiService",
+        "Props": [
+            { "Name": "AutoSelectGuiEnabled", "Value": "true" },
+            { "Name": "GuiNavigationEnabled", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "AngularVelocity",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Visible", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "CylinderHandleAdornment",
+        "Props": [
+            { "Name": "AdornCullingMode", "Value": "Enum.AdornCullingMode.Automatic" },
+            { "Name": "AlwaysOnTop", "Value": "false" },
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "SizeRelativeOffset", "Value": "0, 0, 0" },
+            { "Name": "ZIndex", "Value": "-1" },
+            { "Name": "Color3", "Value": "0.0509804, 0.411765, 0.67451" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Visible", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "BallSocketConstraint",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Visible", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "StarterGui",
+        "Props": [
+            { "Name": "ResetPlayerGuiOnSpawn", "Value": "true" },
+            { "Name": "ScreenOrientation", "Value": "Enum.ScreenOrientation.LandscapeSensor" },
+            { "Name": "ShowDevelopmentGui", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "Accoutrement",
+        "Props": [
+            { "Name": "AttachmentPoint", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" }
+        ]
+    },
+    {
+        "Name": "Attachment",
+        "Props": [
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" }
+        ]
+    },
+    {
+        "Name": "GuiMain",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "ResetOnSpawn", "Value": "true" },
+            { "Name": "ZIndexBehavior", "Value": "Enum.ZIndexBehavior.Global" },
+            { "Name": "AutoLocalize", "Value": "true" },
+            { "Name": "Localize", "Value": "true" },
+            { "Name": "SelectionBehaviorDown", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorLeft", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorRight", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorUp", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionGroup", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "PitchShiftSoundEffect",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Priority", "Value": "0" }
+        ]
+    },
+    {
+        "Name": "VectorForce",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Visible", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "Handles",
+        "Props": [
+            { "Name": "Color3", "Value": "0.0509804, 0.411765, 0.67451" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Visible", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "CylindricalConstraint",
+        "Props": [
+            { "Name": "ActuatorType", "Value": "Enum.ActuatorType.None" },
+            { "Name": "LimitsEnabled", "Value": "false" },
+            { "Name": "LinearResponsiveness", "Value": "45" },
+            { "Name": "LowerLimit", "Value": "0" },
+            { "Name": "MotorMaxAcceleration", "Value": "inf" },
+            { "Name": "MotorMaxForce", "Value": "0" },
+            { "Name": "Restitution", "Value": "0" },
+            { "Name": "ServoMaxForce", "Value": "0" },
+            { "Name": "Size", "Value": "0.15000000596046448" },
+            { "Name": "SoftlockServoUponReachingTarget", "Value": "false" },
+            { "Name": "Speed", "Value": "0" },
+            { "Name": "TargetPosition", "Value": "0" },
+            { "Name": "UpperLimit", "Value": "5" },
+            { "Name": "Velocity", "Value": "0" },
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Visible", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "WireframeHandleAdornment",
+        "Props": [
+            { "Name": "AdornCullingMode", "Value": "Enum.AdornCullingMode.Automatic" },
+            { "Name": "AlwaysOnTop", "Value": "false" },
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "SizeRelativeOffset", "Value": "0, 0, 0" },
+            { "Name": "ZIndex", "Value": "-1" },
+            { "Name": "Color3", "Value": "0.0509804, 0.411765, 0.67451" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Visible", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "Hole",
+        "Props": [
+            { "Name": "FaceId", "Value": "Enum.NormalId.Right" },
+            { "Name": "InOut", "Value": "Enum.InOut.Center" },
+            { "Name": "LeftRight", "Value": "Enum.LeftRight.Center" },
+            { "Name": "TopBottom", "Value": "Enum.TopBottom.Center" }
+        ]
+    },
+    {
+        "Name": "SurfaceGui",
+        "Props": [
+            { "Name": "Active", "Value": "true" },
+            { "Name": "Face", "Value": "Enum.NormalId.Front" },
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "ResetOnSpawn", "Value": "true" },
+            { "Name": "ZIndexBehavior", "Value": "Enum.ZIndexBehavior.Global" },
+            { "Name": "AutoLocalize", "Value": "true" },
+            { "Name": "Localize", "Value": "true" },
+            { "Name": "SelectionBehaviorDown", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorLeft", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorRight", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorUp", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionGroup", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "Accessory",
+        "Props": [
+            { "Name": "AttachmentPoint", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" }
+        ]
+    },
+    {
+        "Name": "LineForce",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Visible", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "Pants",
+        "Props": [
+            { "Name": "Color3", "Value": "1, 1, 1" }
+        ]
+    },
+    {
+        "Name": "CFrameValue",
+        "Props": [
+            { "Name": "Value", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" }
+        ]
+    },
+    {
+        "Name": "ImageLabel",
+        "Props": [
+            { "Name": "Active", "Value": "false" },
+            { "Name": "AnchorPoint", "Value": "0, 0" },
+            { "Name": "AutomaticSize", "Value": "Enum.AutomaticSize.None" },
+            { "Name": "BackgroundColor3", "Value": "0.639216, 0.635294, 0.647059" },
+            { "Name": "BackgroundTransparency", "Value": "0" },
+            { "Name": "BorderColor3", "Value": "0.105882, 0.164706, 0.207843" },
+            { "Name": "BorderMode", "Value": "Enum.BorderMode.Outline" },
+            { "Name": "BorderSizePixel", "Value": "1" },
+            { "Name": "ClipsDescendants", "Value": "false" },
+            { "Name": "Draggable", "Value": "false" },
+            { "Name": "Interactable", "Value": "true" },
+            { "Name": "LayoutOrder", "Value": "0" },
+            { "Name": "Position", "Value": "{0, 0}, {0, 0}" },
+            { "Name": "Rotation", "Value": "0" },
+            { "Name": "Selectable", "Value": "false" },
+            { "Name": "SelectionOrder", "Value": "0" },
+            { "Name": "Size", "Value": "{0, 0}, {0, 0}" },
+            { "Name": "SizeConstraint", "Value": "Enum.SizeConstraint.RelativeXY" },
+            { "Name": "Visible", "Value": "true" },
+            { "Name": "ZIndex", "Value": "1" },
+            { "Name": "AutoLocalize", "Value": "true" },
+            { "Name": "Localize", "Value": "true" },
+            { "Name": "SelectionBehaviorDown", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorLeft", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorRight", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorUp", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionGroup", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "ReflectionMetadataMember",
+        "Props": [
+            { "Name": "Browsable", "Value": "true" },
+            { "Name": "ClassCategory", "Value": "" },
+            { "Name": "ClientOnly", "Value": "false" },
+            { "Name": "Constraint", "Value": "" },
+            { "Name": "Deprecated", "Value": "false" },
+            { "Name": "EditingDisabled", "Value": "false" },
+            { "Name": "EditorType", "Value": "" },
+            { "Name": "FFlag", "Value": "" },
+            { "Name": "IsBackend", "Value": "false" },
+            { "Name": "PropertyOrder", "Value": "5000" },
+            { "Name": "ScriptContext", "Value": "" },
+            { "Name": "ServerOnly", "Value": "false" },
+            { "Name": "SliderScaling", "Value": "" },
+            { "Name": "UIMaximum", "Value": "0" },
+            { "Name": "UIMinimum", "Value": "0" },
+            { "Name": "UINumTicks", "Value": "0" }
+        ]
+    },
+    {
+        "Name": "HopperBin",
+        "Props": [
+            { "Name": "TextureId", "Value": "" }
+        ]
+    },
+    {
+        "Name": "UIListLayout",
+        "Props": [
+            { "Name": "FillDirection", "Value": "Enum.FillDirection.Vertical" },
+            { "Name": "HorizontalAlignment", "Value": "Enum.HorizontalAlignment.Left" },
+            { "Name": "SortOrder", "Value": "Enum.SortOrder.Name" },
+            { "Name": "VerticalAlignment", "Value": "Enum.VerticalAlignment.Top" }
+        ]
+    },
+    {
+        "Name": "Torque",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Visible", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "UniversalConstraint",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Visible", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "MotorFeature",
+        "Props": [
+            { "Name": "FaceId", "Value": "Enum.NormalId.Right" },
+            { "Name": "InOut", "Value": "Enum.InOut.Center" },
+            { "Name": "LeftRight", "Value": "Enum.LeftRight.Center" },
+            { "Name": "TopBottom", "Value": "Enum.TopBottom.Center" }
+        ]
+    },
+    {
+        "Name": "EqualizerSoundEffect",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Priority", "Value": "0" }
+        ]
+    },
+    {
+        "Name": "Snap",
+        "Props": [
+            { "Name": "C0", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "C1", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Enabled", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "VelocityMotor",
+        "Props": [
+            { "Name": "C0", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "C1", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Enabled", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "SurfaceSelection",
+        "Props": [
+            { "Name": "Color3", "Value": "0.0509804, 0.411765, 0.67451" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Visible", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "ReflectionMetadataClass",
+        "Props": [
+            { "Name": "Browsable", "Value": "true" },
+            { "Name": "ClassCategory", "Value": "" },
+            { "Name": "ClientOnly", "Value": "false" },
+            { "Name": "Constraint", "Value": "" },
+            { "Name": "Deprecated", "Value": "false" },
+            { "Name": "EditingDisabled", "Value": "false" },
+            { "Name": "EditorType", "Value": "" },
+            { "Name": "FFlag", "Value": "" },
+            { "Name": "IsBackend", "Value": "false" },
+            { "Name": "PropertyOrder", "Value": "5000" },
+            { "Name": "ScriptContext", "Value": "" },
+            { "Name": "ServerOnly", "Value": "false" },
+            { "Name": "SliderScaling", "Value": "" },
+            { "Name": "UIMaximum", "Value": "0" },
+            { "Name": "UIMinimum", "Value": "0" },
+            { "Name": "UINumTicks", "Value": "0" }
+        ]
+    },
+    {
+        "Name": "CanvasGroup",
+        "Props": [
+            { "Name": "Active", "Value": "false" },
+            { "Name": "AnchorPoint", "Value": "0, 0" },
+            { "Name": "AutomaticSize", "Value": "Enum.AutomaticSize.None" },
+            { "Name": "BackgroundColor3", "Value": "0.639216, 0.635294, 0.647059" },
+            { "Name": "BackgroundTransparency", "Value": "0" },
+            { "Name": "BorderColor3", "Value": "0.105882, 0.164706, 0.207843" },
+            { "Name": "BorderMode", "Value": "Enum.BorderMode.Outline" },
+            { "Name": "BorderSizePixel", "Value": "1" },
+            { "Name": "ClipsDescendants", "Value": "true" },
+            { "Name": "Draggable", "Value": "false" },
+            { "Name": "Interactable", "Value": "true" },
+            { "Name": "LayoutOrder", "Value": "0" },
+            { "Name": "Position", "Value": "{0, 0}, {0, 0}" },
+            { "Name": "Rotation", "Value": "0" },
+            { "Name": "Selectable", "Value": "false" },
+            { "Name": "SelectionOrder", "Value": "0" },
+            { "Name": "Size", "Value": "{0, 0}, {0, 0}" },
+            { "Name": "SizeConstraint", "Value": "Enum.SizeConstraint.RelativeXY" },
+            { "Name": "Visible", "Value": "true" },
+            { "Name": "ZIndex", "Value": "1" },
+            { "Name": "AutoLocalize", "Value": "true" },
+            { "Name": "Localize", "Value": "true" },
+            { "Name": "SelectionBehaviorDown", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorLeft", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorRight", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorUp", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionGroup", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "SpotLight",
+        "Props": [
+            { "Name": "Angle", "Value": "90" },
+            { "Name": "Face", "Value": "Enum.NormalId.Front" },
+            { "Name": "Range", "Value": "16" },
+            { "Name": "Brightness", "Value": "1" },
+            { "Name": "Color", "Value": "1, 1, 1" },
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Shadows", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "AirController",
+        "Props": [
+            { "Name": "BalanceRigidityEnabled", "Value": "false" },
+            { "Name": "MoveSpeedFactor", "Value": "1" }
+        ]
+    },
+    {
+        "Name": "NegateOperation",
+        "Props": [
+            { "Name": "Anchored", "Value": "true" },
+            { "Name": "BackParamA", "Value": "-0.5" },
+            { "Name": "BackParamB", "Value": "0.5" },
+            { "Name": "BackSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "BackSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "BottomParamA", "Value": "-0.5" },
+            { "Name": "BottomParamB", "Value": "0.5" },
+            { "Name": "BottomSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "BottomSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "CanCollide", "Value": "false" },
+            { "Name": "CanQuery", "Value": "true" },
+            { "Name": "CanTouch", "Value": "true" },
+            { "Name": "CastShadow", "Value": "true" },
+            { "Name": "CollisionGroup", "Value": "Default" },
+            { "Name": "CollisionGroupId", "Value": "0" },
+            { "Name": "Elasticity", "Value": "0.5" },
+            { "Name": "EnableFluidForces", "Value": "true" },
+            { "Name": "Friction", "Value": "0.30000001192092896" },
+            { "Name": "FrontParamA", "Value": "-0.5" },
+            { "Name": "FrontParamB", "Value": "0.5" },
+            { "Name": "FrontSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "FrontSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "LeftParamA", "Value": "-0.5" },
+            { "Name": "LeftParamB", "Value": "0.5" },
+            { "Name": "LeftSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "LeftSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Locked", "Value": "false" },
+            { "Name": "Massless", "Value": "false" },
+            { "Name": "Material", "Value": "Enum.Material.Plastic" },
+            { "Name": "PivotOffset", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Reflectance", "Value": "0" },
+            { "Name": "RightParamA", "Value": "-0.5" },
+            { "Name": "RightParamB", "Value": "0.5" },
+            { "Name": "RightSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "RightSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "RootPriority", "Value": "0" },
+            { "Name": "RotVelocity", "Value": "0, 0, 0" },
+            { "Name": "TopParamA", "Value": "-0.5" },
+            { "Name": "TopParamB", "Value": "0.5" },
+            { "Name": "TopSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "TopSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Transparency", "Value": "0.10000000149011612" },
+            { "Name": "Velocity", "Value": "0, 0, 0" },
+            { "Name": "size", "Value": "4, 1.2000000476837158, 2" }
+        ]
+    },
+    {
+        "Name": "Bone",
+        "Props": [
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" }
+        ]
+    },
+    {
+        "Name": "ArcHandles",
+        "Props": [
+            { "Name": "Color3", "Value": "0.0509804, 0.411765, 0.67451" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Visible", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "Texture",
+        "Props": [
+            { "Name": "Face", "Value": "Enum.NormalId.Front" }
+        ]
+    },
+    {
+        "Name": "Players",
+        "Props": [
+            { "Name": "CharacterAutoLoads", "Value": "true" },
+            { "Name": "RespawnTime", "Value": "5" }
+        ]
+    },
+    {
+        "Name": "Script",
+        "Props": [
+            { "Name": "Disabled", "Value": "false" },
+            { "Name": "LinkedSource", "Value": "" },
+            { "Name": "RunContext", "Value": "Enum.RunContext.Legacy" }
+        ]
+    },
+    {
+        "Name": "PlaneConstraint",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Visible", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "GroundController",
+        "Props": [
+            { "Name": "BalanceRigidityEnabled", "Value": "false" },
+            { "Name": "MoveSpeedFactor", "Value": "1" }
+        ]
+    },
+    {
+        "Name": "Camera",
+        "Props": [
+            { "Name": "CFrame", "Value": "0, 20, 20, 1, 0, -0, -0, 0.707106829, 0.707106829, 0, -0.707106829, 0.707106829" },
+            { "Name": "CoordinateFrame", "Value": "0, 20, 20, 1, 0, -0, -0, 0.707106829, 0.707106829, 0, -0.707106829, 0.707106829" },
+            { "Name": "Focus", "Value": "0, 0, -5, 1, 0, 0, 0, 1, 0, 0, 0, 1" }
+        ]
+    },
+    {
+        "Name": "DepthOfFieldEffect",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "TextBox",
+        "Props": [
+            { "Name": "FontFace", "Value": "Font { Family = rbxasset://fonts/families/LegacyArial.json, Weight = Regular, Style = Normal }" },
+            { "Name": "Active", "Value": "true" },
+            { "Name": "AnchorPoint", "Value": "0, 0" },
+            { "Name": "AutomaticSize", "Value": "Enum.AutomaticSize.None" },
+            { "Name": "BackgroundColor3", "Value": "0.639216, 0.635294, 0.647059" },
+            { "Name": "BackgroundTransparency", "Value": "0" },
+            { "Name": "BorderColor3", "Value": "0.105882, 0.164706, 0.207843" },
+            { "Name": "BorderMode", "Value": "Enum.BorderMode.Outline" },
+            { "Name": "BorderSizePixel", "Value": "1" },
+            { "Name": "ClipsDescendants", "Value": "false" },
+            { "Name": "Draggable", "Value": "false" },
+            { "Name": "Interactable", "Value": "true" },
+            { "Name": "LayoutOrder", "Value": "0" },
+            { "Name": "Position", "Value": "{0, 0}, {0, 0}" },
+            { "Name": "Rotation", "Value": "0" },
+            { "Name": "Selectable", "Value": "true" },
+            { "Name": "SelectionOrder", "Value": "0" },
+            { "Name": "Size", "Value": "{0, 0}, {0, 0}" },
+            { "Name": "SizeConstraint", "Value": "Enum.SizeConstraint.RelativeXY" },
+            { "Name": "Visible", "Value": "true" },
+            { "Name": "ZIndex", "Value": "1" },
+            { "Name": "AutoLocalize", "Value": "true" },
+            { "Name": "Localize", "Value": "true" },
+            { "Name": "SelectionBehaviorDown", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorLeft", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorRight", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorUp", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionGroup", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "EditableMesh",
+        "Props": [
+            { "Name": "Offset", "Value": "0, 0, 0" },
+            { "Name": "Scale", "Value": "1, 1, 1" },
+            { "Name": "VertexColor", "Value": "1, 1, 1" }
+        ]
+    },
+    {
+        "Name": "KeyframeSequence",
+        "Props": [
+            { "Name": "Loop", "Value": "true" },
+            { "Name": "Priority", "Value": "Enum.AnimationPriority.Action" }
+        ]
+    },
+    {
+        "Name": "SwimController",
+        "Props": [
+            { "Name": "BalanceRigidityEnabled", "Value": "false" },
+            { "Name": "MoveSpeedFactor", "Value": "1" }
+        ]
+    },
+    {
+        "Name": "BuoyancySensor",
+        "Props": [
+            { "Name": "UpdateType", "Value": "Enum.SensorUpdateType.OnRead" }
+        ]
+    },
+    {
+        "Name": "BillboardGui",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "ResetOnSpawn", "Value": "true" },
+            { "Name": "ZIndexBehavior", "Value": "Enum.ZIndexBehavior.Global" },
+            { "Name": "AutoLocalize", "Value": "true" },
+            { "Name": "Localize", "Value": "true" },
+            { "Name": "SelectionBehaviorDown", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorLeft", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorRight", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorUp", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionGroup", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "IntersectOperation",
+        "Props": [
+            { "Name": "Anchored", "Value": "false" },
+            { "Name": "BackParamA", "Value": "-0.5" },
+            { "Name": "BackParamB", "Value": "0.5" },
+            { "Name": "BackSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "BackSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "BottomParamA", "Value": "-0.5" },
+            { "Name": "BottomParamB", "Value": "0.5" },
+            { "Name": "BottomSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "BottomSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "CanCollide", "Value": "true" },
+            { "Name": "CanQuery", "Value": "true" },
+            { "Name": "CanTouch", "Value": "true" },
+            { "Name": "CastShadow", "Value": "true" },
+            { "Name": "CollisionGroup", "Value": "Default" },
+            { "Name": "CollisionGroupId", "Value": "0" },
+            { "Name": "Elasticity", "Value": "0.5" },
+            { "Name": "EnableFluidForces", "Value": "true" },
+            { "Name": "Friction", "Value": "0.30000001192092896" },
+            { "Name": "FrontParamA", "Value": "-0.5" },
+            { "Name": "FrontParamB", "Value": "0.5" },
+            { "Name": "FrontSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "FrontSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "LeftParamA", "Value": "-0.5" },
+            { "Name": "LeftParamB", "Value": "0.5" },
+            { "Name": "LeftSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "LeftSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Locked", "Value": "false" },
+            { "Name": "Massless", "Value": "false" },
+            { "Name": "Material", "Value": "Enum.Material.Plastic" },
+            { "Name": "PivotOffset", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Reflectance", "Value": "0" },
+            { "Name": "RightParamA", "Value": "-0.5" },
+            { "Name": "RightParamB", "Value": "0.5" },
+            { "Name": "RightSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "RightSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "RootPriority", "Value": "0" },
+            { "Name": "RotVelocity", "Value": "0, 0, 0" },
+            { "Name": "TopParamA", "Value": "-0.5" },
+            { "Name": "TopParamB", "Value": "0.5" },
+            { "Name": "TopSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "TopSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Velocity", "Value": "0, 0, 0" },
+            { "Name": "size", "Value": "4, 1.2000000476837158, 2" }
+        ]
+    },
+    {
+        "Name": "DragDetector",
+        "Props": [
+            { "Name": "DragFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" }
+        ]
+    },
+    {
+        "Name": "FlangeSoundEffect",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Priority", "Value": "0" }
+        ]
+    },
+    {
+        "Name": "EchoSoundEffect",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Priority", "Value": "0" }
+        ]
+    },
+    {
+        "Name": "ViewportFrame",
+        "Props": [
+            { "Name": "Active", "Value": "false" },
+            { "Name": "AnchorPoint", "Value": "0, 0" },
+            { "Name": "AutomaticSize", "Value": "Enum.AutomaticSize.None" },
+            { "Name": "BackgroundColor3", "Value": "0.639216, 0.635294, 0.647059" },
+            { "Name": "BackgroundTransparency", "Value": "0" },
+            { "Name": "BorderColor3", "Value": "0.105882, 0.164706, 0.207843" },
+            { "Name": "BorderMode", "Value": "Enum.BorderMode.Outline" },
+            { "Name": "BorderSizePixel", "Value": "1" },
+            { "Name": "ClipsDescendants", "Value": "false" },
+            { "Name": "Draggable", "Value": "false" },
+            { "Name": "Interactable", "Value": "true" },
+            { "Name": "LayoutOrder", "Value": "0" },
+            { "Name": "Position", "Value": "{0, 0}, {0, 0}" },
+            { "Name": "Rotation", "Value": "0" },
+            { "Name": "Selectable", "Value": "false" },
+            { "Name": "SelectionOrder", "Value": "0" },
+            { "Name": "Size", "Value": "{0, 0}, {0, 0}" },
+            { "Name": "SizeConstraint", "Value": "Enum.SizeConstraint.RelativeXY" },
+            { "Name": "Visible", "Value": "true" },
+            { "Name": "ZIndex", "Value": "1" },
+            { "Name": "AutoLocalize", "Value": "true" },
+            { "Name": "Localize", "Value": "true" },
+            { "Name": "SelectionBehaviorDown", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorLeft", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorRight", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorUp", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionGroup", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "SpawnLocation",
+        "Props": [
+            { "Name": "FormFactor", "Value": "Enum.FormFactor.Brick" },
+            { "Name": "Anchored", "Value": "false" },
+            { "Name": "BackParamA", "Value": "-0.5" },
+            { "Name": "BackParamB", "Value": "0.5" },
+            { "Name": "BackSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "BackSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "BottomParamA", "Value": "-0.5" },
+            { "Name": "BottomParamB", "Value": "0.5" },
+            { "Name": "BottomSurface", "Value": "Enum.SurfaceType.Inlet" },
+            { "Name": "BottomSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "CanCollide", "Value": "true" },
+            { "Name": "CanQuery", "Value": "true" },
+            { "Name": "CanTouch", "Value": "true" },
+            { "Name": "CastShadow", "Value": "true" },
+            { "Name": "CollisionGroup", "Value": "Default" },
+            { "Name": "CollisionGroupId", "Value": "0" },
+            { "Name": "Elasticity", "Value": "0.5" },
+            { "Name": "EnableFluidForces", "Value": "true" },
+            { "Name": "Friction", "Value": "0.30000001192092896" },
+            { "Name": "FrontParamA", "Value": "-0.5" },
+            { "Name": "FrontParamB", "Value": "0.5" },
+            { "Name": "FrontSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "FrontSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "LeftParamA", "Value": "-0.5" },
+            { "Name": "LeftParamB", "Value": "0.5" },
+            { "Name": "LeftSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "LeftSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Locked", "Value": "false" },
+            { "Name": "Massless", "Value": "false" },
+            { "Name": "Material", "Value": "Enum.Material.Plastic" },
+            { "Name": "PivotOffset", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Reflectance", "Value": "0" },
+            { "Name": "RightParamA", "Value": "-0.5" },
+            { "Name": "RightParamB", "Value": "0.5" },
+            { "Name": "RightSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "RightSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "RootPriority", "Value": "0" },
+            { "Name": "RotVelocity", "Value": "0, 0, 0" },
+            { "Name": "TopParamA", "Value": "-0.5" },
+            { "Name": "TopParamB", "Value": "0.5" },
+            { "Name": "TopSurface", "Value": "Enum.SurfaceType.Studs" },
+            { "Name": "TopSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Velocity", "Value": "0, 0, 0" },
+            { "Name": "size", "Value": "4, 1.2000000476837158, 2" }
+        ]
+    },
+    {
+        "Name": "BlurEffect",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "ScreenGui",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "ResetOnSpawn", "Value": "true" },
+            { "Name": "ZIndexBehavior", "Value": "Enum.ZIndexBehavior.Global" },
+            { "Name": "AutoLocalize", "Value": "true" },
+            { "Name": "Localize", "Value": "true" },
+            { "Name": "SelectionBehaviorDown", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorLeft", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorRight", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorUp", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionGroup", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "BodyGyro",
+        "Props": [
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" }
+        ]
+    },
+    {
+        "Name": "WrapLayer",
+        "Props": [
+            { "Name": "BindOffset", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "ReferenceOrigin", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "CageMeshId", "Value": "" },
+            { "Name": "CageOrigin", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "ImportOrigin", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" }
+        ]
+    },
+    {
+        "Name": "NumberPose",
+        "Props": [
+            { "Name": "EasingDirection", "Value": "Enum.PoseEasingDirection.In" },
+            { "Name": "EasingStyle", "Value": "Enum.PoseEasingStyle.Linear" },
+            { "Name": "Weight", "Value": "1" }
+        ]
+    },
+    {
+        "Name": "SpecialMesh",
+        "Props": [
+            { "Name": "Offset", "Value": "0, 0, 0" },
+            { "Name": "Scale", "Value": "1, 1, 1" },
+            { "Name": "VertexColor", "Value": "1, 1, 1" }
+        ]
+    },
+    {
+        "Name": "RodConstraint",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Visible", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "FileMesh",
+        "Props": [
+            { "Name": "Offset", "Value": "0, 0, 0" },
+            { "Name": "Scale", "Value": "1, 1, 1" },
+            { "Name": "VertexColor", "Value": "1, 1, 1" }
+        ]
+    },
+    {
+        "Name": "CurveAnimation",
+        "Props": [
+            { "Name": "Loop", "Value": "true" },
+            { "Name": "Priority", "Value": "Enum.AnimationPriority.Action" }
+        ]
+    },
+    {
+        "Name": "FlagStand",
+        "Props": [
+            { "Name": "FormFactor", "Value": "Enum.FormFactor.Brick" },
+            { "Name": "Anchored", "Value": "false" },
+            { "Name": "BackParamA", "Value": "-0.5" },
+            { "Name": "BackParamB", "Value": "0.5" },
+            { "Name": "BackSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "BackSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "BottomParamA", "Value": "-0.5" },
+            { "Name": "BottomParamB", "Value": "0.5" },
+            { "Name": "BottomSurface", "Value": "Enum.SurfaceType.Inlet" },
+            { "Name": "BottomSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "CanCollide", "Value": "true" },
+            { "Name": "CanQuery", "Value": "true" },
+            { "Name": "CanTouch", "Value": "true" },
+            { "Name": "CastShadow", "Value": "true" },
+            { "Name": "CollisionGroup", "Value": "Default" },
+            { "Name": "CollisionGroupId", "Value": "0" },
+            { "Name": "Elasticity", "Value": "0.5" },
+            { "Name": "EnableFluidForces", "Value": "true" },
+            { "Name": "Friction", "Value": "0.30000001192092896" },
+            { "Name": "FrontParamA", "Value": "-0.5" },
+            { "Name": "FrontParamB", "Value": "0.5" },
+            { "Name": "FrontSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "FrontSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "LeftParamA", "Value": "-0.5" },
+            { "Name": "LeftParamB", "Value": "0.5" },
+            { "Name": "LeftSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "LeftSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Locked", "Value": "false" },
+            { "Name": "Massless", "Value": "false" },
+            { "Name": "Material", "Value": "Enum.Material.Plastic" },
+            { "Name": "PivotOffset", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Reflectance", "Value": "0" },
+            { "Name": "RightParamA", "Value": "-0.5" },
+            { "Name": "RightParamB", "Value": "0.5" },
+            { "Name": "RightSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "RightSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "RootPriority", "Value": "0" },
+            { "Name": "RotVelocity", "Value": "0, 0, 0" },
+            { "Name": "TopParamA", "Value": "-0.5" },
+            { "Name": "TopParamB", "Value": "0.5" },
+            { "Name": "TopSurface", "Value": "Enum.SurfaceType.Studs" },
+            { "Name": "TopSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Velocity", "Value": "0, 0, 0" },
+            { "Name": "size", "Value": "4, 1.2000000476837158, 2" }
+        ]
+    },
+    {
+        "Name": "ManualGlue",
+        "Props": [
+            { "Name": "C0", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "C1", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Enabled", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "SkateboardPlatform",
+        "Props": [
+            { "Name": "FormFactor", "Value": "Enum.FormFactor.Brick" },
+            { "Name": "Anchored", "Value": "false" },
+            { "Name": "BackParamA", "Value": "-0.5" },
+            { "Name": "BackParamB", "Value": "0.5" },
+            { "Name": "BackSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "BackSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "BottomParamA", "Value": "-0.5" },
+            { "Name": "BottomParamB", "Value": "0.5" },
+            { "Name": "BottomSurface", "Value": "Enum.SurfaceType.Inlet" },
+            { "Name": "BottomSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "CanCollide", "Value": "true" },
+            { "Name": "CanQuery", "Value": "true" },
+            { "Name": "CanTouch", "Value": "true" },
+            { "Name": "CastShadow", "Value": "true" },
+            { "Name": "CollisionGroup", "Value": "Default" },
+            { "Name": "CollisionGroupId", "Value": "0" },
+            { "Name": "Elasticity", "Value": "0.5" },
+            { "Name": "EnableFluidForces", "Value": "true" },
+            { "Name": "Friction", "Value": "0.30000001192092896" },
+            { "Name": "FrontParamA", "Value": "-0.5" },
+            { "Name": "FrontParamB", "Value": "0.5" },
+            { "Name": "FrontSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "FrontSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "LeftParamA", "Value": "-0.5" },
+            { "Name": "LeftParamB", "Value": "0.5" },
+            { "Name": "LeftSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "LeftSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Locked", "Value": "false" },
+            { "Name": "Massless", "Value": "false" },
+            { "Name": "Material", "Value": "Enum.Material.Plastic" },
+            { "Name": "PivotOffset", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Reflectance", "Value": "0" },
+            { "Name": "RightParamA", "Value": "-0.5" },
+            { "Name": "RightParamB", "Value": "0.5" },
+            { "Name": "RightSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "RightSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "RootPriority", "Value": "0" },
+            { "Name": "RotVelocity", "Value": "0, 0, 0" },
+            { "Name": "TopParamA", "Value": "-0.5" },
+            { "Name": "TopParamB", "Value": "0.5" },
+            { "Name": "TopSurface", "Value": "Enum.SurfaceType.Studs" },
+            { "Name": "TopSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Velocity", "Value": "0, 0, 0" },
+            { "Name": "size", "Value": "4, 1.2000000476837158, 2" }
+        ]
+    },
+    {
+        "Name": "Seat",
+        "Props": [
+            { "Name": "FormFactor", "Value": "Enum.FormFactor.Brick" },
+            { "Name": "Anchored", "Value": "false" },
+            { "Name": "BackParamA", "Value": "-0.5" },
+            { "Name": "BackParamB", "Value": "0.5" },
+            { "Name": "BackSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "BackSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "BottomParamA", "Value": "-0.5" },
+            { "Name": "BottomParamB", "Value": "0.5" },
+            { "Name": "BottomSurface", "Value": "Enum.SurfaceType.Inlet" },
+            { "Name": "BottomSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "CanCollide", "Value": "true" },
+            { "Name": "CanQuery", "Value": "true" },
+            { "Name": "CanTouch", "Value": "true" },
+            { "Name": "CastShadow", "Value": "true" },
+            { "Name": "CollisionGroup", "Value": "Default" },
+            { "Name": "CollisionGroupId", "Value": "0" },
+            { "Name": "Elasticity", "Value": "0.5" },
+            { "Name": "EnableFluidForces", "Value": "true" },
+            { "Name": "Friction", "Value": "0.30000001192092896" },
+            { "Name": "FrontParamA", "Value": "-0.5" },
+            { "Name": "FrontParamB", "Value": "0.5" },
+            { "Name": "FrontSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "FrontSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "LeftParamA", "Value": "-0.5" },
+            { "Name": "LeftParamB", "Value": "0.5" },
+            { "Name": "LeftSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "LeftSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Locked", "Value": "false" },
+            { "Name": "Massless", "Value": "false" },
+            { "Name": "Material", "Value": "Enum.Material.Plastic" },
+            { "Name": "PivotOffset", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Reflectance", "Value": "0" },
+            { "Name": "RightParamA", "Value": "-0.5" },
+            { "Name": "RightParamB", "Value": "0.5" },
+            { "Name": "RightSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "RightSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "RootPriority", "Value": "0" },
+            { "Name": "RotVelocity", "Value": "0, 0, 0" },
+            { "Name": "TopParamA", "Value": "-0.5" },
+            { "Name": "TopParamB", "Value": "0.5" },
+            { "Name": "TopSurface", "Value": "Enum.SurfaceType.Studs" },
+            { "Name": "TopSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Velocity", "Value": "0, 0, 0" },
+            { "Name": "size", "Value": "4, 1.2000000476837158, 2" }
+        ]
+    },
+    {
+        "Name": "BlockMesh",
+        "Props": [
+            { "Name": "Offset", "Value": "0, 0, 0" },
+            { "Name": "Scale", "Value": "1, 1, 1" },
+            { "Name": "VertexColor", "Value": "1, 1, 1" }
+        ]
+    },
+    {
+        "Name": "TextLabel",
+        "Props": [
+            { "Name": "FontFace", "Value": "Font { Family = rbxasset://fonts/families/LegacyArial.json, Weight = Regular, Style = Normal }" },
+            { "Name": "Active", "Value": "false" },
+            { "Name": "AnchorPoint", "Value": "0, 0" },
+            { "Name": "AutomaticSize", "Value": "Enum.AutomaticSize.None" },
+            { "Name": "BackgroundColor3", "Value": "0.639216, 0.635294, 0.647059" },
+            { "Name": "BackgroundTransparency", "Value": "0" },
+            { "Name": "BorderColor3", "Value": "0.105882, 0.164706, 0.207843" },
+            { "Name": "BorderMode", "Value": "Enum.BorderMode.Outline" },
+            { "Name": "BorderSizePixel", "Value": "1" },
+            { "Name": "ClipsDescendants", "Value": "false" },
+            { "Name": "Draggable", "Value": "false" },
+            { "Name": "Interactable", "Value": "true" },
+            { "Name": "LayoutOrder", "Value": "0" },
+            { "Name": "Position", "Value": "{0, 0}, {0, 0}" },
+            { "Name": "Rotation", "Value": "0" },
+            { "Name": "Selectable", "Value": "false" },
+            { "Name": "SelectionOrder", "Value": "0" },
+            { "Name": "Size", "Value": "{0, 0}, {0, 0}" },
+            { "Name": "SizeConstraint", "Value": "Enum.SizeConstraint.RelativeXY" },
+            { "Name": "Visible", "Value": "true" },
+            { "Name": "ZIndex", "Value": "1" },
+            { "Name": "AutoLocalize", "Value": "true" },
+            { "Name": "Localize", "Value": "true" },
+            { "Name": "SelectionBehaviorDown", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorLeft", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorRight", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorUp", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionGroup", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "GetTextBoundsParams",
+        "Props": [
+            { "Name": "Font", "Value": "Font { Family = rbxasset://fonts/families/SourceSansPro.json, Weight = Regular, Style = Normal }" }
+        ]
+    },
+    {
+        "Name": "Debris",
+        "Props": [
+            { "Name": "MaxItems", "Value": "1000" }
+        ]
+    },
+    {
+        "Name": "Decal",
+        "Props": [
+            { "Name": "Face", "Value": "Enum.NormalId.Front" }
+        ]
+    },
+    {
+        "Name": "RigidConstraint",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Visible", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "ImageHandleAdornment",
+        "Props": [
+            { "Name": "AdornCullingMode", "Value": "Enum.AdornCullingMode.Automatic" },
+            { "Name": "AlwaysOnTop", "Value": "false" },
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "SizeRelativeOffset", "Value": "0, 0, 0" },
+            { "Name": "ZIndex", "Value": "-1" },
+            { "Name": "Color3", "Value": "0.94902, 0.952941, 0.952941" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Visible", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "LocalScript",
+        "Props": [
+            { "Name": "Disabled", "Value": "false" },
+            { "Name": "LinkedSource", "Value": "" },
+            { "Name": "RunContext", "Value": "Enum.RunContext.Legacy" }
+        ]
+    },
+    {
+        "Name": "AlignOrientation",
+        "Props": [
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Visible", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "SphereHandleAdornment",
+        "Props": [
+            { "Name": "AdornCullingMode", "Value": "Enum.AdornCullingMode.Automatic" },
+            { "Name": "AlwaysOnTop", "Value": "false" },
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "SizeRelativeOffset", "Value": "0, 0, 0" },
+            { "Name": "ZIndex", "Value": "-1" },
+            { "Name": "Color3", "Value": "0.0509804, 0.411765, 0.67451" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Visible", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "ReflectionMetadataEnum",
+        "Props": [
+            { "Name": "Browsable", "Value": "true" },
+            { "Name": "ClassCategory", "Value": "" },
+            { "Name": "ClientOnly", "Value": "false" },
+            { "Name": "Constraint", "Value": "" },
+            { "Name": "Deprecated", "Value": "false" },
+            { "Name": "EditingDisabled", "Value": "false" },
+            { "Name": "EditorType", "Value": "" },
+            { "Name": "FFlag", "Value": "" },
+            { "Name": "IsBackend", "Value": "false" },
+            { "Name": "PropertyOrder", "Value": "5000" },
+            { "Name": "ScriptContext", "Value": "" },
+            { "Name": "ServerOnly", "Value": "false" },
+            { "Name": "SliderScaling", "Value": "" },
+            { "Name": "UIMaximum", "Value": "0" },
+            { "Name": "UIMinimum", "Value": "0" },
+            { "Name": "UINumTicks", "Value": "0" }
+        ]
+    },
+    {
+        "Name": "UserInputService",
+        "Props": [
+            { "Name": "MouseBehavior", "Value": "Enum.MouseBehavior.Default" },
+            { "Name": "MouseIcon", "Value": "" },
+            { "Name": "MouseIconEnabled", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "UITableLayout",
+        "Props": [
+            { "Name": "FillDirection", "Value": "Enum.FillDirection.Vertical" },
+            { "Name": "HorizontalAlignment", "Value": "Enum.HorizontalAlignment.Left" },
+            { "Name": "SortOrder", "Value": "Enum.SortOrder.Name" },
+            { "Name": "VerticalAlignment", "Value": "Enum.VerticalAlignment.Top" }
+        ]
+    },
+    {
+        "Name": "UIPageLayout",
+        "Props": [
+            { "Name": "FillDirection", "Value": "Enum.FillDirection.Horizontal" },
+            { "Name": "HorizontalAlignment", "Value": "Enum.HorizontalAlignment.Left" },
+            { "Name": "SortOrder", "Value": "Enum.SortOrder.Name" },
+            { "Name": "VerticalAlignment", "Value": "Enum.VerticalAlignment.Top" }
+        ]
+    },
+    {
+        "Name": "AnimationConstraint",
+        "Props": [
+            { "Name": "Transform", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Visible", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "Plane",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Visible", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "PartOperation",
+        "Props": [
+            { "Name": "Anchored", "Value": "false" },
+            { "Name": "BackParamA", "Value": "-0.5" },
+            { "Name": "BackParamB", "Value": "0.5" },
+            { "Name": "BackSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "BackSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "BottomParamA", "Value": "-0.5" },
+            { "Name": "BottomParamB", "Value": "0.5" },
+            { "Name": "BottomSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "BottomSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "CanCollide", "Value": "true" },
+            { "Name": "CanQuery", "Value": "true" },
+            { "Name": "CanTouch", "Value": "true" },
+            { "Name": "CastShadow", "Value": "true" },
+            { "Name": "CollisionGroup", "Value": "Default" },
+            { "Name": "CollisionGroupId", "Value": "0" },
+            { "Name": "Elasticity", "Value": "0.5" },
+            { "Name": "EnableFluidForces", "Value": "true" },
+            { "Name": "Friction", "Value": "0.30000001192092896" },
+            { "Name": "FrontParamA", "Value": "-0.5" },
+            { "Name": "FrontParamB", "Value": "0.5" },
+            { "Name": "FrontSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "FrontSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "LeftParamA", "Value": "-0.5" },
+            { "Name": "LeftParamB", "Value": "0.5" },
+            { "Name": "LeftSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "LeftSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Locked", "Value": "false" },
+            { "Name": "Massless", "Value": "false" },
+            { "Name": "Material", "Value": "Enum.Material.Plastic" },
+            { "Name": "PivotOffset", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Reflectance", "Value": "0" },
+            { "Name": "RightParamA", "Value": "-0.5" },
+            { "Name": "RightParamB", "Value": "0.5" },
+            { "Name": "RightSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "RightSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "RootPriority", "Value": "0" },
+            { "Name": "RotVelocity", "Value": "0, 0, 0" },
+            { "Name": "TopParamA", "Value": "-0.5" },
+            { "Name": "TopParamB", "Value": "0.5" },
+            { "Name": "TopSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "TopSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Velocity", "Value": "0, 0, 0" },
+            { "Name": "size", "Value": "4, 1.2000000476837158, 2" }
+        ]
+    },
+    {
+        "Name": "ChatWindowConfiguration",
+        "Props": [
+            { "Name": "FontFace", "Value": "Font { Family = rbxasset://fonts/families/BuilderSans.json, Weight = Medium, Style = Normal }" }
+        ]
+    },
+    {
+        "Name": "ColorCorrectionEffect",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "UnionOperation",
+        "Props": [
+            { "Name": "Anchored", "Value": "false" },
+            { "Name": "BackParamA", "Value": "-0.5" },
+            { "Name": "BackParamB", "Value": "0.5" },
+            { "Name": "BackSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "BackSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "BottomParamA", "Value": "-0.5" },
+            { "Name": "BottomParamB", "Value": "0.5" },
+            { "Name": "BottomSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "BottomSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "CanCollide", "Value": "true" },
+            { "Name": "CanQuery", "Value": "true" },
+            { "Name": "CanTouch", "Value": "true" },
+            { "Name": "CastShadow", "Value": "true" },
+            { "Name": "CollisionGroup", "Value": "Default" },
+            { "Name": "CollisionGroupId", "Value": "0" },
+            { "Name": "Elasticity", "Value": "0.5" },
+            { "Name": "EnableFluidForces", "Value": "true" },
+            { "Name": "Friction", "Value": "0.30000001192092896" },
+            { "Name": "FrontParamA", "Value": "-0.5" },
+            { "Name": "FrontParamB", "Value": "0.5" },
+            { "Name": "FrontSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "FrontSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "LeftParamA", "Value": "-0.5" },
+            { "Name": "LeftParamB", "Value": "0.5" },
+            { "Name": "LeftSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "LeftSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Locked", "Value": "false" },
+            { "Name": "Massless", "Value": "false" },
+            { "Name": "Material", "Value": "Enum.Material.Plastic" },
+            { "Name": "PivotOffset", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Reflectance", "Value": "0" },
+            { "Name": "RightParamA", "Value": "-0.5" },
+            { "Name": "RightParamB", "Value": "0.5" },
+            { "Name": "RightSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "RightSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "RootPriority", "Value": "0" },
+            { "Name": "RotVelocity", "Value": "0, 0, 0" },
+            { "Name": "TopParamA", "Value": "-0.5" },
+            { "Name": "TopParamB", "Value": "0.5" },
+            { "Name": "TopSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "TopSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Velocity", "Value": "0, 0, 0" },
+            { "Name": "size", "Value": "4, 1.2000000476837158, 2" }
+        ]
+    },
+    {
+        "Name": "ClimbController",
+        "Props": [
+            { "Name": "BalanceRigidityEnabled", "Value": "false" },
+            { "Name": "MoveSpeedFactor", "Value": "1" }
+        ]
+    },
+    {
+        "Name": "BubbleChatConfiguration",
+        "Props": [
+            { "Name": "FontFace", "Value": "Font { Family = rbxasset://fonts/families/BuilderSans.json, Weight = Medium, Style = Normal }" }
+        ]
+    },
+    {
+        "Name": "RopeConstraint",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Visible", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "TeleportService",
+        "Props": [
+            { "Name": "CustomizedTeleportUI", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "ReflectionMetadataEnumItem",
+        "Props": [
+            { "Name": "Browsable", "Value": "true" },
+            { "Name": "ClassCategory", "Value": "" },
+            { "Name": "ClientOnly", "Value": "false" },
+            { "Name": "Constraint", "Value": "" },
+            { "Name": "Deprecated", "Value": "false" },
+            { "Name": "EditingDisabled", "Value": "false" },
+            { "Name": "EditorType", "Value": "" },
+            { "Name": "FFlag", "Value": "" },
+            { "Name": "IsBackend", "Value": "false" },
+            { "Name": "PropertyOrder", "Value": "5000" },
+            { "Name": "ScriptContext", "Value": "" },
+            { "Name": "ServerOnly", "Value": "false" },
+            { "Name": "SliderScaling", "Value": "" },
+            { "Name": "UIMaximum", "Value": "0" },
+            { "Name": "UIMinimum", "Value": "0" },
+            { "Name": "UINumTicks", "Value": "0" }
+        ]
+    },
+    {
+        "Name": "TremoloSoundEffect",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Priority", "Value": "0" }
+        ]
+    },
+    {
+        "Name": "ReverbSoundEffect",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Priority", "Value": "0" }
+        ]
+    },
+    {
+        "Name": "DistortionSoundEffect",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Priority", "Value": "0" }
+        ]
+    },
+    {
+        "Name": "SelectionBox",
+        "Props": [
+            { "Name": "Color3", "Value": "0.0509804, 0.411765, 0.67451" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Visible", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "VehicleSeat",
+        "Props": [
+            { "Name": "Anchored", "Value": "false" },
+            { "Name": "BackParamA", "Value": "-0.5" },
+            { "Name": "BackParamB", "Value": "0.5" },
+            { "Name": "BackSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "BackSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "BottomParamA", "Value": "-0.5" },
+            { "Name": "BottomParamB", "Value": "0.5" },
+            { "Name": "BottomSurface", "Value": "Enum.SurfaceType.Inlet" },
+            { "Name": "BottomSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "CanCollide", "Value": "true" },
+            { "Name": "CanQuery", "Value": "true" },
+            { "Name": "CanTouch", "Value": "true" },
+            { "Name": "CastShadow", "Value": "true" },
+            { "Name": "CollisionGroup", "Value": "Default" },
+            { "Name": "CollisionGroupId", "Value": "0" },
+            { "Name": "Elasticity", "Value": "0.5" },
+            { "Name": "EnableFluidForces", "Value": "true" },
+            { "Name": "Friction", "Value": "0.30000001192092896" },
+            { "Name": "FrontParamA", "Value": "-0.5" },
+            { "Name": "FrontParamB", "Value": "0.5" },
+            { "Name": "FrontSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "FrontSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "LeftParamA", "Value": "-0.5" },
+            { "Name": "LeftParamB", "Value": "0.5" },
+            { "Name": "LeftSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "LeftSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Locked", "Value": "false" },
+            { "Name": "Massless", "Value": "false" },
+            { "Name": "Material", "Value": "Enum.Material.Plastic" },
+            { "Name": "PivotOffset", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Reflectance", "Value": "0" },
+            { "Name": "RightParamA", "Value": "-0.5" },
+            { "Name": "RightParamB", "Value": "0.5" },
+            { "Name": "RightSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "RightSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "RootPriority", "Value": "0" },
+            { "Name": "RotVelocity", "Value": "0, 0, 0" },
+            { "Name": "TopParamA", "Value": "-0.5" },
+            { "Name": "TopParamB", "Value": "0.5" },
+            { "Name": "TopSurface", "Value": "Enum.SurfaceType.Studs" },
+            { "Name": "TopSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Velocity", "Value": "0, 0, 0" },
+            { "Name": "size", "Value": "4, 1.2000000476837158, 2" }
+        ]
+    },
+    {
+        "Name": "Motor6D",
+        "Props": [
+            { "Name": "C0", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "C1", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Enabled", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "VideoFrame",
+        "Props": [
+            { "Name": "Active", "Value": "false" },
+            { "Name": "AnchorPoint", "Value": "0, 0" },
+            { "Name": "AutomaticSize", "Value": "Enum.AutomaticSize.None" },
+            { "Name": "BackgroundColor3", "Value": "0.639216, 0.635294, 0.647059" },
+            { "Name": "BackgroundTransparency", "Value": "0" },
+            { "Name": "BorderColor3", "Value": "0.105882, 0.164706, 0.207843" },
+            { "Name": "BorderMode", "Value": "Enum.BorderMode.Outline" },
+            { "Name": "BorderSizePixel", "Value": "1" },
+            { "Name": "ClipsDescendants", "Value": "false" },
+            { "Name": "Draggable", "Value": "false" },
+            { "Name": "Interactable", "Value": "true" },
+            { "Name": "LayoutOrder", "Value": "0" },
+            { "Name": "Position", "Value": "{0, 0}, {0, 0}" },
+            { "Name": "Rotation", "Value": "0" },
+            { "Name": "Selectable", "Value": "false" },
+            { "Name": "SelectionOrder", "Value": "0" },
+            { "Name": "Size", "Value": "{0, 0}, {0, 0}" },
+            { "Name": "SizeConstraint", "Value": "Enum.SizeConstraint.RelativeXY" },
+            { "Name": "Visible", "Value": "true" },
+            { "Name": "ZIndex", "Value": "1" },
+            { "Name": "AutoLocalize", "Value": "true" },
+            { "Name": "Localize", "Value": "true" },
+            { "Name": "SelectionBehaviorDown", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorLeft", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorRight", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorUp", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionGroup", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "ChorusSoundEffect",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Priority", "Value": "0" }
+        ]
+    },
+    {
+        "Name": "Workspace",
+        "Props": [
+            { "Name": "AirDensity", "Value": "0.0012000000569969416" },
+            { "Name": "AllowThirdPartySales", "Value": "false" },
+            { "Name": "ClientAnimatorThrottling", "Value": "Enum.ClientAnimatorThrottlingMode.Default" },
+            { "Name": "DistributedGameTime", "Value": "0" },
+            { "Name": "FallenPartsDestroyHeight", "Value": "-500" },
+            { "Name": "GlobalWind", "Value": "0, 0, 0" },
+            { "Name": "Gravity", "Value": "196.1999969482422" },
+            { "Name": "Retargeting", "Value": "Enum.AnimatorRetargetingMode.Default" },
+            { "Name": "StreamingEnabled", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "RenderingTest",
+        "Props": [
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" }
+        ]
+    },
+    {
+        "Name": "FloorWire",
+        "Props": [
+            { "Name": "Color3", "Value": "0.0509804, 0.411765, 0.67451" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Visible", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "TrussPart",
+        "Props": [
+            { "Name": "Anchored", "Value": "false" },
+            { "Name": "BackParamA", "Value": "-0.5" },
+            { "Name": "BackParamB", "Value": "0.5" },
+            { "Name": "BackSurface", "Value": "Enum.SurfaceType.Universal" },
+            { "Name": "BackSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "BottomParamA", "Value": "-0.5" },
+            { "Name": "BottomParamB", "Value": "0.5" },
+            { "Name": "BottomSurface", "Value": "Enum.SurfaceType.Universal" },
+            { "Name": "BottomSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "CanCollide", "Value": "true" },
+            { "Name": "CanQuery", "Value": "true" },
+            { "Name": "CanTouch", "Value": "true" },
+            { "Name": "CastShadow", "Value": "true" },
+            { "Name": "CollisionGroup", "Value": "Default" },
+            { "Name": "CollisionGroupId", "Value": "0" },
+            { "Name": "Elasticity", "Value": "0.5" },
+            { "Name": "EnableFluidForces", "Value": "true" },
+            { "Name": "Friction", "Value": "0.30000001192092896" },
+            { "Name": "FrontParamA", "Value": "-0.5" },
+            { "Name": "FrontParamB", "Value": "0.5" },
+            { "Name": "FrontSurface", "Value": "Enum.SurfaceType.Universal" },
+            { "Name": "FrontSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "LeftParamA", "Value": "-0.5" },
+            { "Name": "LeftParamB", "Value": "0.5" },
+            { "Name": "LeftSurface", "Value": "Enum.SurfaceType.Universal" },
+            { "Name": "LeftSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Locked", "Value": "false" },
+            { "Name": "Massless", "Value": "false" },
+            { "Name": "Material", "Value": "Enum.Material.Plastic" },
+            { "Name": "PivotOffset", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Reflectance", "Value": "0" },
+            { "Name": "RightParamA", "Value": "-0.5" },
+            { "Name": "RightParamB", "Value": "0.5" },
+            { "Name": "RightSurface", "Value": "Enum.SurfaceType.Universal" },
+            { "Name": "RightSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "RootPriority", "Value": "0" },
+            { "Name": "RotVelocity", "Value": "0, 0, 0" },
+            { "Name": "TopParamA", "Value": "-0.5" },
+            { "Name": "TopParamB", "Value": "0.5" },
+            { "Name": "TopSurface", "Value": "Enum.SurfaceType.Universal" },
+            { "Name": "TopSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Velocity", "Value": "0, 0, 0" },
+            { "Name": "size", "Value": "2, 2, 2" }
+        ]
+    },
+    {
+        "Name": "ControllerPartSensor",
+        "Props": [
+            { "Name": "HitFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "UpdateType", "Value": "Enum.SensorUpdateType.OnRead" }
+        ]
+    },
+    {
+        "Name": "CompressorSoundEffect",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Priority", "Value": "0" }
+        ]
+    },
+    {
+        "Name": "BloomEffect",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "SelectionPartLasso",
+        "Props": [
+            { "Name": "Color3", "Value": "0.0509804, 0.411765, 0.67451" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Visible", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "Flag",
+        "Props": [
+            { "Name": "Grip", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "TextureId", "Value": "" }
+        ]
+    },
+    {
+        "Name": "Tool",
+        "Props": [
+            { "Name": "Grip", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "TextureId", "Value": "" }
+        ]
+    },
+    {
+        "Name": "Motor",
+        "Props": [
+            { "Name": "C0", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "C1", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Enabled", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "PrismaticConstraint",
+        "Props": [
+            { "Name": "ActuatorType", "Value": "Enum.ActuatorType.None" },
+            { "Name": "LimitsEnabled", "Value": "false" },
+            { "Name": "LinearResponsiveness", "Value": "45" },
+            { "Name": "LowerLimit", "Value": "0" },
+            { "Name": "MotorMaxAcceleration", "Value": "inf" },
+            { "Name": "MotorMaxForce", "Value": "0" },
+            { "Name": "Restitution", "Value": "0" },
+            { "Name": "ServoMaxForce", "Value": "0" },
+            { "Name": "Size", "Value": "0.15000000596046448" },
+            { "Name": "SoftlockServoUponReachingTarget", "Value": "false" },
+            { "Name": "Speed", "Value": "0" },
+            { "Name": "TargetPosition", "Value": "0" },
+            { "Name": "UpperLimit", "Value": "5" },
+            { "Name": "Velocity", "Value": "0" },
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Visible", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "TorsionSpringConstraint",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Visible", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "UIGridLayout",
+        "Props": [
+            { "Name": "FillDirection", "Value": "Enum.FillDirection.Horizontal" },
+            { "Name": "HorizontalAlignment", "Value": "Enum.HorizontalAlignment.Left" },
+            { "Name": "SortOrder", "Value": "Enum.SortOrder.Name" },
+            { "Name": "VerticalAlignment", "Value": "Enum.VerticalAlignment.Top" }
+        ]
+    },
+    {
+        "Name": "MeshPart",
+        "Props": [
+            { "Name": "Anchored", "Value": "false" },
+            { "Name": "BackParamA", "Value": "-0.5" },
+            { "Name": "BackParamB", "Value": "0.5" },
+            { "Name": "BackSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "BackSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "BottomParamA", "Value": "-0.5" },
+            { "Name": "BottomParamB", "Value": "0.5" },
+            { "Name": "BottomSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "BottomSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "CanCollide", "Value": "true" },
+            { "Name": "CanQuery", "Value": "true" },
+            { "Name": "CanTouch", "Value": "true" },
+            { "Name": "CastShadow", "Value": "true" },
+            { "Name": "CollisionGroup", "Value": "Default" },
+            { "Name": "CollisionGroupId", "Value": "0" },
+            { "Name": "Elasticity", "Value": "0.5" },
+            { "Name": "EnableFluidForces", "Value": "true" },
+            { "Name": "Friction", "Value": "0.30000001192092896" },
+            { "Name": "FrontParamA", "Value": "-0.5" },
+            { "Name": "FrontParamB", "Value": "0.5" },
+            { "Name": "FrontSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "FrontSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "LeftParamA", "Value": "-0.5" },
+            { "Name": "LeftParamB", "Value": "0.5" },
+            { "Name": "LeftSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "LeftSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Locked", "Value": "false" },
+            { "Name": "Massless", "Value": "false" },
+            { "Name": "Material", "Value": "Enum.Material.Plastic" },
+            { "Name": "PivotOffset", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Reflectance", "Value": "0" },
+            { "Name": "RightParamA", "Value": "-0.5" },
+            { "Name": "RightParamB", "Value": "0.5" },
+            { "Name": "RightSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "RightSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "RootPriority", "Value": "0" },
+            { "Name": "RotVelocity", "Value": "0, 0, 0" },
+            { "Name": "TopParamA", "Value": "-0.5" },
+            { "Name": "TopParamB", "Value": "0.5" },
+            { "Name": "TopSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "TopSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Velocity", "Value": "0, 0, 0" },
+            { "Name": "size", "Value": "4, 1.2000000476837158, 2" }
+        ]
+    },
+    {
+        "Name": "Terrain",
+        "Props": [
+            { "Name": "Anchored", "Value": "true" },
+            { "Name": "BackParamA", "Value": "-0.5" },
+            { "Name": "BackParamB", "Value": "0.5" },
+            { "Name": "BackSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "BackSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "BottomParamA", "Value": "-0.5" },
+            { "Name": "BottomParamB", "Value": "0.5" },
+            { "Name": "BottomSurface", "Value": "Enum.SurfaceType.Inlet" },
+            { "Name": "BottomSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "CanCollide", "Value": "true" },
+            { "Name": "CanQuery", "Value": "true" },
+            { "Name": "CanTouch", "Value": "true" },
+            { "Name": "CastShadow", "Value": "true" },
+            { "Name": "CollisionGroup", "Value": "Default" },
+            { "Name": "CollisionGroupId", "Value": "0" },
+            { "Name": "Elasticity", "Value": "0.30000001192092896" },
+            { "Name": "EnableFluidForces", "Value": "true" },
+            { "Name": "Friction", "Value": "0.5" },
+            { "Name": "FrontParamA", "Value": "-0.5" },
+            { "Name": "FrontParamB", "Value": "0.5" },
+            { "Name": "FrontSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "FrontSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "LeftParamA", "Value": "-0.5" },
+            { "Name": "LeftParamB", "Value": "0.5" },
+            { "Name": "LeftSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "LeftSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Locked", "Value": "true" },
+            { "Name": "Massless", "Value": "false" },
+            { "Name": "Material", "Value": "Enum.Material.Plastic" },
+            { "Name": "PivotOffset", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Reflectance", "Value": "0" },
+            { "Name": "RightParamA", "Value": "-0.5" },
+            { "Name": "RightParamB", "Value": "0.5" },
+            { "Name": "RightSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "RightSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "RootPriority", "Value": "0" },
+            { "Name": "RotVelocity", "Value": "0, 0, 0" },
+            { "Name": "TopParamA", "Value": "-0.5" },
+            { "Name": "TopParamB", "Value": "0.5" },
+            { "Name": "TopSurface", "Value": "Enum.SurfaceType.Studs" },
+            { "Name": "TopSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Velocity", "Value": "0, 0, 0" },
+            { "Name": "size", "Value": "2044, 252, 2044" }
+        ]
+    },
+    {
+        "Name": "SpringConstraint",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Visible", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "WedgePart",
+        "Props": [
+            { "Name": "FormFactor", "Value": "Enum.FormFactor.Brick" },
+            { "Name": "Anchored", "Value": "false" },
+            { "Name": "BackParamA", "Value": "-0.5" },
+            { "Name": "BackParamB", "Value": "0.5" },
+            { "Name": "BackSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "BackSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "BottomParamA", "Value": "-0.5" },
+            { "Name": "BottomParamB", "Value": "0.5" },
+            { "Name": "BottomSurface", "Value": "Enum.SurfaceType.Inlet" },
+            { "Name": "BottomSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "CanCollide", "Value": "true" },
+            { "Name": "CanQuery", "Value": "true" },
+            { "Name": "CanTouch", "Value": "true" },
+            { "Name": "CastShadow", "Value": "true" },
+            { "Name": "CollisionGroup", "Value": "Default" },
+            { "Name": "CollisionGroupId", "Value": "0" },
+            { "Name": "Elasticity", "Value": "0.5" },
+            { "Name": "EnableFluidForces", "Value": "true" },
+            { "Name": "Friction", "Value": "0.30000001192092896" },
+            { "Name": "FrontParamA", "Value": "-0.5" },
+            { "Name": "FrontParamB", "Value": "0.5" },
+            { "Name": "FrontSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "FrontSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "LeftParamA", "Value": "-0.5" },
+            { "Name": "LeftParamB", "Value": "0.5" },
+            { "Name": "LeftSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "LeftSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Locked", "Value": "false" },
+            { "Name": "Massless", "Value": "false" },
+            { "Name": "Material", "Value": "Enum.Material.Plastic" },
+            { "Name": "PivotOffset", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Reflectance", "Value": "0" },
+            { "Name": "RightParamA", "Value": "-0.5" },
+            { "Name": "RightParamB", "Value": "0.5" },
+            { "Name": "RightSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "RightSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "RootPriority", "Value": "0" },
+            { "Name": "RotVelocity", "Value": "0, 0, 0" },
+            { "Name": "TopParamA", "Value": "-0.5" },
+            { "Name": "TopParamB", "Value": "0.5" },
+            { "Name": "TopSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "TopSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Velocity", "Value": "0, 0, 0" },
+            { "Name": "size", "Value": "4, 1.2000000476837158, 2" }
+        ]
+    },
+    {
+        "Name": "Part",
+        "Props": [
+            { "Name": "FormFactor", "Value": "Enum.FormFactor.Brick" },
+            { "Name": "Anchored", "Value": "false" },
+            { "Name": "BackParamA", "Value": "-0.5" },
+            { "Name": "BackParamB", "Value": "0.5" },
+            { "Name": "BackSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "BackSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "BottomParamA", "Value": "-0.5" },
+            { "Name": "BottomParamB", "Value": "0.5" },
+            { "Name": "BottomSurface", "Value": "Enum.SurfaceType.Inlet" },
+            { "Name": "BottomSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "CanCollide", "Value": "true" },
+            { "Name": "CanQuery", "Value": "true" },
+            { "Name": "CanTouch", "Value": "true" },
+            { "Name": "CastShadow", "Value": "true" },
+            { "Name": "CollisionGroup", "Value": "Default" },
+            { "Name": "CollisionGroupId", "Value": "0" },
+            { "Name": "Elasticity", "Value": "0.5" },
+            { "Name": "EnableFluidForces", "Value": "true" },
+            { "Name": "Friction", "Value": "0.30000001192092896" },
+            { "Name": "FrontParamA", "Value": "-0.5" },
+            { "Name": "FrontParamB", "Value": "0.5" },
+            { "Name": "FrontSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "FrontSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "LeftParamA", "Value": "-0.5" },
+            { "Name": "LeftParamB", "Value": "0.5" },
+            { "Name": "LeftSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "LeftSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Locked", "Value": "false" },
+            { "Name": "Massless", "Value": "false" },
+            { "Name": "Material", "Value": "Enum.Material.Plastic" },
+            { "Name": "PivotOffset", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Reflectance", "Value": "0" },
+            { "Name": "RightParamA", "Value": "-0.5" },
+            { "Name": "RightParamB", "Value": "0.5" },
+            { "Name": "RightSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "RightSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "RootPriority", "Value": "0" },
+            { "Name": "RotVelocity", "Value": "0, 0, 0" },
+            { "Name": "TopParamA", "Value": "-0.5" },
+            { "Name": "TopParamB", "Value": "0.5" },
+            { "Name": "TopSurface", "Value": "Enum.SurfaceType.Studs" },
+            { "Name": "TopSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Velocity", "Value": "0, 0, 0" },
+            { "Name": "size", "Value": "4, 1.2000000476837158, 2" }
+        ]
+    },
+    {
+        "Name": "CornerWedgePart",
+        "Props": [
+            { "Name": "Anchored", "Value": "false" },
+            { "Name": "BackParamA", "Value": "-0.5" },
+            { "Name": "BackParamB", "Value": "0.5" },
+            { "Name": "BackSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "BackSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "BottomParamA", "Value": "-0.5" },
+            { "Name": "BottomParamB", "Value": "0.5" },
+            { "Name": "BottomSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "BottomSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "CanCollide", "Value": "true" },
+            { "Name": "CanQuery", "Value": "true" },
+            { "Name": "CanTouch", "Value": "true" },
+            { "Name": "CastShadow", "Value": "true" },
+            { "Name": "CollisionGroup", "Value": "Default" },
+            { "Name": "CollisionGroupId", "Value": "0" },
+            { "Name": "Elasticity", "Value": "0.5" },
+            { "Name": "EnableFluidForces", "Value": "true" },
+            { "Name": "Friction", "Value": "0.30000001192092896" },
+            { "Name": "FrontParamA", "Value": "-0.5" },
+            { "Name": "FrontParamB", "Value": "0.5" },
+            { "Name": "FrontSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "FrontSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "LeftParamA", "Value": "-0.5" },
+            { "Name": "LeftParamB", "Value": "0.5" },
+            { "Name": "LeftSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "LeftSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Locked", "Value": "false" },
+            { "Name": "Massless", "Value": "false" },
+            { "Name": "Material", "Value": "Enum.Material.Plastic" },
+            { "Name": "PivotOffset", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Reflectance", "Value": "0" },
+            { "Name": "RightParamA", "Value": "-0.5" },
+            { "Name": "RightParamB", "Value": "0.5" },
+            { "Name": "RightSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "RightSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "RootPriority", "Value": "0" },
+            { "Name": "RotVelocity", "Value": "0, 0, 0" },
+            { "Name": "TopParamA", "Value": "-0.5" },
+            { "Name": "TopParamB", "Value": "0.5" },
+            { "Name": "TopSurface", "Value": "Enum.SurfaceType.Smooth" },
+            { "Name": "TopSurfaceInput", "Value": "Enum.InputType.NoInput" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Velocity", "Value": "0, 0, 0" },
+            { "Name": "size", "Value": "2, 2, 2" }
+        ]
+    },
+    {
+        "Name": "ManualWeld",
+        "Props": [
+            { "Name": "C0", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "C1", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Enabled", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "ChatInputBarConfiguration",
+        "Props": [
+            { "Name": "FontFace", "Value": "Font { Family = rbxasset://fonts/families/BuilderSans.json, Weight = Medium, Style = Normal }" }
+        ]
+    },
+    {
+        "Name": "SurfaceLight",
+        "Props": [
+            { "Name": "Angle", "Value": "90" },
+            { "Name": "Face", "Value": "Enum.NormalId.Front" },
+            { "Name": "Range", "Value": "16" },
+            { "Name": "Brightness", "Value": "1" },
+            { "Name": "Color", "Value": "1, 1, 1" },
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Shadows", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "PointLight",
+        "Props": [
+            { "Name": "Range", "Value": "8" },
+            { "Name": "Brightness", "Value": "1" },
+            { "Name": "Color", "Value": "1, 1, 1" },
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Shadows", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "RotateV",
+        "Props": [
+            { "Name": "BaseAngle", "Value": "0" },
+            { "Name": "C0", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "C1", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Enabled", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "Rotate",
+        "Props": [
+            { "Name": "C0", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "C1", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Enabled", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "CylinderMesh",
+        "Props": [
+            { "Name": "Offset", "Value": "0, 0, 0" },
+            { "Name": "Scale", "Value": "1, 1, 1" },
+            { "Name": "VertexColor", "Value": "1, 1, 1" }
+        ]
+    },
+    {
+        "Name": "ConeHandleAdornment",
+        "Props": [
+            { "Name": "AdornCullingMode", "Value": "Enum.AdornCullingMode.Automatic" },
+            { "Name": "AlwaysOnTop", "Value": "false" },
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "SizeRelativeOffset", "Value": "0, 0, 0" },
+            { "Name": "ZIndex", "Value": "-1" },
+            { "Name": "Color3", "Value": "0.0509804, 0.411765, 0.67451" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Visible", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "SunRaysEffect",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "Glue",
+        "Props": [
+            { "Name": "C0", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "C1", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Enabled", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "Weld",
+        "Props": [
+            { "Name": "C0", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "C1", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Enabled", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "RotateP",
+        "Props": [
+            { "Name": "BaseAngle", "Value": "0" },
+            { "Name": "C0", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "C1", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Enabled", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "AdGui",
+        "Props": [
+            { "Name": "Active", "Value": "true" },
+            { "Name": "Face", "Value": "Enum.NormalId.Front" },
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "ResetOnSpawn", "Value": "true" },
+            { "Name": "ZIndexBehavior", "Value": "Enum.ZIndexBehavior.Global" },
+            { "Name": "AutoLocalize", "Value": "true" },
+            { "Name": "Localize", "Value": "true" },
+            { "Name": "SelectionBehaviorDown", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorLeft", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorRight", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorUp", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionGroup", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "SelectionPointLasso",
+        "Props": [
+            { "Name": "Color3", "Value": "0.0509804, 0.411765, 0.67451" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Visible", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "Pose",
+        "Props": [
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "EasingDirection", "Value": "Enum.PoseEasingDirection.In" },
+            { "Name": "EasingStyle", "Value": "Enum.PoseEasingStyle.Linear" },
+            { "Name": "Weight", "Value": "1" }
+        ]
+    },
+    {
+        "Name": "SelectionSphere",
+        "Props": [
+            { "Name": "Color3", "Value": "0.0509804, 0.411765, 0.67451" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Visible", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "Hat",
+        "Props": [
+            { "Name": "AttachmentPoint", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" }
+        ]
+    },
+    {
+        "Name": "LineHandleAdornment",
+        "Props": [
+            { "Name": "AdornCullingMode", "Value": "Enum.AdornCullingMode.Automatic" },
+            { "Name": "AlwaysOnTop", "Value": "false" },
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "SizeRelativeOffset", "Value": "0, 0, 0" },
+            { "Name": "ZIndex", "Value": "-1" },
+            { "Name": "Color3", "Value": "0.0509804, 0.411765, 0.67451" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Visible", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "LinearVelocity",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Visible", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "Frame",
+        "Props": [
+            { "Name": "Active", "Value": "false" },
+            { "Name": "AnchorPoint", "Value": "0, 0" },
+            { "Name": "AutomaticSize", "Value": "Enum.AutomaticSize.None" },
+            { "Name": "BackgroundColor3", "Value": "0.639216, 0.635294, 0.647059" },
+            { "Name": "BackgroundTransparency", "Value": "0" },
+            { "Name": "BorderColor3", "Value": "0.105882, 0.164706, 0.207843" },
+            { "Name": "BorderMode", "Value": "Enum.BorderMode.Outline" },
+            { "Name": "BorderSizePixel", "Value": "1" },
+            { "Name": "ClipsDescendants", "Value": "false" },
+            { "Name": "Draggable", "Value": "false" },
+            { "Name": "Interactable", "Value": "true" },
+            { "Name": "LayoutOrder", "Value": "0" },
+            { "Name": "Position", "Value": "{0, 0}, {0, 0}" },
+            { "Name": "Rotation", "Value": "0" },
+            { "Name": "Selectable", "Value": "false" },
+            { "Name": "SelectionOrder", "Value": "0" },
+            { "Name": "Size", "Value": "{0, 0}, {0, 0}" },
+            { "Name": "SizeConstraint", "Value": "Enum.SizeConstraint.RelativeXY" },
+            { "Name": "Visible", "Value": "true" },
+            { "Name": "ZIndex", "Value": "1" },
+            { "Name": "AutoLocalize", "Value": "true" },
+            { "Name": "Localize", "Value": "true" },
+            { "Name": "SelectionBehaviorDown", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorLeft", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorRight", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorUp", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionGroup", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "AlignPosition",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Visible", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "WrapTarget",
+        "Props": [
+            { "Name": "CageMeshId", "Value": "" },
+            { "Name": "CageOrigin", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "ImportOrigin", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" }
+        ]
+    },
+    {
+        "Name": "HingeConstraint",
+        "Props": [
+            { "Name": "Enabled", "Value": "true" },
+            { "Name": "Visible", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "IKControl",
+        "Props": [
+            { "Name": "EndEffectorOffset", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "Offset", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" }
+        ]
+    },
+    {
+        "Name": "TextButton",
+        "Props": [
+            { "Name": "FontFace", "Value": "Font { Family = rbxasset://fonts/families/LegacyArial.json, Weight = Regular, Style = Normal }" },
+            { "Name": "AutoButtonColor", "Value": "true" },
+            { "Name": "Modal", "Value": "false" },
+            { "Name": "Selected", "Value": "false" },
+            { "Name": "Style", "Value": "Enum.ButtonStyle.Custom" },
+            { "Name": "Active", "Value": "true" },
+            { "Name": "AnchorPoint", "Value": "0, 0" },
+            { "Name": "AutomaticSize", "Value": "Enum.AutomaticSize.None" },
+            { "Name": "BackgroundColor3", "Value": "0.639216, 0.635294, 0.647059" },
+            { "Name": "BackgroundTransparency", "Value": "0" },
+            { "Name": "BorderColor3", "Value": "0.105882, 0.164706, 0.207843" },
+            { "Name": "BorderMode", "Value": "Enum.BorderMode.Outline" },
+            { "Name": "BorderSizePixel", "Value": "1" },
+            { "Name": "ClipsDescendants", "Value": "false" },
+            { "Name": "Draggable", "Value": "false" },
+            { "Name": "Interactable", "Value": "true" },
+            { "Name": "LayoutOrder", "Value": "0" },
+            { "Name": "Position", "Value": "{0, 0}, {0, 0}" },
+            { "Name": "Rotation", "Value": "0" },
+            { "Name": "Selectable", "Value": "true" },
+            { "Name": "SelectionOrder", "Value": "0" },
+            { "Name": "Size", "Value": "{0, 0}, {0, 0}" },
+            { "Name": "SizeConstraint", "Value": "Enum.SizeConstraint.RelativeXY" },
+            { "Name": "Visible", "Value": "true" },
+            { "Name": "ZIndex", "Value": "1" },
+            { "Name": "AutoLocalize", "Value": "true" },
+            { "Name": "Localize", "Value": "true" },
+            { "Name": "SelectionBehaviorDown", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorLeft", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorRight", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorUp", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionGroup", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "ImageButton",
+        "Props": [
+            { "Name": "AutoButtonColor", "Value": "true" },
+            { "Name": "Modal", "Value": "false" },
+            { "Name": "Selected", "Value": "false" },
+            { "Name": "Style", "Value": "Enum.ButtonStyle.Custom" },
+            { "Name": "Active", "Value": "true" },
+            { "Name": "AnchorPoint", "Value": "0, 0" },
+            { "Name": "AutomaticSize", "Value": "Enum.AutomaticSize.None" },
+            { "Name": "BackgroundColor3", "Value": "0.639216, 0.635294, 0.647059" },
+            { "Name": "BackgroundTransparency", "Value": "0" },
+            { "Name": "BorderColor3", "Value": "0.105882, 0.164706, 0.207843" },
+            { "Name": "BorderMode", "Value": "Enum.BorderMode.Outline" },
+            { "Name": "BorderSizePixel", "Value": "1" },
+            { "Name": "ClipsDescendants", "Value": "false" },
+            { "Name": "Draggable", "Value": "false" },
+            { "Name": "Interactable", "Value": "true" },
+            { "Name": "LayoutOrder", "Value": "0" },
+            { "Name": "Position", "Value": "{0, 0}, {0, 0}" },
+            { "Name": "Rotation", "Value": "0" },
+            { "Name": "Selectable", "Value": "true" },
+            { "Name": "SelectionOrder", "Value": "0" },
+            { "Name": "Size", "Value": "{0, 0}, {0, 0}" },
+            { "Name": "SizeConstraint", "Value": "Enum.SizeConstraint.RelativeXY" },
+            { "Name": "Visible", "Value": "true" },
+            { "Name": "ZIndex", "Value": "1" },
+            { "Name": "AutoLocalize", "Value": "true" },
+            { "Name": "Localize", "Value": "true" },
+            { "Name": "SelectionBehaviorDown", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorLeft", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorRight", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorUp", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionGroup", "Value": "false" }
+        ]
+    },
+    {
+        "Name": "BoxHandleAdornment",
+        "Props": [
+            { "Name": "AdornCullingMode", "Value": "Enum.AdornCullingMode.Automatic" },
+            { "Name": "AlwaysOnTop", "Value": "false" },
+            { "Name": "CFrame", "Value": "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1" },
+            { "Name": "SizeRelativeOffset", "Value": "0, 0, 0" },
+            { "Name": "ZIndex", "Value": "-1" },
+            { "Name": "Color3", "Value": "0.0509804, 0.411765, 0.67451" },
+            { "Name": "Transparency", "Value": "0" },
+            { "Name": "Visible", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "ScrollingFrame",
+        "Props": [
+            { "Name": "Active", "Value": "false" },
+            { "Name": "AnchorPoint", "Value": "0, 0" },
+            { "Name": "AutomaticSize", "Value": "Enum.AutomaticSize.None" },
+            { "Name": "BackgroundColor3", "Value": "0.639216, 0.635294, 0.647059" },
+            { "Name": "BackgroundTransparency", "Value": "0" },
+            { "Name": "BorderColor3", "Value": "0.105882, 0.164706, 0.207843" },
+            { "Name": "BorderMode", "Value": "Enum.BorderMode.Outline" },
+            { "Name": "BorderSizePixel", "Value": "1" },
+            { "Name": "ClipsDescendants", "Value": "true" },
+            { "Name": "Draggable", "Value": "false" },
+            { "Name": "Interactable", "Value": "true" },
+            { "Name": "LayoutOrder", "Value": "0" },
+            { "Name": "Position", "Value": "{0, 0}, {0, 0}" },
+            { "Name": "Rotation", "Value": "0" },
+            { "Name": "Selectable", "Value": "true" },
+            { "Name": "SelectionOrder", "Value": "0" },
+            { "Name": "Size", "Value": "{0, 0}, {0, 0}" },
+            { "Name": "SizeConstraint", "Value": "Enum.SizeConstraint.RelativeXY" },
+            { "Name": "Visible", "Value": "true" },
+            { "Name": "ZIndex", "Value": "1" },
+            { "Name": "AutoLocalize", "Value": "true" },
+            { "Name": "Localize", "Value": "true" },
+            { "Name": "SelectionBehaviorDown", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorLeft", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorRight", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionBehaviorUp", "Value": "Enum.SelectionBehavior.Escape" },
+            { "Name": "SelectionGroup", "Value": "true" }
+        ]
+    },
+    {
+        "Name": "Shirt",
+        "Props": [
+            { "Name": "Color3", "Value": "1, 1, 1" }
+        ]
+    }
+]

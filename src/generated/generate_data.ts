@@ -8,7 +8,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import fs from "fs";
-import { DataType } from "../lib/roblox_types";
+import { Color3, DataType } from "../lib/roblox_types";
 import axios from "axios";
 
 // JSON type descriptions
@@ -64,6 +64,18 @@ type PropertyMember = ClassMember & {
         CanLoad: boolean
         CanSave: boolean
     }
+}
+
+// Defaults JSON
+
+type DefaultsClass = {
+    Name: string
+    Props: DefaultsProp[]
+}
+
+type DefaultsProp = {
+    Name: string
+    Value: string
 }
 
 // Some helpers
@@ -149,7 +161,11 @@ const PrimitiveInfo = new Map<string, string>([
 
 function formatNum(num: string)
 {
+    if (num.toLowerCase() === "inf") return "Infinity";
+
+    // Use up to 5 decimal points of precision, but cut it off after that
     const fixed = Number(num).toFixed(5);
+    
     const array = fixed.split(".");
     const decimal = array[1];
     let lastIndex = -1;
@@ -157,10 +173,15 @@ function formatNum(num: string)
     {
         if (decimal[i] !== "0") lastIndex = i;
     }
+    
+    // There is no value after the decimal point
     if (lastIndex === -1) return array[0];
+
+    // Cut off the trailing zeroes
     return array[0] + "." + decimal.slice(0, lastIndex + 1);
 }
 
+// Replaces all non-text characters in a string with their unicode equivalent (i.e. \u0001)
 function replaceUnicode(str: string)
 {
     let output = "";
@@ -186,21 +207,52 @@ function formatString(str: string)
     return `"${replaceUnicode(str).replace(/"/g, "\\\"")}"`; // Replace all quotation marks (") with an escaped version (\")
 }
 
-function formatDefault(value: string, dtype: string)
+function formatNumCommaDelimType(value: string, type: string)
+{
+    const converted = value.split(", ").map(formatNum).join(", ");
+    return `new ${type}(${converted})`;
+}
+
+function formatColor3(value: string)
+{
+    const converted = value.split(", ").map((num) => `${Color3.FloatToUint8(Number(num))}`).join(", ");
+    return `Color3.FromRGB(${converted})`;
+}
+
+function formatRect(value: string)
+{
+    const nums = value.split(", ");
+    const vec1 = formatNumCommaDelimType(nums.slice(0, 2).join(", "), "Vector2");
+    const vec2 = formatNumCommaDelimType(nums.slice(2, 4).join(", "), "Vector2");
+    return `new Rect(${vec1}, ${vec2})`;
+}
+
+function formatDefault(value: string, info: PropertyMember, dtype: string)
 {
     switch (dtype)
     {
         case "Int32":
         case "Float32":
         case "Float64":
-            return value === "INF" ? "Infinity" : formatNum(value);
+            return formatNum(value);
         case "Bool":
             return value;
         case "Int64":
             return `BigInt(${value})`;
         case "String":
             return formatString(value);
+        case "Enum":
+            return `${info.ValueType.Name}.${value}`;
+        case "Vector2":
+        case "Vector3":
+        case "UDim":
+            return formatNumCommaDelimType(value, dtype);
+        case "Color3":
+            return formatColor3(value);
+        case "Rect":
+            return formatRect(value);
         default:
+            console.log(`Unmapped default type "${dtype}": ${value}`);
             return "";
     }
 }
@@ -222,14 +274,12 @@ function toPascalCase(str: string)
     ).replace(/[^a-z\d]/gi, '');
 }
 
-const ignoreDefaults = new Set<string>([
-    "__api_dump_skipped_class__",
-    "__api_dump_no_string_value__",
-    "__api_dump_class_not_creatable__",
-    "__api_dump_write_only_property__"
-]);
-
 // The core of the generation
+
+type MemberTypeInfo = {
+    DataType: string | undefined
+    CastString: string
+}
 
 class GenerateData
 {
@@ -244,8 +294,32 @@ class GenerateData
         "ChatWindowConfiguration",
         "ChatInputBarConfiguration"
     ]);
+    protected classToPropInfo = new Map<string, PropertyMember[]>();
+    protected classNameMemberNameInfo = new Map<string, PropertyMember>();
+    protected allClasses = new Map<string, ClassInfo>();
+    protected ignoreDefaults = new Set<string>([
+        "__api_dump_skipped_class__",
+        "__api_dump_no_string_value__",
+        "__api_dump_class_not_creatable__",
+        "__api_dump_write_only_property__"
+    ]);
+    protected hasDefault = new Set<string>();
+    protected allClassDefaultOverrides = new Map<string, Map<string, string>>();
+    protected instanceDefaultOverrides = new Map<string, string>([
+        ["AttributesSerialize", "\"\""],
+        ["Capabilities", "BigInt(0)"],
+        ["DefinesCapabilities", "false"],
+        ["HistoryId", "new UniqueId(0, 0, BigInt(0))"],
+        ["SourceAssetId", "BigInt(-1)"],
+        ["Tags", "\"\""],
+        ["UniqueId", "new UniqueId(0, 0, BigInt(0))"],
+        ["archivable", "true"]
+    ]);
 
-    protected constructor() {}
+    protected constructor() 
+    {
+        this.allClassDefaultOverrides.set("Instance", this.instanceDefaultOverrides);
+    }
 
     protected startFile()
     {
@@ -257,7 +331,7 @@ class GenerateData
 * Generated on ${new Date().toLocaleString()}
 */
 
-import { DataType, CoreInstance, EnumItem } from "../lib/roblox_types";
+import { DataType, CoreInstance, EnumItem, Color3, Rect, Vector2, Vector3, UDim, UniqueId } from "../lib/roblox_types";
 `
         );
     }
@@ -285,53 +359,182 @@ import { DataType, CoreInstance, EnumItem } from "../lib/roblox_types";
         return tags.NotCreatable;
     }
 
-    protected writeDefaults(members: PropertyMember[])
+    protected ignoreDefault(value: string)
     {
+        return this.ignoreDefaults.has(value);
+    }
+
+    protected propHasDefault(info: ClassInfo, propName: string)
+    {
+        return this.hasDefault.has(`${info.Name},${propName}`);
+    }
+
+    protected setPropHasDefault(info: ClassInfo, propName: string)
+    {
+        return this.hasDefault.add(`${info.Name},${propName}`);
+    }
+
+    protected static typeSkipDefaults(member: PropertyMember)
+    {
+        return member.ValueType.Category === "Class" || (member.ValueType.Category === "DataType" && (member.ValueType.Name === "BrickColor" || member.ValueType.Name === "SharedString"));
+    }
+
+    protected gatherPropNamesWithDefaults(info: ClassInfo)
+    {
+        const propNames: string[] = [];
+        let loopInfo: ClassInfo | undefined = info;
+        while (loopInfo)
+        {
+            const members = this.classToPropInfo.get(loopInfo.Name);
+            if (!members) continue;
+            for (const member of members)
+            {
+                if (GenerateData.typeSkipDefaults(member)) continue;
+                propNames.push(member.Name);
+            }
+            loopInfo = this.allClasses.get(loopInfo.Superclass);
+        }
+        return propNames;
+    }
+
+    protected gatherPropNamesNeedDefaults(info: ClassInfo)
+    {
+        if (this.isClassAbstract(info)) return [];
+
+        const propNames: string[] = [];
+
+        this.addNeedDefaultPropNamesToArray(info, propNames);
+
+        this.gatherPropNamesNeedDefaultsHelper(propNames, this.allClasses.get(info.Superclass));
+
+        return propNames;
+    }
+
+    protected addNeedDefaultPropNamesToArray(info: ClassInfo, propNames: string[])
+    {
+        const defaults = this.getDefaultsFromAPI(info, true);
+        const members = this.classToPropInfo.get(info.Name);
+        if (!members) return;
         for (const member of members)
         {
-            if (ignoreDefaults.has(member.Default)) continue;
-            const typeInfo = GenerateData.getTypeInfo(member);
-            if (!typeInfo.DataType) continue;
-            const defStr = formatDefault(member.Default, typeInfo.DataType);
-            if (defStr)
-            {
-                const propName = toPascalCase(GenerateData.sanitizePropName(member.Name));
-                this.stream.write(`        this.${propName} = ${defStr};\n`);
-            }
+            if (GenerateData.typeSkipDefaults(member) || this.instanceDefaultOverrides.has(member.Name) || defaults.has(member.Name)) continue;
+            propNames.push(member.Name);
         }
     }
 
-    protected startClass(info: ClassInfo, members: PropertyMember[])
+    protected gatherPropNamesNeedDefaultsHelper(propNames: string[], info?: ClassInfo)
+    {
+        //if (!info || !this.isClassAbstract(info)) return;
+        if (!info) return;
+
+        this.addNeedDefaultPropNamesToArray(info, propNames);
+
+        this.gatherPropNamesNeedDefaultsHelper(propNames, this.allClasses.get(info.Superclass));
+    }
+
+    protected getDefaultsFromAPI(info: ClassInfo, ignoreDefStr: boolean = false)
+    {
+        const defaults = new Map<string, string>();
+        const members = this.classToPropInfo.get(info.Name)!;
+        for (const member of members)
+        {
+            if (this.ignoreDefault(member.Default)) 
+            {
+                continue;
+            }
+            const typeInfo = GenerateData.getTypeInfo(member);
+            if (!typeInfo.DataType) continue;
+            const defStr = formatDefault(member.Default, member, typeInfo.DataType);
+            if (!ignoreDefStr && !defStr) continue;
+            this.setPropHasDefault(info, member.Name);
+            defaults.set(member.Name, defStr);
+        }
+        return defaults;
+    }
+
+    protected addOverrideDefaultsForClass(info: ClassInfo, outOverrides: Map<string, string>)
+    {
+        const overrides = this.allClassDefaultOverrides.get(info.Name);
+        if (!overrides) return;
+
+        for (const [propName, value] of overrides)
+        {
+            this.setPropHasDefault(info, propName);
+            outOverrides.set(propName, value);
+        }
+    }
+
+    protected addAlreadyHasDefaults(info: ClassInfo)
+    {
+        let loopInfo = this.allClasses.get(info.Superclass);
+        while (loopInfo)
+        {
+            const overrides = this.getDefaults(loopInfo);
+            for (const propName of overrides.keys())
+            {
+                this.setPropHasDefault(info, propName);
+            }
+            loopInfo = this.allClasses.get(loopInfo.Superclass);
+        }
+    }
+
+    protected getDefaults(info: ClassInfo)
+    {
+        const defaults = this.getDefaultsFromAPI(info);
+        this.addOverrideDefaultsForClass(info, defaults);
+        this.addAlreadyHasDefaults(info);
+        return defaults;
+    }
+
+    protected writeDefaults(info: ClassInfo)
+    {
+        const defaults = this.getDefaults(info);
+        for (const [name, value] of defaults)
+        {
+            const propName = GenerateData.convertPropName(name);
+            this.stream.write(`        this.${propName} = ${value};\n`);
+        }
+        return defaults;
+    }
+
+    protected isClassAbstract(info: ClassInfo, tags?: Tags)
+    {
+        if (!tags) tags = new Tags(info.Tags);
+        return tags.NotCreatable && info.Inherited && !this.singletons.has(info.Name);
+    }
+
+    protected startClass(info: ClassInfo)
     {
         const tags = new Tags(info.Tags);
             
         const isService = tags.Service;
-        const isAbstract = tags.NotCreatable && info.Inherited && !this.singletons.has(info.Name);
+        const isAbstract = this.isClassAbstract(info, tags);
 
         if (tags.Deprecated) this.stream.write("\n/**@deprecated Deprecated by Roblox*/");
 
         this.stream.write(`\nexport ${isAbstract ? "abstract " : ""}class ${info.Name} extends ${info.Superclass} {\n`);
 
+        let defaults: Map<string, string> | undefined;
         if (info.Name === "Instance")
         {
             this.stream.write(`    protected constructor(isService: boolean = false)\n`);
             this.stream.write(`    {\n`);
             this.stream.write(`        super(isService);\n`);
             this.stream.write(`        this.addClassName("Instance");\n`);
-            this.writeDefaults(members);
+            defaults = this.writeDefaults(info);
             this.stream.write(`    }\n`);
         }
         else
         {
-            this.stream.write(`    protected constructor()\n`);
+            this.stream.write(`    public constructor()\n`);
             this.stream.write(`    {\n`);
             this.stream.write(`        super(${isService && info.Superclass === "Instance" ? "true" : ""});\n`);
             this.stream.write(`        this.addClassName("${info.Name}");\n`);
-            this.writeDefaults(members);
+            if (!isAbstract) this.stream.write(`        this.Name = "${info.Name}";\n`);
+            if (!isAbstract) defaults = this.writeDefaults(info);
             this.stream.write(`    }\n`);
         }
-        if (!isAbstract) this.stream.write(`    public static New() {return new ${info.Name}();}\n`);
-        return !isAbstract;
+        return { isInstantiable: !isAbstract, defaults: defaults };
     }
 
     protected endClass()
@@ -356,26 +559,51 @@ import { DataType, CoreInstance, EnumItem } from "../lib/roblox_types";
             !(info.Serialization.CanSave || tags.Deprecated);
     }
 
-    protected writeOneProp(info: PropertyMember)
+    protected writeOneProp(info: ClassInfo, member: PropertyMember)
     {
-        const typeInfo = GenerateData.getTypeInfo(info);
+        const typeInfo = GenerateData.getTypeInfo(member);
 
         if (!typeInfo.DataType)
         {
-            console.log("INVALID MEMBER DATATYPE: " + info.ValueType.Name);
-            console.log(info);
+            console.log("INVALID MEMBER DATATYPE: " + member.ValueType.Name);
+            console.log(member);
             return;
         }
 
-        const isDeprecated = new Tags(info.Tags).Deprecated;
-        const propName = toPascalCase(GenerateData.sanitizePropName(info.Name));
-        const hasDefault = !ignoreDefaults.has(info.Default) && formatDefault(info.Default, typeInfo.DataType) !== "";
+        const isDeprecated = new Tags(member.Tags).Deprecated;
+        const propName = GenerateData.convertPropName(member.Name);
+        const hasDefault = this.propHasDefault(info, member.Name);
         if (typeInfo.CastString && !hasDefault) typeInfo.CastString += " | undefined";
 
         if (isDeprecated) this.stream.write("    /**@deprecated Deprecated by Roblox*/\n");
-        this.stream.write(`    ${GenerateData.createPropGetString(propName, info.Name, typeInfo.DataType, hasDefault, typeInfo.CastString)}\n`);
+        this.stream.write(`    ${GenerateData.createPropGetString(propName, member.Name, typeInfo.DataType, hasDefault, typeInfo.CastString)}\n`);
         if (isDeprecated) this.stream.write("    /**@deprecated Deprecated by Roblox*/\n");
-        this.stream.write(`    ${GenerateData.createPropSetString(propName, info.Name, typeInfo.DataType)}\n`);
+        this.stream.write(`    ${GenerateData.createPropSetString(propName, member.Name, typeInfo.DataType)}\n`);
+    }
+
+    protected writeDefaultPropOverrides(defaults: Map<string, string>, members: PropertyMember[])
+    {
+        const memberNameSet = new Set<string>();
+        for (const member of members)
+        {
+            memberNameSet.add(member.Name);
+        }
+
+        for (const name of defaults.keys())
+        {
+            if (memberNameSet.has(name))
+            {
+                continue;
+            }
+            const propName = GenerateData.convertPropName(name);
+            this.stream.write(`    public override get ${propName}() {return super.${propName}!;}\n`);
+            this.stream.write(`    public override set ${propName}(value) {super.${propName} = value;}\n`);
+        }
+    }
+
+    protected static convertPropName(propName: string)
+    {
+        return toPascalCase(GenerateData.sanitizePropName(propName));
     }
 
     protected static sanitizePropName(propName: string)
@@ -383,7 +611,7 @@ import { DataType, CoreInstance, EnumItem } from "../lib/roblox_types";
         return propName.split(" ").join("").split("_").join("");
     }
 
-    protected static getTypeInfo(info: PropertyMember)
+    protected static getTypeInfo(info: PropertyMember): MemberTypeInfo
     {
         let dataType: string | undefined;
         let castStr = "";
@@ -404,7 +632,7 @@ import { DataType, CoreInstance, EnumItem } from "../lib/roblox_types";
                 castStr = ` as ${info.ValueType.Name}`;
                 break;
         }
-        return {DataType: dataType, CastString: castStr};
+        return { DataType: dataType, CastString: castStr };
     }
 
     protected static createPropGetString(propName: string, propDataName: string, dataType: string, hasDefault: boolean, castStr: string = "")
@@ -468,7 +696,7 @@ function getClassMap() {
 
     protected writeOneClassMap(className: string)
     {
-        this.stream.write(`    map.set("${className}", ${className}.New);\n`);
+        this.stream.write(`    map.set("${className}", () => new ${className}());\n`);
     }
 
     protected endClassMap()
@@ -518,8 +746,6 @@ function getEnumMap() {
         this.stream.write("}\n");
     }
 
-    // Main function
-
     protected static setInheritance(info: ClassInfo | undefined, allClasses: Map<string, ClassInfo>)
     {
         if (!info) 
@@ -530,6 +756,52 @@ function getEnumMap() {
         GenerateData.setInheritance(allClasses.get(info.Superclass), allClasses);
     }
 
+    protected getMemberTypeAndInfo(className: string, memberName: string): { typeInfo?: MemberTypeInfo, memberInfo?: PropertyMember }
+    {
+        const classInfo = this.allClasses.get(className);
+        if (!classInfo)
+        {
+            return { typeInfo: undefined, memberInfo: undefined };
+        }
+        const info = this.classNameMemberNameInfo.get(`${className},${memberName}`);
+        if (info)
+        {
+            return { typeInfo: GenerateData.getTypeInfo(info), memberInfo: info };
+        }
+        return this.getMemberTypeAndInfo(classInfo.Superclass, memberName);
+    }
+
+    protected readCustomDefaults()
+    {
+        const data = JSON.parse(fs.readFileSync("src/generated/plugin/output.json", {encoding: "utf-8"})) as DefaultsClass[];
+        for (const classData of data)
+        {
+            if (classData.Name === "UnionOperation")
+            {
+                console.log(classData);
+            }
+            const propMap = new Map<string, string>();
+            for (const propData of classData.Props)
+            {
+                let value = propData.Value;
+                if (value.startsWith("Enum."))
+                {
+                    value = value.split(".")[2]; // These are formatted like Enum.<EnumName>.<EnumValue>
+                }
+                const { typeInfo, memberInfo } = this.getMemberTypeAndInfo(classData.Name, propData.Name);
+                if (typeInfo && typeInfo.DataType && memberInfo)
+                {
+                    const convertedValue = formatDefault(value, memberInfo, typeInfo.DataType);
+                    if (convertedValue)
+                    {
+                        propMap.set(propData.Name, convertedValue);
+                    }
+                }
+            }
+            this.allClassDefaultOverrides.set(classData.Name, propMap);
+        }
+    }
+
     protected async generate()
     {
         const res = await axios.get("https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/roblox/Mini-API-Dump.json");
@@ -538,7 +810,7 @@ function getEnumMap() {
         this.startFile();
 
         // Classes
-        const allClasses = new Map<string, ClassInfo>();
+        this.allClasses = new Map<string, ClassInfo>();
 
         for (const info of data.Classes)
         {
@@ -546,14 +818,14 @@ function getEnumMap() {
             {
                 info.Superclass = "CoreInstance";
             }
-            allClasses.set(info.Name, info);
+            this.allClasses.set(info.Name, info);
         }
 
         for (const info of data.Classes)
         {
             if (!this.filterClass(info)) 
             {
-                GenerateData.setInheritance(allClasses.get(info.Superclass), allClasses);
+                GenerateData.setInheritance(this.allClasses.get(info.Superclass),this. allClasses);
             }
         }
 
@@ -605,23 +877,74 @@ function getEnumMap() {
 
                 // Add to the list of valid members
                 validMembers.set(member.Name, member);
+
+                // https://github.com/MaximumADHD/Roblox-File-Format/blob/d44a590bb2e814f08edae91e7ef3e20fb09416e1/Plugins/GenerateApiDump/init.server.lua#L749
+                if (classInfo.Name === "Sound" && member.Name === "EmitterSize")
+                {
+                    member.Tags! = member.Tags!.filter((tag) => tag !== "Deprecated");
+                }
             }
 
-            if (this.startClass(classInfo, Array.from(validMembers.values()))) 
+            const actualValidMembers = Array.from(validMembers.values()).filter((member) => !GenerateData.isDuplicateName(member, memberNames));
+            this.classToPropInfo.set(classInfo.Name, actualValidMembers);
+            for (const member of actualValidMembers)
+            {
+                this.classNameMemberNameInfo.set(`${classInfo.Name},${member.Name}`, member);
+            }
+        }
+
+        this.readCustomDefaults();
+
+        const propsNeedDefaults = new Map<string, string[]>();
+
+        for (const [className, members] of this.classToPropInfo)
+        {
+            const classInfo = this.allClasses.get(className);
+            if (!classInfo || this.filterClass(classInfo)) 
+            {
+                continue;
+            }
+
+            const { isInstantiable, defaults } = this.startClass(classInfo);
+            if (isInstantiable)
             {
                 instantiableClasses.add(classInfo.Name);
             }
 
-            for (const member of validMembers.values())
+            for (const member of members)
             {
-                if (!GenerateData.isDuplicateName(member, memberNames))
-                {
-                    this.writeOneProp(member);
-                }
+                this.writeOneProp(classInfo, member);
+            }
+
+            if (defaults)
+            {
+                this.writeDefaultPropOverrides(defaults, members);
             }
             
             this.endClass();
+
+            const propNames = this.gatherPropNamesWithDefaults(classInfo);
+            for (const name of propNames)
+            {
+                if (!this.isClassAbstract(classInfo) && !this.propHasDefault(classInfo, name))
+                {
+                    console.log(`Missing default value for class ${classInfo.Name}: ${name}`);
+                }
+            }
+
+            const propNamesNeedDefaults = this.gatherPropNamesNeedDefaults(classInfo);
+            if (propNamesNeedDefaults.length > 0) propsNeedDefaults.set(className, propNamesNeedDefaults);
         }
+
+        // Create a Lua table of properties that we need to use our Roblox plugin to try to determine defaults
+        let propModuleStr = `-- Generated on ${new Date().toLocaleString()}\nlocal module = {}\nmodule.PropTable = {\n`;
+        for (const [className, propList] of propsNeedDefaults)
+        {
+            propModuleStr += `    ${className} = {`;
+            propModuleStr += propList.map((prop) => `"${prop}"`).join(", ");
+            propModuleStr += "},\n";
+        }
+        fs.writeFileSync("src/generated/plugin/props_module.lua", propModuleStr.slice(0, propModuleStr.length - 2) + "\n}\nreturn module");
 
         // NameToClass type
         this.startNameToClass();
