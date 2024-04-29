@@ -1,11 +1,11 @@
 /**
 * @author https://github.com/fiveman1
-* @file generated_types.ts
 * Contains generated types for Roblox classes and enums.
-* Generated on 4/28/2024, 1:26:01 AM
+* Generated on 4/28/2024, 6:58:28 PM
 */
 
-import { DataType, CoreInstance, EnumItem, Color3, Rect, Vector2, Vector3, UDim, UniqueId } from "../lib/roblox_types";
+import { DataType, CoreInstance, Axes, CFrame, Color3, ColorSequence, ColorSequenceKeypoint, Faces, FontStyle, FontWeight, EnumItem, NumberRange, NumberSequence, 
+         NumberSequenceKeypoint, Ray, RBXMAxis, RBXMFace, RBXMFont, Rect, Vector2, Vector3, UDim, UDim2, UniqueId } from "../lib/roblox_types";
 
 export abstract class Instance extends CoreInstance {
     protected constructor(isService: boolean = false)
@@ -82,8 +82,9 @@ export class Accoutrement extends Instance {
         super();
         this.addClassName("Accoutrement");
         this.Name = "Accoutrement";
+        this.AttachmentPoint = CFrame.Identity;
     }
-    public get AttachmentPoint() {return this.GetProp("AttachmentPoint", DataType.CFrame);}
+    public get AttachmentPoint() {return this.GetProp("AttachmentPoint", DataType.CFrame)!;}
     public set AttachmentPoint(value) {this.SetProp("AttachmentPoint", DataType.CFrame, value);}
 }
 
@@ -176,12 +177,14 @@ export abstract class AnimationClip extends Instance {
     {
         super();
         this.addClassName("AnimationClip");
+        this.Loop = true;
+        this.Priority = AnimationPriority.Action;
     }
     public get GuidBinaryString() {return this.GetProp("GuidBinaryString", DataType.String);}
     public set GuidBinaryString(value) {this.SetProp("GuidBinaryString", DataType.String, value);}
-    public get Loop() {return this.GetProp("Loop", DataType.Bool);}
+    public get Loop() {return this.GetProp("Loop", DataType.Bool)!;}
     public set Loop(value) {this.SetProp("Loop", DataType.Bool, value);}
-    public get Priority() {return this.GetProp("Priority", DataType.Enum) as AnimationPriority | undefined;}
+    public get Priority() {return this.GetProp("Priority", DataType.Enum)! as AnimationPriority;}
     public set Priority(value) {this.SetProp("Priority", DataType.Enum, value);}
 }
 
@@ -191,13 +194,7 @@ export class CurveAnimation extends AnimationClip {
         super();
         this.addClassName("CurveAnimation");
         this.Name = "CurveAnimation";
-        this.Loop = true;
-        this.Priority = AnimationPriority.Action;
     }
-    public override get Loop() {return super.Loop!;}
-    public override set Loop(value) {super.Loop = value;}
-    public override get Priority() {return super.Priority!;}
-    public override set Priority(value) {super.Priority = value;}
 }
 
 export class KeyframeSequence extends AnimationClip {
@@ -207,15 +204,9 @@ export class KeyframeSequence extends AnimationClip {
         this.addClassName("KeyframeSequence");
         this.Name = "KeyframeSequence";
         this.AuthoredHipHeight = 2;
-        this.Loop = true;
-        this.Priority = AnimationPriority.Action;
     }
     public get AuthoredHipHeight() {return this.GetProp("AuthoredHipHeight", DataType.Float32)!;}
     public set AuthoredHipHeight(value) {this.SetProp("AuthoredHipHeight", DataType.Float32, value);}
-    public override get Loop() {return super.Loop!;}
-    public override set Loop(value) {super.Loop = value;}
-    public override get Priority() {return super.Priority!;}
-    public override set Priority(value) {super.Priority = value;}
 }
 
 export class AnimationClipProvider extends Instance {
@@ -405,8 +396,9 @@ export class Attachment extends Instance {
         this.addClassName("Attachment");
         this.Name = "Attachment";
         this.Visible = false;
+        this.CFrame = CFrame.Identity;
     }
-    public get CFrame() {return this.GetProp("CFrame", DataType.CFrame);}
+    public get CFrame() {return this.GetProp("CFrame", DataType.CFrame)!;}
     public set CFrame(value) {this.SetProp("CFrame", DataType.CFrame, value);}
     public get Visible() {return this.GetProp("Visible", DataType.Bool)!;}
     public set Visible(value) {this.SetProp("Visible", DataType.Bool, value);}
@@ -560,6 +552,7 @@ export class AudioEqualizer extends Instance {
         this.HighGain = 0;
         this.LowGain = 0;
         this.MidGain = 0;
+        this.MidRange = new NumberRange(400, 4000);
     }
     public get HighGain() {return this.GetProp("HighGain", DataType.Float32)!;}
     public set HighGain(value) {this.SetProp("HighGain", DataType.Float32, value);}
@@ -567,7 +560,7 @@ export class AudioEqualizer extends Instance {
     public set LowGain(value) {this.SetProp("LowGain", DataType.Float32, value);}
     public get MidGain() {return this.GetProp("MidGain", DataType.Float32)!;}
     public set MidGain(value) {this.SetProp("MidGain", DataType.Float32, value);}
-    public get MidRange() {return this.GetProp("MidRange", DataType.NumberRange);}
+    public get MidRange() {return this.GetProp("MidRange", DataType.NumberRange)!;}
     public set MidRange(value) {this.SetProp("MidRange", DataType.NumberRange, value);}
 }
 
@@ -633,7 +626,9 @@ export class AudioPlayer extends Instance {
         this.Name = "AudioPlayer";
         this.AssetId = "";
         this.AutoLoad = true;
+        this.LoopRegion = new NumberRange(0, 60000);
         this.Looping = false;
+        this.PlaybackRegion = new NumberRange(0, 60000);
         this.PlaybackSpeed = 1;
         this.TimePosition = 0;
     }
@@ -641,11 +636,11 @@ export class AudioPlayer extends Instance {
     public set AssetId(value) {this.SetProp("AssetId", DataType.String, value);}
     public get AutoLoad() {return this.GetProp("AutoLoad", DataType.Bool)!;}
     public set AutoLoad(value) {this.SetProp("AutoLoad", DataType.Bool, value);}
-    public get LoopRegion() {return this.GetProp("LoopRegion", DataType.NumberRange);}
+    public get LoopRegion() {return this.GetProp("LoopRegion", DataType.NumberRange)!;}
     public set LoopRegion(value) {this.SetProp("LoopRegion", DataType.NumberRange, value);}
     public get Looping() {return this.GetProp("Looping", DataType.Bool)!;}
     public set Looping(value) {this.SetProp("Looping", DataType.Bool, value);}
-    public get PlaybackRegion() {return this.GetProp("PlaybackRegion", DataType.NumberRange);}
+    public get PlaybackRegion() {return this.GetProp("PlaybackRegion", DataType.NumberRange)!;}
     public set PlaybackRegion(value) {this.SetProp("PlaybackRegion", DataType.NumberRange, value);}
     public get PlaybackSpeed() {return this.GetProp("PlaybackSpeed", DataType.Float64)!;}
     public set PlaybackSpeed(value) {this.SetProp("PlaybackSpeed", DataType.Float64, value);}
@@ -864,10 +859,13 @@ export abstract class BaseWrap extends Instance {
     {
         super();
         this.addClassName("BaseWrap");
+        this.CageMeshId = "";
+        this.CageOrigin = CFrame.Identity;
+        this.ImportOrigin = CFrame.Identity;
     }
-    public get CageMeshId() {return this.GetProp("CageMeshId", DataType.String);}
+    public get CageMeshId() {return this.GetProp("CageMeshId", DataType.String)!;}
     public set CageMeshId(value) {this.SetProp("CageMeshId", DataType.String, value);}
-    public get CageOrigin() {return this.GetProp("CageOrigin", DataType.CFrame);}
+    public get CageOrigin() {return this.GetProp("CageOrigin", DataType.CFrame)!;}
     public set CageOrigin(value) {this.SetProp("CageOrigin", DataType.CFrame, value);}
     public get HSRAssetId() {return this.GetProp("HSRAssetId", DataType.String);}
     public set HSRAssetId(value) {this.SetProp("HSRAssetId", DataType.String, value);}
@@ -875,7 +873,7 @@ export abstract class BaseWrap extends Instance {
     public set HSRData(value) {this.SetProp("HSRData", DataType.SharedString, value);}
     public get HSRMeshIdData() {return this.GetProp("HSRMeshIdData", DataType.SharedString);}
     public set HSRMeshIdData(value) {this.SetProp("HSRMeshIdData", DataType.SharedString, value);}
-    public get ImportOrigin() {return this.GetProp("ImportOrigin", DataType.CFrame);}
+    public get ImportOrigin() {return this.GetProp("ImportOrigin", DataType.CFrame)!;}
     public set ImportOrigin(value) {this.SetProp("ImportOrigin", DataType.CFrame, value);}
     public get TemporaryCageMeshId() {return this.GetProp("TemporaryCageMeshId", DataType.String);}
     public set TemporaryCageMeshId(value) {this.SetProp("TemporaryCageMeshId", DataType.String, value);}
@@ -894,11 +892,12 @@ export class WrapLayer extends BaseWrap {
         this.ReferenceMeshId = "";
         this.ShrinkFactor = 0;
         this.TemporaryReferenceId = "";
-        this.CageMeshId = "";
+        this.BindOffset = CFrame.Identity;
+        this.ReferenceOrigin = CFrame.Identity;
     }
     public get AutoSkin() {return this.GetProp("AutoSkin", DataType.Enum)! as WrapLayerAutoSkin;}
     public set AutoSkin(value) {this.SetProp("AutoSkin", DataType.Enum, value);}
-    public get BindOffset() {return this.GetProp("BindOffset", DataType.CFrame);}
+    public get BindOffset() {return this.GetProp("BindOffset", DataType.CFrame)!;}
     public set BindOffset(value) {this.SetProp("BindOffset", DataType.CFrame, value);}
     public get Enabled() {return this.GetProp("Enabled", DataType.Bool)!;}
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
@@ -908,14 +907,12 @@ export class WrapLayer extends BaseWrap {
     public set Puffiness(value) {this.SetProp("Puffiness", DataType.Float32, value);}
     public get ReferenceMeshId() {return this.GetProp("ReferenceMeshId", DataType.String)!;}
     public set ReferenceMeshId(value) {this.SetProp("ReferenceMeshId", DataType.String, value);}
-    public get ReferenceOrigin() {return this.GetProp("ReferenceOrigin", DataType.CFrame);}
+    public get ReferenceOrigin() {return this.GetProp("ReferenceOrigin", DataType.CFrame)!;}
     public set ReferenceOrigin(value) {this.SetProp("ReferenceOrigin", DataType.CFrame, value);}
     public get ShrinkFactor() {return this.GetProp("ShrinkFactor", DataType.Float32)!;}
     public set ShrinkFactor(value) {this.SetProp("ShrinkFactor", DataType.Float32, value);}
     public get TemporaryReferenceId() {return this.GetProp("TemporaryReferenceId", DataType.String)!;}
     public set TemporaryReferenceId(value) {this.SetProp("TemporaryReferenceId", DataType.String, value);}
-    public override get CageMeshId() {return super.CageMeshId!;}
-    public override set CageMeshId(value) {super.CageMeshId = value;}
 }
 
 export class WrapTarget extends BaseWrap {
@@ -925,12 +922,9 @@ export class WrapTarget extends BaseWrap {
         this.addClassName("WrapTarget");
         this.Name = "WrapTarget";
         this.Stiffness = 0;
-        this.CageMeshId = "";
     }
     public get Stiffness() {return this.GetProp("Stiffness", DataType.Float32)!;}
     public set Stiffness(value) {this.SetProp("Stiffness", DataType.Float32, value);}
-    public override get CageMeshId() {return super.CageMeshId!;}
-    public override set CageMeshId(value) {super.CageMeshId = value;}
 }
 
 export class Beam extends Instance {
@@ -940,6 +934,7 @@ export class Beam extends Instance {
         this.addClassName("Beam");
         this.Name = "Beam";
         this.Brightness = 1;
+        this.Color = new ColorSequence(new ColorSequenceKeypoint(0, Color3.FromRGB(255, 255, 255)), new ColorSequenceKeypoint(1, Color3.FromRGB(255, 255, 255)));
         this.CurveSize0 = 0;
         this.CurveSize1 = 0;
         this.Enabled = true;
@@ -951,6 +946,7 @@ export class Beam extends Instance {
         this.TextureLength = 1;
         this.TextureMode = TextureMode.Stretch;
         this.TextureSpeed = 1;
+        this.Transparency = new NumberSequence(new NumberSequenceKeypoint(0, 0.5, 0), new NumberSequenceKeypoint(1, 0.5, 0));
         this.Width0 = 1;
         this.Width1 = 1;
         this.ZOffset = 0;
@@ -961,7 +957,7 @@ export class Beam extends Instance {
     public set Attachment1(value) {this.SetProp("Attachment1", DataType.Referent, value);}
     public get Brightness() {return this.GetProp("Brightness", DataType.Float32)!;}
     public set Brightness(value) {this.SetProp("Brightness", DataType.Float32, value);}
-    public get Color() {return this.GetProp("Color", DataType.ColorSequence);}
+    public get Color() {return this.GetProp("Color", DataType.ColorSequence)!;}
     public set Color(value) {this.SetProp("Color", DataType.ColorSequence, value);}
     public get CurveSize0() {return this.GetProp("CurveSize0", DataType.Float32)!;}
     public set CurveSize0(value) {this.SetProp("CurveSize0", DataType.Float32, value);}
@@ -985,7 +981,7 @@ export class Beam extends Instance {
     public set TextureMode(value) {this.SetProp("TextureMode", DataType.Enum, value);}
     public get TextureSpeed() {return this.GetProp("TextureSpeed", DataType.Float32)!;}
     public set TextureSpeed(value) {this.SetProp("TextureSpeed", DataType.Float32, value);}
-    public get Transparency() {return this.GetProp("Transparency", DataType.NumberSequence);}
+    public get Transparency() {return this.GetProp("Transparency", DataType.NumberSequence)!;}
     public set Transparency(value) {this.SetProp("Transparency", DataType.NumberSequence, value);}
     public get Width0() {return this.GetProp("Width0", DataType.Float32)!;}
     public set Width0(value) {this.SetProp("Width0", DataType.Float32, value);}
@@ -1064,8 +1060,9 @@ export class BodyGyro extends BodyMover {
         this.D = 500;
         this.MaxTorque = new Vector3(400000, 0, 400000);
         this.P = 3000;
+        this.CFrame = CFrame.Identity;
     }
-    public get CFrame() {return this.GetProp("CFrame", DataType.CFrame);}
+    public get CFrame() {return this.GetProp("CFrame", DataType.CFrame)!;}
     public set CFrame(value) {this.SetProp("CFrame", DataType.CFrame, value);}
     public get D() {return this.GetProp("D", DataType.Float32)!;}
     public set D(value) {this.SetProp("D", DataType.Float32, value);}
@@ -1286,22 +1283,25 @@ export class Camera extends Instance {
         this.HeadLocked = true;
         this.HeadScale = 1;
         this.VRTiltAndRollEnabled = false;
+        this.CFrame = new CFrame(new Vector3(0, 20, 20), [1, 0, -0, -0, 0.707106829, 0.707106829, 0, -0.707106829, 0.707106829]);
+        this.CoordinateFrame = new CFrame(new Vector3(0, 20, 20), [1, 0, -0, -0, 0.707106829, 0.707106829, 0, -0.707106829, 0.707106829]);
+        this.Focus = new CFrame(new Vector3(0, 0, -5), [1, 0, 0, 0, 1, 0, 0, 0, 1]);
     }
-    public get CFrame() {return this.GetProp("CFrame", DataType.CFrame);}
+    public get CFrame() {return this.GetProp("CFrame", DataType.CFrame)!;}
     public set CFrame(value) {this.SetProp("CFrame", DataType.CFrame, value);}
     public get CameraSubject() {return this.GetProp("CameraSubject", DataType.Referent) as Instance | undefined;}
     public set CameraSubject(value) {this.SetProp("CameraSubject", DataType.Referent, value);}
     public get CameraType() {return this.GetProp("CameraType", DataType.Enum)! as CameraType;}
     public set CameraType(value) {this.SetProp("CameraType", DataType.Enum, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get CoordinateFrame() {return this.GetProp("CoordinateFrame", DataType.CFrame);}
+    public get CoordinateFrame() {return this.GetProp("CoordinateFrame", DataType.CFrame)!;}
     /**@deprecated Deprecated by Roblox*/
     public set CoordinateFrame(value) {this.SetProp("CoordinateFrame", DataType.CFrame, value);}
     public get FieldOfView() {return this.GetProp("FieldOfView", DataType.Float32)!;}
     public set FieldOfView(value) {this.SetProp("FieldOfView", DataType.Float32, value);}
     public get FieldOfViewMode() {return this.GetProp("FieldOfViewMode", DataType.Enum)! as FieldOfViewMode;}
     public set FieldOfViewMode(value) {this.SetProp("FieldOfViewMode", DataType.Enum, value);}
-    public get Focus() {return this.GetProp("Focus", DataType.CFrame);}
+    public get Focus() {return this.GetProp("Focus", DataType.CFrame)!;}
     public set Focus(value) {this.SetProp("Focus", DataType.CFrame, value);}
     public get HeadLocked() {return this.GetProp("HeadLocked", DataType.Bool)!;}
     public set HeadLocked(value) {this.SetProp("HeadLocked", DataType.Bool, value);}
@@ -1390,8 +1390,9 @@ export abstract class Clothing extends CharacterAppearance {
     {
         super();
         this.addClassName("Clothing");
+        this.Color3 = Color3.FromRGB(255, 255, 255);
     }
-    public get Color3() {return this.GetProp("Color3", DataType.Color3);}
+    public get Color3() {return this.GetProp("Color3", DataType.Color3)!;}
     public set Color3(value) {this.SetProp("Color3", DataType.Color3, value);}
 }
 
@@ -1402,12 +1403,9 @@ export class Pants extends Clothing {
         this.addClassName("Pants");
         this.Name = "Pants";
         this.PantsTemplate = "";
-        this.Color3 = Color3.FromRGB(255, 255, 255);
     }
     public get PantsTemplate() {return this.GetProp("PantsTemplate", DataType.String)!;}
     public set PantsTemplate(value) {this.SetProp("PantsTemplate", DataType.String, value);}
-    public override get Color3() {return super.Color3!;}
-    public override set Color3(value) {super.Color3 = value;}
 }
 
 export class Shirt extends Clothing {
@@ -1417,12 +1415,9 @@ export class Shirt extends Clothing {
         this.addClassName("Shirt");
         this.Name = "Shirt";
         this.ShirtTemplate = "";
-        this.Color3 = Color3.FromRGB(255, 255, 255);
     }
     public get ShirtTemplate() {return this.GetProp("ShirtTemplate", DataType.String)!;}
     public set ShirtTemplate(value) {this.SetProp("ShirtTemplate", DataType.String, value);}
-    public override get Color3() {return super.Color3!;}
-    public override set Color3(value) {super.Color3 = value;}
 }
 
 export class ShirtGraphic extends CharacterAppearance {
@@ -1517,12 +1512,13 @@ export class DragDetector extends ClickDetector {
         this.TrackballRadialPullFactor = 1;
         this.TrackballRollFactor = 1;
         this.VRSwitchKeyCode = KeyCode.ButtonL2;
+        this.DragFrame = CFrame.Identity;
     }
     public get ActivatedCursorIcon() {return this.GetProp("ActivatedCursorIcon", DataType.String)!;}
     public set ActivatedCursorIcon(value) {this.SetProp("ActivatedCursorIcon", DataType.String, value);}
     public get ApplyAtCenterOfMass() {return this.GetProp("ApplyAtCenterOfMass", DataType.Bool)!;}
     public set ApplyAtCenterOfMass(value) {this.SetProp("ApplyAtCenterOfMass", DataType.Bool, value);}
-    public get DragFrame() {return this.GetProp("DragFrame", DataType.CFrame);}
+    public get DragFrame() {return this.GetProp("DragFrame", DataType.CFrame)!;}
     public set DragFrame(value) {this.SetProp("DragFrame", DataType.CFrame, value);}
     public get DragStyle() {return this.GetProp("DragStyle", DataType.Enum)! as DragDetectorDragStyle;}
     public set DragStyle(value) {this.SetProp("DragStyle", DataType.Enum, value);}
@@ -1662,6 +1658,8 @@ export abstract class Constraint extends Instance {
     {
         super();
         this.addClassName("Constraint");
+        this.Enabled = true;
+        this.Visible = false;
     }
     public get Attachment0() {return this.GetProp("Attachment0", DataType.Referent) as Attachment | undefined;}
     public set Attachment0(value) {this.SetProp("Attachment0", DataType.Referent, value);}
@@ -1669,9 +1667,9 @@ export abstract class Constraint extends Instance {
     public set Attachment1(value) {this.SetProp("Attachment1", DataType.Referent, value);}
     public get Color() {return this.GetProp("Color", DataType.BrickColor);}
     public set Color(value) {this.SetProp("Color", DataType.BrickColor, value);}
-    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool)!;}
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
-    public get Visible() {return this.GetProp("Visible", DataType.Bool);}
+    public get Visible() {return this.GetProp("Visible", DataType.Bool)!;}
     public set Visible(value) {this.SetProp("Visible", DataType.Bool, value);}
 }
 
@@ -1689,12 +1687,11 @@ export class AlignOrientation extends Constraint {
         this.ReactionTorqueEnabled = false;
         this.Responsiveness = 10;
         this.RigidityEnabled = false;
-        this.Enabled = true;
-        this.Visible = false;
+        this.CFrame = CFrame.Identity;
     }
     public get AlignType() {return this.GetProp("AlignType", DataType.Enum)! as AlignType;}
     public set AlignType(value) {this.SetProp("AlignType", DataType.Enum, value);}
-    public get CFrame() {return this.GetProp("CFrame", DataType.CFrame);}
+    public get CFrame() {return this.GetProp("CFrame", DataType.CFrame)!;}
     public set CFrame(value) {this.SetProp("CFrame", DataType.CFrame, value);}
     public get MaxAngularVelocity() {return this.GetProp("MaxAngularVelocity", DataType.Float32)!;}
     public set MaxAngularVelocity(value) {this.SetProp("MaxAngularVelocity", DataType.Float32, value);}
@@ -1710,10 +1707,6 @@ export class AlignOrientation extends Constraint {
     public set Responsiveness(value) {this.SetProp("Responsiveness", DataType.Float32, value);}
     public get RigidityEnabled() {return this.GetProp("RigidityEnabled", DataType.Bool)!;}
     public set RigidityEnabled(value) {this.SetProp("RigidityEnabled", DataType.Bool, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class AlignPosition extends Constraint {
@@ -1733,8 +1726,6 @@ export class AlignPosition extends Constraint {
         this.ReactionForceEnabled = false;
         this.Responsiveness = 10;
         this.RigidityEnabled = false;
-        this.Enabled = true;
-        this.Visible = false;
     }
     public get ApplyAtCenterOfMass() {return this.GetProp("ApplyAtCenterOfMass", DataType.Bool)!;}
     public set ApplyAtCenterOfMass(value) {this.SetProp("ApplyAtCenterOfMass", DataType.Bool, value);}
@@ -1758,10 +1749,6 @@ export class AlignPosition extends Constraint {
     public set Responsiveness(value) {this.SetProp("Responsiveness", DataType.Float32, value);}
     public get RigidityEnabled() {return this.GetProp("RigidityEnabled", DataType.Bool)!;}
     public set RigidityEnabled(value) {this.SetProp("RigidityEnabled", DataType.Bool, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class AngularVelocity extends Constraint {
@@ -1774,8 +1761,6 @@ export class AngularVelocity extends Constraint {
         this.MaxTorque = 0;
         this.ReactionTorqueEnabled = false;
         this.RelativeTo = ActuatorRelativeTo.World;
-        this.Enabled = true;
-        this.Visible = false;
     }
     public get AngularVelocity() {return this.GetProp("AngularVelocity", DataType.Vector3)!;}
     public set AngularVelocity(value) {this.SetProp("AngularVelocity", DataType.Vector3, value);}
@@ -1785,10 +1770,6 @@ export class AngularVelocity extends Constraint {
     public set ReactionTorqueEnabled(value) {this.SetProp("ReactionTorqueEnabled", DataType.Bool, value);}
     public get RelativeTo() {return this.GetProp("RelativeTo", DataType.Enum)! as ActuatorRelativeTo;}
     public set RelativeTo(value) {this.SetProp("RelativeTo", DataType.Enum, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class AnimationConstraint extends Constraint {
@@ -1800,8 +1781,7 @@ export class AnimationConstraint extends Constraint {
         this.IsKinematic = false;
         this.MaxForce = 10000;
         this.MaxTorque = 10000;
-        this.Enabled = true;
-        this.Visible = false;
+        this.Transform = CFrame.Identity;
     }
     public get IsKinematic() {return this.GetProp("IsKinematic", DataType.Bool)!;}
     public set IsKinematic(value) {this.SetProp("IsKinematic", DataType.Bool, value);}
@@ -1809,12 +1789,8 @@ export class AnimationConstraint extends Constraint {
     public set MaxForce(value) {this.SetProp("MaxForce", DataType.Float32, value);}
     public get MaxTorque() {return this.GetProp("MaxTorque", DataType.Float32)!;}
     public set MaxTorque(value) {this.SetProp("MaxTorque", DataType.Float32, value);}
-    public get Transform() {return this.GetProp("Transform", DataType.CFrame);}
+    public get Transform() {return this.GetProp("Transform", DataType.CFrame)!;}
     public set Transform(value) {this.SetProp("Transform", DataType.CFrame, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class BallSocketConstraint extends Constraint {
@@ -1831,8 +1807,6 @@ export class BallSocketConstraint extends Constraint {
         this.TwistLowerAngle = -45;
         this.TwistUpperAngle = 45;
         this.UpperAngle = 45;
-        this.Enabled = true;
-        this.Visible = false;
     }
     public get LimitsEnabled() {return this.GetProp("LimitsEnabled", DataType.Bool)!;}
     public set LimitsEnabled(value) {this.SetProp("LimitsEnabled", DataType.Bool, value);}
@@ -1850,10 +1824,6 @@ export class BallSocketConstraint extends Constraint {
     public set TwistUpperAngle(value) {this.SetProp("TwistUpperAngle", DataType.Float32, value);}
     public get UpperAngle() {return this.GetProp("UpperAngle", DataType.Float32)!;}
     public set UpperAngle(value) {this.SetProp("UpperAngle", DataType.Float32, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class HingeConstraint extends Constraint {
@@ -1876,8 +1846,6 @@ export class HingeConstraint extends Constraint {
         this.SoftlockServoUponReachingTarget = false;
         this.TargetAngle = 0;
         this.UpperAngle = 45;
-        this.Enabled = true;
-        this.Visible = false;
     }
     public get ActuatorType() {return this.GetProp("ActuatorType", DataType.Enum)! as ActuatorType;}
     public set ActuatorType(value) {this.SetProp("ActuatorType", DataType.Enum, value);}
@@ -1909,10 +1877,6 @@ export class HingeConstraint extends Constraint {
     public set TargetAngle(value) {this.SetProp("TargetAngle", DataType.Float32, value);}
     public get UpperAngle() {return this.GetProp("UpperAngle", DataType.Float32)!;}
     public set UpperAngle(value) {this.SetProp("UpperAngle", DataType.Float32, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class LineForce extends Constraint {
@@ -1926,8 +1890,6 @@ export class LineForce extends Constraint {
         this.Magnitude = 1000;
         this.MaxForce = Infinity;
         this.ReactionForceEnabled = false;
-        this.Enabled = true;
-        this.Visible = false;
     }
     public get ApplyAtCenterOfMass() {return this.GetProp("ApplyAtCenterOfMass", DataType.Bool)!;}
     public set ApplyAtCenterOfMass(value) {this.SetProp("ApplyAtCenterOfMass", DataType.Bool, value);}
@@ -1939,10 +1901,6 @@ export class LineForce extends Constraint {
     public set MaxForce(value) {this.SetProp("MaxForce", DataType.Float32, value);}
     public get ReactionForceEnabled() {return this.GetProp("ReactionForceEnabled", DataType.Bool)!;}
     public set ReactionForceEnabled(value) {this.SetProp("ReactionForceEnabled", DataType.Bool, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class LinearVelocity extends Constraint {
@@ -1964,8 +1922,6 @@ export class LinearVelocity extends Constraint {
         this.SecondaryTangentAxis = new Vector3(0, 1, 0);
         this.VectorVelocity = new Vector3(0, 0, 0);
         this.VelocityConstraintMode = VelocityConstraintMode.Vector;
-        this.Enabled = true;
-        this.Visible = false;
     }
     public get ForceLimitMode() {return this.GetProp("ForceLimitMode", DataType.Enum)! as ForceLimitMode;}
     public set ForceLimitMode(value) {this.SetProp("ForceLimitMode", DataType.Enum, value);}
@@ -1993,10 +1949,6 @@ export class LinearVelocity extends Constraint {
     public set VectorVelocity(value) {this.SetProp("VectorVelocity", DataType.Vector3, value);}
     public get VelocityConstraintMode() {return this.GetProp("VelocityConstraintMode", DataType.Enum)! as VelocityConstraintMode;}
     public set VelocityConstraintMode(value) {this.SetProp("VelocityConstraintMode", DataType.Enum, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class PlaneConstraint extends Constraint {
@@ -2005,13 +1957,7 @@ export class PlaneConstraint extends Constraint {
         super();
         this.addClassName("PlaneConstraint");
         this.Name = "PlaneConstraint";
-        this.Enabled = true;
-        this.Visible = false;
     }
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 /**@deprecated Deprecated by Roblox*/
@@ -2021,13 +1967,7 @@ export class Plane extends PlaneConstraint {
         super();
         this.addClassName("Plane");
         this.Name = "Plane";
-        this.Enabled = true;
-        this.Visible = false;
     }
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class RigidConstraint extends Constraint {
@@ -2036,13 +1976,7 @@ export class RigidConstraint extends Constraint {
         super();
         this.addClassName("RigidConstraint");
         this.Name = "RigidConstraint";
-        this.Enabled = true;
-        this.Visible = false;
     }
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class RodConstraint extends Constraint {
@@ -2056,8 +1990,6 @@ export class RodConstraint extends Constraint {
         this.LimitAngle1 = 90;
         this.LimitsEnabled = false;
         this.Thickness = 0.1;
-        this.Enabled = true;
-        this.Visible = false;
     }
     public get Length() {return this.GetProp("Length", DataType.Float32)!;}
     public set Length(value) {this.SetProp("Length", DataType.Float32, value);}
@@ -2069,10 +2001,6 @@ export class RodConstraint extends Constraint {
     public set LimitsEnabled(value) {this.SetProp("LimitsEnabled", DataType.Bool, value);}
     public get Thickness() {return this.GetProp("Thickness", DataType.Float32)!;}
     public set Thickness(value) {this.SetProp("Thickness", DataType.Float32, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class RopeConstraint extends Constraint {
@@ -2089,8 +2017,6 @@ export class RopeConstraint extends Constraint {
         this.WinchResponsiveness = 45;
         this.WinchSpeed = 2;
         this.WinchTarget = 5;
-        this.Enabled = true;
-        this.Visible = false;
     }
     public get Length() {return this.GetProp("Length", DataType.Float32)!;}
     public set Length(value) {this.SetProp("Length", DataType.Float32, value);}
@@ -2108,10 +2034,6 @@ export class RopeConstraint extends Constraint {
     public set WinchSpeed(value) {this.SetProp("WinchSpeed", DataType.Float32, value);}
     public get WinchTarget() {return this.GetProp("WinchTarget", DataType.Float32)!;}
     public set WinchTarget(value) {this.SetProp("WinchTarget", DataType.Float32, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export abstract class SlidingBallConstraint extends Constraint {
@@ -2119,36 +2041,50 @@ export abstract class SlidingBallConstraint extends Constraint {
     {
         super();
         this.addClassName("SlidingBallConstraint");
+        this.ActuatorType = ActuatorType.None;
+        this.LimitsEnabled = false;
+        this.LinearResponsiveness = 45;
+        this.LowerLimit = 0;
+        this.MotorMaxAcceleration = Infinity;
+        this.MotorMaxForce = 0;
+        this.Restitution = 0;
+        this.ServoMaxForce = 0;
+        this.Size = 0.15;
+        this.SoftlockServoUponReachingTarget = false;
+        this.Speed = 0;
+        this.TargetPosition = 0;
+        this.UpperLimit = 5;
+        this.Velocity = 0;
     }
-    public get ActuatorType() {return this.GetProp("ActuatorType", DataType.Enum) as ActuatorType | undefined;}
+    public get ActuatorType() {return this.GetProp("ActuatorType", DataType.Enum)! as ActuatorType;}
     public set ActuatorType(value) {this.SetProp("ActuatorType", DataType.Enum, value);}
-    public get LimitsEnabled() {return this.GetProp("LimitsEnabled", DataType.Bool);}
+    public get LimitsEnabled() {return this.GetProp("LimitsEnabled", DataType.Bool)!;}
     public set LimitsEnabled(value) {this.SetProp("LimitsEnabled", DataType.Bool, value);}
-    public get LinearResponsiveness() {return this.GetProp("LinearResponsiveness", DataType.Float32);}
+    public get LinearResponsiveness() {return this.GetProp("LinearResponsiveness", DataType.Float32)!;}
     public set LinearResponsiveness(value) {this.SetProp("LinearResponsiveness", DataType.Float32, value);}
-    public get LowerLimit() {return this.GetProp("LowerLimit", DataType.Float32);}
+    public get LowerLimit() {return this.GetProp("LowerLimit", DataType.Float32)!;}
     public set LowerLimit(value) {this.SetProp("LowerLimit", DataType.Float32, value);}
-    public get MotorMaxAcceleration() {return this.GetProp("MotorMaxAcceleration", DataType.Float32);}
+    public get MotorMaxAcceleration() {return this.GetProp("MotorMaxAcceleration", DataType.Float32)!;}
     public set MotorMaxAcceleration(value) {this.SetProp("MotorMaxAcceleration", DataType.Float32, value);}
-    public get MotorMaxForce() {return this.GetProp("MotorMaxForce", DataType.Float32);}
+    public get MotorMaxForce() {return this.GetProp("MotorMaxForce", DataType.Float32)!;}
     public set MotorMaxForce(value) {this.SetProp("MotorMaxForce", DataType.Float32, value);}
-    public get Restitution() {return this.GetProp("Restitution", DataType.Float32);}
+    public get Restitution() {return this.GetProp("Restitution", DataType.Float32)!;}
     public set Restitution(value) {this.SetProp("Restitution", DataType.Float32, value);}
-    public get ServoMaxForce() {return this.GetProp("ServoMaxForce", DataType.Float32);}
+    public get ServoMaxForce() {return this.GetProp("ServoMaxForce", DataType.Float32)!;}
     public set ServoMaxForce(value) {this.SetProp("ServoMaxForce", DataType.Float32, value);}
-    public get Size() {return this.GetProp("Size", DataType.Float32);}
+    public get Size() {return this.GetProp("Size", DataType.Float32)!;}
     public set Size(value) {this.SetProp("Size", DataType.Float32, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get SoftlockServoUponReachingTarget() {return this.GetProp("SoftlockServoUponReachingTarget", DataType.Bool);}
+    public get SoftlockServoUponReachingTarget() {return this.GetProp("SoftlockServoUponReachingTarget", DataType.Bool)!;}
     /**@deprecated Deprecated by Roblox*/
     public set SoftlockServoUponReachingTarget(value) {this.SetProp("SoftlockServoUponReachingTarget", DataType.Bool, value);}
-    public get Speed() {return this.GetProp("Speed", DataType.Float32);}
+    public get Speed() {return this.GetProp("Speed", DataType.Float32)!;}
     public set Speed(value) {this.SetProp("Speed", DataType.Float32, value);}
-    public get TargetPosition() {return this.GetProp("TargetPosition", DataType.Float32);}
+    public get TargetPosition() {return this.GetProp("TargetPosition", DataType.Float32)!;}
     public set TargetPosition(value) {this.SetProp("TargetPosition", DataType.Float32, value);}
-    public get UpperLimit() {return this.GetProp("UpperLimit", DataType.Float32);}
+    public get UpperLimit() {return this.GetProp("UpperLimit", DataType.Float32)!;}
     public set UpperLimit(value) {this.SetProp("UpperLimit", DataType.Float32, value);}
-    public get Velocity() {return this.GetProp("Velocity", DataType.Float32);}
+    public get Velocity() {return this.GetProp("Velocity", DataType.Float32)!;}
     public set Velocity(value) {this.SetProp("Velocity", DataType.Float32, value);}
 }
 
@@ -2173,22 +2109,6 @@ export class CylindricalConstraint extends SlidingBallConstraint {
         this.SoftlockAngularServoUponReachingTarget = false;
         this.TargetAngle = 0;
         this.UpperAngle = 45;
-        this.ActuatorType = ActuatorType.None;
-        this.LimitsEnabled = false;
-        this.LinearResponsiveness = 45;
-        this.LowerLimit = 0;
-        this.MotorMaxAcceleration = Infinity;
-        this.MotorMaxForce = 0;
-        this.Restitution = 0;
-        this.ServoMaxForce = 0;
-        this.Size = 0.15;
-        this.SoftlockServoUponReachingTarget = false;
-        this.Speed = 0;
-        this.TargetPosition = 0;
-        this.UpperLimit = 5;
-        this.Velocity = 0;
-        this.Enabled = true;
-        this.Visible = false;
     }
     public get AngularActuatorType() {return this.GetProp("AngularActuatorType", DataType.Enum)! as ActuatorType;}
     public set AngularActuatorType(value) {this.SetProp("AngularActuatorType", DataType.Enum, value);}
@@ -2222,38 +2142,6 @@ export class CylindricalConstraint extends SlidingBallConstraint {
     public set TargetAngle(value) {this.SetProp("TargetAngle", DataType.Float32, value);}
     public get UpperAngle() {return this.GetProp("UpperAngle", DataType.Float32)!;}
     public set UpperAngle(value) {this.SetProp("UpperAngle", DataType.Float32, value);}
-    public override get ActuatorType() {return super.ActuatorType!;}
-    public override set ActuatorType(value) {super.ActuatorType = value;}
-    public override get LimitsEnabled() {return super.LimitsEnabled!;}
-    public override set LimitsEnabled(value) {super.LimitsEnabled = value;}
-    public override get LinearResponsiveness() {return super.LinearResponsiveness!;}
-    public override set LinearResponsiveness(value) {super.LinearResponsiveness = value;}
-    public override get LowerLimit() {return super.LowerLimit!;}
-    public override set LowerLimit(value) {super.LowerLimit = value;}
-    public override get MotorMaxAcceleration() {return super.MotorMaxAcceleration!;}
-    public override set MotorMaxAcceleration(value) {super.MotorMaxAcceleration = value;}
-    public override get MotorMaxForce() {return super.MotorMaxForce!;}
-    public override set MotorMaxForce(value) {super.MotorMaxForce = value;}
-    public override get Restitution() {return super.Restitution!;}
-    public override set Restitution(value) {super.Restitution = value;}
-    public override get ServoMaxForce() {return super.ServoMaxForce!;}
-    public override set ServoMaxForce(value) {super.ServoMaxForce = value;}
-    public override get Size() {return super.Size!;}
-    public override set Size(value) {super.Size = value;}
-    public override get SoftlockServoUponReachingTarget() {return super.SoftlockServoUponReachingTarget!;}
-    public override set SoftlockServoUponReachingTarget(value) {super.SoftlockServoUponReachingTarget = value;}
-    public override get Speed() {return super.Speed!;}
-    public override set Speed(value) {super.Speed = value;}
-    public override get TargetPosition() {return super.TargetPosition!;}
-    public override set TargetPosition(value) {super.TargetPosition = value;}
-    public override get UpperLimit() {return super.UpperLimit!;}
-    public override set UpperLimit(value) {super.UpperLimit = value;}
-    public override get Velocity() {return super.Velocity!;}
-    public override set Velocity(value) {super.Velocity = value;}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class PrismaticConstraint extends SlidingBallConstraint {
@@ -2262,55 +2150,7 @@ export class PrismaticConstraint extends SlidingBallConstraint {
         super();
         this.addClassName("PrismaticConstraint");
         this.Name = "PrismaticConstraint";
-        this.ActuatorType = ActuatorType.None;
-        this.LimitsEnabled = false;
-        this.LinearResponsiveness = 45;
-        this.LowerLimit = 0;
-        this.MotorMaxAcceleration = Infinity;
-        this.MotorMaxForce = 0;
-        this.Restitution = 0;
-        this.ServoMaxForce = 0;
-        this.Size = 0.15;
-        this.SoftlockServoUponReachingTarget = false;
-        this.Speed = 0;
-        this.TargetPosition = 0;
-        this.UpperLimit = 5;
-        this.Velocity = 0;
-        this.Enabled = true;
-        this.Visible = false;
     }
-    public override get ActuatorType() {return super.ActuatorType!;}
-    public override set ActuatorType(value) {super.ActuatorType = value;}
-    public override get LimitsEnabled() {return super.LimitsEnabled!;}
-    public override set LimitsEnabled(value) {super.LimitsEnabled = value;}
-    public override get LinearResponsiveness() {return super.LinearResponsiveness!;}
-    public override set LinearResponsiveness(value) {super.LinearResponsiveness = value;}
-    public override get LowerLimit() {return super.LowerLimit!;}
-    public override set LowerLimit(value) {super.LowerLimit = value;}
-    public override get MotorMaxAcceleration() {return super.MotorMaxAcceleration!;}
-    public override set MotorMaxAcceleration(value) {super.MotorMaxAcceleration = value;}
-    public override get MotorMaxForce() {return super.MotorMaxForce!;}
-    public override set MotorMaxForce(value) {super.MotorMaxForce = value;}
-    public override get Restitution() {return super.Restitution!;}
-    public override set Restitution(value) {super.Restitution = value;}
-    public override get ServoMaxForce() {return super.ServoMaxForce!;}
-    public override set ServoMaxForce(value) {super.ServoMaxForce = value;}
-    public override get Size() {return super.Size!;}
-    public override set Size(value) {super.Size = value;}
-    public override get SoftlockServoUponReachingTarget() {return super.SoftlockServoUponReachingTarget!;}
-    public override set SoftlockServoUponReachingTarget(value) {super.SoftlockServoUponReachingTarget = value;}
-    public override get Speed() {return super.Speed!;}
-    public override set Speed(value) {super.Speed = value;}
-    public override get TargetPosition() {return super.TargetPosition!;}
-    public override set TargetPosition(value) {super.TargetPosition = value;}
-    public override get UpperLimit() {return super.UpperLimit!;}
-    public override set UpperLimit(value) {super.UpperLimit = value;}
-    public override get Velocity() {return super.Velocity!;}
-    public override set Velocity(value) {super.Velocity = value;}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class SpringConstraint extends Constraint {
@@ -2329,8 +2169,6 @@ export class SpringConstraint extends Constraint {
         this.Radius = 0.4;
         this.Stiffness = 0;
         this.Thickness = 0.1;
-        this.Enabled = true;
-        this.Visible = false;
     }
     public get Coils() {return this.GetProp("Coils", DataType.Float32)!;}
     public set Coils(value) {this.SetProp("Coils", DataType.Float32, value);}
@@ -2352,10 +2190,6 @@ export class SpringConstraint extends Constraint {
     public set Stiffness(value) {this.SetProp("Stiffness", DataType.Float32, value);}
     public get Thickness() {return this.GetProp("Thickness", DataType.Float32)!;}
     public set Thickness(value) {this.SetProp("Thickness", DataType.Float32, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class Torque extends Constraint {
@@ -2366,17 +2200,11 @@ export class Torque extends Constraint {
         this.Name = "Torque";
         this.RelativeTo = ActuatorRelativeTo.Attachment0;
         this.Torque = new Vector3(0, 0, 0);
-        this.Enabled = true;
-        this.Visible = false;
     }
     public get RelativeTo() {return this.GetProp("RelativeTo", DataType.Enum)! as ActuatorRelativeTo;}
     public set RelativeTo(value) {this.SetProp("RelativeTo", DataType.Enum, value);}
     public get Torque() {return this.GetProp("Torque", DataType.Vector3)!;}
     public set Torque(value) {this.SetProp("Torque", DataType.Vector3, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class TorsionSpringConstraint extends Constraint {
@@ -2394,8 +2222,6 @@ export class TorsionSpringConstraint extends Constraint {
         this.Radius = 0.4;
         this.Restitution = 0;
         this.Stiffness = 100;
-        this.Enabled = true;
-        this.Visible = false;
     }
     public get Coils() {return this.GetProp("Coils", DataType.Float32)!;}
     public set Coils(value) {this.SetProp("Coils", DataType.Float32, value);}
@@ -2417,10 +2243,6 @@ export class TorsionSpringConstraint extends Constraint {
     public set Restitution(value) {this.SetProp("Restitution", DataType.Float32, value);}
     public get Stiffness() {return this.GetProp("Stiffness", DataType.Float32)!;}
     public set Stiffness(value) {this.SetProp("Stiffness", DataType.Float32, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class UniversalConstraint extends Constraint {
@@ -2433,8 +2255,6 @@ export class UniversalConstraint extends Constraint {
         this.MaxAngle = 45;
         this.Radius = 0.2;
         this.Restitution = 0;
-        this.Enabled = true;
-        this.Visible = false;
     }
     public get LimitsEnabled() {return this.GetProp("LimitsEnabled", DataType.Bool)!;}
     public set LimitsEnabled(value) {this.SetProp("LimitsEnabled", DataType.Bool, value);}
@@ -2444,10 +2264,6 @@ export class UniversalConstraint extends Constraint {
     public set Radius(value) {this.SetProp("Radius", DataType.Float32, value);}
     public get Restitution() {return this.GetProp("Restitution", DataType.Float32)!;}
     public set Restitution(value) {this.SetProp("Restitution", DataType.Float32, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class VectorForce extends Constraint {
@@ -2459,8 +2275,6 @@ export class VectorForce extends Constraint {
         this.ApplyAtCenterOfMass = false;
         this.Force = new Vector3(1000, 0, 0);
         this.RelativeTo = ActuatorRelativeTo.Attachment0;
-        this.Enabled = true;
-        this.Visible = false;
     }
     public get ApplyAtCenterOfMass() {return this.GetProp("ApplyAtCenterOfMass", DataType.Bool)!;}
     public set ApplyAtCenterOfMass(value) {this.SetProp("ApplyAtCenterOfMass", DataType.Bool, value);}
@@ -2468,10 +2282,6 @@ export class VectorForce extends Constraint {
     public set Force(value) {this.SetProp("Force", DataType.Vector3, value);}
     public get RelativeTo() {return this.GetProp("RelativeTo", DataType.Enum)! as ActuatorRelativeTo;}
     public set RelativeTo(value) {this.SetProp("RelativeTo", DataType.Enum, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class ContentProvider extends Instance {
@@ -2532,10 +2342,12 @@ export abstract class ControllerBase extends Instance {
     {
         super();
         this.addClassName("ControllerBase");
+        this.BalanceRigidityEnabled = false;
+        this.MoveSpeedFactor = 1;
     }
-    public get BalanceRigidityEnabled() {return this.GetProp("BalanceRigidityEnabled", DataType.Bool);}
+    public get BalanceRigidityEnabled() {return this.GetProp("BalanceRigidityEnabled", DataType.Bool)!;}
     public set BalanceRigidityEnabled(value) {this.SetProp("BalanceRigidityEnabled", DataType.Bool, value);}
-    public get MoveSpeedFactor() {return this.GetProp("MoveSpeedFactor", DataType.Float32);}
+    public get MoveSpeedFactor() {return this.GetProp("MoveSpeedFactor", DataType.Float32)!;}
     public set MoveSpeedFactor(value) {this.SetProp("MoveSpeedFactor", DataType.Float32, value);}
 }
 
@@ -2552,8 +2364,6 @@ export class AirController extends ControllerBase {
         this.MoveMaxForce = 1000;
         this.TurnMaxTorque = 10000;
         this.TurnSpeedFactor = 1;
-        this.BalanceRigidityEnabled = false;
-        this.MoveSpeedFactor = 1;
     }
     public get BalanceMaxTorque() {return this.GetProp("BalanceMaxTorque", DataType.Float32)!;}
     public set BalanceMaxTorque(value) {this.SetProp("BalanceMaxTorque", DataType.Float32, value);}
@@ -2569,10 +2379,6 @@ export class AirController extends ControllerBase {
     public set TurnMaxTorque(value) {this.SetProp("TurnMaxTorque", DataType.Float32, value);}
     public get TurnSpeedFactor() {return this.GetProp("TurnSpeedFactor", DataType.Float32)!;}
     public set TurnSpeedFactor(value) {this.SetProp("TurnSpeedFactor", DataType.Float32, value);}
-    public override get BalanceRigidityEnabled() {return super.BalanceRigidityEnabled!;}
-    public override set BalanceRigidityEnabled(value) {super.BalanceRigidityEnabled = value;}
-    public override get MoveSpeedFactor() {return super.MoveSpeedFactor!;}
-    public override set MoveSpeedFactor(value) {super.MoveSpeedFactor = value;}
 }
 
 export class ClimbController extends ControllerBase {
@@ -2585,8 +2391,6 @@ export class ClimbController extends ControllerBase {
         this.BalanceMaxTorque = 10000;
         this.BalanceSpeed = 100;
         this.MoveMaxForce = 10000;
-        this.BalanceRigidityEnabled = false;
-        this.MoveSpeedFactor = 1;
     }
     public get AccelerationTime() {return this.GetProp("AccelerationTime", DataType.Float32)!;}
     public set AccelerationTime(value) {this.SetProp("AccelerationTime", DataType.Float32, value);}
@@ -2596,10 +2400,6 @@ export class ClimbController extends ControllerBase {
     public set BalanceSpeed(value) {this.SetProp("BalanceSpeed", DataType.Float32, value);}
     public get MoveMaxForce() {return this.GetProp("MoveMaxForce", DataType.Float32)!;}
     public set MoveMaxForce(value) {this.SetProp("MoveMaxForce", DataType.Float32, value);}
-    public override get BalanceRigidityEnabled() {return super.BalanceRigidityEnabled!;}
-    public override set BalanceRigidityEnabled(value) {super.BalanceRigidityEnabled = value;}
-    public override get MoveSpeedFactor() {return super.MoveSpeedFactor!;}
-    public override set MoveSpeedFactor(value) {super.MoveSpeedFactor = value;}
 }
 
 export class GroundController extends ControllerBase {
@@ -2619,8 +2419,6 @@ export class GroundController extends ControllerBase {
         this.StandForce = 10000;
         this.StandSpeed = 100;
         this.TurnSpeedFactor = 1;
-        this.BalanceRigidityEnabled = false;
-        this.MoveSpeedFactor = 1;
     }
     public get AccelerationLean() {return this.GetProp("AccelerationLean", DataType.Float32)!;}
     public set AccelerationLean(value) {this.SetProp("AccelerationLean", DataType.Float32, value);}
@@ -2644,10 +2442,6 @@ export class GroundController extends ControllerBase {
     public set StandSpeed(value) {this.SetProp("StandSpeed", DataType.Float32, value);}
     public get TurnSpeedFactor() {return this.GetProp("TurnSpeedFactor", DataType.Float32)!;}
     public set TurnSpeedFactor(value) {this.SetProp("TurnSpeedFactor", DataType.Float32, value);}
-    public override get BalanceRigidityEnabled() {return super.BalanceRigidityEnabled!;}
-    public override set BalanceRigidityEnabled(value) {super.BalanceRigidityEnabled = value;}
-    public override get MoveSpeedFactor() {return super.MoveSpeedFactor!;}
-    public override set MoveSpeedFactor(value) {super.MoveSpeedFactor = value;}
 }
 
 export class SwimController extends ControllerBase {
@@ -2661,8 +2455,6 @@ export class SwimController extends ControllerBase {
         this.PitchSpeedFactor = 1;
         this.RollMaxTorque = 10000;
         this.RollSpeedFactor = 1;
-        this.BalanceRigidityEnabled = false;
-        this.MoveSpeedFactor = 1;
     }
     public get AccelerationTime() {return this.GetProp("AccelerationTime", DataType.Float32)!;}
     public set AccelerationTime(value) {this.SetProp("AccelerationTime", DataType.Float32, value);}
@@ -2674,10 +2466,6 @@ export class SwimController extends ControllerBase {
     public set RollMaxTorque(value) {this.SetProp("RollMaxTorque", DataType.Float32, value);}
     public get RollSpeedFactor() {return this.GetProp("RollSpeedFactor", DataType.Float32)!;}
     public set RollSpeedFactor(value) {this.SetProp("RollSpeedFactor", DataType.Float32, value);}
-    public override get BalanceRigidityEnabled() {return super.BalanceRigidityEnabled!;}
-    public override set BalanceRigidityEnabled(value) {super.BalanceRigidityEnabled = value;}
-    public override get MoveSpeedFactor() {return super.MoveSpeedFactor!;}
-    public override set MoveSpeedFactor(value) {super.MoveSpeedFactor = value;}
 }
 
 export class ControllerManager extends Instance {
@@ -2814,12 +2602,15 @@ export abstract class DataModelMesh extends Instance {
     {
         super();
         this.addClassName("DataModelMesh");
+        this.Offset = new Vector3(0, 0, 0);
+        this.Scale = new Vector3(1, 1, 1);
+        this.VertexColor = new Vector3(1, 1, 1);
     }
-    public get Offset() {return this.GetProp("Offset", DataType.Vector3);}
+    public get Offset() {return this.GetProp("Offset", DataType.Vector3)!;}
     public set Offset(value) {this.SetProp("Offset", DataType.Vector3, value);}
-    public get Scale() {return this.GetProp("Scale", DataType.Vector3);}
+    public get Scale() {return this.GetProp("Scale", DataType.Vector3)!;}
     public set Scale(value) {this.SetProp("Scale", DataType.Vector3, value);}
-    public get VertexColor() {return this.GetProp("VertexColor", DataType.Vector3);}
+    public get VertexColor() {return this.GetProp("VertexColor", DataType.Vector3)!;}
     public set VertexColor(value) {this.SetProp("VertexColor", DataType.Vector3, value);}
 }
 
@@ -2844,16 +2635,7 @@ export class BlockMesh extends BevelMesh {
         super();
         this.addClassName("BlockMesh");
         this.Name = "BlockMesh";
-        this.Offset = new Vector3(0, 0, 0);
-        this.Scale = new Vector3(1, 1, 1);
-        this.VertexColor = new Vector3(1, 1, 1);
     }
-    public override get Offset() {return super.Offset!;}
-    public override set Offset(value) {super.Offset = value;}
-    public override get Scale() {return super.Scale!;}
-    public override set Scale(value) {super.Scale = value;}
-    public override get VertexColor() {return super.VertexColor!;}
-    public override set VertexColor(value) {super.VertexColor = value;}
 }
 
 /**@deprecated Deprecated by Roblox*/
@@ -2863,16 +2645,7 @@ export class CylinderMesh extends BevelMesh {
         super();
         this.addClassName("CylinderMesh");
         this.Name = "CylinderMesh";
-        this.Offset = new Vector3(0, 0, 0);
-        this.Scale = new Vector3(1, 1, 1);
-        this.VertexColor = new Vector3(1, 1, 1);
     }
-    public override get Offset() {return super.Offset!;}
-    public override set Offset(value) {super.Offset = value;}
-    public override get Scale() {return super.Scale!;}
-    public override set Scale(value) {super.Scale = value;}
-    public override get VertexColor() {return super.VertexColor!;}
-    public override set VertexColor(value) {super.VertexColor = value;}
 }
 
 export class EditableMesh extends DataModelMesh {
@@ -2881,16 +2654,7 @@ export class EditableMesh extends DataModelMesh {
         super();
         this.addClassName("EditableMesh");
         this.Name = "EditableMesh";
-        this.Offset = new Vector3(0, 0, 0);
-        this.Scale = new Vector3(1, 1, 1);
-        this.VertexColor = new Vector3(1, 1, 1);
     }
-    public override get Offset() {return super.Offset!;}
-    public override set Offset(value) {super.Offset = value;}
-    public override get Scale() {return super.Scale!;}
-    public override set Scale(value) {super.Scale = value;}
-    public override get VertexColor() {return super.VertexColor!;}
-    public override set VertexColor(value) {super.VertexColor = value;}
 }
 
 export class RobloxEditableMesh extends EditableMesh {
@@ -2913,20 +2677,11 @@ export class FileMesh extends DataModelMesh {
         this.Name = "FileMesh";
         this.MeshId = "";
         this.TextureId = "";
-        this.Offset = new Vector3(0, 0, 0);
-        this.Scale = new Vector3(1, 1, 1);
-        this.VertexColor = new Vector3(1, 1, 1);
     }
     public get MeshId() {return this.GetProp("MeshId", DataType.String)!;}
     public set MeshId(value) {this.SetProp("MeshId", DataType.String, value);}
     public get TextureId() {return this.GetProp("TextureId", DataType.String)!;}
     public set TextureId(value) {this.SetProp("TextureId", DataType.String, value);}
-    public override get Offset() {return super.Offset!;}
-    public override set Offset(value) {super.Offset = value;}
-    public override get Scale() {return super.Scale!;}
-    public override set Scale(value) {super.Scale = value;}
-    public override get VertexColor() {return super.VertexColor!;}
-    public override set VertexColor(value) {super.VertexColor = value;}
 }
 
 export class SpecialMesh extends FileMesh {
@@ -2936,18 +2691,9 @@ export class SpecialMesh extends FileMesh {
         this.addClassName("SpecialMesh");
         this.Name = "SpecialMesh";
         this.MeshType = MeshType.Head;
-        this.Offset = new Vector3(0, 0, 0);
-        this.Scale = new Vector3(1, 1, 1);
-        this.VertexColor = new Vector3(1, 1, 1);
     }
     public get MeshType() {return this.GetProp("MeshType", DataType.Enum)! as MeshType;}
     public set MeshType(value) {this.SetProp("MeshType", DataType.Enum, value);}
-    public override get Offset() {return super.Offset!;}
-    public override set Offset(value) {super.Offset = value;}
-    public override get Scale() {return super.Scale!;}
-    public override set Scale(value) {super.Scale = value;}
-    public override get VertexColor() {return super.VertexColor!;}
-    public override set VertexColor(value) {super.VertexColor = value;}
 }
 
 export class DataModelPatchService extends Instance {
@@ -3348,8 +3094,9 @@ export abstract class FaceInstance extends Instance {
     {
         super();
         this.addClassName("FaceInstance");
+        this.Face = NormalId.Front;
     }
-    public get Face() {return this.GetProp("Face", DataType.Enum) as NormalId | undefined;}
+    public get Face() {return this.GetProp("Face", DataType.Enum)! as NormalId;}
     public set Face(value) {this.SetProp("Face", DataType.Enum, value);}
 }
 
@@ -3365,7 +3112,6 @@ export class Decal extends FaceInstance {
         this.Texture = "";
         this.Transparency = 0;
         this.ZIndex = 1;
-        this.Face = NormalId.Front;
     }
     public get Color3() {return this.GetProp("Color3", DataType.Color3)!;}
     public set Color3(value) {this.SetProp("Color3", DataType.Color3, value);}
@@ -3383,8 +3129,6 @@ export class Decal extends FaceInstance {
     public set Transparency(value) {this.SetProp("Transparency", DataType.Float32, value);}
     public get ZIndex() {return this.GetProp("ZIndex", DataType.Int32)!;}
     public set ZIndex(value) {this.SetProp("ZIndex", DataType.Int32, value);}
-    public override get Face() {return super.Face!;}
-    public override set Face(value) {super.Face = value;}
 }
 
 export class Texture extends Decal {
@@ -3397,7 +3141,6 @@ export class Texture extends Decal {
         this.OffsetStudsV = 0;
         this.StudsPerTileU = 2;
         this.StudsPerTileV = 2;
-        this.Face = NormalId.Front;
     }
     public get OffsetStudsU() {return this.GetProp("OffsetStudsU", DataType.Float32)!;}
     public set OffsetStudsU(value) {this.SetProp("OffsetStudsU", DataType.Float32, value);}
@@ -3407,8 +3150,6 @@ export class Texture extends Decal {
     public set StudsPerTileU(value) {this.SetProp("StudsPerTileU", DataType.Float32, value);}
     public get StudsPerTileV() {return this.GetProp("StudsPerTileV", DataType.Float32)!;}
     public set StudsPerTileV(value) {this.SetProp("StudsPerTileV", DataType.Float32, value);}
-    public override get Face() {return super.Face!;}
-    public override set Face(value) {super.Face = value;}
 }
 
 export class FacialAnimationRecordingService extends Instance {
@@ -3437,14 +3178,18 @@ export abstract class Feature extends Instance {
     {
         super();
         this.addClassName("Feature");
+        this.FaceId = NormalId.Right;
+        this.InOut = InOut.Center;
+        this.LeftRight = LeftRight.Center;
+        this.TopBottom = TopBottom.Center;
     }
-    public get FaceId() {return this.GetProp("FaceId", DataType.Enum) as NormalId | undefined;}
+    public get FaceId() {return this.GetProp("FaceId", DataType.Enum)! as NormalId;}
     public set FaceId(value) {this.SetProp("FaceId", DataType.Enum, value);}
-    public get InOut() {return this.GetProp("InOut", DataType.Enum) as InOut | undefined;}
+    public get InOut() {return this.GetProp("InOut", DataType.Enum)! as InOut;}
     public set InOut(value) {this.SetProp("InOut", DataType.Enum, value);}
-    public get LeftRight() {return this.GetProp("LeftRight", DataType.Enum) as LeftRight | undefined;}
+    public get LeftRight() {return this.GetProp("LeftRight", DataType.Enum)! as LeftRight;}
     public set LeftRight(value) {this.SetProp("LeftRight", DataType.Enum, value);}
-    public get TopBottom() {return this.GetProp("TopBottom", DataType.Enum) as TopBottom | undefined;}
+    public get TopBottom() {return this.GetProp("TopBottom", DataType.Enum)! as TopBottom;}
     public set TopBottom(value) {this.SetProp("TopBottom", DataType.Enum, value);}
 }
 
@@ -3455,19 +3200,7 @@ export class Hole extends Feature {
         super();
         this.addClassName("Hole");
         this.Name = "Hole";
-        this.FaceId = NormalId.Right;
-        this.InOut = InOut.Center;
-        this.LeftRight = LeftRight.Center;
-        this.TopBottom = TopBottom.Center;
     }
-    public override get FaceId() {return super.FaceId!;}
-    public override set FaceId(value) {super.FaceId = value;}
-    public override get InOut() {return super.InOut!;}
-    public override set InOut(value) {super.InOut = value;}
-    public override get LeftRight() {return super.LeftRight!;}
-    public override set LeftRight(value) {super.LeftRight = value;}
-    public override get TopBottom() {return super.TopBottom!;}
-    public override set TopBottom(value) {super.TopBottom = value;}
 }
 
 /**@deprecated Deprecated by Roblox*/
@@ -3477,19 +3210,7 @@ export class MotorFeature extends Feature {
         super();
         this.addClassName("MotorFeature");
         this.Name = "MotorFeature";
-        this.FaceId = NormalId.Right;
-        this.InOut = InOut.Center;
-        this.LeftRight = LeftRight.Center;
-        this.TopBottom = TopBottom.Center;
     }
-    public override get FaceId() {return super.FaceId!;}
-    public override set FaceId(value) {super.FaceId = value;}
-    public override get InOut() {return super.InOut!;}
-    public override set InOut(value) {super.InOut = value;}
-    public override get LeftRight() {return super.LeftRight!;}
-    public override set LeftRight(value) {super.LeftRight = value;}
-    public override get TopBottom() {return super.TopBottom!;}
-    public override set TopBottom(value) {super.TopBottom = value;}
 }
 
 export class Fire extends Instance {
@@ -3675,8 +3396,9 @@ export class GetTextBoundsParams extends Instance {
         this.Size = 20;
         this.Text = "";
         this.Width = 0;
+        this.Font = new RBXMFont("rbxasset://fonts/families/SourceSansPro.json", FontWeight.Regular, FontStyle.Normal);
     }
-    public get Font() {return this.GetProp("Font", DataType.Font);}
+    public get Font() {return this.GetProp("Font", DataType.Font)!;}
     public set Font(value) {this.SetProp("Font", DataType.Font, value);}
     public get Size() {return this.GetProp("Size", DataType.Float32)!;}
     public set Size(value) {this.SetProp("Size", DataType.Float32, value);}
@@ -3719,24 +3441,30 @@ export abstract class GuiBase2d extends GuiBase {
     {
         super();
         this.addClassName("GuiBase2d");
+        this.AutoLocalize = true;
+        this.Localize = true;
+        this.SelectionBehaviorDown = SelectionBehavior.Escape;
+        this.SelectionBehaviorLeft = SelectionBehavior.Escape;
+        this.SelectionBehaviorRight = SelectionBehavior.Escape;
+        this.SelectionBehaviorUp = SelectionBehavior.Escape;
     }
-    public get AutoLocalize() {return this.GetProp("AutoLocalize", DataType.Bool);}
+    public get AutoLocalize() {return this.GetProp("AutoLocalize", DataType.Bool)!;}
     public set AutoLocalize(value) {this.SetProp("AutoLocalize", DataType.Bool, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get Localize() {return this.GetProp("Localize", DataType.Bool);}
+    public get Localize() {return this.GetProp("Localize", DataType.Bool)!;}
     /**@deprecated Deprecated by Roblox*/
     public set Localize(value) {this.SetProp("Localize", DataType.Bool, value);}
     public get RootLocalizationTable() {return this.GetProp("RootLocalizationTable", DataType.Referent) as LocalizationTable | undefined;}
     public set RootLocalizationTable(value) {this.SetProp("RootLocalizationTable", DataType.Referent, value);}
-    public get SelectionBehaviorDown() {return this.GetProp("SelectionBehaviorDown", DataType.Enum) as SelectionBehavior | undefined;}
+    public get SelectionBehaviorDown() {return this.GetProp("SelectionBehaviorDown", DataType.Enum)! as SelectionBehavior;}
     public set SelectionBehaviorDown(value) {this.SetProp("SelectionBehaviorDown", DataType.Enum, value);}
-    public get SelectionBehaviorLeft() {return this.GetProp("SelectionBehaviorLeft", DataType.Enum) as SelectionBehavior | undefined;}
+    public get SelectionBehaviorLeft() {return this.GetProp("SelectionBehaviorLeft", DataType.Enum)! as SelectionBehavior;}
     public set SelectionBehaviorLeft(value) {this.SetProp("SelectionBehaviorLeft", DataType.Enum, value);}
-    public get SelectionBehaviorRight() {return this.GetProp("SelectionBehaviorRight", DataType.Enum) as SelectionBehavior | undefined;}
+    public get SelectionBehaviorRight() {return this.GetProp("SelectionBehaviorRight", DataType.Enum)! as SelectionBehavior;}
     public set SelectionBehaviorRight(value) {this.SetProp("SelectionBehaviorRight", DataType.Enum, value);}
-    public get SelectionBehaviorUp() {return this.GetProp("SelectionBehaviorUp", DataType.Enum) as SelectionBehavior | undefined;}
+    public get SelectionBehaviorUp() {return this.GetProp("SelectionBehaviorUp", DataType.Enum)! as SelectionBehavior;}
     public set SelectionBehaviorUp(value) {this.SetProp("SelectionBehaviorUp", DataType.Enum, value);}
-    public get SelectionGroup() {return this.GetProp("SelectionGroup", DataType.Bool);}
+    public get SelectionGroup() {return this.GetProp("SelectionGroup", DataType.Bool)!;}
     public set SelectionGroup(value) {this.SetProp("SelectionGroup", DataType.Bool, value);}
 }
 
@@ -3745,40 +3473,57 @@ export abstract class GuiObject extends GuiBase2d {
     {
         super();
         this.addClassName("GuiObject");
+        this.AnchorPoint = new Vector2(0, 0);
+        this.AutomaticSize = AutomaticSize.None;
+        this.BackgroundColor3 = Color3.FromRGB(163, 162, 165);
+        this.BackgroundTransparency = 0;
+        this.BorderColor3 = Color3.FromRGB(27, 42, 53);
+        this.BorderMode = BorderMode.Outline;
+        this.BorderSizePixel = 1;
+        this.Draggable = false;
+        this.Interactable = true;
+        this.LayoutOrder = 0;
+        this.Position = new UDim2(new UDim(0, 0), new UDim(0, 0));
+        this.Rotation = 0;
+        this.SelectionOrder = 0;
+        this.Size = new UDim2(new UDim(0, 0), new UDim(0, 0));
+        this.SizeConstraint = SizeConstraint.RelativeXY;
+        this.Visible = true;
+        this.ZIndex = 1;
     }
-    public get Active() {return this.GetProp("Active", DataType.Bool);}
+    public get Active() {return this.GetProp("Active", DataType.Bool)!;}
     public set Active(value) {this.SetProp("Active", DataType.Bool, value);}
-    public get AnchorPoint() {return this.GetProp("AnchorPoint", DataType.Vector2);}
+    public get AnchorPoint() {return this.GetProp("AnchorPoint", DataType.Vector2)!;}
     public set AnchorPoint(value) {this.SetProp("AnchorPoint", DataType.Vector2, value);}
-    public get AutomaticSize() {return this.GetProp("AutomaticSize", DataType.Enum) as AutomaticSize | undefined;}
+    public get AutomaticSize() {return this.GetProp("AutomaticSize", DataType.Enum)! as AutomaticSize;}
     public set AutomaticSize(value) {this.SetProp("AutomaticSize", DataType.Enum, value);}
     /**@deprecated Deprecated by Roblox*/
     public get BackgroundColor() {return this.GetProp("BackgroundColor", DataType.BrickColor);}
     /**@deprecated Deprecated by Roblox*/
     public set BackgroundColor(value) {this.SetProp("BackgroundColor", DataType.BrickColor, value);}
-    public get BackgroundColor3() {return this.GetProp("BackgroundColor3", DataType.Color3);}
+    public get BackgroundColor3() {return this.GetProp("BackgroundColor3", DataType.Color3)!;}
     public set BackgroundColor3(value) {this.SetProp("BackgroundColor3", DataType.Color3, value);}
-    public get BackgroundTransparency() {return this.GetProp("BackgroundTransparency", DataType.Float32);}
+    public get BackgroundTransparency() {return this.GetProp("BackgroundTransparency", DataType.Float32)!;}
     public set BackgroundTransparency(value) {this.SetProp("BackgroundTransparency", DataType.Float32, value);}
     /**@deprecated Deprecated by Roblox*/
     public get BorderColor() {return this.GetProp("BorderColor", DataType.BrickColor);}
     /**@deprecated Deprecated by Roblox*/
     public set BorderColor(value) {this.SetProp("BorderColor", DataType.BrickColor, value);}
-    public get BorderColor3() {return this.GetProp("BorderColor3", DataType.Color3);}
+    public get BorderColor3() {return this.GetProp("BorderColor3", DataType.Color3)!;}
     public set BorderColor3(value) {this.SetProp("BorderColor3", DataType.Color3, value);}
-    public get BorderMode() {return this.GetProp("BorderMode", DataType.Enum) as BorderMode | undefined;}
+    public get BorderMode() {return this.GetProp("BorderMode", DataType.Enum)! as BorderMode;}
     public set BorderMode(value) {this.SetProp("BorderMode", DataType.Enum, value);}
-    public get BorderSizePixel() {return this.GetProp("BorderSizePixel", DataType.Int32);}
+    public get BorderSizePixel() {return this.GetProp("BorderSizePixel", DataType.Int32)!;}
     public set BorderSizePixel(value) {this.SetProp("BorderSizePixel", DataType.Int32, value);}
-    public get ClipsDescendants() {return this.GetProp("ClipsDescendants", DataType.Bool);}
+    public get ClipsDescendants() {return this.GetProp("ClipsDescendants", DataType.Bool)!;}
     public set ClipsDescendants(value) {this.SetProp("ClipsDescendants", DataType.Bool, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get Draggable() {return this.GetProp("Draggable", DataType.Bool);}
+    public get Draggable() {return this.GetProp("Draggable", DataType.Bool)!;}
     /**@deprecated Deprecated by Roblox*/
     public set Draggable(value) {this.SetProp("Draggable", DataType.Bool, value);}
-    public get Interactable() {return this.GetProp("Interactable", DataType.Bool);}
+    public get Interactable() {return this.GetProp("Interactable", DataType.Bool)!;}
     public set Interactable(value) {this.SetProp("Interactable", DataType.Bool, value);}
-    public get LayoutOrder() {return this.GetProp("LayoutOrder", DataType.Int32);}
+    public get LayoutOrder() {return this.GetProp("LayoutOrder", DataType.Int32)!;}
     public set LayoutOrder(value) {this.SetProp("LayoutOrder", DataType.Int32, value);}
     public get NextSelectionDown() {return this.GetProp("NextSelectionDown", DataType.Referent) as GuiObject | undefined;}
     public set NextSelectionDown(value) {this.SetProp("NextSelectionDown", DataType.Referent, value);}
@@ -3788,23 +3533,23 @@ export abstract class GuiObject extends GuiBase2d {
     public set NextSelectionRight(value) {this.SetProp("NextSelectionRight", DataType.Referent, value);}
     public get NextSelectionUp() {return this.GetProp("NextSelectionUp", DataType.Referent) as GuiObject | undefined;}
     public set NextSelectionUp(value) {this.SetProp("NextSelectionUp", DataType.Referent, value);}
-    public get Position() {return this.GetProp("Position", DataType.UDim2);}
+    public get Position() {return this.GetProp("Position", DataType.UDim2)!;}
     public set Position(value) {this.SetProp("Position", DataType.UDim2, value);}
-    public get Rotation() {return this.GetProp("Rotation", DataType.Float32);}
+    public get Rotation() {return this.GetProp("Rotation", DataType.Float32)!;}
     public set Rotation(value) {this.SetProp("Rotation", DataType.Float32, value);}
-    public get Selectable() {return this.GetProp("Selectable", DataType.Bool);}
+    public get Selectable() {return this.GetProp("Selectable", DataType.Bool)!;}
     public set Selectable(value) {this.SetProp("Selectable", DataType.Bool, value);}
     public get SelectionImageObject() {return this.GetProp("SelectionImageObject", DataType.Referent) as GuiObject | undefined;}
     public set SelectionImageObject(value) {this.SetProp("SelectionImageObject", DataType.Referent, value);}
-    public get SelectionOrder() {return this.GetProp("SelectionOrder", DataType.Int32);}
+    public get SelectionOrder() {return this.GetProp("SelectionOrder", DataType.Int32)!;}
     public set SelectionOrder(value) {this.SetProp("SelectionOrder", DataType.Int32, value);}
-    public get Size() {return this.GetProp("Size", DataType.UDim2);}
+    public get Size() {return this.GetProp("Size", DataType.UDim2)!;}
     public set Size(value) {this.SetProp("Size", DataType.UDim2, value);}
-    public get SizeConstraint() {return this.GetProp("SizeConstraint", DataType.Enum) as SizeConstraint | undefined;}
+    public get SizeConstraint() {return this.GetProp("SizeConstraint", DataType.Enum)! as SizeConstraint;}
     public set SizeConstraint(value) {this.SetProp("SizeConstraint", DataType.Enum, value);}
-    public get Visible() {return this.GetProp("Visible", DataType.Bool);}
+    public get Visible() {return this.GetProp("Visible", DataType.Bool)!;}
     public set Visible(value) {this.SetProp("Visible", DataType.Bool, value);}
-    public get ZIndex() {return this.GetProp("ZIndex", DataType.Int32);}
+    public get ZIndex() {return this.GetProp("ZIndex", DataType.Int32)!;}
     public set ZIndex(value) {this.SetProp("ZIndex", DataType.Int32, value);}
 }
 
@@ -3817,85 +3562,14 @@ export class CanvasGroup extends GuiObject {
         this.GroupColor3 = Color3.FromRGB(255, 255, 255);
         this.GroupTransparency = 0;
         this.Active = false;
-        this.AnchorPoint = new Vector2(0, 0);
-        this.AutomaticSize = AutomaticSize.None;
-        this.BackgroundColor3 = Color3.FromRGB(163, 162, 165);
-        this.BackgroundTransparency = 0;
-        this.BorderColor3 = Color3.FromRGB(27, 42, 53);
-        this.BorderMode = BorderMode.Outline;
-        this.BorderSizePixel = 1;
         this.ClipsDescendants = true;
-        this.Draggable = false;
-        this.Interactable = true;
-        this.LayoutOrder = 0;
-        this.Rotation = 0;
         this.Selectable = false;
-        this.SelectionOrder = 0;
-        this.SizeConstraint = SizeConstraint.RelativeXY;
-        this.Visible = true;
-        this.ZIndex = 1;
-        this.AutoLocalize = true;
-        this.Localize = true;
-        this.SelectionBehaviorDown = SelectionBehavior.Escape;
-        this.SelectionBehaviorLeft = SelectionBehavior.Escape;
-        this.SelectionBehaviorRight = SelectionBehavior.Escape;
-        this.SelectionBehaviorUp = SelectionBehavior.Escape;
         this.SelectionGroup = false;
     }
     public get GroupColor3() {return this.GetProp("GroupColor3", DataType.Color3)!;}
     public set GroupColor3(value) {this.SetProp("GroupColor3", DataType.Color3, value);}
     public get GroupTransparency() {return this.GetProp("GroupTransparency", DataType.Float32)!;}
     public set GroupTransparency(value) {this.SetProp("GroupTransparency", DataType.Float32, value);}
-    public override get Active() {return super.Active!;}
-    public override set Active(value) {super.Active = value;}
-    public override get AnchorPoint() {return super.AnchorPoint!;}
-    public override set AnchorPoint(value) {super.AnchorPoint = value;}
-    public override get AutomaticSize() {return super.AutomaticSize!;}
-    public override set AutomaticSize(value) {super.AutomaticSize = value;}
-    public override get BackgroundColor3() {return super.BackgroundColor3!;}
-    public override set BackgroundColor3(value) {super.BackgroundColor3 = value;}
-    public override get BackgroundTransparency() {return super.BackgroundTransparency!;}
-    public override set BackgroundTransparency(value) {super.BackgroundTransparency = value;}
-    public override get BorderColor3() {return super.BorderColor3!;}
-    public override set BorderColor3(value) {super.BorderColor3 = value;}
-    public override get BorderMode() {return super.BorderMode!;}
-    public override set BorderMode(value) {super.BorderMode = value;}
-    public override get BorderSizePixel() {return super.BorderSizePixel!;}
-    public override set BorderSizePixel(value) {super.BorderSizePixel = value;}
-    public override get ClipsDescendants() {return super.ClipsDescendants!;}
-    public override set ClipsDescendants(value) {super.ClipsDescendants = value;}
-    public override get Draggable() {return super.Draggable!;}
-    public override set Draggable(value) {super.Draggable = value;}
-    public override get Interactable() {return super.Interactable!;}
-    public override set Interactable(value) {super.Interactable = value;}
-    public override get LayoutOrder() {return super.LayoutOrder!;}
-    public override set LayoutOrder(value) {super.LayoutOrder = value;}
-    public override get Rotation() {return super.Rotation!;}
-    public override set Rotation(value) {super.Rotation = value;}
-    public override get Selectable() {return super.Selectable!;}
-    public override set Selectable(value) {super.Selectable = value;}
-    public override get SelectionOrder() {return super.SelectionOrder!;}
-    public override set SelectionOrder(value) {super.SelectionOrder = value;}
-    public override get SizeConstraint() {return super.SizeConstraint!;}
-    public override set SizeConstraint(value) {super.SizeConstraint = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
-    public override get ZIndex() {return super.ZIndex!;}
-    public override set ZIndex(value) {super.ZIndex = value;}
-    public override get AutoLocalize() {return super.AutoLocalize!;}
-    public override set AutoLocalize(value) {super.AutoLocalize = value;}
-    public override get Localize() {return super.Localize!;}
-    public override set Localize(value) {super.Localize = value;}
-    public override get SelectionBehaviorDown() {return super.SelectionBehaviorDown!;}
-    public override set SelectionBehaviorDown(value) {super.SelectionBehaviorDown = value;}
-    public override get SelectionBehaviorLeft() {return super.SelectionBehaviorLeft!;}
-    public override set SelectionBehaviorLeft(value) {super.SelectionBehaviorLeft = value;}
-    public override get SelectionBehaviorRight() {return super.SelectionBehaviorRight!;}
-    public override set SelectionBehaviorRight(value) {super.SelectionBehaviorRight = value;}
-    public override get SelectionBehaviorUp() {return super.SelectionBehaviorUp!;}
-    public override set SelectionBehaviorUp(value) {super.SelectionBehaviorUp = value;}
-    public override get SelectionGroup() {return super.SelectionGroup!;}
-    public override set SelectionGroup(value) {super.SelectionGroup = value;}
 }
 
 export class Frame extends GuiObject {
@@ -3906,83 +3580,12 @@ export class Frame extends GuiObject {
         this.Name = "Frame";
         this.Style = FrameStyle.Custom;
         this.Active = false;
-        this.AnchorPoint = new Vector2(0, 0);
-        this.AutomaticSize = AutomaticSize.None;
-        this.BackgroundColor3 = Color3.FromRGB(163, 162, 165);
-        this.BackgroundTransparency = 0;
-        this.BorderColor3 = Color3.FromRGB(27, 42, 53);
-        this.BorderMode = BorderMode.Outline;
-        this.BorderSizePixel = 1;
         this.ClipsDescendants = false;
-        this.Draggable = false;
-        this.Interactable = true;
-        this.LayoutOrder = 0;
-        this.Rotation = 0;
         this.Selectable = false;
-        this.SelectionOrder = 0;
-        this.SizeConstraint = SizeConstraint.RelativeXY;
-        this.Visible = true;
-        this.ZIndex = 1;
-        this.AutoLocalize = true;
-        this.Localize = true;
-        this.SelectionBehaviorDown = SelectionBehavior.Escape;
-        this.SelectionBehaviorLeft = SelectionBehavior.Escape;
-        this.SelectionBehaviorRight = SelectionBehavior.Escape;
-        this.SelectionBehaviorUp = SelectionBehavior.Escape;
         this.SelectionGroup = false;
     }
     public get Style() {return this.GetProp("Style", DataType.Enum)! as FrameStyle;}
     public set Style(value) {this.SetProp("Style", DataType.Enum, value);}
-    public override get Active() {return super.Active!;}
-    public override set Active(value) {super.Active = value;}
-    public override get AnchorPoint() {return super.AnchorPoint!;}
-    public override set AnchorPoint(value) {super.AnchorPoint = value;}
-    public override get AutomaticSize() {return super.AutomaticSize!;}
-    public override set AutomaticSize(value) {super.AutomaticSize = value;}
-    public override get BackgroundColor3() {return super.BackgroundColor3!;}
-    public override set BackgroundColor3(value) {super.BackgroundColor3 = value;}
-    public override get BackgroundTransparency() {return super.BackgroundTransparency!;}
-    public override set BackgroundTransparency(value) {super.BackgroundTransparency = value;}
-    public override get BorderColor3() {return super.BorderColor3!;}
-    public override set BorderColor3(value) {super.BorderColor3 = value;}
-    public override get BorderMode() {return super.BorderMode!;}
-    public override set BorderMode(value) {super.BorderMode = value;}
-    public override get BorderSizePixel() {return super.BorderSizePixel!;}
-    public override set BorderSizePixel(value) {super.BorderSizePixel = value;}
-    public override get ClipsDescendants() {return super.ClipsDescendants!;}
-    public override set ClipsDescendants(value) {super.ClipsDescendants = value;}
-    public override get Draggable() {return super.Draggable!;}
-    public override set Draggable(value) {super.Draggable = value;}
-    public override get Interactable() {return super.Interactable!;}
-    public override set Interactable(value) {super.Interactable = value;}
-    public override get LayoutOrder() {return super.LayoutOrder!;}
-    public override set LayoutOrder(value) {super.LayoutOrder = value;}
-    public override get Rotation() {return super.Rotation!;}
-    public override set Rotation(value) {super.Rotation = value;}
-    public override get Selectable() {return super.Selectable!;}
-    public override set Selectable(value) {super.Selectable = value;}
-    public override get SelectionOrder() {return super.SelectionOrder!;}
-    public override set SelectionOrder(value) {super.SelectionOrder = value;}
-    public override get SizeConstraint() {return super.SizeConstraint!;}
-    public override set SizeConstraint(value) {super.SizeConstraint = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
-    public override get ZIndex() {return super.ZIndex!;}
-    public override set ZIndex(value) {super.ZIndex = value;}
-    public override get AutoLocalize() {return super.AutoLocalize!;}
-    public override set AutoLocalize(value) {super.AutoLocalize = value;}
-    public override get Localize() {return super.Localize!;}
-    public override set Localize(value) {super.Localize = value;}
-    public override get SelectionBehaviorDown() {return super.SelectionBehaviorDown!;}
-    public override set SelectionBehaviorDown(value) {super.SelectionBehaviorDown = value;}
-    public override get SelectionBehaviorLeft() {return super.SelectionBehaviorLeft!;}
-    public override set SelectionBehaviorLeft(value) {super.SelectionBehaviorLeft = value;}
-    public override get SelectionBehaviorRight() {return super.SelectionBehaviorRight!;}
-    public override set SelectionBehaviorRight(value) {super.SelectionBehaviorRight = value;}
-    public override get SelectionBehaviorUp() {return super.SelectionBehaviorUp!;}
-    public override set SelectionBehaviorUp(value) {super.SelectionBehaviorUp = value;}
-    public override get SelectionGroup() {return super.SelectionGroup!;}
-    public override set SelectionGroup(value) {super.SelectionGroup = value;}
 }
 
 export abstract class GuiButton extends GuiObject {
@@ -3990,14 +3593,22 @@ export abstract class GuiButton extends GuiObject {
     {
         super();
         this.addClassName("GuiButton");
+        this.AutoButtonColor = true;
+        this.Modal = false;
+        this.Selected = false;
+        this.Style = ButtonStyle.Custom;
+        this.Active = true;
+        this.ClipsDescendants = false;
+        this.Selectable = true;
+        this.SelectionGroup = false;
     }
-    public get AutoButtonColor() {return this.GetProp("AutoButtonColor", DataType.Bool);}
+    public get AutoButtonColor() {return this.GetProp("AutoButtonColor", DataType.Bool)!;}
     public set AutoButtonColor(value) {this.SetProp("AutoButtonColor", DataType.Bool, value);}
-    public get Modal() {return this.GetProp("Modal", DataType.Bool);}
+    public get Modal() {return this.GetProp("Modal", DataType.Bool)!;}
     public set Modal(value) {this.SetProp("Modal", DataType.Bool, value);}
-    public get Selected() {return this.GetProp("Selected", DataType.Bool);}
+    public get Selected() {return this.GetProp("Selected", DataType.Bool)!;}
     public set Selected(value) {this.SetProp("Selected", DataType.Bool, value);}
-    public get Style() {return this.GetProp("Style", DataType.Enum) as ButtonStyle | undefined;}
+    public get Style() {return this.GetProp("Style", DataType.Enum)! as ButtonStyle;}
     public set Style(value) {this.SetProp("Style", DataType.Enum, value);}
 }
 
@@ -4018,35 +3629,7 @@ export class ImageButton extends GuiButton {
         this.ScaleType = ScaleType.Stretch;
         this.SliceCenter = new Rect(new Vector2(0, 0), new Vector2(0, 0));
         this.SliceScale = 1;
-        this.AutoButtonColor = true;
-        this.Modal = false;
-        this.Selected = false;
-        this.Style = ButtonStyle.Custom;
-        this.Active = true;
-        this.AnchorPoint = new Vector2(0, 0);
-        this.AutomaticSize = AutomaticSize.None;
-        this.BackgroundColor3 = Color3.FromRGB(163, 162, 165);
-        this.BackgroundTransparency = 0;
-        this.BorderColor3 = Color3.FromRGB(27, 42, 53);
-        this.BorderMode = BorderMode.Outline;
-        this.BorderSizePixel = 1;
-        this.ClipsDescendants = false;
-        this.Draggable = false;
-        this.Interactable = true;
-        this.LayoutOrder = 0;
-        this.Rotation = 0;
-        this.Selectable = true;
-        this.SelectionOrder = 0;
-        this.SizeConstraint = SizeConstraint.RelativeXY;
-        this.Visible = true;
-        this.ZIndex = 1;
-        this.AutoLocalize = true;
-        this.Localize = true;
-        this.SelectionBehaviorDown = SelectionBehavior.Escape;
-        this.SelectionBehaviorLeft = SelectionBehavior.Escape;
-        this.SelectionBehaviorRight = SelectionBehavior.Escape;
-        this.SelectionBehaviorUp = SelectionBehavior.Escape;
-        this.SelectionGroup = false;
+        this.TileSize = new UDim2(new UDim(1, 0), new UDim(1, 0));
     }
     public get HoverImage() {return this.GetProp("HoverImage", DataType.String)!;}
     public set HoverImage(value) {this.SetProp("HoverImage", DataType.String, value);}
@@ -4070,66 +3653,8 @@ export class ImageButton extends GuiButton {
     public set SliceCenter(value) {this.SetProp("SliceCenter", DataType.Rect, value);}
     public get SliceScale() {return this.GetProp("SliceScale", DataType.Float32)!;}
     public set SliceScale(value) {this.SetProp("SliceScale", DataType.Float32, value);}
-    public get TileSize() {return this.GetProp("TileSize", DataType.UDim2);}
+    public get TileSize() {return this.GetProp("TileSize", DataType.UDim2)!;}
     public set TileSize(value) {this.SetProp("TileSize", DataType.UDim2, value);}
-    public override get AutoButtonColor() {return super.AutoButtonColor!;}
-    public override set AutoButtonColor(value) {super.AutoButtonColor = value;}
-    public override get Modal() {return super.Modal!;}
-    public override set Modal(value) {super.Modal = value;}
-    public override get Selected() {return super.Selected!;}
-    public override set Selected(value) {super.Selected = value;}
-    public override get Style() {return super.Style!;}
-    public override set Style(value) {super.Style = value;}
-    public override get Active() {return super.Active!;}
-    public override set Active(value) {super.Active = value;}
-    public override get AnchorPoint() {return super.AnchorPoint!;}
-    public override set AnchorPoint(value) {super.AnchorPoint = value;}
-    public override get AutomaticSize() {return super.AutomaticSize!;}
-    public override set AutomaticSize(value) {super.AutomaticSize = value;}
-    public override get BackgroundColor3() {return super.BackgroundColor3!;}
-    public override set BackgroundColor3(value) {super.BackgroundColor3 = value;}
-    public override get BackgroundTransparency() {return super.BackgroundTransparency!;}
-    public override set BackgroundTransparency(value) {super.BackgroundTransparency = value;}
-    public override get BorderColor3() {return super.BorderColor3!;}
-    public override set BorderColor3(value) {super.BorderColor3 = value;}
-    public override get BorderMode() {return super.BorderMode!;}
-    public override set BorderMode(value) {super.BorderMode = value;}
-    public override get BorderSizePixel() {return super.BorderSizePixel!;}
-    public override set BorderSizePixel(value) {super.BorderSizePixel = value;}
-    public override get ClipsDescendants() {return super.ClipsDescendants!;}
-    public override set ClipsDescendants(value) {super.ClipsDescendants = value;}
-    public override get Draggable() {return super.Draggable!;}
-    public override set Draggable(value) {super.Draggable = value;}
-    public override get Interactable() {return super.Interactable!;}
-    public override set Interactable(value) {super.Interactable = value;}
-    public override get LayoutOrder() {return super.LayoutOrder!;}
-    public override set LayoutOrder(value) {super.LayoutOrder = value;}
-    public override get Rotation() {return super.Rotation!;}
-    public override set Rotation(value) {super.Rotation = value;}
-    public override get Selectable() {return super.Selectable!;}
-    public override set Selectable(value) {super.Selectable = value;}
-    public override get SelectionOrder() {return super.SelectionOrder!;}
-    public override set SelectionOrder(value) {super.SelectionOrder = value;}
-    public override get SizeConstraint() {return super.SizeConstraint!;}
-    public override set SizeConstraint(value) {super.SizeConstraint = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
-    public override get ZIndex() {return super.ZIndex!;}
-    public override set ZIndex(value) {super.ZIndex = value;}
-    public override get AutoLocalize() {return super.AutoLocalize!;}
-    public override set AutoLocalize(value) {super.AutoLocalize = value;}
-    public override get Localize() {return super.Localize!;}
-    public override set Localize(value) {super.Localize = value;}
-    public override get SelectionBehaviorDown() {return super.SelectionBehaviorDown!;}
-    public override set SelectionBehaviorDown(value) {super.SelectionBehaviorDown = value;}
-    public override get SelectionBehaviorLeft() {return super.SelectionBehaviorLeft!;}
-    public override set SelectionBehaviorLeft(value) {super.SelectionBehaviorLeft = value;}
-    public override get SelectionBehaviorRight() {return super.SelectionBehaviorRight!;}
-    public override set SelectionBehaviorRight(value) {super.SelectionBehaviorRight = value;}
-    public override get SelectionBehaviorUp() {return super.SelectionBehaviorUp!;}
-    public override set SelectionBehaviorUp(value) {super.SelectionBehaviorUp = value;}
-    public override get SelectionGroup() {return super.SelectionGroup!;}
-    public override set SelectionGroup(value) {super.SelectionGroup = value;}
 }
 
 export class TextButton extends GuiButton {
@@ -4157,37 +3682,9 @@ export class TextButton extends GuiButton {
         this.TextWrapped = false;
         this.TextXAlignment = TextXAlignment.Center;
         this.TextYAlignment = TextYAlignment.Center;
-        this.AutoButtonColor = true;
-        this.Modal = false;
-        this.Selected = false;
-        this.Style = ButtonStyle.Custom;
-        this.Active = true;
-        this.AnchorPoint = new Vector2(0, 0);
-        this.AutomaticSize = AutomaticSize.None;
-        this.BackgroundColor3 = Color3.FromRGB(163, 162, 165);
-        this.BackgroundTransparency = 0;
-        this.BorderColor3 = Color3.FromRGB(27, 42, 53);
-        this.BorderMode = BorderMode.Outline;
-        this.BorderSizePixel = 1;
-        this.ClipsDescendants = false;
-        this.Draggable = false;
-        this.Interactable = true;
-        this.LayoutOrder = 0;
-        this.Rotation = 0;
-        this.Selectable = true;
-        this.SelectionOrder = 0;
-        this.SizeConstraint = SizeConstraint.RelativeXY;
-        this.Visible = true;
-        this.ZIndex = 1;
-        this.AutoLocalize = true;
-        this.Localize = true;
-        this.SelectionBehaviorDown = SelectionBehavior.Escape;
-        this.SelectionBehaviorLeft = SelectionBehavior.Escape;
-        this.SelectionBehaviorRight = SelectionBehavior.Escape;
-        this.SelectionBehaviorUp = SelectionBehavior.Escape;
-        this.SelectionGroup = false;
+        this.FontFace = new RBXMFont("rbxasset://fonts/families/LegacyArial.json", FontWeight.Regular, FontStyle.Normal);
     }
-    public get FontFace() {return this.GetProp("FontFace", DataType.Font);}
+    public get FontFace() {return this.GetProp("FontFace", DataType.Font)!;}
     public set FontFace(value) {this.SetProp("FontFace", DataType.Font, value);}
     /**@deprecated Deprecated by Roblox*/
     public get FontSize() {return this.GetProp("FontSize", DataType.Enum)! as FontSize;}
@@ -4235,64 +3732,6 @@ export class TextButton extends GuiButton {
     public set TextXAlignment(value) {this.SetProp("TextXAlignment", DataType.Enum, value);}
     public get TextYAlignment() {return this.GetProp("TextYAlignment", DataType.Enum)! as TextYAlignment;}
     public set TextYAlignment(value) {this.SetProp("TextYAlignment", DataType.Enum, value);}
-    public override get AutoButtonColor() {return super.AutoButtonColor!;}
-    public override set AutoButtonColor(value) {super.AutoButtonColor = value;}
-    public override get Modal() {return super.Modal!;}
-    public override set Modal(value) {super.Modal = value;}
-    public override get Selected() {return super.Selected!;}
-    public override set Selected(value) {super.Selected = value;}
-    public override get Style() {return super.Style!;}
-    public override set Style(value) {super.Style = value;}
-    public override get Active() {return super.Active!;}
-    public override set Active(value) {super.Active = value;}
-    public override get AnchorPoint() {return super.AnchorPoint!;}
-    public override set AnchorPoint(value) {super.AnchorPoint = value;}
-    public override get AutomaticSize() {return super.AutomaticSize!;}
-    public override set AutomaticSize(value) {super.AutomaticSize = value;}
-    public override get BackgroundColor3() {return super.BackgroundColor3!;}
-    public override set BackgroundColor3(value) {super.BackgroundColor3 = value;}
-    public override get BackgroundTransparency() {return super.BackgroundTransparency!;}
-    public override set BackgroundTransparency(value) {super.BackgroundTransparency = value;}
-    public override get BorderColor3() {return super.BorderColor3!;}
-    public override set BorderColor3(value) {super.BorderColor3 = value;}
-    public override get BorderMode() {return super.BorderMode!;}
-    public override set BorderMode(value) {super.BorderMode = value;}
-    public override get BorderSizePixel() {return super.BorderSizePixel!;}
-    public override set BorderSizePixel(value) {super.BorderSizePixel = value;}
-    public override get ClipsDescendants() {return super.ClipsDescendants!;}
-    public override set ClipsDescendants(value) {super.ClipsDescendants = value;}
-    public override get Draggable() {return super.Draggable!;}
-    public override set Draggable(value) {super.Draggable = value;}
-    public override get Interactable() {return super.Interactable!;}
-    public override set Interactable(value) {super.Interactable = value;}
-    public override get LayoutOrder() {return super.LayoutOrder!;}
-    public override set LayoutOrder(value) {super.LayoutOrder = value;}
-    public override get Rotation() {return super.Rotation!;}
-    public override set Rotation(value) {super.Rotation = value;}
-    public override get Selectable() {return super.Selectable!;}
-    public override set Selectable(value) {super.Selectable = value;}
-    public override get SelectionOrder() {return super.SelectionOrder!;}
-    public override set SelectionOrder(value) {super.SelectionOrder = value;}
-    public override get SizeConstraint() {return super.SizeConstraint!;}
-    public override set SizeConstraint(value) {super.SizeConstraint = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
-    public override get ZIndex() {return super.ZIndex!;}
-    public override set ZIndex(value) {super.ZIndex = value;}
-    public override get AutoLocalize() {return super.AutoLocalize!;}
-    public override set AutoLocalize(value) {super.AutoLocalize = value;}
-    public override get Localize() {return super.Localize!;}
-    public override set Localize(value) {super.Localize = value;}
-    public override get SelectionBehaviorDown() {return super.SelectionBehaviorDown!;}
-    public override set SelectionBehaviorDown(value) {super.SelectionBehaviorDown = value;}
-    public override get SelectionBehaviorLeft() {return super.SelectionBehaviorLeft!;}
-    public override set SelectionBehaviorLeft(value) {super.SelectionBehaviorLeft = value;}
-    public override get SelectionBehaviorRight() {return super.SelectionBehaviorRight!;}
-    public override set SelectionBehaviorRight(value) {super.SelectionBehaviorRight = value;}
-    public override get SelectionBehaviorUp() {return super.SelectionBehaviorUp!;}
-    public override set SelectionBehaviorUp(value) {super.SelectionBehaviorUp = value;}
-    public override get SelectionGroup() {return super.SelectionGroup!;}
-    public override set SelectionGroup(value) {super.SelectionGroup = value;}
 }
 
 export abstract class GuiLabel extends GuiObject {
@@ -4300,6 +3739,10 @@ export abstract class GuiLabel extends GuiObject {
     {
         super();
         this.addClassName("GuiLabel");
+        this.Active = false;
+        this.ClipsDescendants = false;
+        this.Selectable = false;
+        this.SelectionGroup = false;
     }
 }
 
@@ -4318,31 +3761,7 @@ export class ImageLabel extends GuiLabel {
         this.ScaleType = ScaleType.Stretch;
         this.SliceCenter = new Rect(new Vector2(0, 0), new Vector2(0, 0));
         this.SliceScale = 1;
-        this.Active = false;
-        this.AnchorPoint = new Vector2(0, 0);
-        this.AutomaticSize = AutomaticSize.None;
-        this.BackgroundColor3 = Color3.FromRGB(163, 162, 165);
-        this.BackgroundTransparency = 0;
-        this.BorderColor3 = Color3.FromRGB(27, 42, 53);
-        this.BorderMode = BorderMode.Outline;
-        this.BorderSizePixel = 1;
-        this.ClipsDescendants = false;
-        this.Draggable = false;
-        this.Interactable = true;
-        this.LayoutOrder = 0;
-        this.Rotation = 0;
-        this.Selectable = false;
-        this.SelectionOrder = 0;
-        this.SizeConstraint = SizeConstraint.RelativeXY;
-        this.Visible = true;
-        this.ZIndex = 1;
-        this.AutoLocalize = true;
-        this.Localize = true;
-        this.SelectionBehaviorDown = SelectionBehavior.Escape;
-        this.SelectionBehaviorLeft = SelectionBehavior.Escape;
-        this.SelectionBehaviorRight = SelectionBehavior.Escape;
-        this.SelectionBehaviorUp = SelectionBehavior.Escape;
-        this.SelectionGroup = false;
+        this.TileSize = new UDim2(new UDim(1, 0), new UDim(1, 0));
     }
     public get Image() {return this.GetProp("Image", DataType.String)!;}
     public set Image(value) {this.SetProp("Image", DataType.String, value);}
@@ -4362,58 +3781,8 @@ export class ImageLabel extends GuiLabel {
     public set SliceCenter(value) {this.SetProp("SliceCenter", DataType.Rect, value);}
     public get SliceScale() {return this.GetProp("SliceScale", DataType.Float32)!;}
     public set SliceScale(value) {this.SetProp("SliceScale", DataType.Float32, value);}
-    public get TileSize() {return this.GetProp("TileSize", DataType.UDim2);}
+    public get TileSize() {return this.GetProp("TileSize", DataType.UDim2)!;}
     public set TileSize(value) {this.SetProp("TileSize", DataType.UDim2, value);}
-    public override get Active() {return super.Active!;}
-    public override set Active(value) {super.Active = value;}
-    public override get AnchorPoint() {return super.AnchorPoint!;}
-    public override set AnchorPoint(value) {super.AnchorPoint = value;}
-    public override get AutomaticSize() {return super.AutomaticSize!;}
-    public override set AutomaticSize(value) {super.AutomaticSize = value;}
-    public override get BackgroundColor3() {return super.BackgroundColor3!;}
-    public override set BackgroundColor3(value) {super.BackgroundColor3 = value;}
-    public override get BackgroundTransparency() {return super.BackgroundTransparency!;}
-    public override set BackgroundTransparency(value) {super.BackgroundTransparency = value;}
-    public override get BorderColor3() {return super.BorderColor3!;}
-    public override set BorderColor3(value) {super.BorderColor3 = value;}
-    public override get BorderMode() {return super.BorderMode!;}
-    public override set BorderMode(value) {super.BorderMode = value;}
-    public override get BorderSizePixel() {return super.BorderSizePixel!;}
-    public override set BorderSizePixel(value) {super.BorderSizePixel = value;}
-    public override get ClipsDescendants() {return super.ClipsDescendants!;}
-    public override set ClipsDescendants(value) {super.ClipsDescendants = value;}
-    public override get Draggable() {return super.Draggable!;}
-    public override set Draggable(value) {super.Draggable = value;}
-    public override get Interactable() {return super.Interactable!;}
-    public override set Interactable(value) {super.Interactable = value;}
-    public override get LayoutOrder() {return super.LayoutOrder!;}
-    public override set LayoutOrder(value) {super.LayoutOrder = value;}
-    public override get Rotation() {return super.Rotation!;}
-    public override set Rotation(value) {super.Rotation = value;}
-    public override get Selectable() {return super.Selectable!;}
-    public override set Selectable(value) {super.Selectable = value;}
-    public override get SelectionOrder() {return super.SelectionOrder!;}
-    public override set SelectionOrder(value) {super.SelectionOrder = value;}
-    public override get SizeConstraint() {return super.SizeConstraint!;}
-    public override set SizeConstraint(value) {super.SizeConstraint = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
-    public override get ZIndex() {return super.ZIndex!;}
-    public override set ZIndex(value) {super.ZIndex = value;}
-    public override get AutoLocalize() {return super.AutoLocalize!;}
-    public override set AutoLocalize(value) {super.AutoLocalize = value;}
-    public override get Localize() {return super.Localize!;}
-    public override set Localize(value) {super.Localize = value;}
-    public override get SelectionBehaviorDown() {return super.SelectionBehaviorDown!;}
-    public override set SelectionBehaviorDown(value) {super.SelectionBehaviorDown = value;}
-    public override get SelectionBehaviorLeft() {return super.SelectionBehaviorLeft!;}
-    public override set SelectionBehaviorLeft(value) {super.SelectionBehaviorLeft = value;}
-    public override get SelectionBehaviorRight() {return super.SelectionBehaviorRight!;}
-    public override set SelectionBehaviorRight(value) {super.SelectionBehaviorRight = value;}
-    public override get SelectionBehaviorUp() {return super.SelectionBehaviorUp!;}
-    public override set SelectionBehaviorUp(value) {super.SelectionBehaviorUp = value;}
-    public override get SelectionGroup() {return super.SelectionGroup!;}
-    public override set SelectionGroup(value) {super.SelectionGroup = value;}
 }
 
 export class TextLabel extends GuiLabel {
@@ -4441,33 +3810,9 @@ export class TextLabel extends GuiLabel {
         this.TextWrapped = false;
         this.TextXAlignment = TextXAlignment.Center;
         this.TextYAlignment = TextYAlignment.Center;
-        this.Active = false;
-        this.AnchorPoint = new Vector2(0, 0);
-        this.AutomaticSize = AutomaticSize.None;
-        this.BackgroundColor3 = Color3.FromRGB(163, 162, 165);
-        this.BackgroundTransparency = 0;
-        this.BorderColor3 = Color3.FromRGB(27, 42, 53);
-        this.BorderMode = BorderMode.Outline;
-        this.BorderSizePixel = 1;
-        this.ClipsDescendants = false;
-        this.Draggable = false;
-        this.Interactable = true;
-        this.LayoutOrder = 0;
-        this.Rotation = 0;
-        this.Selectable = false;
-        this.SelectionOrder = 0;
-        this.SizeConstraint = SizeConstraint.RelativeXY;
-        this.Visible = true;
-        this.ZIndex = 1;
-        this.AutoLocalize = true;
-        this.Localize = true;
-        this.SelectionBehaviorDown = SelectionBehavior.Escape;
-        this.SelectionBehaviorLeft = SelectionBehavior.Escape;
-        this.SelectionBehaviorRight = SelectionBehavior.Escape;
-        this.SelectionBehaviorUp = SelectionBehavior.Escape;
-        this.SelectionGroup = false;
+        this.FontFace = new RBXMFont("rbxasset://fonts/families/LegacyArial.json", FontWeight.Regular, FontStyle.Normal);
     }
-    public get FontFace() {return this.GetProp("FontFace", DataType.Font);}
+    public get FontFace() {return this.GetProp("FontFace", DataType.Font)!;}
     public set FontFace(value) {this.SetProp("FontFace", DataType.Font, value);}
     /**@deprecated Deprecated by Roblox*/
     public get FontSize() {return this.GetProp("FontSize", DataType.Enum)! as FontSize;}
@@ -4515,56 +3860,6 @@ export class TextLabel extends GuiLabel {
     public set TextXAlignment(value) {this.SetProp("TextXAlignment", DataType.Enum, value);}
     public get TextYAlignment() {return this.GetProp("TextYAlignment", DataType.Enum)! as TextYAlignment;}
     public set TextYAlignment(value) {this.SetProp("TextYAlignment", DataType.Enum, value);}
-    public override get Active() {return super.Active!;}
-    public override set Active(value) {super.Active = value;}
-    public override get AnchorPoint() {return super.AnchorPoint!;}
-    public override set AnchorPoint(value) {super.AnchorPoint = value;}
-    public override get AutomaticSize() {return super.AutomaticSize!;}
-    public override set AutomaticSize(value) {super.AutomaticSize = value;}
-    public override get BackgroundColor3() {return super.BackgroundColor3!;}
-    public override set BackgroundColor3(value) {super.BackgroundColor3 = value;}
-    public override get BackgroundTransparency() {return super.BackgroundTransparency!;}
-    public override set BackgroundTransparency(value) {super.BackgroundTransparency = value;}
-    public override get BorderColor3() {return super.BorderColor3!;}
-    public override set BorderColor3(value) {super.BorderColor3 = value;}
-    public override get BorderMode() {return super.BorderMode!;}
-    public override set BorderMode(value) {super.BorderMode = value;}
-    public override get BorderSizePixel() {return super.BorderSizePixel!;}
-    public override set BorderSizePixel(value) {super.BorderSizePixel = value;}
-    public override get ClipsDescendants() {return super.ClipsDescendants!;}
-    public override set ClipsDescendants(value) {super.ClipsDescendants = value;}
-    public override get Draggable() {return super.Draggable!;}
-    public override set Draggable(value) {super.Draggable = value;}
-    public override get Interactable() {return super.Interactable!;}
-    public override set Interactable(value) {super.Interactable = value;}
-    public override get LayoutOrder() {return super.LayoutOrder!;}
-    public override set LayoutOrder(value) {super.LayoutOrder = value;}
-    public override get Rotation() {return super.Rotation!;}
-    public override set Rotation(value) {super.Rotation = value;}
-    public override get Selectable() {return super.Selectable!;}
-    public override set Selectable(value) {super.Selectable = value;}
-    public override get SelectionOrder() {return super.SelectionOrder!;}
-    public override set SelectionOrder(value) {super.SelectionOrder = value;}
-    public override get SizeConstraint() {return super.SizeConstraint!;}
-    public override set SizeConstraint(value) {super.SizeConstraint = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
-    public override get ZIndex() {return super.ZIndex!;}
-    public override set ZIndex(value) {super.ZIndex = value;}
-    public override get AutoLocalize() {return super.AutoLocalize!;}
-    public override set AutoLocalize(value) {super.AutoLocalize = value;}
-    public override get Localize() {return super.Localize!;}
-    public override set Localize(value) {super.Localize = value;}
-    public override get SelectionBehaviorDown() {return super.SelectionBehaviorDown!;}
-    public override set SelectionBehaviorDown(value) {super.SelectionBehaviorDown = value;}
-    public override get SelectionBehaviorLeft() {return super.SelectionBehaviorLeft!;}
-    public override set SelectionBehaviorLeft(value) {super.SelectionBehaviorLeft = value;}
-    public override get SelectionBehaviorRight() {return super.SelectionBehaviorRight!;}
-    public override set SelectionBehaviorRight(value) {super.SelectionBehaviorRight = value;}
-    public override get SelectionBehaviorUp() {return super.SelectionBehaviorUp!;}
-    public override set SelectionBehaviorUp(value) {super.SelectionBehaviorUp = value;}
-    public override get SelectionGroup() {return super.SelectionGroup!;}
-    public override set SelectionGroup(value) {super.SelectionGroup = value;}
 }
 
 export class ScrollingFrame extends GuiObject {
@@ -4576,6 +3871,7 @@ export class ScrollingFrame extends GuiObject {
         this.AutomaticCanvasSize = AutomaticSize.None;
         this.BottomImage = "rbxasset://textures/ui/Scroll/scroll-bottom.png";
         this.CanvasPosition = new Vector2(0, 0);
+        this.CanvasSize = new UDim2(new UDim(0, 0), new UDim(2, 0));
         this.ElasticBehavior = ElasticBehavior.WhenScrollable;
         this.HorizontalScrollBarInset = ScrollBarInset.None;
         this.MidImage = "rbxasset://textures/ui/Scroll/scroll-middle.png";
@@ -4588,29 +3884,8 @@ export class ScrollingFrame extends GuiObject {
         this.VerticalScrollBarInset = ScrollBarInset.None;
         this.VerticalScrollBarPosition = VerticalScrollBarPosition.Right;
         this.Active = false;
-        this.AnchorPoint = new Vector2(0, 0);
-        this.AutomaticSize = AutomaticSize.None;
-        this.BackgroundColor3 = Color3.FromRGB(163, 162, 165);
-        this.BackgroundTransparency = 0;
-        this.BorderColor3 = Color3.FromRGB(27, 42, 53);
-        this.BorderMode = BorderMode.Outline;
-        this.BorderSizePixel = 1;
         this.ClipsDescendants = true;
-        this.Draggable = false;
-        this.Interactable = true;
-        this.LayoutOrder = 0;
-        this.Rotation = 0;
         this.Selectable = true;
-        this.SelectionOrder = 0;
-        this.SizeConstraint = SizeConstraint.RelativeXY;
-        this.Visible = true;
-        this.ZIndex = 1;
-        this.AutoLocalize = true;
-        this.Localize = true;
-        this.SelectionBehaviorDown = SelectionBehavior.Escape;
-        this.SelectionBehaviorLeft = SelectionBehavior.Escape;
-        this.SelectionBehaviorRight = SelectionBehavior.Escape;
-        this.SelectionBehaviorUp = SelectionBehavior.Escape;
         this.SelectionGroup = true;
     }
     public get AutomaticCanvasSize() {return this.GetProp("AutomaticCanvasSize", DataType.Enum)! as AutomaticSize;}
@@ -4619,7 +3894,7 @@ export class ScrollingFrame extends GuiObject {
     public set BottomImage(value) {this.SetProp("BottomImage", DataType.String, value);}
     public get CanvasPosition() {return this.GetProp("CanvasPosition", DataType.Vector2)!;}
     public set CanvasPosition(value) {this.SetProp("CanvasPosition", DataType.Vector2, value);}
-    public get CanvasSize() {return this.GetProp("CanvasSize", DataType.UDim2);}
+    public get CanvasSize() {return this.GetProp("CanvasSize", DataType.UDim2)!;}
     public set CanvasSize(value) {this.SetProp("CanvasSize", DataType.UDim2, value);}
     public get ElasticBehavior() {return this.GetProp("ElasticBehavior", DataType.Enum)! as ElasticBehavior;}
     public set ElasticBehavior(value) {this.SetProp("ElasticBehavior", DataType.Enum, value);}
@@ -4643,56 +3918,6 @@ export class ScrollingFrame extends GuiObject {
     public set VerticalScrollBarInset(value) {this.SetProp("VerticalScrollBarInset", DataType.Enum, value);}
     public get VerticalScrollBarPosition() {return this.GetProp("VerticalScrollBarPosition", DataType.Enum)! as VerticalScrollBarPosition;}
     public set VerticalScrollBarPosition(value) {this.SetProp("VerticalScrollBarPosition", DataType.Enum, value);}
-    public override get Active() {return super.Active!;}
-    public override set Active(value) {super.Active = value;}
-    public override get AnchorPoint() {return super.AnchorPoint!;}
-    public override set AnchorPoint(value) {super.AnchorPoint = value;}
-    public override get AutomaticSize() {return super.AutomaticSize!;}
-    public override set AutomaticSize(value) {super.AutomaticSize = value;}
-    public override get BackgroundColor3() {return super.BackgroundColor3!;}
-    public override set BackgroundColor3(value) {super.BackgroundColor3 = value;}
-    public override get BackgroundTransparency() {return super.BackgroundTransparency!;}
-    public override set BackgroundTransparency(value) {super.BackgroundTransparency = value;}
-    public override get BorderColor3() {return super.BorderColor3!;}
-    public override set BorderColor3(value) {super.BorderColor3 = value;}
-    public override get BorderMode() {return super.BorderMode!;}
-    public override set BorderMode(value) {super.BorderMode = value;}
-    public override get BorderSizePixel() {return super.BorderSizePixel!;}
-    public override set BorderSizePixel(value) {super.BorderSizePixel = value;}
-    public override get ClipsDescendants() {return super.ClipsDescendants!;}
-    public override set ClipsDescendants(value) {super.ClipsDescendants = value;}
-    public override get Draggable() {return super.Draggable!;}
-    public override set Draggable(value) {super.Draggable = value;}
-    public override get Interactable() {return super.Interactable!;}
-    public override set Interactable(value) {super.Interactable = value;}
-    public override get LayoutOrder() {return super.LayoutOrder!;}
-    public override set LayoutOrder(value) {super.LayoutOrder = value;}
-    public override get Rotation() {return super.Rotation!;}
-    public override set Rotation(value) {super.Rotation = value;}
-    public override get Selectable() {return super.Selectable!;}
-    public override set Selectable(value) {super.Selectable = value;}
-    public override get SelectionOrder() {return super.SelectionOrder!;}
-    public override set SelectionOrder(value) {super.SelectionOrder = value;}
-    public override get SizeConstraint() {return super.SizeConstraint!;}
-    public override set SizeConstraint(value) {super.SizeConstraint = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
-    public override get ZIndex() {return super.ZIndex!;}
-    public override set ZIndex(value) {super.ZIndex = value;}
-    public override get AutoLocalize() {return super.AutoLocalize!;}
-    public override set AutoLocalize(value) {super.AutoLocalize = value;}
-    public override get Localize() {return super.Localize!;}
-    public override set Localize(value) {super.Localize = value;}
-    public override get SelectionBehaviorDown() {return super.SelectionBehaviorDown!;}
-    public override set SelectionBehaviorDown(value) {super.SelectionBehaviorDown = value;}
-    public override get SelectionBehaviorLeft() {return super.SelectionBehaviorLeft!;}
-    public override set SelectionBehaviorLeft(value) {super.SelectionBehaviorLeft = value;}
-    public override get SelectionBehaviorRight() {return super.SelectionBehaviorRight!;}
-    public override set SelectionBehaviorRight(value) {super.SelectionBehaviorRight = value;}
-    public override get SelectionBehaviorUp() {return super.SelectionBehaviorUp!;}
-    public override set SelectionBehaviorUp(value) {super.SelectionBehaviorUp = value;}
-    public override get SelectionGroup() {return super.SelectionGroup!;}
-    public override set SelectionGroup(value) {super.SelectionGroup = value;}
 }
 
 export class TextBox extends GuiObject {
@@ -4726,35 +3951,15 @@ export class TextBox extends GuiObject {
         this.TextWrapped = false;
         this.TextXAlignment = TextXAlignment.Center;
         this.TextYAlignment = TextYAlignment.Center;
+        this.FontFace = new RBXMFont("rbxasset://fonts/families/LegacyArial.json", FontWeight.Regular, FontStyle.Normal);
         this.Active = true;
-        this.AnchorPoint = new Vector2(0, 0);
-        this.AutomaticSize = AutomaticSize.None;
-        this.BackgroundColor3 = Color3.FromRGB(163, 162, 165);
-        this.BackgroundTransparency = 0;
-        this.BorderColor3 = Color3.FromRGB(27, 42, 53);
-        this.BorderMode = BorderMode.Outline;
-        this.BorderSizePixel = 1;
         this.ClipsDescendants = false;
-        this.Draggable = false;
-        this.Interactable = true;
-        this.LayoutOrder = 0;
-        this.Rotation = 0;
         this.Selectable = true;
-        this.SelectionOrder = 0;
-        this.SizeConstraint = SizeConstraint.RelativeXY;
-        this.Visible = true;
-        this.ZIndex = 1;
-        this.AutoLocalize = true;
-        this.Localize = true;
-        this.SelectionBehaviorDown = SelectionBehavior.Escape;
-        this.SelectionBehaviorLeft = SelectionBehavior.Escape;
-        this.SelectionBehaviorRight = SelectionBehavior.Escape;
-        this.SelectionBehaviorUp = SelectionBehavior.Escape;
         this.SelectionGroup = false;
     }
     public get ClearTextOnFocus() {return this.GetProp("ClearTextOnFocus", DataType.Bool)!;}
     public set ClearTextOnFocus(value) {this.SetProp("ClearTextOnFocus", DataType.Bool, value);}
-    public get FontFace() {return this.GetProp("FontFace", DataType.Font);}
+    public get FontFace() {return this.GetProp("FontFace", DataType.Font)!;}
     public set FontFace(value) {this.SetProp("FontFace", DataType.Font, value);}
     /**@deprecated Deprecated by Roblox*/
     public get FontSize() {return this.GetProp("FontSize", DataType.Enum)! as FontSize;}
@@ -4812,56 +4017,6 @@ export class TextBox extends GuiObject {
     public set TextXAlignment(value) {this.SetProp("TextXAlignment", DataType.Enum, value);}
     public get TextYAlignment() {return this.GetProp("TextYAlignment", DataType.Enum)! as TextYAlignment;}
     public set TextYAlignment(value) {this.SetProp("TextYAlignment", DataType.Enum, value);}
-    public override get Active() {return super.Active!;}
-    public override set Active(value) {super.Active = value;}
-    public override get AnchorPoint() {return super.AnchorPoint!;}
-    public override set AnchorPoint(value) {super.AnchorPoint = value;}
-    public override get AutomaticSize() {return super.AutomaticSize!;}
-    public override set AutomaticSize(value) {super.AutomaticSize = value;}
-    public override get BackgroundColor3() {return super.BackgroundColor3!;}
-    public override set BackgroundColor3(value) {super.BackgroundColor3 = value;}
-    public override get BackgroundTransparency() {return super.BackgroundTransparency!;}
-    public override set BackgroundTransparency(value) {super.BackgroundTransparency = value;}
-    public override get BorderColor3() {return super.BorderColor3!;}
-    public override set BorderColor3(value) {super.BorderColor3 = value;}
-    public override get BorderMode() {return super.BorderMode!;}
-    public override set BorderMode(value) {super.BorderMode = value;}
-    public override get BorderSizePixel() {return super.BorderSizePixel!;}
-    public override set BorderSizePixel(value) {super.BorderSizePixel = value;}
-    public override get ClipsDescendants() {return super.ClipsDescendants!;}
-    public override set ClipsDescendants(value) {super.ClipsDescendants = value;}
-    public override get Draggable() {return super.Draggable!;}
-    public override set Draggable(value) {super.Draggable = value;}
-    public override get Interactable() {return super.Interactable!;}
-    public override set Interactable(value) {super.Interactable = value;}
-    public override get LayoutOrder() {return super.LayoutOrder!;}
-    public override set LayoutOrder(value) {super.LayoutOrder = value;}
-    public override get Rotation() {return super.Rotation!;}
-    public override set Rotation(value) {super.Rotation = value;}
-    public override get Selectable() {return super.Selectable!;}
-    public override set Selectable(value) {super.Selectable = value;}
-    public override get SelectionOrder() {return super.SelectionOrder!;}
-    public override set SelectionOrder(value) {super.SelectionOrder = value;}
-    public override get SizeConstraint() {return super.SizeConstraint!;}
-    public override set SizeConstraint(value) {super.SizeConstraint = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
-    public override get ZIndex() {return super.ZIndex!;}
-    public override set ZIndex(value) {super.ZIndex = value;}
-    public override get AutoLocalize() {return super.AutoLocalize!;}
-    public override set AutoLocalize(value) {super.AutoLocalize = value;}
-    public override get Localize() {return super.Localize!;}
-    public override set Localize(value) {super.Localize = value;}
-    public override get SelectionBehaviorDown() {return super.SelectionBehaviorDown!;}
-    public override set SelectionBehaviorDown(value) {super.SelectionBehaviorDown = value;}
-    public override get SelectionBehaviorLeft() {return super.SelectionBehaviorLeft!;}
-    public override set SelectionBehaviorLeft(value) {super.SelectionBehaviorLeft = value;}
-    public override get SelectionBehaviorRight() {return super.SelectionBehaviorRight!;}
-    public override set SelectionBehaviorRight(value) {super.SelectionBehaviorRight = value;}
-    public override get SelectionBehaviorUp() {return super.SelectionBehaviorUp!;}
-    public override set SelectionBehaviorUp(value) {super.SelectionBehaviorUp = value;}
-    public override get SelectionGroup() {return super.SelectionGroup!;}
-    public override set SelectionGroup(value) {super.SelectionGroup = value;}
 }
 
 export class VideoFrame extends GuiObject {
@@ -4876,29 +4031,8 @@ export class VideoFrame extends GuiObject {
         this.Video = "";
         this.Volume = 1;
         this.Active = false;
-        this.AnchorPoint = new Vector2(0, 0);
-        this.AutomaticSize = AutomaticSize.None;
-        this.BackgroundColor3 = Color3.FromRGB(163, 162, 165);
-        this.BackgroundTransparency = 0;
-        this.BorderColor3 = Color3.FromRGB(27, 42, 53);
-        this.BorderMode = BorderMode.Outline;
-        this.BorderSizePixel = 1;
         this.ClipsDescendants = false;
-        this.Draggable = false;
-        this.Interactable = true;
-        this.LayoutOrder = 0;
-        this.Rotation = 0;
         this.Selectable = false;
-        this.SelectionOrder = 0;
-        this.SizeConstraint = SizeConstraint.RelativeXY;
-        this.Visible = true;
-        this.ZIndex = 1;
-        this.AutoLocalize = true;
-        this.Localize = true;
-        this.SelectionBehaviorDown = SelectionBehavior.Escape;
-        this.SelectionBehaviorLeft = SelectionBehavior.Escape;
-        this.SelectionBehaviorRight = SelectionBehavior.Escape;
-        this.SelectionBehaviorUp = SelectionBehavior.Escape;
         this.SelectionGroup = false;
     }
     public get Looped() {return this.GetProp("Looped", DataType.Bool)!;}
@@ -4911,56 +4045,6 @@ export class VideoFrame extends GuiObject {
     public set Video(value) {this.SetProp("Video", DataType.String, value);}
     public get Volume() {return this.GetProp("Volume", DataType.Float32)!;}
     public set Volume(value) {this.SetProp("Volume", DataType.Float32, value);}
-    public override get Active() {return super.Active!;}
-    public override set Active(value) {super.Active = value;}
-    public override get AnchorPoint() {return super.AnchorPoint!;}
-    public override set AnchorPoint(value) {super.AnchorPoint = value;}
-    public override get AutomaticSize() {return super.AutomaticSize!;}
-    public override set AutomaticSize(value) {super.AutomaticSize = value;}
-    public override get BackgroundColor3() {return super.BackgroundColor3!;}
-    public override set BackgroundColor3(value) {super.BackgroundColor3 = value;}
-    public override get BackgroundTransparency() {return super.BackgroundTransparency!;}
-    public override set BackgroundTransparency(value) {super.BackgroundTransparency = value;}
-    public override get BorderColor3() {return super.BorderColor3!;}
-    public override set BorderColor3(value) {super.BorderColor3 = value;}
-    public override get BorderMode() {return super.BorderMode!;}
-    public override set BorderMode(value) {super.BorderMode = value;}
-    public override get BorderSizePixel() {return super.BorderSizePixel!;}
-    public override set BorderSizePixel(value) {super.BorderSizePixel = value;}
-    public override get ClipsDescendants() {return super.ClipsDescendants!;}
-    public override set ClipsDescendants(value) {super.ClipsDescendants = value;}
-    public override get Draggable() {return super.Draggable!;}
-    public override set Draggable(value) {super.Draggable = value;}
-    public override get Interactable() {return super.Interactable!;}
-    public override set Interactable(value) {super.Interactable = value;}
-    public override get LayoutOrder() {return super.LayoutOrder!;}
-    public override set LayoutOrder(value) {super.LayoutOrder = value;}
-    public override get Rotation() {return super.Rotation!;}
-    public override set Rotation(value) {super.Rotation = value;}
-    public override get Selectable() {return super.Selectable!;}
-    public override set Selectable(value) {super.Selectable = value;}
-    public override get SelectionOrder() {return super.SelectionOrder!;}
-    public override set SelectionOrder(value) {super.SelectionOrder = value;}
-    public override get SizeConstraint() {return super.SizeConstraint!;}
-    public override set SizeConstraint(value) {super.SizeConstraint = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
-    public override get ZIndex() {return super.ZIndex!;}
-    public override set ZIndex(value) {super.ZIndex = value;}
-    public override get AutoLocalize() {return super.AutoLocalize!;}
-    public override set AutoLocalize(value) {super.AutoLocalize = value;}
-    public override get Localize() {return super.Localize!;}
-    public override set Localize(value) {super.Localize = value;}
-    public override get SelectionBehaviorDown() {return super.SelectionBehaviorDown!;}
-    public override set SelectionBehaviorDown(value) {super.SelectionBehaviorDown = value;}
-    public override get SelectionBehaviorLeft() {return super.SelectionBehaviorLeft!;}
-    public override set SelectionBehaviorLeft(value) {super.SelectionBehaviorLeft = value;}
-    public override get SelectionBehaviorRight() {return super.SelectionBehaviorRight!;}
-    public override set SelectionBehaviorRight(value) {super.SelectionBehaviorRight = value;}
-    public override get SelectionBehaviorUp() {return super.SelectionBehaviorUp!;}
-    public override set SelectionBehaviorUp(value) {super.SelectionBehaviorUp = value;}
-    public override get SelectionGroup() {return super.SelectionGroup!;}
-    public override set SelectionGroup(value) {super.SelectionGroup = value;}
 }
 
 export class ViewportFrame extends GuiObject {
@@ -4976,29 +4060,8 @@ export class ViewportFrame extends GuiObject {
         this.LightColor = Color3.FromRGB(140, 140, 140);
         this.LightDirection = new Vector3(-1, -1, -1);
         this.Active = false;
-        this.AnchorPoint = new Vector2(0, 0);
-        this.AutomaticSize = AutomaticSize.None;
-        this.BackgroundColor3 = Color3.FromRGB(163, 162, 165);
-        this.BackgroundTransparency = 0;
-        this.BorderColor3 = Color3.FromRGB(27, 42, 53);
-        this.BorderMode = BorderMode.Outline;
-        this.BorderSizePixel = 1;
         this.ClipsDescendants = false;
-        this.Draggable = false;
-        this.Interactable = true;
-        this.LayoutOrder = 0;
-        this.Rotation = 0;
         this.Selectable = false;
-        this.SelectionOrder = 0;
-        this.SizeConstraint = SizeConstraint.RelativeXY;
-        this.Visible = true;
-        this.ZIndex = 1;
-        this.AutoLocalize = true;
-        this.Localize = true;
-        this.SelectionBehaviorDown = SelectionBehavior.Escape;
-        this.SelectionBehaviorLeft = SelectionBehavior.Escape;
-        this.SelectionBehaviorRight = SelectionBehavior.Escape;
-        this.SelectionBehaviorUp = SelectionBehavior.Escape;
         this.SelectionGroup = false;
     }
     public get Ambient() {return this.GetProp("Ambient", DataType.Color3)!;}
@@ -5015,56 +4078,6 @@ export class ViewportFrame extends GuiObject {
     public set LightColor(value) {this.SetProp("LightColor", DataType.Color3, value);}
     public get LightDirection() {return this.GetProp("LightDirection", DataType.Vector3)!;}
     public set LightDirection(value) {this.SetProp("LightDirection", DataType.Vector3, value);}
-    public override get Active() {return super.Active!;}
-    public override set Active(value) {super.Active = value;}
-    public override get AnchorPoint() {return super.AnchorPoint!;}
-    public override set AnchorPoint(value) {super.AnchorPoint = value;}
-    public override get AutomaticSize() {return super.AutomaticSize!;}
-    public override set AutomaticSize(value) {super.AutomaticSize = value;}
-    public override get BackgroundColor3() {return super.BackgroundColor3!;}
-    public override set BackgroundColor3(value) {super.BackgroundColor3 = value;}
-    public override get BackgroundTransparency() {return super.BackgroundTransparency!;}
-    public override set BackgroundTransparency(value) {super.BackgroundTransparency = value;}
-    public override get BorderColor3() {return super.BorderColor3!;}
-    public override set BorderColor3(value) {super.BorderColor3 = value;}
-    public override get BorderMode() {return super.BorderMode!;}
-    public override set BorderMode(value) {super.BorderMode = value;}
-    public override get BorderSizePixel() {return super.BorderSizePixel!;}
-    public override set BorderSizePixel(value) {super.BorderSizePixel = value;}
-    public override get ClipsDescendants() {return super.ClipsDescendants!;}
-    public override set ClipsDescendants(value) {super.ClipsDescendants = value;}
-    public override get Draggable() {return super.Draggable!;}
-    public override set Draggable(value) {super.Draggable = value;}
-    public override get Interactable() {return super.Interactable!;}
-    public override set Interactable(value) {super.Interactable = value;}
-    public override get LayoutOrder() {return super.LayoutOrder!;}
-    public override set LayoutOrder(value) {super.LayoutOrder = value;}
-    public override get Rotation() {return super.Rotation!;}
-    public override set Rotation(value) {super.Rotation = value;}
-    public override get Selectable() {return super.Selectable!;}
-    public override set Selectable(value) {super.Selectable = value;}
-    public override get SelectionOrder() {return super.SelectionOrder!;}
-    public override set SelectionOrder(value) {super.SelectionOrder = value;}
-    public override get SizeConstraint() {return super.SizeConstraint!;}
-    public override set SizeConstraint(value) {super.SizeConstraint = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
-    public override get ZIndex() {return super.ZIndex!;}
-    public override set ZIndex(value) {super.ZIndex = value;}
-    public override get AutoLocalize() {return super.AutoLocalize!;}
-    public override set AutoLocalize(value) {super.AutoLocalize = value;}
-    public override get Localize() {return super.Localize!;}
-    public override set Localize(value) {super.Localize = value;}
-    public override get SelectionBehaviorDown() {return super.SelectionBehaviorDown!;}
-    public override set SelectionBehaviorDown(value) {super.SelectionBehaviorDown = value;}
-    public override get SelectionBehaviorLeft() {return super.SelectionBehaviorLeft!;}
-    public override set SelectionBehaviorLeft(value) {super.SelectionBehaviorLeft = value;}
-    public override get SelectionBehaviorRight() {return super.SelectionBehaviorRight!;}
-    public override set SelectionBehaviorRight(value) {super.SelectionBehaviorRight = value;}
-    public override get SelectionBehaviorUp() {return super.SelectionBehaviorUp!;}
-    public override set SelectionBehaviorUp(value) {super.SelectionBehaviorUp = value;}
-    public override get SelectionGroup() {return super.SelectionGroup!;}
-    public override set SelectionGroup(value) {super.SelectionGroup = value;}
 }
 
 export abstract class LayerCollector extends GuiBase2d {
@@ -5072,12 +4085,16 @@ export abstract class LayerCollector extends GuiBase2d {
     {
         super();
         this.addClassName("LayerCollector");
+        this.Enabled = true;
+        this.ResetOnSpawn = true;
+        this.ZIndexBehavior = ZIndexBehavior.Global;
+        this.SelectionGroup = false;
     }
-    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool)!;}
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
-    public get ResetOnSpawn() {return this.GetProp("ResetOnSpawn", DataType.Bool);}
+    public get ResetOnSpawn() {return this.GetProp("ResetOnSpawn", DataType.Bool)!;}
     public set ResetOnSpawn(value) {this.SetProp("ResetOnSpawn", DataType.Bool, value);}
-    public get ZIndexBehavior() {return this.GetProp("ZIndexBehavior", DataType.Enum) as ZIndexBehavior | undefined;}
+    public get ZIndexBehavior() {return this.GetProp("ZIndexBehavior", DataType.Enum)! as ZIndexBehavior;}
     public set ZIndexBehavior(value) {this.SetProp("ZIndexBehavior", DataType.Enum, value);}
 }
 
@@ -5098,19 +4115,10 @@ export class BillboardGui extends LayerCollector {
         this.ExtentsOffsetWorldSpace = new Vector3(0, 0, 0);
         this.LightInfluence = 0;
         this.MaxDistance = Infinity;
+        this.Size = new UDim2(new UDim(0, 0), new UDim(0, 0));
         this.SizeOffset = new Vector2(0, 0);
         this.StudsOffset = new Vector3(0, 0, 0);
         this.StudsOffsetWorldSpace = new Vector3(0, 0, 0);
-        this.Enabled = true;
-        this.ResetOnSpawn = true;
-        this.ZIndexBehavior = ZIndexBehavior.Global;
-        this.AutoLocalize = true;
-        this.Localize = true;
-        this.SelectionBehaviorDown = SelectionBehavior.Escape;
-        this.SelectionBehaviorLeft = SelectionBehavior.Escape;
-        this.SelectionBehaviorRight = SelectionBehavior.Escape;
-        this.SelectionBehaviorUp = SelectionBehavior.Escape;
-        this.SelectionGroup = false;
     }
     public get Active() {return this.GetProp("Active", DataType.Bool)!;}
     public set Active(value) {this.SetProp("Active", DataType.Bool, value);}
@@ -5138,7 +4146,7 @@ export class BillboardGui extends LayerCollector {
     public set MaxDistance(value) {this.SetProp("MaxDistance", DataType.Float32, value);}
     public get PlayerToHideFrom() {return this.GetProp("PlayerToHideFrom", DataType.Referent) as Instance | undefined;}
     public set PlayerToHideFrom(value) {this.SetProp("PlayerToHideFrom", DataType.Referent, value);}
-    public get Size() {return this.GetProp("Size", DataType.UDim2);}
+    public get Size() {return this.GetProp("Size", DataType.UDim2)!;}
     public set Size(value) {this.SetProp("Size", DataType.UDim2, value);}
     public get SizeOffset() {return this.GetProp("SizeOffset", DataType.Vector2)!;}
     public set SizeOffset(value) {this.SetProp("SizeOffset", DataType.Vector2, value);}
@@ -5146,26 +4154,6 @@ export class BillboardGui extends LayerCollector {
     public set StudsOffset(value) {this.SetProp("StudsOffset", DataType.Vector3, value);}
     public get StudsOffsetWorldSpace() {return this.GetProp("StudsOffsetWorldSpace", DataType.Vector3)!;}
     public set StudsOffsetWorldSpace(value) {this.SetProp("StudsOffsetWorldSpace", DataType.Vector3, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get ResetOnSpawn() {return super.ResetOnSpawn!;}
-    public override set ResetOnSpawn(value) {super.ResetOnSpawn = value;}
-    public override get ZIndexBehavior() {return super.ZIndexBehavior!;}
-    public override set ZIndexBehavior(value) {super.ZIndexBehavior = value;}
-    public override get AutoLocalize() {return super.AutoLocalize!;}
-    public override set AutoLocalize(value) {super.AutoLocalize = value;}
-    public override get Localize() {return super.Localize!;}
-    public override set Localize(value) {super.Localize = value;}
-    public override get SelectionBehaviorDown() {return super.SelectionBehaviorDown!;}
-    public override set SelectionBehaviorDown(value) {super.SelectionBehaviorDown = value;}
-    public override get SelectionBehaviorLeft() {return super.SelectionBehaviorLeft!;}
-    public override set SelectionBehaviorLeft(value) {super.SelectionBehaviorLeft = value;}
-    public override get SelectionBehaviorRight() {return super.SelectionBehaviorRight!;}
-    public override set SelectionBehaviorRight(value) {super.SelectionBehaviorRight = value;}
-    public override get SelectionBehaviorUp() {return super.SelectionBehaviorUp!;}
-    public override set SelectionBehaviorUp(value) {super.SelectionBehaviorUp = value;}
-    public override get SelectionGroup() {return super.SelectionGroup!;}
-    public override set SelectionGroup(value) {super.SelectionGroup = value;}
 }
 
 export class ScreenGui extends LayerCollector {
@@ -5178,16 +4166,6 @@ export class ScreenGui extends LayerCollector {
         this.DisplayOrder = 0;
         this.SafeAreaCompatibility = SafeAreaCompatibility.FullscreenExtension;
         this.ScreenInsets = ScreenInsets.CoreUISafeInsets;
-        this.Enabled = true;
-        this.ResetOnSpawn = true;
-        this.ZIndexBehavior = ZIndexBehavior.Global;
-        this.AutoLocalize = true;
-        this.Localize = true;
-        this.SelectionBehaviorDown = SelectionBehavior.Escape;
-        this.SelectionBehaviorLeft = SelectionBehavior.Escape;
-        this.SelectionBehaviorRight = SelectionBehavior.Escape;
-        this.SelectionBehaviorUp = SelectionBehavior.Escape;
-        this.SelectionGroup = false;
     }
     public get ClipToDeviceSafeArea() {return this.GetProp("ClipToDeviceSafeArea", DataType.Bool)!;}
     public set ClipToDeviceSafeArea(value) {this.SetProp("ClipToDeviceSafeArea", DataType.Bool, value);}
@@ -5197,26 +4175,6 @@ export class ScreenGui extends LayerCollector {
     public set SafeAreaCompatibility(value) {this.SetProp("SafeAreaCompatibility", DataType.Enum, value);}
     public get ScreenInsets() {return this.GetProp("ScreenInsets", DataType.Enum)! as ScreenInsets;}
     public set ScreenInsets(value) {this.SetProp("ScreenInsets", DataType.Enum, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get ResetOnSpawn() {return super.ResetOnSpawn!;}
-    public override set ResetOnSpawn(value) {super.ResetOnSpawn = value;}
-    public override get ZIndexBehavior() {return super.ZIndexBehavior!;}
-    public override set ZIndexBehavior(value) {super.ZIndexBehavior = value;}
-    public override get AutoLocalize() {return super.AutoLocalize!;}
-    public override set AutoLocalize(value) {super.AutoLocalize = value;}
-    public override get Localize() {return super.Localize!;}
-    public override set Localize(value) {super.Localize = value;}
-    public override get SelectionBehaviorDown() {return super.SelectionBehaviorDown!;}
-    public override set SelectionBehaviorDown(value) {super.SelectionBehaviorDown = value;}
-    public override get SelectionBehaviorLeft() {return super.SelectionBehaviorLeft!;}
-    public override set SelectionBehaviorLeft(value) {super.SelectionBehaviorLeft = value;}
-    public override get SelectionBehaviorRight() {return super.SelectionBehaviorRight!;}
-    public override set SelectionBehaviorRight(value) {super.SelectionBehaviorRight = value;}
-    public override get SelectionBehaviorUp() {return super.SelectionBehaviorUp!;}
-    public override set SelectionBehaviorUp(value) {super.SelectionBehaviorUp = value;}
-    public override get SelectionGroup() {return super.SelectionGroup!;}
-    public override set SelectionGroup(value) {super.SelectionGroup = value;}
 }
 
 /**@deprecated Deprecated by Roblox*/
@@ -5226,37 +4184,7 @@ export class GuiMain extends ScreenGui {
         super();
         this.addClassName("GuiMain");
         this.Name = "GuiMain";
-        this.Enabled = true;
-        this.ResetOnSpawn = true;
-        this.ZIndexBehavior = ZIndexBehavior.Global;
-        this.AutoLocalize = true;
-        this.Localize = true;
-        this.SelectionBehaviorDown = SelectionBehavior.Escape;
-        this.SelectionBehaviorLeft = SelectionBehavior.Escape;
-        this.SelectionBehaviorRight = SelectionBehavior.Escape;
-        this.SelectionBehaviorUp = SelectionBehavior.Escape;
-        this.SelectionGroup = false;
     }
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get ResetOnSpawn() {return super.ResetOnSpawn!;}
-    public override set ResetOnSpawn(value) {super.ResetOnSpawn = value;}
-    public override get ZIndexBehavior() {return super.ZIndexBehavior!;}
-    public override set ZIndexBehavior(value) {super.ZIndexBehavior = value;}
-    public override get AutoLocalize() {return super.AutoLocalize!;}
-    public override set AutoLocalize(value) {super.AutoLocalize = value;}
-    public override get Localize() {return super.Localize!;}
-    public override set Localize(value) {super.Localize = value;}
-    public override get SelectionBehaviorDown() {return super.SelectionBehaviorDown!;}
-    public override set SelectionBehaviorDown(value) {super.SelectionBehaviorDown = value;}
-    public override get SelectionBehaviorLeft() {return super.SelectionBehaviorLeft!;}
-    public override set SelectionBehaviorLeft(value) {super.SelectionBehaviorLeft = value;}
-    public override get SelectionBehaviorRight() {return super.SelectionBehaviorRight!;}
-    public override set SelectionBehaviorRight(value) {super.SelectionBehaviorRight = value;}
-    public override get SelectionBehaviorUp() {return super.SelectionBehaviorUp!;}
-    public override set SelectionBehaviorUp(value) {super.SelectionBehaviorUp = value;}
-    public override get SelectionGroup() {return super.SelectionGroup!;}
-    public override set SelectionGroup(value) {super.SelectionGroup = value;}
 }
 
 export abstract class SurfaceGuiBase extends LayerCollector {
@@ -5264,12 +4192,14 @@ export abstract class SurfaceGuiBase extends LayerCollector {
     {
         super();
         this.addClassName("SurfaceGuiBase");
+        this.Active = true;
+        this.Face = NormalId.Front;
     }
-    public get Active() {return this.GetProp("Active", DataType.Bool);}
+    public get Active() {return this.GetProp("Active", DataType.Bool)!;}
     public set Active(value) {this.SetProp("Active", DataType.Bool, value);}
     public get Adornee() {return this.GetProp("Adornee", DataType.Referent) as Instance | undefined;}
     public set Adornee(value) {this.SetProp("Adornee", DataType.Referent, value);}
-    public get Face() {return this.GetProp("Face", DataType.Enum) as NormalId | undefined;}
+    public get Face() {return this.GetProp("Face", DataType.Enum)! as NormalId;}
     public set Face(value) {this.SetProp("Face", DataType.Enum, value);}
 }
 
@@ -5282,18 +4212,6 @@ export class AdGui extends SurfaceGuiBase {
         this.AdShape = AdShape.HorizontalRectangle;
         this.EnableVideoAds = true;
         this.FallbackImage = "";
-        this.Active = true;
-        this.Face = NormalId.Front;
-        this.Enabled = true;
-        this.ResetOnSpawn = true;
-        this.ZIndexBehavior = ZIndexBehavior.Global;
-        this.AutoLocalize = true;
-        this.Localize = true;
-        this.SelectionBehaviorDown = SelectionBehavior.Escape;
-        this.SelectionBehaviorLeft = SelectionBehavior.Escape;
-        this.SelectionBehaviorRight = SelectionBehavior.Escape;
-        this.SelectionBehaviorUp = SelectionBehavior.Escape;
-        this.SelectionGroup = false;
     }
     public get AdShape() {return this.GetProp("AdShape", DataType.Enum)! as AdShape;}
     public set AdShape(value) {this.SetProp("AdShape", DataType.Enum, value);}
@@ -5301,30 +4219,6 @@ export class AdGui extends SurfaceGuiBase {
     public set EnableVideoAds(value) {this.SetProp("EnableVideoAds", DataType.Bool, value);}
     public get FallbackImage() {return this.GetProp("FallbackImage", DataType.String)!;}
     public set FallbackImage(value) {this.SetProp("FallbackImage", DataType.String, value);}
-    public override get Active() {return super.Active!;}
-    public override set Active(value) {super.Active = value;}
-    public override get Face() {return super.Face!;}
-    public override set Face(value) {super.Face = value;}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get ResetOnSpawn() {return super.ResetOnSpawn!;}
-    public override set ResetOnSpawn(value) {super.ResetOnSpawn = value;}
-    public override get ZIndexBehavior() {return super.ZIndexBehavior!;}
-    public override set ZIndexBehavior(value) {super.ZIndexBehavior = value;}
-    public override get AutoLocalize() {return super.AutoLocalize!;}
-    public override set AutoLocalize(value) {super.AutoLocalize = value;}
-    public override get Localize() {return super.Localize!;}
-    public override set Localize(value) {super.Localize = value;}
-    public override get SelectionBehaviorDown() {return super.SelectionBehaviorDown!;}
-    public override set SelectionBehaviorDown(value) {super.SelectionBehaviorDown = value;}
-    public override get SelectionBehaviorLeft() {return super.SelectionBehaviorLeft!;}
-    public override set SelectionBehaviorLeft(value) {super.SelectionBehaviorLeft = value;}
-    public override get SelectionBehaviorRight() {return super.SelectionBehaviorRight!;}
-    public override set SelectionBehaviorRight(value) {super.SelectionBehaviorRight = value;}
-    public override get SelectionBehaviorUp() {return super.SelectionBehaviorUp!;}
-    public override set SelectionBehaviorUp(value) {super.SelectionBehaviorUp = value;}
-    public override get SelectionGroup() {return super.SelectionGroup!;}
-    public override set SelectionGroup(value) {super.SelectionGroup = value;}
 }
 
 export class SurfaceGui extends SurfaceGuiBase {
@@ -5343,18 +4237,6 @@ export class SurfaceGui extends SurfaceGuiBase {
         this.SizingMode = SurfaceGuiSizingMode.FixedSize;
         this.ToolPunchThroughDistance = 0;
         this.ZOffset = 0;
-        this.Active = true;
-        this.Face = NormalId.Front;
-        this.Enabled = true;
-        this.ResetOnSpawn = true;
-        this.ZIndexBehavior = ZIndexBehavior.Global;
-        this.AutoLocalize = true;
-        this.Localize = true;
-        this.SelectionBehaviorDown = SelectionBehavior.Escape;
-        this.SelectionBehaviorLeft = SelectionBehavior.Escape;
-        this.SelectionBehaviorRight = SelectionBehavior.Escape;
-        this.SelectionBehaviorUp = SelectionBehavior.Escape;
-        this.SelectionGroup = false;
     }
     public get AlwaysOnTop() {return this.GetProp("AlwaysOnTop", DataType.Bool)!;}
     public set AlwaysOnTop(value) {this.SetProp("AlwaysOnTop", DataType.Bool, value);}
@@ -5376,30 +4258,6 @@ export class SurfaceGui extends SurfaceGuiBase {
     public set ToolPunchThroughDistance(value) {this.SetProp("ToolPunchThroughDistance", DataType.Float32, value);}
     public get ZOffset() {return this.GetProp("ZOffset", DataType.Float32)!;}
     public set ZOffset(value) {this.SetProp("ZOffset", DataType.Float32, value);}
-    public override get Active() {return super.Active!;}
-    public override set Active(value) {super.Active = value;}
-    public override get Face() {return super.Face!;}
-    public override set Face(value) {super.Face = value;}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get ResetOnSpawn() {return super.ResetOnSpawn!;}
-    public override set ResetOnSpawn(value) {super.ResetOnSpawn = value;}
-    public override get ZIndexBehavior() {return super.ZIndexBehavior!;}
-    public override set ZIndexBehavior(value) {super.ZIndexBehavior = value;}
-    public override get AutoLocalize() {return super.AutoLocalize!;}
-    public override set AutoLocalize(value) {super.AutoLocalize = value;}
-    public override get Localize() {return super.Localize!;}
-    public override set Localize(value) {super.Localize = value;}
-    public override get SelectionBehaviorDown() {return super.SelectionBehaviorDown!;}
-    public override set SelectionBehaviorDown(value) {super.SelectionBehaviorDown = value;}
-    public override get SelectionBehaviorLeft() {return super.SelectionBehaviorLeft!;}
-    public override set SelectionBehaviorLeft(value) {super.SelectionBehaviorLeft = value;}
-    public override get SelectionBehaviorRight() {return super.SelectionBehaviorRight!;}
-    public override set SelectionBehaviorRight(value) {super.SelectionBehaviorRight = value;}
-    public override get SelectionBehaviorUp() {return super.SelectionBehaviorUp!;}
-    public override set SelectionBehaviorUp(value) {super.SelectionBehaviorUp = value;}
-    public override get SelectionGroup() {return super.SelectionGroup!;}
-    public override set SelectionGroup(value) {super.SelectionGroup = value;}
 }
 
 export abstract class GuiBase3d extends GuiBase {
@@ -5407,16 +4265,18 @@ export abstract class GuiBase3d extends GuiBase {
     {
         super();
         this.addClassName("GuiBase3d");
+        this.Transparency = 0;
+        this.Visible = true;
     }
     /**@deprecated Deprecated by Roblox*/
     public get Color() {return this.GetProp("Color", DataType.BrickColor);}
     /**@deprecated Deprecated by Roblox*/
     public set Color(value) {this.SetProp("Color", DataType.BrickColor, value);}
-    public get Color3() {return this.GetProp("Color3", DataType.Color3);}
+    public get Color3() {return this.GetProp("Color3", DataType.Color3)!;}
     public set Color3(value) {this.SetProp("Color3", DataType.Color3, value);}
-    public get Transparency() {return this.GetProp("Transparency", DataType.Float32);}
+    public get Transparency() {return this.GetProp("Transparency", DataType.Float32)!;}
     public set Transparency(value) {this.SetProp("Transparency", DataType.Float32, value);}
-    public get Visible() {return this.GetProp("Visible", DataType.Bool);}
+    public get Visible() {return this.GetProp("Visible", DataType.Bool)!;}
     public set Visible(value) {this.SetProp("Visible", DataType.Bool, value);}
 }
 
@@ -5434,8 +4294,6 @@ export class FloorWire extends GuiBase3d {
         this.Velocity = 2;
         this.WireRadius = 0.0625;
         this.Color3 = Color3.FromRGB(13, 105, 172);
-        this.Transparency = 0;
-        this.Visible = true;
     }
     public get CycleOffset() {return this.GetProp("CycleOffset", DataType.Float32)!;}
     public set CycleOffset(value) {this.SetProp("CycleOffset", DataType.Float32, value);}
@@ -5453,12 +4311,6 @@ export class FloorWire extends GuiBase3d {
     public set Velocity(value) {this.SetProp("Velocity", DataType.Float32, value);}
     public get WireRadius() {return this.GetProp("WireRadius", DataType.Float32)!;}
     public set WireRadius(value) {this.SetProp("WireRadius", DataType.Float32, value);}
-    public override get Color3() {return super.Color3!;}
-    public override set Color3(value) {super.Color3 = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export abstract class InstanceAdornment extends GuiBase3d {
@@ -5466,6 +4318,7 @@ export abstract class InstanceAdornment extends GuiBase3d {
     {
         super();
         this.addClassName("InstanceAdornment");
+        this.Color3 = Color3.FromRGB(13, 105, 172);
     }
     public get Adornee() {return this.GetProp("Adornee", DataType.Referent) as Instance | undefined;}
     public set Adornee(value) {this.SetProp("Adornee", DataType.Referent, value);}
@@ -5481,9 +4334,6 @@ export class SelectionBox extends InstanceAdornment {
         this.StudioSelectionBox = false;
         this.SurfaceColor3 = Color3.FromRGB(13, 105, 172);
         this.SurfaceTransparency = 1;
-        this.Color3 = Color3.FromRGB(13, 105, 172);
-        this.Transparency = 0;
-        this.Visible = true;
     }
     public get LineThickness() {return this.GetProp("LineThickness", DataType.Float32)!;}
     public set LineThickness(value) {this.SetProp("LineThickness", DataType.Float32, value);}
@@ -5497,12 +4347,6 @@ export class SelectionBox extends InstanceAdornment {
     public set SurfaceColor3(value) {this.SetProp("SurfaceColor3", DataType.Color3, value);}
     public get SurfaceTransparency() {return this.GetProp("SurfaceTransparency", DataType.Float32)!;}
     public set SurfaceTransparency(value) {this.SetProp("SurfaceTransparency", DataType.Float32, value);}
-    public override get Color3() {return super.Color3!;}
-    public override set Color3(value) {super.Color3 = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export abstract class PVAdornment extends GuiBase3d {
@@ -5520,16 +4364,21 @@ export abstract class HandleAdornment extends PVAdornment {
     {
         super();
         this.addClassName("HandleAdornment");
+        this.AdornCullingMode = AdornCullingMode.Automatic;
+        this.AlwaysOnTop = false;
+        this.CFrame = CFrame.Identity;
+        this.SizeRelativeOffset = new Vector3(0, 0, 0);
+        this.ZIndex = -1;
     }
-    public get AdornCullingMode() {return this.GetProp("AdornCullingMode", DataType.Enum) as AdornCullingMode | undefined;}
+    public get AdornCullingMode() {return this.GetProp("AdornCullingMode", DataType.Enum)! as AdornCullingMode;}
     public set AdornCullingMode(value) {this.SetProp("AdornCullingMode", DataType.Enum, value);}
-    public get AlwaysOnTop() {return this.GetProp("AlwaysOnTop", DataType.Bool);}
+    public get AlwaysOnTop() {return this.GetProp("AlwaysOnTop", DataType.Bool)!;}
     public set AlwaysOnTop(value) {this.SetProp("AlwaysOnTop", DataType.Bool, value);}
-    public get CFrame() {return this.GetProp("CFrame", DataType.CFrame);}
+    public get CFrame() {return this.GetProp("CFrame", DataType.CFrame)!;}
     public set CFrame(value) {this.SetProp("CFrame", DataType.CFrame, value);}
-    public get SizeRelativeOffset() {return this.GetProp("SizeRelativeOffset", DataType.Vector3);}
+    public get SizeRelativeOffset() {return this.GetProp("SizeRelativeOffset", DataType.Vector3)!;}
     public set SizeRelativeOffset(value) {this.SetProp("SizeRelativeOffset", DataType.Vector3, value);}
-    public get ZIndex() {return this.GetProp("ZIndex", DataType.Int32);}
+    public get ZIndex() {return this.GetProp("ZIndex", DataType.Int32)!;}
     public set ZIndex(value) {this.SetProp("ZIndex", DataType.Int32, value);}
 }
 
@@ -5540,30 +4389,10 @@ export class BoxHandleAdornment extends HandleAdornment {
         this.addClassName("BoxHandleAdornment");
         this.Name = "BoxHandleAdornment";
         this.Size = new Vector3(1, 1, 1);
-        this.AdornCullingMode = AdornCullingMode.Automatic;
-        this.AlwaysOnTop = false;
-        this.SizeRelativeOffset = new Vector3(0, 0, 0);
-        this.ZIndex = -1;
         this.Color3 = Color3.FromRGB(13, 105, 172);
-        this.Transparency = 0;
-        this.Visible = true;
     }
     public get Size() {return this.GetProp("Size", DataType.Vector3)!;}
     public set Size(value) {this.SetProp("Size", DataType.Vector3, value);}
-    public override get AdornCullingMode() {return super.AdornCullingMode!;}
-    public override set AdornCullingMode(value) {super.AdornCullingMode = value;}
-    public override get AlwaysOnTop() {return super.AlwaysOnTop!;}
-    public override set AlwaysOnTop(value) {super.AlwaysOnTop = value;}
-    public override get SizeRelativeOffset() {return super.SizeRelativeOffset!;}
-    public override set SizeRelativeOffset(value) {super.SizeRelativeOffset = value;}
-    public override get ZIndex() {return super.ZIndex!;}
-    public override set ZIndex(value) {super.ZIndex = value;}
-    public override get Color3() {return super.Color3!;}
-    public override set Color3(value) {super.Color3 = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class ConeHandleAdornment extends HandleAdornment {
@@ -5574,32 +4403,12 @@ export class ConeHandleAdornment extends HandleAdornment {
         this.Name = "ConeHandleAdornment";
         this.Height = 2;
         this.Radius = 0.5;
-        this.AdornCullingMode = AdornCullingMode.Automatic;
-        this.AlwaysOnTop = false;
-        this.SizeRelativeOffset = new Vector3(0, 0, 0);
-        this.ZIndex = -1;
         this.Color3 = Color3.FromRGB(13, 105, 172);
-        this.Transparency = 0;
-        this.Visible = true;
     }
     public get Height() {return this.GetProp("Height", DataType.Float32)!;}
     public set Height(value) {this.SetProp("Height", DataType.Float32, value);}
     public get Radius() {return this.GetProp("Radius", DataType.Float32)!;}
     public set Radius(value) {this.SetProp("Radius", DataType.Float32, value);}
-    public override get AdornCullingMode() {return super.AdornCullingMode!;}
-    public override set AdornCullingMode(value) {super.AdornCullingMode = value;}
-    public override get AlwaysOnTop() {return super.AlwaysOnTop!;}
-    public override set AlwaysOnTop(value) {super.AlwaysOnTop = value;}
-    public override get SizeRelativeOffset() {return super.SizeRelativeOffset!;}
-    public override set SizeRelativeOffset(value) {super.SizeRelativeOffset = value;}
-    public override get ZIndex() {return super.ZIndex!;}
-    public override set ZIndex(value) {super.ZIndex = value;}
-    public override get Color3() {return super.Color3!;}
-    public override set Color3(value) {super.Color3 = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class CylinderHandleAdornment extends HandleAdornment {
@@ -5612,13 +4421,7 @@ export class CylinderHandleAdornment extends HandleAdornment {
         this.Height = 1;
         this.InnerRadius = 0;
         this.Radius = 1;
-        this.AdornCullingMode = AdornCullingMode.Automatic;
-        this.AlwaysOnTop = false;
-        this.SizeRelativeOffset = new Vector3(0, 0, 0);
-        this.ZIndex = -1;
         this.Color3 = Color3.FromRGB(13, 105, 172);
-        this.Transparency = 0;
-        this.Visible = true;
     }
     public get Angle() {return this.GetProp("Angle", DataType.Float32)!;}
     public set Angle(value) {this.SetProp("Angle", DataType.Float32, value);}
@@ -5628,20 +4431,6 @@ export class CylinderHandleAdornment extends HandleAdornment {
     public set InnerRadius(value) {this.SetProp("InnerRadius", DataType.Float32, value);}
     public get Radius() {return this.GetProp("Radius", DataType.Float32)!;}
     public set Radius(value) {this.SetProp("Radius", DataType.Float32, value);}
-    public override get AdornCullingMode() {return super.AdornCullingMode!;}
-    public override set AdornCullingMode(value) {super.AdornCullingMode = value;}
-    public override get AlwaysOnTop() {return super.AlwaysOnTop!;}
-    public override set AlwaysOnTop(value) {super.AlwaysOnTop = value;}
-    public override get SizeRelativeOffset() {return super.SizeRelativeOffset!;}
-    public override set SizeRelativeOffset(value) {super.SizeRelativeOffset = value;}
-    public override get ZIndex() {return super.ZIndex!;}
-    public override set ZIndex(value) {super.ZIndex = value;}
-    public override get Color3() {return super.Color3!;}
-    public override set Color3(value) {super.Color3 = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class ImageHandleAdornment extends HandleAdornment {
@@ -5652,32 +4441,12 @@ export class ImageHandleAdornment extends HandleAdornment {
         this.Name = "ImageHandleAdornment";
         this.Image = "rbxasset://textures/SurfacesDefault.png";
         this.Size = new Vector2(1, 1);
-        this.AdornCullingMode = AdornCullingMode.Automatic;
-        this.AlwaysOnTop = false;
-        this.SizeRelativeOffset = new Vector3(0, 0, 0);
-        this.ZIndex = -1;
         this.Color3 = Color3.FromRGB(242, 243, 243);
-        this.Transparency = 0;
-        this.Visible = true;
     }
     public get Image() {return this.GetProp("Image", DataType.String)!;}
     public set Image(value) {this.SetProp("Image", DataType.String, value);}
     public get Size() {return this.GetProp("Size", DataType.Vector2)!;}
     public set Size(value) {this.SetProp("Size", DataType.Vector2, value);}
-    public override get AdornCullingMode() {return super.AdornCullingMode!;}
-    public override set AdornCullingMode(value) {super.AdornCullingMode = value;}
-    public override get AlwaysOnTop() {return super.AlwaysOnTop!;}
-    public override set AlwaysOnTop(value) {super.AlwaysOnTop = value;}
-    public override get SizeRelativeOffset() {return super.SizeRelativeOffset!;}
-    public override set SizeRelativeOffset(value) {super.SizeRelativeOffset = value;}
-    public override get ZIndex() {return super.ZIndex!;}
-    public override set ZIndex(value) {super.ZIndex = value;}
-    public override get Color3() {return super.Color3!;}
-    public override set Color3(value) {super.Color3 = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class LineHandleAdornment extends HandleAdornment {
@@ -5688,32 +4457,12 @@ export class LineHandleAdornment extends HandleAdornment {
         this.Name = "LineHandleAdornment";
         this.Length = 5;
         this.Thickness = 1;
-        this.AdornCullingMode = AdornCullingMode.Automatic;
-        this.AlwaysOnTop = false;
-        this.SizeRelativeOffset = new Vector3(0, 0, 0);
-        this.ZIndex = -1;
         this.Color3 = Color3.FromRGB(13, 105, 172);
-        this.Transparency = 0;
-        this.Visible = true;
     }
     public get Length() {return this.GetProp("Length", DataType.Float32)!;}
     public set Length(value) {this.SetProp("Length", DataType.Float32, value);}
     public get Thickness() {return this.GetProp("Thickness", DataType.Float32)!;}
     public set Thickness(value) {this.SetProp("Thickness", DataType.Float32, value);}
-    public override get AdornCullingMode() {return super.AdornCullingMode!;}
-    public override set AdornCullingMode(value) {super.AdornCullingMode = value;}
-    public override get AlwaysOnTop() {return super.AlwaysOnTop!;}
-    public override set AlwaysOnTop(value) {super.AlwaysOnTop = value;}
-    public override get SizeRelativeOffset() {return super.SizeRelativeOffset!;}
-    public override set SizeRelativeOffset(value) {super.SizeRelativeOffset = value;}
-    public override get ZIndex() {return super.ZIndex!;}
-    public override set ZIndex(value) {super.ZIndex = value;}
-    public override get Color3() {return super.Color3!;}
-    public override set Color3(value) {super.Color3 = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class SphereHandleAdornment extends HandleAdornment {
@@ -5723,30 +4472,10 @@ export class SphereHandleAdornment extends HandleAdornment {
         this.addClassName("SphereHandleAdornment");
         this.Name = "SphereHandleAdornment";
         this.Radius = 1;
-        this.AdornCullingMode = AdornCullingMode.Automatic;
-        this.AlwaysOnTop = false;
-        this.SizeRelativeOffset = new Vector3(0, 0, 0);
-        this.ZIndex = -1;
         this.Color3 = Color3.FromRGB(13, 105, 172);
-        this.Transparency = 0;
-        this.Visible = true;
     }
     public get Radius() {return this.GetProp("Radius", DataType.Float32)!;}
     public set Radius(value) {this.SetProp("Radius", DataType.Float32, value);}
-    public override get AdornCullingMode() {return super.AdornCullingMode!;}
-    public override set AdornCullingMode(value) {super.AdornCullingMode = value;}
-    public override get AlwaysOnTop() {return super.AlwaysOnTop!;}
-    public override set AlwaysOnTop(value) {super.AlwaysOnTop = value;}
-    public override get SizeRelativeOffset() {return super.SizeRelativeOffset!;}
-    public override set SizeRelativeOffset(value) {super.SizeRelativeOffset = value;}
-    public override get ZIndex() {return super.ZIndex!;}
-    public override set ZIndex(value) {super.ZIndex = value;}
-    public override get Color3() {return super.Color3!;}
-    public override set Color3(value) {super.Color3 = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class WireframeHandleAdornment extends HandleAdornment {
@@ -5756,30 +4485,10 @@ export class WireframeHandleAdornment extends HandleAdornment {
         this.addClassName("WireframeHandleAdornment");
         this.Name = "WireframeHandleAdornment";
         this.Scale = new Vector3(1, 1, 1);
-        this.AdornCullingMode = AdornCullingMode.Automatic;
-        this.AlwaysOnTop = false;
-        this.SizeRelativeOffset = new Vector3(0, 0, 0);
-        this.ZIndex = -1;
         this.Color3 = Color3.FromRGB(13, 105, 172);
-        this.Transparency = 0;
-        this.Visible = true;
     }
     public get Scale() {return this.GetProp("Scale", DataType.Vector3)!;}
     public set Scale(value) {this.SetProp("Scale", DataType.Vector3, value);}
-    public override get AdornCullingMode() {return super.AdornCullingMode!;}
-    public override set AdornCullingMode(value) {super.AdornCullingMode = value;}
-    public override get AlwaysOnTop() {return super.AlwaysOnTop!;}
-    public override set AlwaysOnTop(value) {super.AlwaysOnTop = value;}
-    public override get SizeRelativeOffset() {return super.SizeRelativeOffset!;}
-    public override set SizeRelativeOffset(value) {super.SizeRelativeOffset = value;}
-    public override get ZIndex() {return super.ZIndex!;}
-    public override set ZIndex(value) {super.ZIndex = value;}
-    public override get Color3() {return super.Color3!;}
-    public override set Color3(value) {super.Color3 = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class ParabolaAdornment extends PVAdornment {
@@ -5800,8 +4509,6 @@ export class SelectionSphere extends PVAdornment {
         this.SurfaceColor3 = Color3.FromRGB(13, 105, 172);
         this.SurfaceTransparency = 1;
         this.Color3 = Color3.FromRGB(13, 105, 172);
-        this.Transparency = 0;
-        this.Visible = true;
     }
     /**@deprecated Deprecated by Roblox*/
     public get SurfaceColor() {return this.GetProp("SurfaceColor", DataType.BrickColor);}
@@ -5811,12 +4518,6 @@ export class SelectionSphere extends PVAdornment {
     public set SurfaceColor3(value) {this.SetProp("SurfaceColor3", DataType.Color3, value);}
     public get SurfaceTransparency() {return this.GetProp("SurfaceTransparency", DataType.Float32)!;}
     public set SurfaceTransparency(value) {this.SetProp("SurfaceTransparency", DataType.Float32, value);}
-    public override get Color3() {return super.Color3!;}
-    public override set Color3(value) {super.Color3 = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export abstract class PartAdornment extends GuiBase3d {
@@ -5824,6 +4525,7 @@ export abstract class PartAdornment extends GuiBase3d {
     {
         super();
         this.addClassName("PartAdornment");
+        this.Color3 = Color3.FromRGB(13, 105, 172);
     }
     public get Adornee() {return this.GetProp("Adornee", DataType.Referent) as BasePart | undefined;}
     public set Adornee(value) {this.SetProp("Adornee", DataType.Referent, value);}
@@ -5843,18 +4545,10 @@ export class ArcHandles extends HandlesBase {
         super();
         this.addClassName("ArcHandles");
         this.Name = "ArcHandles";
-        this.Color3 = Color3.FromRGB(13, 105, 172);
-        this.Transparency = 0;
-        this.Visible = true;
+        this.Axes = new Axes(RBXMAxis.X, RBXMAxis.Y, RBXMAxis.Z);
     }
-    public get Axes() {return this.GetProp("Axes", DataType.Axes);}
+    public get Axes() {return this.GetProp("Axes", DataType.Axes)!;}
     public set Axes(value) {this.SetProp("Axes", DataType.Axes, value);}
-    public override get Color3() {return super.Color3!;}
-    public override set Color3(value) {super.Color3 = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class Handles extends HandlesBase {
@@ -5863,21 +4557,13 @@ export class Handles extends HandlesBase {
         super();
         this.addClassName("Handles");
         this.Name = "Handles";
+        this.Faces = new Faces(RBXMFace.Right, RBXMFace.Top, RBXMFace.Back, RBXMFace.Left, RBXMFace.Bottom, RBXMFace.Front);
         this.Style = HandlesStyle.Resize;
-        this.Color3 = Color3.FromRGB(13, 105, 172);
-        this.Transparency = 0;
-        this.Visible = true;
     }
-    public get Faces() {return this.GetProp("Faces", DataType.Faces);}
+    public get Faces() {return this.GetProp("Faces", DataType.Faces)!;}
     public set Faces(value) {this.SetProp("Faces", DataType.Faces, value);}
     public get Style() {return this.GetProp("Style", DataType.Enum)! as HandlesStyle;}
     public set Style(value) {this.SetProp("Style", DataType.Enum, value);}
-    public override get Color3() {return super.Color3!;}
-    public override set Color3(value) {super.Color3 = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class SurfaceSelection extends PartAdornment {
@@ -5887,18 +4573,9 @@ export class SurfaceSelection extends PartAdornment {
         this.addClassName("SurfaceSelection");
         this.Name = "SurfaceSelection";
         this.TargetSurface = NormalId.Right;
-        this.Color3 = Color3.FromRGB(13, 105, 172);
-        this.Transparency = 0;
-        this.Visible = true;
     }
     public get TargetSurface() {return this.GetProp("TargetSurface", DataType.Enum)! as NormalId;}
     public set TargetSurface(value) {this.SetProp("TargetSurface", DataType.Enum, value);}
-    public override get Color3() {return super.Color3!;}
-    public override set Color3(value) {super.Color3 = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export abstract class SelectionLasso extends GuiBase3d {
@@ -5906,6 +4583,7 @@ export abstract class SelectionLasso extends GuiBase3d {
     {
         super();
         this.addClassName("SelectionLasso");
+        this.Color3 = Color3.FromRGB(13, 105, 172);
     }
     public get Humanoid() {return this.GetProp("Humanoid", DataType.Referent) as Humanoid | undefined;}
     public set Humanoid(value) {this.SetProp("Humanoid", DataType.Referent, value);}
@@ -5918,18 +4596,9 @@ export class SelectionPartLasso extends SelectionLasso {
         super();
         this.addClassName("SelectionPartLasso");
         this.Name = "SelectionPartLasso";
-        this.Color3 = Color3.FromRGB(13, 105, 172);
-        this.Transparency = 0;
-        this.Visible = true;
     }
     public get Part() {return this.GetProp("Part", DataType.Referent) as BasePart | undefined;}
     public set Part(value) {this.SetProp("Part", DataType.Referent, value);}
-    public override get Color3() {return super.Color3!;}
-    public override set Color3(value) {super.Color3 = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 /**@deprecated Deprecated by Roblox*/
@@ -5940,18 +4609,9 @@ export class SelectionPointLasso extends SelectionLasso {
         this.addClassName("SelectionPointLasso");
         this.Name = "SelectionPointLasso";
         this.Point = new Vector3(0, 0, 0);
-        this.Color3 = Color3.FromRGB(13, 105, 172);
-        this.Transparency = 0;
-        this.Visible = true;
     }
     public get Point() {return this.GetProp("Point", DataType.Vector3)!;}
     public set Point(value) {this.SetProp("Point", DataType.Vector3, value);}
-    public override get Color3() {return super.Color3!;}
-    public override set Color3(value) {super.Color3 = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Visible() {return super.Visible!;}
-    public override set Visible(value) {super.Visible = value;}
 }
 
 export class Path2D extends GuiBase {
@@ -6341,6 +5001,8 @@ export class IKControl extends Instance {
         this.SmoothTime = 0.05;
         this.Type = IKControlType.Transform;
         this.Weight = 1;
+        this.EndEffectorOffset = CFrame.Identity;
+        this.Offset = CFrame.Identity;
     }
     public get ChainRoot() {return this.GetProp("ChainRoot", DataType.Referent) as Instance | undefined;}
     public set ChainRoot(value) {this.SetProp("ChainRoot", DataType.Referent, value);}
@@ -6348,9 +5010,9 @@ export class IKControl extends Instance {
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
     public get EndEffector() {return this.GetProp("EndEffector", DataType.Referent) as Instance | undefined;}
     public set EndEffector(value) {this.SetProp("EndEffector", DataType.Referent, value);}
-    public get EndEffectorOffset() {return this.GetProp("EndEffectorOffset", DataType.CFrame);}
+    public get EndEffectorOffset() {return this.GetProp("EndEffectorOffset", DataType.CFrame)!;}
     public set EndEffectorOffset(value) {this.SetProp("EndEffectorOffset", DataType.CFrame, value);}
-    public get Offset() {return this.GetProp("Offset", DataType.CFrame);}
+    public get Offset() {return this.GetProp("Offset", DataType.CFrame)!;}
     public set Offset(value) {this.SetProp("Offset", DataType.CFrame, value);}
     public get Pole() {return this.GetProp("Pole", DataType.Referent) as Instance | undefined;}
     public set Pole(value) {this.SetProp("Pole", DataType.Referent, value);}
@@ -6465,12 +5127,15 @@ export abstract class JointInstance extends Instance {
     {
         super();
         this.addClassName("JointInstance");
+        this.C0 = CFrame.Identity;
+        this.C1 = CFrame.Identity;
+        this.Enabled = true;
     }
-    public get C0() {return this.GetProp("C0", DataType.CFrame);}
+    public get C0() {return this.GetProp("C0", DataType.CFrame)!;}
     public set C0(value) {this.SetProp("C0", DataType.CFrame, value);}
-    public get C1() {return this.GetProp("C1", DataType.CFrame);}
+    public get C1() {return this.GetProp("C1", DataType.CFrame)!;}
     public set C1(value) {this.SetProp("C1", DataType.CFrame, value);}
-    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool)!;}
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
     public get Part0() {return this.GetProp("Part0", DataType.Referent) as BasePart | undefined;}
     public set Part0(value) {this.SetProp("Part0", DataType.Referent, value);}
@@ -6483,8 +5148,9 @@ export abstract class DynamicRotate extends JointInstance {
     {
         super();
         this.addClassName("DynamicRotate");
+        this.BaseAngle = 0;
     }
-    public get BaseAngle() {return this.GetProp("BaseAngle", DataType.Float32);}
+    public get BaseAngle() {return this.GetProp("BaseAngle", DataType.Float32)!;}
     public set BaseAngle(value) {this.SetProp("BaseAngle", DataType.Float32, value);}
 }
 
@@ -6495,13 +5161,7 @@ export class RotateP extends DynamicRotate {
         super();
         this.addClassName("RotateP");
         this.Name = "RotateP";
-        this.BaseAngle = 0;
-        this.Enabled = true;
     }
-    public override get BaseAngle() {return super.BaseAngle!;}
-    public override set BaseAngle(value) {super.BaseAngle = value;}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
 }
 
 /**@deprecated Deprecated by Roblox*/
@@ -6511,13 +5171,7 @@ export class RotateV extends DynamicRotate {
         super();
         this.addClassName("RotateV");
         this.Name = "RotateV";
-        this.BaseAngle = 0;
-        this.Enabled = true;
     }
-    public override get BaseAngle() {return super.BaseAngle!;}
-    public override set BaseAngle(value) {super.BaseAngle = value;}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
 }
 
 /**@deprecated Deprecated by Roblox*/
@@ -6531,7 +5185,6 @@ export class Glue extends JointInstance {
         this.F1 = new Vector3(0, 0, 0);
         this.F2 = new Vector3(0, 0, 0);
         this.F3 = new Vector3(0, 0, 0);
-        this.Enabled = true;
     }
     public get F0() {return this.GetProp("F0", DataType.Vector3)!;}
     public set F0(value) {this.SetProp("F0", DataType.Vector3, value);}
@@ -6541,8 +5194,6 @@ export class Glue extends JointInstance {
     public set F2(value) {this.SetProp("F2", DataType.Vector3, value);}
     public get F3() {return this.GetProp("F3", DataType.Vector3)!;}
     public set F3(value) {this.SetProp("F3", DataType.Vector3, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
 }
 
 /**@deprecated Deprecated by Roblox*/
@@ -6561,10 +5212,7 @@ export class ManualGlue extends ManualSurfaceJointInstance {
         super();
         this.addClassName("ManualGlue");
         this.Name = "ManualGlue";
-        this.Enabled = true;
     }
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
 }
 
 /**@deprecated Deprecated by Roblox*/
@@ -6574,10 +5222,7 @@ export class ManualWeld extends ManualSurfaceJointInstance {
         super();
         this.addClassName("ManualWeld");
         this.Name = "ManualWeld";
-        this.Enabled = true;
     }
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
 }
 
 export class Motor extends JointInstance {
@@ -6588,14 +5233,11 @@ export class Motor extends JointInstance {
         this.Name = "Motor";
         this.DesiredAngle = 0;
         this.MaxVelocity = 0;
-        this.Enabled = true;
     }
     public get DesiredAngle() {return this.GetProp("DesiredAngle", DataType.Float32)!;}
     public set DesiredAngle(value) {this.SetProp("DesiredAngle", DataType.Float32, value);}
     public get MaxVelocity() {return this.GetProp("MaxVelocity", DataType.Float32)!;}
     public set MaxVelocity(value) {this.SetProp("MaxVelocity", DataType.Float32, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
 }
 
 export class Motor6D extends Motor {
@@ -6604,10 +5246,7 @@ export class Motor6D extends Motor {
         super();
         this.addClassName("Motor6D");
         this.Name = "Motor6D";
-        this.Enabled = true;
     }
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
 }
 
 /**@deprecated Deprecated by Roblox*/
@@ -6617,10 +5256,7 @@ export class Rotate extends JointInstance {
         super();
         this.addClassName("Rotate");
         this.Name = "Rotate";
-        this.Enabled = true;
     }
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
 }
 
 /**@deprecated Deprecated by Roblox*/
@@ -6630,10 +5266,7 @@ export class Snap extends JointInstance {
         super();
         this.addClassName("Snap");
         this.Name = "Snap";
-        this.Enabled = true;
     }
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
 }
 
 export class VelocityMotor extends JointInstance {
@@ -6645,7 +5278,6 @@ export class VelocityMotor extends JointInstance {
         this.CurrentAngle = 0;
         this.DesiredAngle = 0;
         this.MaxVelocity = 0;
-        this.Enabled = true;
     }
     public get CurrentAngle() {return this.GetProp("CurrentAngle", DataType.Float32)!;}
     public set CurrentAngle(value) {this.SetProp("CurrentAngle", DataType.Float32, value);}
@@ -6655,8 +5287,6 @@ export class VelocityMotor extends JointInstance {
     public set Hole(value) {this.SetProp("Hole", DataType.Referent, value);}
     public get MaxVelocity() {return this.GetProp("MaxVelocity", DataType.Float32)!;}
     public set MaxVelocity(value) {this.SetProp("MaxVelocity", DataType.Float32, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
 }
 
 export class Weld extends JointInstance {
@@ -6665,10 +5295,7 @@ export class Weld extends JointInstance {
         super();
         this.addClassName("Weld");
         this.Name = "Weld";
-        this.Enabled = true;
     }
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
 }
 
 /**@deprecated Deprecated by Roblox*/
@@ -6746,14 +5373,18 @@ export abstract class Light extends Instance {
     {
         super();
         this.addClassName("Light");
+        this.Brightness = 1;
+        this.Color = Color3.FromRGB(255, 255, 255);
+        this.Enabled = true;
+        this.Shadows = false;
     }
-    public get Brightness() {return this.GetProp("Brightness", DataType.Float32);}
+    public get Brightness() {return this.GetProp("Brightness", DataType.Float32)!;}
     public set Brightness(value) {this.SetProp("Brightness", DataType.Float32, value);}
-    public get Color() {return this.GetProp("Color", DataType.Color3);}
+    public get Color() {return this.GetProp("Color", DataType.Color3)!;}
     public set Color(value) {this.SetProp("Color", DataType.Color3, value);}
-    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool)!;}
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
-    public get Shadows() {return this.GetProp("Shadows", DataType.Bool);}
+    public get Shadows() {return this.GetProp("Shadows", DataType.Bool)!;}
     public set Shadows(value) {this.SetProp("Shadows", DataType.Bool, value);}
 }
 
@@ -6764,21 +5395,9 @@ export class PointLight extends Light {
         this.addClassName("PointLight");
         this.Name = "PointLight";
         this.Range = 8;
-        this.Brightness = 1;
-        this.Color = Color3.FromRGB(255, 255, 255);
-        this.Enabled = true;
-        this.Shadows = false;
     }
     public get Range() {return this.GetProp("Range", DataType.Float32)!;}
     public set Range(value) {this.SetProp("Range", DataType.Float32, value);}
-    public override get Brightness() {return super.Brightness!;}
-    public override set Brightness(value) {super.Brightness = value;}
-    public override get Color() {return super.Color!;}
-    public override set Color(value) {super.Color = value;}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Shadows() {return super.Shadows!;}
-    public override set Shadows(value) {super.Shadows = value;}
 }
 
 export class SpotLight extends Light {
@@ -6790,10 +5409,6 @@ export class SpotLight extends Light {
         this.Angle = 90;
         this.Face = NormalId.Front;
         this.Range = 16;
-        this.Brightness = 1;
-        this.Color = Color3.FromRGB(255, 255, 255);
-        this.Enabled = true;
-        this.Shadows = false;
     }
     public get Angle() {return this.GetProp("Angle", DataType.Float32)!;}
     public set Angle(value) {this.SetProp("Angle", DataType.Float32, value);}
@@ -6801,14 +5416,6 @@ export class SpotLight extends Light {
     public set Face(value) {this.SetProp("Face", DataType.Enum, value);}
     public get Range() {return this.GetProp("Range", DataType.Float32)!;}
     public set Range(value) {this.SetProp("Range", DataType.Float32, value);}
-    public override get Brightness() {return super.Brightness!;}
-    public override set Brightness(value) {super.Brightness = value;}
-    public override get Color() {return super.Color!;}
-    public override set Color(value) {super.Color = value;}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Shadows() {return super.Shadows!;}
-    public override set Shadows(value) {super.Shadows = value;}
 }
 
 export class SurfaceLight extends Light {
@@ -6820,10 +5427,6 @@ export class SurfaceLight extends Light {
         this.Angle = 90;
         this.Face = NormalId.Front;
         this.Range = 16;
-        this.Brightness = 1;
-        this.Color = Color3.FromRGB(255, 255, 255);
-        this.Enabled = true;
-        this.Shadows = false;
     }
     public get Angle() {return this.GetProp("Angle", DataType.Float32)!;}
     public set Angle(value) {this.SetProp("Angle", DataType.Float32, value);}
@@ -6831,14 +5434,6 @@ export class SurfaceLight extends Light {
     public set Face(value) {this.SetProp("Face", DataType.Enum, value);}
     public get Range() {return this.GetProp("Range", DataType.Float32)!;}
     public set Range(value) {this.SetProp("Range", DataType.Float32, value);}
-    public override get Brightness() {return super.Brightness!;}
-    public override set Brightness(value) {super.Brightness = value;}
-    public override get Color() {return super.Color!;}
-    public override set Color(value) {super.Color = value;}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Shadows() {return super.Shadows!;}
-    public override set Shadows(value) {super.Shadows = value;}
 }
 
 export class Lighting extends Instance {
@@ -7023,14 +5618,17 @@ export abstract class BaseScript extends LuaSourceContainer {
     {
         super();
         this.addClassName("BaseScript");
+        this.Disabled = false;
+        this.LinkedSource = "";
+        this.RunContext = RunContext.Legacy;
     }
-    public get Disabled() {return this.GetProp("Disabled", DataType.Bool);}
+    public get Disabled() {return this.GetProp("Disabled", DataType.Bool)!;}
     public set Disabled(value) {this.SetProp("Disabled", DataType.Bool, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get LinkedSource() {return this.GetProp("LinkedSource", DataType.String);}
+    public get LinkedSource() {return this.GetProp("LinkedSource", DataType.String)!;}
     /**@deprecated Deprecated by Roblox*/
     public set LinkedSource(value) {this.SetProp("LinkedSource", DataType.String, value);}
-    public get RunContext() {return this.GetProp("RunContext", DataType.Enum) as RunContext | undefined;}
+    public get RunContext() {return this.GetProp("RunContext", DataType.Enum)! as RunContext;}
     public set RunContext(value) {this.SetProp("RunContext", DataType.Enum, value);}
 }
 
@@ -7041,18 +5639,9 @@ export class Script extends BaseScript {
         this.addClassName("Script");
         this.Name = "Script";
         this.Source = "";
-        this.Disabled = false;
-        this.LinkedSource = "";
-        this.RunContext = RunContext.Legacy;
     }
     public get Source() {return this.GetProp("Source", DataType.String)!;}
     public set Source(value) {this.SetProp("Source", DataType.String, value);}
-    public override get Disabled() {return super.Disabled!;}
-    public override set Disabled(value) {super.Disabled = value;}
-    public override get LinkedSource() {return super.LinkedSource!;}
-    public override set LinkedSource(value) {super.LinkedSource = value;}
-    public override get RunContext() {return super.RunContext!;}
-    public override set RunContext(value) {super.RunContext = value;}
 }
 
 export class LocalScript extends Script {
@@ -7061,16 +5650,7 @@ export class LocalScript extends Script {
         super();
         this.addClassName("LocalScript");
         this.Name = "LocalScript";
-        this.Disabled = false;
-        this.LinkedSource = "";
-        this.RunContext = RunContext.Legacy;
     }
-    public override get Disabled() {return super.Disabled!;}
-    public override set Disabled(value) {super.Disabled = value;}
-    public override get LinkedSource() {return super.LinkedSource!;}
-    public override set LinkedSource(value) {super.LinkedSource = value;}
-    public override get RunContext() {return super.RunContext!;}
-    public override set RunContext(value) {super.RunContext = value;}
 }
 
 export class ModuleScript extends LuaSourceContainer {
@@ -7515,152 +6095,184 @@ export abstract class BasePart extends PVInstance {
     {
         super();
         this.addClassName("BasePart");
+        this.BackParamA = -0.5;
+        this.BackParamB = 0.5;
+        this.BackSurfaceInput = InputType.NoInput;
+        this.BottomParamA = -0.5;
+        this.BottomParamB = 0.5;
+        this.BottomSurfaceInput = InputType.NoInput;
+        this.CFrame = CFrame.Identity;
+        this.CanQuery = true;
+        this.CanTouch = true;
+        this.CastShadow = true;
+        this.CollisionGroup = "Default";
+        this.CollisionGroupId = 0;
+        this.EnableFluidForces = true;
+        this.FrontParamA = -0.5;
+        this.FrontParamB = 0.5;
+        this.FrontSurfaceInput = InputType.NoInput;
+        this.LeftParamA = -0.5;
+        this.LeftParamB = 0.5;
+        this.LeftSurfaceInput = InputType.NoInput;
+        this.Massless = false;
+        this.Material = Material.Plastic;
+        this.PivotOffset = CFrame.Identity;
+        this.Reflectance = 0;
+        this.RightParamA = -0.5;
+        this.RightParamB = 0.5;
+        this.RightSurfaceInput = InputType.NoInput;
+        this.RootPriority = 0;
+        this.RotVelocity = new Vector3(0, 0, 0);
+        this.TopParamA = -0.5;
+        this.TopParamB = 0.5;
+        this.TopSurfaceInput = InputType.NoInput;
+        this.Velocity = new Vector3(0, 0, 0);
     }
-    public get Anchored() {return this.GetProp("Anchored", DataType.Bool);}
+    public get Anchored() {return this.GetProp("Anchored", DataType.Bool)!;}
     public set Anchored(value) {this.SetProp("Anchored", DataType.Bool, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get BackParamA() {return this.GetProp("BackParamA", DataType.Float32);}
+    public get BackParamA() {return this.GetProp("BackParamA", DataType.Float32)!;}
     /**@deprecated Deprecated by Roblox*/
     public set BackParamA(value) {this.SetProp("BackParamA", DataType.Float32, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get BackParamB() {return this.GetProp("BackParamB", DataType.Float32);}
+    public get BackParamB() {return this.GetProp("BackParamB", DataType.Float32)!;}
     /**@deprecated Deprecated by Roblox*/
     public set BackParamB(value) {this.SetProp("BackParamB", DataType.Float32, value);}
-    public get BackSurface() {return this.GetProp("BackSurface", DataType.Enum) as SurfaceType | undefined;}
+    public get BackSurface() {return this.GetProp("BackSurface", DataType.Enum)! as SurfaceType;}
     public set BackSurface(value) {this.SetProp("BackSurface", DataType.Enum, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get BackSurfaceInput() {return this.GetProp("BackSurfaceInput", DataType.Enum) as InputType | undefined;}
+    public get BackSurfaceInput() {return this.GetProp("BackSurfaceInput", DataType.Enum)! as InputType;}
     /**@deprecated Deprecated by Roblox*/
     public set BackSurfaceInput(value) {this.SetProp("BackSurfaceInput", DataType.Enum, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get BottomParamA() {return this.GetProp("BottomParamA", DataType.Float32);}
+    public get BottomParamA() {return this.GetProp("BottomParamA", DataType.Float32)!;}
     /**@deprecated Deprecated by Roblox*/
     public set BottomParamA(value) {this.SetProp("BottomParamA", DataType.Float32, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get BottomParamB() {return this.GetProp("BottomParamB", DataType.Float32);}
+    public get BottomParamB() {return this.GetProp("BottomParamB", DataType.Float32)!;}
     /**@deprecated Deprecated by Roblox*/
     public set BottomParamB(value) {this.SetProp("BottomParamB", DataType.Float32, value);}
-    public get BottomSurface() {return this.GetProp("BottomSurface", DataType.Enum) as SurfaceType | undefined;}
+    public get BottomSurface() {return this.GetProp("BottomSurface", DataType.Enum)! as SurfaceType;}
     public set BottomSurface(value) {this.SetProp("BottomSurface", DataType.Enum, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get BottomSurfaceInput() {return this.GetProp("BottomSurfaceInput", DataType.Enum) as InputType | undefined;}
+    public get BottomSurfaceInput() {return this.GetProp("BottomSurfaceInput", DataType.Enum)! as InputType;}
     /**@deprecated Deprecated by Roblox*/
     public set BottomSurfaceInput(value) {this.SetProp("BottomSurfaceInput", DataType.Enum, value);}
-    public get CFrame() {return this.GetProp("CFrame", DataType.CFrame);}
+    public get CFrame() {return this.GetProp("CFrame", DataType.CFrame)!;}
     public set CFrame(value) {this.SetProp("CFrame", DataType.CFrame, value);}
-    public get CanCollide() {return this.GetProp("CanCollide", DataType.Bool);}
+    public get CanCollide() {return this.GetProp("CanCollide", DataType.Bool)!;}
     public set CanCollide(value) {this.SetProp("CanCollide", DataType.Bool, value);}
-    public get CanQuery() {return this.GetProp("CanQuery", DataType.Bool);}
+    public get CanQuery() {return this.GetProp("CanQuery", DataType.Bool)!;}
     public set CanQuery(value) {this.SetProp("CanQuery", DataType.Bool, value);}
-    public get CanTouch() {return this.GetProp("CanTouch", DataType.Bool);}
+    public get CanTouch() {return this.GetProp("CanTouch", DataType.Bool)!;}
     public set CanTouch(value) {this.SetProp("CanTouch", DataType.Bool, value);}
-    public get CastShadow() {return this.GetProp("CastShadow", DataType.Bool);}
+    public get CastShadow() {return this.GetProp("CastShadow", DataType.Bool)!;}
     public set CastShadow(value) {this.SetProp("CastShadow", DataType.Bool, value);}
-    public get CollisionGroup() {return this.GetProp("CollisionGroup", DataType.String);}
+    public get CollisionGroup() {return this.GetProp("CollisionGroup", DataType.String)!;}
     public set CollisionGroup(value) {this.SetProp("CollisionGroup", DataType.String, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get CollisionGroupId() {return this.GetProp("CollisionGroupId", DataType.Int32);}
+    public get CollisionGroupId() {return this.GetProp("CollisionGroupId", DataType.Int32)!;}
     /**@deprecated Deprecated by Roblox*/
     public set CollisionGroupId(value) {this.SetProp("CollisionGroupId", DataType.Int32, value);}
-    public get Color3uint8() {return this.GetProp("Color3uint8", DataType.Color3uint8);}
+    public get Color3uint8() {return this.GetProp("Color3uint8", DataType.Color3uint8)!;}
     public set Color3uint8(value) {this.SetProp("Color3uint8", DataType.Color3uint8, value);}
     public get CustomPhysicalProperties() {return this.GetProp("CustomPhysicalProperties", DataType.PhysicalProperties);}
     public set CustomPhysicalProperties(value) {this.SetProp("CustomPhysicalProperties", DataType.PhysicalProperties, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get Elasticity() {return this.GetProp("Elasticity", DataType.Float32);}
+    public get Elasticity() {return this.GetProp("Elasticity", DataType.Float32)!;}
     /**@deprecated Deprecated by Roblox*/
     public set Elasticity(value) {this.SetProp("Elasticity", DataType.Float32, value);}
-    public get EnableFluidForces() {return this.GetProp("EnableFluidForces", DataType.Bool);}
+    public get EnableFluidForces() {return this.GetProp("EnableFluidForces", DataType.Bool)!;}
     public set EnableFluidForces(value) {this.SetProp("EnableFluidForces", DataType.Bool, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get Friction() {return this.GetProp("Friction", DataType.Float32);}
+    public get Friction() {return this.GetProp("Friction", DataType.Float32)!;}
     /**@deprecated Deprecated by Roblox*/
     public set Friction(value) {this.SetProp("Friction", DataType.Float32, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get FrontParamA() {return this.GetProp("FrontParamA", DataType.Float32);}
+    public get FrontParamA() {return this.GetProp("FrontParamA", DataType.Float32)!;}
     /**@deprecated Deprecated by Roblox*/
     public set FrontParamA(value) {this.SetProp("FrontParamA", DataType.Float32, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get FrontParamB() {return this.GetProp("FrontParamB", DataType.Float32);}
+    public get FrontParamB() {return this.GetProp("FrontParamB", DataType.Float32)!;}
     /**@deprecated Deprecated by Roblox*/
     public set FrontParamB(value) {this.SetProp("FrontParamB", DataType.Float32, value);}
-    public get FrontSurface() {return this.GetProp("FrontSurface", DataType.Enum) as SurfaceType | undefined;}
+    public get FrontSurface() {return this.GetProp("FrontSurface", DataType.Enum)! as SurfaceType;}
     public set FrontSurface(value) {this.SetProp("FrontSurface", DataType.Enum, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get FrontSurfaceInput() {return this.GetProp("FrontSurfaceInput", DataType.Enum) as InputType | undefined;}
+    public get FrontSurfaceInput() {return this.GetProp("FrontSurfaceInput", DataType.Enum)! as InputType;}
     /**@deprecated Deprecated by Roblox*/
     public set FrontSurfaceInput(value) {this.SetProp("FrontSurfaceInput", DataType.Enum, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get LeftParamA() {return this.GetProp("LeftParamA", DataType.Float32);}
+    public get LeftParamA() {return this.GetProp("LeftParamA", DataType.Float32)!;}
     /**@deprecated Deprecated by Roblox*/
     public set LeftParamA(value) {this.SetProp("LeftParamA", DataType.Float32, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get LeftParamB() {return this.GetProp("LeftParamB", DataType.Float32);}
+    public get LeftParamB() {return this.GetProp("LeftParamB", DataType.Float32)!;}
     /**@deprecated Deprecated by Roblox*/
     public set LeftParamB(value) {this.SetProp("LeftParamB", DataType.Float32, value);}
-    public get LeftSurface() {return this.GetProp("LeftSurface", DataType.Enum) as SurfaceType | undefined;}
+    public get LeftSurface() {return this.GetProp("LeftSurface", DataType.Enum)! as SurfaceType;}
     public set LeftSurface(value) {this.SetProp("LeftSurface", DataType.Enum, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get LeftSurfaceInput() {return this.GetProp("LeftSurfaceInput", DataType.Enum) as InputType | undefined;}
+    public get LeftSurfaceInput() {return this.GetProp("LeftSurfaceInput", DataType.Enum)! as InputType;}
     /**@deprecated Deprecated by Roblox*/
     public set LeftSurfaceInput(value) {this.SetProp("LeftSurfaceInput", DataType.Enum, value);}
-    public get Locked() {return this.GetProp("Locked", DataType.Bool);}
+    public get Locked() {return this.GetProp("Locked", DataType.Bool)!;}
     public set Locked(value) {this.SetProp("Locked", DataType.Bool, value);}
-    public get Massless() {return this.GetProp("Massless", DataType.Bool);}
+    public get Massless() {return this.GetProp("Massless", DataType.Bool)!;}
     public set Massless(value) {this.SetProp("Massless", DataType.Bool, value);}
-    public get Material() {return this.GetProp("Material", DataType.Enum) as Material | undefined;}
+    public get Material() {return this.GetProp("Material", DataType.Enum)! as Material;}
     public set Material(value) {this.SetProp("Material", DataType.Enum, value);}
     public get MaterialVariantSerialized() {return this.GetProp("MaterialVariantSerialized", DataType.String);}
     public set MaterialVariantSerialized(value) {this.SetProp("MaterialVariantSerialized", DataType.String, value);}
-    public get PivotOffset() {return this.GetProp("PivotOffset", DataType.CFrame);}
+    public get PivotOffset() {return this.GetProp("PivotOffset", DataType.CFrame)!;}
     public set PivotOffset(value) {this.SetProp("PivotOffset", DataType.CFrame, value);}
-    public get Reflectance() {return this.GetProp("Reflectance", DataType.Float32);}
+    public get Reflectance() {return this.GetProp("Reflectance", DataType.Float32)!;}
     public set Reflectance(value) {this.SetProp("Reflectance", DataType.Float32, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get RightParamA() {return this.GetProp("RightParamA", DataType.Float32);}
+    public get RightParamA() {return this.GetProp("RightParamA", DataType.Float32)!;}
     /**@deprecated Deprecated by Roblox*/
     public set RightParamA(value) {this.SetProp("RightParamA", DataType.Float32, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get RightParamB() {return this.GetProp("RightParamB", DataType.Float32);}
+    public get RightParamB() {return this.GetProp("RightParamB", DataType.Float32)!;}
     /**@deprecated Deprecated by Roblox*/
     public set RightParamB(value) {this.SetProp("RightParamB", DataType.Float32, value);}
-    public get RightSurface() {return this.GetProp("RightSurface", DataType.Enum) as SurfaceType | undefined;}
+    public get RightSurface() {return this.GetProp("RightSurface", DataType.Enum)! as SurfaceType;}
     public set RightSurface(value) {this.SetProp("RightSurface", DataType.Enum, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get RightSurfaceInput() {return this.GetProp("RightSurfaceInput", DataType.Enum) as InputType | undefined;}
+    public get RightSurfaceInput() {return this.GetProp("RightSurfaceInput", DataType.Enum)! as InputType;}
     /**@deprecated Deprecated by Roblox*/
     public set RightSurfaceInput(value) {this.SetProp("RightSurfaceInput", DataType.Enum, value);}
-    public get RootPriority() {return this.GetProp("RootPriority", DataType.Int32);}
+    public get RootPriority() {return this.GetProp("RootPriority", DataType.Int32)!;}
     public set RootPriority(value) {this.SetProp("RootPriority", DataType.Int32, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get RotVelocity() {return this.GetProp("RotVelocity", DataType.Vector3);}
+    public get RotVelocity() {return this.GetProp("RotVelocity", DataType.Vector3)!;}
     /**@deprecated Deprecated by Roblox*/
     public set RotVelocity(value) {this.SetProp("RotVelocity", DataType.Vector3, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get TopParamA() {return this.GetProp("TopParamA", DataType.Float32);}
+    public get TopParamA() {return this.GetProp("TopParamA", DataType.Float32)!;}
     /**@deprecated Deprecated by Roblox*/
     public set TopParamA(value) {this.SetProp("TopParamA", DataType.Float32, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get TopParamB() {return this.GetProp("TopParamB", DataType.Float32);}
+    public get TopParamB() {return this.GetProp("TopParamB", DataType.Float32)!;}
     /**@deprecated Deprecated by Roblox*/
     public set TopParamB(value) {this.SetProp("TopParamB", DataType.Float32, value);}
-    public get TopSurface() {return this.GetProp("TopSurface", DataType.Enum) as SurfaceType | undefined;}
+    public get TopSurface() {return this.GetProp("TopSurface", DataType.Enum)! as SurfaceType;}
     public set TopSurface(value) {this.SetProp("TopSurface", DataType.Enum, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get TopSurfaceInput() {return this.GetProp("TopSurfaceInput", DataType.Enum) as InputType | undefined;}
+    public get TopSurfaceInput() {return this.GetProp("TopSurfaceInput", DataType.Enum)! as InputType;}
     /**@deprecated Deprecated by Roblox*/
     public set TopSurfaceInput(value) {this.SetProp("TopSurfaceInput", DataType.Enum, value);}
-    public get Transparency() {return this.GetProp("Transparency", DataType.Float32);}
+    public get Transparency() {return this.GetProp("Transparency", DataType.Float32)!;}
     public set Transparency(value) {this.SetProp("Transparency", DataType.Float32, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get Velocity() {return this.GetProp("Velocity", DataType.Vector3);}
+    public get Velocity() {return this.GetProp("Velocity", DataType.Vector3)!;}
     /**@deprecated Deprecated by Roblox*/
     public set Velocity(value) {this.SetProp("Velocity", DataType.Vector3, value);}
     /**@deprecated Deprecated by Roblox*/
     public get BrickColor() {return this.GetProp("brickColor", DataType.BrickColor);}
     /**@deprecated Deprecated by Roblox*/
     public set BrickColor(value) {this.SetProp("brickColor", DataType.BrickColor, value);}
-    public get Size() {return this.GetProp("size", DataType.Vector3);}
+    public get Size() {return this.GetProp("size", DataType.Vector3)!;}
     public set Size(value) {this.SetProp("size", DataType.Vector3, value);}
 }
 
@@ -7671,135 +6283,20 @@ export class CornerWedgePart extends BasePart {
         this.addClassName("CornerWedgePart");
         this.Name = "CornerWedgePart";
         this.Anchored = false;
-        this.BackParamA = -0.5;
-        this.BackParamB = 0.5;
         this.BackSurface = SurfaceType.Smooth;
-        this.BackSurfaceInput = InputType.NoInput;
-        this.BottomParamA = -0.5;
-        this.BottomParamB = 0.5;
         this.BottomSurface = SurfaceType.Smooth;
-        this.BottomSurfaceInput = InputType.NoInput;
         this.CanCollide = true;
-        this.CanQuery = true;
-        this.CanTouch = true;
-        this.CastShadow = true;
-        this.CollisionGroup = "Default";
-        this.CollisionGroupId = 0;
+        this.Color3uint8 = Color3.FromRGB(163, 162, 165);
         this.Elasticity = 0.5;
-        this.EnableFluidForces = true;
         this.Friction = 0.3;
-        this.FrontParamA = -0.5;
-        this.FrontParamB = 0.5;
         this.FrontSurface = SurfaceType.Smooth;
-        this.FrontSurfaceInput = InputType.NoInput;
-        this.LeftParamA = -0.5;
-        this.LeftParamB = 0.5;
         this.LeftSurface = SurfaceType.Smooth;
-        this.LeftSurfaceInput = InputType.NoInput;
         this.Locked = false;
-        this.Massless = false;
-        this.Material = Material.Plastic;
-        this.Reflectance = 0;
-        this.RightParamA = -0.5;
-        this.RightParamB = 0.5;
         this.RightSurface = SurfaceType.Smooth;
-        this.RightSurfaceInput = InputType.NoInput;
-        this.RootPriority = 0;
-        this.RotVelocity = new Vector3(0, 0, 0);
-        this.TopParamA = -0.5;
-        this.TopParamB = 0.5;
         this.TopSurface = SurfaceType.Smooth;
-        this.TopSurfaceInput = InputType.NoInput;
         this.Transparency = 0;
-        this.Velocity = new Vector3(0, 0, 0);
         this.Size = new Vector3(2, 2, 2);
     }
-    public override get Anchored() {return super.Anchored!;}
-    public override set Anchored(value) {super.Anchored = value;}
-    public override get BackParamA() {return super.BackParamA!;}
-    public override set BackParamA(value) {super.BackParamA = value;}
-    public override get BackParamB() {return super.BackParamB!;}
-    public override set BackParamB(value) {super.BackParamB = value;}
-    public override get BackSurface() {return super.BackSurface!;}
-    public override set BackSurface(value) {super.BackSurface = value;}
-    public override get BackSurfaceInput() {return super.BackSurfaceInput!;}
-    public override set BackSurfaceInput(value) {super.BackSurfaceInput = value;}
-    public override get BottomParamA() {return super.BottomParamA!;}
-    public override set BottomParamA(value) {super.BottomParamA = value;}
-    public override get BottomParamB() {return super.BottomParamB!;}
-    public override set BottomParamB(value) {super.BottomParamB = value;}
-    public override get BottomSurface() {return super.BottomSurface!;}
-    public override set BottomSurface(value) {super.BottomSurface = value;}
-    public override get BottomSurfaceInput() {return super.BottomSurfaceInput!;}
-    public override set BottomSurfaceInput(value) {super.BottomSurfaceInput = value;}
-    public override get CanCollide() {return super.CanCollide!;}
-    public override set CanCollide(value) {super.CanCollide = value;}
-    public override get CanQuery() {return super.CanQuery!;}
-    public override set CanQuery(value) {super.CanQuery = value;}
-    public override get CanTouch() {return super.CanTouch!;}
-    public override set CanTouch(value) {super.CanTouch = value;}
-    public override get CastShadow() {return super.CastShadow!;}
-    public override set CastShadow(value) {super.CastShadow = value;}
-    public override get CollisionGroup() {return super.CollisionGroup!;}
-    public override set CollisionGroup(value) {super.CollisionGroup = value;}
-    public override get CollisionGroupId() {return super.CollisionGroupId!;}
-    public override set CollisionGroupId(value) {super.CollisionGroupId = value;}
-    public override get Elasticity() {return super.Elasticity!;}
-    public override set Elasticity(value) {super.Elasticity = value;}
-    public override get EnableFluidForces() {return super.EnableFluidForces!;}
-    public override set EnableFluidForces(value) {super.EnableFluidForces = value;}
-    public override get Friction() {return super.Friction!;}
-    public override set Friction(value) {super.Friction = value;}
-    public override get FrontParamA() {return super.FrontParamA!;}
-    public override set FrontParamA(value) {super.FrontParamA = value;}
-    public override get FrontParamB() {return super.FrontParamB!;}
-    public override set FrontParamB(value) {super.FrontParamB = value;}
-    public override get FrontSurface() {return super.FrontSurface!;}
-    public override set FrontSurface(value) {super.FrontSurface = value;}
-    public override get FrontSurfaceInput() {return super.FrontSurfaceInput!;}
-    public override set FrontSurfaceInput(value) {super.FrontSurfaceInput = value;}
-    public override get LeftParamA() {return super.LeftParamA!;}
-    public override set LeftParamA(value) {super.LeftParamA = value;}
-    public override get LeftParamB() {return super.LeftParamB!;}
-    public override set LeftParamB(value) {super.LeftParamB = value;}
-    public override get LeftSurface() {return super.LeftSurface!;}
-    public override set LeftSurface(value) {super.LeftSurface = value;}
-    public override get LeftSurfaceInput() {return super.LeftSurfaceInput!;}
-    public override set LeftSurfaceInput(value) {super.LeftSurfaceInput = value;}
-    public override get Locked() {return super.Locked!;}
-    public override set Locked(value) {super.Locked = value;}
-    public override get Massless() {return super.Massless!;}
-    public override set Massless(value) {super.Massless = value;}
-    public override get Material() {return super.Material!;}
-    public override set Material(value) {super.Material = value;}
-    public override get Reflectance() {return super.Reflectance!;}
-    public override set Reflectance(value) {super.Reflectance = value;}
-    public override get RightParamA() {return super.RightParamA!;}
-    public override set RightParamA(value) {super.RightParamA = value;}
-    public override get RightParamB() {return super.RightParamB!;}
-    public override set RightParamB(value) {super.RightParamB = value;}
-    public override get RightSurface() {return super.RightSurface!;}
-    public override set RightSurface(value) {super.RightSurface = value;}
-    public override get RightSurfaceInput() {return super.RightSurfaceInput!;}
-    public override set RightSurfaceInput(value) {super.RightSurfaceInput = value;}
-    public override get RootPriority() {return super.RootPriority!;}
-    public override set RootPriority(value) {super.RootPriority = value;}
-    public override get RotVelocity() {return super.RotVelocity!;}
-    public override set RotVelocity(value) {super.RotVelocity = value;}
-    public override get TopParamA() {return super.TopParamA!;}
-    public override set TopParamA(value) {super.TopParamA = value;}
-    public override get TopParamB() {return super.TopParamB!;}
-    public override set TopParamB(value) {super.TopParamB = value;}
-    public override get TopSurface() {return super.TopSurface!;}
-    public override set TopSurface(value) {super.TopSurface = value;}
-    public override get TopSurfaceInput() {return super.TopSurfaceInput!;}
-    public override set TopSurfaceInput(value) {super.TopSurfaceInput = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Velocity() {return super.Velocity!;}
-    public override set Velocity(value) {super.Velocity = value;}
-    public override get Size() {return super.Size!;}
-    public override set Size(value) {super.Size = value;}
 }
 
 export abstract class FormFactorPart extends BasePart {
@@ -7807,9 +6304,23 @@ export abstract class FormFactorPart extends BasePart {
     {
         super();
         this.addClassName("FormFactorPart");
+        this.FormFactor = FormFactor.Brick;
+        this.Anchored = false;
+        this.BackSurface = SurfaceType.Smooth;
+        this.BottomSurface = SurfaceType.Inlet;
+        this.CanCollide = true;
+        this.Color3uint8 = Color3.FromRGB(163, 162, 165);
+        this.Elasticity = 0.5;
+        this.Friction = 0.3;
+        this.FrontSurface = SurfaceType.Smooth;
+        this.LeftSurface = SurfaceType.Smooth;
+        this.Locked = false;
+        this.RightSurface = SurfaceType.Smooth;
+        this.Transparency = 0;
+        this.Size = new Vector3(4, 1.2, 2);
     }
     /**@deprecated Deprecated by Roblox*/
-    public get FormFactor() {return this.GetProp("FormFactor", DataType.Enum) as FormFactor | undefined;}
+    public get FormFactor() {return this.GetProp("FormFactor", DataType.Enum)! as FormFactor;}
     /**@deprecated Deprecated by Roblox*/
     public set FormFactor(value) {this.SetProp("FormFactor", DataType.Enum, value);}
     public get FormFactorRaw() {return this.GetProp("formFactorRaw", DataType.Enum) as FormFactor | undefined;}
@@ -7823,141 +6334,10 @@ export class Part extends FormFactorPart {
         this.addClassName("Part");
         this.Name = "Part";
         this.Shape = PartType.Block;
-        this.FormFactor = FormFactor.Brick;
-        this.Anchored = false;
-        this.BackParamA = -0.5;
-        this.BackParamB = 0.5;
-        this.BackSurface = SurfaceType.Smooth;
-        this.BackSurfaceInput = InputType.NoInput;
-        this.BottomParamA = -0.5;
-        this.BottomParamB = 0.5;
-        this.BottomSurface = SurfaceType.Inlet;
-        this.BottomSurfaceInput = InputType.NoInput;
-        this.CanCollide = true;
-        this.CanQuery = true;
-        this.CanTouch = true;
-        this.CastShadow = true;
-        this.CollisionGroup = "Default";
-        this.CollisionGroupId = 0;
-        this.Elasticity = 0.5;
-        this.EnableFluidForces = true;
-        this.Friction = 0.3;
-        this.FrontParamA = -0.5;
-        this.FrontParamB = 0.5;
-        this.FrontSurface = SurfaceType.Smooth;
-        this.FrontSurfaceInput = InputType.NoInput;
-        this.LeftParamA = -0.5;
-        this.LeftParamB = 0.5;
-        this.LeftSurface = SurfaceType.Smooth;
-        this.LeftSurfaceInput = InputType.NoInput;
-        this.Locked = false;
-        this.Massless = false;
-        this.Material = Material.Plastic;
-        this.Reflectance = 0;
-        this.RightParamA = -0.5;
-        this.RightParamB = 0.5;
-        this.RightSurface = SurfaceType.Smooth;
-        this.RightSurfaceInput = InputType.NoInput;
-        this.RootPriority = 0;
-        this.RotVelocity = new Vector3(0, 0, 0);
-        this.TopParamA = -0.5;
-        this.TopParamB = 0.5;
         this.TopSurface = SurfaceType.Studs;
-        this.TopSurfaceInput = InputType.NoInput;
-        this.Transparency = 0;
-        this.Velocity = new Vector3(0, 0, 0);
-        this.Size = new Vector3(4, 1.2, 2);
     }
     public get Shape() {return this.GetProp("shape", DataType.Enum)! as PartType;}
     public set Shape(value) {this.SetProp("shape", DataType.Enum, value);}
-    public override get FormFactor() {return super.FormFactor!;}
-    public override set FormFactor(value) {super.FormFactor = value;}
-    public override get Anchored() {return super.Anchored!;}
-    public override set Anchored(value) {super.Anchored = value;}
-    public override get BackParamA() {return super.BackParamA!;}
-    public override set BackParamA(value) {super.BackParamA = value;}
-    public override get BackParamB() {return super.BackParamB!;}
-    public override set BackParamB(value) {super.BackParamB = value;}
-    public override get BackSurface() {return super.BackSurface!;}
-    public override set BackSurface(value) {super.BackSurface = value;}
-    public override get BackSurfaceInput() {return super.BackSurfaceInput!;}
-    public override set BackSurfaceInput(value) {super.BackSurfaceInput = value;}
-    public override get BottomParamA() {return super.BottomParamA!;}
-    public override set BottomParamA(value) {super.BottomParamA = value;}
-    public override get BottomParamB() {return super.BottomParamB!;}
-    public override set BottomParamB(value) {super.BottomParamB = value;}
-    public override get BottomSurface() {return super.BottomSurface!;}
-    public override set BottomSurface(value) {super.BottomSurface = value;}
-    public override get BottomSurfaceInput() {return super.BottomSurfaceInput!;}
-    public override set BottomSurfaceInput(value) {super.BottomSurfaceInput = value;}
-    public override get CanCollide() {return super.CanCollide!;}
-    public override set CanCollide(value) {super.CanCollide = value;}
-    public override get CanQuery() {return super.CanQuery!;}
-    public override set CanQuery(value) {super.CanQuery = value;}
-    public override get CanTouch() {return super.CanTouch!;}
-    public override set CanTouch(value) {super.CanTouch = value;}
-    public override get CastShadow() {return super.CastShadow!;}
-    public override set CastShadow(value) {super.CastShadow = value;}
-    public override get CollisionGroup() {return super.CollisionGroup!;}
-    public override set CollisionGroup(value) {super.CollisionGroup = value;}
-    public override get CollisionGroupId() {return super.CollisionGroupId!;}
-    public override set CollisionGroupId(value) {super.CollisionGroupId = value;}
-    public override get Elasticity() {return super.Elasticity!;}
-    public override set Elasticity(value) {super.Elasticity = value;}
-    public override get EnableFluidForces() {return super.EnableFluidForces!;}
-    public override set EnableFluidForces(value) {super.EnableFluidForces = value;}
-    public override get Friction() {return super.Friction!;}
-    public override set Friction(value) {super.Friction = value;}
-    public override get FrontParamA() {return super.FrontParamA!;}
-    public override set FrontParamA(value) {super.FrontParamA = value;}
-    public override get FrontParamB() {return super.FrontParamB!;}
-    public override set FrontParamB(value) {super.FrontParamB = value;}
-    public override get FrontSurface() {return super.FrontSurface!;}
-    public override set FrontSurface(value) {super.FrontSurface = value;}
-    public override get FrontSurfaceInput() {return super.FrontSurfaceInput!;}
-    public override set FrontSurfaceInput(value) {super.FrontSurfaceInput = value;}
-    public override get LeftParamA() {return super.LeftParamA!;}
-    public override set LeftParamA(value) {super.LeftParamA = value;}
-    public override get LeftParamB() {return super.LeftParamB!;}
-    public override set LeftParamB(value) {super.LeftParamB = value;}
-    public override get LeftSurface() {return super.LeftSurface!;}
-    public override set LeftSurface(value) {super.LeftSurface = value;}
-    public override get LeftSurfaceInput() {return super.LeftSurfaceInput!;}
-    public override set LeftSurfaceInput(value) {super.LeftSurfaceInput = value;}
-    public override get Locked() {return super.Locked!;}
-    public override set Locked(value) {super.Locked = value;}
-    public override get Massless() {return super.Massless!;}
-    public override set Massless(value) {super.Massless = value;}
-    public override get Material() {return super.Material!;}
-    public override set Material(value) {super.Material = value;}
-    public override get Reflectance() {return super.Reflectance!;}
-    public override set Reflectance(value) {super.Reflectance = value;}
-    public override get RightParamA() {return super.RightParamA!;}
-    public override set RightParamA(value) {super.RightParamA = value;}
-    public override get RightParamB() {return super.RightParamB!;}
-    public override set RightParamB(value) {super.RightParamB = value;}
-    public override get RightSurface() {return super.RightSurface!;}
-    public override set RightSurface(value) {super.RightSurface = value;}
-    public override get RightSurfaceInput() {return super.RightSurfaceInput!;}
-    public override set RightSurfaceInput(value) {super.RightSurfaceInput = value;}
-    public override get RootPriority() {return super.RootPriority!;}
-    public override set RootPriority(value) {super.RootPriority = value;}
-    public override get RotVelocity() {return super.RotVelocity!;}
-    public override set RotVelocity(value) {super.RotVelocity = value;}
-    public override get TopParamA() {return super.TopParamA!;}
-    public override set TopParamA(value) {super.TopParamA = value;}
-    public override get TopParamB() {return super.TopParamB!;}
-    public override set TopParamB(value) {super.TopParamB = value;}
-    public override get TopSurface() {return super.TopSurface!;}
-    public override set TopSurface(value) {super.TopSurface = value;}
-    public override get TopSurfaceInput() {return super.TopSurfaceInput!;}
-    public override set TopSurfaceInput(value) {super.TopSurfaceInput = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Velocity() {return super.Velocity!;}
-    public override set Velocity(value) {super.Velocity = value;}
-    public override get Size() {return super.Size!;}
-    public override set Size(value) {super.Size = value;}
 }
 
 /**@deprecated Deprecated by Roblox*/
@@ -7967,141 +6347,9 @@ export class FlagStand extends Part {
         super();
         this.addClassName("FlagStand");
         this.Name = "FlagStand";
-        this.FormFactor = FormFactor.Brick;
-        this.Anchored = false;
-        this.BackParamA = -0.5;
-        this.BackParamB = 0.5;
-        this.BackSurface = SurfaceType.Smooth;
-        this.BackSurfaceInput = InputType.NoInput;
-        this.BottomParamA = -0.5;
-        this.BottomParamB = 0.5;
-        this.BottomSurface = SurfaceType.Inlet;
-        this.BottomSurfaceInput = InputType.NoInput;
-        this.CanCollide = true;
-        this.CanQuery = true;
-        this.CanTouch = true;
-        this.CastShadow = true;
-        this.CollisionGroup = "Default";
-        this.CollisionGroupId = 0;
-        this.Elasticity = 0.5;
-        this.EnableFluidForces = true;
-        this.Friction = 0.3;
-        this.FrontParamA = -0.5;
-        this.FrontParamB = 0.5;
-        this.FrontSurface = SurfaceType.Smooth;
-        this.FrontSurfaceInput = InputType.NoInput;
-        this.LeftParamA = -0.5;
-        this.LeftParamB = 0.5;
-        this.LeftSurface = SurfaceType.Smooth;
-        this.LeftSurfaceInput = InputType.NoInput;
-        this.Locked = false;
-        this.Massless = false;
-        this.Material = Material.Plastic;
-        this.Reflectance = 0;
-        this.RightParamA = -0.5;
-        this.RightParamB = 0.5;
-        this.RightSurface = SurfaceType.Smooth;
-        this.RightSurfaceInput = InputType.NoInput;
-        this.RootPriority = 0;
-        this.RotVelocity = new Vector3(0, 0, 0);
-        this.TopParamA = -0.5;
-        this.TopParamB = 0.5;
-        this.TopSurface = SurfaceType.Studs;
-        this.TopSurfaceInput = InputType.NoInput;
-        this.Transparency = 0;
-        this.Velocity = new Vector3(0, 0, 0);
-        this.Size = new Vector3(4, 1.2, 2);
     }
     public get TeamColor() {return this.GetProp("TeamColor", DataType.BrickColor);}
     public set TeamColor(value) {this.SetProp("TeamColor", DataType.BrickColor, value);}
-    public override get FormFactor() {return super.FormFactor!;}
-    public override set FormFactor(value) {super.FormFactor = value;}
-    public override get Anchored() {return super.Anchored!;}
-    public override set Anchored(value) {super.Anchored = value;}
-    public override get BackParamA() {return super.BackParamA!;}
-    public override set BackParamA(value) {super.BackParamA = value;}
-    public override get BackParamB() {return super.BackParamB!;}
-    public override set BackParamB(value) {super.BackParamB = value;}
-    public override get BackSurface() {return super.BackSurface!;}
-    public override set BackSurface(value) {super.BackSurface = value;}
-    public override get BackSurfaceInput() {return super.BackSurfaceInput!;}
-    public override set BackSurfaceInput(value) {super.BackSurfaceInput = value;}
-    public override get BottomParamA() {return super.BottomParamA!;}
-    public override set BottomParamA(value) {super.BottomParamA = value;}
-    public override get BottomParamB() {return super.BottomParamB!;}
-    public override set BottomParamB(value) {super.BottomParamB = value;}
-    public override get BottomSurface() {return super.BottomSurface!;}
-    public override set BottomSurface(value) {super.BottomSurface = value;}
-    public override get BottomSurfaceInput() {return super.BottomSurfaceInput!;}
-    public override set BottomSurfaceInput(value) {super.BottomSurfaceInput = value;}
-    public override get CanCollide() {return super.CanCollide!;}
-    public override set CanCollide(value) {super.CanCollide = value;}
-    public override get CanQuery() {return super.CanQuery!;}
-    public override set CanQuery(value) {super.CanQuery = value;}
-    public override get CanTouch() {return super.CanTouch!;}
-    public override set CanTouch(value) {super.CanTouch = value;}
-    public override get CastShadow() {return super.CastShadow!;}
-    public override set CastShadow(value) {super.CastShadow = value;}
-    public override get CollisionGroup() {return super.CollisionGroup!;}
-    public override set CollisionGroup(value) {super.CollisionGroup = value;}
-    public override get CollisionGroupId() {return super.CollisionGroupId!;}
-    public override set CollisionGroupId(value) {super.CollisionGroupId = value;}
-    public override get Elasticity() {return super.Elasticity!;}
-    public override set Elasticity(value) {super.Elasticity = value;}
-    public override get EnableFluidForces() {return super.EnableFluidForces!;}
-    public override set EnableFluidForces(value) {super.EnableFluidForces = value;}
-    public override get Friction() {return super.Friction!;}
-    public override set Friction(value) {super.Friction = value;}
-    public override get FrontParamA() {return super.FrontParamA!;}
-    public override set FrontParamA(value) {super.FrontParamA = value;}
-    public override get FrontParamB() {return super.FrontParamB!;}
-    public override set FrontParamB(value) {super.FrontParamB = value;}
-    public override get FrontSurface() {return super.FrontSurface!;}
-    public override set FrontSurface(value) {super.FrontSurface = value;}
-    public override get FrontSurfaceInput() {return super.FrontSurfaceInput!;}
-    public override set FrontSurfaceInput(value) {super.FrontSurfaceInput = value;}
-    public override get LeftParamA() {return super.LeftParamA!;}
-    public override set LeftParamA(value) {super.LeftParamA = value;}
-    public override get LeftParamB() {return super.LeftParamB!;}
-    public override set LeftParamB(value) {super.LeftParamB = value;}
-    public override get LeftSurface() {return super.LeftSurface!;}
-    public override set LeftSurface(value) {super.LeftSurface = value;}
-    public override get LeftSurfaceInput() {return super.LeftSurfaceInput!;}
-    public override set LeftSurfaceInput(value) {super.LeftSurfaceInput = value;}
-    public override get Locked() {return super.Locked!;}
-    public override set Locked(value) {super.Locked = value;}
-    public override get Massless() {return super.Massless!;}
-    public override set Massless(value) {super.Massless = value;}
-    public override get Material() {return super.Material!;}
-    public override set Material(value) {super.Material = value;}
-    public override get Reflectance() {return super.Reflectance!;}
-    public override set Reflectance(value) {super.Reflectance = value;}
-    public override get RightParamA() {return super.RightParamA!;}
-    public override set RightParamA(value) {super.RightParamA = value;}
-    public override get RightParamB() {return super.RightParamB!;}
-    public override set RightParamB(value) {super.RightParamB = value;}
-    public override get RightSurface() {return super.RightSurface!;}
-    public override set RightSurface(value) {super.RightSurface = value;}
-    public override get RightSurfaceInput() {return super.RightSurfaceInput!;}
-    public override set RightSurfaceInput(value) {super.RightSurfaceInput = value;}
-    public override get RootPriority() {return super.RootPriority!;}
-    public override set RootPriority(value) {super.RootPriority = value;}
-    public override get RotVelocity() {return super.RotVelocity!;}
-    public override set RotVelocity(value) {super.RotVelocity = value;}
-    public override get TopParamA() {return super.TopParamA!;}
-    public override set TopParamA(value) {super.TopParamA = value;}
-    public override get TopParamB() {return super.TopParamB!;}
-    public override set TopParamB(value) {super.TopParamB = value;}
-    public override get TopSurface() {return super.TopSurface!;}
-    public override set TopSurface(value) {super.TopSurface = value;}
-    public override get TopSurfaceInput() {return super.TopSurfaceInput!;}
-    public override set TopSurfaceInput(value) {super.TopSurfaceInput = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Velocity() {return super.Velocity!;}
-    public override set Velocity(value) {super.Velocity = value;}
-    public override get Size() {return super.Size!;}
-    public override set Size(value) {super.Size = value;}
 }
 
 export class Seat extends Part {
@@ -8111,141 +6359,9 @@ export class Seat extends Part {
         this.addClassName("Seat");
         this.Name = "Seat";
         this.Disabled = false;
-        this.FormFactor = FormFactor.Brick;
-        this.Anchored = false;
-        this.BackParamA = -0.5;
-        this.BackParamB = 0.5;
-        this.BackSurface = SurfaceType.Smooth;
-        this.BackSurfaceInput = InputType.NoInput;
-        this.BottomParamA = -0.5;
-        this.BottomParamB = 0.5;
-        this.BottomSurface = SurfaceType.Inlet;
-        this.BottomSurfaceInput = InputType.NoInput;
-        this.CanCollide = true;
-        this.CanQuery = true;
-        this.CanTouch = true;
-        this.CastShadow = true;
-        this.CollisionGroup = "Default";
-        this.CollisionGroupId = 0;
-        this.Elasticity = 0.5;
-        this.EnableFluidForces = true;
-        this.Friction = 0.3;
-        this.FrontParamA = -0.5;
-        this.FrontParamB = 0.5;
-        this.FrontSurface = SurfaceType.Smooth;
-        this.FrontSurfaceInput = InputType.NoInput;
-        this.LeftParamA = -0.5;
-        this.LeftParamB = 0.5;
-        this.LeftSurface = SurfaceType.Smooth;
-        this.LeftSurfaceInput = InputType.NoInput;
-        this.Locked = false;
-        this.Massless = false;
-        this.Material = Material.Plastic;
-        this.Reflectance = 0;
-        this.RightParamA = -0.5;
-        this.RightParamB = 0.5;
-        this.RightSurface = SurfaceType.Smooth;
-        this.RightSurfaceInput = InputType.NoInput;
-        this.RootPriority = 0;
-        this.RotVelocity = new Vector3(0, 0, 0);
-        this.TopParamA = -0.5;
-        this.TopParamB = 0.5;
-        this.TopSurface = SurfaceType.Studs;
-        this.TopSurfaceInput = InputType.NoInput;
-        this.Transparency = 0;
-        this.Velocity = new Vector3(0, 0, 0);
-        this.Size = new Vector3(4, 1.2, 2);
     }
     public get Disabled() {return this.GetProp("Disabled", DataType.Bool)!;}
     public set Disabled(value) {this.SetProp("Disabled", DataType.Bool, value);}
-    public override get FormFactor() {return super.FormFactor!;}
-    public override set FormFactor(value) {super.FormFactor = value;}
-    public override get Anchored() {return super.Anchored!;}
-    public override set Anchored(value) {super.Anchored = value;}
-    public override get BackParamA() {return super.BackParamA!;}
-    public override set BackParamA(value) {super.BackParamA = value;}
-    public override get BackParamB() {return super.BackParamB!;}
-    public override set BackParamB(value) {super.BackParamB = value;}
-    public override get BackSurface() {return super.BackSurface!;}
-    public override set BackSurface(value) {super.BackSurface = value;}
-    public override get BackSurfaceInput() {return super.BackSurfaceInput!;}
-    public override set BackSurfaceInput(value) {super.BackSurfaceInput = value;}
-    public override get BottomParamA() {return super.BottomParamA!;}
-    public override set BottomParamA(value) {super.BottomParamA = value;}
-    public override get BottomParamB() {return super.BottomParamB!;}
-    public override set BottomParamB(value) {super.BottomParamB = value;}
-    public override get BottomSurface() {return super.BottomSurface!;}
-    public override set BottomSurface(value) {super.BottomSurface = value;}
-    public override get BottomSurfaceInput() {return super.BottomSurfaceInput!;}
-    public override set BottomSurfaceInput(value) {super.BottomSurfaceInput = value;}
-    public override get CanCollide() {return super.CanCollide!;}
-    public override set CanCollide(value) {super.CanCollide = value;}
-    public override get CanQuery() {return super.CanQuery!;}
-    public override set CanQuery(value) {super.CanQuery = value;}
-    public override get CanTouch() {return super.CanTouch!;}
-    public override set CanTouch(value) {super.CanTouch = value;}
-    public override get CastShadow() {return super.CastShadow!;}
-    public override set CastShadow(value) {super.CastShadow = value;}
-    public override get CollisionGroup() {return super.CollisionGroup!;}
-    public override set CollisionGroup(value) {super.CollisionGroup = value;}
-    public override get CollisionGroupId() {return super.CollisionGroupId!;}
-    public override set CollisionGroupId(value) {super.CollisionGroupId = value;}
-    public override get Elasticity() {return super.Elasticity!;}
-    public override set Elasticity(value) {super.Elasticity = value;}
-    public override get EnableFluidForces() {return super.EnableFluidForces!;}
-    public override set EnableFluidForces(value) {super.EnableFluidForces = value;}
-    public override get Friction() {return super.Friction!;}
-    public override set Friction(value) {super.Friction = value;}
-    public override get FrontParamA() {return super.FrontParamA!;}
-    public override set FrontParamA(value) {super.FrontParamA = value;}
-    public override get FrontParamB() {return super.FrontParamB!;}
-    public override set FrontParamB(value) {super.FrontParamB = value;}
-    public override get FrontSurface() {return super.FrontSurface!;}
-    public override set FrontSurface(value) {super.FrontSurface = value;}
-    public override get FrontSurfaceInput() {return super.FrontSurfaceInput!;}
-    public override set FrontSurfaceInput(value) {super.FrontSurfaceInput = value;}
-    public override get LeftParamA() {return super.LeftParamA!;}
-    public override set LeftParamA(value) {super.LeftParamA = value;}
-    public override get LeftParamB() {return super.LeftParamB!;}
-    public override set LeftParamB(value) {super.LeftParamB = value;}
-    public override get LeftSurface() {return super.LeftSurface!;}
-    public override set LeftSurface(value) {super.LeftSurface = value;}
-    public override get LeftSurfaceInput() {return super.LeftSurfaceInput!;}
-    public override set LeftSurfaceInput(value) {super.LeftSurfaceInput = value;}
-    public override get Locked() {return super.Locked!;}
-    public override set Locked(value) {super.Locked = value;}
-    public override get Massless() {return super.Massless!;}
-    public override set Massless(value) {super.Massless = value;}
-    public override get Material() {return super.Material!;}
-    public override set Material(value) {super.Material = value;}
-    public override get Reflectance() {return super.Reflectance!;}
-    public override set Reflectance(value) {super.Reflectance = value;}
-    public override get RightParamA() {return super.RightParamA!;}
-    public override set RightParamA(value) {super.RightParamA = value;}
-    public override get RightParamB() {return super.RightParamB!;}
-    public override set RightParamB(value) {super.RightParamB = value;}
-    public override get RightSurface() {return super.RightSurface!;}
-    public override set RightSurface(value) {super.RightSurface = value;}
-    public override get RightSurfaceInput() {return super.RightSurfaceInput!;}
-    public override set RightSurfaceInput(value) {super.RightSurfaceInput = value;}
-    public override get RootPriority() {return super.RootPriority!;}
-    public override set RootPriority(value) {super.RootPriority = value;}
-    public override get RotVelocity() {return super.RotVelocity!;}
-    public override set RotVelocity(value) {super.RotVelocity = value;}
-    public override get TopParamA() {return super.TopParamA!;}
-    public override set TopParamA(value) {super.TopParamA = value;}
-    public override get TopParamB() {return super.TopParamB!;}
-    public override set TopParamB(value) {super.TopParamB = value;}
-    public override get TopSurface() {return super.TopSurface!;}
-    public override set TopSurface(value) {super.TopSurface = value;}
-    public override get TopSurfaceInput() {return super.TopSurfaceInput!;}
-    public override set TopSurfaceInput(value) {super.TopSurfaceInput = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Velocity() {return super.Velocity!;}
-    public override set Velocity(value) {super.Velocity = value;}
-    public override get Size() {return super.Size!;}
-    public override set Size(value) {super.Size = value;}
 }
 
 /**@deprecated Deprecated by Roblox*/
@@ -8258,50 +6374,6 @@ export class SkateboardPlatform extends Part {
         this.Steer = 0;
         this.StickyWheels = true;
         this.Throttle = 0;
-        this.FormFactor = FormFactor.Brick;
-        this.Anchored = false;
-        this.BackParamA = -0.5;
-        this.BackParamB = 0.5;
-        this.BackSurface = SurfaceType.Smooth;
-        this.BackSurfaceInput = InputType.NoInput;
-        this.BottomParamA = -0.5;
-        this.BottomParamB = 0.5;
-        this.BottomSurface = SurfaceType.Inlet;
-        this.BottomSurfaceInput = InputType.NoInput;
-        this.CanCollide = true;
-        this.CanQuery = true;
-        this.CanTouch = true;
-        this.CastShadow = true;
-        this.CollisionGroup = "Default";
-        this.CollisionGroupId = 0;
-        this.Elasticity = 0.5;
-        this.EnableFluidForces = true;
-        this.Friction = 0.3;
-        this.FrontParamA = -0.5;
-        this.FrontParamB = 0.5;
-        this.FrontSurface = SurfaceType.Smooth;
-        this.FrontSurfaceInput = InputType.NoInput;
-        this.LeftParamA = -0.5;
-        this.LeftParamB = 0.5;
-        this.LeftSurface = SurfaceType.Smooth;
-        this.LeftSurfaceInput = InputType.NoInput;
-        this.Locked = false;
-        this.Massless = false;
-        this.Material = Material.Plastic;
-        this.Reflectance = 0;
-        this.RightParamA = -0.5;
-        this.RightParamB = 0.5;
-        this.RightSurface = SurfaceType.Smooth;
-        this.RightSurfaceInput = InputType.NoInput;
-        this.RootPriority = 0;
-        this.RotVelocity = new Vector3(0, 0, 0);
-        this.TopParamA = -0.5;
-        this.TopParamB = 0.5;
-        this.TopSurface = SurfaceType.Studs;
-        this.TopSurfaceInput = InputType.NoInput;
-        this.Transparency = 0;
-        this.Velocity = new Vector3(0, 0, 0);
-        this.Size = new Vector3(4, 1.2, 2);
     }
     public get Steer() {return this.GetProp("Steer", DataType.Int32)!;}
     public set Steer(value) {this.SetProp("Steer", DataType.Int32, value);}
@@ -8309,94 +6381,6 @@ export class SkateboardPlatform extends Part {
     public set StickyWheels(value) {this.SetProp("StickyWheels", DataType.Bool, value);}
     public get Throttle() {return this.GetProp("Throttle", DataType.Int32)!;}
     public set Throttle(value) {this.SetProp("Throttle", DataType.Int32, value);}
-    public override get FormFactor() {return super.FormFactor!;}
-    public override set FormFactor(value) {super.FormFactor = value;}
-    public override get Anchored() {return super.Anchored!;}
-    public override set Anchored(value) {super.Anchored = value;}
-    public override get BackParamA() {return super.BackParamA!;}
-    public override set BackParamA(value) {super.BackParamA = value;}
-    public override get BackParamB() {return super.BackParamB!;}
-    public override set BackParamB(value) {super.BackParamB = value;}
-    public override get BackSurface() {return super.BackSurface!;}
-    public override set BackSurface(value) {super.BackSurface = value;}
-    public override get BackSurfaceInput() {return super.BackSurfaceInput!;}
-    public override set BackSurfaceInput(value) {super.BackSurfaceInput = value;}
-    public override get BottomParamA() {return super.BottomParamA!;}
-    public override set BottomParamA(value) {super.BottomParamA = value;}
-    public override get BottomParamB() {return super.BottomParamB!;}
-    public override set BottomParamB(value) {super.BottomParamB = value;}
-    public override get BottomSurface() {return super.BottomSurface!;}
-    public override set BottomSurface(value) {super.BottomSurface = value;}
-    public override get BottomSurfaceInput() {return super.BottomSurfaceInput!;}
-    public override set BottomSurfaceInput(value) {super.BottomSurfaceInput = value;}
-    public override get CanCollide() {return super.CanCollide!;}
-    public override set CanCollide(value) {super.CanCollide = value;}
-    public override get CanQuery() {return super.CanQuery!;}
-    public override set CanQuery(value) {super.CanQuery = value;}
-    public override get CanTouch() {return super.CanTouch!;}
-    public override set CanTouch(value) {super.CanTouch = value;}
-    public override get CastShadow() {return super.CastShadow!;}
-    public override set CastShadow(value) {super.CastShadow = value;}
-    public override get CollisionGroup() {return super.CollisionGroup!;}
-    public override set CollisionGroup(value) {super.CollisionGroup = value;}
-    public override get CollisionGroupId() {return super.CollisionGroupId!;}
-    public override set CollisionGroupId(value) {super.CollisionGroupId = value;}
-    public override get Elasticity() {return super.Elasticity!;}
-    public override set Elasticity(value) {super.Elasticity = value;}
-    public override get EnableFluidForces() {return super.EnableFluidForces!;}
-    public override set EnableFluidForces(value) {super.EnableFluidForces = value;}
-    public override get Friction() {return super.Friction!;}
-    public override set Friction(value) {super.Friction = value;}
-    public override get FrontParamA() {return super.FrontParamA!;}
-    public override set FrontParamA(value) {super.FrontParamA = value;}
-    public override get FrontParamB() {return super.FrontParamB!;}
-    public override set FrontParamB(value) {super.FrontParamB = value;}
-    public override get FrontSurface() {return super.FrontSurface!;}
-    public override set FrontSurface(value) {super.FrontSurface = value;}
-    public override get FrontSurfaceInput() {return super.FrontSurfaceInput!;}
-    public override set FrontSurfaceInput(value) {super.FrontSurfaceInput = value;}
-    public override get LeftParamA() {return super.LeftParamA!;}
-    public override set LeftParamA(value) {super.LeftParamA = value;}
-    public override get LeftParamB() {return super.LeftParamB!;}
-    public override set LeftParamB(value) {super.LeftParamB = value;}
-    public override get LeftSurface() {return super.LeftSurface!;}
-    public override set LeftSurface(value) {super.LeftSurface = value;}
-    public override get LeftSurfaceInput() {return super.LeftSurfaceInput!;}
-    public override set LeftSurfaceInput(value) {super.LeftSurfaceInput = value;}
-    public override get Locked() {return super.Locked!;}
-    public override set Locked(value) {super.Locked = value;}
-    public override get Massless() {return super.Massless!;}
-    public override set Massless(value) {super.Massless = value;}
-    public override get Material() {return super.Material!;}
-    public override set Material(value) {super.Material = value;}
-    public override get Reflectance() {return super.Reflectance!;}
-    public override set Reflectance(value) {super.Reflectance = value;}
-    public override get RightParamA() {return super.RightParamA!;}
-    public override set RightParamA(value) {super.RightParamA = value;}
-    public override get RightParamB() {return super.RightParamB!;}
-    public override set RightParamB(value) {super.RightParamB = value;}
-    public override get RightSurface() {return super.RightSurface!;}
-    public override set RightSurface(value) {super.RightSurface = value;}
-    public override get RightSurfaceInput() {return super.RightSurfaceInput!;}
-    public override set RightSurfaceInput(value) {super.RightSurfaceInput = value;}
-    public override get RootPriority() {return super.RootPriority!;}
-    public override set RootPriority(value) {super.RootPriority = value;}
-    public override get RotVelocity() {return super.RotVelocity!;}
-    public override set RotVelocity(value) {super.RotVelocity = value;}
-    public override get TopParamA() {return super.TopParamA!;}
-    public override set TopParamA(value) {super.TopParamA = value;}
-    public override get TopParamB() {return super.TopParamB!;}
-    public override set TopParamB(value) {super.TopParamB = value;}
-    public override get TopSurface() {return super.TopSurface!;}
-    public override set TopSurface(value) {super.TopSurface = value;}
-    public override get TopSurfaceInput() {return super.TopSurfaceInput!;}
-    public override set TopSurfaceInput(value) {super.TopSurfaceInput = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Velocity() {return super.Velocity!;}
-    public override set Velocity(value) {super.Velocity = value;}
-    public override get Size() {return super.Size!;}
-    public override set Size(value) {super.Size = value;}
 }
 
 export class SpawnLocation extends Part {
@@ -8409,50 +6393,6 @@ export class SpawnLocation extends Part {
         this.Duration = 10;
         this.Enabled = true;
         this.Neutral = true;
-        this.FormFactor = FormFactor.Brick;
-        this.Anchored = false;
-        this.BackParamA = -0.5;
-        this.BackParamB = 0.5;
-        this.BackSurface = SurfaceType.Smooth;
-        this.BackSurfaceInput = InputType.NoInput;
-        this.BottomParamA = -0.5;
-        this.BottomParamB = 0.5;
-        this.BottomSurface = SurfaceType.Inlet;
-        this.BottomSurfaceInput = InputType.NoInput;
-        this.CanCollide = true;
-        this.CanQuery = true;
-        this.CanTouch = true;
-        this.CastShadow = true;
-        this.CollisionGroup = "Default";
-        this.CollisionGroupId = 0;
-        this.Elasticity = 0.5;
-        this.EnableFluidForces = true;
-        this.Friction = 0.3;
-        this.FrontParamA = -0.5;
-        this.FrontParamB = 0.5;
-        this.FrontSurface = SurfaceType.Smooth;
-        this.FrontSurfaceInput = InputType.NoInput;
-        this.LeftParamA = -0.5;
-        this.LeftParamB = 0.5;
-        this.LeftSurface = SurfaceType.Smooth;
-        this.LeftSurfaceInput = InputType.NoInput;
-        this.Locked = false;
-        this.Massless = false;
-        this.Material = Material.Plastic;
-        this.Reflectance = 0;
-        this.RightParamA = -0.5;
-        this.RightParamB = 0.5;
-        this.RightSurface = SurfaceType.Smooth;
-        this.RightSurfaceInput = InputType.NoInput;
-        this.RootPriority = 0;
-        this.RotVelocity = new Vector3(0, 0, 0);
-        this.TopParamA = -0.5;
-        this.TopParamB = 0.5;
-        this.TopSurface = SurfaceType.Studs;
-        this.TopSurfaceInput = InputType.NoInput;
-        this.Transparency = 0;
-        this.Velocity = new Vector3(0, 0, 0);
-        this.Size = new Vector3(4, 1.2, 2);
     }
     public get AllowTeamChangeOnTouch() {return this.GetProp("AllowTeamChangeOnTouch", DataType.Bool)!;}
     public set AllowTeamChangeOnTouch(value) {this.SetProp("AllowTeamChangeOnTouch", DataType.Bool, value);}
@@ -8464,94 +6404,6 @@ export class SpawnLocation extends Part {
     public set Neutral(value) {this.SetProp("Neutral", DataType.Bool, value);}
     public get TeamColor() {return this.GetProp("TeamColor", DataType.BrickColor);}
     public set TeamColor(value) {this.SetProp("TeamColor", DataType.BrickColor, value);}
-    public override get FormFactor() {return super.FormFactor!;}
-    public override set FormFactor(value) {super.FormFactor = value;}
-    public override get Anchored() {return super.Anchored!;}
-    public override set Anchored(value) {super.Anchored = value;}
-    public override get BackParamA() {return super.BackParamA!;}
-    public override set BackParamA(value) {super.BackParamA = value;}
-    public override get BackParamB() {return super.BackParamB!;}
-    public override set BackParamB(value) {super.BackParamB = value;}
-    public override get BackSurface() {return super.BackSurface!;}
-    public override set BackSurface(value) {super.BackSurface = value;}
-    public override get BackSurfaceInput() {return super.BackSurfaceInput!;}
-    public override set BackSurfaceInput(value) {super.BackSurfaceInput = value;}
-    public override get BottomParamA() {return super.BottomParamA!;}
-    public override set BottomParamA(value) {super.BottomParamA = value;}
-    public override get BottomParamB() {return super.BottomParamB!;}
-    public override set BottomParamB(value) {super.BottomParamB = value;}
-    public override get BottomSurface() {return super.BottomSurface!;}
-    public override set BottomSurface(value) {super.BottomSurface = value;}
-    public override get BottomSurfaceInput() {return super.BottomSurfaceInput!;}
-    public override set BottomSurfaceInput(value) {super.BottomSurfaceInput = value;}
-    public override get CanCollide() {return super.CanCollide!;}
-    public override set CanCollide(value) {super.CanCollide = value;}
-    public override get CanQuery() {return super.CanQuery!;}
-    public override set CanQuery(value) {super.CanQuery = value;}
-    public override get CanTouch() {return super.CanTouch!;}
-    public override set CanTouch(value) {super.CanTouch = value;}
-    public override get CastShadow() {return super.CastShadow!;}
-    public override set CastShadow(value) {super.CastShadow = value;}
-    public override get CollisionGroup() {return super.CollisionGroup!;}
-    public override set CollisionGroup(value) {super.CollisionGroup = value;}
-    public override get CollisionGroupId() {return super.CollisionGroupId!;}
-    public override set CollisionGroupId(value) {super.CollisionGroupId = value;}
-    public override get Elasticity() {return super.Elasticity!;}
-    public override set Elasticity(value) {super.Elasticity = value;}
-    public override get EnableFluidForces() {return super.EnableFluidForces!;}
-    public override set EnableFluidForces(value) {super.EnableFluidForces = value;}
-    public override get Friction() {return super.Friction!;}
-    public override set Friction(value) {super.Friction = value;}
-    public override get FrontParamA() {return super.FrontParamA!;}
-    public override set FrontParamA(value) {super.FrontParamA = value;}
-    public override get FrontParamB() {return super.FrontParamB!;}
-    public override set FrontParamB(value) {super.FrontParamB = value;}
-    public override get FrontSurface() {return super.FrontSurface!;}
-    public override set FrontSurface(value) {super.FrontSurface = value;}
-    public override get FrontSurfaceInput() {return super.FrontSurfaceInput!;}
-    public override set FrontSurfaceInput(value) {super.FrontSurfaceInput = value;}
-    public override get LeftParamA() {return super.LeftParamA!;}
-    public override set LeftParamA(value) {super.LeftParamA = value;}
-    public override get LeftParamB() {return super.LeftParamB!;}
-    public override set LeftParamB(value) {super.LeftParamB = value;}
-    public override get LeftSurface() {return super.LeftSurface!;}
-    public override set LeftSurface(value) {super.LeftSurface = value;}
-    public override get LeftSurfaceInput() {return super.LeftSurfaceInput!;}
-    public override set LeftSurfaceInput(value) {super.LeftSurfaceInput = value;}
-    public override get Locked() {return super.Locked!;}
-    public override set Locked(value) {super.Locked = value;}
-    public override get Massless() {return super.Massless!;}
-    public override set Massless(value) {super.Massless = value;}
-    public override get Material() {return super.Material!;}
-    public override set Material(value) {super.Material = value;}
-    public override get Reflectance() {return super.Reflectance!;}
-    public override set Reflectance(value) {super.Reflectance = value;}
-    public override get RightParamA() {return super.RightParamA!;}
-    public override set RightParamA(value) {super.RightParamA = value;}
-    public override get RightParamB() {return super.RightParamB!;}
-    public override set RightParamB(value) {super.RightParamB = value;}
-    public override get RightSurface() {return super.RightSurface!;}
-    public override set RightSurface(value) {super.RightSurface = value;}
-    public override get RightSurfaceInput() {return super.RightSurfaceInput!;}
-    public override set RightSurfaceInput(value) {super.RightSurfaceInput = value;}
-    public override get RootPriority() {return super.RootPriority!;}
-    public override set RootPriority(value) {super.RootPriority = value;}
-    public override get RotVelocity() {return super.RotVelocity!;}
-    public override set RotVelocity(value) {super.RotVelocity = value;}
-    public override get TopParamA() {return super.TopParamA!;}
-    public override set TopParamA(value) {super.TopParamA = value;}
-    public override get TopParamB() {return super.TopParamB!;}
-    public override set TopParamB(value) {super.TopParamB = value;}
-    public override get TopSurface() {return super.TopSurface!;}
-    public override set TopSurface(value) {super.TopSurface = value;}
-    public override get TopSurfaceInput() {return super.TopSurfaceInput!;}
-    public override set TopSurfaceInput(value) {super.TopSurfaceInput = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Velocity() {return super.Velocity!;}
-    public override set Velocity(value) {super.Velocity = value;}
-    public override get Size() {return super.Size!;}
-    public override set Size(value) {super.Size = value;}
 }
 
 export class WedgePart extends FormFactorPart {
@@ -8560,139 +6412,8 @@ export class WedgePart extends FormFactorPart {
         super();
         this.addClassName("WedgePart");
         this.Name = "WedgePart";
-        this.FormFactor = FormFactor.Brick;
-        this.Anchored = false;
-        this.BackParamA = -0.5;
-        this.BackParamB = 0.5;
-        this.BackSurface = SurfaceType.Smooth;
-        this.BackSurfaceInput = InputType.NoInput;
-        this.BottomParamA = -0.5;
-        this.BottomParamB = 0.5;
-        this.BottomSurface = SurfaceType.Inlet;
-        this.BottomSurfaceInput = InputType.NoInput;
-        this.CanCollide = true;
-        this.CanQuery = true;
-        this.CanTouch = true;
-        this.CastShadow = true;
-        this.CollisionGroup = "Default";
-        this.CollisionGroupId = 0;
-        this.Elasticity = 0.5;
-        this.EnableFluidForces = true;
-        this.Friction = 0.3;
-        this.FrontParamA = -0.5;
-        this.FrontParamB = 0.5;
-        this.FrontSurface = SurfaceType.Smooth;
-        this.FrontSurfaceInput = InputType.NoInput;
-        this.LeftParamA = -0.5;
-        this.LeftParamB = 0.5;
-        this.LeftSurface = SurfaceType.Smooth;
-        this.LeftSurfaceInput = InputType.NoInput;
-        this.Locked = false;
-        this.Massless = false;
-        this.Material = Material.Plastic;
-        this.Reflectance = 0;
-        this.RightParamA = -0.5;
-        this.RightParamB = 0.5;
-        this.RightSurface = SurfaceType.Smooth;
-        this.RightSurfaceInput = InputType.NoInput;
-        this.RootPriority = 0;
-        this.RotVelocity = new Vector3(0, 0, 0);
-        this.TopParamA = -0.5;
-        this.TopParamB = 0.5;
         this.TopSurface = SurfaceType.Smooth;
-        this.TopSurfaceInput = InputType.NoInput;
-        this.Transparency = 0;
-        this.Velocity = new Vector3(0, 0, 0);
-        this.Size = new Vector3(4, 1.2, 2);
     }
-    public override get FormFactor() {return super.FormFactor!;}
-    public override set FormFactor(value) {super.FormFactor = value;}
-    public override get Anchored() {return super.Anchored!;}
-    public override set Anchored(value) {super.Anchored = value;}
-    public override get BackParamA() {return super.BackParamA!;}
-    public override set BackParamA(value) {super.BackParamA = value;}
-    public override get BackParamB() {return super.BackParamB!;}
-    public override set BackParamB(value) {super.BackParamB = value;}
-    public override get BackSurface() {return super.BackSurface!;}
-    public override set BackSurface(value) {super.BackSurface = value;}
-    public override get BackSurfaceInput() {return super.BackSurfaceInput!;}
-    public override set BackSurfaceInput(value) {super.BackSurfaceInput = value;}
-    public override get BottomParamA() {return super.BottomParamA!;}
-    public override set BottomParamA(value) {super.BottomParamA = value;}
-    public override get BottomParamB() {return super.BottomParamB!;}
-    public override set BottomParamB(value) {super.BottomParamB = value;}
-    public override get BottomSurface() {return super.BottomSurface!;}
-    public override set BottomSurface(value) {super.BottomSurface = value;}
-    public override get BottomSurfaceInput() {return super.BottomSurfaceInput!;}
-    public override set BottomSurfaceInput(value) {super.BottomSurfaceInput = value;}
-    public override get CanCollide() {return super.CanCollide!;}
-    public override set CanCollide(value) {super.CanCollide = value;}
-    public override get CanQuery() {return super.CanQuery!;}
-    public override set CanQuery(value) {super.CanQuery = value;}
-    public override get CanTouch() {return super.CanTouch!;}
-    public override set CanTouch(value) {super.CanTouch = value;}
-    public override get CastShadow() {return super.CastShadow!;}
-    public override set CastShadow(value) {super.CastShadow = value;}
-    public override get CollisionGroup() {return super.CollisionGroup!;}
-    public override set CollisionGroup(value) {super.CollisionGroup = value;}
-    public override get CollisionGroupId() {return super.CollisionGroupId!;}
-    public override set CollisionGroupId(value) {super.CollisionGroupId = value;}
-    public override get Elasticity() {return super.Elasticity!;}
-    public override set Elasticity(value) {super.Elasticity = value;}
-    public override get EnableFluidForces() {return super.EnableFluidForces!;}
-    public override set EnableFluidForces(value) {super.EnableFluidForces = value;}
-    public override get Friction() {return super.Friction!;}
-    public override set Friction(value) {super.Friction = value;}
-    public override get FrontParamA() {return super.FrontParamA!;}
-    public override set FrontParamA(value) {super.FrontParamA = value;}
-    public override get FrontParamB() {return super.FrontParamB!;}
-    public override set FrontParamB(value) {super.FrontParamB = value;}
-    public override get FrontSurface() {return super.FrontSurface!;}
-    public override set FrontSurface(value) {super.FrontSurface = value;}
-    public override get FrontSurfaceInput() {return super.FrontSurfaceInput!;}
-    public override set FrontSurfaceInput(value) {super.FrontSurfaceInput = value;}
-    public override get LeftParamA() {return super.LeftParamA!;}
-    public override set LeftParamA(value) {super.LeftParamA = value;}
-    public override get LeftParamB() {return super.LeftParamB!;}
-    public override set LeftParamB(value) {super.LeftParamB = value;}
-    public override get LeftSurface() {return super.LeftSurface!;}
-    public override set LeftSurface(value) {super.LeftSurface = value;}
-    public override get LeftSurfaceInput() {return super.LeftSurfaceInput!;}
-    public override set LeftSurfaceInput(value) {super.LeftSurfaceInput = value;}
-    public override get Locked() {return super.Locked!;}
-    public override set Locked(value) {super.Locked = value;}
-    public override get Massless() {return super.Massless!;}
-    public override set Massless(value) {super.Massless = value;}
-    public override get Material() {return super.Material!;}
-    public override set Material(value) {super.Material = value;}
-    public override get Reflectance() {return super.Reflectance!;}
-    public override set Reflectance(value) {super.Reflectance = value;}
-    public override get RightParamA() {return super.RightParamA!;}
-    public override set RightParamA(value) {super.RightParamA = value;}
-    public override get RightParamB() {return super.RightParamB!;}
-    public override set RightParamB(value) {super.RightParamB = value;}
-    public override get RightSurface() {return super.RightSurface!;}
-    public override set RightSurface(value) {super.RightSurface = value;}
-    public override get RightSurfaceInput() {return super.RightSurfaceInput!;}
-    public override set RightSurfaceInput(value) {super.RightSurfaceInput = value;}
-    public override get RootPriority() {return super.RootPriority!;}
-    public override set RootPriority(value) {super.RootPriority = value;}
-    public override get RotVelocity() {return super.RotVelocity!;}
-    public override set RotVelocity(value) {super.RotVelocity = value;}
-    public override get TopParamA() {return super.TopParamA!;}
-    public override set TopParamA(value) {super.TopParamA = value;}
-    public override get TopParamB() {return super.TopParamB!;}
-    public override set TopParamB(value) {super.TopParamB = value;}
-    public override get TopSurface() {return super.TopSurface!;}
-    public override set TopSurface(value) {super.TopSurface = value;}
-    public override get TopSurfaceInput() {return super.TopSurfaceInput!;}
-    public override set TopSurfaceInput(value) {super.TopSurfaceInput = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Velocity() {return super.Velocity!;}
-    public override set Velocity(value) {super.Velocity = value;}
-    public override get Size() {return super.Size!;}
-    public override set Size(value) {super.Size = value;}
 }
 
 export class Terrain extends BasePart {
@@ -8715,47 +6436,18 @@ export class Terrain extends BasePart {
         this.WaterWaveSize = 0.15;
         this.WaterWaveSpeed = 10;
         this.Anchored = true;
-        this.BackParamA = -0.5;
-        this.BackParamB = 0.5;
         this.BackSurface = SurfaceType.Smooth;
-        this.BackSurfaceInput = InputType.NoInput;
-        this.BottomParamA = -0.5;
-        this.BottomParamB = 0.5;
         this.BottomSurface = SurfaceType.Inlet;
-        this.BottomSurfaceInput = InputType.NoInput;
         this.CanCollide = true;
-        this.CanQuery = true;
-        this.CanTouch = true;
-        this.CastShadow = true;
-        this.CollisionGroup = "Default";
-        this.CollisionGroupId = 0;
+        this.Color3uint8 = Color3.FromRGB(163, 162, 165);
         this.Elasticity = 0.3;
-        this.EnableFluidForces = true;
         this.Friction = 0.5;
-        this.FrontParamA = -0.5;
-        this.FrontParamB = 0.5;
         this.FrontSurface = SurfaceType.Smooth;
-        this.FrontSurfaceInput = InputType.NoInput;
-        this.LeftParamA = -0.5;
-        this.LeftParamB = 0.5;
         this.LeftSurface = SurfaceType.Smooth;
-        this.LeftSurfaceInput = InputType.NoInput;
         this.Locked = true;
-        this.Massless = false;
-        this.Material = Material.Plastic;
-        this.Reflectance = 0;
-        this.RightParamA = -0.5;
-        this.RightParamB = 0.5;
         this.RightSurface = SurfaceType.Smooth;
-        this.RightSurfaceInput = InputType.NoInput;
-        this.RootPriority = 0;
-        this.RotVelocity = new Vector3(0, 0, 0);
-        this.TopParamA = -0.5;
-        this.TopParamB = 0.5;
         this.TopSurface = SurfaceType.Studs;
-        this.TopSurfaceInput = InputType.NoInput;
         this.Transparency = 0;
-        this.Velocity = new Vector3(0, 0, 0);
         this.Size = new Vector3(2044, 252, 2044);
     }
     public get AcquisitionMethod() {return this.GetProp("AcquisitionMethod", DataType.Enum)! as TerrainAcquisitionMethod;}
@@ -8784,92 +6476,6 @@ export class Terrain extends BasePart {
     public set WaterWaveSize(value) {this.SetProp("WaterWaveSize", DataType.Float32, value);}
     public get WaterWaveSpeed() {return this.GetProp("WaterWaveSpeed", DataType.Float32)!;}
     public set WaterWaveSpeed(value) {this.SetProp("WaterWaveSpeed", DataType.Float32, value);}
-    public override get Anchored() {return super.Anchored!;}
-    public override set Anchored(value) {super.Anchored = value;}
-    public override get BackParamA() {return super.BackParamA!;}
-    public override set BackParamA(value) {super.BackParamA = value;}
-    public override get BackParamB() {return super.BackParamB!;}
-    public override set BackParamB(value) {super.BackParamB = value;}
-    public override get BackSurface() {return super.BackSurface!;}
-    public override set BackSurface(value) {super.BackSurface = value;}
-    public override get BackSurfaceInput() {return super.BackSurfaceInput!;}
-    public override set BackSurfaceInput(value) {super.BackSurfaceInput = value;}
-    public override get BottomParamA() {return super.BottomParamA!;}
-    public override set BottomParamA(value) {super.BottomParamA = value;}
-    public override get BottomParamB() {return super.BottomParamB!;}
-    public override set BottomParamB(value) {super.BottomParamB = value;}
-    public override get BottomSurface() {return super.BottomSurface!;}
-    public override set BottomSurface(value) {super.BottomSurface = value;}
-    public override get BottomSurfaceInput() {return super.BottomSurfaceInput!;}
-    public override set BottomSurfaceInput(value) {super.BottomSurfaceInput = value;}
-    public override get CanCollide() {return super.CanCollide!;}
-    public override set CanCollide(value) {super.CanCollide = value;}
-    public override get CanQuery() {return super.CanQuery!;}
-    public override set CanQuery(value) {super.CanQuery = value;}
-    public override get CanTouch() {return super.CanTouch!;}
-    public override set CanTouch(value) {super.CanTouch = value;}
-    public override get CastShadow() {return super.CastShadow!;}
-    public override set CastShadow(value) {super.CastShadow = value;}
-    public override get CollisionGroup() {return super.CollisionGroup!;}
-    public override set CollisionGroup(value) {super.CollisionGroup = value;}
-    public override get CollisionGroupId() {return super.CollisionGroupId!;}
-    public override set CollisionGroupId(value) {super.CollisionGroupId = value;}
-    public override get Elasticity() {return super.Elasticity!;}
-    public override set Elasticity(value) {super.Elasticity = value;}
-    public override get EnableFluidForces() {return super.EnableFluidForces!;}
-    public override set EnableFluidForces(value) {super.EnableFluidForces = value;}
-    public override get Friction() {return super.Friction!;}
-    public override set Friction(value) {super.Friction = value;}
-    public override get FrontParamA() {return super.FrontParamA!;}
-    public override set FrontParamA(value) {super.FrontParamA = value;}
-    public override get FrontParamB() {return super.FrontParamB!;}
-    public override set FrontParamB(value) {super.FrontParamB = value;}
-    public override get FrontSurface() {return super.FrontSurface!;}
-    public override set FrontSurface(value) {super.FrontSurface = value;}
-    public override get FrontSurfaceInput() {return super.FrontSurfaceInput!;}
-    public override set FrontSurfaceInput(value) {super.FrontSurfaceInput = value;}
-    public override get LeftParamA() {return super.LeftParamA!;}
-    public override set LeftParamA(value) {super.LeftParamA = value;}
-    public override get LeftParamB() {return super.LeftParamB!;}
-    public override set LeftParamB(value) {super.LeftParamB = value;}
-    public override get LeftSurface() {return super.LeftSurface!;}
-    public override set LeftSurface(value) {super.LeftSurface = value;}
-    public override get LeftSurfaceInput() {return super.LeftSurfaceInput!;}
-    public override set LeftSurfaceInput(value) {super.LeftSurfaceInput = value;}
-    public override get Locked() {return super.Locked!;}
-    public override set Locked(value) {super.Locked = value;}
-    public override get Massless() {return super.Massless!;}
-    public override set Massless(value) {super.Massless = value;}
-    public override get Material() {return super.Material!;}
-    public override set Material(value) {super.Material = value;}
-    public override get Reflectance() {return super.Reflectance!;}
-    public override set Reflectance(value) {super.Reflectance = value;}
-    public override get RightParamA() {return super.RightParamA!;}
-    public override set RightParamA(value) {super.RightParamA = value;}
-    public override get RightParamB() {return super.RightParamB!;}
-    public override set RightParamB(value) {super.RightParamB = value;}
-    public override get RightSurface() {return super.RightSurface!;}
-    public override set RightSurface(value) {super.RightSurface = value;}
-    public override get RightSurfaceInput() {return super.RightSurfaceInput!;}
-    public override set RightSurfaceInput(value) {super.RightSurfaceInput = value;}
-    public override get RootPriority() {return super.RootPriority!;}
-    public override set RootPriority(value) {super.RootPriority = value;}
-    public override get RotVelocity() {return super.RotVelocity!;}
-    public override set RotVelocity(value) {super.RotVelocity = value;}
-    public override get TopParamA() {return super.TopParamA!;}
-    public override set TopParamA(value) {super.TopParamA = value;}
-    public override get TopParamB() {return super.TopParamB!;}
-    public override set TopParamB(value) {super.TopParamB = value;}
-    public override get TopSurface() {return super.TopSurface!;}
-    public override set TopSurface(value) {super.TopSurface = value;}
-    public override get TopSurfaceInput() {return super.TopSurfaceInput!;}
-    public override set TopSurfaceInput(value) {super.TopSurfaceInput = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Velocity() {return super.Velocity!;}
-    public override set Velocity(value) {super.Velocity = value;}
-    public override get Size() {return super.Size!;}
-    public override set Size(value) {super.Size = value;}
 }
 
 export abstract class TriangleMeshPart extends BasePart {
@@ -8877,6 +6483,16 @@ export abstract class TriangleMeshPart extends BasePart {
     {
         super();
         this.addClassName("TriangleMeshPart");
+        this.BackSurface = SurfaceType.Smooth;
+        this.BottomSurface = SurfaceType.Smooth;
+        this.Elasticity = 0.5;
+        this.Friction = 0.3;
+        this.FrontSurface = SurfaceType.Smooth;
+        this.LeftSurface = SurfaceType.Smooth;
+        this.Locked = false;
+        this.RightSurface = SurfaceType.Smooth;
+        this.TopSurface = SurfaceType.Smooth;
+        this.Size = new Vector3(4, 1.2, 2);
     }
     public get AeroMeshData() {return this.GetProp("AeroMeshData", DataType.SharedString);}
     public set AeroMeshData(value) {this.SetProp("AeroMeshData", DataType.SharedString, value);}
@@ -8904,48 +6520,9 @@ export class MeshPart extends TriangleMeshPart {
         this.TextureID = "";
         this.VertexCount = 0;
         this.Anchored = false;
-        this.BackParamA = -0.5;
-        this.BackParamB = 0.5;
-        this.BackSurface = SurfaceType.Smooth;
-        this.BackSurfaceInput = InputType.NoInput;
-        this.BottomParamA = -0.5;
-        this.BottomParamB = 0.5;
-        this.BottomSurface = SurfaceType.Smooth;
-        this.BottomSurfaceInput = InputType.NoInput;
         this.CanCollide = true;
-        this.CanQuery = true;
-        this.CanTouch = true;
-        this.CastShadow = true;
-        this.CollisionGroup = "Default";
-        this.CollisionGroupId = 0;
-        this.Elasticity = 0.5;
-        this.EnableFluidForces = true;
-        this.Friction = 0.3;
-        this.FrontParamA = -0.5;
-        this.FrontParamB = 0.5;
-        this.FrontSurface = SurfaceType.Smooth;
-        this.FrontSurfaceInput = InputType.NoInput;
-        this.LeftParamA = -0.5;
-        this.LeftParamB = 0.5;
-        this.LeftSurface = SurfaceType.Smooth;
-        this.LeftSurfaceInput = InputType.NoInput;
-        this.Locked = false;
-        this.Massless = false;
-        this.Material = Material.Plastic;
-        this.Reflectance = 0;
-        this.RightParamA = -0.5;
-        this.RightParamB = 0.5;
-        this.RightSurface = SurfaceType.Smooth;
-        this.RightSurfaceInput = InputType.NoInput;
-        this.RootPriority = 0;
-        this.RotVelocity = new Vector3(0, 0, 0);
-        this.TopParamA = -0.5;
-        this.TopParamB = 0.5;
-        this.TopSurface = SurfaceType.Smooth;
-        this.TopSurfaceInput = InputType.NoInput;
+        this.Color3uint8 = Color3.FromRGB(163, 162, 165);
         this.Transparency = 0;
-        this.Velocity = new Vector3(0, 0, 0);
-        this.Size = new Vector3(4, 1.2, 2);
     }
     public get DoubleSided() {return this.GetProp("DoubleSided", DataType.Bool)!;}
     public set DoubleSided(value) {this.SetProp("DoubleSided", DataType.Bool, value);}
@@ -8971,92 +6548,6 @@ export class MeshPart extends TriangleMeshPart {
     public set TextureID(value) {this.SetProp("TextureID", DataType.String, value);}
     public get VertexCount() {return this.GetProp("VertexCount", DataType.Int32)!;}
     public set VertexCount(value) {this.SetProp("VertexCount", DataType.Int32, value);}
-    public override get Anchored() {return super.Anchored!;}
-    public override set Anchored(value) {super.Anchored = value;}
-    public override get BackParamA() {return super.BackParamA!;}
-    public override set BackParamA(value) {super.BackParamA = value;}
-    public override get BackParamB() {return super.BackParamB!;}
-    public override set BackParamB(value) {super.BackParamB = value;}
-    public override get BackSurface() {return super.BackSurface!;}
-    public override set BackSurface(value) {super.BackSurface = value;}
-    public override get BackSurfaceInput() {return super.BackSurfaceInput!;}
-    public override set BackSurfaceInput(value) {super.BackSurfaceInput = value;}
-    public override get BottomParamA() {return super.BottomParamA!;}
-    public override set BottomParamA(value) {super.BottomParamA = value;}
-    public override get BottomParamB() {return super.BottomParamB!;}
-    public override set BottomParamB(value) {super.BottomParamB = value;}
-    public override get BottomSurface() {return super.BottomSurface!;}
-    public override set BottomSurface(value) {super.BottomSurface = value;}
-    public override get BottomSurfaceInput() {return super.BottomSurfaceInput!;}
-    public override set BottomSurfaceInput(value) {super.BottomSurfaceInput = value;}
-    public override get CanCollide() {return super.CanCollide!;}
-    public override set CanCollide(value) {super.CanCollide = value;}
-    public override get CanQuery() {return super.CanQuery!;}
-    public override set CanQuery(value) {super.CanQuery = value;}
-    public override get CanTouch() {return super.CanTouch!;}
-    public override set CanTouch(value) {super.CanTouch = value;}
-    public override get CastShadow() {return super.CastShadow!;}
-    public override set CastShadow(value) {super.CastShadow = value;}
-    public override get CollisionGroup() {return super.CollisionGroup!;}
-    public override set CollisionGroup(value) {super.CollisionGroup = value;}
-    public override get CollisionGroupId() {return super.CollisionGroupId!;}
-    public override set CollisionGroupId(value) {super.CollisionGroupId = value;}
-    public override get Elasticity() {return super.Elasticity!;}
-    public override set Elasticity(value) {super.Elasticity = value;}
-    public override get EnableFluidForces() {return super.EnableFluidForces!;}
-    public override set EnableFluidForces(value) {super.EnableFluidForces = value;}
-    public override get Friction() {return super.Friction!;}
-    public override set Friction(value) {super.Friction = value;}
-    public override get FrontParamA() {return super.FrontParamA!;}
-    public override set FrontParamA(value) {super.FrontParamA = value;}
-    public override get FrontParamB() {return super.FrontParamB!;}
-    public override set FrontParamB(value) {super.FrontParamB = value;}
-    public override get FrontSurface() {return super.FrontSurface!;}
-    public override set FrontSurface(value) {super.FrontSurface = value;}
-    public override get FrontSurfaceInput() {return super.FrontSurfaceInput!;}
-    public override set FrontSurfaceInput(value) {super.FrontSurfaceInput = value;}
-    public override get LeftParamA() {return super.LeftParamA!;}
-    public override set LeftParamA(value) {super.LeftParamA = value;}
-    public override get LeftParamB() {return super.LeftParamB!;}
-    public override set LeftParamB(value) {super.LeftParamB = value;}
-    public override get LeftSurface() {return super.LeftSurface!;}
-    public override set LeftSurface(value) {super.LeftSurface = value;}
-    public override get LeftSurfaceInput() {return super.LeftSurfaceInput!;}
-    public override set LeftSurfaceInput(value) {super.LeftSurfaceInput = value;}
-    public override get Locked() {return super.Locked!;}
-    public override set Locked(value) {super.Locked = value;}
-    public override get Massless() {return super.Massless!;}
-    public override set Massless(value) {super.Massless = value;}
-    public override get Material() {return super.Material!;}
-    public override set Material(value) {super.Material = value;}
-    public override get Reflectance() {return super.Reflectance!;}
-    public override set Reflectance(value) {super.Reflectance = value;}
-    public override get RightParamA() {return super.RightParamA!;}
-    public override set RightParamA(value) {super.RightParamA = value;}
-    public override get RightParamB() {return super.RightParamB!;}
-    public override set RightParamB(value) {super.RightParamB = value;}
-    public override get RightSurface() {return super.RightSurface!;}
-    public override set RightSurface(value) {super.RightSurface = value;}
-    public override get RightSurfaceInput() {return super.RightSurfaceInput!;}
-    public override set RightSurfaceInput(value) {super.RightSurfaceInput = value;}
-    public override get RootPriority() {return super.RootPriority!;}
-    public override set RootPriority(value) {super.RootPriority = value;}
-    public override get RotVelocity() {return super.RotVelocity!;}
-    public override set RotVelocity(value) {super.RotVelocity = value;}
-    public override get TopParamA() {return super.TopParamA!;}
-    public override set TopParamA(value) {super.TopParamA = value;}
-    public override get TopParamB() {return super.TopParamB!;}
-    public override set TopParamB(value) {super.TopParamB = value;}
-    public override get TopSurface() {return super.TopSurface!;}
-    public override set TopSurface(value) {super.TopSurface = value;}
-    public override get TopSurfaceInput() {return super.TopSurfaceInput!;}
-    public override set TopSurfaceInput(value) {super.TopSurfaceInput = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Velocity() {return super.Velocity!;}
-    public override set Velocity(value) {super.Velocity = value;}
-    public override get Size() {return super.Size!;}
-    public override set Size(value) {super.Size = value;}
 }
 
 export class PartOperation extends TriangleMeshPart {
@@ -9074,49 +6565,7 @@ export class PartOperation extends TriangleMeshPart {
         this.RenderFidelity = RenderFidelity.Precise;
         this.SmoothingAngle = 0;
         this.UsePartColor = false;
-        this.Anchored = false;
-        this.BackParamA = -0.5;
-        this.BackParamB = 0.5;
-        this.BackSurface = SurfaceType.Smooth;
-        this.BackSurfaceInput = InputType.NoInput;
-        this.BottomParamA = -0.5;
-        this.BottomParamB = 0.5;
-        this.BottomSurface = SurfaceType.Smooth;
-        this.BottomSurfaceInput = InputType.NoInput;
-        this.CanCollide = true;
-        this.CanQuery = true;
-        this.CanTouch = true;
-        this.CastShadow = true;
-        this.CollisionGroup = "Default";
-        this.CollisionGroupId = 0;
-        this.Elasticity = 0.5;
-        this.EnableFluidForces = true;
-        this.Friction = 0.3;
-        this.FrontParamA = -0.5;
-        this.FrontParamB = 0.5;
-        this.FrontSurface = SurfaceType.Smooth;
-        this.FrontSurfaceInput = InputType.NoInput;
-        this.LeftParamA = -0.5;
-        this.LeftParamB = 0.5;
-        this.LeftSurface = SurfaceType.Smooth;
-        this.LeftSurfaceInput = InputType.NoInput;
-        this.Locked = false;
-        this.Massless = false;
-        this.Material = Material.Plastic;
-        this.Reflectance = 0;
-        this.RightParamA = -0.5;
-        this.RightParamB = 0.5;
-        this.RightSurface = SurfaceType.Smooth;
-        this.RightSurfaceInput = InputType.NoInput;
-        this.RootPriority = 0;
-        this.RotVelocity = new Vector3(0, 0, 0);
-        this.TopParamA = -0.5;
-        this.TopParamB = 0.5;
-        this.TopSurface = SurfaceType.Smooth;
-        this.TopSurfaceInput = InputType.NoInput;
-        this.Transparency = 0;
-        this.Velocity = new Vector3(0, 0, 0);
-        this.Size = new Vector3(4, 1.2, 2);
+        this.Color3uint8 = Color3.FromRGB(255, 255, 255);
     }
     public get AssetId() {return this.GetProp("AssetId", DataType.String)!;}
     public set AssetId(value) {this.SetProp("AssetId", DataType.String, value);}
@@ -9140,92 +6589,6 @@ export class PartOperation extends TriangleMeshPart {
     public set SmoothingAngle(value) {this.SetProp("SmoothingAngle", DataType.Float32, value);}
     public get UsePartColor() {return this.GetProp("UsePartColor", DataType.Bool)!;}
     public set UsePartColor(value) {this.SetProp("UsePartColor", DataType.Bool, value);}
-    public override get Anchored() {return super.Anchored!;}
-    public override set Anchored(value) {super.Anchored = value;}
-    public override get BackParamA() {return super.BackParamA!;}
-    public override set BackParamA(value) {super.BackParamA = value;}
-    public override get BackParamB() {return super.BackParamB!;}
-    public override set BackParamB(value) {super.BackParamB = value;}
-    public override get BackSurface() {return super.BackSurface!;}
-    public override set BackSurface(value) {super.BackSurface = value;}
-    public override get BackSurfaceInput() {return super.BackSurfaceInput!;}
-    public override set BackSurfaceInput(value) {super.BackSurfaceInput = value;}
-    public override get BottomParamA() {return super.BottomParamA!;}
-    public override set BottomParamA(value) {super.BottomParamA = value;}
-    public override get BottomParamB() {return super.BottomParamB!;}
-    public override set BottomParamB(value) {super.BottomParamB = value;}
-    public override get BottomSurface() {return super.BottomSurface!;}
-    public override set BottomSurface(value) {super.BottomSurface = value;}
-    public override get BottomSurfaceInput() {return super.BottomSurfaceInput!;}
-    public override set BottomSurfaceInput(value) {super.BottomSurfaceInput = value;}
-    public override get CanCollide() {return super.CanCollide!;}
-    public override set CanCollide(value) {super.CanCollide = value;}
-    public override get CanQuery() {return super.CanQuery!;}
-    public override set CanQuery(value) {super.CanQuery = value;}
-    public override get CanTouch() {return super.CanTouch!;}
-    public override set CanTouch(value) {super.CanTouch = value;}
-    public override get CastShadow() {return super.CastShadow!;}
-    public override set CastShadow(value) {super.CastShadow = value;}
-    public override get CollisionGroup() {return super.CollisionGroup!;}
-    public override set CollisionGroup(value) {super.CollisionGroup = value;}
-    public override get CollisionGroupId() {return super.CollisionGroupId!;}
-    public override set CollisionGroupId(value) {super.CollisionGroupId = value;}
-    public override get Elasticity() {return super.Elasticity!;}
-    public override set Elasticity(value) {super.Elasticity = value;}
-    public override get EnableFluidForces() {return super.EnableFluidForces!;}
-    public override set EnableFluidForces(value) {super.EnableFluidForces = value;}
-    public override get Friction() {return super.Friction!;}
-    public override set Friction(value) {super.Friction = value;}
-    public override get FrontParamA() {return super.FrontParamA!;}
-    public override set FrontParamA(value) {super.FrontParamA = value;}
-    public override get FrontParamB() {return super.FrontParamB!;}
-    public override set FrontParamB(value) {super.FrontParamB = value;}
-    public override get FrontSurface() {return super.FrontSurface!;}
-    public override set FrontSurface(value) {super.FrontSurface = value;}
-    public override get FrontSurfaceInput() {return super.FrontSurfaceInput!;}
-    public override set FrontSurfaceInput(value) {super.FrontSurfaceInput = value;}
-    public override get LeftParamA() {return super.LeftParamA!;}
-    public override set LeftParamA(value) {super.LeftParamA = value;}
-    public override get LeftParamB() {return super.LeftParamB!;}
-    public override set LeftParamB(value) {super.LeftParamB = value;}
-    public override get LeftSurface() {return super.LeftSurface!;}
-    public override set LeftSurface(value) {super.LeftSurface = value;}
-    public override get LeftSurfaceInput() {return super.LeftSurfaceInput!;}
-    public override set LeftSurfaceInput(value) {super.LeftSurfaceInput = value;}
-    public override get Locked() {return super.Locked!;}
-    public override set Locked(value) {super.Locked = value;}
-    public override get Massless() {return super.Massless!;}
-    public override set Massless(value) {super.Massless = value;}
-    public override get Material() {return super.Material!;}
-    public override set Material(value) {super.Material = value;}
-    public override get Reflectance() {return super.Reflectance!;}
-    public override set Reflectance(value) {super.Reflectance = value;}
-    public override get RightParamA() {return super.RightParamA!;}
-    public override set RightParamA(value) {super.RightParamA = value;}
-    public override get RightParamB() {return super.RightParamB!;}
-    public override set RightParamB(value) {super.RightParamB = value;}
-    public override get RightSurface() {return super.RightSurface!;}
-    public override set RightSurface(value) {super.RightSurface = value;}
-    public override get RightSurfaceInput() {return super.RightSurfaceInput!;}
-    public override set RightSurfaceInput(value) {super.RightSurfaceInput = value;}
-    public override get RootPriority() {return super.RootPriority!;}
-    public override set RootPriority(value) {super.RootPriority = value;}
-    public override get RotVelocity() {return super.RotVelocity!;}
-    public override set RotVelocity(value) {super.RotVelocity = value;}
-    public override get TopParamA() {return super.TopParamA!;}
-    public override set TopParamA(value) {super.TopParamA = value;}
-    public override get TopParamB() {return super.TopParamB!;}
-    public override set TopParamB(value) {super.TopParamB = value;}
-    public override get TopSurface() {return super.TopSurface!;}
-    public override set TopSurface(value) {super.TopSurface = value;}
-    public override get TopSurfaceInput() {return super.TopSurfaceInput!;}
-    public override set TopSurfaceInput(value) {super.TopSurfaceInput = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Velocity() {return super.Velocity!;}
-    public override set Velocity(value) {super.Velocity = value;}
-    public override get Size() {return super.Size!;}
-    public override set Size(value) {super.Size = value;}
 }
 
 export class IntersectOperation extends PartOperation {
@@ -9235,135 +6598,9 @@ export class IntersectOperation extends PartOperation {
         this.addClassName("IntersectOperation");
         this.Name = "IntersectOperation";
         this.Anchored = false;
-        this.BackParamA = -0.5;
-        this.BackParamB = 0.5;
-        this.BackSurface = SurfaceType.Smooth;
-        this.BackSurfaceInput = InputType.NoInput;
-        this.BottomParamA = -0.5;
-        this.BottomParamB = 0.5;
-        this.BottomSurface = SurfaceType.Smooth;
-        this.BottomSurfaceInput = InputType.NoInput;
         this.CanCollide = true;
-        this.CanQuery = true;
-        this.CanTouch = true;
-        this.CastShadow = true;
-        this.CollisionGroup = "Default";
-        this.CollisionGroupId = 0;
-        this.Elasticity = 0.5;
-        this.EnableFluidForces = true;
-        this.Friction = 0.3;
-        this.FrontParamA = -0.5;
-        this.FrontParamB = 0.5;
-        this.FrontSurface = SurfaceType.Smooth;
-        this.FrontSurfaceInput = InputType.NoInput;
-        this.LeftParamA = -0.5;
-        this.LeftParamB = 0.5;
-        this.LeftSurface = SurfaceType.Smooth;
-        this.LeftSurfaceInput = InputType.NoInput;
-        this.Locked = false;
-        this.Massless = false;
-        this.Material = Material.Plastic;
-        this.Reflectance = 0;
-        this.RightParamA = -0.5;
-        this.RightParamB = 0.5;
-        this.RightSurface = SurfaceType.Smooth;
-        this.RightSurfaceInput = InputType.NoInput;
-        this.RootPriority = 0;
-        this.RotVelocity = new Vector3(0, 0, 0);
-        this.TopParamA = -0.5;
-        this.TopParamB = 0.5;
-        this.TopSurface = SurfaceType.Smooth;
-        this.TopSurfaceInput = InputType.NoInput;
         this.Transparency = 0;
-        this.Velocity = new Vector3(0, 0, 0);
-        this.Size = new Vector3(4, 1.2, 2);
     }
-    public override get Anchored() {return super.Anchored!;}
-    public override set Anchored(value) {super.Anchored = value;}
-    public override get BackParamA() {return super.BackParamA!;}
-    public override set BackParamA(value) {super.BackParamA = value;}
-    public override get BackParamB() {return super.BackParamB!;}
-    public override set BackParamB(value) {super.BackParamB = value;}
-    public override get BackSurface() {return super.BackSurface!;}
-    public override set BackSurface(value) {super.BackSurface = value;}
-    public override get BackSurfaceInput() {return super.BackSurfaceInput!;}
-    public override set BackSurfaceInput(value) {super.BackSurfaceInput = value;}
-    public override get BottomParamA() {return super.BottomParamA!;}
-    public override set BottomParamA(value) {super.BottomParamA = value;}
-    public override get BottomParamB() {return super.BottomParamB!;}
-    public override set BottomParamB(value) {super.BottomParamB = value;}
-    public override get BottomSurface() {return super.BottomSurface!;}
-    public override set BottomSurface(value) {super.BottomSurface = value;}
-    public override get BottomSurfaceInput() {return super.BottomSurfaceInput!;}
-    public override set BottomSurfaceInput(value) {super.BottomSurfaceInput = value;}
-    public override get CanCollide() {return super.CanCollide!;}
-    public override set CanCollide(value) {super.CanCollide = value;}
-    public override get CanQuery() {return super.CanQuery!;}
-    public override set CanQuery(value) {super.CanQuery = value;}
-    public override get CanTouch() {return super.CanTouch!;}
-    public override set CanTouch(value) {super.CanTouch = value;}
-    public override get CastShadow() {return super.CastShadow!;}
-    public override set CastShadow(value) {super.CastShadow = value;}
-    public override get CollisionGroup() {return super.CollisionGroup!;}
-    public override set CollisionGroup(value) {super.CollisionGroup = value;}
-    public override get CollisionGroupId() {return super.CollisionGroupId!;}
-    public override set CollisionGroupId(value) {super.CollisionGroupId = value;}
-    public override get Elasticity() {return super.Elasticity!;}
-    public override set Elasticity(value) {super.Elasticity = value;}
-    public override get EnableFluidForces() {return super.EnableFluidForces!;}
-    public override set EnableFluidForces(value) {super.EnableFluidForces = value;}
-    public override get Friction() {return super.Friction!;}
-    public override set Friction(value) {super.Friction = value;}
-    public override get FrontParamA() {return super.FrontParamA!;}
-    public override set FrontParamA(value) {super.FrontParamA = value;}
-    public override get FrontParamB() {return super.FrontParamB!;}
-    public override set FrontParamB(value) {super.FrontParamB = value;}
-    public override get FrontSurface() {return super.FrontSurface!;}
-    public override set FrontSurface(value) {super.FrontSurface = value;}
-    public override get FrontSurfaceInput() {return super.FrontSurfaceInput!;}
-    public override set FrontSurfaceInput(value) {super.FrontSurfaceInput = value;}
-    public override get LeftParamA() {return super.LeftParamA!;}
-    public override set LeftParamA(value) {super.LeftParamA = value;}
-    public override get LeftParamB() {return super.LeftParamB!;}
-    public override set LeftParamB(value) {super.LeftParamB = value;}
-    public override get LeftSurface() {return super.LeftSurface!;}
-    public override set LeftSurface(value) {super.LeftSurface = value;}
-    public override get LeftSurfaceInput() {return super.LeftSurfaceInput!;}
-    public override set LeftSurfaceInput(value) {super.LeftSurfaceInput = value;}
-    public override get Locked() {return super.Locked!;}
-    public override set Locked(value) {super.Locked = value;}
-    public override get Massless() {return super.Massless!;}
-    public override set Massless(value) {super.Massless = value;}
-    public override get Material() {return super.Material!;}
-    public override set Material(value) {super.Material = value;}
-    public override get Reflectance() {return super.Reflectance!;}
-    public override set Reflectance(value) {super.Reflectance = value;}
-    public override get RightParamA() {return super.RightParamA!;}
-    public override set RightParamA(value) {super.RightParamA = value;}
-    public override get RightParamB() {return super.RightParamB!;}
-    public override set RightParamB(value) {super.RightParamB = value;}
-    public override get RightSurface() {return super.RightSurface!;}
-    public override set RightSurface(value) {super.RightSurface = value;}
-    public override get RightSurfaceInput() {return super.RightSurfaceInput!;}
-    public override set RightSurfaceInput(value) {super.RightSurfaceInput = value;}
-    public override get RootPriority() {return super.RootPriority!;}
-    public override set RootPriority(value) {super.RootPriority = value;}
-    public override get RotVelocity() {return super.RotVelocity!;}
-    public override set RotVelocity(value) {super.RotVelocity = value;}
-    public override get TopParamA() {return super.TopParamA!;}
-    public override set TopParamA(value) {super.TopParamA = value;}
-    public override get TopParamB() {return super.TopParamB!;}
-    public override set TopParamB(value) {super.TopParamB = value;}
-    public override get TopSurface() {return super.TopSurface!;}
-    public override set TopSurface(value) {super.TopSurface = value;}
-    public override get TopSurfaceInput() {return super.TopSurfaceInput!;}
-    public override set TopSurfaceInput(value) {super.TopSurfaceInput = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Velocity() {return super.Velocity!;}
-    public override set Velocity(value) {super.Velocity = value;}
-    public override get Size() {return super.Size!;}
-    public override set Size(value) {super.Size = value;}
 }
 
 export class NegateOperation extends PartOperation {
@@ -9373,135 +6610,9 @@ export class NegateOperation extends PartOperation {
         this.addClassName("NegateOperation");
         this.Name = "NegateOperation";
         this.Anchored = true;
-        this.BackParamA = -0.5;
-        this.BackParamB = 0.5;
-        this.BackSurface = SurfaceType.Smooth;
-        this.BackSurfaceInput = InputType.NoInput;
-        this.BottomParamA = -0.5;
-        this.BottomParamB = 0.5;
-        this.BottomSurface = SurfaceType.Smooth;
-        this.BottomSurfaceInput = InputType.NoInput;
         this.CanCollide = false;
-        this.CanQuery = true;
-        this.CanTouch = true;
-        this.CastShadow = true;
-        this.CollisionGroup = "Default";
-        this.CollisionGroupId = 0;
-        this.Elasticity = 0.5;
-        this.EnableFluidForces = true;
-        this.Friction = 0.3;
-        this.FrontParamA = -0.5;
-        this.FrontParamB = 0.5;
-        this.FrontSurface = SurfaceType.Smooth;
-        this.FrontSurfaceInput = InputType.NoInput;
-        this.LeftParamA = -0.5;
-        this.LeftParamB = 0.5;
-        this.LeftSurface = SurfaceType.Smooth;
-        this.LeftSurfaceInput = InputType.NoInput;
-        this.Locked = false;
-        this.Massless = false;
-        this.Material = Material.Plastic;
-        this.Reflectance = 0;
-        this.RightParamA = -0.5;
-        this.RightParamB = 0.5;
-        this.RightSurface = SurfaceType.Smooth;
-        this.RightSurfaceInput = InputType.NoInput;
-        this.RootPriority = 0;
-        this.RotVelocity = new Vector3(0, 0, 0);
-        this.TopParamA = -0.5;
-        this.TopParamB = 0.5;
-        this.TopSurface = SurfaceType.Smooth;
-        this.TopSurfaceInput = InputType.NoInput;
         this.Transparency = 0.1;
-        this.Velocity = new Vector3(0, 0, 0);
-        this.Size = new Vector3(4, 1.2, 2);
     }
-    public override get Anchored() {return super.Anchored!;}
-    public override set Anchored(value) {super.Anchored = value;}
-    public override get BackParamA() {return super.BackParamA!;}
-    public override set BackParamA(value) {super.BackParamA = value;}
-    public override get BackParamB() {return super.BackParamB!;}
-    public override set BackParamB(value) {super.BackParamB = value;}
-    public override get BackSurface() {return super.BackSurface!;}
-    public override set BackSurface(value) {super.BackSurface = value;}
-    public override get BackSurfaceInput() {return super.BackSurfaceInput!;}
-    public override set BackSurfaceInput(value) {super.BackSurfaceInput = value;}
-    public override get BottomParamA() {return super.BottomParamA!;}
-    public override set BottomParamA(value) {super.BottomParamA = value;}
-    public override get BottomParamB() {return super.BottomParamB!;}
-    public override set BottomParamB(value) {super.BottomParamB = value;}
-    public override get BottomSurface() {return super.BottomSurface!;}
-    public override set BottomSurface(value) {super.BottomSurface = value;}
-    public override get BottomSurfaceInput() {return super.BottomSurfaceInput!;}
-    public override set BottomSurfaceInput(value) {super.BottomSurfaceInput = value;}
-    public override get CanCollide() {return super.CanCollide!;}
-    public override set CanCollide(value) {super.CanCollide = value;}
-    public override get CanQuery() {return super.CanQuery!;}
-    public override set CanQuery(value) {super.CanQuery = value;}
-    public override get CanTouch() {return super.CanTouch!;}
-    public override set CanTouch(value) {super.CanTouch = value;}
-    public override get CastShadow() {return super.CastShadow!;}
-    public override set CastShadow(value) {super.CastShadow = value;}
-    public override get CollisionGroup() {return super.CollisionGroup!;}
-    public override set CollisionGroup(value) {super.CollisionGroup = value;}
-    public override get CollisionGroupId() {return super.CollisionGroupId!;}
-    public override set CollisionGroupId(value) {super.CollisionGroupId = value;}
-    public override get Elasticity() {return super.Elasticity!;}
-    public override set Elasticity(value) {super.Elasticity = value;}
-    public override get EnableFluidForces() {return super.EnableFluidForces!;}
-    public override set EnableFluidForces(value) {super.EnableFluidForces = value;}
-    public override get Friction() {return super.Friction!;}
-    public override set Friction(value) {super.Friction = value;}
-    public override get FrontParamA() {return super.FrontParamA!;}
-    public override set FrontParamA(value) {super.FrontParamA = value;}
-    public override get FrontParamB() {return super.FrontParamB!;}
-    public override set FrontParamB(value) {super.FrontParamB = value;}
-    public override get FrontSurface() {return super.FrontSurface!;}
-    public override set FrontSurface(value) {super.FrontSurface = value;}
-    public override get FrontSurfaceInput() {return super.FrontSurfaceInput!;}
-    public override set FrontSurfaceInput(value) {super.FrontSurfaceInput = value;}
-    public override get LeftParamA() {return super.LeftParamA!;}
-    public override set LeftParamA(value) {super.LeftParamA = value;}
-    public override get LeftParamB() {return super.LeftParamB!;}
-    public override set LeftParamB(value) {super.LeftParamB = value;}
-    public override get LeftSurface() {return super.LeftSurface!;}
-    public override set LeftSurface(value) {super.LeftSurface = value;}
-    public override get LeftSurfaceInput() {return super.LeftSurfaceInput!;}
-    public override set LeftSurfaceInput(value) {super.LeftSurfaceInput = value;}
-    public override get Locked() {return super.Locked!;}
-    public override set Locked(value) {super.Locked = value;}
-    public override get Massless() {return super.Massless!;}
-    public override set Massless(value) {super.Massless = value;}
-    public override get Material() {return super.Material!;}
-    public override set Material(value) {super.Material = value;}
-    public override get Reflectance() {return super.Reflectance!;}
-    public override set Reflectance(value) {super.Reflectance = value;}
-    public override get RightParamA() {return super.RightParamA!;}
-    public override set RightParamA(value) {super.RightParamA = value;}
-    public override get RightParamB() {return super.RightParamB!;}
-    public override set RightParamB(value) {super.RightParamB = value;}
-    public override get RightSurface() {return super.RightSurface!;}
-    public override set RightSurface(value) {super.RightSurface = value;}
-    public override get RightSurfaceInput() {return super.RightSurfaceInput!;}
-    public override set RightSurfaceInput(value) {super.RightSurfaceInput = value;}
-    public override get RootPriority() {return super.RootPriority!;}
-    public override set RootPriority(value) {super.RootPriority = value;}
-    public override get RotVelocity() {return super.RotVelocity!;}
-    public override set RotVelocity(value) {super.RotVelocity = value;}
-    public override get TopParamA() {return super.TopParamA!;}
-    public override set TopParamA(value) {super.TopParamA = value;}
-    public override get TopParamB() {return super.TopParamB!;}
-    public override set TopParamB(value) {super.TopParamB = value;}
-    public override get TopSurface() {return super.TopSurface!;}
-    public override set TopSurface(value) {super.TopSurface = value;}
-    public override get TopSurfaceInput() {return super.TopSurfaceInput!;}
-    public override set TopSurfaceInput(value) {super.TopSurfaceInput = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Velocity() {return super.Velocity!;}
-    public override set Velocity(value) {super.Velocity = value;}
-    public override get Size() {return super.Size!;}
-    public override set Size(value) {super.Size = value;}
 }
 
 export class UnionOperation extends PartOperation {
@@ -9511,135 +6622,9 @@ export class UnionOperation extends PartOperation {
         this.addClassName("UnionOperation");
         this.Name = "UnionOperation";
         this.Anchored = false;
-        this.BackParamA = -0.5;
-        this.BackParamB = 0.5;
-        this.BackSurface = SurfaceType.Smooth;
-        this.BackSurfaceInput = InputType.NoInput;
-        this.BottomParamA = -0.5;
-        this.BottomParamB = 0.5;
-        this.BottomSurface = SurfaceType.Smooth;
-        this.BottomSurfaceInput = InputType.NoInput;
         this.CanCollide = true;
-        this.CanQuery = true;
-        this.CanTouch = true;
-        this.CastShadow = true;
-        this.CollisionGroup = "Default";
-        this.CollisionGroupId = 0;
-        this.Elasticity = 0.5;
-        this.EnableFluidForces = true;
-        this.Friction = 0.3;
-        this.FrontParamA = -0.5;
-        this.FrontParamB = 0.5;
-        this.FrontSurface = SurfaceType.Smooth;
-        this.FrontSurfaceInput = InputType.NoInput;
-        this.LeftParamA = -0.5;
-        this.LeftParamB = 0.5;
-        this.LeftSurface = SurfaceType.Smooth;
-        this.LeftSurfaceInput = InputType.NoInput;
-        this.Locked = false;
-        this.Massless = false;
-        this.Material = Material.Plastic;
-        this.Reflectance = 0;
-        this.RightParamA = -0.5;
-        this.RightParamB = 0.5;
-        this.RightSurface = SurfaceType.Smooth;
-        this.RightSurfaceInput = InputType.NoInput;
-        this.RootPriority = 0;
-        this.RotVelocity = new Vector3(0, 0, 0);
-        this.TopParamA = -0.5;
-        this.TopParamB = 0.5;
-        this.TopSurface = SurfaceType.Smooth;
-        this.TopSurfaceInput = InputType.NoInput;
         this.Transparency = 0;
-        this.Velocity = new Vector3(0, 0, 0);
-        this.Size = new Vector3(4, 1.2, 2);
     }
-    public override get Anchored() {return super.Anchored!;}
-    public override set Anchored(value) {super.Anchored = value;}
-    public override get BackParamA() {return super.BackParamA!;}
-    public override set BackParamA(value) {super.BackParamA = value;}
-    public override get BackParamB() {return super.BackParamB!;}
-    public override set BackParamB(value) {super.BackParamB = value;}
-    public override get BackSurface() {return super.BackSurface!;}
-    public override set BackSurface(value) {super.BackSurface = value;}
-    public override get BackSurfaceInput() {return super.BackSurfaceInput!;}
-    public override set BackSurfaceInput(value) {super.BackSurfaceInput = value;}
-    public override get BottomParamA() {return super.BottomParamA!;}
-    public override set BottomParamA(value) {super.BottomParamA = value;}
-    public override get BottomParamB() {return super.BottomParamB!;}
-    public override set BottomParamB(value) {super.BottomParamB = value;}
-    public override get BottomSurface() {return super.BottomSurface!;}
-    public override set BottomSurface(value) {super.BottomSurface = value;}
-    public override get BottomSurfaceInput() {return super.BottomSurfaceInput!;}
-    public override set BottomSurfaceInput(value) {super.BottomSurfaceInput = value;}
-    public override get CanCollide() {return super.CanCollide!;}
-    public override set CanCollide(value) {super.CanCollide = value;}
-    public override get CanQuery() {return super.CanQuery!;}
-    public override set CanQuery(value) {super.CanQuery = value;}
-    public override get CanTouch() {return super.CanTouch!;}
-    public override set CanTouch(value) {super.CanTouch = value;}
-    public override get CastShadow() {return super.CastShadow!;}
-    public override set CastShadow(value) {super.CastShadow = value;}
-    public override get CollisionGroup() {return super.CollisionGroup!;}
-    public override set CollisionGroup(value) {super.CollisionGroup = value;}
-    public override get CollisionGroupId() {return super.CollisionGroupId!;}
-    public override set CollisionGroupId(value) {super.CollisionGroupId = value;}
-    public override get Elasticity() {return super.Elasticity!;}
-    public override set Elasticity(value) {super.Elasticity = value;}
-    public override get EnableFluidForces() {return super.EnableFluidForces!;}
-    public override set EnableFluidForces(value) {super.EnableFluidForces = value;}
-    public override get Friction() {return super.Friction!;}
-    public override set Friction(value) {super.Friction = value;}
-    public override get FrontParamA() {return super.FrontParamA!;}
-    public override set FrontParamA(value) {super.FrontParamA = value;}
-    public override get FrontParamB() {return super.FrontParamB!;}
-    public override set FrontParamB(value) {super.FrontParamB = value;}
-    public override get FrontSurface() {return super.FrontSurface!;}
-    public override set FrontSurface(value) {super.FrontSurface = value;}
-    public override get FrontSurfaceInput() {return super.FrontSurfaceInput!;}
-    public override set FrontSurfaceInput(value) {super.FrontSurfaceInput = value;}
-    public override get LeftParamA() {return super.LeftParamA!;}
-    public override set LeftParamA(value) {super.LeftParamA = value;}
-    public override get LeftParamB() {return super.LeftParamB!;}
-    public override set LeftParamB(value) {super.LeftParamB = value;}
-    public override get LeftSurface() {return super.LeftSurface!;}
-    public override set LeftSurface(value) {super.LeftSurface = value;}
-    public override get LeftSurfaceInput() {return super.LeftSurfaceInput!;}
-    public override set LeftSurfaceInput(value) {super.LeftSurfaceInput = value;}
-    public override get Locked() {return super.Locked!;}
-    public override set Locked(value) {super.Locked = value;}
-    public override get Massless() {return super.Massless!;}
-    public override set Massless(value) {super.Massless = value;}
-    public override get Material() {return super.Material!;}
-    public override set Material(value) {super.Material = value;}
-    public override get Reflectance() {return super.Reflectance!;}
-    public override set Reflectance(value) {super.Reflectance = value;}
-    public override get RightParamA() {return super.RightParamA!;}
-    public override set RightParamA(value) {super.RightParamA = value;}
-    public override get RightParamB() {return super.RightParamB!;}
-    public override set RightParamB(value) {super.RightParamB = value;}
-    public override get RightSurface() {return super.RightSurface!;}
-    public override set RightSurface(value) {super.RightSurface = value;}
-    public override get RightSurfaceInput() {return super.RightSurfaceInput!;}
-    public override set RightSurfaceInput(value) {super.RightSurfaceInput = value;}
-    public override get RootPriority() {return super.RootPriority!;}
-    public override set RootPriority(value) {super.RootPriority = value;}
-    public override get RotVelocity() {return super.RotVelocity!;}
-    public override set RotVelocity(value) {super.RotVelocity = value;}
-    public override get TopParamA() {return super.TopParamA!;}
-    public override set TopParamA(value) {super.TopParamA = value;}
-    public override get TopParamB() {return super.TopParamB!;}
-    public override set TopParamB(value) {super.TopParamB = value;}
-    public override get TopSurface() {return super.TopSurface!;}
-    public override set TopSurface(value) {super.TopSurface = value;}
-    public override get TopSurfaceInput() {return super.TopSurfaceInput!;}
-    public override set TopSurfaceInput(value) {super.TopSurfaceInput = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Velocity() {return super.Velocity!;}
-    public override set Velocity(value) {super.Velocity = value;}
-    public override get Size() {return super.Size!;}
-    public override set Size(value) {super.Size = value;}
 }
 
 export class TrussPart extends BasePart {
@@ -9650,137 +6635,22 @@ export class TrussPart extends BasePart {
         this.Name = "TrussPart";
         this.Style = Style.AlternatingSupports;
         this.Anchored = false;
-        this.BackParamA = -0.5;
-        this.BackParamB = 0.5;
         this.BackSurface = SurfaceType.Universal;
-        this.BackSurfaceInput = InputType.NoInput;
-        this.BottomParamA = -0.5;
-        this.BottomParamB = 0.5;
         this.BottomSurface = SurfaceType.Universal;
-        this.BottomSurfaceInput = InputType.NoInput;
         this.CanCollide = true;
-        this.CanQuery = true;
-        this.CanTouch = true;
-        this.CastShadow = true;
-        this.CollisionGroup = "Default";
-        this.CollisionGroupId = 0;
+        this.Color3uint8 = Color3.FromRGB(163, 162, 165);
         this.Elasticity = 0.5;
-        this.EnableFluidForces = true;
         this.Friction = 0.3;
-        this.FrontParamA = -0.5;
-        this.FrontParamB = 0.5;
         this.FrontSurface = SurfaceType.Universal;
-        this.FrontSurfaceInput = InputType.NoInput;
-        this.LeftParamA = -0.5;
-        this.LeftParamB = 0.5;
         this.LeftSurface = SurfaceType.Universal;
-        this.LeftSurfaceInput = InputType.NoInput;
         this.Locked = false;
-        this.Massless = false;
-        this.Material = Material.Plastic;
-        this.Reflectance = 0;
-        this.RightParamA = -0.5;
-        this.RightParamB = 0.5;
         this.RightSurface = SurfaceType.Universal;
-        this.RightSurfaceInput = InputType.NoInput;
-        this.RootPriority = 0;
-        this.RotVelocity = new Vector3(0, 0, 0);
-        this.TopParamA = -0.5;
-        this.TopParamB = 0.5;
         this.TopSurface = SurfaceType.Universal;
-        this.TopSurfaceInput = InputType.NoInput;
         this.Transparency = 0;
-        this.Velocity = new Vector3(0, 0, 0);
         this.Size = new Vector3(2, 2, 2);
     }
     public get Style() {return this.GetProp("style", DataType.Enum)! as Style;}
     public set Style(value) {this.SetProp("style", DataType.Enum, value);}
-    public override get Anchored() {return super.Anchored!;}
-    public override set Anchored(value) {super.Anchored = value;}
-    public override get BackParamA() {return super.BackParamA!;}
-    public override set BackParamA(value) {super.BackParamA = value;}
-    public override get BackParamB() {return super.BackParamB!;}
-    public override set BackParamB(value) {super.BackParamB = value;}
-    public override get BackSurface() {return super.BackSurface!;}
-    public override set BackSurface(value) {super.BackSurface = value;}
-    public override get BackSurfaceInput() {return super.BackSurfaceInput!;}
-    public override set BackSurfaceInput(value) {super.BackSurfaceInput = value;}
-    public override get BottomParamA() {return super.BottomParamA!;}
-    public override set BottomParamA(value) {super.BottomParamA = value;}
-    public override get BottomParamB() {return super.BottomParamB!;}
-    public override set BottomParamB(value) {super.BottomParamB = value;}
-    public override get BottomSurface() {return super.BottomSurface!;}
-    public override set BottomSurface(value) {super.BottomSurface = value;}
-    public override get BottomSurfaceInput() {return super.BottomSurfaceInput!;}
-    public override set BottomSurfaceInput(value) {super.BottomSurfaceInput = value;}
-    public override get CanCollide() {return super.CanCollide!;}
-    public override set CanCollide(value) {super.CanCollide = value;}
-    public override get CanQuery() {return super.CanQuery!;}
-    public override set CanQuery(value) {super.CanQuery = value;}
-    public override get CanTouch() {return super.CanTouch!;}
-    public override set CanTouch(value) {super.CanTouch = value;}
-    public override get CastShadow() {return super.CastShadow!;}
-    public override set CastShadow(value) {super.CastShadow = value;}
-    public override get CollisionGroup() {return super.CollisionGroup!;}
-    public override set CollisionGroup(value) {super.CollisionGroup = value;}
-    public override get CollisionGroupId() {return super.CollisionGroupId!;}
-    public override set CollisionGroupId(value) {super.CollisionGroupId = value;}
-    public override get Elasticity() {return super.Elasticity!;}
-    public override set Elasticity(value) {super.Elasticity = value;}
-    public override get EnableFluidForces() {return super.EnableFluidForces!;}
-    public override set EnableFluidForces(value) {super.EnableFluidForces = value;}
-    public override get Friction() {return super.Friction!;}
-    public override set Friction(value) {super.Friction = value;}
-    public override get FrontParamA() {return super.FrontParamA!;}
-    public override set FrontParamA(value) {super.FrontParamA = value;}
-    public override get FrontParamB() {return super.FrontParamB!;}
-    public override set FrontParamB(value) {super.FrontParamB = value;}
-    public override get FrontSurface() {return super.FrontSurface!;}
-    public override set FrontSurface(value) {super.FrontSurface = value;}
-    public override get FrontSurfaceInput() {return super.FrontSurfaceInput!;}
-    public override set FrontSurfaceInput(value) {super.FrontSurfaceInput = value;}
-    public override get LeftParamA() {return super.LeftParamA!;}
-    public override set LeftParamA(value) {super.LeftParamA = value;}
-    public override get LeftParamB() {return super.LeftParamB!;}
-    public override set LeftParamB(value) {super.LeftParamB = value;}
-    public override get LeftSurface() {return super.LeftSurface!;}
-    public override set LeftSurface(value) {super.LeftSurface = value;}
-    public override get LeftSurfaceInput() {return super.LeftSurfaceInput!;}
-    public override set LeftSurfaceInput(value) {super.LeftSurfaceInput = value;}
-    public override get Locked() {return super.Locked!;}
-    public override set Locked(value) {super.Locked = value;}
-    public override get Massless() {return super.Massless!;}
-    public override set Massless(value) {super.Massless = value;}
-    public override get Material() {return super.Material!;}
-    public override set Material(value) {super.Material = value;}
-    public override get Reflectance() {return super.Reflectance!;}
-    public override set Reflectance(value) {super.Reflectance = value;}
-    public override get RightParamA() {return super.RightParamA!;}
-    public override set RightParamA(value) {super.RightParamA = value;}
-    public override get RightParamB() {return super.RightParamB!;}
-    public override set RightParamB(value) {super.RightParamB = value;}
-    public override get RightSurface() {return super.RightSurface!;}
-    public override set RightSurface(value) {super.RightSurface = value;}
-    public override get RightSurfaceInput() {return super.RightSurfaceInput!;}
-    public override set RightSurfaceInput(value) {super.RightSurfaceInput = value;}
-    public override get RootPriority() {return super.RootPriority!;}
-    public override set RootPriority(value) {super.RootPriority = value;}
-    public override get RotVelocity() {return super.RotVelocity!;}
-    public override set RotVelocity(value) {super.RotVelocity = value;}
-    public override get TopParamA() {return super.TopParamA!;}
-    public override set TopParamA(value) {super.TopParamA = value;}
-    public override get TopParamB() {return super.TopParamB!;}
-    public override set TopParamB(value) {super.TopParamB = value;}
-    public override get TopSurface() {return super.TopSurface!;}
-    public override set TopSurface(value) {super.TopSurface = value;}
-    public override get TopSurfaceInput() {return super.TopSurfaceInput!;}
-    public override set TopSurfaceInput(value) {super.TopSurfaceInput = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Velocity() {return super.Velocity!;}
-    public override set Velocity(value) {super.Velocity = value;}
-    public override get Size() {return super.Size!;}
-    public override set Size(value) {super.Size = value;}
 }
 
 export class VehicleSeat extends BasePart {
@@ -9799,47 +6669,18 @@ export class VehicleSeat extends BasePart {
         this.Torque = 10;
         this.TurnSpeed = 1;
         this.Anchored = false;
-        this.BackParamA = -0.5;
-        this.BackParamB = 0.5;
         this.BackSurface = SurfaceType.Smooth;
-        this.BackSurfaceInput = InputType.NoInput;
-        this.BottomParamA = -0.5;
-        this.BottomParamB = 0.5;
         this.BottomSurface = SurfaceType.Inlet;
-        this.BottomSurfaceInput = InputType.NoInput;
         this.CanCollide = true;
-        this.CanQuery = true;
-        this.CanTouch = true;
-        this.CastShadow = true;
-        this.CollisionGroup = "Default";
-        this.CollisionGroupId = 0;
+        this.Color3uint8 = Color3.FromRGB(163, 162, 165);
         this.Elasticity = 0.5;
-        this.EnableFluidForces = true;
         this.Friction = 0.3;
-        this.FrontParamA = -0.5;
-        this.FrontParamB = 0.5;
         this.FrontSurface = SurfaceType.Smooth;
-        this.FrontSurfaceInput = InputType.NoInput;
-        this.LeftParamA = -0.5;
-        this.LeftParamB = 0.5;
         this.LeftSurface = SurfaceType.Smooth;
-        this.LeftSurfaceInput = InputType.NoInput;
         this.Locked = false;
-        this.Massless = false;
-        this.Material = Material.Plastic;
-        this.Reflectance = 0;
-        this.RightParamA = -0.5;
-        this.RightParamB = 0.5;
         this.RightSurface = SurfaceType.Smooth;
-        this.RightSurfaceInput = InputType.NoInput;
-        this.RootPriority = 0;
-        this.RotVelocity = new Vector3(0, 0, 0);
-        this.TopParamA = -0.5;
-        this.TopParamB = 0.5;
         this.TopSurface = SurfaceType.Studs;
-        this.TopSurfaceInput = InputType.NoInput;
         this.Transparency = 0;
-        this.Velocity = new Vector3(0, 0, 0);
         this.Size = new Vector3(4, 1.2, 2);
     }
     public get Disabled() {return this.GetProp("Disabled", DataType.Bool)!;}
@@ -9860,92 +6701,6 @@ export class VehicleSeat extends BasePart {
     public set Torque(value) {this.SetProp("Torque", DataType.Float32, value);}
     public get TurnSpeed() {return this.GetProp("TurnSpeed", DataType.Float32)!;}
     public set TurnSpeed(value) {this.SetProp("TurnSpeed", DataType.Float32, value);}
-    public override get Anchored() {return super.Anchored!;}
-    public override set Anchored(value) {super.Anchored = value;}
-    public override get BackParamA() {return super.BackParamA!;}
-    public override set BackParamA(value) {super.BackParamA = value;}
-    public override get BackParamB() {return super.BackParamB!;}
-    public override set BackParamB(value) {super.BackParamB = value;}
-    public override get BackSurface() {return super.BackSurface!;}
-    public override set BackSurface(value) {super.BackSurface = value;}
-    public override get BackSurfaceInput() {return super.BackSurfaceInput!;}
-    public override set BackSurfaceInput(value) {super.BackSurfaceInput = value;}
-    public override get BottomParamA() {return super.BottomParamA!;}
-    public override set BottomParamA(value) {super.BottomParamA = value;}
-    public override get BottomParamB() {return super.BottomParamB!;}
-    public override set BottomParamB(value) {super.BottomParamB = value;}
-    public override get BottomSurface() {return super.BottomSurface!;}
-    public override set BottomSurface(value) {super.BottomSurface = value;}
-    public override get BottomSurfaceInput() {return super.BottomSurfaceInput!;}
-    public override set BottomSurfaceInput(value) {super.BottomSurfaceInput = value;}
-    public override get CanCollide() {return super.CanCollide!;}
-    public override set CanCollide(value) {super.CanCollide = value;}
-    public override get CanQuery() {return super.CanQuery!;}
-    public override set CanQuery(value) {super.CanQuery = value;}
-    public override get CanTouch() {return super.CanTouch!;}
-    public override set CanTouch(value) {super.CanTouch = value;}
-    public override get CastShadow() {return super.CastShadow!;}
-    public override set CastShadow(value) {super.CastShadow = value;}
-    public override get CollisionGroup() {return super.CollisionGroup!;}
-    public override set CollisionGroup(value) {super.CollisionGroup = value;}
-    public override get CollisionGroupId() {return super.CollisionGroupId!;}
-    public override set CollisionGroupId(value) {super.CollisionGroupId = value;}
-    public override get Elasticity() {return super.Elasticity!;}
-    public override set Elasticity(value) {super.Elasticity = value;}
-    public override get EnableFluidForces() {return super.EnableFluidForces!;}
-    public override set EnableFluidForces(value) {super.EnableFluidForces = value;}
-    public override get Friction() {return super.Friction!;}
-    public override set Friction(value) {super.Friction = value;}
-    public override get FrontParamA() {return super.FrontParamA!;}
-    public override set FrontParamA(value) {super.FrontParamA = value;}
-    public override get FrontParamB() {return super.FrontParamB!;}
-    public override set FrontParamB(value) {super.FrontParamB = value;}
-    public override get FrontSurface() {return super.FrontSurface!;}
-    public override set FrontSurface(value) {super.FrontSurface = value;}
-    public override get FrontSurfaceInput() {return super.FrontSurfaceInput!;}
-    public override set FrontSurfaceInput(value) {super.FrontSurfaceInput = value;}
-    public override get LeftParamA() {return super.LeftParamA!;}
-    public override set LeftParamA(value) {super.LeftParamA = value;}
-    public override get LeftParamB() {return super.LeftParamB!;}
-    public override set LeftParamB(value) {super.LeftParamB = value;}
-    public override get LeftSurface() {return super.LeftSurface!;}
-    public override set LeftSurface(value) {super.LeftSurface = value;}
-    public override get LeftSurfaceInput() {return super.LeftSurfaceInput!;}
-    public override set LeftSurfaceInput(value) {super.LeftSurfaceInput = value;}
-    public override get Locked() {return super.Locked!;}
-    public override set Locked(value) {super.Locked = value;}
-    public override get Massless() {return super.Massless!;}
-    public override set Massless(value) {super.Massless = value;}
-    public override get Material() {return super.Material!;}
-    public override set Material(value) {super.Material = value;}
-    public override get Reflectance() {return super.Reflectance!;}
-    public override set Reflectance(value) {super.Reflectance = value;}
-    public override get RightParamA() {return super.RightParamA!;}
-    public override set RightParamA(value) {super.RightParamA = value;}
-    public override get RightParamB() {return super.RightParamB!;}
-    public override set RightParamB(value) {super.RightParamB = value;}
-    public override get RightSurface() {return super.RightSurface!;}
-    public override set RightSurface(value) {super.RightSurface = value;}
-    public override get RightSurfaceInput() {return super.RightSurfaceInput!;}
-    public override set RightSurfaceInput(value) {super.RightSurfaceInput = value;}
-    public override get RootPriority() {return super.RootPriority!;}
-    public override set RootPriority(value) {super.RootPriority = value;}
-    public override get RotVelocity() {return super.RotVelocity!;}
-    public override set RotVelocity(value) {super.RotVelocity = value;}
-    public override get TopParamA() {return super.TopParamA!;}
-    public override set TopParamA(value) {super.TopParamA = value;}
-    public override get TopParamB() {return super.TopParamB!;}
-    public override set TopParamB(value) {super.TopParamB = value;}
-    public override get TopSurface() {return super.TopSurface!;}
-    public override set TopSurface(value) {super.TopSurface = value;}
-    public override get TopSurfaceInput() {return super.TopSurfaceInput!;}
-    public override set TopSurfaceInput(value) {super.TopSurfaceInput = value;}
-    public override get Transparency() {return super.Transparency!;}
-    public override set Transparency(value) {super.Transparency = value;}
-    public override get Velocity() {return super.Velocity!;}
-    public override set Velocity(value) {super.Velocity = value;}
-    public override get Size() {return super.Size!;}
-    public override set Size(value) {super.Size = value;}
 }
 
 export class Model extends PVInstance {
@@ -9994,8 +6749,9 @@ export abstract class BackpackItem extends Model {
     {
         super();
         this.addClassName("BackpackItem");
+        this.TextureId = "";
     }
-    public get TextureId() {return this.GetProp("TextureId", DataType.String);}
+    public get TextureId() {return this.GetProp("TextureId", DataType.String)!;}
     public set TextureId(value) {this.SetProp("TextureId", DataType.String, value);}
 }
 
@@ -10008,14 +6764,11 @@ export class HopperBin extends BackpackItem {
         this.Name = "HopperBin";
         this.Active = false;
         this.BinType = BinType.Script;
-        this.TextureId = "";
     }
     public get Active() {return this.GetProp("Active", DataType.Bool)!;}
     public set Active(value) {this.SetProp("Active", DataType.Bool, value);}
     public get BinType() {return this.GetProp("BinType", DataType.Enum)! as BinType;}
     public set BinType(value) {this.SetProp("BinType", DataType.Enum, value);}
-    public override get TextureId() {return super.TextureId!;}
-    public override set TextureId(value) {super.TextureId = value;}
 }
 
 export class Tool extends BackpackItem {
@@ -10029,13 +6782,13 @@ export class Tool extends BackpackItem {
         this.ManualActivationOnly = false;
         this.RequiresHandle = true;
         this.ToolTip = "";
-        this.TextureId = "";
+        this.Grip = CFrame.Identity;
     }
     public get CanBeDropped() {return this.GetProp("CanBeDropped", DataType.Bool)!;}
     public set CanBeDropped(value) {this.SetProp("CanBeDropped", DataType.Bool, value);}
     public get Enabled() {return this.GetProp("Enabled", DataType.Bool)!;}
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
-    public get Grip() {return this.GetProp("Grip", DataType.CFrame);}
+    public get Grip() {return this.GetProp("Grip", DataType.CFrame)!;}
     public set Grip(value) {this.SetProp("Grip", DataType.CFrame, value);}
     public get ManualActivationOnly() {return this.GetProp("ManualActivationOnly", DataType.Bool)!;}
     public set ManualActivationOnly(value) {this.SetProp("ManualActivationOnly", DataType.Bool, value);}
@@ -10043,8 +6796,6 @@ export class Tool extends BackpackItem {
     public set RequiresHandle(value) {this.SetProp("RequiresHandle", DataType.Bool, value);}
     public get ToolTip() {return this.GetProp("ToolTip", DataType.String)!;}
     public set ToolTip(value) {this.SetProp("ToolTip", DataType.String, value);}
-    public override get TextureId() {return super.TextureId!;}
-    public override set TextureId(value) {super.TextureId = value;}
 }
 
 /**@deprecated Deprecated by Roblox*/
@@ -10054,12 +6805,9 @@ export class Flag extends Tool {
         super();
         this.addClassName("Flag");
         this.Name = "Flag";
-        this.TextureId = "";
     }
     public get TeamColor() {return this.GetProp("TeamColor", DataType.BrickColor);}
     public set TeamColor(value) {this.SetProp("TeamColor", DataType.BrickColor, value);}
-    public override get TextureId() {return super.TextureId!;}
-    public override set TextureId(value) {super.TextureId = value;}
 }
 
 export abstract class WorldRoot extends Model {
@@ -10202,25 +6950,34 @@ export class ParticleEmitter extends Instance {
         this.Name = "ParticleEmitter";
         this.Acceleration = new Vector3(0, 0, 0);
         this.Brightness = 1;
+        this.Color = new ColorSequence(new ColorSequenceKeypoint(0, Color3.FromRGB(255, 255, 255)), new ColorSequenceKeypoint(1, Color3.FromRGB(255, 255, 255)));
         this.Drag = 0;
         this.EmissionDirection = NormalId.Top;
         this.Enabled = true;
+        this.FlipbookFramerate = new NumberRange(1, 1);
         this.FlipbookIncompatible = "Particle texture must be 1024 by 1024 to use flipbooks.";
         this.FlipbookLayout = ParticleFlipbookLayout.None;
         this.FlipbookMode = ParticleFlipbookMode.Loop;
         this.FlipbookStartRandom = false;
+        this.Lifetime = new NumberRange(5, 10);
         this.LightEmission = 0;
         this.LightInfluence = 0;
         this.LockedToPart = false;
         this.Orientation = ParticleOrientation.FacingCamera;
         this.Rate = 20;
+        this.RotSpeed = new NumberRange(0, 0);
+        this.Rotation = new NumberRange(0, 0);
         this.Shape = ParticleEmitterShape.Box;
         this.ShapeInOut = ParticleEmitterShapeInOut.Outward;
         this.ShapePartial = 1;
         this.ShapeStyle = ParticleEmitterShapeStyle.Volume;
+        this.Size = new NumberSequence(new NumberSequenceKeypoint(0, 1, 0), new NumberSequenceKeypoint(1, 1, 0));
+        this.Speed = new NumberRange(5, 5);
         this.SpreadAngle = new Vector2(0, 0);
+        this.Squash = new NumberSequence(new NumberSequenceKeypoint(0, 0, 0), new NumberSequenceKeypoint(1, 0, 0));
         this.Texture = "rbxasset://textures/particles/sparkles_main.dds";
         this.TimeScale = 1;
+        this.Transparency = new NumberSequence(new NumberSequenceKeypoint(0, 0, 0), new NumberSequenceKeypoint(1, 0, 0));
         this.VelocityInheritance = 0;
         this.VelocitySpread = 0;
         this.WindAffectsDrag = false;
@@ -10230,7 +6987,7 @@ export class ParticleEmitter extends Instance {
     public set Acceleration(value) {this.SetProp("Acceleration", DataType.Vector3, value);}
     public get Brightness() {return this.GetProp("Brightness", DataType.Float32)!;}
     public set Brightness(value) {this.SetProp("Brightness", DataType.Float32, value);}
-    public get Color() {return this.GetProp("Color", DataType.ColorSequence);}
+    public get Color() {return this.GetProp("Color", DataType.ColorSequence)!;}
     public set Color(value) {this.SetProp("Color", DataType.ColorSequence, value);}
     public get Drag() {return this.GetProp("Drag", DataType.Float32)!;}
     public set Drag(value) {this.SetProp("Drag", DataType.Float32, value);}
@@ -10238,7 +6995,7 @@ export class ParticleEmitter extends Instance {
     public set EmissionDirection(value) {this.SetProp("EmissionDirection", DataType.Enum, value);}
     public get Enabled() {return this.GetProp("Enabled", DataType.Bool)!;}
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
-    public get FlipbookFramerate() {return this.GetProp("FlipbookFramerate", DataType.NumberRange);}
+    public get FlipbookFramerate() {return this.GetProp("FlipbookFramerate", DataType.NumberRange)!;}
     public set FlipbookFramerate(value) {this.SetProp("FlipbookFramerate", DataType.NumberRange, value);}
     public get FlipbookIncompatible() {return this.GetProp("FlipbookIncompatible", DataType.String)!;}
     public set FlipbookIncompatible(value) {this.SetProp("FlipbookIncompatible", DataType.String, value);}
@@ -10248,7 +7005,7 @@ export class ParticleEmitter extends Instance {
     public set FlipbookMode(value) {this.SetProp("FlipbookMode", DataType.Enum, value);}
     public get FlipbookStartRandom() {return this.GetProp("FlipbookStartRandom", DataType.Bool)!;}
     public set FlipbookStartRandom(value) {this.SetProp("FlipbookStartRandom", DataType.Bool, value);}
-    public get Lifetime() {return this.GetProp("Lifetime", DataType.NumberRange);}
+    public get Lifetime() {return this.GetProp("Lifetime", DataType.NumberRange)!;}
     public set Lifetime(value) {this.SetProp("Lifetime", DataType.NumberRange, value);}
     public get LightEmission() {return this.GetProp("LightEmission", DataType.Float32)!;}
     public set LightEmission(value) {this.SetProp("LightEmission", DataType.Float32, value);}
@@ -10260,9 +7017,9 @@ export class ParticleEmitter extends Instance {
     public set Orientation(value) {this.SetProp("Orientation", DataType.Enum, value);}
     public get Rate() {return this.GetProp("Rate", DataType.Float32)!;}
     public set Rate(value) {this.SetProp("Rate", DataType.Float32, value);}
-    public get RotSpeed() {return this.GetProp("RotSpeed", DataType.NumberRange);}
+    public get RotSpeed() {return this.GetProp("RotSpeed", DataType.NumberRange)!;}
     public set RotSpeed(value) {this.SetProp("RotSpeed", DataType.NumberRange, value);}
-    public get Rotation() {return this.GetProp("Rotation", DataType.NumberRange);}
+    public get Rotation() {return this.GetProp("Rotation", DataType.NumberRange)!;}
     public set Rotation(value) {this.SetProp("Rotation", DataType.NumberRange, value);}
     public get Shape() {return this.GetProp("Shape", DataType.Enum)! as ParticleEmitterShape;}
     public set Shape(value) {this.SetProp("Shape", DataType.Enum, value);}
@@ -10272,19 +7029,19 @@ export class ParticleEmitter extends Instance {
     public set ShapePartial(value) {this.SetProp("ShapePartial", DataType.Float32, value);}
     public get ShapeStyle() {return this.GetProp("ShapeStyle", DataType.Enum)! as ParticleEmitterShapeStyle;}
     public set ShapeStyle(value) {this.SetProp("ShapeStyle", DataType.Enum, value);}
-    public get Size() {return this.GetProp("Size", DataType.NumberSequence);}
+    public get Size() {return this.GetProp("Size", DataType.NumberSequence)!;}
     public set Size(value) {this.SetProp("Size", DataType.NumberSequence, value);}
-    public get Speed() {return this.GetProp("Speed", DataType.NumberRange);}
+    public get Speed() {return this.GetProp("Speed", DataType.NumberRange)!;}
     public set Speed(value) {this.SetProp("Speed", DataType.NumberRange, value);}
     public get SpreadAngle() {return this.GetProp("SpreadAngle", DataType.Vector2)!;}
     public set SpreadAngle(value) {this.SetProp("SpreadAngle", DataType.Vector2, value);}
-    public get Squash() {return this.GetProp("Squash", DataType.NumberSequence);}
+    public get Squash() {return this.GetProp("Squash", DataType.NumberSequence)!;}
     public set Squash(value) {this.SetProp("Squash", DataType.NumberSequence, value);}
     public get Texture() {return this.GetProp("Texture", DataType.String)!;}
     public set Texture(value) {this.SetProp("Texture", DataType.String, value);}
     public get TimeScale() {return this.GetProp("TimeScale", DataType.Float32)!;}
     public set TimeScale(value) {this.SetProp("TimeScale", DataType.Float32, value);}
-    public get Transparency() {return this.GetProp("Transparency", DataType.NumberSequence);}
+    public get Transparency() {return this.GetProp("Transparency", DataType.NumberSequence)!;}
     public set Transparency(value) {this.SetProp("Transparency", DataType.NumberSequence, value);}
     public get VelocityInheritance() {return this.GetProp("VelocityInheritance", DataType.Float32)!;}
     public set VelocityInheritance(value) {this.SetProp("VelocityInheritance", DataType.Float32, value);}
@@ -10610,12 +7367,15 @@ export abstract class PoseBase extends Instance {
     {
         super();
         this.addClassName("PoseBase");
+        this.EasingDirection = PoseEasingDirection.In;
+        this.EasingStyle = PoseEasingStyle.Linear;
+        this.Weight = 1;
     }
-    public get EasingDirection() {return this.GetProp("EasingDirection", DataType.Enum) as PoseEasingDirection | undefined;}
+    public get EasingDirection() {return this.GetProp("EasingDirection", DataType.Enum)! as PoseEasingDirection;}
     public set EasingDirection(value) {this.SetProp("EasingDirection", DataType.Enum, value);}
-    public get EasingStyle() {return this.GetProp("EasingStyle", DataType.Enum) as PoseEasingStyle | undefined;}
+    public get EasingStyle() {return this.GetProp("EasingStyle", DataType.Enum)! as PoseEasingStyle;}
     public set EasingStyle(value) {this.SetProp("EasingStyle", DataType.Enum, value);}
-    public get Weight() {return this.GetProp("Weight", DataType.Float32);}
+    public get Weight() {return this.GetProp("Weight", DataType.Float32)!;}
     public set Weight(value) {this.SetProp("Weight", DataType.Float32, value);}
 }
 
@@ -10626,18 +7386,9 @@ export class NumberPose extends PoseBase {
         this.addClassName("NumberPose");
         this.Name = "NumberPose";
         this.Value = 0;
-        this.EasingDirection = PoseEasingDirection.In;
-        this.EasingStyle = PoseEasingStyle.Linear;
-        this.Weight = 1;
     }
     public get Value() {return this.GetProp("Value", DataType.Float64)!;}
     public set Value(value) {this.SetProp("Value", DataType.Float64, value);}
-    public override get EasingDirection() {return super.EasingDirection!;}
-    public override set EasingDirection(value) {super.EasingDirection = value;}
-    public override get EasingStyle() {return super.EasingStyle!;}
-    public override set EasingStyle(value) {super.EasingStyle = value;}
-    public override get Weight() {return super.Weight!;}
-    public override set Weight(value) {super.Weight = value;}
 }
 
 export class Pose extends PoseBase {
@@ -10647,22 +7398,14 @@ export class Pose extends PoseBase {
         this.addClassName("Pose");
         this.Name = "Pose";
         this.MaskWeight = 0;
-        this.EasingDirection = PoseEasingDirection.In;
-        this.EasingStyle = PoseEasingStyle.Linear;
-        this.Weight = 1;
+        this.CFrame = CFrame.Identity;
     }
-    public get CFrame() {return this.GetProp("CFrame", DataType.CFrame);}
+    public get CFrame() {return this.GetProp("CFrame", DataType.CFrame)!;}
     public set CFrame(value) {this.SetProp("CFrame", DataType.CFrame, value);}
     /**@deprecated Deprecated by Roblox*/
     public get MaskWeight() {return this.GetProp("MaskWeight", DataType.Float32)!;}
     /**@deprecated Deprecated by Roblox*/
     public set MaskWeight(value) {this.SetProp("MaskWeight", DataType.Float32, value);}
-    public override get EasingDirection() {return super.EasingDirection!;}
-    public override set EasingDirection(value) {super.EasingDirection = value;}
-    public override get EasingStyle() {return super.EasingStyle!;}
-    public override set EasingStyle(value) {super.EasingStyle = value;}
-    public override get Weight() {return super.Weight!;}
-    public override set Weight(value) {super.Weight = value;}
 }
 
 export abstract class PostEffect extends Instance {
@@ -10670,8 +7413,9 @@ export abstract class PostEffect extends Instance {
     {
         super();
         this.addClassName("PostEffect");
+        this.Enabled = true;
     }
-    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool)!;}
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
 }
 
@@ -10684,7 +7428,6 @@ export class BloomEffect extends PostEffect {
         this.Intensity = 0.4;
         this.Size = 24;
         this.Threshold = 0.95;
-        this.Enabled = true;
     }
     public get Intensity() {return this.GetProp("Intensity", DataType.Float32)!;}
     public set Intensity(value) {this.SetProp("Intensity", DataType.Float32, value);}
@@ -10692,8 +7435,6 @@ export class BloomEffect extends PostEffect {
     public set Size(value) {this.SetProp("Size", DataType.Float32, value);}
     public get Threshold() {return this.GetProp("Threshold", DataType.Float32)!;}
     public set Threshold(value) {this.SetProp("Threshold", DataType.Float32, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
 }
 
 export class BlurEffect extends PostEffect {
@@ -10703,12 +7444,9 @@ export class BlurEffect extends PostEffect {
         this.addClassName("BlurEffect");
         this.Name = "BlurEffect";
         this.Size = 24;
-        this.Enabled = true;
     }
     public get Size() {return this.GetProp("Size", DataType.Float32)!;}
     public set Size(value) {this.SetProp("Size", DataType.Float32, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
 }
 
 export class ColorCorrectionEffect extends PostEffect {
@@ -10721,7 +7459,6 @@ export class ColorCorrectionEffect extends PostEffect {
         this.Contrast = 0;
         this.Saturation = 0;
         this.TintColor = Color3.FromRGB(255, 255, 255);
-        this.Enabled = true;
     }
     public get Brightness() {return this.GetProp("Brightness", DataType.Float32)!;}
     public set Brightness(value) {this.SetProp("Brightness", DataType.Float32, value);}
@@ -10731,8 +7468,6 @@ export class ColorCorrectionEffect extends PostEffect {
     public set Saturation(value) {this.SetProp("Saturation", DataType.Float32, value);}
     public get TintColor() {return this.GetProp("TintColor", DataType.Color3)!;}
     public set TintColor(value) {this.SetProp("TintColor", DataType.Color3, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
 }
 
 export class DepthOfFieldEffect extends PostEffect {
@@ -10745,7 +7480,6 @@ export class DepthOfFieldEffect extends PostEffect {
         this.FocusDistance = 0.05;
         this.InFocusRadius = 10;
         this.NearIntensity = 0.75;
-        this.Enabled = true;
     }
     public get FarIntensity() {return this.GetProp("FarIntensity", DataType.Float32)!;}
     public set FarIntensity(value) {this.SetProp("FarIntensity", DataType.Float32, value);}
@@ -10755,8 +7489,6 @@ export class DepthOfFieldEffect extends PostEffect {
     public set InFocusRadius(value) {this.SetProp("InFocusRadius", DataType.Float32, value);}
     public get NearIntensity() {return this.GetProp("NearIntensity", DataType.Float32)!;}
     public set NearIntensity(value) {this.SetProp("NearIntensity", DataType.Float32, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
 }
 
 export class SunRaysEffect extends PostEffect {
@@ -10767,14 +7499,11 @@ export class SunRaysEffect extends PostEffect {
         this.Name = "SunRaysEffect";
         this.Intensity = 0.25;
         this.Spread = 1;
-        this.Enabled = true;
     }
     public get Intensity() {return this.GetProp("Intensity", DataType.Float32)!;}
     public set Intensity(value) {this.SetProp("Intensity", DataType.Float32, value);}
     public get Spread() {return this.GetProp("Spread", DataType.Float32)!;}
     public set Spread(value) {this.SetProp("Spread", DataType.Float32, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
 }
 
 export class ProcessInstancePhysicsService extends Instance {
@@ -10937,38 +7666,54 @@ export abstract class ReflectionMetadataItem extends Instance {
     {
         super();
         this.addClassName("ReflectionMetadataItem");
+        this.Browsable = true;
+        this.ClassCategory = "";
+        this.ClientOnly = false;
+        this.Constraint = "";
+        this.Deprecated = false;
+        this.EditingDisabled = false;
+        this.EditorType = "";
+        this.FFlag = "";
+        this.IsBackend = false;
+        this.PropertyOrder = 5000;
+        this.ScriptContext = "";
+        this.ServerOnly = false;
+        this.SliderScaling = "";
+        this.UIMaximum = 0;
+        this.UIMinimum = 0;
+        this.UINumTicks = 0;
     }
-    public get Browsable() {return this.GetProp("Browsable", DataType.Bool);}
+    public get Browsable() {return this.GetProp("Browsable", DataType.Bool)!;}
     public set Browsable(value) {this.SetProp("Browsable", DataType.Bool, value);}
-    public get ClassCategory() {return this.GetProp("ClassCategory", DataType.String);}
+    public get ClassCategory() {return this.GetProp("ClassCategory", DataType.String)!;}
     public set ClassCategory(value) {this.SetProp("ClassCategory", DataType.String, value);}
-    public get ClientOnly() {return this.GetProp("ClientOnly", DataType.Bool);}
+    public get ClientOnly() {return this.GetProp("ClientOnly", DataType.Bool)!;}
     public set ClientOnly(value) {this.SetProp("ClientOnly", DataType.Bool, value);}
-    public get Constraint() {return this.GetProp("Constraint", DataType.String);}
+    public get Constraint() {return this.GetProp("Constraint", DataType.String)!;}
     public set Constraint(value) {this.SetProp("Constraint", DataType.String, value);}
-    public get Deprecated() {return this.GetProp("Deprecated", DataType.Bool);}
+    public get Deprecated() {return this.GetProp("Deprecated", DataType.Bool)!;}
     public set Deprecated(value) {this.SetProp("Deprecated", DataType.Bool, value);}
-    public get EditingDisabled() {return this.GetProp("EditingDisabled", DataType.Bool);}
+    public get EditingDisabled() {return this.GetProp("EditingDisabled", DataType.Bool)!;}
     public set EditingDisabled(value) {this.SetProp("EditingDisabled", DataType.Bool, value);}
-    public get EditorType() {return this.GetProp("EditorType", DataType.String);}
+    public get EditorType() {return this.GetProp("EditorType", DataType.String)!;}
     public set EditorType(value) {this.SetProp("EditorType", DataType.String, value);}
-    public get FFlag() {return this.GetProp("FFlag", DataType.String);}
+    public get FFlag() {return this.GetProp("FFlag", DataType.String)!;}
     public set FFlag(value) {this.SetProp("FFlag", DataType.String, value);}
-    public get IsBackend() {return this.GetProp("IsBackend", DataType.Bool);}
+    public get IsBackend() {return this.GetProp("IsBackend", DataType.Bool)!;}
     public set IsBackend(value) {this.SetProp("IsBackend", DataType.Bool, value);}
-    public get PropertyOrder() {return this.GetProp("PropertyOrder", DataType.Int32);}
+    public get PropertyOrder() {return this.GetProp("PropertyOrder", DataType.Int32)!;}
     public set PropertyOrder(value) {this.SetProp("PropertyOrder", DataType.Int32, value);}
-    public get ScriptContext() {return this.GetProp("ScriptContext", DataType.String);}
+    public get ScriptContext() {return this.GetProp("ScriptContext", DataType.String)!;}
     public set ScriptContext(value) {this.SetProp("ScriptContext", DataType.String, value);}
-    public get ServerOnly() {return this.GetProp("ServerOnly", DataType.Bool);}
+    public get ServerOnly() {return this.GetProp("ServerOnly", DataType.Bool)!;}
     public set ServerOnly(value) {this.SetProp("ServerOnly", DataType.Bool, value);}
-    public get SliderScaling() {return this.GetProp("SliderScaling", DataType.String);}
+    public get SliderScaling() {return this.GetProp("SliderScaling", DataType.String)!;}
     public set SliderScaling(value) {this.SetProp("SliderScaling", DataType.String, value);}
-    public get UIMaximum() {return this.GetProp("UIMaximum", DataType.Float64);}
+    public get UIMaximum() {return this.GetProp("UIMaximum", DataType.Float64)!;}
     public set UIMaximum(value) {this.SetProp("UIMaximum", DataType.Float64, value);}
-    public get UIMinimum() {return this.GetProp("UIMinimum", DataType.Float64);}
+    public get UIMinimum() {return this.GetProp("UIMinimum", DataType.Float64)!;}
     public set UIMinimum(value) {this.SetProp("UIMinimum", DataType.Float64, value);}
-    public get UINumTicks() {return this.GetProp("UINumTicks", DataType.Float64);}
+    public get UINumTicks() {return this.GetProp("UINumTicks", DataType.Float64)!;}
     public set UINumTicks(value) {this.SetProp("UINumTicks", DataType.Float64, value);}
 }
 
@@ -10983,22 +7728,6 @@ export class ReflectionMetadataClass extends ReflectionMetadataItem {
         this.Insertable = true;
         this.PreferredParent = "";
         this.ServiceVisibility = ServiceVisibility.Always;
-        this.Browsable = true;
-        this.ClassCategory = "";
-        this.ClientOnly = false;
-        this.Constraint = "";
-        this.Deprecated = false;
-        this.EditingDisabled = false;
-        this.EditorType = "";
-        this.FFlag = "";
-        this.IsBackend = false;
-        this.PropertyOrder = 5000;
-        this.ScriptContext = "";
-        this.ServerOnly = false;
-        this.SliderScaling = "";
-        this.UIMaximum = 0;
-        this.UIMinimum = 0;
-        this.UINumTicks = 0;
     }
     public get ExplorerImageIndex() {return this.GetProp("ExplorerImageIndex", DataType.Int32)!;}
     public set ExplorerImageIndex(value) {this.SetProp("ExplorerImageIndex", DataType.Int32, value);}
@@ -11010,38 +7739,6 @@ export class ReflectionMetadataClass extends ReflectionMetadataItem {
     public set PreferredParent(value) {this.SetProp("PreferredParent", DataType.String, value);}
     public get ServiceVisibility() {return this.GetProp("ServiceVisibility", DataType.Enum)! as ServiceVisibility;}
     public set ServiceVisibility(value) {this.SetProp("ServiceVisibility", DataType.Enum, value);}
-    public override get Browsable() {return super.Browsable!;}
-    public override set Browsable(value) {super.Browsable = value;}
-    public override get ClassCategory() {return super.ClassCategory!;}
-    public override set ClassCategory(value) {super.ClassCategory = value;}
-    public override get ClientOnly() {return super.ClientOnly!;}
-    public override set ClientOnly(value) {super.ClientOnly = value;}
-    public override get Constraint() {return super.Constraint!;}
-    public override set Constraint(value) {super.Constraint = value;}
-    public override get Deprecated() {return super.Deprecated!;}
-    public override set Deprecated(value) {super.Deprecated = value;}
-    public override get EditingDisabled() {return super.EditingDisabled!;}
-    public override set EditingDisabled(value) {super.EditingDisabled = value;}
-    public override get EditorType() {return super.EditorType!;}
-    public override set EditorType(value) {super.EditorType = value;}
-    public override get FFlag() {return super.FFlag!;}
-    public override set FFlag(value) {super.FFlag = value;}
-    public override get IsBackend() {return super.IsBackend!;}
-    public override set IsBackend(value) {super.IsBackend = value;}
-    public override get PropertyOrder() {return super.PropertyOrder!;}
-    public override set PropertyOrder(value) {super.PropertyOrder = value;}
-    public override get ScriptContext() {return super.ScriptContext!;}
-    public override set ScriptContext(value) {super.ScriptContext = value;}
-    public override get ServerOnly() {return super.ServerOnly!;}
-    public override set ServerOnly(value) {super.ServerOnly = value;}
-    public override get SliderScaling() {return super.SliderScaling!;}
-    public override set SliderScaling(value) {super.SliderScaling = value;}
-    public override get UIMaximum() {return super.UIMaximum!;}
-    public override set UIMaximum(value) {super.UIMaximum = value;}
-    public override get UIMinimum() {return super.UIMinimum!;}
-    public override set UIMinimum(value) {super.UIMinimum = value;}
-    public override get UINumTicks() {return super.UINumTicks!;}
-    public override set UINumTicks(value) {super.UINumTicks = value;}
 }
 
 export class ReflectionMetadataEnum extends ReflectionMetadataItem {
@@ -11050,55 +7747,7 @@ export class ReflectionMetadataEnum extends ReflectionMetadataItem {
         super();
         this.addClassName("ReflectionMetadataEnum");
         this.Name = "ReflectionMetadataEnum";
-        this.Browsable = true;
-        this.ClassCategory = "";
-        this.ClientOnly = false;
-        this.Constraint = "";
-        this.Deprecated = false;
-        this.EditingDisabled = false;
-        this.EditorType = "";
-        this.FFlag = "";
-        this.IsBackend = false;
-        this.PropertyOrder = 5000;
-        this.ScriptContext = "";
-        this.ServerOnly = false;
-        this.SliderScaling = "";
-        this.UIMaximum = 0;
-        this.UIMinimum = 0;
-        this.UINumTicks = 0;
     }
-    public override get Browsable() {return super.Browsable!;}
-    public override set Browsable(value) {super.Browsable = value;}
-    public override get ClassCategory() {return super.ClassCategory!;}
-    public override set ClassCategory(value) {super.ClassCategory = value;}
-    public override get ClientOnly() {return super.ClientOnly!;}
-    public override set ClientOnly(value) {super.ClientOnly = value;}
-    public override get Constraint() {return super.Constraint!;}
-    public override set Constraint(value) {super.Constraint = value;}
-    public override get Deprecated() {return super.Deprecated!;}
-    public override set Deprecated(value) {super.Deprecated = value;}
-    public override get EditingDisabled() {return super.EditingDisabled!;}
-    public override set EditingDisabled(value) {super.EditingDisabled = value;}
-    public override get EditorType() {return super.EditorType!;}
-    public override set EditorType(value) {super.EditorType = value;}
-    public override get FFlag() {return super.FFlag!;}
-    public override set FFlag(value) {super.FFlag = value;}
-    public override get IsBackend() {return super.IsBackend!;}
-    public override set IsBackend(value) {super.IsBackend = value;}
-    public override get PropertyOrder() {return super.PropertyOrder!;}
-    public override set PropertyOrder(value) {super.PropertyOrder = value;}
-    public override get ScriptContext() {return super.ScriptContext!;}
-    public override set ScriptContext(value) {super.ScriptContext = value;}
-    public override get ServerOnly() {return super.ServerOnly!;}
-    public override set ServerOnly(value) {super.ServerOnly = value;}
-    public override get SliderScaling() {return super.SliderScaling!;}
-    public override set SliderScaling(value) {super.SliderScaling = value;}
-    public override get UIMaximum() {return super.UIMaximum!;}
-    public override set UIMaximum(value) {super.UIMaximum = value;}
-    public override get UIMinimum() {return super.UIMinimum!;}
-    public override set UIMinimum(value) {super.UIMinimum = value;}
-    public override get UINumTicks() {return super.UINumTicks!;}
-    public override set UINumTicks(value) {super.UINumTicks = value;}
 }
 
 export class ReflectionMetadataEnumItem extends ReflectionMetadataItem {
@@ -11107,55 +7756,7 @@ export class ReflectionMetadataEnumItem extends ReflectionMetadataItem {
         super();
         this.addClassName("ReflectionMetadataEnumItem");
         this.Name = "ReflectionMetadataEnumItem";
-        this.Browsable = true;
-        this.ClassCategory = "";
-        this.ClientOnly = false;
-        this.Constraint = "";
-        this.Deprecated = false;
-        this.EditingDisabled = false;
-        this.EditorType = "";
-        this.FFlag = "";
-        this.IsBackend = false;
-        this.PropertyOrder = 5000;
-        this.ScriptContext = "";
-        this.ServerOnly = false;
-        this.SliderScaling = "";
-        this.UIMaximum = 0;
-        this.UIMinimum = 0;
-        this.UINumTicks = 0;
     }
-    public override get Browsable() {return super.Browsable!;}
-    public override set Browsable(value) {super.Browsable = value;}
-    public override get ClassCategory() {return super.ClassCategory!;}
-    public override set ClassCategory(value) {super.ClassCategory = value;}
-    public override get ClientOnly() {return super.ClientOnly!;}
-    public override set ClientOnly(value) {super.ClientOnly = value;}
-    public override get Constraint() {return super.Constraint!;}
-    public override set Constraint(value) {super.Constraint = value;}
-    public override get Deprecated() {return super.Deprecated!;}
-    public override set Deprecated(value) {super.Deprecated = value;}
-    public override get EditingDisabled() {return super.EditingDisabled!;}
-    public override set EditingDisabled(value) {super.EditingDisabled = value;}
-    public override get EditorType() {return super.EditorType!;}
-    public override set EditorType(value) {super.EditorType = value;}
-    public override get FFlag() {return super.FFlag!;}
-    public override set FFlag(value) {super.FFlag = value;}
-    public override get IsBackend() {return super.IsBackend!;}
-    public override set IsBackend(value) {super.IsBackend = value;}
-    public override get PropertyOrder() {return super.PropertyOrder!;}
-    public override set PropertyOrder(value) {super.PropertyOrder = value;}
-    public override get ScriptContext() {return super.ScriptContext!;}
-    public override set ScriptContext(value) {super.ScriptContext = value;}
-    public override get ServerOnly() {return super.ServerOnly!;}
-    public override set ServerOnly(value) {super.ServerOnly = value;}
-    public override get SliderScaling() {return super.SliderScaling!;}
-    public override set SliderScaling(value) {super.SliderScaling = value;}
-    public override get UIMaximum() {return super.UIMaximum!;}
-    public override set UIMaximum(value) {super.UIMaximum = value;}
-    public override get UIMinimum() {return super.UIMinimum!;}
-    public override set UIMinimum(value) {super.UIMinimum = value;}
-    public override get UINumTicks() {return super.UINumTicks!;}
-    public override set UINumTicks(value) {super.UINumTicks = value;}
 }
 
 export class ReflectionMetadataMember extends ReflectionMetadataItem {
@@ -11164,55 +7765,7 @@ export class ReflectionMetadataMember extends ReflectionMetadataItem {
         super();
         this.addClassName("ReflectionMetadataMember");
         this.Name = "ReflectionMetadataMember";
-        this.Browsable = true;
-        this.ClassCategory = "";
-        this.ClientOnly = false;
-        this.Constraint = "";
-        this.Deprecated = false;
-        this.EditingDisabled = false;
-        this.EditorType = "";
-        this.FFlag = "";
-        this.IsBackend = false;
-        this.PropertyOrder = 5000;
-        this.ScriptContext = "";
-        this.ServerOnly = false;
-        this.SliderScaling = "";
-        this.UIMaximum = 0;
-        this.UIMinimum = 0;
-        this.UINumTicks = 0;
     }
-    public override get Browsable() {return super.Browsable!;}
-    public override set Browsable(value) {super.Browsable = value;}
-    public override get ClassCategory() {return super.ClassCategory!;}
-    public override set ClassCategory(value) {super.ClassCategory = value;}
-    public override get ClientOnly() {return super.ClientOnly!;}
-    public override set ClientOnly(value) {super.ClientOnly = value;}
-    public override get Constraint() {return super.Constraint!;}
-    public override set Constraint(value) {super.Constraint = value;}
-    public override get Deprecated() {return super.Deprecated!;}
-    public override set Deprecated(value) {super.Deprecated = value;}
-    public override get EditingDisabled() {return super.EditingDisabled!;}
-    public override set EditingDisabled(value) {super.EditingDisabled = value;}
-    public override get EditorType() {return super.EditorType!;}
-    public override set EditorType(value) {super.EditorType = value;}
-    public override get FFlag() {return super.FFlag!;}
-    public override set FFlag(value) {super.FFlag = value;}
-    public override get IsBackend() {return super.IsBackend!;}
-    public override set IsBackend(value) {super.IsBackend = value;}
-    public override get PropertyOrder() {return super.PropertyOrder!;}
-    public override set PropertyOrder(value) {super.PropertyOrder = value;}
-    public override get ScriptContext() {return super.ScriptContext!;}
-    public override set ScriptContext(value) {super.ScriptContext = value;}
-    public override get ServerOnly() {return super.ServerOnly!;}
-    public override set ServerOnly(value) {super.ServerOnly = value;}
-    public override get SliderScaling() {return super.SliderScaling!;}
-    public override set SliderScaling(value) {super.SliderScaling = value;}
-    public override get UIMaximum() {return super.UIMaximum!;}
-    public override set UIMaximum(value) {super.UIMaximum = value;}
-    public override get UIMinimum() {return super.UIMinimum!;}
-    public override set UIMinimum(value) {super.UIMinimum = value;}
-    public override get UINumTicks() {return super.UINumTicks!;}
-    public override set UINumTicks(value) {super.UINumTicks = value;}
 }
 
 export class ReflectionMetadataProperties extends Instance {
@@ -11324,8 +7877,9 @@ export class RenderingTest extends Instance {
         this.ShouldSkip = false;
         this.Ticket = "";
         this.Timeout = 10;
+        this.CFrame = CFrame.Identity;
     }
-    public get CFrame() {return this.GetProp("CFrame", DataType.CFrame);}
+    public get CFrame() {return this.GetProp("CFrame", DataType.CFrame)!;}
     public set CFrame(value) {this.SetProp("CFrame", DataType.CFrame, value);}
     public get ComparisonDiffThreshold() {return this.GetProp("ComparisonDiffThreshold", DataType.Int32)!;}
     public set ComparisonDiffThreshold(value) {this.SetProp("ComparisonDiffThreshold", DataType.Int32, value);}
@@ -11571,8 +8125,9 @@ export abstract class SensorBase extends Instance {
     {
         super();
         this.addClassName("SensorBase");
+        this.UpdateType = SensorUpdateType.OnRead;
     }
-    public get UpdateType() {return this.GetProp("UpdateType", DataType.Enum) as SensorUpdateType | undefined;}
+    public get UpdateType() {return this.GetProp("UpdateType", DataType.Enum)! as SensorUpdateType;}
     public set UpdateType(value) {this.SetProp("UpdateType", DataType.Enum, value);}
 }
 
@@ -11584,14 +8139,11 @@ export class BuoyancySensor extends SensorBase {
         this.Name = "BuoyancySensor";
         this.FullySubmerged = false;
         this.TouchingSurface = false;
-        this.UpdateType = SensorUpdateType.OnRead;
     }
     public get FullySubmerged() {return this.GetProp("FullySubmerged", DataType.Bool)!;}
     public set FullySubmerged(value) {this.SetProp("FullySubmerged", DataType.Bool, value);}
     public get TouchingSurface() {return this.GetProp("TouchingSurface", DataType.Bool)!;}
     public set TouchingSurface(value) {this.SetProp("TouchingSurface", DataType.Bool, value);}
-    public override get UpdateType() {return super.UpdateType!;}
-    public override set UpdateType(value) {super.UpdateType = value;}
 }
 
 export abstract class ControllerSensor extends SensorBase {
@@ -11611,9 +8163,9 @@ export class ControllerPartSensor extends ControllerSensor {
         this.HitNormal = new Vector3(0, 0, 0);
         this.SearchDistance = 0;
         this.SensorMode = SensorMode.Floor;
-        this.UpdateType = SensorUpdateType.OnRead;
+        this.HitFrame = CFrame.Identity;
     }
-    public get HitFrame() {return this.GetProp("HitFrame", DataType.CFrame);}
+    public get HitFrame() {return this.GetProp("HitFrame", DataType.CFrame)!;}
     public set HitFrame(value) {this.SetProp("HitFrame", DataType.CFrame, value);}
     public get HitNormal() {return this.GetProp("HitNormal", DataType.Vector3)!;}
     public set HitNormal(value) {this.SetProp("HitNormal", DataType.Vector3, value);}
@@ -11623,8 +8175,6 @@ export class ControllerPartSensor extends ControllerSensor {
     public set SensedPart(value) {this.SetProp("SensedPart", DataType.Referent, value);}
     public get SensorMode() {return this.GetProp("SensorMode", DataType.Enum)! as SensorMode;}
     public set SensorMode(value) {this.SetProp("SensorMode", DataType.Enum, value);}
-    public override get UpdateType() {return super.UpdateType!;}
-    public override set UpdateType(value) {super.UpdateType = value;}
 }
 
 export class ServerScriptService extends Instance {
@@ -11796,10 +8346,12 @@ export class Sound extends Instance {
         this.addClassName("Sound");
         this.Name = "Sound";
         this.EmitterSize = 10;
+        this.LoopRegion = new NumberRange(0, 60000);
         this.Looped = false;
         this.MinDistance = 10;
         this.Pitch = 1;
         this.PlayOnRemove = false;
+        this.PlaybackRegion = new NumberRange(0, 60000);
         this.PlaybackRegionsEnabled = false;
         this.PlaybackSpeed = 1;
         this.Playing = false;
@@ -11812,7 +8364,7 @@ export class Sound extends Instance {
     }
     public get EmitterSize() {return this.GetProp("EmitterSize", DataType.Float32)!;}
     public set EmitterSize(value) {this.SetProp("EmitterSize", DataType.Float32, value);}
-    public get LoopRegion() {return this.GetProp("LoopRegion", DataType.NumberRange);}
+    public get LoopRegion() {return this.GetProp("LoopRegion", DataType.NumberRange)!;}
     public set LoopRegion(value) {this.SetProp("LoopRegion", DataType.NumberRange, value);}
     public get Looped() {return this.GetProp("Looped", DataType.Bool)!;}
     public set Looped(value) {this.SetProp("Looped", DataType.Bool, value);}
@@ -11826,7 +8378,7 @@ export class Sound extends Instance {
     public set Pitch(value) {this.SetProp("Pitch", DataType.Float32, value);}
     public get PlayOnRemove() {return this.GetProp("PlayOnRemove", DataType.Bool)!;}
     public set PlayOnRemove(value) {this.SetProp("PlayOnRemove", DataType.Bool, value);}
-    public get PlaybackRegion() {return this.GetProp("PlaybackRegion", DataType.NumberRange);}
+    public get PlaybackRegion() {return this.GetProp("PlaybackRegion", DataType.NumberRange)!;}
     public set PlaybackRegion(value) {this.SetProp("PlaybackRegion", DataType.NumberRange, value);}
     public get PlaybackRegionsEnabled() {return this.GetProp("PlaybackRegionsEnabled", DataType.Bool)!;}
     public set PlaybackRegionsEnabled(value) {this.SetProp("PlaybackRegionsEnabled", DataType.Bool, value);}
@@ -11859,10 +8411,12 @@ export abstract class SoundEffect extends Instance {
     {
         super();
         this.addClassName("SoundEffect");
+        this.Enabled = true;
+        this.Priority = 0;
     }
-    public get Enabled() {return this.GetProp("Enabled", DataType.Bool);}
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool)!;}
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
-    public get Priority() {return this.GetProp("Priority", DataType.Int32);}
+    public get Priority() {return this.GetProp("Priority", DataType.Int32)!;}
     public set Priority(value) {this.SetProp("Priority", DataType.Int32, value);}
 }
 
@@ -11875,8 +8429,6 @@ export class ChorusSoundEffect extends SoundEffect {
         this.Depth = 0.15;
         this.Mix = 0.5;
         this.Rate = 0.5;
-        this.Enabled = true;
-        this.Priority = 0;
     }
     public get Depth() {return this.GetProp("Depth", DataType.Float32)!;}
     public set Depth(value) {this.SetProp("Depth", DataType.Float32, value);}
@@ -11884,10 +8436,6 @@ export class ChorusSoundEffect extends SoundEffect {
     public set Mix(value) {this.SetProp("Mix", DataType.Float32, value);}
     public get Rate() {return this.GetProp("Rate", DataType.Float32)!;}
     public set Rate(value) {this.SetProp("Rate", DataType.Float32, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Priority() {return super.Priority!;}
-    public override set Priority(value) {super.Priority = value;}
 }
 
 export class CompressorSoundEffect extends SoundEffect {
@@ -11901,8 +8449,6 @@ export class CompressorSoundEffect extends SoundEffect {
         this.Ratio = 40;
         this.Release = 0.1;
         this.Threshold = -40;
-        this.Enabled = true;
-        this.Priority = 0;
     }
     public get Attack() {return this.GetProp("Attack", DataType.Float32)!;}
     public set Attack(value) {this.SetProp("Attack", DataType.Float32, value);}
@@ -11916,10 +8462,6 @@ export class CompressorSoundEffect extends SoundEffect {
     public set SideChain(value) {this.SetProp("SideChain", DataType.Referent, value);}
     public get Threshold() {return this.GetProp("Threshold", DataType.Float32)!;}
     public set Threshold(value) {this.SetProp("Threshold", DataType.Float32, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Priority() {return super.Priority!;}
-    public override set Priority(value) {super.Priority = value;}
 }
 
 export class DistortionSoundEffect extends SoundEffect {
@@ -11929,15 +8471,9 @@ export class DistortionSoundEffect extends SoundEffect {
         this.addClassName("DistortionSoundEffect");
         this.Name = "DistortionSoundEffect";
         this.Level = 0.75;
-        this.Enabled = true;
-        this.Priority = 0;
     }
     public get Level() {return this.GetProp("Level", DataType.Float32)!;}
     public set Level(value) {this.SetProp("Level", DataType.Float32, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Priority() {return super.Priority!;}
-    public override set Priority(value) {super.Priority = value;}
 }
 
 export class EchoSoundEffect extends SoundEffect {
@@ -11950,8 +8486,6 @@ export class EchoSoundEffect extends SoundEffect {
         this.DryLevel = 0;
         this.Feedback = 0.5;
         this.WetLevel = 0;
-        this.Enabled = true;
-        this.Priority = 0;
     }
     public get Delay() {return this.GetProp("Delay", DataType.Float32)!;}
     public set Delay(value) {this.SetProp("Delay", DataType.Float32, value);}
@@ -11961,10 +8495,6 @@ export class EchoSoundEffect extends SoundEffect {
     public set Feedback(value) {this.SetProp("Feedback", DataType.Float32, value);}
     public get WetLevel() {return this.GetProp("WetLevel", DataType.Float32)!;}
     public set WetLevel(value) {this.SetProp("WetLevel", DataType.Float32, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Priority() {return super.Priority!;}
-    public override set Priority(value) {super.Priority = value;}
 }
 
 export class EqualizerSoundEffect extends SoundEffect {
@@ -11976,8 +8506,6 @@ export class EqualizerSoundEffect extends SoundEffect {
         this.HighGain = 0;
         this.LowGain = -20;
         this.MidGain = -10;
-        this.Enabled = true;
-        this.Priority = 0;
     }
     public get HighGain() {return this.GetProp("HighGain", DataType.Float32)!;}
     public set HighGain(value) {this.SetProp("HighGain", DataType.Float32, value);}
@@ -11985,10 +8513,6 @@ export class EqualizerSoundEffect extends SoundEffect {
     public set LowGain(value) {this.SetProp("LowGain", DataType.Float32, value);}
     public get MidGain() {return this.GetProp("MidGain", DataType.Float32)!;}
     public set MidGain(value) {this.SetProp("MidGain", DataType.Float32, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Priority() {return super.Priority!;}
-    public override set Priority(value) {super.Priority = value;}
 }
 
 export class FlangeSoundEffect extends SoundEffect {
@@ -12000,8 +8524,6 @@ export class FlangeSoundEffect extends SoundEffect {
         this.Depth = 0.45;
         this.Mix = 0.85;
         this.Rate = 5;
-        this.Enabled = true;
-        this.Priority = 0;
     }
     public get Depth() {return this.GetProp("Depth", DataType.Float32)!;}
     public set Depth(value) {this.SetProp("Depth", DataType.Float32, value);}
@@ -12009,10 +8531,6 @@ export class FlangeSoundEffect extends SoundEffect {
     public set Mix(value) {this.SetProp("Mix", DataType.Float32, value);}
     public get Rate() {return this.GetProp("Rate", DataType.Float32)!;}
     public set Rate(value) {this.SetProp("Rate", DataType.Float32, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Priority() {return super.Priority!;}
-    public override set Priority(value) {super.Priority = value;}
 }
 
 export class PitchShiftSoundEffect extends SoundEffect {
@@ -12022,15 +8540,9 @@ export class PitchShiftSoundEffect extends SoundEffect {
         this.addClassName("PitchShiftSoundEffect");
         this.Name = "PitchShiftSoundEffect";
         this.Octave = 1.25;
-        this.Enabled = true;
-        this.Priority = 0;
     }
     public get Octave() {return this.GetProp("Octave", DataType.Float32)!;}
     public set Octave(value) {this.SetProp("Octave", DataType.Float32, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Priority() {return super.Priority!;}
-    public override set Priority(value) {super.Priority = value;}
 }
 
 export class ReverbSoundEffect extends SoundEffect {
@@ -12044,8 +8556,6 @@ export class ReverbSoundEffect extends SoundEffect {
         this.Diffusion = 1;
         this.DryLevel = -6;
         this.WetLevel = 0;
-        this.Enabled = true;
-        this.Priority = 0;
     }
     public get DecayTime() {return this.GetProp("DecayTime", DataType.Float32)!;}
     public set DecayTime(value) {this.SetProp("DecayTime", DataType.Float32, value);}
@@ -12057,10 +8567,6 @@ export class ReverbSoundEffect extends SoundEffect {
     public set DryLevel(value) {this.SetProp("DryLevel", DataType.Float32, value);}
     public get WetLevel() {return this.GetProp("WetLevel", DataType.Float32)!;}
     public set WetLevel(value) {this.SetProp("WetLevel", DataType.Float32, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Priority() {return super.Priority!;}
-    public override set Priority(value) {super.Priority = value;}
 }
 
 export class TremoloSoundEffect extends SoundEffect {
@@ -12072,8 +8578,6 @@ export class TremoloSoundEffect extends SoundEffect {
         this.Depth = 1;
         this.Duty = 0.5;
         this.Frequency = 5;
-        this.Enabled = true;
-        this.Priority = 0;
     }
     public get Depth() {return this.GetProp("Depth", DataType.Float32)!;}
     public set Depth(value) {this.SetProp("Depth", DataType.Float32, value);}
@@ -12081,10 +8585,6 @@ export class TremoloSoundEffect extends SoundEffect {
     public set Duty(value) {this.SetProp("Duty", DataType.Float32, value);}
     public get Frequency() {return this.GetProp("Frequency", DataType.Float32)!;}
     public set Frequency(value) {this.SetProp("Frequency", DataType.Float32, value);}
-    public override get Enabled() {return super.Enabled!;}
-    public override set Enabled(value) {super.Enabled = value;}
-    public override get Priority() {return super.Priority!;}
-    public override set Priority(value) {super.Priority = value;}
 }
 
 export class SoundGroup extends Instance {
@@ -12216,6 +8716,11 @@ export class StarterPlayer extends Instance {
         this.GameSettingsAssetIDTorso = BigInt(0);
         this.GameSettingsAvatar = GameAvatarType.R15;
         this.GameSettingsR15Collision = R15CollisionType.OuterBox;
+        this.GameSettingsScaleRangeBodyType = new NumberRange(0, 1);
+        this.GameSettingsScaleRangeHead = new NumberRange(0.95, 1);
+        this.GameSettingsScaleRangeHeight = new NumberRange(0.9, 1.05);
+        this.GameSettingsScaleRangeProportion = new NumberRange(0, 1);
+        this.GameSettingsScaleRangeWidth = new NumberRange(0.7, 1);
         this.HealthDisplayDistance = 100;
         this.LoadCharacterAppearance = true;
         this.LoadCharacterLayeredClothing = LoadCharacterLayeredClothing.Default;
@@ -12283,15 +8788,15 @@ export class StarterPlayer extends Instance {
     public set GameSettingsAvatar(value) {this.SetProp("GameSettingsAvatar", DataType.Enum, value);}
     public get GameSettingsR15Collision() {return this.GetProp("GameSettingsR15Collision", DataType.Enum)! as R15CollisionType;}
     public set GameSettingsR15Collision(value) {this.SetProp("GameSettingsR15Collision", DataType.Enum, value);}
-    public get GameSettingsScaleRangeBodyType() {return this.GetProp("GameSettingsScaleRangeBodyType", DataType.NumberRange);}
+    public get GameSettingsScaleRangeBodyType() {return this.GetProp("GameSettingsScaleRangeBodyType", DataType.NumberRange)!;}
     public set GameSettingsScaleRangeBodyType(value) {this.SetProp("GameSettingsScaleRangeBodyType", DataType.NumberRange, value);}
-    public get GameSettingsScaleRangeHead() {return this.GetProp("GameSettingsScaleRangeHead", DataType.NumberRange);}
+    public get GameSettingsScaleRangeHead() {return this.GetProp("GameSettingsScaleRangeHead", DataType.NumberRange)!;}
     public set GameSettingsScaleRangeHead(value) {this.SetProp("GameSettingsScaleRangeHead", DataType.NumberRange, value);}
-    public get GameSettingsScaleRangeHeight() {return this.GetProp("GameSettingsScaleRangeHeight", DataType.NumberRange);}
+    public get GameSettingsScaleRangeHeight() {return this.GetProp("GameSettingsScaleRangeHeight", DataType.NumberRange)!;}
     public set GameSettingsScaleRangeHeight(value) {this.SetProp("GameSettingsScaleRangeHeight", DataType.NumberRange, value);}
-    public get GameSettingsScaleRangeProportion() {return this.GetProp("GameSettingsScaleRangeProportion", DataType.NumberRange);}
+    public get GameSettingsScaleRangeProportion() {return this.GetProp("GameSettingsScaleRangeProportion", DataType.NumberRange)!;}
     public set GameSettingsScaleRangeProportion(value) {this.SetProp("GameSettingsScaleRangeProportion", DataType.NumberRange, value);}
-    public get GameSettingsScaleRangeWidth() {return this.GetProp("GameSettingsScaleRangeWidth", DataType.NumberRange);}
+    public get GameSettingsScaleRangeWidth() {return this.GetProp("GameSettingsScaleRangeWidth", DataType.NumberRange)!;}
     public set GameSettingsScaleRangeWidth(value) {this.SetProp("GameSettingsScaleRangeWidth", DataType.NumberRange, value);}
     public get HealthDisplayDistance() {return this.GetProp("HealthDisplayDistance", DataType.Float32)!;}
     public set HealthDisplayDistance(value) {this.SetProp("HealthDisplayDistance", DataType.Float32, value);}
@@ -12728,11 +9233,13 @@ export class TerrainRegion extends Instance {
         super();
         this.addClassName("TerrainRegion");
         this.Name = "TerrainRegion";
+        this.ExtentsMax = new Vector3(0, 0, 0);
+        this.ExtentsMin = new Vector3(0, 0, 0);
         this.SmoothGrid = "\u0001\u0005";
     }
-    public get ExtentsMax() {return this.GetProp("ExtentsMax", DataType.Vector3int16);}
+    public get ExtentsMax() {return this.GetProp("ExtentsMax", DataType.Vector3int16)!;}
     public set ExtentsMax(value) {this.SetProp("ExtentsMax", DataType.Vector3int16, value);}
-    public get ExtentsMin() {return this.GetProp("ExtentsMin", DataType.Vector3int16);}
+    public get ExtentsMin() {return this.GetProp("ExtentsMin", DataType.Vector3int16)!;}
     public set ExtentsMin(value) {this.SetProp("ExtentsMin", DataType.Vector3int16, value);}
     public get SmoothGrid() {return this.GetProp("SmoothGrid", DataType.String)!;}
     public set SmoothGrid(value) {this.SetProp("SmoothGrid", DataType.String, value);}
@@ -12836,6 +9343,7 @@ export class BubbleChatConfiguration extends TextChatConfigurations {
         this.TextColor3 = Color3.FromRGB(57, 59, 61);
         this.TextSize = BigInt(16);
         this.VerticalStudsOffset = 0;
+        this.FontFace = new RBXMFont("rbxasset://fonts/families/BuilderSans.json", FontWeight.Medium, FontStyle.Normal);
     }
     public get AdorneeName() {return this.GetProp("AdorneeName", DataType.String)!;}
     public set AdorneeName(value) {this.SetProp("AdorneeName", DataType.String, value);}
@@ -12851,7 +9359,7 @@ export class BubbleChatConfiguration extends TextChatConfigurations {
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
     public get Font() {return this.GetProp("Font", DataType.Enum)! as Font;}
     public set Font(value) {this.SetProp("Font", DataType.Enum, value);}
-    public get FontFace() {return this.GetProp("FontFace", DataType.Font);}
+    public get FontFace() {return this.GetProp("FontFace", DataType.Font)!;}
     public set FontFace(value) {this.SetProp("FontFace", DataType.Font, value);}
     public get LocalPlayerStudsOffset() {return this.GetProp("LocalPlayerStudsOffset", DataType.Vector3)!;}
     public set LocalPlayerStudsOffset(value) {this.SetProp("LocalPlayerStudsOffset", DataType.Vector3, value);}
@@ -12887,6 +9395,7 @@ export class ChatInputBarConfiguration extends TextChatConfigurations {
         this.TextSize = BigInt(14);
         this.TextStrokeColor3 = Color3.FromRGB(0, 0, 0);
         this.TextStrokeTransparency = 0.5;
+        this.FontFace = new RBXMFont("rbxasset://fonts/families/BuilderSans.json", FontWeight.Medium, FontStyle.Normal);
     }
     public get AutocompleteEnabled() {return this.GetProp("AutocompleteEnabled", DataType.Bool)!;}
     public set AutocompleteEnabled(value) {this.SetProp("AutocompleteEnabled", DataType.Bool, value);}
@@ -12896,7 +9405,7 @@ export class ChatInputBarConfiguration extends TextChatConfigurations {
     public set BackgroundTransparency(value) {this.SetProp("BackgroundTransparency", DataType.Float64, value);}
     public get Enabled() {return this.GetProp("Enabled", DataType.Bool)!;}
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
-    public get FontFace() {return this.GetProp("FontFace", DataType.Font);}
+    public get FontFace() {return this.GetProp("FontFace", DataType.Font)!;}
     public set FontFace(value) {this.SetProp("FontFace", DataType.Font, value);}
     public get KeyboardKeyCode() {return this.GetProp("KeyboardKeyCode", DataType.Enum)! as KeyCode;}
     public set KeyboardKeyCode(value) {this.SetProp("KeyboardKeyCode", DataType.Enum, value);}
@@ -12931,6 +9440,7 @@ export class ChatWindowConfiguration extends TextChatConfigurations {
         this.TextStrokeTransparency = 0.5;
         this.VerticalAlignment = VerticalAlignment.Top;
         this.WidthScale = 1;
+        this.FontFace = new RBXMFont("rbxasset://fonts/families/BuilderSans.json", FontWeight.Medium, FontStyle.Normal);
     }
     public get BackgroundColor3() {return this.GetProp("BackgroundColor3", DataType.Color3)!;}
     public set BackgroundColor3(value) {this.SetProp("BackgroundColor3", DataType.Color3, value);}
@@ -12938,7 +9448,7 @@ export class ChatWindowConfiguration extends TextChatConfigurations {
     public set BackgroundTransparency(value) {this.SetProp("BackgroundTransparency", DataType.Float64, value);}
     public get Enabled() {return this.GetProp("Enabled", DataType.Bool)!;}
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
-    public get FontFace() {return this.GetProp("FontFace", DataType.Font);}
+    public get FontFace() {return this.GetProp("FontFace", DataType.Font)!;}
     public set FontFace(value) {this.SetProp("FontFace", DataType.Font, value);}
     public get HeightScale() {return this.GetProp("HeightScale", DataType.Float32)!;}
     public set HeightScale(value) {this.SetProp("HeightScale", DataType.Float32, value);}
@@ -13070,6 +9580,7 @@ export class Trail extends Instance {
         this.addClassName("Trail");
         this.Name = "Trail";
         this.Brightness = 1;
+        this.Color = new ColorSequence(new ColorSequenceKeypoint(0, Color3.FromRGB(255, 255, 255)), new ColorSequenceKeypoint(1, Color3.FromRGB(255, 255, 255)));
         this.Enabled = true;
         this.FaceCamera = false;
         this.Lifetime = 2;
@@ -13080,6 +9591,8 @@ export class Trail extends Instance {
         this.Texture = "";
         this.TextureLength = 1;
         this.TextureMode = TextureMode.Stretch;
+        this.Transparency = new NumberSequence(new NumberSequenceKeypoint(0, 0.5, 0), new NumberSequenceKeypoint(1, 0.5, 0));
+        this.WidthScale = new NumberSequence(new NumberSequenceKeypoint(0, 1, 0), new NumberSequenceKeypoint(1, 1, 0));
     }
     public get Attachment0() {return this.GetProp("Attachment0", DataType.Referent) as Attachment | undefined;}
     public set Attachment0(value) {this.SetProp("Attachment0", DataType.Referent, value);}
@@ -13087,7 +9600,7 @@ export class Trail extends Instance {
     public set Attachment1(value) {this.SetProp("Attachment1", DataType.Referent, value);}
     public get Brightness() {return this.GetProp("Brightness", DataType.Float32)!;}
     public set Brightness(value) {this.SetProp("Brightness", DataType.Float32, value);}
-    public get Color() {return this.GetProp("Color", DataType.ColorSequence);}
+    public get Color() {return this.GetProp("Color", DataType.ColorSequence)!;}
     public set Color(value) {this.SetProp("Color", DataType.ColorSequence, value);}
     public get Enabled() {return this.GetProp("Enabled", DataType.Bool)!;}
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
@@ -13109,9 +9622,9 @@ export class Trail extends Instance {
     public set TextureLength(value) {this.SetProp("TextureLength", DataType.Float32, value);}
     public get TextureMode() {return this.GetProp("TextureMode", DataType.Enum)! as TextureMode;}
     public set TextureMode(value) {this.SetProp("TextureMode", DataType.Enum, value);}
-    public get Transparency() {return this.GetProp("Transparency", DataType.NumberSequence);}
+    public get Transparency() {return this.GetProp("Transparency", DataType.NumberSequence)!;}
     public set Transparency(value) {this.SetProp("Transparency", DataType.NumberSequence, value);}
-    public get WidthScale() {return this.GetProp("WidthScale", DataType.NumberSequence);}
+    public get WidthScale() {return this.GetProp("WidthScale", DataType.NumberSequence)!;}
     public set WidthScale(value) {this.SetProp("WidthScale", DataType.NumberSequence, value);}
 }
 
@@ -13279,11 +9792,13 @@ export class UIGradient extends UIComponent {
         super();
         this.addClassName("UIGradient");
         this.Name = "UIGradient";
+        this.Color = new ColorSequence(new ColorSequenceKeypoint(0, Color3.FromRGB(255, 255, 255)), new ColorSequenceKeypoint(1, Color3.FromRGB(255, 255, 255)));
         this.Enabled = true;
         this.Offset = new Vector2(0, 0);
         this.Rotation = 0;
+        this.Transparency = new NumberSequence(new NumberSequenceKeypoint(0, 0, 0), new NumberSequenceKeypoint(1, 0, 0));
     }
-    public get Color() {return this.GetProp("Color", DataType.ColorSequence);}
+    public get Color() {return this.GetProp("Color", DataType.ColorSequence)!;}
     public set Color(value) {this.SetProp("Color", DataType.ColorSequence, value);}
     public get Enabled() {return this.GetProp("Enabled", DataType.Bool)!;}
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
@@ -13291,7 +9806,7 @@ export class UIGradient extends UIComponent {
     public set Offset(value) {this.SetProp("Offset", DataType.Vector2, value);}
     public get Rotation() {return this.GetProp("Rotation", DataType.Float32)!;}
     public set Rotation(value) {this.SetProp("Rotation", DataType.Float32, value);}
-    public get Transparency() {return this.GetProp("Transparency", DataType.NumberSequence);}
+    public get Transparency() {return this.GetProp("Transparency", DataType.NumberSequence)!;}
     public set Transparency(value) {this.SetProp("Transparency", DataType.NumberSequence, value);}
 }
 
@@ -13308,14 +9823,17 @@ export abstract class UIGridStyleLayout extends UILayout {
     {
         super();
         this.addClassName("UIGridStyleLayout");
+        this.HorizontalAlignment = HorizontalAlignment.Left;
+        this.SortOrder = SortOrder.Name;
+        this.VerticalAlignment = VerticalAlignment.Top;
     }
-    public get FillDirection() {return this.GetProp("FillDirection", DataType.Enum) as FillDirection | undefined;}
+    public get FillDirection() {return this.GetProp("FillDirection", DataType.Enum)! as FillDirection;}
     public set FillDirection(value) {this.SetProp("FillDirection", DataType.Enum, value);}
-    public get HorizontalAlignment() {return this.GetProp("HorizontalAlignment", DataType.Enum) as HorizontalAlignment | undefined;}
+    public get HorizontalAlignment() {return this.GetProp("HorizontalAlignment", DataType.Enum)! as HorizontalAlignment;}
     public set HorizontalAlignment(value) {this.SetProp("HorizontalAlignment", DataType.Enum, value);}
-    public get SortOrder() {return this.GetProp("SortOrder", DataType.Enum) as SortOrder | undefined;}
+    public get SortOrder() {return this.GetProp("SortOrder", DataType.Enum)! as SortOrder;}
     public set SortOrder(value) {this.SetProp("SortOrder", DataType.Enum, value);}
-    public get VerticalAlignment() {return this.GetProp("VerticalAlignment", DataType.Enum) as VerticalAlignment | undefined;}
+    public get VerticalAlignment() {return this.GetProp("VerticalAlignment", DataType.Enum)! as VerticalAlignment;}
     public set VerticalAlignment(value) {this.SetProp("VerticalAlignment", DataType.Enum, value);}
 }
 
@@ -13325,29 +9843,20 @@ export class UIGridLayout extends UIGridStyleLayout {
         super();
         this.addClassName("UIGridLayout");
         this.Name = "UIGridLayout";
+        this.CellPadding = new UDim2(new UDim(0, 5), new UDim(0, 5));
+        this.CellSize = new UDim2(new UDim(0, 100), new UDim(0, 100));
         this.FillDirectionMaxCells = 0;
         this.StartCorner = StartCorner.TopLeft;
         this.FillDirection = FillDirection.Horizontal;
-        this.HorizontalAlignment = HorizontalAlignment.Left;
-        this.SortOrder = SortOrder.Name;
-        this.VerticalAlignment = VerticalAlignment.Top;
     }
-    public get CellPadding() {return this.GetProp("CellPadding", DataType.UDim2);}
+    public get CellPadding() {return this.GetProp("CellPadding", DataType.UDim2)!;}
     public set CellPadding(value) {this.SetProp("CellPadding", DataType.UDim2, value);}
-    public get CellSize() {return this.GetProp("CellSize", DataType.UDim2);}
+    public get CellSize() {return this.GetProp("CellSize", DataType.UDim2)!;}
     public set CellSize(value) {this.SetProp("CellSize", DataType.UDim2, value);}
     public get FillDirectionMaxCells() {return this.GetProp("FillDirectionMaxCells", DataType.Int32)!;}
     public set FillDirectionMaxCells(value) {this.SetProp("FillDirectionMaxCells", DataType.Int32, value);}
     public get StartCorner() {return this.GetProp("StartCorner", DataType.Enum)! as StartCorner;}
     public set StartCorner(value) {this.SetProp("StartCorner", DataType.Enum, value);}
-    public override get FillDirection() {return super.FillDirection!;}
-    public override set FillDirection(value) {super.FillDirection = value;}
-    public override get HorizontalAlignment() {return super.HorizontalAlignment!;}
-    public override set HorizontalAlignment(value) {super.HorizontalAlignment = value;}
-    public override get SortOrder() {return super.SortOrder!;}
-    public override set SortOrder(value) {super.SortOrder = value;}
-    public override get VerticalAlignment() {return super.VerticalAlignment!;}
-    public override set VerticalAlignment(value) {super.VerticalAlignment = value;}
 }
 
 export class UIListLayout extends UIGridStyleLayout {
@@ -13362,9 +9871,6 @@ export class UIListLayout extends UIGridStyleLayout {
         this.VerticalFlex = UIFlexAlignment.None;
         this.Wraps = false;
         this.FillDirection = FillDirection.Vertical;
-        this.HorizontalAlignment = HorizontalAlignment.Left;
-        this.SortOrder = SortOrder.Name;
-        this.VerticalAlignment = VerticalAlignment.Top;
     }
     public get HorizontalFlex() {return this.GetProp("HorizontalFlex", DataType.Enum)! as UIFlexAlignment;}
     public set HorizontalFlex(value) {this.SetProp("HorizontalFlex", DataType.Enum, value);}
@@ -13376,14 +9882,6 @@ export class UIListLayout extends UIGridStyleLayout {
     public set VerticalFlex(value) {this.SetProp("VerticalFlex", DataType.Enum, value);}
     public get Wraps() {return this.GetProp("Wraps", DataType.Bool)!;}
     public set Wraps(value) {this.SetProp("Wraps", DataType.Bool, value);}
-    public override get FillDirection() {return super.FillDirection!;}
-    public override set FillDirection(value) {super.FillDirection = value;}
-    public override get HorizontalAlignment() {return super.HorizontalAlignment!;}
-    public override set HorizontalAlignment(value) {super.HorizontalAlignment = value;}
-    public override get SortOrder() {return super.SortOrder!;}
-    public override set SortOrder(value) {super.SortOrder = value;}
-    public override get VerticalAlignment() {return super.VerticalAlignment!;}
-    public override set VerticalAlignment(value) {super.VerticalAlignment = value;}
 }
 
 export class UIPageLayout extends UIGridStyleLayout {
@@ -13402,9 +9900,6 @@ export class UIPageLayout extends UIGridStyleLayout {
         this.TouchInputEnabled = true;
         this.TweenTime = 1;
         this.FillDirection = FillDirection.Horizontal;
-        this.HorizontalAlignment = HorizontalAlignment.Left;
-        this.SortOrder = SortOrder.Name;
-        this.VerticalAlignment = VerticalAlignment.Top;
     }
     public get Animated() {return this.GetProp("Animated", DataType.Bool)!;}
     public set Animated(value) {this.SetProp("Animated", DataType.Bool, value);}
@@ -13424,14 +9919,6 @@ export class UIPageLayout extends UIGridStyleLayout {
     public set TouchInputEnabled(value) {this.SetProp("TouchInputEnabled", DataType.Bool, value);}
     public get TweenTime() {return this.GetProp("TweenTime", DataType.Float32)!;}
     public set TweenTime(value) {this.SetProp("TweenTime", DataType.Float32, value);}
-    public override get FillDirection() {return super.FillDirection!;}
-    public override set FillDirection(value) {super.FillDirection = value;}
-    public override get HorizontalAlignment() {return super.HorizontalAlignment!;}
-    public override set HorizontalAlignment(value) {super.HorizontalAlignment = value;}
-    public override get SortOrder() {return super.SortOrder!;}
-    public override set SortOrder(value) {super.SortOrder = value;}
-    public override get VerticalAlignment() {return super.VerticalAlignment!;}
-    public override set VerticalAlignment(value) {super.VerticalAlignment = value;}
 }
 
 export class UITableLayout extends UIGridStyleLayout {
@@ -13443,10 +9930,8 @@ export class UITableLayout extends UIGridStyleLayout {
         this.FillEmptySpaceColumns = false;
         this.FillEmptySpaceRows = false;
         this.MajorAxis = TableMajorAxis.RowMajor;
+        this.Padding = new UDim2(new UDim(0, 0), new UDim(0, 0));
         this.FillDirection = FillDirection.Vertical;
-        this.HorizontalAlignment = HorizontalAlignment.Left;
-        this.SortOrder = SortOrder.Name;
-        this.VerticalAlignment = VerticalAlignment.Top;
     }
     public get FillEmptySpaceColumns() {return this.GetProp("FillEmptySpaceColumns", DataType.Bool)!;}
     public set FillEmptySpaceColumns(value) {this.SetProp("FillEmptySpaceColumns", DataType.Bool, value);}
@@ -13454,16 +9939,8 @@ export class UITableLayout extends UIGridStyleLayout {
     public set FillEmptySpaceRows(value) {this.SetProp("FillEmptySpaceRows", DataType.Bool, value);}
     public get MajorAxis() {return this.GetProp("MajorAxis", DataType.Enum)! as TableMajorAxis;}
     public set MajorAxis(value) {this.SetProp("MajorAxis", DataType.Enum, value);}
-    public get Padding() {return this.GetProp("Padding", DataType.UDim2);}
+    public get Padding() {return this.GetProp("Padding", DataType.UDim2)!;}
     public set Padding(value) {this.SetProp("Padding", DataType.UDim2, value);}
-    public override get FillDirection() {return super.FillDirection!;}
-    public override set FillDirection(value) {super.FillDirection = value;}
-    public override get HorizontalAlignment() {return super.HorizontalAlignment!;}
-    public override set HorizontalAlignment(value) {super.HorizontalAlignment = value;}
-    public override get SortOrder() {return super.SortOrder!;}
-    public override set SortOrder(value) {super.SortOrder = value;}
-    public override get VerticalAlignment() {return super.VerticalAlignment!;}
-    public override set VerticalAlignment(value) {super.VerticalAlignment = value;}
 }
 
 export class UIPadding extends UIComponent {
@@ -13643,8 +10120,9 @@ export class CFrameValue extends ValueBase {
         super();
         this.addClassName("CFrameValue");
         this.Name = "CFrameValue";
+        this.Value = CFrame.Identity;
     }
-    public get Value() {return this.GetProp("Value", DataType.CFrame);}
+    public get Value() {return this.GetProp("Value", DataType.CFrame)!;}
     public set Value(value) {this.SetProp("Value", DataType.CFrame, value);}
 }
 
@@ -13739,8 +10217,9 @@ export class RayValue extends ValueBase {
         super();
         this.addClassName("RayValue");
         this.Name = "RayValue";
+        this.Value = new Ray(new Vector3(0, 0, 0), new Vector3(0, 0, 0));
     }
-    public get Value() {return this.GetProp("Value", DataType.Ray);}
+    public get Value() {return this.GetProp("Value", DataType.Ray)!;}
     public set Value(value) {this.SetProp("Value", DataType.Ray, value);}
 }
 

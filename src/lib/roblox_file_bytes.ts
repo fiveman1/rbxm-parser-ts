@@ -1,12 +1,11 @@
 /**
  * @author https://github.com/fiveman1
- * @file roblox_model_bytes.ts
  * Contains classes for helping read and write bytes from/to .rbxm
  */
 
 import { bitsToByteArray, bytesToBitArray } from "./util";
 
-export class RobloxModelByteReader 
+export class RobloxFileByteReader 
 {
     protected readonly data: Uint8Array;
     protected idx: number = 0;
@@ -114,7 +113,7 @@ export class RobloxModelByteReader
     public getInt32() 
     {
         const bytes = this.getBytesReversed(4);
-        return RobloxModelByteReader.bytesToInt32(bytes);
+        return RobloxFileByteReader.bytesToInt32(bytes);
     }
 
     public getInt64() 
@@ -197,7 +196,7 @@ export class RobloxModelByteReader
         const interleavedBytes = this.getBytes(length * 4);
 
         // Convert interleaved bytes to Float32 array
-        return RobloxModelByteReader.convertInterleaved(interleavedBytes, length, RobloxModelByteReader.bytesToRobloxFloat32);
+        return RobloxFileByteReader.convertInterleaved(interleavedBytes, length, RobloxFileByteReader.bytesToRobloxFloat32);
     }
 
     public getInterleavedInt32Array(length: number) 
@@ -205,10 +204,10 @@ export class RobloxModelByteReader
         const interleavedBytes = this.getBytes(length * 4);
 
         // Convert interleaved bytes to Int32 array
-        const bytes = RobloxModelByteReader.convertInterleaved(interleavedBytes, length, RobloxModelByteReader.bytesToInt32);
+        const bytes = RobloxFileByteReader.convertInterleaved(interleavedBytes, length, RobloxFileByteReader.bytesToInt32);
 
         // Have to untransform the ints
-        return bytes.map(RobloxModelByteReader.untransformInt32);
+        return bytes.map(RobloxFileByteReader.untransformInt32);
     }
 
     public getInterleavedUint32Array(length: number) 
@@ -216,7 +215,7 @@ export class RobloxModelByteReader
         const interleavedBytes = this.getBytes(length * 4);
 
         // Convert interleaved bytes to Uint32 array
-        return RobloxModelByteReader.convertInterleaved(interleavedBytes, length, (bytes) => Buffer.from(bytes).readUint32BE(0));
+        return RobloxFileByteReader.convertInterleaved(interleavedBytes, length, (bytes) => Buffer.from(bytes).readUint32BE(0));
     }
 
     public getInterleavedInt64Array(length: number) 
@@ -224,10 +223,10 @@ export class RobloxModelByteReader
         const interleavedBytes = this.getBytes(length * 8);
 
         // Convert interleaved bytes to Uint32 array
-        const bytes = RobloxModelByteReader.convertInterleaved(interleavedBytes, length, (bytes) => Buffer.from(bytes).readBigInt64BE(0));
+        const bytes = RobloxFileByteReader.convertInterleaved(interleavedBytes, length, (bytes) => Buffer.from(bytes).readBigInt64BE(0));
 
         // Have to untransform the ints
-        return bytes.map(RobloxModelByteReader.untransformInt64);
+        return bytes.map(RobloxFileByteReader.untransformInt64);
     }
 
     public getInterleavedUint64Array(length: number) 
@@ -235,7 +234,7 @@ export class RobloxModelByteReader
         const interleavedBytes = this.getBytes(length * 8);
 
         // Convert interleaved bytes to Uint32 array
-        return RobloxModelByteReader.convertInterleaved(interleavedBytes, length, (bytes) => Buffer.from(bytes).readBigUint64BE(0));
+        return RobloxFileByteReader.convertInterleaved(interleavedBytes, length, (bytes) => Buffer.from(bytes).readBigUint64BE(0));
     }
 
     public getFloat32Array(length: number) 
@@ -272,7 +271,7 @@ export class RobloxModelByteReader
     }
 }
 
-export class RobloxModelByteWriter
+export class RobloxFileByteWriter
 {
     protected readonly data: number[] = [];
 
@@ -356,7 +355,7 @@ export class RobloxModelByteWriter
 
     public putInt32(int32: number) 
     {
-        this.putBytesReversed(RobloxModelByteWriter.int32ToBytes(int32));
+        this.putBytesReversed(RobloxFileByteWriter.int32ToBytes(int32));
     }
 
     public putInt64(int64: bigint) 
@@ -429,7 +428,7 @@ export class RobloxModelByteWriter
         const bytes = new Uint8Array(nums.length * 4);
         for (let i = 0; i < nums.length; ++i) 
         {
-            const rbxF32bytes = RobloxModelByteWriter.f32ToRobloxF32Bytes(nums[i]);
+            const rbxF32bytes = RobloxFileByteWriter.f32ToRobloxF32Bytes(nums[i]);
             for (let j = 0; j < 4; ++j) 
             {
                 bytes[(i * 4) + j] = rbxF32bytes[j];
@@ -444,7 +443,7 @@ export class RobloxModelByteWriter
         for (let i = 0; i < nums.length; ++i) 
         {
             const buf = Buffer.allocUnsafe(4);
-            buf.writeInt32BE(RobloxModelByteWriter.transformInt32(nums[i]));
+            buf.writeInt32BE(RobloxFileByteWriter.transformInt32(nums[i]));
             for (let j = 0; j < 4; ++j) 
             {
                 bytes[(i * 4) + j] = buf[j];
@@ -474,7 +473,7 @@ export class RobloxModelByteWriter
         for (let i = 0; i < nums.length; ++i) 
         {
             const buf = Buffer.allocUnsafe(8);
-            buf.writeBigInt64BE(RobloxModelByteWriter.transformInt64(nums[i]));
+            buf.writeBigInt64BE(RobloxFileByteWriter.transformInt64(nums[i]));
             for (let j = 0; j < 8; ++j) 
             {
                 bytes[(i * 8) + j] = buf[j];

@@ -1,6 +1,5 @@
 /**
  * @author https://github.com/fiveman1
- * @file generate_data.ts
  * Generates Typescript typings for Roblox classes and enums.
  * A good portion of this is based on https://github.com/MaximumADHD/Roblox-File-Format/blob/main/Plugins/GenerateApiDump/init.server.lua
  */
@@ -209,22 +208,118 @@ function formatString(str: string)
 
 function formatNumCommaDelimType(value: string, type: string)
 {
+    // "a, b, c, d, e, ..."
+    // Returns new Type(a, b, c, d, e, ...)
     const converted = value.split(", ").map(formatNum).join(", ");
     return `new ${type}(${converted})`;
 }
 
 function formatColor3(value: string)
 {
+    // "r, g, b" as floats
     const converted = value.split(", ").map((num) => `${Color3.FloatToUint8(Number(num))}`).join(", ");
     return `Color3.FromRGB(${converted})`;
 }
 
 function formatRect(value: string)
 {
+    // "x1, y1, x2, y2"
     const nums = value.split(", ");
     const vec1 = formatNumCommaDelimType(nums.slice(0, 2).join(", "), "Vector2");
     const vec2 = formatNumCommaDelimType(nums.slice(2, 4).join(", "), "Vector2");
     return `new Rect(${vec1}, ${vec2})`;
+}
+
+function formatNumberRange(value: string)
+{
+    // "min max"
+    const nums = value.split(" ");
+    return `new NumberRange(${nums[0]}, ${nums[1]})`;
+}
+
+function formatRay(value: string)
+{
+    // "{0, 0, 0}, {0, 0, 0}"
+    value = value.replace(/{|}/g, ""); // Get rid of { and }
+    const nums = value.split(", ");
+    const vec1 = formatNumCommaDelimType(nums.slice(0, 3).join(", "), "Vector3");
+    const vec2 = formatNumCommaDelimType(nums.slice(3, 6).join(", "), "Vector3");
+    return `new Ray(${vec1}, ${vec2})`;
+}
+
+function formatUDim2(value: string)
+{
+    // "{0, 0}, {0, 0}"
+    value = value.replace(/{|}/g, ""); // Get rid of { and }
+    const nums = value.split(", ");
+    const dim1 = formatNumCommaDelimType(nums.slice(0, 2).join(", "), "UDim");
+    const dim2 = formatNumCommaDelimType(nums.slice(2, 4).join(", "), "UDim");
+    return `new UDim2(${dim1}, ${dim2})`;
+}
+
+function formatNumberSequence(value: string)
+{
+    // "0 0.5 0 1 0.5 0"
+    const nums = value.split(" ").filter((val) => val !== "");
+    const keypts: string[] = [];
+    for (let i = 0; i < nums.length; i += 3)
+    {
+        keypts.push(`new NumberSequenceKeypoint(${nums[i]}, ${nums[i + 1]}, ${nums[i + 2]})`);
+    }
+    return `new NumberSequence(${keypts.join(", ")})`;
+}
+
+function formatColorSequence(value: string)
+{
+    // "0 1 1 1 0 1 1 1 1 0 "
+    // Note that the 5th value in each keypoint is ignored
+    const nums = value.split(" ").filter((val) => val !== "");
+    const keypts: string[] = [];
+    for (let i = 0; i < nums.length; i += 5)
+    {
+        const time = nums[i];
+        const color = formatColor3(nums.slice(i + 1, i + 4).join(", "));
+        keypts.push(`new ColorSequenceKeypoint(${time}, ${color})`);
+    }
+    return `new ColorSequence(${keypts.join(", ")})`;
+}
+
+function formatCFrame(value: string)
+{
+    // "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1"
+    if (value === "0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1")
+    {
+        return "CFrame.Identity";
+    }
+    const nums = value.split(", ");
+    const pos = formatNumCommaDelimType(nums.slice(0, 3).join(", "), "Vector3");
+    const direction = nums.slice(3).join(", ");
+    return `new CFrame(${pos}, [${direction}])`;
+}
+
+function formatCustomEnum(value: string, typeName: string, enumName: string)
+{
+    // "X, Y, Z" for Axes, or "Right, Top, Back, Left, Bottom, Front" for Faces
+    const vals = value.split(", ").map((val) => `${enumName}.${val}`).join(", ");
+    return `new ${typeName}(${vals})`;
+}
+
+function formatFont(value: string)
+{
+    // Font { Family = rbxasset://fonts/families/LegacyArial.json, Weight = Regular, Style = Normal }
+    const familyStr = "Family = ";
+    const weightStr = "Weight = ";
+    const styleStr = "Style = ";
+    const familyStart = value.indexOf(familyStr) + familyStr.length;
+    const weightStart = value.indexOf(weightStr) + weightStr.length;
+    const styleStart = value.indexOf(styleStr) + styleStr.length;
+    const familyEnd = value.indexOf(",", familyStart);
+    const weightEnd = value.indexOf(",", weightStart);
+    const styleEnd = value.length - 2;
+    const family = value.slice(familyStart, familyEnd);
+    const weight = value.slice(weightStart, weightEnd);
+    const style = value.slice(styleStart, styleEnd);
+    return `new RBXMFont("${family}", FontWeight.${weight}, FontStyle.${style})`;
 }
 
 function formatDefault(value: string, info: PropertyMember, dtype: string)
@@ -247,10 +342,31 @@ function formatDefault(value: string, info: PropertyMember, dtype: string)
         case "Vector3":
         case "UDim":
             return formatNumCommaDelimType(value, dtype);
+        case "Vector3int16":
+            return formatNumCommaDelimType(value, "Vector3");
         case "Color3":
+        case "Color3uint8":
             return formatColor3(value);
         case "Rect":
             return formatRect(value);
+        case "NumberRange":
+            return formatNumberRange(value);
+        case "Ray":
+            return formatRay(value);
+        case "UDim2":
+            return formatUDim2(value);
+        case "NumberSequence":
+            return formatNumberSequence(value);
+        case "ColorSequence":
+            return formatColorSequence(value);
+        case "CFrame":
+            return formatCFrame(value);
+        case "Font":
+            return formatFont(value);
+        case "Axes":
+            return formatCustomEnum(value, "Axes", "RBXMAxis");
+        case "Faces":
+            return formatCustomEnum(value, "Faces", "RBXMFace");
         default:
             console.log(`Unmapped default type "${dtype}": ${value}`);
             return "";
@@ -283,7 +399,7 @@ type MemberTypeInfo = {
 
 class GenerateData
 {
-    protected stream = fs.createWriteStream("./src/generated/generated_types.ts", {encoding: "utf-8", flags: "w+"});
+    protected stream = fs.createWriteStream("./src/generated/generated_types.ts", { encoding: "utf-8", flags: "w+" });
     protected singletons = new Set<string>([
         "Speaker",
         "Terrain",
@@ -294,7 +410,7 @@ class GenerateData
         "ChatWindowConfiguration",
         "ChatInputBarConfiguration"
     ]);
-    protected classToPropInfo = new Map<string, PropertyMember[]>();
+    protected classNameToProps = new Map<string, PropertyMember[]>();
     protected classNameMemberNameInfo = new Map<string, PropertyMember>();
     protected allClasses = new Map<string, ClassInfo>();
     protected ignoreDefaults = new Set<string>([
@@ -303,7 +419,7 @@ class GenerateData
         "__api_dump_class_not_creatable__",
         "__api_dump_write_only_property__"
     ]);
-    protected hasDefault = new Set<string>();
+    protected classPropHasDefault = new Set<string>();
     protected allClassDefaultOverrides = new Map<string, Map<string, string>>();
     protected instanceDefaultOverrides = new Map<string, string>([
         ["AttributesSerialize", "\"\""],
@@ -315,6 +431,7 @@ class GenerateData
         ["UniqueId", "new UniqueId(0, 0, BigInt(0))"],
         ["archivable", "true"]
     ]);
+    protected classDefaultValues = new Map<string, Map<string, Set<string>>>();
 
     protected constructor() 
     {
@@ -326,12 +443,12 @@ class GenerateData
         this.stream.write(
 `/**
 * @author https://github.com/fiveman1
-* @file generated_types.ts
 * Contains generated types for Roblox classes and enums.
 * Generated on ${new Date().toLocaleString()}
 */
 
-import { DataType, CoreInstance, EnumItem, Color3, Rect, Vector2, Vector3, UDim, UniqueId } from "../lib/roblox_types";
+import { DataType, CoreInstance, Axes, CFrame, Color3, ColorSequence, ColorSequenceKeypoint, Faces, FontStyle, FontWeight, EnumItem, NumberRange, NumberSequence, 
+         NumberSequenceKeypoint, Ray, RBXMAxis, RBXMFace, RBXMFont, Rect, Vector2, Vector3, UDim, UDim2, UniqueId } from "../lib/roblox_types";
 `
         );
     }
@@ -366,12 +483,12 @@ import { DataType, CoreInstance, EnumItem, Color3, Rect, Vector2, Vector3, UDim,
 
     protected propHasDefault(info: ClassInfo, propName: string)
     {
-        return this.hasDefault.has(`${info.Name},${propName}`);
+        return this.classPropHasDefault.has(`${info.Name},${propName}`);
     }
 
     protected setPropHasDefault(info: ClassInfo, propName: string)
     {
-        return this.hasDefault.add(`${info.Name},${propName}`);
+        return this.classPropHasDefault.add(`${info.Name},${propName}`);
     }
 
     protected static typeSkipDefaults(member: PropertyMember)
@@ -385,7 +502,7 @@ import { DataType, CoreInstance, EnumItem, Color3, Rect, Vector2, Vector3, UDim,
         let loopInfo: ClassInfo | undefined = info;
         while (loopInfo)
         {
-            const members = this.classToPropInfo.get(loopInfo.Name);
+            const members = this.classNameToProps.get(loopInfo.Name);
             if (!members) continue;
             for (const member of members)
             {
@@ -413,7 +530,7 @@ import { DataType, CoreInstance, EnumItem, Color3, Rect, Vector2, Vector3, UDim,
     protected addNeedDefaultPropNamesToArray(info: ClassInfo, propNames: string[])
     {
         const defaults = this.getDefaultsFromAPI(info, true);
-        const members = this.classToPropInfo.get(info.Name);
+        const members = this.classNameToProps.get(info.Name);
         if (!members) return;
         for (const member of members)
         {
@@ -424,7 +541,6 @@ import { DataType, CoreInstance, EnumItem, Color3, Rect, Vector2, Vector3, UDim,
 
     protected gatherPropNamesNeedDefaultsHelper(propNames: string[], info?: ClassInfo)
     {
-        //if (!info || !this.isClassAbstract(info)) return;
         if (!info) return;
 
         this.addNeedDefaultPropNamesToArray(info, propNames);
@@ -435,32 +551,69 @@ import { DataType, CoreInstance, EnumItem, Color3, Rect, Vector2, Vector3, UDim,
     protected getDefaultsFromAPI(info: ClassInfo, ignoreDefStr: boolean = false)
     {
         const defaults = new Map<string, string>();
-        const members = this.classToPropInfo.get(info.Name)!;
+        const members = this.classNameToProps.get(info.Name)!;
+
         for (const member of members)
         {
             if (this.ignoreDefault(member.Default)) 
             {
                 continue;
             }
+            
             const typeInfo = GenerateData.getTypeInfo(member);
-            if (!typeInfo.DataType) continue;
+            if (!typeInfo.DataType) 
+            {
+                continue;
+            }
+            
             const defStr = formatDefault(member.Default, member, typeInfo.DataType);
-            if (!ignoreDefStr && !defStr) continue;
+            if (!ignoreDefStr && !defStr) 
+            {
+                continue;
+            }
+            
             this.setPropHasDefault(info, member.Name);
             defaults.set(member.Name, defStr);
         }
+
         return defaults;
     }
 
     protected addOverrideDefaultsForClass(info: ClassInfo, outOverrides: Map<string, string>)
     {
         const overrides = this.allClassDefaultOverrides.get(info.Name);
-        if (!overrides) return;
+        if (!overrides) 
+        {
+            return;
+        }
 
         for (const [propName, value] of overrides)
         {
+            if (!this.shouldIncludeDefault(info, propName))
+            {
+                continue;
+            }
             this.setPropHasDefault(info, propName);
             outOverrides.set(propName, value);
+        }
+    }
+
+    protected addPropagatedDefaultsForClass(info: ClassInfo, outDefaults: Map<string, string>)
+    {
+        const propagatedDefaults = this.classDefaultValues.get(info.Name);
+        if (!propagatedDefaults)
+        {
+            return;
+        }
+
+        for (const [propName, defVals] of propagatedDefaults)
+        {
+            if (!this.shouldIncludeDefault(info, propName))
+            {
+                continue;
+            }
+            this.setPropHasDefault(info, propName);
+            outDefaults.set(propName, Array.from(defVals)[0]);
         }
     }
 
@@ -481,9 +634,74 @@ import { DataType, CoreInstance, EnumItem, Color3, Rect, Vector2, Vector3, UDim,
     protected getDefaults(info: ClassInfo)
     {
         const defaults = this.getDefaultsFromAPI(info);
+        this.addPropagatedDefaultsForClass(info, defaults);
         this.addOverrideDefaultsForClass(info, defaults);
         this.addAlreadyHasDefaults(info);
         return defaults;
+    }
+
+    protected doesClassContainProp(info: ClassInfo, propName: string)
+    {
+        const { typeInfo, memberInfo } = this.getMemberTypeAndInfo(info.Name, propName);
+        if (!typeInfo || !memberInfo)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    protected propagateDefault(info: ClassInfo | undefined, propName: string, defVal: string)
+    {
+        if (!info || !this.doesClassContainProp(info, propName))
+        {
+            return;
+        }
+        
+        let defInfo = this.classDefaultValues.get(info.Name);
+        if (defInfo === undefined)
+        {
+            defInfo = new Map<string, Set<string>>();
+            defInfo.set(propName, new Set<string>([defVal]));
+            this.classDefaultValues.set(info.Name, defInfo);
+        }
+        
+        let defProps = defInfo.get(propName);
+        if (defProps === undefined)
+        {
+            defProps = new Set<string>();
+            defInfo.set(propName, defProps);
+        }
+        defProps.add(defVal);
+        
+        this.propagateDefault(this.allClasses.get(info.Superclass), propName, defVal);
+    }
+
+    protected getNumDefaultValues(info: ClassInfo, propName: string)
+    {
+        const defVals = this.classDefaultValues.get(info.Name);
+        if (!defVals)
+        {
+            return 0;
+        }
+        
+        const vals = defVals.get(propName);
+        return vals ? vals.size : 0;
+    }
+
+    protected shouldIncludeDefault(info: ClassInfo, propName: string)
+    {
+        if (this.getNumDefaultValues(info, propName) !== 1)
+        {
+            return false;
+        }
+
+        const superClass = this.allClasses.get(info.Superclass);
+        if (!superClass)
+        {
+            return true;
+        }
+
+        return this.getNumDefaultValues(superClass, propName) !== 1;
     }
 
     protected writeDefaults(info: ClassInfo)
@@ -514,7 +732,7 @@ import { DataType, CoreInstance, EnumItem, Color3, Rect, Vector2, Vector3, UDim,
 
         this.stream.write(`\nexport ${isAbstract ? "abstract " : ""}class ${info.Name} extends ${info.Superclass} {\n`);
 
-        let defaults: Map<string, string> | undefined;
+        let defaults: Map<string, string>;
         if (info.Name === "Instance")
         {
             this.stream.write(`    protected constructor(isService: boolean = false)\n`);
@@ -531,10 +749,10 @@ import { DataType, CoreInstance, EnumItem, Color3, Rect, Vector2, Vector3, UDim,
             this.stream.write(`        super(${isService && info.Superclass === "Instance" ? "true" : ""});\n`);
             this.stream.write(`        this.addClassName("${info.Name}");\n`);
             if (!isAbstract) this.stream.write(`        this.Name = "${info.Name}";\n`);
-            if (!isAbstract) defaults = this.writeDefaults(info);
+            defaults = this.writeDefaults(info);
             this.stream.write(`    }\n`);
         }
-        return { isInstantiable: !isAbstract, defaults: defaults };
+        return !isAbstract;
     }
 
     protected endClass()
@@ -559,6 +777,11 @@ import { DataType, CoreInstance, EnumItem, Color3, Rect, Vector2, Vector3, UDim,
             !(info.Serialization.CanSave || tags.Deprecated);
     }
 
+    protected hasPropagatedDefaults(info: ClassInfo, propName: string)
+    {
+        return this.classDefaultValues.get(info.Name)?.get(propName) !== undefined;
+    }
+
     protected writeOneProp(info: ClassInfo, member: PropertyMember)
     {
         const typeInfo = GenerateData.getTypeInfo(member);
@@ -572,33 +795,13 @@ import { DataType, CoreInstance, EnumItem, Color3, Rect, Vector2, Vector3, UDim,
 
         const isDeprecated = new Tags(member.Tags).Deprecated;
         const propName = GenerateData.convertPropName(member.Name);
-        const hasDefault = this.propHasDefault(info, member.Name);
+        const hasDefault = this.propHasDefault(info, member.Name) || this.hasPropagatedDefaults(info, member.Name);
         if (typeInfo.CastString && !hasDefault) typeInfo.CastString += " | undefined";
 
         if (isDeprecated) this.stream.write("    /**@deprecated Deprecated by Roblox*/\n");
         this.stream.write(`    ${GenerateData.createPropGetString(propName, member.Name, typeInfo.DataType, hasDefault, typeInfo.CastString)}\n`);
         if (isDeprecated) this.stream.write("    /**@deprecated Deprecated by Roblox*/\n");
         this.stream.write(`    ${GenerateData.createPropSetString(propName, member.Name, typeInfo.DataType)}\n`);
-    }
-
-    protected writeDefaultPropOverrides(defaults: Map<string, string>, members: PropertyMember[])
-    {
-        const memberNameSet = new Set<string>();
-        for (const member of members)
-        {
-            memberNameSet.add(member.Name);
-        }
-
-        for (const name of defaults.keys())
-        {
-            if (memberNameSet.has(name))
-            {
-                continue;
-            }
-            const propName = GenerateData.convertPropName(name);
-            this.stream.write(`    public override get ${propName}() {return super.${propName}!;}\n`);
-            this.stream.write(`    public override set ${propName}(value) {super.${propName} = value;}\n`);
-        }
     }
 
     protected static convertPropName(propName: string)
@@ -746,14 +949,14 @@ function getEnumMap() {
         this.stream.write("}\n");
     }
 
-    protected static setInheritance(info: ClassInfo | undefined, allClasses: Map<string, ClassInfo>)
+    protected setInheritance(info: ClassInfo | undefined)
     {
         if (!info) 
         {
             return;
         }
         info.Inherited = true;
-        GenerateData.setInheritance(allClasses.get(info.Superclass), allClasses);
+        this.setInheritance(this.allClasses.get(info.Superclass));
     }
 
     protected getMemberTypeAndInfo(className: string, memberName: string): { typeInfo?: MemberTypeInfo, memberInfo?: PropertyMember }
@@ -776,10 +979,6 @@ function getEnumMap() {
         const data = JSON.parse(fs.readFileSync("src/generated/plugin/output.json", {encoding: "utf-8"})) as DefaultsClass[];
         for (const classData of data)
         {
-            if (classData.Name === "UnionOperation")
-            {
-                console.log(classData);
-            }
             const propMap = new Map<string, string>();
             for (const propData of classData.Props)
             {
@@ -799,6 +998,17 @@ function getEnumMap() {
                 }
             }
             this.allClassDefaultOverrides.set(classData.Name, propMap);
+        }
+
+        for (const [name, info] of this.allClasses)
+        {
+            const overrides = this.allClassDefaultOverrides.get(name);
+            if (!overrides) continue;
+    
+            for (const [propName, value] of overrides)
+            {
+                this.propagateDefault(info, propName, value);
+            }
         }
     }
 
@@ -825,7 +1035,7 @@ function getEnumMap() {
         {
             if (!this.filterClass(info)) 
             {
-                GenerateData.setInheritance(this.allClasses.get(info.Superclass),this. allClasses);
+                this.setInheritance(this.allClasses.get(info.Superclass));
             }
         }
 
@@ -886,7 +1096,7 @@ function getEnumMap() {
             }
 
             const actualValidMembers = Array.from(validMembers.values()).filter((member) => !GenerateData.isDuplicateName(member, memberNames));
-            this.classToPropInfo.set(classInfo.Name, actualValidMembers);
+            this.classNameToProps.set(classInfo.Name, actualValidMembers);
             for (const member of actualValidMembers)
             {
                 this.classNameMemberNameInfo.set(`${classInfo.Name},${member.Name}`, member);
@@ -897,7 +1107,7 @@ function getEnumMap() {
 
         const propsNeedDefaults = new Map<string, string[]>();
 
-        for (const [className, members] of this.classToPropInfo)
+        for (const [className, members] of this.classNameToProps)
         {
             const classInfo = this.allClasses.get(className);
             if (!classInfo || this.filterClass(classInfo)) 
@@ -905,7 +1115,7 @@ function getEnumMap() {
                 continue;
             }
 
-            const { isInstantiable, defaults } = this.startClass(classInfo);
+            const isInstantiable = this.startClass(classInfo);
             if (isInstantiable)
             {
                 instantiableClasses.add(classInfo.Name);
@@ -915,21 +1125,22 @@ function getEnumMap() {
             {
                 this.writeOneProp(classInfo, member);
             }
-
-            if (defaults)
-            {
-                this.writeDefaultPropOverrides(defaults, members);
-            }
             
             this.endClass();
 
             const propNames = this.gatherPropNamesWithDefaults(classInfo);
+            const missingDefs: string[] = [];
             for (const name of propNames)
             {
-                if (!this.isClassAbstract(classInfo) && !this.propHasDefault(classInfo, name))
+                if (!this.isClassAbstract(classInfo) && !(this.propHasDefault(classInfo, name) || this.hasPropagatedDefaults(classInfo, name)))
                 {
-                    console.log(`Missing default value for class ${classInfo.Name}: ${name}`);
+                    missingDefs.push(name);
                 }
+            }
+            if (missingDefs.length > 0)
+            {
+                console.log(`Missing defaults for class ${classInfo.Name}:`);
+                console.log(missingDefs.join(", "));
             }
 
             const propNamesNeedDefaults = this.gatherPropNamesNeedDefaults(classInfo);

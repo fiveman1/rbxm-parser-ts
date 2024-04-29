@@ -1,26 +1,25 @@
 /**
  * @author https://github.com/fiveman1
- * @file roblox_model_reader.ts
  * Contains the core classes for reading a .rbxm file.
  */
 
 import lz4 from "lz4";
 import * as fzstd from "fzstd";
-import { RobloxModel } from "./roblox_model";
-import { DataType, RobloxValue, CoreInstance } from "./roblox_types";
-import { ChunkType, DataParserExtraInfo, RobloxModelDOM } from "./roblox_model_dom";
+import { RobloxFile } from "./roblox_file";
+import { DataType, RobloxValue, CoreInstance, SharedString } from "./roblox_types";
+import { ChunkType, DataParserExtraInfo, RobloxFileDOM } from "./roblox_file_dom";
 import { ClassMap, EnumMap } from "../generated/generated_types";
-import { RobloxModelByteReader } from "./roblox_model_bytes";
+import { RobloxFileByteReader } from "./roblox_file_bytes";
 
 /**
- * This class can read .rbxm bytes to create a RobloxModel.
+ * This class can read .rbxm bytes to create a RobloxFile.
  */
-export class RobloxModelDOMReader extends RobloxModelDOM
+export class RobloxFileDOMReader extends RobloxFileDOM
 {
-    protected data: RobloxModelByteReader = new RobloxModelByteReader();
+    protected data: RobloxFileByteReader = new RobloxFileByteReader();
     protected enumMap: EnumMap = new EnumMap();
     protected classMap: ClassMap = new ClassMap();
-    protected model: RobloxModel = new RobloxModel();
+    protected model: RobloxFile = new RobloxFile();
 
     /**
      * This will parse the DOM and create a RobloxModel object.
@@ -31,8 +30,8 @@ export class RobloxModelDOMReader extends RobloxModelDOM
     public read(data: Uint8Array)
     {
         // Clear out any existing values
-        this.data = new RobloxModelByteReader(data);
-        this.model = new RobloxModel();
+        this.data = new RobloxFileByteReader(data);
+        this.model = new RobloxFile();
         this.classIdToInfo.clear();
         this.referentIdToClassId.clear();
 
@@ -61,7 +60,7 @@ export class RobloxModelDOMReader extends RobloxModelDOM
             {
                 if (!instance.Parent)
                 {
-                    this.model.AddToRoots(instance);
+                    this.model.AddRoot(instance);
                 }
             }
         }
@@ -167,10 +166,10 @@ export class RobloxModelDOMReader extends RobloxModelDOM
             byteArray = this.data.getBytes(uncompressedLength);
         }
 
-        return new RobloxModelByteReader(byteArray);
+        return new RobloxFileByteReader(byteArray);
     }
 
-    protected readMetaChunk(bytes: RobloxModelByteReader)
+    protected readMetaChunk(bytes: RobloxFileByteReader)
     {
         const entries = bytes.getUint32();
         for (let i = 0; i < entries; ++i)
@@ -181,7 +180,7 @@ export class RobloxModelDOMReader extends RobloxModelDOM
         }
     }
 
-    protected readSstrChunk(bytes: RobloxModelByteReader)
+    protected readSstrChunk(bytes: RobloxFileByteReader)
     {
         bytes.getUint32(); // Version
         const count = bytes.getUint32();
@@ -189,11 +188,11 @@ export class RobloxModelDOMReader extends RobloxModelDOM
         {
             const hash = bytes.getBytesAsString(16);
             const sharedString = bytes.getString();
-            this.model.SharedStrings.push({ Hash: hash, SharedString: sharedString });
+            this.model.SharedStrings.push(new SharedString(sharedString, hash));
         }
     }
 
-    protected readInstChunk(bytes: RobloxModelByteReader)
+    protected readInstChunk(bytes: RobloxFileByteReader)
     {
         const classId = bytes.getUint32();
         const className = bytes.getString();
@@ -221,7 +220,7 @@ export class RobloxModelDOMReader extends RobloxModelDOM
         });
     }
 
-    protected readPropChunk(bytes: RobloxModelByteReader)
+    protected readPropChunk(bytes: RobloxFileByteReader)
     {
         const classId = bytes.getUint32();
         const propName = bytes.getString();
@@ -273,7 +272,7 @@ export class RobloxModelDOMReader extends RobloxModelDOM
         return undefined;
     }
 
-    protected readPrntChunk(bytes: RobloxModelByteReader)
+    protected readPrntChunk(bytes: RobloxFileByteReader)
     {
         bytes.getUint8(); // Version
 

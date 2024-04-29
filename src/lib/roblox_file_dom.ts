@@ -1,14 +1,14 @@
 /**
  * @author https://github.com/fiveman1
- * @file roblox_model_dom.ts
  * Contains the core classes for manipulating .rbxm files.
  */
 
 import { DataType, RobloxValue, CoreInstance, UDim, UDim2, Vector3, Ray, Faces, RBXMFace, Axes, RBXMAxis, Color3, Vector2, CFrame, 
-    SharedStringValue, NumberSequenceKeypoint, NumberSequence, ColorSequence, ColorSequenceKeypoint, NumberRange, 
+    SharedString, SharedStringValue, NumberSequenceKeypoint, NumberSequence, ColorSequence, ColorSequenceKeypoint, NumberRange, 
     Rect, PhysicalProperties, EnumItem, UniqueId, RBXMFont } from "./roblox_types";
 import { EnumFactory } from "../generated/generated_types";
-import { RobloxModelByteReader, RobloxModelByteWriter } from "./roblox_model_bytes";
+import { RobloxFileByteReader, RobloxFileByteWriter } from "./roblox_file_bytes";
+import { floatsEqual, narrowCopyArray } from "./util";
 
 // https://dom.rojo.space/binary#chunks
 export enum ChunkType
@@ -31,14 +31,14 @@ export type RobloxClass = {
 /**
  * This contains the core functionality for parsing a .rbxm.
  */
-export abstract class RobloxModelDOM 
+export abstract class RobloxFileDOM 
 {
     protected readonly MAGIC_HEADER = "<roblox!\x89\xff\x0d\x0a\x1a\x0a";
     protected readonly MAGIC_END = "</roblox>";
-    protected dataTypeParsers: Map<DataType, DataTypeParser> = new Map<DataType, DataTypeParser>();
-    protected classIdToInfo: Map<number, RobloxClass> = new Map<number, RobloxClass>();
-    protected referentIdToClassId: Map<number, number> = new Map<number, number>();
-
+    protected readonly dataTypeParsers: Map<DataType, DataTypeParser> = new Map<DataType, DataTypeParser>();
+    protected readonly classIdToInfo: Map<number, RobloxClass> = new Map<number, RobloxClass>();
+    protected readonly referentIdToClassId: Map<number, number> = new Map<number, number>();
+    
     public constructor()
     {
         // Define the methods used to parse the data types in PROP chunks
@@ -97,6 +97,8 @@ export type DataParserExtraInfo = {
      * @returns the referent ID, or -1 if it doesn't exist
      */
     getReferentFromInstance?: ReferentFromInstance
+
+    sharedStrings?: SharedString[]
 }
 
 /**
@@ -111,15 +113,15 @@ export abstract class DataTypeParser
      * @param outValues the output array of RobloxValue's, this should be provided as an empty array
      * @param extraInfo some extra info required by certain parsers
      */
-    public abstract read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>, extraInfo?: DataParserExtraInfo): void
+    public abstract read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>, extraInfo?: DataParserExtraInfo): void
 
 
-    public abstract write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>, extraInfo?: DataParserExtraInfo): void
+    public abstract write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>, extraInfo?: DataParserExtraInfo): void
 }
 
 export class StringParser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         for (let i = 0; i < numInstances; ++i)
         {
@@ -128,7 +130,7 @@ export class StringParser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         for (const value of values)
         {
@@ -146,7 +148,7 @@ export class StringParser extends DataTypeParser
 
 export class BoolParser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         for (let i = 0; i < numInstances; ++i)
         {
@@ -155,7 +157,7 @@ export class BoolParser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         for (const value of values)
         {
@@ -173,7 +175,7 @@ export class BoolParser extends DataTypeParser
 
 export class Int32Parser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const ints = bytes.getInterleavedInt32Array(numInstances);
 
@@ -183,7 +185,7 @@ export class Int32Parser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         const nums: number[] = [];
         for (const value of values)
@@ -204,7 +206,7 @@ export class Int32Parser extends DataTypeParser
 
 export class Float32Parser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const floats = bytes.getInterleavedFloat32Array(numInstances);
 
@@ -214,7 +216,7 @@ export class Float32Parser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         const nums: number[] = [];
         for (const value of values)
@@ -235,7 +237,7 @@ export class Float32Parser extends DataTypeParser
 
 export class Float64Parser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const floats = bytes.getFloat64Array(numInstances);
 
@@ -245,7 +247,7 @@ export class Float64Parser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         const nums: number[] = [];
         for (const value of values)
@@ -266,7 +268,7 @@ export class Float64Parser extends DataTypeParser
 
 export class UDimParser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const scales = bytes.getInterleavedFloat32Array(numInstances);
         const offsets = bytes.getInterleavedInt32Array(numInstances);
@@ -277,7 +279,7 @@ export class UDimParser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         const scales: number[] = [];
         const offsets: number[] = [];
@@ -303,7 +305,7 @@ export class UDimParser extends DataTypeParser
 
 export class UDim2Parser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const scalesX = bytes.getInterleavedFloat32Array(numInstances);
         const scalesY = bytes.getInterleavedFloat32Array(numInstances);
@@ -318,7 +320,7 @@ export class UDim2Parser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         const scalesX: number[] = [];
         const scalesY: number[] = [];
@@ -354,7 +356,7 @@ export class UDim2Parser extends DataTypeParser
 
 export class RayParser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const origin = new Vector3(bytes.getFloat32(), bytes.getFloat32(), bytes.getFloat32());
         const direction = new Vector3(bytes.getFloat32(), bytes.getFloat32(), bytes.getFloat32());
@@ -365,7 +367,7 @@ export class RayParser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         for (const value of values)
         {
@@ -395,7 +397,7 @@ export class RayParser extends DataTypeParser
 export class FacesParser extends DataTypeParser 
 {
     protected readonly FacesList = [RBXMFace.Front, RBXMFace.Bottom, RBXMFace.Left, RBXMFace.Back, RBXMFace.Top, RBXMFace.Right];
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         for (let i = 0; i < numInstances; ++i)
         {
@@ -408,11 +410,11 @@ export class FacesParser extends DataTypeParser
                     faces.push(face);
                 }
             }
-            outValues.push({ type: DataType.Faces, value: new Faces(faces) });
+            outValues.push({ type: DataType.Faces, value: new Faces(...faces) });
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         for (const value of values)
         {
@@ -436,7 +438,7 @@ export class FacesParser extends DataTypeParser
 export class AxesParser extends DataTypeParser 
 {
     protected readonly AxisList = [RBXMAxis.X, RBXMAxis.Y, RBXMAxis.Z];
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         for (let i = 0; i < numInstances; ++i)
         {
@@ -449,11 +451,11 @@ export class AxesParser extends DataTypeParser
                     axes.push(axis);
                 }
             }
-            outValues.push({ type: DataType.Axes, value: new Axes(axes) });
+            outValues.push({ type: DataType.Axes, value: new Axes(...axes) });
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         for (const value of values)
         {
@@ -476,7 +478,7 @@ export class AxesParser extends DataTypeParser
 
 export class BrickColorParser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const brickColors = bytes.getInterleavedUint32Array(numInstances);
 
@@ -486,7 +488,7 @@ export class BrickColorParser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         const brickColors: number[] = [];
 
@@ -508,7 +510,7 @@ export class BrickColorParser extends DataTypeParser
 
 export class Color3Parser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const rVals = bytes.getInterleavedFloat32Array(numInstances);
         const gVals = bytes.getInterleavedFloat32Array(numInstances);
@@ -520,7 +522,7 @@ export class Color3Parser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         const r: number[] = [];
         const g: number[] = [];
@@ -551,7 +553,7 @@ export class Color3Parser extends DataTypeParser
 
 export class Vector2Parser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const xVals = bytes.getInterleavedFloat32Array(numInstances);
         const yVals = bytes.getInterleavedFloat32Array(numInstances);
@@ -562,7 +564,7 @@ export class Vector2Parser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         const x: number[] = [];
         const y: number[] = [];
@@ -588,7 +590,7 @@ export class Vector2Parser extends DataTypeParser
 
 export class Vector3Parser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const xVals = bytes.getInterleavedFloat32Array(numInstances);
         const yVals = bytes.getInterleavedFloat32Array(numInstances);
@@ -600,7 +602,7 @@ export class Vector3Parser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         const x: number[] = [];
         const y: number[] = [];
@@ -628,26 +630,107 @@ export class Vector3Parser extends DataTypeParser
     }
 }
 
+// [0x02, [1, 0, 0, 0, 1, 0, 0, 0, 1]],
+// [0x03, [1, 0, 0, 0, 0, -1, 0, 1, 0]],
+// [0x05, [1, 0, 0, 0, -1, 0, 0, 0, -1]],
+// [0x06, [1, 0, 0, 0, 0, 1, 0, -1, 0]],
+// [0x07, [0, 1, 0, 1, 0, 0, 0, 0, -1]],
+// [0x09, [0, 0, 1, 1, 0, 0, 0, 1, 0]],
+// [0x0a, [0, -1, 0, 1, 0, 0, 0, 0, 1]],
+// [0x0c, [0, 0, -1, 1, 0, 0, 0, -1, 0]],
+// [0x0d, [0, 1, 0, 0, 0, 1, 1, 0, 0]],
+// [0x0e, [0, 0, -1, 0, 1, 0, 1, 0, 0]],
+// [0x10, [0, -1, 0, 0, 0, -1, 1, 0, 0]],
+// [0x11, [0, 0, 1, 0, -1, 0, 1, 0, 0]],
+// [0x14, [-1, 0, 0, 0, 1, 0, 0, 0, -1]],
+// [0x15, [-1, 0, 0, 0, 0, 1, 0, 1, 0]],
+// [0x17, [-1, 0, 0, 0, -1, 0, 0, 0, 1]],
+// [0x18, [-1, 0, 0, 0, 0, -1, 0, -1, 0]],
+// [0x19, [0, 1, 0, -1, 0, 0, 0, 0, 1]],
+// [0x1b, [0, 0, -1, -1, 0, 0, 0, 1, 0]],
+// [0x1c, [0, -1, 0, -1, 0, 0, 0, 0, -1]],
+// [0x1e, [0, 0, 1, -1, 0, 0, 0, -1, 0]],
+// [0x1f, [0, 1, 0, 0, 0, -1, -1, 0, 0]],
+// [0x20, [0, 0, 1, 0, 1, 0, -1, 0, 0]],
+// [0x22, [0, -1, 0, 0, 0, 1, -1, 0, 0]],
+// [0x23, [0, 0, -1, 0, -1, 0, -1, 0, 0]]
+
 export class CFrameParser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    // protected readonly orientIdToArray = new Map<number, number[]>([
+    //     [0x02, [1, 0, 0, 0, 1, 0, 0, 0, 1]], //(0, 0, 0)
+    //     [0x03, [1, 0, 0, 0, 0, -1, 0, 1, 0]], //(90, 0, 0)
+    //     [0x05, [1, 0, 0, 0, -1, 0, 0, 0, -1]], //(0, 180, 180)
+    //     [0x06, [1, 0, 0, 0, 0, 1, 0, -1, 0]], //(-90, 0, 0)
+    //     [0x07, [0, 1, 0, 1, 0, 0, 0, 0, -1]], //(0, 180, 90)
+    //     [0x09, [0, 0, 1, 1, 0, 0, 0, 1, 0]], //(0, 90, 90)
+    //     [0x0a, [0, -1, 0, 1, 0, 0, 0, 0, 1]], //(0, 0, 90)
+    //     [0x0c, [0, 0, -1, 1, 0, 0, 0, -1, 0]], //(0, -90, 90)
+    //     [0x0d, [0, 0, -1, 1, 0, 0, 0, -1, 0]], //(-90, -90, 0)
+    //     [0x0e, [0, 0, -1, 0, 1, 0, 1, 0, 0]], //(0, -90, 0)
+    //     [0x10, [0, 0, -1, -1, 0, 0, 0, 1, 0]], //(90, -90, 0)
+    //     [0x11, [0, 0, 1, 0, -1, 0, 1, 0, 0]], //(0, 90, 180)
+    //     [0x14, [-1, 0, 0, 0, 1, 0, 0, 0, -1]], //(0, 180, 0)
+    //     [0x15, [-1, 0, 0, 0, 0, -1, 0, -1, 0]], //(-90, -180, 0)
+    //     [0x17, [-1, 0, 0, 0, -1, 0, 0, 0, 1]], //(0, 0, 180)
+    //     [0x18, [-1, 0, 0, 0, 0, 1, 0, 1, 0]], //(90, 180, 0)
+    //     [0x19, [0, 1, 0, -1, 0, 0, 0, 0, 1]], //(0, 0, -90)
+    //     [0x1b, [0, 0, -1, -1, 0, 0, 0, 1, 0]], //(0, -90, -90)
+    //     [0x1c, [0, -1, 0, -1, 0, 0, 0, 0, -1]], //(0, -180, -90)
+    //     [0x1e, [0, 0, 1, -1, 0, 0, 0, -1, 0]], //(0, 90, -90)
+    //     [0x1f, [0, 0, 1, 1, 0, 0, 0, 1, 0]], //(90, 90, 0)
+    //     [0x20, [0, 0, 1, 0, 1, 0, -1, 0, 0]], //(0, 90, 0)
+    //     [0x22, [0, 0, 1, -1, 0, 0, 0, -1, 0]], //(-90, 90, 0)
+    //     [0x23, [0, 0, -1, 0, -1, 0, -1, 0, 0]] //(0, -90, 180)
+    // ]);
+
+    protected readonly orientIdToArray = new Map<number, number[]>([
+        [0x02, [1, 0, 0, 0, 1, 0, 0, 0, 1]],
+        [0x03, [1, 0, 0, 0, 0, -1, 0, 1, 0]],
+        [0x05, [1, 0, 0, 0, -1, 0, 0, 0, -1]],
+        [0x06, [1, 0, 0, 0, 0, 1, 0, -1, 0]],
+        [0x07, [0, 1, 0, 1, 0, 0, 0, 0, -1]],
+        [0x09, [0, 0, 1, 1, 0, 0, 0, 1, 0]],
+        [0x0a, [0, -1, 0, 1, 0, 0, 0, 0, 1]],
+        [0x0c, [0, 0, -1, 1, 0, 0, 0, -1, 0]],
+        [0x0d, [0, 1, 0, 0, 0, 1, 1, 0, 0]],
+        [0x0e, [0, 0, -1, 0, 1, 0, 1, 0, 0]],
+        [0x10, [0, -1, 0, 0, 0, -1, 1, 0, 0]],
+        [0x11, [0, 0, 1, 0, -1, 0, 1, 0, 0]],
+        [0x14, [-1, 0, 0, 0, 1, 0, 0, 0, -1]],
+        [0x15, [-1, 0, 0, 0, 0, 1, 0, 1, 0]],
+        [0x17, [-1, 0, 0, 0, -1, 0, 0, 0, 1]],
+        [0x18, [-1, 0, 0, 0, 0, -1, 0, -1, 0]],
+        [0x19, [0, 1, 0, -1, 0, 0, 0, 0, 1]],
+        [0x1b, [0, 0, -1, -1, 0, 0, 0, 1, 0]],
+        [0x1c, [0, -1, 0, -1, 0, 0, 0, 0, -1]],
+        [0x1e, [0, 0, 1, -1, 0, 0, 0, -1, 0]],
+        [0x1f, [0, 1, 0, 0, 0, -1, -1, 0, 0]],
+        [0x20, [0, 0, 1, 0, 1, 0, -1, 0, 0]],
+        [0x22, [0, -1, 0, 0, 0, 1, -1, 0, 0]],
+        [0x23, [0, 0, -1, 0, -1, 0, -1, 0, 0]]
+    ]);
+    protected readonly orientationToId = new Map<number, number>();
+
+    public constructor()
+    {
+        super();
+        for (const [orientId, orientation] of this.orientIdToArray)
+        {
+            this.orientationToId.set(CFrameParser.getOrientationKey(orientation), orientId);
+        }
+    }
+
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const orientations: number[][] = [];
         for (let i = 0; i < numInstances; ++i)
         {
-            const rawOrientId = bytes.getUint8();
-            if (rawOrientId > 0)
+            const orientId = bytes.getUint8();
+            if (orientId > 0)
             {
-                // Stolen from https://github.com/MaximumADHD/Roblox-File-Format/blob/main/DataTypes/CFrame.cs FromOrientId
-                const orientId = (rawOrientId - 1) % 36;
-                const xVec = Vector3.FromNormalId(Math.round(orientId / 6));
-                const yVec = Vector3.FromNormalId(orientId % 6);
-                const zVec = xVec.Cross(yVec);
-                orientations.push([
-                    xVec.X, yVec.X, zVec.X,
-                    xVec.Y, yVec.Y, zVec.Y,
-                    xVec.Z, yVec.Z, zVec.Z
-                ]);
+                const orientation = this.getOrientationFromId(orientId);
+                orientations.push(orientation);
             }
             else
             {
@@ -667,12 +750,12 @@ export class CFrameParser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         this.writeCFrame(writer, values, DataType.CFrame);
     }
 
-    public writeCFrame(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>, type: DataType.CFrame | DataType.OptionalCFrame)
+    public writeCFrame(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>, type: DataType.CFrame | DataType.OptionalCFrame)
     {
         const hasValueArray: boolean[] = [];
         const x: number[] = [];
@@ -686,7 +769,7 @@ export class CFrameParser extends DataTypeParser
 
             const cframe = hasValue ? value.value : CFrame.Identity;
 
-            const orientId = cframe.GetOrientId();
+            const orientId = this.getOrientId(cframe.Orientation);
 
             if (orientId === -1)
             {
@@ -695,7 +778,7 @@ export class CFrameParser extends DataTypeParser
             }
             else
             {
-                writer.putUint8(orientId + 1);
+                writer.putUint8(orientId);
             }
 
             const pos = cframe.Position;
@@ -710,11 +793,67 @@ export class CFrameParser extends DataTypeParser
         
         return hasValueArray;
     }
+
+    public getOrientationFromId(orientId: number)
+    {
+        const orientation = this.orientIdToArray.get(orientId);
+        if (!orientation)
+        {
+            return [];
+        }
+        return narrowCopyArray(orientation);
+    }
+
+    public getOrientId(orientation: number[])
+    {
+        for (let i = 0; i < 9; i += 3)
+        {
+            let equalsZero = 0;
+            let equalsOne = 0;
+            for (let j = 0; j < 3; ++j)
+            {
+                const val = Math.abs(orientation[i + j]);
+                if (floatsEqual(val, 0))
+                {
+                    equalsZero += 1;
+                }
+                else if (floatsEqual(val, 1))
+                {
+                    equalsOne += 1;
+                }
+            }
+            if (equalsZero !== 2 && equalsOne !== 1)
+            {
+                return -1;
+            }
+        }
+        const key = CFrameParser.getOrientationKey(orientation);
+        const id = this.orientationToId.get(key);
+        return id ?? -1;
+    }
+
+    public static getOrientationKey(orientation: number[])
+    {
+        let key = 0;
+        for (let i = 0; i < 9; ++i)
+        {
+            const val = Math.round(orientation[i]);
+            if (val < 0)
+            {
+                key |= (1 << (i + 9));
+            }
+            else if (val > 0)
+            {
+                key |= (1 << i);
+            }
+        }
+        return key;
+    }
 }
 
 export class EnumParser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>, extraInfo?: DataParserExtraInfo)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>, extraInfo?: DataParserExtraInfo)
     {
         const enumValues = bytes.getInterleavedUint32Array(numInstances);
         const enumFactory = extraInfo?.enumFactory;
@@ -735,7 +874,7 @@ export class EnumParser extends DataTypeParser
         return EnumItem.MakeUnknownEnum(value);
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         const enums: number[] = [];
 
@@ -757,7 +896,7 @@ export class EnumParser extends DataTypeParser
 
 export class ReferentParser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>, extraInfo?: DataParserExtraInfo)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>, extraInfo?: DataParserExtraInfo)
     {
         const referents = bytes.getReferentArray(numInstances);
         const getInstance = extraInfo?.getInstanceFromReferent;
@@ -770,7 +909,7 @@ export class ReferentParser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>, extraInfo?: DataParserExtraInfo)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>, extraInfo?: DataParserExtraInfo)
     {
         const referents: number[] = [];
         const getReferent = extraInfo?.getReferentFromInstance;
@@ -793,7 +932,7 @@ export class ReferentParser extends DataTypeParser
 
 export class Color3uint8Parser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const rVals = bytes.getBytes(numInstances);
         const gVals = bytes.getBytes(numInstances);
@@ -805,7 +944,7 @@ export class Color3uint8Parser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         const r: number[] = [];
         const g: number[] = [];
@@ -836,7 +975,7 @@ export class Color3uint8Parser extends DataTypeParser
 
 export class Vector3int16Parser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         for (let i = 0; i < numInstances; ++i)
         {
@@ -847,7 +986,7 @@ export class Vector3int16Parser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         for (const value of values)
         {
@@ -870,7 +1009,7 @@ export class Vector3int16Parser extends DataTypeParser
 
 export class NumberSequenceParser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         for (let i = 0; i < numInstances; ++i)
         {
@@ -884,11 +1023,11 @@ export class NumberSequenceParser extends DataTypeParser
                 keypoints.push(new NumberSequenceKeypoint(time, value, envelope));
             }
             
-            outValues.push({ type: DataType.NumberSequence, value: new NumberSequence(keypoints) });
+            outValues.push({ type: DataType.NumberSequence, value: new NumberSequence(...keypoints) });
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         for (const value of values)
         {
@@ -913,7 +1052,7 @@ export class NumberSequenceParser extends DataTypeParser
 
 export class ColorSequenceParser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         for (let i = 0; i < numInstances; ++i)
         {
@@ -929,11 +1068,11 @@ export class ColorSequenceParser extends DataTypeParser
                 keypoints.push(new ColorSequenceKeypoint(time, new Color3(r, g, b)));
             }
             
-            outValues.push({ type: DataType.ColorSequence, value: new ColorSequence(keypoints) });
+            outValues.push({ type: DataType.ColorSequence, value: new ColorSequence(...keypoints) });
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         for (const value of values)
         {
@@ -960,7 +1099,7 @@ export class ColorSequenceParser extends DataTypeParser
 
 export class NumberRangeParser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         for (let i = 0; i < numInstances; ++i)
         {
@@ -971,7 +1110,7 @@ export class NumberRangeParser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         for (const value of values)
         {
@@ -991,7 +1130,7 @@ export class NumberRangeParser extends DataTypeParser
 
 export class RectParser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const minXs = bytes.getInterleavedFloat32Array(numInstances);
         const minYs = bytes.getInterleavedFloat32Array(numInstances);
@@ -1006,7 +1145,7 @@ export class RectParser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         const minXs: number[] = [];
         const minYs: number[] = [];
@@ -1041,7 +1180,7 @@ export class RectParser extends DataTypeParser
 
 export class PhysicalPropertiesParser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         for (let i = 0; i < numInstances; ++i)
         {
@@ -1061,7 +1200,7 @@ export class PhysicalPropertiesParser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         for (const value of values)
         {
@@ -1085,7 +1224,7 @@ export class PhysicalPropertiesParser extends DataTypeParser
 
 export class Int64Parser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const int64s = bytes.getInterleavedInt64Array(numInstances);
         for (let i = 0; i < numInstances; ++i)
@@ -1094,7 +1233,7 @@ export class Int64Parser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         const nums: bigint[] = [];
 
@@ -1116,7 +1255,7 @@ export class Int64Parser extends DataTypeParser
 
 export class SharedStringParser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const indices = bytes.getInterleavedUint32Array(numInstances);
 
@@ -1126,8 +1265,14 @@ export class SharedStringParser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>, extraInfo?: DataParserExtraInfo)
     {
+        const sharedStrings = extraInfo?.sharedStrings;
+        if (sharedStrings === undefined)
+        {
+            throw new Error("Missing shared strings array");
+        }
+
         const indices: number[] = [];
 
         for (const value of values)
@@ -1138,7 +1283,8 @@ export class SharedStringParser extends DataTypeParser
             }
             else
             {
-                throw new Error("Tried to write shared string value without an index");
+                sharedStrings.push(new SharedString(""));
+                indices.push(sharedStrings.length - 1);
             }
         }
 
@@ -1148,7 +1294,7 @@ export class SharedStringParser extends DataTypeParser
 
 export class BytecodeParser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         for (let i = 0; i < numInstances; ++i)
         {
@@ -1157,7 +1303,7 @@ export class BytecodeParser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         for (const value of values)
         {
@@ -1175,7 +1321,7 @@ export class BytecodeParser extends DataTypeParser
 
 export class OptionalCFrameParser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         bytes.getUint8();
         const cFrameValues: (RobloxValue | undefined)[] = [];
@@ -1196,7 +1342,7 @@ export class OptionalCFrameParser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         writer.putUint8(DataType.CFrame);
         const hasValueArray = new CFrameParser().writeCFrame(writer, values, DataType.OptionalCFrame);
@@ -1210,13 +1356,13 @@ export class OptionalCFrameParser extends DataTypeParser
 
 export class UniqueIdParser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const interleavedBytes = bytes.getBytes(numInstances * 16);
 
-        const uniqueIds = RobloxModelByteReader.convertInterleaved(interleavedBytes, numInstances, (bytes) => {
-            const reader = new RobloxModelByteReader(bytes.reverse());
-            const random = RobloxModelByteReader.untransformInt64(reader.getInt64());
+        const uniqueIds = RobloxFileByteReader.convertInterleaved(interleavedBytes, numInstances, (bytes) => {
+            const reader = new RobloxFileByteReader(bytes.reverse());
+            const random = RobloxFileByteReader.untransformInt64(reader.getInt64());
             const time = reader.getUint32();
             const index = reader.getUint32();
             return new UniqueId(index, time, random);
@@ -1228,9 +1374,9 @@ export class UniqueIdParser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
-        const idWriter = new RobloxModelByteWriter();
+        const idWriter = new RobloxFileByteWriter();
 
         for (let i = values.length - 1; i >= 0; --i)
         {
@@ -1242,7 +1388,7 @@ export class UniqueIdParser extends DataTypeParser
 
             const id = value.value;
             
-            idWriter.putInt64(RobloxModelByteWriter.transformInt64(id.Random));
+            idWriter.putInt64(RobloxFileByteWriter.transformInt64(id.Random));
             idWriter.putUint32(id.Time);
             idWriter.putUint32(id.Index);
         }
@@ -1253,7 +1399,7 @@ export class UniqueIdParser extends DataTypeParser
 
 export class FontParser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         for (let i = 0; i < numInstances; ++i)
         {
@@ -1265,7 +1411,7 @@ export class FontParser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         for (const value of values)
         {
@@ -1275,7 +1421,7 @@ export class FontParser extends DataTypeParser
                 writer.putString(font.Family);
                 writer.putUint16(font.Weight);
                 writer.putUint8(font.Style);
-                writer.putString(font.CachedFaceId);
+                writer.putString(font.CachedFaceId ?? "");
             }
             else
             {
@@ -1290,7 +1436,7 @@ export class FontParser extends DataTypeParser
 
 export class SecurityCapabilitiesParser extends DataTypeParser 
 {
-    public override read(bytes: RobloxModelByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
+    public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
         const values = bytes.getInterleavedUint64Array(numInstances);
 
@@ -1300,7 +1446,7 @@ export class SecurityCapabilitiesParser extends DataTypeParser
         }
     }
 
-    public override write(writer: RobloxModelByteWriter, values: Array<RobloxValue | undefined>)
+    public override write(writer: RobloxFileByteWriter, values: Array<RobloxValue | undefined>)
     {
         const nums: bigint[] = [];
 

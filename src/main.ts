@@ -1,15 +1,16 @@
 /**
  * @author https://github.com/fiveman1
  * @file main.ts
- * Main function for testing purposes.
  */
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import fs from "fs";
-import { CFrame, CoreInstance, Vector3 } from "./lib/roblox_types";
-import { RobloxModel } from "./lib/roblox_model";
-import { Material } from "./generated/generated_types";
+import { CFrame, Color3, CoreInstance, Vector3 } from "./lib/roblox_types";
+import { RobloxFile } from "./lib/roblox_file";
+import { Material, Model, NormalId, Part, Texture } from "./generated/generated_types";
+import axios from "axios";
+import { CFrameParser } from "./lib/roblox_file_dom";
 
 function depthFirstPrint(instance: CoreInstance, level: number)
 {
@@ -33,66 +34,50 @@ function depthFirstPrint(instance: CoreInstance, level: number)
 async function main()
 {
     //const name = "v16";
-    //const model = RobloxModel.ReadFromBuffer(fs.readFileSync(`input_files/${name}.rbxm`));
-    //const model = RobloxModel.ReadFromBuffer(fs.readFileSync(`input_files/${name}.rbxl`));
+    //const model = RobloxFile.ReadFromBuffer(fs.readFileSync(`input_files/${name}.rbxm`));
+    //const model = RobloxFile.ReadFromBuffer(fs.readFileSync(`input_files/${name}.rbxl`));
 
     //const assetId = 5258147910; // Map making starter kit
-    //const assetId = 5227232138; // Numismatic
-    const assetId = 17195837905; // my test model
+    const assetId = 5227232138; // Numismatic
+    //const assetId = 17195837905; // my test model
     //const assetId = 17296983974;
+    //const assetId = 17324776967; // orientations
 
     //const assetId = 4249137687; // Arcane
+    //const model = await RobloxFile.ReadFromAssetId(assetId);
+    
+    const res = await axios.get("https://assetdelivery.roblox.com/v2/asset/", {
+        params: {id: assetId},
+        validateStatus: (status) => status === 404 || (status >= 200 && status < 300)
+    });
+
+    if (res.status === 404)
+    {
+        return null;
+    }
+
+    const data = res.data;
+    // https://create.roblox.com/docs/reference/engine/enums/AssetType
+    if (data.assetTypeId !== 10) // Model = 10
+    {
+        return null;
+    }
+
+    const location = data.locations[0].location;
+
+    const modelDomRes = await axios.get(location, { responseEncoding: "binary", responseType: "arraybuffer" });
+
     console.log("first read");
-    const model = await RobloxModel.ReadFromAssetId(assetId);
+    const start = Date.now();
+    const model = RobloxFile.ReadFromBuffer(modelDomRes.data);
+    const end = Date.now();
+    console.log(`Read time: ${(end - start) / 1000}s`);
 
     if (!model)
     {
         console.log("Invalid model");
         return;
     }
-
-    // const root = model.Roots[0];
-    // const firstPart = root.FindFirstDescendantOfClass("Part");
-    // if (firstPart)
-    // {
-    //     const size = firstPart.Size;
-    //     if (size)
-    //     {
-    //         console.log(`First part's size: ${size}`);
-    //         size.X = 33333;
-    //         size.Y += 2;
-    //         size.Z *= 0.3;
-    //         console.log(`First part's size (should not change yet): ${firstPart.Size}`);
-    //         firstPart.Size = size;
-    //         console.log(`First part's new size: ${firstPart.Size}`);
-    //     }
-
-    //     console.log(`First part can collide: ${firstPart.CanCollide}`);
-    //     firstPart.CanCollide = !firstPart.CanCollide;
-    //     console.log(`First part can collide: ${firstPart.CanCollide}`);
-
-    //     console.log(`First part material: ${firstPart.Material}`);
-    //     firstPart.Material = Material.Brick;
-    //     console.log(`First part material: ${firstPart.Material}`);
-
-    //     console.log(firstPart.Color3uint8?.toString());
-    // }
-
-    // const mapStringValues = root.FindChildrenOfClass("StringValue", (child) => child.Name === "DisplayName" || child.Name === "Creator");
-    // console.log("\n" + mapStringValues.join("\n"));
-
-    // const baseParts = root.FindDescendantsOfClass("BasePart");
-    // for (const part of baseParts)
-    // {
-    //     if (part.IsA("Part"))
-    //     {
-    //         console.log(part.Shape?.toString());
-    //         break;
-    //     }
-    // }
-
-    // const numberValues = root.FindDescendantsOfClass("NumberValue");
-    // console.log("\n" + numberValues.join("\n"));
     
     let str = "";
     for (const root of model.Roots)
@@ -110,7 +95,7 @@ async function main()
     console.log("writing");
     fs.writeFileSync(`output_files/${name}.rbxm`, model.WriteToBuffer());
     console.log("reading");
-    const copyModel = RobloxModel.ReadFromBuffer(fs.readFileSync(`output_files/${name}.rbxm`));
+    const copyModel = RobloxFile.ReadFromBuffer(fs.readFileSync(`output_files/${name}.rbxm`));
     if (!copyModel) 
     {
         console.log("The written model was invalid..."); 
@@ -128,6 +113,99 @@ async function main()
     {
         console.log("they dont match :(");
     }
+
+    const myFile = new RobloxFile();
+    const myModel = new Model();
+    myModel.Name = "My Model :)";
+    const myPart = new Part();
+    myFile.AddRoot(myModel);
+    myPart.Parent = myModel;
+    myPart.Color3uint8 = Color3.FromRGB(0, 128, 255);
+    myPart.Transparency = 0.3;
+    myPart.Size = new Vector3(16, 8, 12);
+    const myTexture = new Texture();
+    myTexture.Parent = myPart;
+    myTexture.Texture = "rbxassetid://6073594015";
+    myTexture.StudsPerTileU = 4;
+    myTexture.StudsPerTileV = 4;
+    myTexture.Face = NormalId.Top;
+    fs.writeFileSync(`output_files/myModel.rbxm`, myFile.WriteToBuffer());
+
+    let myStr = "";
+    for (const root of myFile.Roots)
+    {
+        myStr += depthFirstPrint(root, 0);
+    }
+    fs.writeFileSync(`output_files/myModel.txt`, myStr);
+}
+
+async function orientationTest()
+{
+    const assetId = 17324776967; // orientations
+    
+    const res = await axios.get("https://assetdelivery.roblox.com/v2/asset/", {
+        params: {id: assetId},
+        validateStatus: (status) => status === 404 || (status >= 200 && status < 300)
+    });
+
+    if (res.status === 404)
+    {
+        return null;
+    }
+
+    const data = res.data;
+    // https://create.roblox.com/docs/reference/engine/enums/AssetType
+    if (data.assetTypeId !== 10) // Model = 10
+    {
+        return null;
+    }
+
+    const location = data.locations[0].location;
+
+    const modelDomRes = await axios.get(location, { responseEncoding: "binary", responseType: "arraybuffer" });
+
+    console.log("first read");
+    const start = Date.now();
+    const file = RobloxFile.ReadFromBuffer(modelDomRes.data);
+    const end = Date.now();
+    console.log(`Read time: ${(end - start) / 1000}s`);
+
+    if (!file)
+    {
+        console.log("Invalid model");
+        return;
+    }
+    
+    printOrientations(file);
+
+    let str = "";
+    for (const root of file.Roots)
+    {
+        str += depthFirstPrint(root, 0);
+    }
+
+    if (!fs.existsSync("output_files"))
+    {
+        fs.mkdirSync("output_files");
+    }
+    fs.writeFileSync(`output_files/orients.txt`, str);
+
+    console.log("writing");
+    fs.writeFileSync(`output_files/orients.rbxm`, file.WriteToBuffer());
+}
+
+function printOrientations(model: RobloxFile)
+{
+    console.log("printing orientations");
+    for (const part of model.FindDescendantsOfClass("Part"))
+    {
+        const cframe = part.CFrame;
+        const parser = new CFrameParser();
+        const id = parser.getOrientId(cframe.Orientation);
+        console.log(part.Name + ": " + id.toString(16).padStart(2, "0"));
+    }
+    console.log("done printing orientations");
 }
 
 main();
+orientationTest();

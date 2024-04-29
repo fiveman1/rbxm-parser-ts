@@ -1,8 +1,8 @@
 # rbxm-parser
 
-Parser for reading and writing Roblox model (.rbxm) files. Written in TypeScript with strong typing automatically generated from Roblox.
+Parser for reading and writing Roblox (.rbxm) files. Written in TypeScript with strong typing automatically generated from Roblox.
 
-This only supports .rbxm (binary format) Roblox model files. Not planning to support .rbxmx (XML format).
+This only supports .rbxm (binary format) Roblox files. Not planning to support .rbxmx (XML format).
 
 ## How To Use
 
@@ -11,27 +11,27 @@ This only supports .rbxm (binary format) Roblox model files. Not planning to sup
 Import (ESM):
 
 ```ts
-import { RobloxModel, ... } from "rbxm-parser";
+import { RobloxFile, ... } from "rbxm-parser";
 ```
 
 Import (CJS):
 
 ```js
-const { RobloxModel, ... } = require("rbxm-parser");
+const { RobloxFile, ... } = require("rbxm-parser");
 ```
 
-### Loading models
+### Loading
 
-From an asset ID (this requires the model to be distributed and free on the Roblox Creator Hub):
+From an asset/model ID (this requires the model to be distributed and free on the Roblox Creator Hub):
 
 ```ts
-const model = await RobloxModel.ReadFromAssetId(4249137687);
+const model = await RobloxFile.ReadFromAssetId(4249137687);
 ```
 
 From a file:
 
 ```ts
-const model = RobloxModel.ReadFromBuffer(fs.readFileSync("MyRobloxModel.rbxm"));
+const model = RobloxFile.ReadFromBuffer(fs.readFileSync("my_roblox_file.rbxm"));
 ```
 
 Note: When you load a model, it can have a return type of `null` in case the provided model was invalid, or the provided asset ID was not a model.
@@ -44,13 +44,10 @@ const firstPart = root.FindFirstDescendantOfClass("Part"); // If using TS, first
 if (firstPart)
 {
     const size = firstPart.Size; // All property gets return a copy of the value (except for Instance types)
-    if (size) // Not all properties are necessarily serialized in the DOM
-    {
-        size.X = 33333;
-        size.Y += 2;
-        size.Z *= 0.3;
-        firstPart.Size = size;
-    }
+    size.X = 33333; // Classes with default values for properties do not require null-checks for said properties
+    size.Y += 2;
+    size.Z *= 0.3;
+    firstPart.Size = size;
     firstPart.CanCollide = !firstPart.CanCollide;
     firstPart.Material = Material.Brick; // Material is an enum that can be imported
 }

@@ -64,7 +64,11 @@ local function oneClass(class, obj, props)
 	writeClass(class)
 	writeClass("\",\n        \"Props\": [\n")
 	for _, prop in props do
-		local value = tryGet(obj, prop)
+		local key = prop
+		if prop == "Color3uint8" then
+			key = "Color"
+		end
+		local value = tryGet(obj, key)
 		if value ~= nil then
 			found = true
 			writeClass("            { \"Name\": \"")

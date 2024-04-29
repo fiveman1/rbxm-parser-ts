@@ -1,7 +1,6 @@
 /**
  * @author https://github.com/fiveman1
- * @file util.ts
- * Contains some functions.
+ * Contains some utility functions.
  */
 
 /**

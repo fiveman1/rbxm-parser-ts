@@ -1,11 +1,11 @@
 /**
  * @author https://github.com/fiveman1
- * @file roblox_types.ts
  * Contains some Roblox related types/enums.
  */
 
 import { NameToClass } from "../generated/generated_types";
 import { narrowCopyArray, formatNum, floatsEqual } from "./util";
+import blake2b from "blake2b";
 
 /**
  * See https://dom.rojo.space/binary#data-types
@@ -724,9 +724,9 @@ export enum RBXMFace
  */
 export class Faces implements ICopyable
 {
-    public Faces: Array<RBXMFace>;
+    public Faces: RBXMFace[];
 
-    public constructor(faces: Array<RBXMFace>)
+    public constructor(...faces: RBXMFace[])
     {
         this.Faces = faces;
     }
@@ -745,7 +745,7 @@ export class Faces implements ICopyable
 
     public Copy() 
     {
-        return new Faces(narrowCopyArray(this.Faces)) as this;
+        return new Faces(...narrowCopyArray(this.Faces)) as this;
     }
 }
 
@@ -764,9 +764,9 @@ export enum RBXMAxis
  */
 export class Axes implements ICopyable
 {
-    public Axes: Array<RBXMAxis>;
+    public Axes: RBXMAxis[];
 
-    public constructor(axes: Array<RBXMAxis>)
+    public constructor(...axes: RBXMAxis[])
     {
         this.Axes = axes;
     }
@@ -785,7 +785,7 @@ export class Axes implements ICopyable
 
     public Copy() 
     {
-        return new Axes(narrowCopyArray(this.Axes)) as this;
+        return new Axes(...narrowCopyArray(this.Axes)) as this;
     }
 }
 
@@ -1081,6 +1081,7 @@ export class CFrame implements ICopyable
 {
     public Position: Vector3;
     public Orientation: Array<number>;
+    public OrientId = -1;
 
     public constructor(position: Vector3, orientation: Array<number>)
     {
@@ -1090,83 +1091,6 @@ export class CFrame implements ICopyable
 
     public static get Identity() { return new CFrame(new Vector3(0, 0, 0), [1, 0, 0, 0, 1, 0, 0, 0, 1]); }
 
-    public get ColumnX() { return new Vector3(this.Orientation[0], this.Orientation[3], this.Orientation[6]); }
-
-    public get ColumnY() { return new Vector3(this.Orientation[1], this.Orientation[4], this.Orientation[7]); }
-
-    public get ColumnZ() { return new Vector3(this.Orientation[2], this.Orientation[5], this.Orientation[8]); }
-
-    public get XVector() { return new Vector3(this.Orientation[0], this.Orientation[1], this.Orientation[2]); }
-
-    public get YVector() { return new Vector3(this.Orientation[3], this.Orientation[4], this.Orientation[5]); }
-
-    public get ZVector() { return new Vector3(this.Orientation[6], this.Orientation[7], this.Orientation[8]); }
-
-    /**
-     * @returns whether this is axis aligned or not
-     */
-    public IsAxisAligned()
-    {
-        const tests = [
-            this.XVector.Dot(Vector3.XAxis),
-            this.YVector.Dot(Vector3.YAxis),
-            this.ZVector.Dot(Vector3.ZAxis)
-        ];
-
-        for (const test of tests)
-        {
-            const dot = Math.abs(test);
-
-            if (!floatsEqual(dot, 0) && !floatsEqual(dot, 1))
-            {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    /**
-     * Get the orient ID that this CFrame corresponds to, or -1 if not applicable.
-     * This is intended for internal use.
-     * @returns the orient ID or -1
-     */
-    public GetOrientId()
-    {
-        if (!this.IsAxisAligned())
-        {
-            return -1;
-        }
-
-        const xNormal = this.ColumnX.ToNormalId();
-        if (xNormal === -1)
-        {
-            return -1;
-        }
-
-        const yNormal = this.ColumnY.ToNormalId();
-        if (yNormal === -1)
-        {
-            return -1;
-        }
-
-        const orientId = (xNormal * 6) + yNormal;
-        if (!CFrame.IsLegalOrientId(orientId))
-        {
-            return -1;
-        }
-
-        return orientId;
-    }
-
-    protected static IsLegalOrientId(orientId: number)
-    {
-        const xOrientId = (orientId / 6) % 3;
-        const yOrientId = orientId % 3;
-
-        return xOrientId !== yOrientId;
-    }
-
     public toString()
     {
         return `CFrame(Position: ${this.Position}, Orientation: [${this.Orientation.map(formatNum).join(", ")}])`;
@@ -1174,7 +1098,10 @@ export class CFrame implements ICopyable
 
     public Copy()
     {
-        return new CFrame(this.Position.Copy(), narrowCopyArray(this.Orientation)) as this;
+        const cframe = new CFrame(this.Position.Copy(), narrowCopyArray(this.Orientation));
+        cframe.OrientId = this.OrientId;
+        return cframe as this;
+        //return new CFrame(this.Position.Copy(), narrowCopyArray(this.Orientation)) as this;
     }
 }
 
@@ -1185,7 +1112,7 @@ export class NumberSequence implements ICopyable
 {
     public Keypoints: NumberSequenceKeypoint[];
 
-    public constructor(keypoints: NumberSequenceKeypoint[])
+    public constructor(...keypoints: NumberSequenceKeypoint[])
     {
         this.Keypoints = keypoints;
     }
@@ -1197,7 +1124,7 @@ export class NumberSequence implements ICopyable
 
     public Copy()
     {
-        return new NumberSequence(deepCopyArray(this.Keypoints)) as this;
+        return new NumberSequence(...deepCopyArray(this.Keypoints)) as this;
     }
 }
 
@@ -1235,7 +1162,7 @@ export class ColorSequence implements ICopyable
 {
     public Keypoints: ColorSequenceKeypoint[];
 
-    public constructor(keypoints: ColorSequenceKeypoint[])
+    public constructor(...keypoints: ColorSequenceKeypoint[])
     {
         this.Keypoints = keypoints;
     }
@@ -1247,7 +1174,7 @@ export class ColorSequence implements ICopyable
 
     public Copy()
     {
-        return new ColorSequence(deepCopyArray(this.Keypoints)) as this;
+        return new ColorSequence(...deepCopyArray(this.Keypoints)) as this;
     }
 }
 
@@ -1357,6 +1284,26 @@ export class PhysicalProperties implements ICopyable
     }
 }
 
+export class SharedString
+{
+    public Value: string;
+    public Hash: Uint8Array;
+
+    public constructor(value: string, hash?: string)
+    {
+        this.Value = value;
+        if (hash)
+        {
+            this.Hash = Buffer.from(hash, "binary");
+        }
+        else
+        {
+            const input = Buffer.from(this.Value);
+            this.Hash = blake2b(16).update(input).digest();
+        }
+    }
+}
+
 /**
  * Represents an index in the shared string array of the .rbxm, which corresponds to a string.
  */
@@ -1408,17 +1355,36 @@ export class UniqueId implements ICopyable
     }
 }
 
+export enum FontWeight 
+{
+    Thin = 100,
+    ExtraLight = 200,
+    Light = 300,
+    Regular = 400,
+    Medium = 500,
+    SemiBold = 600,
+    Bold = 700,
+    ExtraBold = 800,
+    Heavy = 900
+}
+
+export enum FontStyle
+{
+    Normal = 0,
+    Italic = 1
+}
+
 /**
  * Represents an instance of a Roblox Font as it is stored in .rbxm format.
  */
 export class RBXMFont implements ICopyable
 {
     public Family: string;
-    public Weight: number;
-    public Style: number;
-    public CachedFaceId: string;
+    public Weight: FontWeight;
+    public Style: FontStyle;
+    public CachedFaceId?: string;
 
-    public constructor(family: string, weight: number, style: number, cachedFaceId: string)
+    public constructor(family: string, weight: FontWeight, style: FontStyle, cachedFaceId?: string)
     {
         this.Family = family;
         this.Weight = weight;
@@ -1428,7 +1394,7 @@ export class RBXMFont implements ICopyable
 
     public toString()
     {
-        return `Font(Family: ${this.Family}, Weight: ${this.Weight}, Style: ${this.Style}, CachedFaceId: ${this.CachedFaceId || "<none>"})`;
+        return `Font(Family: ${this.Family}, Weight: ${FontWeight[this.Weight]}, Style: ${FontStyle[this.Style]}, CachedFaceId: ${this.CachedFaceId || "<none>"})`;
     }
 
     public Copy()

@@ -1,39 +1,33 @@
 /**
  * @author https://github.com/fiveman1
- * @file roblox_model.ts
- * Contains the core classes to load and interact with a Roblox model.
+ * Contains the core classes to load and interact with a Roblox model/place file.
  */
 
 import axios from "axios";
-import { ChildContainer, CoreInstance } from "./roblox_types";
-import { RobloxModelDOMReader } from "./roblox_model_reader";
-import { RobloxModelDOMWriter } from "./roblox_model_writer";
+import { ChildContainer, CoreInstance, SharedString } from "./roblox_types";
+import { RobloxFileDOMReader } from "./roblox_file_reader";
+import { RobloxFileDOMWriter } from "./roblox_file_writer";
 
 // Helpful resources I used:
 // https://dom.rojo.space/binary - Documentation for .rbxm format
 // https://github.com/MaximumADHD/Roblox-File-Format - C# .rbxm parser
 
-export type SharedString = {
-    Hash: string,
-    SharedString: string
-}
-
 /**
  * Represents a Roblox model/place file. Contains all the data necessary for
  * saving/loading to a file.
  */
-export class RobloxModel extends ChildContainer
+export class RobloxFile extends ChildContainer
 {
     public readonly Metadata: Map<string, string> = new Map<string, string>();
     public readonly SharedStrings: SharedString[] = [];
     /**
-     * This is used when loading and then saving a model to keep the references to instances consistent.
+     * This is used when loading and then saving a file to keep the references to instances consistent.
      * You probably shouldn't mess with this.
      */
     public readonly ReferentMap: Map<CoreInstance, number> = new Map<CoreInstance, number>();
 
     /**
-     * The root instances of this model. This is a readonly array, to add or remove an instance
+     * The root instances of this file. This is a readonly array, to add or remove an instance
      * use AddToRoots and RemoveFromRoots
      */
     public get Roots(): readonly CoreInstance[]
@@ -42,16 +36,16 @@ export class RobloxModel extends ChildContainer
     }
 
     /**
-     * Adds the given instance as a root of this model.
+     * Adds the given instance as a root of this file.
      * @param instance the instance
      */
-    public AddToRoots(instance: CoreInstance)
+    public AddRoot(instance: CoreInstance)
     {
         this._children.add(instance);
     }
 
     /**
-     * Removes the given instance as a root of this model.
+     * Removes the given instance as a root of this file.
      * @param instance the instance
      */
     public RemoveFromRoots(instance: CoreInstance)
@@ -61,16 +55,16 @@ export class RobloxModel extends ChildContainer
 
     public WriteToBuffer()
     {
-        return new RobloxModelDOMWriter(this).write();
+        return new RobloxFileDOMWriter(this).write();
     }
 
     /**
-     * Create a RobloxModel from an asset ID. The uses the Roblox AssetDelivery web API
+     * Create a RobloxFile from an asset ID. The uses the Roblox AssetDelivery web API
      * to download the model using the given ID. If the provided asset ID is not a model,
      * this will return null. This may throw an error if there are problems accessing the API endpoint.
      * @param assetId the ID of the model
-     * @returns a Roblox model object or null if the asset ID is not a valid model.
-     * @example const model = await RobloxModel.ReadFromAssetId(4249137687);
+     * @returns a Roblox file object or null if the asset ID is not a valid model.
+     * @example const model = await RobloxFile.ReadFromAssetId(4249137687);
      */
     public static async ReadFromAssetId(assetId: number)
     {
@@ -95,19 +89,19 @@ export class RobloxModel extends ChildContainer
 
         const modelDomRes = await axios.get(location, { responseEncoding: "binary", responseType: "arraybuffer" });
 
-        return RobloxModel.ReadFromBuffer(modelDomRes.data);
+        return RobloxFile.ReadFromBuffer(modelDomRes.data);
     }
 
     /**
-     * Create a RobloxModel from a buffer or file. You could use fs.readFile
+     * Create a RobloxFile from a buffer. You could use fs.readFile
      * to load a .rbxm file then pass the result to this function to load it.
      * @param buffer a data buffer
-     * @returns a Roblox model object
-     * @example const model = RobloxModel.ReadFromBuffer(fs.readFileSync("my_model.rbxm"));
+     * @returns a Roblox file object
+     * @example const file = RobloxFile.ReadFromBuffer(fs.readFileSync("my_file.rbxm"));
      */
     public static ReadFromBuffer(buffer: Buffer)
     {
         const data = Uint8Array.from(buffer);
-        return new RobloxModelDOMReader().read(data);
+        return new RobloxFileDOMReader().read(data);
     }
 }

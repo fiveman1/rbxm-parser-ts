@@ -1,16 +1,13 @@
 /**
  * @author https://github.com/fiveman1
- * @file roblox_model_writer.ts
  * Contains the core classes for writing a .rbxm file.
  */
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import lz4 from "lz4";
-import { RobloxModel } from "./roblox_model";
+import { RobloxFile } from "./roblox_file";
 import { DataType, CoreInstance } from "./roblox_types";
-import { ChunkType, DataParserExtraInfo, RobloxClass, RobloxModelDOM } from "./roblox_model_dom";
-import { RobloxModelByteWriter } from "./roblox_model_bytes";
+import { ChunkType, DataParserExtraInfo, RobloxClass, RobloxFileDOM } from "./roblox_file_dom";
+import { RobloxFileByteWriter } from "./roblox_file_bytes";
 
 type PropValue = {
     name: string
@@ -18,11 +15,11 @@ type PropValue = {
 }
 
 /**
- * This class can write bytes in .rbxm format to a buffer from a given model
+ * This class can write bytes in .rbxm format to a buffer from a given RobloxFile
  */
-export class RobloxModelDOMWriter extends RobloxModelDOM
+export class RobloxFileDOMWriter extends RobloxFileDOM
 {
-    protected model: RobloxModel;
+    protected model: RobloxFile;
     protected bytesArray: Uint8Array[] = [];
     protected numBytes = 0;
     protected instToRefId: Map<CoreInstance, number> = new Map<CoreInstance, number>();
@@ -31,7 +28,7 @@ export class RobloxModelDOMWriter extends RobloxModelDOM
     protected numInstances = 0;
     protected numClasses = 0;
 
-    public constructor(model: RobloxModel)
+    public constructor(model: RobloxFile)
     {
         super();
         this.model = model;
@@ -44,28 +41,42 @@ export class RobloxModelDOMWriter extends RobloxModelDOM
 
         this.writeHeader();
 
-        this.writeMetaChunk();
+        const metaBytes = this.writeMetaChunk();
 
+        const classWriter = new RobloxFileByteWriter();
         for (const classId of this.sortedClassIds)
         {
-            this.writeInstChunk(classId, this.classIdToInfo.get(classId)!);
+            classWriter.putBytes(this.writeInstChunk(classId, this.classIdToInfo.get(classId)!));
         }
+        const classBytes = classWriter.bytes;
 
+        const propWriter = new RobloxFileByteWriter();
         for (const classId of this.sortedClassIds)
         {
             const info = this.classIdToInfo.get(classId)!;
             const props = this.collectProperties(info.instances);
             for (const prop of props)
             {
-                this.writePropChunk(classId, info.instances, prop.name, prop.type);
+                propWriter.putBytes(this.writePropChunk(classId, info.instances, prop.name, prop.type));
             }
         }
+        const propBytes = propWriter.bytes;
 
-        this.writeSstrChunk();
+        const sstrBytes = this.writeSstrChunk();
 
-        this.writePrntChunk();
+        const prntBytes = this.writePrntChunk();
 
-        this.writeEndChunk();
+        const endBytes = this.writeEndChunk();
+
+        // Why are we doing this out of order?
+        // We are using PROP chunks to load additional shared string data, but the SSTR chunk
+        // should be written before it.
+        this.writeBytes(metaBytes);
+        this.writeBytes(sstrBytes);
+        this.writeBytes(classBytes);
+        this.writeBytes(propBytes);
+        this.writeBytes(prntBytes);
+        this.writeBytes(endBytes);
 
         const buf = Buffer.allocUnsafe(this.numBytes);
         let i = 0;
@@ -166,7 +177,7 @@ export class RobloxModelDOMWriter extends RobloxModelDOM
 
     protected writeHeader()
     {
-        const writer = new RobloxModelByteWriter();
+        const writer = new RobloxFileByteWriter();
         writer.putStringAsBytes(this.MAGIC_HEADER);
         writer.putUint16(0); // Version
         writer.putInt32(this.numClasses);
@@ -177,14 +188,14 @@ export class RobloxModelDOMWriter extends RobloxModelDOM
 
     protected writeChunk(type: ChunkType, data: Uint8Array)
     {
-        const writer = new RobloxModelByteWriter();
+        const writer = new RobloxFileByteWriter();
         const { compressedLength, uncompressedLength, bytes } = this.compressData(type, data);
         writer.putStringAsBytes(type);
         writer.putUint32(compressedLength);
         writer.putUint32(uncompressedLength);
         writer.putBytes(new Uint8Array(4)); // 4 empty bytes
-        this.writeBytes(writer.bytes);
-        this.writeBytes(bytes);
+        writer.putBytes(bytes);
+        return writer.bytes;
     }
 
     protected compressData(type: ChunkType, data: Uint8Array)
@@ -193,7 +204,7 @@ export class RobloxModelDOMWriter extends RobloxModelDOM
         {
             // Don't compress the end chunk
             return {
-                compressedLength: data.length,
+                compressedLength: 0,
                 uncompressedLength: data.length,
                 bytes: data
             };
@@ -211,7 +222,12 @@ export class RobloxModelDOMWriter extends RobloxModelDOM
 
     protected writeMetaChunk()
     {
-        const writer = new RobloxModelByteWriter();
+        if (this.model.Metadata.size < 1)
+        {
+            return new Uint8Array();
+        }
+
+        const writer = new RobloxFileByteWriter();
 
         writer.putUint32(this.model.Metadata.size);
 
@@ -221,28 +237,33 @@ export class RobloxModelDOMWriter extends RobloxModelDOM
             writer.putString(value);
         }
 
-        this.writeChunk(ChunkType.META, writer.bytes);
+        return this.writeChunk(ChunkType.META, writer.bytes);
     }
 
     protected writeSstrChunk()
     {
-        const writer = new RobloxModelByteWriter();
+        if (this.model.SharedStrings.length < 1)
+        {
+            return new Uint8Array();
+        }
+
+        const writer = new RobloxFileByteWriter();
 
         writer.putUint32(0); // Version
         writer.putUint32(this.model.SharedStrings.length);
 
         for (const sharedString of this.model.SharedStrings)
         {
-            writer.putStringAsBytes(sharedString.Hash);
-            writer.putString(sharedString.SharedString);
+            writer.putBytes(sharedString.Hash);
+            writer.putString(sharedString.Value);
         }
 
-        this.writeChunk(ChunkType.SSTR, writer.bytes);
+        return this.writeChunk(ChunkType.SSTR, writer.bytes);
     }
 
     protected writeInstChunk(classId: number, info: RobloxClass)
     {
-        const writer = new RobloxModelByteWriter();
+        const writer = new RobloxFileByteWriter();
 
         writer.putUint32(classId);
         writer.putString(info.name);
@@ -257,15 +278,15 @@ export class RobloxModelDOMWriter extends RobloxModelDOM
         
         writer.putReferentArray(refs);
 
-        this.writeChunk(ChunkType.INST, writer.bytes);
+        return this.writeChunk(ChunkType.INST, writer.bytes);
     }
 
     protected writePropChunk(classId: number, instances: CoreInstance[], propName: string, type: DataType)
     {
         const parser = this.dataTypeParsers.get(type);
-        if (!parser) return;
+        if (!parser) return new Uint8Array();
 
-        const writer = new RobloxModelByteWriter();
+        const writer = new RobloxFileByteWriter();
 
         writer.putUint32(classId);
         writer.putString(propName);
@@ -275,14 +296,18 @@ export class RobloxModelDOMWriter extends RobloxModelDOM
         {
             info = { getReferentFromInstance: (instance) => this.instToRefId.get(instance) ?? -1 };
         }
+        else if (type === DataType.SharedString)
+        {
+            info = { sharedStrings: this.model.SharedStrings };
+        }
         parser.write(writer, instances.map((inst) => inst.Props.get(propName)), info);
 
-        this.writeChunk(ChunkType.PROP, writer.bytes);
+        return this.writeChunk(ChunkType.PROP, writer.bytes);
     }
 
     protected writePrntChunk()
     {
-        const writer = new RobloxModelByteWriter();
+        const writer = new RobloxFileByteWriter();
 
         writer.putUint8(0);
         writer.putUint32(this.numInstances);
@@ -303,15 +328,15 @@ export class RobloxModelDOMWriter extends RobloxModelDOM
         writer.putReferentArray(childRefs);
         writer.putReferentArray(parentRefs);
 
-        this.writeChunk(ChunkType.PRNT, writer.bytes);
+        return this.writeChunk(ChunkType.PRNT, writer.bytes);
     }
 
     protected writeEndChunk()
     {
-        const writer = new RobloxModelByteWriter();
+        const writer = new RobloxFileByteWriter();
 
         writer.putStringAsBytes(this.MAGIC_END);
 
-        this.writeChunk(ChunkType.END, writer.bytes);
+        return this.writeChunk(ChunkType.END, writer.bytes);
     }
 }
