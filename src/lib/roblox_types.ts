@@ -4,7 +4,7 @@
  */
 
 import { NameToClass } from "../generated/generated_types";
-import { narrowCopyArray, formatNum, floatsEqual } from "./util";
+import { narrowCopyArray, formatNum } from "./util";
 import blake2b from "blake2b";
 
 /**
@@ -439,6 +439,9 @@ export class CoreInstance extends ChildContainer
         return Array.from(this._children.values());
     }
 
+    /**
+     * Read-only access to the raw property data. Meant for internal use.
+     */
     public get Props(): ReadonlyMap<string, RobloxValue>
     {
         return this._props;
@@ -575,7 +578,7 @@ export class CoreInstance extends ChildContainer
      * @param className the class name
      * @returns whether or not this is an instance of the given class name.
      */
-    public IsARaw(className: string)
+    public IsAUnsafe(className: string)
     {
         return this._classNameList.includes(className);
     }
@@ -950,23 +953,18 @@ export class Vector3 implements ICopyable
         this.Z = z;
     }
 
-    public static get XAxis() { return new Vector3(1, 0, 0); }
-    public static get YAxis() { return new Vector3(0, 1, 0); }
-    public static get ZAxis() { return new Vector3(0, 0, 1); }
-
     /**
-     * Creates a Vector3 from a given Normal direction.
-     * @param normalId the normal direction
-     * @returns the Vector3 with a magnitude of 1 that faces in the normal direction
+     * Unit vector that points in the positive X direction
      */
-    public static FromNormalId(normalId: number)
-    {
-        // See FromNormalId https://github.com/MaximumADHD/Roblox-File-Format/blob/main/DataTypes/Vector3.cs
-        const coords = [0, 0, 0];
-        coords[normalId % 3] = (normalId > 2 ? -1 : 1);
-
-        return new Vector3(coords[0], coords[1], coords[2]);
-    }
+    public static get XAxis() { return new Vector3(1, 0, 0); }
+    /**
+     * Unit vector that points in the positive Y direction
+     */
+    public static get YAxis() { return new Vector3(0, 1, 0); }
+    /**
+     * Unit vector that points in the positive Z direction
+     */
+    public static get ZAxis() { return new Vector3(0, 0, 1); }
 
     /**
      * The magnitude of this Vector3.
@@ -1044,23 +1042,6 @@ export class Vector3 implements ICopyable
         return new Vector3(this.X / scalar, this.Y / scalar, this.Z / scalar);
     }
 
-    /**
-     * @returns which NormalId this vector corresponds to, or -1 if not applicable
-     */
-    public ToNormalId()
-    {
-        for (let i = 0; i < 6; ++i)
-        {
-            const normal = Vector3.FromNormalId(i);
-            if (floatsEqual(normal.X, this.X) && floatsEqual(normal.Y, this.Y) && floatsEqual(normal.Z, this.Z))
-            {
-                return i;
-            }
-        }
-
-        return -1;
-    }
-
     public toString()
     {
         return `Vector3(X: ${formatNum(this.X)}, Y: ${formatNum(this.Y)}, Z: ${formatNum(this.Z)})`;
@@ -1081,7 +1062,6 @@ export class CFrame implements ICopyable
 {
     public Position: Vector3;
     public Orientation: Array<number>;
-    public OrientId = -1;
 
     public constructor(position: Vector3, orientation: Array<number>)
     {
@@ -1089,6 +1069,9 @@ export class CFrame implements ICopyable
         this.Orientation = orientation;
     }
 
+    /**
+     * The identity CFrame
+     */
     public static get Identity() { return new CFrame(new Vector3(0, 0, 0), [1, 0, 0, 0, 1, 0, 0, 0, 1]); }
 
     public toString()
@@ -1098,10 +1081,7 @@ export class CFrame implements ICopyable
 
     public Copy()
     {
-        const cframe = new CFrame(this.Position.Copy(), narrowCopyArray(this.Orientation));
-        cframe.OrientId = this.OrientId;
-        return cframe as this;
-        //return new CFrame(this.Position.Copy(), narrowCopyArray(this.Orientation)) as this;
+        return new CFrame(this.Position.Copy(), narrowCopyArray(this.Orientation)) as this;
     }
 }
 
@@ -1284,6 +1264,10 @@ export class PhysicalProperties implements ICopyable
     }
 }
 
+/**
+ * Used by the Roblox file format to store large strings that multiple instances
+ * have the same reference to.
+ */
 export class SharedString
 {
     public Value: string;

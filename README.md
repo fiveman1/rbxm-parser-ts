@@ -25,22 +25,37 @@ const { RobloxFile, ... } = require("rbxm-parser");
 From an asset/model ID (this requires the model to be distributed and free on the Roblox Creator Hub):
 
 ```ts
-const model = await RobloxFile.ReadFromAssetId(4249137687);
+const file = await RobloxFile.ReadFromAssetId(4249137687);
 ```
 
 From a file:
 
 ```ts
-const model = RobloxFile.ReadFromBuffer(fs.readFileSync("my_roblox_file.rbxm"));
+const file = RobloxFile.ReadFromBuffer(fs.readFileSync("my_roblox_file.rbxm"));
 ```
 
 Note: When you load a model, it can have a return type of `null` in case the provided model was invalid, or the provided asset ID was not a model.
 
+### Saving
+
+`RobloxFile` has the `WriteToBuffer` method, which returns a Buffer object that represents the binary data of the file. You could then save that to a file like so:
+
+```ts
+const buffer = file.WriteToBuffer();
+fs.writeFileSync("my_roblox_file.rbxm", buffer);
+```
+
 ### Example
 
 ```ts
-const root = model.Roots[0]; // Models can have multiple roots
-const firstPart = root.FindFirstDescendantOfClass("Part"); // If using TS, firstPart will be strongly typed to a class of Part
+const file = RobloxFile.ReadFromBuffer(fs.readFileSync("my_roblox_file.rbxm")); // Open a file
+if (!file)
+{
+    return; // In case the file could not be read due to being in an invalid format
+}
+
+const firstPart = file.FindFirstDescendantOfClass("Part"); // FirstPart will be strongly typed to a class of Part
+
 if (firstPart)
 {
     const size = firstPart.Size; // All property gets return a copy of the value (except for Instance types)
@@ -48,18 +63,29 @@ if (firstPart)
     size.Y += 2;
     size.Z *= 0.3;
     firstPart.Size = size;
-    firstPart.CanCollide = !firstPart.CanCollide;
+    firstPart.CanCollide = true;
+    firstPart.Transparency = 0.7;
     firstPart.Material = Material.Brick; // Material is an enum that can be imported
 }
 
-const baseParts = root.FindChildrenOfClass("BasePart");
+const baseParts = file.FindChildrenOfClass("BasePart");
 for (const part of baseParts)
 {
     if (part.IsA("Part")) // Use "IsA" for type safety
     {
         part.Shape = PartType.Cylinder; // Shape is a property of the class Part, but not BasePart
     }
+    
+    const myTexture = new Texture(); // You can create new instances directly like so
+    myTexture.Parent = part;
+    myTexture.Texture = "rbxassetid://6073594015";
+    myTexture.StudsPerTileU = 4;
+    myTexture.StudsPerTileV = 4;
+    myTexture.Face = NormalId.Top;
+    // Instances have (nearly) all of their property defaults defined in order to match how they are defaulted in Roblox
 }
+
+fs.writeFileSync("my_roblox_file_updated.rbxm", file.WriteToBuffer()); // Save to a new file
 ```
 
 All of the above property gets and sets are strongly typed.

@@ -4,7 +4,7 @@
  * A good portion of this is based on https://github.com/MaximumADHD/Roblox-File-Format/blob/main/Plugins/GenerateApiDump/init.server.lua
  */
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
+
 
 import fs from "fs";
 import { Color3, DataType } from "../lib/roblox_types";
@@ -453,6 +453,16 @@ import { DataType, CoreInstance, Axes, CFrame, Color3, ColorSequence, ColorSeque
         );
     }
 
+    protected setInheritance(info: ClassInfo | undefined)
+    {
+        if (!info) 
+        {
+            return;
+        }
+        info.Inherited = true;
+        this.setInheritance(this.allClasses.get(info.Superclass));
+    }
+
     protected filterClass(info: ClassInfo)
     {
         // Studio is special and we will not generate it
@@ -512,40 +522,6 @@ import { DataType, CoreInstance, Axes, CFrame, Color3, ColorSequence, ColorSeque
             loopInfo = this.allClasses.get(loopInfo.Superclass);
         }
         return propNames;
-    }
-
-    protected gatherPropNamesNeedDefaults(info: ClassInfo)
-    {
-        if (this.isClassAbstract(info)) return [];
-
-        const propNames: string[] = [];
-
-        this.addNeedDefaultPropNamesToArray(info, propNames);
-
-        this.gatherPropNamesNeedDefaultsHelper(propNames, this.allClasses.get(info.Superclass));
-
-        return propNames;
-    }
-
-    protected addNeedDefaultPropNamesToArray(info: ClassInfo, propNames: string[])
-    {
-        const defaults = this.getDefaultsFromAPI(info, true);
-        const members = this.classNameToProps.get(info.Name);
-        if (!members) return;
-        for (const member of members)
-        {
-            if (GenerateData.typeSkipDefaults(member) || this.instanceDefaultOverrides.has(member.Name) || defaults.has(member.Name)) continue;
-            propNames.push(member.Name);
-        }
-    }
-
-    protected gatherPropNamesNeedDefaultsHelper(propNames: string[], info?: ClassInfo)
-    {
-        if (!info) return;
-
-        this.addNeedDefaultPropNamesToArray(info, propNames);
-
-        this.gatherPropNamesNeedDefaultsHelper(propNames, this.allClasses.get(info.Superclass));
     }
 
     protected getDefaultsFromAPI(info: ClassInfo, ignoreDefStr: boolean = false)
@@ -712,7 +688,6 @@ import { DataType, CoreInstance, Axes, CFrame, Color3, ColorSequence, ColorSeque
             const propName = GenerateData.convertPropName(name);
             this.stream.write(`        this.${propName} = ${value};\n`);
         }
-        return defaults;
     }
 
     protected isClassAbstract(info: ClassInfo, tags?: Tags)
@@ -732,14 +707,13 @@ import { DataType, CoreInstance, Axes, CFrame, Color3, ColorSequence, ColorSeque
 
         this.stream.write(`\nexport ${isAbstract ? "abstract " : ""}class ${info.Name} extends ${info.Superclass} {\n`);
 
-        let defaults: Map<string, string>;
         if (info.Name === "Instance")
         {
             this.stream.write(`    protected constructor(isService: boolean = false)\n`);
             this.stream.write(`    {\n`);
             this.stream.write(`        super(isService);\n`);
             this.stream.write(`        this.addClassName("Instance");\n`);
-            defaults = this.writeDefaults(info);
+            this.writeDefaults(info);
             this.stream.write(`    }\n`);
         }
         else
@@ -749,7 +723,7 @@ import { DataType, CoreInstance, Axes, CFrame, Color3, ColorSequence, ColorSeque
             this.stream.write(`        super(${isService && info.Superclass === "Instance" ? "true" : ""});\n`);
             this.stream.write(`        this.addClassName("${info.Name}");\n`);
             if (!isAbstract) this.stream.write(`        this.Name = "${info.Name}";\n`);
-            defaults = this.writeDefaults(info);
+            this.writeDefaults(info);
             this.stream.write(`    }\n`);
         }
         return !isAbstract;
@@ -780,6 +754,59 @@ import { DataType, CoreInstance, Axes, CFrame, Color3, ColorSequence, ColorSeque
     protected hasPropagatedDefaults(info: ClassInfo, propName: string)
     {
         return this.classDefaultValues.get(info.Name)?.get(propName) !== undefined;
+    }
+
+    protected getMemberTypeAndInfo(className: string, memberName: string): { typeInfo?: MemberTypeInfo, memberInfo?: PropertyMember }
+    {
+        const classInfo = this.allClasses.get(className);
+        if (!classInfo)
+        {
+            return { typeInfo: undefined, memberInfo: undefined };
+        }
+        const info = this.classNameMemberNameInfo.get(`${className},${memberName}`);
+        if (info)
+        {
+            return { typeInfo: GenerateData.getTypeInfo(info), memberInfo: info };
+        }
+        return this.getMemberTypeAndInfo(classInfo.Superclass, memberName);
+    }
+
+    protected readCustomDefaults()
+    {
+        const data = JSON.parse(fs.readFileSync("src/generated/plugin/output.json", {encoding: "utf-8"})) as DefaultsClass[];
+        for (const classData of data)
+        {
+            const propMap = new Map<string, string>();
+            for (const propData of classData.Props)
+            {
+                let value = propData.Value;
+                if (value.startsWith("Enum."))
+                {
+                    value = value.split(".")[2]; // These are formatted like Enum.<EnumName>.<EnumValue>
+                }
+                const { typeInfo, memberInfo } = this.getMemberTypeAndInfo(classData.Name, propData.Name);
+                if (typeInfo && typeInfo.DataType && memberInfo)
+                {
+                    const convertedValue = formatDefault(value, memberInfo, typeInfo.DataType);
+                    if (convertedValue)
+                    {
+                        propMap.set(propData.Name, convertedValue);
+                    }
+                }
+            }
+            this.allClassDefaultOverrides.set(classData.Name, propMap);
+        }
+
+        for (const [name, info] of this.allClasses)
+        {
+            const overrides = this.allClassDefaultOverrides.get(name);
+            if (!overrides) continue;
+    
+            for (const [propName, value] of overrides)
+            {
+                this.propagateDefault(info, propName, value);
+            }
+        }
     }
 
     protected writeOneProp(info: ClassInfo, member: PropertyMember)
@@ -862,6 +889,40 @@ import { DataType, CoreInstance, Axes, CFrame, Color3, ColorSequence, ColorSeque
             }
         }
         return false;
+    }
+
+    protected gatherPropNamesNeedDefaults(info: ClassInfo)
+    {
+        if (this.isClassAbstract(info)) return [];
+
+        const propNames: string[] = [];
+
+        this.addNeedDefaultPropNamesToArray(info, propNames);
+
+        this.gatherPropNamesNeedDefaultsHelper(propNames, this.allClasses.get(info.Superclass));
+
+        return propNames;
+    }
+
+    protected addNeedDefaultPropNamesToArray(info: ClassInfo, propNames: string[])
+    {
+        const defaults = this.getDefaultsFromAPI(info, true);
+        const members = this.classNameToProps.get(info.Name);
+        if (!members) return;
+        for (const member of members)
+        {
+            if (GenerateData.typeSkipDefaults(member) || this.instanceDefaultOverrides.has(member.Name) || defaults.has(member.Name)) continue;
+            propNames.push(member.Name);
+        }
+    }
+
+    protected gatherPropNamesNeedDefaultsHelper(propNames: string[], info?: ClassInfo)
+    {
+        if (!info) return;
+
+        this.addNeedDefaultPropNamesToArray(info, propNames);
+
+        this.gatherPropNamesNeedDefaultsHelper(propNames, this.allClasses.get(info.Superclass));
     }
 
     protected startNameToClass()
@@ -947,69 +1008,6 @@ function getEnumMap() {
     {
         this.stream.write("    return map;\n");
         this.stream.write("}\n");
-    }
-
-    protected setInheritance(info: ClassInfo | undefined)
-    {
-        if (!info) 
-        {
-            return;
-        }
-        info.Inherited = true;
-        this.setInheritance(this.allClasses.get(info.Superclass));
-    }
-
-    protected getMemberTypeAndInfo(className: string, memberName: string): { typeInfo?: MemberTypeInfo, memberInfo?: PropertyMember }
-    {
-        const classInfo = this.allClasses.get(className);
-        if (!classInfo)
-        {
-            return { typeInfo: undefined, memberInfo: undefined };
-        }
-        const info = this.classNameMemberNameInfo.get(`${className},${memberName}`);
-        if (info)
-        {
-            return { typeInfo: GenerateData.getTypeInfo(info), memberInfo: info };
-        }
-        return this.getMemberTypeAndInfo(classInfo.Superclass, memberName);
-    }
-
-    protected readCustomDefaults()
-    {
-        const data = JSON.parse(fs.readFileSync("src/generated/plugin/output.json", {encoding: "utf-8"})) as DefaultsClass[];
-        for (const classData of data)
-        {
-            const propMap = new Map<string, string>();
-            for (const propData of classData.Props)
-            {
-                let value = propData.Value;
-                if (value.startsWith("Enum."))
-                {
-                    value = value.split(".")[2]; // These are formatted like Enum.<EnumName>.<EnumValue>
-                }
-                const { typeInfo, memberInfo } = this.getMemberTypeAndInfo(classData.Name, propData.Name);
-                if (typeInfo && typeInfo.DataType && memberInfo)
-                {
-                    const convertedValue = formatDefault(value, memberInfo, typeInfo.DataType);
-                    if (convertedValue)
-                    {
-                        propMap.set(propData.Name, convertedValue);
-                    }
-                }
-            }
-            this.allClassDefaultOverrides.set(classData.Name, propMap);
-        }
-
-        for (const [name, info] of this.allClasses)
-        {
-            const overrides = this.allClassDefaultOverrides.get(name);
-            if (!overrides) continue;
-    
-            for (const [propName, value] of overrides)
-            {
-                this.propagateDefault(info, propName, value);
-            }
-        }
     }
 
     protected async generate()

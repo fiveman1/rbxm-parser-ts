@@ -116,6 +116,9 @@ export class RobloxFileDOMWriter extends RobloxFileDOM
 
     protected setup()
     {
+        // Assign referent IDs to every instance
+
+        // We may already have some referent IDs, figure out where to start from for new ones
         let lastReferent = -1;
         for (const referent of this.instToRefId.values())
         {
@@ -128,10 +131,12 @@ export class RobloxFileDOMWriter extends RobloxFileDOM
         const instances = this.model.GetAllDescendants();
         this.numInstances = instances.length;
 
+        // Assign class IDs to every class
         const classNameToId = new Map<string, number>();
         let lastClassId = -1;
         for (const instance of instances)
         {
+            // Referent IDs
             let refId: number;
             if (!this.instToRefId.has(instance))
             {
@@ -143,6 +148,8 @@ export class RobloxFileDOMWriter extends RobloxFileDOM
             {
                 refId = this.instToRefId.get(instance)!;
             }
+
+            // Class IDs + extra info
             if (!classNameToId.has(instance.ClassName))
             {
                 ++lastClassId;
@@ -165,6 +172,7 @@ export class RobloxFileDOMWriter extends RobloxFileDOM
             
         }
 
+        // Sort by class ID which matches how Roblox saves the file
         this.numClasses = this.classIdToInfo.size;
         this.sortedClassIds.sort((id1, id2) => this.classIdToInfo.get(id1)!.name > this.classIdToInfo.get(id2)!.name ? 1 : -1);
     }
@@ -291,6 +299,7 @@ export class RobloxFileDOMWriter extends RobloxFileDOM
         writer.putUint32(classId);
         writer.putString(propName);
         writer.putUint8(type);
+
         let info: DataParserExtraInfo | undefined;
         if (type === DataType.Referent)
         {
@@ -300,6 +309,7 @@ export class RobloxFileDOMWriter extends RobloxFileDOM
         {
             info = { sharedStrings: this.model.SharedStrings };
         }
+       
         parser.write(writer, instances.map((inst) => inst.Props.get(propName)), info);
 
         return this.writeChunk(ChunkType.PROP, writer.bytes);

@@ -1,4 +1,4 @@
--- Generated on 4/28/2024, 6:58:28 PM
+-- Generated on 4/28/2024, 10:32:46 PM
 local module = {}
 module.PropTable = {
     Accoutrement = {"AttachmentPoint"},
