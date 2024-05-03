@@ -18,10 +18,18 @@ import { RobloxFileDOMWriter } from "./roblox_file_writer";
  */
 export class RobloxFile extends ChildContainer
 {
-    public readonly Metadata: Map<string, string> = new Map<string, string>();
-    public readonly SharedStrings: SharedString[] = [];
     /**
-     * This is used when loading and then saving a file to keep the references to instances consistent.
+     * Contains the mapping of metadata strings stored in the file. These come from the META chunk in the DOM.
+     */
+    public readonly Metadata: Map<string, string> = new Map<string, string>();
+    
+    /**
+     * Contains the list of shared strings in the file. These come from the SSTR chunk in the DOM.
+     */
+    public readonly SharedStrings: SharedString[] = [];
+    
+    /**
+     * This is used when loading and then saving a file to keep the reference to instance mapping consistent.
      * You probably shouldn't mess with this.
      */
     public readonly ReferentMap: Map<CoreInstance, number> = new Map<CoreInstance, number>();
@@ -53,6 +61,12 @@ export class RobloxFile extends ChildContainer
         this._children.delete(instance);
     }
 
+    /**
+     * Writes this model to a Buffer and returns it.
+     * @returns a Buffer object that contains the file data in binary form
+     * @example const buffer = file.WriteToBuffer();
+     * fs.writeFileSync("my_roblox_file.rbxm", buffer);
+     */
     public WriteToBuffer()
     {
         return new RobloxFileDOMWriter(this).write();

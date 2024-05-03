@@ -4,8 +4,6 @@
  * A good portion of this is based on https://github.com/MaximumADHD/Roblox-File-Format/blob/main/Plugins/GenerateApiDump/init.server.lua
  */
 
-
-
 import fs from "fs";
 import { Color3, DataType } from "../lib/roblox_types";
 import axios from "axios";

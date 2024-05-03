@@ -6,11 +6,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import fs from "fs";
-import { CFrame, Color3, CoreInstance, Vector3 } from "./lib/roblox_types";
+import { Color3, CoreInstance, Vector3 } from "./lib/roblox_types";
 import { RobloxFile } from "./lib/roblox_file";
-import { Material, Model, NormalId, Part, Texture } from "./generated/generated_types";
+import { Model, NormalId, Part, Texture } from "./generated/generated_types";
 import axios from "axios";
-import { CFrameParser } from "./lib/roblox_file_dom";
 
 function depthFirstPrint(instance: CoreInstance, level: number)
 {
@@ -139,73 +138,4 @@ async function main()
     fs.writeFileSync(`output_files/myModel.txt`, myStr);
 }
 
-async function orientationTest()
-{
-    const assetId = 17324776967; // orientations
-    
-    const res = await axios.get("https://assetdelivery.roblox.com/v2/asset/", {
-        params: {id: assetId},
-        validateStatus: (status) => status === 404 || (status >= 200 && status < 300)
-    });
-
-    if (res.status === 404)
-    {
-        return null;
-    }
-
-    const data = res.data;
-    // https://create.roblox.com/docs/reference/engine/enums/AssetType
-    if (data.assetTypeId !== 10) // Model = 10
-    {
-        return null;
-    }
-
-    const location = data.locations[0].location;
-
-    const modelDomRes = await axios.get(location, { responseEncoding: "binary", responseType: "arraybuffer" });
-
-    console.log("first read");
-    const start = Date.now();
-    const file = RobloxFile.ReadFromBuffer(modelDomRes.data);
-    const end = Date.now();
-    console.log(`Read time: ${(end - start) / 1000}s`);
-
-    if (!file)
-    {
-        console.log("Invalid model");
-        return;
-    }
-    
-    printOrientations(file);
-
-    let str = "";
-    for (const root of file.Roots)
-    {
-        str += depthFirstPrint(root, 0);
-    }
-
-    if (!fs.existsSync("output_files"))
-    {
-        fs.mkdirSync("output_files");
-    }
-    fs.writeFileSync(`output_files/orients.txt`, str);
-
-    console.log("writing");
-    fs.writeFileSync(`output_files/orients.rbxm`, file.WriteToBuffer());
-}
-
-function printOrientations(model: RobloxFile)
-{
-    console.log("printing orientations");
-    for (const part of model.FindDescendantsOfClass("Part"))
-    {
-        const cframe = part.CFrame;
-        const parser = new CFrameParser();
-        const id = parser.getOrientId(cframe.Orientation);
-        console.log(part.Name + ": " + id.toString(16).padStart(2, "0"));
-    }
-    console.log("done printing orientations");
-}
-
 main();
-orientationTest();

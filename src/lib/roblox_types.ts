@@ -621,6 +621,9 @@ export class CoreInstance extends ChildContainer
 
 interface ICopyable
 {
+    /**
+     * Returns a (deep) copy of this object.
+     */
     Copy(): this;
 }
 
@@ -957,10 +960,12 @@ export class Vector3 implements ICopyable
      * Unit vector that points in the positive X direction
      */
     public static get XAxis() { return new Vector3(1, 0, 0); }
+    
     /**
      * Unit vector that points in the positive Y direction
      */
     public static get YAxis() { return new Vector3(0, 1, 0); }
+    
     /**
      * Unit vector that points in the positive Z direction
      */
