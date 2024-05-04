@@ -369,6 +369,10 @@ export abstract class ChildContainer
         return descendants;
     }
 
+    /**
+     * Returns an array of all the instances that are a descendant of this
+     * @returns an array of all descendants
+     */
     public GetAllDescendants(): CoreInstance[]
     {
         const descendants: CoreInstance[] = [];
