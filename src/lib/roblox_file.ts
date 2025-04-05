@@ -49,6 +49,7 @@ export class RobloxFile extends ChildContainer
      */
     public AddRoot(instance: CoreInstance)
     {
+        instance.RemoveParent();
         this._children.add(instance);
     }
 
@@ -59,6 +60,7 @@ export class RobloxFile extends ChildContainer
     public RemoveFromRoots(instance: CoreInstance)
     {
         this._children.delete(instance);
+        instance.Destroy();
     }
 
     /**

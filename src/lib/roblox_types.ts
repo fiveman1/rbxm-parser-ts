@@ -408,7 +408,8 @@ export class CoreInstance extends ChildContainer
     protected readonly _classNameList: string[] = [];
     protected readonly _isService: boolean;
     protected readonly _props: Map<string, RobloxValue> = new Map<string, RobloxValue>();
-    protected _parent?: CoreInstance;
+    protected _parent?: CoreInstance = undefined;
+    protected _destroyed: boolean = false;
 
     /**
      * Creates a new Instance.
@@ -555,17 +556,33 @@ export class CoreInstance extends ChildContainer
         return this._parent;
     }
 
-    public set Parent(newParent: CoreInstance | undefined)
+    public set Parent(newParent: CoreInstance)
+    {
+        if (this._parent === newParent)
+        {
+            return;
+        }
+
+        if (this._parent)
+        {
+            this._parent._children.delete(this);
+        }
+        newParent._children.add(this);
+        this._parent = newParent;
+    }
+
+    /**
+     * This removes the instance that this is parented to. This is mainly to allow
+     * setting an instance's parent to be the root of the model. You probably shouldn't be
+     * calling this since this can lead to corruption if not used properly.
+     */
+    public RemoveParent()
     {
         if (this._parent)
         {
             this._parent._children.delete(this);
         }
-        if (newParent)
-        {
-            newParent._children.add(this);
-        }
-        this._parent = newParent;
+        this._parent = undefined;
     }
 
     /**
@@ -594,6 +611,25 @@ export class CoreInstance extends ChildContainer
     public GetTitleString()
     {
         return `${this.ClassName} "${this.Name}"`;
+    }
+
+    /**
+     * This destroys the instance. Once you call this, you cannot use this instance
+     * or any of its descendants again. If you try to, bad things will happen...
+     */
+    public Destroy()
+    {
+        this.RemoveParent();
+        this._destroyed = true;
+        for (const child of this.Children)
+        {
+            child.Destroy();
+        }
+    }
+
+    public get IsDestroyed()
+    {
+        return this._destroyed;
     }
 
     public toString()

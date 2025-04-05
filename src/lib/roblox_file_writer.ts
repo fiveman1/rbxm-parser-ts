@@ -32,7 +32,6 @@ export class RobloxFileDOMWriter extends RobloxFileDOM
     {
         super();
         this.model = model;
-        this.instToRefId = model.ReferentMap;
     }
 
     public write()
@@ -116,38 +115,23 @@ export class RobloxFileDOMWriter extends RobloxFileDOM
 
     protected setup()
     {
-        // Assign referent IDs to every instance
-
-        // We may already have some referent IDs, figure out where to start from for new ones
-        let lastReferent = -1;
-        for (const referent of this.instToRefId.values())
-        {
-            if (referent > lastReferent)
-            {
-                lastReferent = referent;
-            }
-        }
-
         const instances = this.model.GetAllDescendants();
         this.numInstances = instances.length;
 
-        // Assign class IDs to every class
+        // Assign referent IDs and class IDs
         const classNameToId = new Map<string, number>();
+        let lastReferent = -1;
         let lastClassId = -1;
         for (const instance of instances)
         {
+            if (instance.IsDestroyed)
+            {
+                continue; // Shouldn't happen but check anyway...
+            }
+            
             // Referent IDs
-            let refId: number;
-            if (!this.instToRefId.has(instance))
-            {
-                ++lastReferent;
-                this.instToRefId.set(instance, lastReferent);
-                refId = lastReferent;
-            }
-            else
-            {
-                refId = this.instToRefId.get(instance)!;
-            }
+            ++lastReferent;
+            this.instToRefId.set(instance, lastReferent);
 
             // Class IDs + extra info
             if (!classNameToId.has(instance.ClassName))
@@ -158,7 +142,7 @@ export class RobloxFileDOMWriter extends RobloxFileDOM
                     name: instance.ClassName,
                     isService: instance.IsService,
                     instances: [instance],
-                    referentIdToIndex: new Map<number, number>([[refId, 0]])
+                    referentIdToIndex: new Map<number, number>([[lastReferent, 0]])
                 });
                 this.sortedClassIds.push(lastClassId);
             }
@@ -167,7 +151,7 @@ export class RobloxFileDOMWriter extends RobloxFileDOM
                 const classId = classNameToId.get(instance.ClassName)!;
                 const info = this.classIdToInfo.get(classId)!;
                 info.instances.push(instance);
-                info.referentIdToIndex.set(refId, info.instances.length - 1);
+                info.referentIdToIndex.set(lastReferent, info.instances.length - 1);
             }
             
         }

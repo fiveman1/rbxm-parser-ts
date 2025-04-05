@@ -33,11 +33,12 @@ function depthFirstPrint(instance: CoreInstance, level: number)
 async function main()
 {
     //const name = "v16";
+    const name = "cafe_model";
     //const model = RobloxFile.ReadFromBuffer(fs.readFileSync(`input_files/${name}.rbxm`));
     //const model = RobloxFile.ReadFromBuffer(fs.readFileSync(`input_files/${name}.rbxl`));
 
     //const assetId = 5258147910; // Map making starter kit
-    const assetId = 5227232138; // Numismatic
+    //const assetId = 5227232138; // Numismatic
     //const assetId = 17195837905; // my test model
     //const assetId = 17296983974;
     //const assetId = 17324776967; // orientations
@@ -45,30 +46,31 @@ async function main()
     //const assetId = 4249137687; // Arcane
     //const model = await RobloxFile.ReadFromAssetId(assetId);
     
-    const res = await axios.get("https://assetdelivery.roblox.com/v2/asset/", {
-        params: {id: assetId},
-        validateStatus: (status) => status === 404 || (status >= 200 && status < 300)
-    });
+    // const res = await axios.get("https://assetdelivery.roblox.com/v2/asset/", {
+    //     params: {id: assetId},
+    //     validateStatus: (status) => status === 404 || (status >= 200 && status < 300)
+    // });
 
-    if (res.status === 404)
-    {
-        return null;
-    }
+    // if (res.status === 404)
+    // {
+    //     return null;
+    // }
 
-    const data = res.data;
-    // https://create.roblox.com/docs/reference/engine/enums/AssetType
-    if (data.assetTypeId !== 10) // Model = 10
-    {
-        return null;
-    }
+    // const data = res.data;
+    // // https://create.roblox.com/docs/reference/engine/enums/AssetType
+    // if (data.assetTypeId !== 10) // Model = 10
+    // {
+    //     return null;
+    // }
 
-    const location = data.locations[0].location;
+    // const location = data.locations[0].location;
 
-    const modelDomRes = await axios.get(location, { responseEncoding: "binary", responseType: "arraybuffer" });
+    // const modelDomRes = await axios.get(location, { responseEncoding: "binary", responseType: "arraybuffer" });
 
     console.log("first read");
     const start = Date.now();
-    const model = RobloxFile.ReadFromBuffer(modelDomRes.data);
+    const model = RobloxFile.ReadFromBuffer(fs.readFileSync(`input_files/${name}.rbxm`));
+    //const model = RobloxFile.ReadFromBuffer(modelDomRes.data);
     const end = Date.now();
     console.log(`Read time: ${(end - start) / 1000}s`);
 
@@ -84,7 +86,7 @@ async function main()
         str += depthFirstPrint(root, 0);
     }
 
-    const name = assetId;
+    //const name = assetId;
     if (!fs.existsSync("output_files"))
     {
         fs.mkdirSync("output_files");
@@ -112,6 +114,19 @@ async function main()
     {
         console.log("they dont match :(");
     }
+
+    // const beverages = model.FindFirstDescendant((child) => child.Name === "Beverages");
+    // if (beverages)
+    // {
+    //     beverages.Destroy();
+    // }
+    // fs.writeFileSync(`output_files/${name}_edited.rbxm`, model.WriteToBuffer());
+    // let editStr = "";
+    // for (const root of model.Roots)
+    // {
+    //     editStr += depthFirstPrint(root, 0);
+    // }
+    // fs.writeFileSync(`output_files/${name}_edited.txt`, editStr);
 
     const myFile = new RobloxFile();
     const myModel = new Model();
