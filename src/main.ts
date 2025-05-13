@@ -33,7 +33,7 @@ function depthFirstPrint(instance: CoreInstance, level: number)
 async function main()
 {
     //const name = "v16";
-    const name = "cafe_model";
+    const name = "test";
     //const model = RobloxFile.ReadFromBuffer(fs.readFileSync(`input_files/${name}.rbxm`));
     //const model = RobloxFile.ReadFromBuffer(fs.readFileSync(`input_files/${name}.rbxl`));
 
@@ -69,7 +69,7 @@ async function main()
 
     console.log("first read");
     const start = Date.now();
-    const model = RobloxFile.ReadFromBuffer(fs.readFileSync(`input_files/${name}.rbxm`));
+    const model = RobloxFile.ReadFromBuffer(fs.readFileSync(`input_files/${name}.rbxl`));
     //const model = RobloxFile.ReadFromBuffer(modelDomRes.data);
     const end = Date.now();
     console.log(`Read time: ${(end - start) / 1000}s`);
@@ -94,9 +94,9 @@ async function main()
     fs.writeFileSync(`output_files/${name}.txt`, str);
 
     console.log("writing");
-    fs.writeFileSync(`output_files/${name}.rbxm`, model.WriteToBuffer());
+    fs.writeFileSync(`output_files/${name}.rbxl`, model.WriteToBuffer());
     console.log("reading");
-    const copyModel = RobloxFile.ReadFromBuffer(fs.readFileSync(`output_files/${name}.rbxm`));
+    const copyModel = RobloxFile.ReadFromBuffer(fs.readFileSync(`output_files/${name}.rbxl`));
     if (!copyModel) 
     {
         console.log("The written model was invalid..."); 

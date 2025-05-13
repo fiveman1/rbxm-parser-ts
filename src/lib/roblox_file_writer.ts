@@ -270,6 +270,16 @@ export class RobloxFileDOMWriter extends RobloxFileDOM
         
         writer.putReferentArray(refs);
 
+        if (info.isService)
+        {
+            const serviceMarkers = new Uint8Array(info.instances.length);
+            for (let i = 0; i < info.instances.length; ++i)
+            {
+                serviceMarkers[i] = 1;
+            }
+            writer.putBytes(serviceMarkers);
+        }
+
         return this.writeChunk(ChunkType.INST, writer.bytes);
     }
 
