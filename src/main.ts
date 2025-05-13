@@ -9,7 +9,6 @@ import fs from "fs";
 import { Color3, CoreInstance, Vector3 } from "./lib/roblox_types";
 import { RobloxFile } from "./lib/roblox_file";
 import { Model, NormalId, Part, Texture } from "./generated/generated_types";
-import axios from "axios";
 
 function depthFirstPrint(instance: CoreInstance, level: number)
 {

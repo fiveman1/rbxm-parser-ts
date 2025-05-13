@@ -3,7 +3,6 @@
  * Contains the core classes to load and interact with a Roblox model/place file.
  */
 
-import axios from "axios";
 import { ChildContainer, CoreInstance, SharedString } from "./roblox_types";
 import { RobloxFileDOMReader } from "./roblox_file_reader";
 import { RobloxFileDOMWriter } from "./roblox_file_writer";
@@ -72,40 +71,6 @@ export class RobloxFile extends ChildContainer
     public WriteToBuffer()
     {
         return new RobloxFileDOMWriter(this).write();
-    }
-
-    /**
-     * Create a RobloxFile from an asset ID. The uses the Roblox AssetDelivery web API
-     * to download the model using the given ID. If the provided asset ID is not a model,
-     * this will return null. This may throw an error if there are problems accessing the API endpoint.
-     * @param assetId the ID of the model
-     * @returns a Roblox file object or null if the asset ID is not a valid model.
-     * @example const model = await RobloxFile.ReadFromAssetId(4249137687);
-     */
-    public static async ReadFromAssetId(assetId: number)
-    {
-        const res = await axios.get("https://assetdelivery.roblox.com/v2/asset/", {
-            params: {id: assetId},
-            validateStatus: (status) => status === 404 || (status >= 200 && status < 300)
-        });
-    
-        if (res.status === 404)
-        {
-            return null;
-        }
-    
-        const data = res.data;
-        // https://create.roblox.com/docs/reference/engine/enums/AssetType
-        if (data.assetTypeId !== 10) // Model = 10
-        {
-            return null;
-        }
-    
-        const location = data.locations[0].location;
-
-        const modelDomRes = await axios.get(location, { responseEncoding: "binary", responseType: "arraybuffer" });
-
-        return RobloxFile.ReadFromBuffer(modelDomRes.data);
     }
 
     /**
