@@ -719,6 +719,15 @@ import { DataType, CoreInstance, Axes, CFrame, Color3, ColorSequence, ColorSeque
             this.stream.write(`    public constructor()\n`);
             this.stream.write(`    {\n`);
             this.stream.write(`        super(${isService && info.Superclass === "Instance" ? "true" : ""});\n`);
+            if (isService && info.Superclass !== "Instance")
+            {
+                const inheritedTags = this.allClasses.get(info.Superclass)?.Tags;
+                if (inheritedTags && !(new Tags(inheritedTags).Service))
+                {
+                    // Special case for classes that are a service that inherit from a class that isn't a service (like Workspace which inherits from Model)
+                    this.stream.write(`        this._isService = true;\n`);
+                }
+            }
             this.stream.write(`        this.addClassName("${info.Name}");\n`);
             if (!isAbstract) this.stream.write(`        this.Name = "${info.Name}";\n`);
             this.writeDefaults(info);
@@ -1020,7 +1029,8 @@ function getEnumMap() {
 
         for (const info of data.Classes)
         {
-            if (info.Superclass === "<<<ROOT>>>")
+            if (info.Name === "Object") continue; // Skip Object, doesn't actually do anything meaningful
+            if (info.Superclass === "Object")
             {
                 info.Superclass = "CoreInstance";
             }

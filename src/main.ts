@@ -32,7 +32,7 @@ function depthFirstPrint(instance: CoreInstance, level: number)
 async function main()
 {
     //const name = "v16";
-    const name = "test";
+    const name = "OUTPUT";
     //const model = RobloxFile.ReadFromBuffer(fs.readFileSync(`input_files/${name}.rbxm`));
     //const model = RobloxFile.ReadFromBuffer(fs.readFileSync(`input_files/${name}.rbxl`));
 

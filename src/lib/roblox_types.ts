@@ -406,7 +406,7 @@ export abstract class ChildContainer
 export class CoreInstance extends ChildContainer
 {
     protected readonly _classNameList: string[] = [];
-    protected readonly _isService: boolean;
+    protected _isService: boolean;
     protected readonly _props: Map<string, RobloxValue> = new Map<string, RobloxValue>();
     protected _parent?: CoreInstance = undefined;
     protected _destroyed: boolean = false;
