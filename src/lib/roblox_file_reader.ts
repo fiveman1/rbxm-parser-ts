@@ -208,6 +208,7 @@ export class RobloxFileDOMReader extends RobloxFileDOM
             referentIdToIndex.set(referent, index);
             this.referentIdToClassId.set(referent, classId);
             const instance = classFactory ? classFactory() : new CoreInstance(isService, className);
+            instance.ResetProps();
             instances.push(instance);
             this.model.ReferentMap.set(instance, referent);
         });

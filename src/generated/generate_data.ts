@@ -119,7 +119,8 @@ const DataTypeInfo = new Map<string, string>([
     ["Content", DataType[DataType.String]],
     ["BinaryString", DataType[DataType.String]],
     ["ProtectedString", DataType[DataType.String]],
-    ["OptionalCoordinateFrame", DataType[DataType.OptionalCFrame]]
+    ["OptionalCoordinateFrame", DataType[DataType.OptionalCFrame]],
+    ["ContentId", DataType[DataType.String]]
 ]);
 
 [
@@ -430,6 +431,9 @@ class GenerateData
         ["archivable", "true"]
     ]);
     protected classDefaultValues = new Map<string, Map<string, Set<string>>>();
+    protected redirects = new Map<string, string>([
+        ["Camera/CoordinateFrame", "CFrame"]
+    ]);
 
     protected constructor() 
     {
@@ -683,6 +687,7 @@ import { DataType, CoreInstance, Axes, CFrame, Color3, ColorSequence, ColorSeque
         const defaults = this.getDefaults(info);
         for (const [name, value] of defaults)
         {
+            if (this.getRedirectName(info.Name, name)) continue;
             const propName = GenerateData.convertPropName(name);
             this.stream.write(`        this.${propName} = ${value};\n`);
         }
@@ -692,6 +697,11 @@ import { DataType, CoreInstance, Axes, CFrame, Color3, ColorSequence, ColorSeque
     {
         if (!tags) tags = new Tags(info.Tags);
         return tags.NotCreatable && info.Inherited && !this.singletons.has(info.Name);
+    }
+
+    protected getRedirectName(className: string, propName: string)
+    {
+        return this.redirects.get(`${className}/${propName}`);
     }
 
     protected startClass(info: ClassInfo)
@@ -719,6 +729,15 @@ import { DataType, CoreInstance, Axes, CFrame, Color3, ColorSequence, ColorSeque
             this.stream.write(`    public constructor()\n`);
             this.stream.write(`    {\n`);
             this.stream.write(`        super(${isService && info.Superclass === "Instance" ? "true" : ""});\n`);
+            if (isService && info.Superclass !== "Instance")
+            {
+                const inheritedTags = this.allClasses.get(info.Superclass)?.Tags;
+                if (inheritedTags && !(new Tags(inheritedTags).Service))
+                {
+                    // Special case for classes that are a service that inherit from a class that isn't a service (like Workspace which inherits from Model)
+                    this.stream.write(`        this._isService = true;\n`);
+                }
+            }
             this.stream.write(`        this.addClassName("${info.Name}");\n`);
             if (!isAbstract) this.stream.write(`        this.Name = "${info.Name}";\n`);
             this.writeDefaults(info);
@@ -822,11 +841,12 @@ import { DataType, CoreInstance, Axes, CFrame, Color3, ColorSequence, ColorSeque
         const propName = GenerateData.convertPropName(member.Name);
         const hasDefault = this.propHasDefault(info, member.Name) || this.hasPropagatedDefaults(info, member.Name);
         if (typeInfo.CastString && !hasDefault) typeInfo.CastString += " | undefined";
+        const redirect = this.getRedirectName(info.Name, member.Name);
 
         if (isDeprecated) this.stream.write("    /**@deprecated Deprecated by Roblox*/\n");
-        this.stream.write(`    ${GenerateData.createPropGetString(propName, member.Name, typeInfo.DataType, hasDefault, typeInfo.CastString)}\n`);
+        this.stream.write(`    ${GenerateData.createPropGetString(propName, member.Name, typeInfo.DataType, hasDefault, redirect, typeInfo.CastString)}\n`);
         if (isDeprecated) this.stream.write("    /**@deprecated Deprecated by Roblox*/\n");
-        this.stream.write(`    ${GenerateData.createPropSetString(propName, member.Name, typeInfo.DataType)}\n`);
+        this.stream.write(`    ${GenerateData.createPropSetString(propName, member.Name, typeInfo.DataType, redirect)}\n`);
     }
 
     protected static convertPropName(propName: string)
@@ -863,13 +883,21 @@ import { DataType, CoreInstance, Axes, CFrame, Color3, ColorSequence, ColorSeque
         return { DataType: dataType, CastString: castStr };
     }
 
-    protected static createPropGetString(propName: string, propDataName: string, dataType: string, hasDefault: boolean, castStr: string = "")
+    protected static createPropGetString(propName: string, propDataName: string, dataType: string, hasDefault: boolean, redirectName?: string, castStr: string = "")
     {
+        if (redirectName)
+        {
+            return `public get ${propName}() {return this.${redirectName};}`;
+        }
         return `public get ${propName}() {return this.GetProp("${propDataName}", DataType.${dataType})${hasDefault ? "!" : ""}${castStr};}`;
     }
 
-    protected static createPropSetString(propName: string, propDataName: string, dataType: string)
+    protected static createPropSetString(propName: string, propDataName: string, dataType: string, redirectName?: string)
     {
+        if (redirectName)
+        {
+            return `public set ${propName}(value) {this.${redirectName} = value;}`;
+        }
         return `public set ${propName}(value) {this.SetProp("${propDataName}", DataType.${dataType}, value);}`;
     }
 
@@ -1020,7 +1048,8 @@ function getEnumMap() {
 
         for (const info of data.Classes)
         {
-            if (info.Superclass === "<<<ROOT>>>")
+            if (info.Name === "Object") continue; // Skip Object, doesn't actually do anything meaningful
+            if (info.Superclass === "Object")
             {
                 info.Superclass = "CoreInstance";
             }
