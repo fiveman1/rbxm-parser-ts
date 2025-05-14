@@ -1,7 +1,7 @@
 /**
 * @author https://github.com/fiveman1
 * Contains generated types for Roblox classes and enums.
-* Generated on 5/14/2025, 12:32:47 PM
+* Generated on 5/14/2025, 5:38:53 PM
 */
 
 import { DataType, CoreInstance, Axes, CFrame, Color3, ColorSequence, ColorSequenceKeypoint, Faces, FontStyle, FontWeight, EnumItem, NumberRange, NumberSequence, 
@@ -184,7 +184,10 @@ export class Animation extends Instance {
         super();
         this.addClassName("Animation");
         this.Name = "Animation";
+        this.AnimationId = "";
     }
+    public get AnimationId() {return this.GetProp("AnimationId", DataType.String)!;}
+    public set AnimationId(value) {this.SetProp("AnimationId", DataType.String, value);}
 }
 
 export abstract class AnimationClip extends Instance {
@@ -783,6 +786,7 @@ export class AudioPlayer extends Instance {
         super();
         this.addClassName("AudioPlayer");
         this.Name = "AudioPlayer";
+        this.Asset = "";
         this.AssetId = "";
         this.AutoLoad = true;
         this.LoopRegion = new NumberRange(0, 60000);
@@ -792,6 +796,8 @@ export class AudioPlayer extends Instance {
         this.TimePosition = 0;
         this.Volume = 1;
     }
+    public get Asset() {return this.GetProp("Asset", DataType.String)!;}
+    public set Asset(value) {this.SetProp("Asset", DataType.String, value);}
     /**@deprecated Deprecated by Roblox*/
     public get AssetId() {return this.GetProp("AssetId", DataType.String)!;}
     /**@deprecated Deprecated by Roblox*/
@@ -1471,13 +1477,18 @@ export abstract class BaseWrap extends Instance {
     {
         super();
         this.addClassName("BaseWrap");
+        this.CageMeshId = "";
         this.CageOrigin = CFrame.Identity;
         this.ImportOrigin = CFrame.Identity;
     }
     public get CageMeshContent() {return this.GetProp("CageMeshContent", DataType.String);}
     public set CageMeshContent(value) {this.SetProp("CageMeshContent", DataType.String, value);}
+    public get CageMeshId() {return this.GetProp("CageMeshId", DataType.String)!;}
+    public set CageMeshId(value) {this.SetProp("CageMeshId", DataType.String, value);}
     public get CageOrigin() {return this.GetProp("CageOrigin", DataType.CFrame)!;}
     public set CageOrigin(value) {this.SetProp("CageOrigin", DataType.CFrame, value);}
+    public get HSRAssetId() {return this.GetProp("HSRAssetId", DataType.String);}
+    public set HSRAssetId(value) {this.SetProp("HSRAssetId", DataType.String, value);}
     public get HSRData() {return this.GetProp("HSRData", DataType.SharedString);}
     public set HSRData(value) {this.SetProp("HSRData", DataType.SharedString, value);}
     public get HSRMeshIdData() {return this.GetProp("HSRMeshIdData", DataType.SharedString);}
@@ -1488,6 +1499,8 @@ export abstract class BaseWrap extends Instance {
     public set MaxSize(value) {this.SetProp("MaxSize", DataType.Vector3, value);}
     public get Offset() {return this.GetProp("Offset", DataType.Vector3);}
     public set Offset(value) {this.SetProp("Offset", DataType.Vector3, value);}
+    public get TemporaryCageMeshId() {return this.GetProp("TemporaryCageMeshId", DataType.String);}
+    public set TemporaryCageMeshId(value) {this.SetProp("TemporaryCageMeshId", DataType.String, value);}
 }
 
 export class WrapDeformer extends BaseWrap {
@@ -1509,7 +1522,9 @@ export class WrapLayer extends BaseWrap {
         this.Enabled = true;
         this.Order = 1;
         this.Puffiness = 1;
+        this.ReferenceMeshId = "";
         this.ShrinkFactor = 0;
+        this.TemporaryReferenceId = "";
         this.BindOffset = CFrame.Identity;
         this.ReferenceOrigin = CFrame.Identity;
     }
@@ -1525,10 +1540,14 @@ export class WrapLayer extends BaseWrap {
     public set Puffiness(value) {this.SetProp("Puffiness", DataType.Float32, value);}
     public get ReferenceMeshContent() {return this.GetProp("ReferenceMeshContent", DataType.String);}
     public set ReferenceMeshContent(value) {this.SetProp("ReferenceMeshContent", DataType.String, value);}
+    public get ReferenceMeshId() {return this.GetProp("ReferenceMeshId", DataType.String)!;}
+    public set ReferenceMeshId(value) {this.SetProp("ReferenceMeshId", DataType.String, value);}
     public get ReferenceOrigin() {return this.GetProp("ReferenceOrigin", DataType.CFrame)!;}
     public set ReferenceOrigin(value) {this.SetProp("ReferenceOrigin", DataType.CFrame, value);}
     public get ShrinkFactor() {return this.GetProp("ShrinkFactor", DataType.Float32)!;}
     public set ShrinkFactor(value) {this.SetProp("ShrinkFactor", DataType.Float32, value);}
+    public get TemporaryReferenceId() {return this.GetProp("TemporaryReferenceId", DataType.String)!;}
+    public set TemporaryReferenceId(value) {this.SetProp("TemporaryReferenceId", DataType.String, value);}
 }
 
 export class WrapTarget extends BaseWrap {
@@ -1558,6 +1577,7 @@ export class Beam extends Instance {
         this.LightEmission = 0;
         this.LightInfluence = 0;
         this.Segments = 10;
+        this.Texture = "";
         this.TextureLength = 1;
         this.TextureMode = TextureMode.Stretch;
         this.TextureSpeed = 1;
@@ -1588,6 +1608,8 @@ export class Beam extends Instance {
     public set LightInfluence(value) {this.SetProp("LightInfluence", DataType.Float32, value);}
     public get Segments() {return this.GetProp("Segments", DataType.Int32)!;}
     public set Segments(value) {this.SetProp("Segments", DataType.Int32, value);}
+    public get Texture() {return this.GetProp("Texture", DataType.String)!;}
+    public set Texture(value) {this.SetProp("Texture", DataType.String, value);}
     public get TextureLength() {return this.GetProp("TextureLength", DataType.Float32)!;}
     public set TextureLength(value) {this.SetProp("TextureLength", DataType.Float32, value);}
     public get TextureMode() {return this.GetProp("TextureMode", DataType.Enum)! as TextureMode;}
@@ -1975,7 +1997,10 @@ export class Pants extends Clothing {
         super();
         this.addClassName("Pants");
         this.Name = "Pants";
+        this.PantsTemplate = "";
     }
+    public get PantsTemplate() {return this.GetProp("PantsTemplate", DataType.String)!;}
+    public set PantsTemplate(value) {this.SetProp("PantsTemplate", DataType.String, value);}
 }
 
 export class Shirt extends Clothing {
@@ -1984,7 +2009,10 @@ export class Shirt extends Clothing {
         super();
         this.addClassName("Shirt");
         this.Name = "Shirt";
+        this.ShirtTemplate = "";
     }
+    public get ShirtTemplate() {return this.GetProp("ShirtTemplate", DataType.String)!;}
+    public set ShirtTemplate(value) {this.SetProp("ShirtTemplate", DataType.String, value);}
 }
 
 export class ShirtGraphic extends CharacterAppearance {
@@ -1994,9 +2022,12 @@ export class ShirtGraphic extends CharacterAppearance {
         this.addClassName("ShirtGraphic");
         this.Name = "ShirtGraphic";
         this.Color3 = Color3.FromRGB(255, 255, 255);
+        this.Graphic = "";
     }
     public get Color3() {return this.GetProp("Color3", DataType.Color3)!;}
     public set Color3(value) {this.SetProp("Color3", DataType.Color3, value);}
+    public get Graphic() {return this.GetProp("Graphic", DataType.String)!;}
+    public set Graphic(value) {this.SetProp("Graphic", DataType.String, value);}
 }
 
 /**@deprecated Deprecated by Roblox*/
@@ -2044,8 +2075,11 @@ export class ClickDetector extends Instance {
         super();
         this.addClassName("ClickDetector");
         this.Name = "ClickDetector";
+        this.CursorIcon = "";
         this.MaxActivationDistance = 32;
     }
+    public get CursorIcon() {return this.GetProp("CursorIcon", DataType.String)!;}
+    public set CursorIcon(value) {this.SetProp("CursorIcon", DataType.String, value);}
     public get MaxActivationDistance() {return this.GetProp("MaxActivationDistance", DataType.Float32)!;}
     public set MaxActivationDistance(value) {this.SetProp("MaxActivationDistance", DataType.Float32, value);}
 }
@@ -2056,6 +2090,7 @@ export class DragDetector extends ClickDetector {
         super();
         this.addClassName("DragDetector");
         this.Name = "DragDetector";
+        this.ActivatedCursorIcon = "";
         this.ApplyAtCenterOfMass = false;
         this.DragStyle = DragDetectorDragStyle.TranslatePlane;
         this.Enabled = true;
@@ -2077,6 +2112,8 @@ export class DragDetector extends ClickDetector {
         this.VRSwitchKeyCode = KeyCode.ButtonL2;
         this.DragFrame = CFrame.Identity;
     }
+    public get ActivatedCursorIcon() {return this.GetProp("ActivatedCursorIcon", DataType.String)!;}
+    public set ActivatedCursorIcon(value) {this.SetProp("ActivatedCursorIcon", DataType.String, value);}
     public get ApplyAtCenterOfMass() {return this.GetProp("ApplyAtCenterOfMass", DataType.Bool)!;}
     public set ApplyAtCenterOfMass(value) {this.SetProp("ApplyAtCenterOfMass", DataType.Bool, value);}
     public get DragFrame() {return this.GetProp("DragFrame", DataType.CFrame)!;}
@@ -3254,7 +3291,13 @@ export class FileMesh extends DataModelMesh {
         super();
         this.addClassName("FileMesh");
         this.Name = "FileMesh";
+        this.MeshId = "";
+        this.TextureId = "";
     }
+    public get MeshId() {return this.GetProp("MeshId", DataType.String)!;}
+    public set MeshId(value) {this.SetProp("MeshId", DataType.String, value);}
+    public get TextureId() {return this.GetProp("TextureId", DataType.String)!;}
+    public set TextureId(value) {this.SetProp("TextureId", DataType.String, value);}
 }
 
 export class SpecialMesh extends FileMesh {
@@ -3676,6 +3719,7 @@ export class Decal extends FaceInstance {
         this.Color3 = Color3.FromRGB(255, 255, 255);
         this.Shiny = 20;
         this.Specular = 0;
+        this.Texture = "";
         this.Transparency = 0;
         this.ZIndex = 1;
     }
@@ -3689,6 +3733,8 @@ export class Decal extends FaceInstance {
     public get Specular() {return this.GetProp("Specular", DataType.Float32)!;}
     /**@deprecated Deprecated by Roblox*/
     public set Specular(value) {this.SetProp("Specular", DataType.Float32, value);}
+    public get Texture() {return this.GetProp("Texture", DataType.String)!;}
+    public set Texture(value) {this.SetProp("Texture", DataType.String, value);}
     public get TextureContent() {return this.GetProp("TextureContent", DataType.String);}
     public set TextureContent(value) {this.SetProp("TextureContent", DataType.String, value);}
     public get Transparency() {return this.GetProp("Transparency", DataType.Float32)!;}
@@ -4227,18 +4273,25 @@ export class ImageButton extends GuiButton {
         super();
         this.addClassName("ImageButton");
         this.Name = "ImageButton";
+        this.HoverImage = "";
+        this.Image = "";
         this.ImageColor3 = Color3.FromRGB(255, 255, 255);
         this.ImageRectOffset = new Vector2(0, 0);
         this.ImageRectSize = new Vector2(0, 0);
         this.ImageTransparency = 0;
+        this.PressedImage = "";
         this.ResampleMode = ResamplerMode.Default;
         this.ScaleType = ScaleType.Stretch;
         this.SliceCenter = new Rect(new Vector2(0, 0), new Vector2(0, 0));
         this.SliceScale = 1;
         this.TileSize = new UDim2(new UDim(1, 0), new UDim(1, 0));
     }
+    public get HoverImage() {return this.GetProp("HoverImage", DataType.String)!;}
+    public set HoverImage(value) {this.SetProp("HoverImage", DataType.String, value);}
     public get HoverImageContent() {return this.GetProp("HoverImageContent", DataType.String);}
     public set HoverImageContent(value) {this.SetProp("HoverImageContent", DataType.String, value);}
+    public get Image() {return this.GetProp("Image", DataType.String)!;}
+    public set Image(value) {this.SetProp("Image", DataType.String, value);}
     public get ImageColor3() {return this.GetProp("ImageColor3", DataType.Color3)!;}
     public set ImageColor3(value) {this.SetProp("ImageColor3", DataType.Color3, value);}
     public get ImageContent() {return this.GetProp("ImageContent", DataType.String);}
@@ -4249,6 +4302,8 @@ export class ImageButton extends GuiButton {
     public set ImageRectSize(value) {this.SetProp("ImageRectSize", DataType.Vector2, value);}
     public get ImageTransparency() {return this.GetProp("ImageTransparency", DataType.Float32)!;}
     public set ImageTransparency(value) {this.SetProp("ImageTransparency", DataType.Float32, value);}
+    public get PressedImage() {return this.GetProp("PressedImage", DataType.String)!;}
+    public set PressedImage(value) {this.SetProp("PressedImage", DataType.String, value);}
     public get PressedImageContent() {return this.GetProp("PressedImageContent", DataType.String);}
     public set PressedImageContent(value) {this.SetProp("PressedImageContent", DataType.String, value);}
     public get ResampleMode() {return this.GetProp("ResampleMode", DataType.Enum)! as ResamplerMode;}
@@ -4361,6 +4416,7 @@ export class ImageLabel extends GuiLabel {
         super();
         this.addClassName("ImageLabel");
         this.Name = "ImageLabel";
+        this.Image = "";
         this.ImageColor3 = Color3.FromRGB(255, 255, 255);
         this.ImageRectOffset = new Vector2(0, 0);
         this.ImageRectSize = new Vector2(0, 0);
@@ -4371,6 +4427,8 @@ export class ImageLabel extends GuiLabel {
         this.SliceScale = 1;
         this.TileSize = new UDim2(new UDim(1, 0), new UDim(1, 0));
     }
+    public get Image() {return this.GetProp("Image", DataType.String)!;}
+    public set Image(value) {this.SetProp("Image", DataType.String, value);}
     public get ImageColor3() {return this.GetProp("ImageColor3", DataType.Color3)!;}
     public set ImageColor3(value) {this.SetProp("ImageColor3", DataType.Color3, value);}
     public get ImageContent() {return this.GetProp("ImageContent", DataType.String);}
@@ -4489,15 +4547,18 @@ export class ScrollingFrame extends GuiObject {
         this.addClassName("ScrollingFrame");
         this.Name = "ScrollingFrame";
         this.AutomaticCanvasSize = AutomaticSize.None;
+        this.BottomImage = "rbxasset://textures/ui/Scroll/scroll-bottom.png";
         this.CanvasPosition = new Vector2(0, 0);
         this.CanvasSize = new UDim2(new UDim(0, 0), new UDim(2, 0));
         this.ElasticBehavior = ElasticBehavior.WhenScrollable;
         this.HorizontalScrollBarInset = ScrollBarInset.None;
+        this.MidImage = "rbxasset://textures/ui/Scroll/scroll-middle.png";
         this.ScrollBarImageColor3 = Color3.FromRGB(255, 255, 255);
         this.ScrollBarImageTransparency = 0;
         this.ScrollBarThickness = 12;
         this.ScrollingDirection = ScrollingDirection.XY;
         this.ScrollingEnabled = true;
+        this.TopImage = "rbxasset://textures/ui/Scroll/scroll-top.png";
         this.VerticalScrollBarInset = ScrollBarInset.None;
         this.VerticalScrollBarPosition = VerticalScrollBarPosition.Right;
         this.Active = false;
@@ -4507,6 +4568,8 @@ export class ScrollingFrame extends GuiObject {
     }
     public get AutomaticCanvasSize() {return this.GetProp("AutomaticCanvasSize", DataType.Enum)! as AutomaticSize;}
     public set AutomaticCanvasSize(value) {this.SetProp("AutomaticCanvasSize", DataType.Enum, value);}
+    public get BottomImage() {return this.GetProp("BottomImage", DataType.String)!;}
+    public set BottomImage(value) {this.SetProp("BottomImage", DataType.String, value);}
     public get CanvasPosition() {return this.GetProp("CanvasPosition", DataType.Vector2)!;}
     public set CanvasPosition(value) {this.SetProp("CanvasPosition", DataType.Vector2, value);}
     public get CanvasSize() {return this.GetProp("CanvasSize", DataType.UDim2)!;}
@@ -4515,6 +4578,8 @@ export class ScrollingFrame extends GuiObject {
     public set ElasticBehavior(value) {this.SetProp("ElasticBehavior", DataType.Enum, value);}
     public get HorizontalScrollBarInset() {return this.GetProp("HorizontalScrollBarInset", DataType.Enum)! as ScrollBarInset;}
     public set HorizontalScrollBarInset(value) {this.SetProp("HorizontalScrollBarInset", DataType.Enum, value);}
+    public get MidImage() {return this.GetProp("MidImage", DataType.String)!;}
+    public set MidImage(value) {this.SetProp("MidImage", DataType.String, value);}
     public get ScrollBarImageColor3() {return this.GetProp("ScrollBarImageColor3", DataType.Color3)!;}
     public set ScrollBarImageColor3(value) {this.SetProp("ScrollBarImageColor3", DataType.Color3, value);}
     public get ScrollBarImageTransparency() {return this.GetProp("ScrollBarImageTransparency", DataType.Float32)!;}
@@ -4525,6 +4590,8 @@ export class ScrollingFrame extends GuiObject {
     public set ScrollingDirection(value) {this.SetProp("ScrollingDirection", DataType.Enum, value);}
     public get ScrollingEnabled() {return this.GetProp("ScrollingEnabled", DataType.Bool)!;}
     public set ScrollingEnabled(value) {this.SetProp("ScrollingEnabled", DataType.Bool, value);}
+    public get TopImage() {return this.GetProp("TopImage", DataType.String)!;}
+    public set TopImage(value) {this.SetProp("TopImage", DataType.String, value);}
     public get VerticalScrollBarInset() {return this.GetProp("VerticalScrollBarInset", DataType.Enum)! as ScrollBarInset;}
     public set VerticalScrollBarInset(value) {this.SetProp("VerticalScrollBarInset", DataType.Enum, value);}
     public get VerticalScrollBarPosition() {return this.GetProp("VerticalScrollBarPosition", DataType.Enum)! as VerticalScrollBarPosition;}
@@ -4672,6 +4739,7 @@ export class VideoFrame extends GuiObject {
         this.Looped = false;
         this.Playing = false;
         this.TimePosition = 0;
+        this.Video = "";
         this.Volume = 1;
         this.Active = false;
         this.ClipsDescendants = false;
@@ -4684,6 +4752,8 @@ export class VideoFrame extends GuiObject {
     public set Playing(value) {this.SetProp("Playing", DataType.Bool, value);}
     public get TimePosition() {return this.GetProp("TimePosition", DataType.Float64)!;}
     public set TimePosition(value) {this.SetProp("TimePosition", DataType.Float64, value);}
+    public get Video() {return this.GetProp("Video", DataType.String)!;}
+    public set Video(value) {this.SetProp("Video", DataType.String, value);}
     public get VideoContent() {return this.GetProp("VideoContent", DataType.String);}
     public set VideoContent(value) {this.SetProp("VideoContent", DataType.String, value);}
     public get Volume() {return this.GetProp("Volume", DataType.Float32)!;}
@@ -4854,11 +4924,14 @@ export class AdGui extends SurfaceGuiBase {
         this.Name = "AdGui";
         this.AdShape = AdShape.HorizontalRectangle;
         this.EnableVideoAds = true;
+        this.FallbackImage = "";
     }
     public get AdShape() {return this.GetProp("AdShape", DataType.Enum)! as AdShape;}
     public set AdShape(value) {this.SetProp("AdShape", DataType.Enum, value);}
     public get EnableVideoAds() {return this.GetProp("EnableVideoAds", DataType.Bool)!;}
     public set EnableVideoAds(value) {this.SetProp("EnableVideoAds", DataType.Bool, value);}
+    public get FallbackImage() {return this.GetProp("FallbackImage", DataType.String)!;}
+    public set FallbackImage(value) {this.SetProp("FallbackImage", DataType.String, value);}
 }
 
 export class SurfaceGui extends SurfaceGuiBase {
@@ -4929,6 +5002,7 @@ export class FloorWire extends GuiBase3d {
         this.Name = "FloorWire";
         this.CycleOffset = 0;
         this.StudsBetweenTextures = 4;
+        this.Texture = "";
         this.TextureSize = new Vector2(1, 1);
         this.Velocity = 2;
         this.WireRadius = 0.0625;
@@ -4940,6 +5014,8 @@ export class FloorWire extends GuiBase3d {
     public set From(value) {this.SetProp("From", DataType.Referent, value);}
     public get StudsBetweenTextures() {return this.GetProp("StudsBetweenTextures", DataType.Float32)!;}
     public set StudsBetweenTextures(value) {this.SetProp("StudsBetweenTextures", DataType.Float32, value);}
+    public get Texture() {return this.GetProp("Texture", DataType.String)!;}
+    public set Texture(value) {this.SetProp("Texture", DataType.String, value);}
     public get TextureSize() {return this.GetProp("TextureSize", DataType.Vector2)!;}
     public set TextureSize(value) {this.SetProp("TextureSize", DataType.Vector2, value);}
     public get To() {return this.GetProp("To", DataType.Referent) as BasePart | undefined;}
@@ -5076,9 +5152,12 @@ export class ImageHandleAdornment extends HandleAdornment {
         super();
         this.addClassName("ImageHandleAdornment");
         this.Name = "ImageHandleAdornment";
+        this.Image = "rbxasset://textures/SurfacesDefault.png";
         this.Size = new Vector2(1, 1);
         this.Color3 = Color3.FromRGB(242, 243, 243);
     }
+    public get Image() {return this.GetProp("Image", DataType.String)!;}
+    public set Image(value) {this.SetProp("Image", DataType.String, value);}
     public get Size() {return this.GetProp("Size", DataType.Vector2)!;}
     public set Size(value) {this.SetProp("Size", DataType.Vector2, value);}
 }
@@ -6644,10 +6723,15 @@ export abstract class BaseScript extends LuaSourceContainer {
         super();
         this.addClassName("BaseScript");
         this.Disabled = false;
+        this.LinkedSource = "";
         this.RunContext = RunContext.Legacy;
     }
     public get Disabled() {return this.GetProp("Disabled", DataType.Bool)!;}
     public set Disabled(value) {this.SetProp("Disabled", DataType.Bool, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get LinkedSource() {return this.GetProp("LinkedSource", DataType.String)!;}
+    /**@deprecated Deprecated by Roblox*/
+    public set LinkedSource(value) {this.SetProp("LinkedSource", DataType.String, value);}
     public get RunContext() {return this.GetProp("RunContext", DataType.Enum)! as RunContext;}
     public set RunContext(value) {this.SetProp("RunContext", DataType.Enum, value);}
 }
@@ -6679,8 +6763,13 @@ export class ModuleScript extends LuaSourceContainer {
         super();
         this.addClassName("ModuleScript");
         this.Name = "ModuleScript";
+        this.LinkedSource = "";
         this.Source = "";
     }
+    /**@deprecated Deprecated by Roblox*/
+    public get LinkedSource() {return this.GetProp("LinkedSource", DataType.String)!;}
+    /**@deprecated Deprecated by Roblox*/
+    public set LinkedSource(value) {this.SetProp("LinkedSource", DataType.String, value);}
     public get Source() {return this.GetProp("Source", DataType.String)!;}
     public set Source(value) {this.SetProp("Source", DataType.String, value);}
 }
@@ -6890,17 +6979,32 @@ export class MaterialVariant extends Instance {
         this.addClassName("MaterialVariant");
         this.Name = "MaterialVariant";
         this.BaseMaterial = Material.Plastic;
+        this.ColorMap = "";
         this.MaterialPattern = MaterialPattern.Regular;
+        this.MetalnessMap = "";
+        this.NormalMap = "";
+        this.RoughnessMap = "";
         this.StudsPerTile = 10;
+        this.TexturePack = "";
     }
     public get BaseMaterial() {return this.GetProp("BaseMaterial", DataType.Enum)! as Material;}
     public set BaseMaterial(value) {this.SetProp("BaseMaterial", DataType.Enum, value);}
+    public get ColorMap() {return this.GetProp("ColorMap", DataType.String)!;}
+    public set ColorMap(value) {this.SetProp("ColorMap", DataType.String, value);}
     public get CustomPhysicalProperties() {return this.GetProp("CustomPhysicalProperties", DataType.PhysicalProperties);}
     public set CustomPhysicalProperties(value) {this.SetProp("CustomPhysicalProperties", DataType.PhysicalProperties, value);}
     public get MaterialPattern() {return this.GetProp("MaterialPattern", DataType.Enum)! as MaterialPattern;}
     public set MaterialPattern(value) {this.SetProp("MaterialPattern", DataType.Enum, value);}
+    public get MetalnessMap() {return this.GetProp("MetalnessMap", DataType.String)!;}
+    public set MetalnessMap(value) {this.SetProp("MetalnessMap", DataType.String, value);}
+    public get NormalMap() {return this.GetProp("NormalMap", DataType.String)!;}
+    public set NormalMap(value) {this.SetProp("NormalMap", DataType.String, value);}
+    public get RoughnessMap() {return this.GetProp("RoughnessMap", DataType.String)!;}
+    public set RoughnessMap(value) {this.SetProp("RoughnessMap", DataType.String, value);}
     public get StudsPerTile() {return this.GetProp("StudsPerTile", DataType.Float32)!;}
     public set StudsPerTile(value) {this.SetProp("StudsPerTile", DataType.Float32, value);}
+    public get TexturePack() {return this.GetProp("TexturePack", DataType.String)!;}
+    public set TexturePack(value) {this.SetProp("TexturePack", DataType.String, value);}
 }
 
 export class MemStorageService extends Instance {
@@ -7543,8 +7647,11 @@ export class MeshPart extends TriangleMeshPart {
         this.HasSkinnedMesh = false;
         this.InitialSize = new Vector3(0, 0, 0);
         this.JointOffset = new Vector3(0, 0, 0);
+        this.MeshID = "";
+        this.MeshId = "";
         this.PhysicsData = "";
         this.RenderFidelity = RenderFidelity.Automatic;
+        this.TextureID = "";
         this.VertexCount = 0;
         this.Anchored = false;
         this.CanCollide = true;
@@ -7563,12 +7670,20 @@ export class MeshPart extends TriangleMeshPart {
     public set JointOffset(value) {this.SetProp("JointOffset", DataType.Vector3, value);}
     public get MeshContent() {return this.GetProp("MeshContent", DataType.String);}
     public set MeshContent(value) {this.SetProp("MeshContent", DataType.String, value);}
+    /**@deprecated Deprecated by Roblox*/
+    public get MeshID() {return this.GetProp("MeshID", DataType.String)!;}
+    /**@deprecated Deprecated by Roblox*/
+    public set MeshID(value) {this.SetProp("MeshID", DataType.String, value);}
+    public get MeshId() {return this.GetProp("MeshId", DataType.String)!;}
+    public set MeshId(value) {this.SetProp("MeshId", DataType.String, value);}
     public get PhysicsData() {return this.GetProp("PhysicsData", DataType.String)!;}
     public set PhysicsData(value) {this.SetProp("PhysicsData", DataType.String, value);}
     public get RenderFidelity() {return this.GetProp("RenderFidelity", DataType.Enum)! as RenderFidelity;}
     public set RenderFidelity(value) {this.SetProp("RenderFidelity", DataType.Enum, value);}
     public get TextureContent() {return this.GetProp("TextureContent", DataType.String);}
     public set TextureContent(value) {this.SetProp("TextureContent", DataType.String, value);}
+    public get TextureID() {return this.GetProp("TextureID", DataType.String)!;}
+    public set TextureID(value) {this.SetProp("TextureID", DataType.String, value);}
     public get VertexCount() {return this.GetProp("VertexCount", DataType.Int32)!;}
     public set VertexCount(value) {this.SetProp("VertexCount", DataType.Int32, value);}
 }
@@ -7579,6 +7694,7 @@ export class PartOperation extends TriangleMeshPart {
         super();
         this.addClassName("PartOperation");
         this.Name = "PartOperation";
+        this.AssetId = "";
         this.ChildData = "";
         this.ComponentIndex = -1;
         this.FormFactor = FormFactor.Custom;
@@ -7591,6 +7707,8 @@ export class PartOperation extends TriangleMeshPart {
         this.UsePartColor = false;
         this.Color3uint8 = Color3.FromRGB(255, 255, 255);
     }
+    public get AssetId() {return this.GetProp("AssetId", DataType.String)!;}
+    public set AssetId(value) {this.SetProp("AssetId", DataType.String, value);}
     public get ChildData() {return this.GetProp("ChildData", DataType.String)!;}
     public set ChildData(value) {this.SetProp("ChildData", DataType.String, value);}
     public get ChildData2() {return this.GetProp("ChildData2", DataType.SharedString);}
@@ -7742,7 +7860,6 @@ export class Camera extends PVInstance {
         this.HeadScale = 1;
         this.VRTiltAndRollEnabled = false;
         this.CFrame = new CFrame(new Vector3(0, 20, 20), [1, 0, -0, -0, 0.707106829, 0.707106829, 0, -0.707106829, 0.707106829]);
-        this.CoordinateFrame = new CFrame(new Vector3(0, 20, 20), [1, 0, -0, -0, 0.707106829, 0.707106829, 0, -0.707106829, 0.707106829]);
         this.Focus = new CFrame(new Vector3(0, 0, -5), [1, 0, 0, 0, 1, 0, 0, 0, 1]);
     }
     public get CFrame() {return this.GetProp("CFrame", DataType.CFrame)!;}
@@ -7752,9 +7869,9 @@ export class Camera extends PVInstance {
     public get CameraType() {return this.GetProp("CameraType", DataType.Enum)! as CameraType;}
     public set CameraType(value) {this.SetProp("CameraType", DataType.Enum, value);}
     /**@deprecated Deprecated by Roblox*/
-    public get CoordinateFrame() {return this.GetProp("CoordinateFrame", DataType.CFrame)!;}
+    public get CoordinateFrame() {return this.CFrame;}
     /**@deprecated Deprecated by Roblox*/
-    public set CoordinateFrame(value) {this.SetProp("CoordinateFrame", DataType.CFrame, value);}
+    public set CoordinateFrame(value) {this.CFrame = value;}
     public get FieldOfView() {return this.GetProp("FieldOfView", DataType.Float32)!;}
     public set FieldOfView(value) {this.SetProp("FieldOfView", DataType.Float32, value);}
     public get FieldOfViewMode() {return this.GetProp("FieldOfViewMode", DataType.Enum)! as FieldOfViewMode;}
@@ -7815,7 +7932,10 @@ export abstract class BackpackItem extends Model {
     {
         super();
         this.addClassName("BackpackItem");
+        this.TextureId = "";
     }
+    public get TextureId() {return this.GetProp("TextureId", DataType.String)!;}
+    public set TextureId(value) {this.SetProp("TextureId", DataType.String, value);}
 }
 
 /**@deprecated Deprecated by Roblox*/
@@ -8047,6 +8167,7 @@ export class ParticleEmitter extends Instance {
         this.Speed = new NumberRange(5, 5);
         this.SpreadAngle = new Vector2(0, 0);
         this.Squash = new NumberSequence(new NumberSequenceKeypoint(0, 0, 0), new NumberSequenceKeypoint(1, 0, 0));
+        this.Texture = "rbxasset://textures/particles/sparkles_main.dds";
         this.TimeScale = 1;
         this.Transparency = new NumberSequence(new NumberSequenceKeypoint(0, 0, 0), new NumberSequenceKeypoint(1, 0, 0));
         this.VelocityInheritance = 0;
@@ -8108,6 +8229,8 @@ export class ParticleEmitter extends Instance {
     public set SpreadAngle(value) {this.SetProp("SpreadAngle", DataType.Vector2, value);}
     public get Squash() {return this.GetProp("Squash", DataType.NumberSequence)!;}
     public set Squash(value) {this.SetProp("Squash", DataType.NumberSequence, value);}
+    public get Texture() {return this.GetProp("Texture", DataType.String)!;}
+    public set Texture(value) {this.SetProp("Texture", DataType.String, value);}
     public get TimeScale() {return this.GetProp("TimeScale", DataType.Float32)!;}
     public set TimeScale(value) {this.SetProp("TimeScale", DataType.Float32, value);}
     public get Transparency() {return this.GetProp("Transparency", DataType.NumberSequence)!;}
@@ -9402,20 +9525,44 @@ export class Sky extends Instance {
         this.Name = "Sky";
         this.CelestialBodiesShown = true;
         this.MoonAngularSize = 11;
+        this.MoonTextureId = "rbxasset://sky/moon.jpg";
+        this.SkyboxBk = "rbxasset://textures/sky/sky512_bk.tex";
+        this.SkyboxDn = "rbxasset://textures/sky/sky512_dn.tex";
+        this.SkyboxFt = "rbxasset://textures/sky/sky512_ft.tex";
+        this.SkyboxLf = "rbxasset://textures/sky/sky512_lf.tex";
         this.SkyboxOrientation = new Vector3(0, 0, 0);
+        this.SkyboxRt = "rbxasset://textures/sky/sky512_rt.tex";
+        this.SkyboxUp = "rbxasset://textures/sky/sky512_up.tex";
         this.StarCount = 3000;
         this.SunAngularSize = 21;
+        this.SunTextureId = "rbxasset://sky/sun.jpg";
     }
     public get CelestialBodiesShown() {return this.GetProp("CelestialBodiesShown", DataType.Bool)!;}
     public set CelestialBodiesShown(value) {this.SetProp("CelestialBodiesShown", DataType.Bool, value);}
     public get MoonAngularSize() {return this.GetProp("MoonAngularSize", DataType.Float32)!;}
     public set MoonAngularSize(value) {this.SetProp("MoonAngularSize", DataType.Float32, value);}
+    public get MoonTextureId() {return this.GetProp("MoonTextureId", DataType.String)!;}
+    public set MoonTextureId(value) {this.SetProp("MoonTextureId", DataType.String, value);}
+    public get SkyboxBk() {return this.GetProp("SkyboxBk", DataType.String)!;}
+    public set SkyboxBk(value) {this.SetProp("SkyboxBk", DataType.String, value);}
+    public get SkyboxDn() {return this.GetProp("SkyboxDn", DataType.String)!;}
+    public set SkyboxDn(value) {this.SetProp("SkyboxDn", DataType.String, value);}
+    public get SkyboxFt() {return this.GetProp("SkyboxFt", DataType.String)!;}
+    public set SkyboxFt(value) {this.SetProp("SkyboxFt", DataType.String, value);}
+    public get SkyboxLf() {return this.GetProp("SkyboxLf", DataType.String)!;}
+    public set SkyboxLf(value) {this.SetProp("SkyboxLf", DataType.String, value);}
     public get SkyboxOrientation() {return this.GetProp("SkyboxOrientation", DataType.Vector3)!;}
     public set SkyboxOrientation(value) {this.SetProp("SkyboxOrientation", DataType.Vector3, value);}
+    public get SkyboxRt() {return this.GetProp("SkyboxRt", DataType.String)!;}
+    public set SkyboxRt(value) {this.SetProp("SkyboxRt", DataType.String, value);}
+    public get SkyboxUp() {return this.GetProp("SkyboxUp", DataType.String)!;}
+    public set SkyboxUp(value) {this.SetProp("SkyboxUp", DataType.String, value);}
     public get StarCount() {return this.GetProp("StarCount", DataType.Int32)!;}
     public set StarCount(value) {this.SetProp("StarCount", DataType.Int32, value);}
     public get SunAngularSize() {return this.GetProp("SunAngularSize", DataType.Float32)!;}
     public set SunAngularSize(value) {this.SetProp("SunAngularSize", DataType.Float32, value);}
+    public get SunTextureId() {return this.GetProp("SunTextureId", DataType.String)!;}
+    public set SunTextureId(value) {this.SetProp("SunTextureId", DataType.String, value);}
 }
 
 export class Smoke extends Instance {
@@ -9491,6 +9638,7 @@ export class Sound extends Instance {
         this.RollOffMaxDistance = 10000;
         this.RollOffMinDistance = 10;
         this.RollOffMode = RollOffMode.Inverse;
+        this.SoundId = "";
         this.TimePosition = 0;
         this.Volume = 0.5;
         this.XmlReadMaxDistance3 = 10000;
@@ -9528,6 +9676,8 @@ export class Sound extends Instance {
     public set RollOffMode(value) {this.SetProp("RollOffMode", DataType.Enum, value);}
     public get SoundGroup() {return this.GetProp("SoundGroup", DataType.Referent) as SoundGroup | undefined;}
     public set SoundGroup(value) {this.SetProp("SoundGroup", DataType.Referent, value);}
+    public get SoundId() {return this.GetProp("SoundId", DataType.String)!;}
+    public set SoundId(value) {this.SetProp("SoundId", DataType.String, value);}
     public get TimePosition() {return this.GetProp("TimePosition", DataType.Float64)!;}
     public set TimePosition(value) {this.SetProp("TimePosition", DataType.Float64, value);}
     public get Volume() {return this.GetProp("Volume", DataType.Float32)!;}
@@ -10240,19 +10390,34 @@ export class SurfaceAppearance extends Instance {
         this.Name = "SurfaceAppearance";
         this.AlphaMode = AlphaMode.Overlay;
         this.Color = Color3.FromRGB(255, 255, 255);
+        this.ColorMap = "";
+        this.MetalnessMap = "";
+        this.NormalMap = "";
+        this.RoughnessMap = "";
+        this.TexturePack = "";
     }
     public get AlphaMode() {return this.GetProp("AlphaMode", DataType.Enum)! as AlphaMode;}
     public set AlphaMode(value) {this.SetProp("AlphaMode", DataType.Enum, value);}
     public get Color() {return this.GetProp("Color", DataType.Color3)!;}
     public set Color(value) {this.SetProp("Color", DataType.Color3, value);}
+    public get ColorMap() {return this.GetProp("ColorMap", DataType.String)!;}
+    public set ColorMap(value) {this.SetProp("ColorMap", DataType.String, value);}
     public get ColorMapContent() {return this.GetProp("ColorMapContent", DataType.String);}
     public set ColorMapContent(value) {this.SetProp("ColorMapContent", DataType.String, value);}
+    public get MetalnessMap() {return this.GetProp("MetalnessMap", DataType.String)!;}
+    public set MetalnessMap(value) {this.SetProp("MetalnessMap", DataType.String, value);}
     public get MetalnessMapContent() {return this.GetProp("MetalnessMapContent", DataType.String);}
     public set MetalnessMapContent(value) {this.SetProp("MetalnessMapContent", DataType.String, value);}
+    public get NormalMap() {return this.GetProp("NormalMap", DataType.String)!;}
+    public set NormalMap(value) {this.SetProp("NormalMap", DataType.String, value);}
     public get NormalMapContent() {return this.GetProp("NormalMapContent", DataType.String);}
     public set NormalMapContent(value) {this.SetProp("NormalMapContent", DataType.String, value);}
+    public get RoughnessMap() {return this.GetProp("RoughnessMap", DataType.String)!;}
+    public set RoughnessMap(value) {this.SetProp("RoughnessMap", DataType.String, value);}
     public get RoughnessMapContent() {return this.GetProp("RoughnessMapContent", DataType.String);}
     public set RoughnessMapContent(value) {this.SetProp("RoughnessMapContent", DataType.String, value);}
+    public get TexturePack() {return this.GetProp("TexturePack", DataType.String)!;}
+    public set TexturePack(value) {this.SetProp("TexturePack", DataType.String, value);}
 }
 
 export class SystemThemeService extends Instance {
@@ -10400,16 +10565,31 @@ export class TerrainDetail extends Instance {
         super();
         this.addClassName("TerrainDetail");
         this.Name = "TerrainDetail";
+        this.ColorMap = "";
         this.Face = TerrainFace.Side;
         this.MaterialPattern = MaterialPattern.Regular;
+        this.MetalnessMap = "";
+        this.NormalMap = "";
+        this.RoughnessMap = "";
         this.StudsPerTile = 10;
+        this.TexturePack = "";
     }
+    public get ColorMap() {return this.GetProp("ColorMap", DataType.String)!;}
+    public set ColorMap(value) {this.SetProp("ColorMap", DataType.String, value);}
     public get Face() {return this.GetProp("Face", DataType.Enum)! as TerrainFace;}
     public set Face(value) {this.SetProp("Face", DataType.Enum, value);}
     public get MaterialPattern() {return this.GetProp("MaterialPattern", DataType.Enum)! as MaterialPattern;}
     public set MaterialPattern(value) {this.SetProp("MaterialPattern", DataType.Enum, value);}
+    public get MetalnessMap() {return this.GetProp("MetalnessMap", DataType.String)!;}
+    public set MetalnessMap(value) {this.SetProp("MetalnessMap", DataType.String, value);}
+    public get NormalMap() {return this.GetProp("NormalMap", DataType.String)!;}
+    public set NormalMap(value) {this.SetProp("NormalMap", DataType.String, value);}
+    public get RoughnessMap() {return this.GetProp("RoughnessMap", DataType.String)!;}
+    public set RoughnessMap(value) {this.SetProp("RoughnessMap", DataType.String, value);}
     public get StudsPerTile() {return this.GetProp("StudsPerTile", DataType.Float32)!;}
     public set StudsPerTile(value) {this.SetProp("StudsPerTile", DataType.Float32, value);}
+    public get TexturePack() {return this.GetProp("TexturePack", DataType.String)!;}
+    public set TexturePack(value) {this.SetProp("TexturePack", DataType.String, value);}
 }
 
 export class TerrainRegion extends Instance {
@@ -10796,6 +10976,7 @@ export class Trail extends Instance {
         this.LightInfluence = 0;
         this.MaxLength = 0;
         this.MinLength = 0.1;
+        this.Texture = "";
         this.TextureLength = 1;
         this.TextureMode = TextureMode.Stretch;
         this.Transparency = new NumberSequence(new NumberSequenceKeypoint(0, 0.5, 0), new NumberSequenceKeypoint(1, 0.5, 0));
@@ -10823,6 +11004,8 @@ export class Trail extends Instance {
     public set MaxLength(value) {this.SetProp("MaxLength", DataType.Float32, value);}
     public get MinLength() {return this.GetProp("MinLength", DataType.Float32)!;}
     public set MinLength(value) {this.SetProp("MinLength", DataType.Float32, value);}
+    public get Texture() {return this.GetProp("Texture", DataType.String)!;}
+    public set Texture(value) {this.SetProp("Texture", DataType.String, value);}
     public get TextureLength() {return this.GetProp("TextureLength", DataType.Float32)!;}
     public set TextureLength(value) {this.SetProp("TextureLength", DataType.Float32, value);}
     public get TextureMode() {return this.GetProp("TextureMode", DataType.Enum)! as TextureMode;}
@@ -10976,7 +11159,9 @@ export class UIDragDetector extends UIComponent {
         super();
         this.addClassName("UIDragDetector");
         this.Name = "UIDragDetector";
+        this.ActivatedCursorIcon = "";
         this.BoundingBehavior = UIDragDetectorBoundingBehavior.Automatic;
+        this.CursorIcon = "";
         this.DragAxis = new Vector2(1, 0);
         this.DragRelativity = UIDragDetectorDragRelativity.Absolute;
         this.DragRotation = 0;
@@ -10993,10 +11178,14 @@ export class UIDragDetector extends UIComponent {
         this.SelectionModeRotateSpeed = 90;
         this.UIDragSpeedAxisMapping = UIDragSpeedAxisMapping.XY;
     }
+    public get ActivatedCursorIcon() {return this.GetProp("ActivatedCursorIcon", DataType.String)!;}
+    public set ActivatedCursorIcon(value) {this.SetProp("ActivatedCursorIcon", DataType.String, value);}
     public get BoundingBehavior() {return this.GetProp("BoundingBehavior", DataType.Enum)! as UIDragDetectorBoundingBehavior;}
     public set BoundingBehavior(value) {this.SetProp("BoundingBehavior", DataType.Enum, value);}
     public get BoundingUI() {return this.GetProp("BoundingUI", DataType.Referent) as GuiBase2d | undefined;}
     public set BoundingUI(value) {this.SetProp("BoundingUI", DataType.Referent, value);}
+    public get CursorIcon() {return this.GetProp("CursorIcon", DataType.String)!;}
+    public set CursorIcon(value) {this.SetProp("CursorIcon", DataType.String, value);}
     public get DragAxis() {return this.GetProp("DragAxis", DataType.Vector2)!;}
     public set DragAxis(value) {this.SetProp("DragAxis", DataType.Vector2, value);}
     public get DragRelativity() {return this.GetProp("DragRelativity", DataType.Enum)! as UIDragDetectorDragRelativity;}
@@ -11306,6 +11495,7 @@ export class UserInputService extends Instance {
         this.addClassName("UserInputService");
         this.Name = "UserInputService";
         this.MouseBehavior = MouseBehavior.Default;
+        this.MouseIcon = "";
         this.MouseIconEnabled = true;
     }
     /**@deprecated Deprecated by Roblox*/
@@ -11314,6 +11504,8 @@ export class UserInputService extends Instance {
     public set LegacyInputEventsEnabled(value) {this.SetProp("LegacyInputEventsEnabled", DataType.Bool, value);}
     public get MouseBehavior() {return this.GetProp("MouseBehavior", DataType.Enum)! as MouseBehavior;}
     public set MouseBehavior(value) {this.SetProp("MouseBehavior", DataType.Enum, value);}
+    public get MouseIcon() {return this.GetProp("MouseIcon", DataType.String)!;}
+    public set MouseIcon(value) {this.SetProp("MouseIcon", DataType.String, value);}
     public get MouseIconEnabled() {return this.GetProp("MouseIconEnabled", DataType.Bool)!;}
     public set MouseIconEnabled(value) {this.SetProp("MouseIconEnabled", DataType.Bool, value);}
 }
@@ -11587,11 +11779,14 @@ export class VideoPlayer extends Instance {
         super();
         this.addClassName("VideoPlayer");
         this.Name = "VideoPlayer";
+        this.Asset = "";
         this.Looping = false;
         this.PlaybackSpeed = 1;
         this.TimePosition = 0;
         this.Volume = 1;
     }
+    public get Asset() {return this.GetProp("Asset", DataType.String)!;}
+    public set Asset(value) {this.SetProp("Asset", DataType.String, value);}
     public get Looping() {return this.GetProp("Looping", DataType.Bool)!;}
     public set Looping(value) {this.SetProp("Looping", DataType.Bool, value);}
     public get PlaybackSpeed() {return this.GetProp("PlaybackSpeed", DataType.Float32)!;}

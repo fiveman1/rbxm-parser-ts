@@ -453,6 +453,14 @@ export class CoreInstance extends ChildContainer
     }
 
     /**
+     * Clears out all property data. Meant for internal use.
+     */
+    public ResetProps()
+    {
+        this._props.clear();
+    }
+
+    /**
      * Gets a property value. This is a copy of the value.
      * @param propName the name of the property
      * @param type the DataType of the property
