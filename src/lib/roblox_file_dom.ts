@@ -358,11 +358,10 @@ export class RayParser extends DataTypeParser
 {
     public override read(bytes: RobloxFileByteReader, numInstances: number, outValues: Array<RobloxValue | undefined>)
     {
-        const origin = new Vector3(bytes.getFloat32(), bytes.getFloat32(), bytes.getFloat32());
-        const direction = new Vector3(bytes.getFloat32(), bytes.getFloat32(), bytes.getFloat32());
-
         for (let i = 0; i < numInstances; ++i)
         {
+            const origin = new Vector3(bytes.getFloat32(), bytes.getFloat32(), bytes.getFloat32());
+            const direction = new Vector3(bytes.getFloat32(), bytes.getFloat32(), bytes.getFloat32());
             outValues.push({ type: DataType.Ray, value: new Ray(origin, direction) });
         }
     }
@@ -1137,7 +1136,7 @@ export class PhysicalPropertiesParser extends DataTypeParser
                 outValues.push(undefined);
                 continue;
             }
-
+            
             const density = bytes.getFloat32();
             const friction = bytes.getFloat32();
             const elasticity = bytes.getFloat32();

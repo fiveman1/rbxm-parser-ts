@@ -5,9 +5,10 @@
 
 import lz4 from "lz4";
 import { RobloxFile } from "./roblox_file";
-import { DataType, CoreInstance } from "./roblox_types";
+import { DataType, CoreInstance, RobloxValue } from "./roblox_types";
 import { ChunkType, DataParserExtraInfo, RobloxClass, RobloxFileDOM } from "./roblox_file_dom";
 import { RobloxFileByteWriter } from "./roblox_file_bytes";
+import { ClassMap } from "../generated/generated_types";
 
 type PropValue = {
     name: string
@@ -27,6 +28,7 @@ export class RobloxFileDOMWriter extends RobloxFileDOM
     protected sortedClassIds: number[] = [];
     protected numInstances = 0;
     protected numClasses = 0;
+    protected classMap: ClassMap = new ClassMap();
 
     public constructor(model: RobloxFile)
     {
@@ -304,9 +306,28 @@ export class RobloxFileDOMWriter extends RobloxFileDOM
             info = { sharedStrings: this.model.SharedStrings };
         }
        
-        parser.write(writer, instances.map((inst) => inst.Props.get(propName)), info);
+        parser.write(writer, instances.map((inst) => this.getPropFromInstance(inst, propName)), info);
 
         return this.writeChunk(ChunkType.PROP, writer.bytes);
+    }
+
+    protected getPropFromInstance(instance: CoreInstance, propName: string): RobloxValue | undefined
+    {
+        const prop = instance.Props.get(propName);
+        if (prop)
+        {
+            return prop;
+        }
+        
+        const classFactory = this.classMap.getFactory(instance.ClassName);
+        if (classFactory)
+        {
+            const mockInstance = classFactory();
+            const mockProp = mockInstance.Props.get(propName);
+            return mockProp;
+        }
+        
+        return undefined;
     }
 
     protected writePrntChunk()

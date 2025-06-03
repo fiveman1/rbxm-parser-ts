@@ -32,7 +32,7 @@ function depthFirstPrint(instance: CoreInstance, level: number)
 async function main()
 {
     //const name = "v16";
-    const name = "INPUT";
+    const name = "parser";
     //const model = RobloxFile.ReadFromBuffer(fs.readFileSync(`input_files/${name}.rbxm`));
     //const model = RobloxFile.ReadFromBuffer(fs.readFileSync(`input_files/${name}.rbxl`));
 
@@ -93,26 +93,30 @@ async function main()
     fs.writeFileSync(`output_files/${name}.txt`, str);
 
     console.log("writing");
-    fs.writeFileSync(`output_files/${name}.rbxl`, model.WriteToBuffer());
-    console.log("reading");
-    const copyModel = RobloxFile.ReadFromBuffer(fs.readFileSync(`output_files/${name}.rbxl`));
-    if (!copyModel) 
-    {
-        console.log("The written model was invalid..."); 
-        return;
-    }
+    const testPart = new Part();
+    const workspace = model.FindFirstChildOfClass("Workspace")!;
+    testPart.Parent = workspace;
     
-    let copyStr = "";
-    for (const root of copyModel.Roots)
-    {
-        copyStr += depthFirstPrint(root, 0);
-    }
-    fs.writeFileSync(`output_files/${name}_copy.txt`, copyStr);
+    fs.writeFileSync(`output_files/${name}.rbxl`, model.WriteToBuffer());
+    // console.log("reading");
+    // const copyModel = RobloxFile.ReadFromBuffer(fs.readFileSync(`output_files/${name}.rbxl`));
+    // if (!copyModel) 
+    // {
+    //     console.log("The written model was invalid..."); 
+    //     return;
+    // }
+    
+    // let copyStr = "";
+    // for (const root of copyModel.Roots)
+    // {
+    //     copyStr += depthFirstPrint(root, 0);
+    // }
+    // fs.writeFileSync(`output_files/${name}_copy.txt`, copyStr);
 
-    if (str !== copyStr)
-    {
-        console.log("they dont match :(");
-    }
+    // if (str !== copyStr)
+    // {
+    //     console.log("they dont match :(");
+    // }
 
     // const beverages = model.FindFirstDescendant((child) => child.Name === "Beverages");
     // if (beverages)
